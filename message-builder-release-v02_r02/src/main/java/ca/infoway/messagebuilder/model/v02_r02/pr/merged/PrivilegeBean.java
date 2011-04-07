@@ -83,14 +83,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II restrictionsToPracticeIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV restrictionsToPracticeType = new CVImpl();
     private BL restrictionsToPracticeNegationIndicator = new BLImpl();
-    private List<Subject4Bean> subjectOf = new ArrayList<Subject4Bean>();
     private ST restrictionsToPracticeText = new STImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
+    private List<Subject4Bean> subjectOf = new ArrayList<Subject4Bean>();
 
 
     /**
@@ -118,49 +118,6 @@ public class PrivilegeBean extends MessagePartBean {
     }
     public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
         this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
-    }
-
-
-    /**
-     * <p>Restrictions to Practice Effective Date</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     * 
-     * <p>Restrictions to Practice Effective Date</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     * 
-     * <p>Restrictions to Practice Type</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -218,12 +175,6 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<Subject4Bean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
     /**
      * <p>RestrictionsToPracticeText</p>
      * 
@@ -241,6 +192,49 @@ public class PrivilegeBean extends MessagePartBean {
     }
     public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
         this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
+    }
+
+
+    /**
+     * <p>Restrictions to Practice Effective Date</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Effective Date</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Type</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -308,6 +302,12 @@ public class PrivilegeBean extends MessagePartBean {
     }
     public void setRestrictionsToPracticeConfidentialityCode(Confidentiality restrictionsToPracticeConfidentialityCode) {
         this.restrictionsToPracticeConfidentialityCode.setValue(restrictionsToPracticeConfidentialityCode);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public List<Subject4Bean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 }

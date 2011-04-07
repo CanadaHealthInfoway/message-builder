@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.ActDefinitionOrEvent","PRPM_MT303010CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> actDefinitionOrEventNameEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<Location_1Bean> location = new ArrayList<Location_1Bean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();

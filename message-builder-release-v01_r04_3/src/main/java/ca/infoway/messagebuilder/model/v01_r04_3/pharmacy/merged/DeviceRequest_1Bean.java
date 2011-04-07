@@ -33,74 +33,21 @@ import java.util.List;
 @Hl7RootType
 public class DeviceRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private PatientBean subjectPatient;
-    private ProcedureRequestBean component1ProcedureRequest;
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private DeviceProductBean directTargetManufacturedProduct;
     private CS prescriptionStatus = new CSImpl();
-    private CommentBean subjectOfAnnotation;
+    private CV prescriptionMaskingIndicator = new CVImpl();
+    private DeviceProductBean directTargetManufacturedProduct;
+    private PatientBean subjectPatient;
+    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private ProcedureRequestBean component1ProcedureRequest;
     private Component2_1Bean component;
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-    private RefusedByBean author;
+    private CommentBean subjectOfAnnotation;
     private ProviderBean responsiblePartyAssignedPerson;
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
-    }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
-    }
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
-    }
-
-
-    /**
-     * <p>PrescriptionMaskingIndicator</p>
-     * 
-     * <p>F:Prescription Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
-    }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
-    }
+    private RefusedByBean author;
 
 
     /**
@@ -114,15 +61,6 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
     }
 
 
@@ -140,12 +78,74 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    /**
+     * <p>PrescriptionMaskingIndicator</p>
+     * 
+     * <p>F:Prescription Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
     }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
+        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    }
+
+
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
+    }
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
+    }
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
+    }
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
@@ -161,21 +161,12 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -185,6 +176,15 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 }

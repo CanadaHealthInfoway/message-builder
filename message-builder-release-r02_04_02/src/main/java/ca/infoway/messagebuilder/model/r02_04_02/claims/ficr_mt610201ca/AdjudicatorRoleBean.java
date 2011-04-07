@@ -21,18 +21,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
-    private PN adjudicatorPersonName = new PNImpl();
+    private static final long serialVersionUID = 20110407L;
     private II adjudicatorID = new IIImpl();
+    private PN adjudicatorPersonName = new PNImpl();
+    private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
 
 
-    @Hl7XmlMapping({"directAuthority/insuranceCarrierRole"})
-    public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {
-        return this.directAuthorityInsuranceCarrierRole;
+    /**
+     * <p>Adjudicator ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicatorID() {
+        return this.adjudicatorID.getValue();
     }
-    public void setDirectAuthorityInsuranceCarrierRole(InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole) {
-        this.directAuthorityInsuranceCarrierRole = directAuthorityInsuranceCarrierRole;
+    public void setAdjudicatorID(Identifier adjudicatorID) {
+        this.adjudicatorID.setValue(adjudicatorID);
     }
 
 
@@ -48,15 +51,12 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Adjudicator ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatorID() {
-        return this.adjudicatorID.getValue();
+    @Hl7XmlMapping({"directAuthority/insuranceCarrierRole"})
+    public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {
+        return this.directAuthorityInsuranceCarrierRole;
     }
-    public void setAdjudicatorID(Identifier adjudicatorID) {
-        this.adjudicatorID.setValue(adjudicatorID);
+    public void setDirectAuthorityInsuranceCarrierRole(InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole) {
+        this.directAuthorityInsuranceCarrierRole = directAuthorityInsuranceCarrierRole;
     }
 
 }

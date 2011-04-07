@@ -20,7 +20,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.PolicyOrAccount_2
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private INT cOBSequenceAsAdjudicated = new INTImpl();
     private PolicyOrAccount_2Bean policyOrAccount;
 

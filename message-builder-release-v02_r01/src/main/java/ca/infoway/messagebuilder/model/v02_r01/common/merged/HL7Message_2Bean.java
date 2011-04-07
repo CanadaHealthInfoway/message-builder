@@ -30,83 +30,34 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST securityToken = new STImpl();
-    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ReceiverBean receiver;
-    private ToBeRespondedToByBean respondTo;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private CS hL7StandardVersion = new CSImpl();
-    private TS messageTimestamp = new TSImpl();
-    private CS responseType = new CSImpl();
-    private II interactionType = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private II messageIdentifier = new IIImpl();
+    private TS messageTimestamp = new TSImpl();
+    private ST securityToken = new STImpl();
+    private CS responseType = new CSImpl();
+    private CS hL7StandardVersion = new CSImpl();
+    private II interactionType = new IIImpl();
+    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
     private CS desiredAcknowledgmentType = new CSImpl();
+    private ReceiverBean receiver;
+    private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
 
 
     /**
-     * <p>SecurityToken</p>
+     * <p>MessageIdentifier</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>A:Message Identifier</p>
      */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
     }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
-    }
-
-
-    /**
-     * <p>ConformanceProfileIdentifiers</p>
-     * 
-     * <p>F:Conformance Profile Identifiers</p>
-     */
-    @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
-    }
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ReceiverBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ReceiverBean receiver) {
-        this.receiver = receiver;
-    }
-
-
-    @Hl7XmlMapping({"respondTo"})
-    public ToBeRespondedToByBean getRespondTo() {
-        return this.respondTo;
-    }
-    public void setRespondTo(ToBeRespondedToByBean respondTo) {
-        this.respondTo = respondTo;
-    }
-
-
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
-    }
-
-
-    /**
-     * <p>HL7StandardVersion</p>
-     * 
-     * <p>C: HL7 Standard Version</p>
-     */
-    @Hl7XmlMapping({"versionCode"})
-    public HL7StandardVersionCode getHL7StandardVersion() {
-        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
-    }
-    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
-        this.hL7StandardVersion.setValue(hL7StandardVersion);
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
     }
 
 
@@ -125,6 +76,20 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
+    }
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
+    }
+
+
+    /**
      * <p>ResponseType</p>
      * 
      * <p>DA: Response Type</p>
@@ -135,6 +100,20 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
     public void setResponseType(ResponseMode responseType) {
         this.responseType.setValue(responseType);
+    }
+
+
+    /**
+     * <p>HL7StandardVersion</p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     */
+    @Hl7XmlMapping({"versionCode"})
+    public HL7StandardVersionCode getHL7StandardVersion() {
+        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
+    }
+    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
+        this.hL7StandardVersion.setValue(hL7StandardVersion);
     }
 
 
@@ -153,16 +132,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>ConformanceProfileIdentifiers</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>F:Conformance Profile Identifiers</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
-    }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
+    @Hl7XmlMapping({"profileId"})
+    public List<Identifier> getConformanceProfileIdentifiers() {
+        return this.conformanceProfileIdentifiers.rawList();
     }
 
 
@@ -194,12 +170,36 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"receiver"})
+    public ReceiverBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ReceiverBean receiver) {
+        this.receiver = receiver;
+    }
+
+
+    @Hl7XmlMapping({"respondTo"})
+    public ToBeRespondedToByBean getRespondTo() {
+        return this.respondTo;
+    }
+    public void setRespondTo(ToBeRespondedToByBean respondTo) {
+        this.respondTo = respondTo;
+    }
+
+
     @Hl7XmlMapping({"sender"})
     public SenderBean getSender() {
         return this.sender;
     }
     public void setSender(SenderBean sender) {
         this.sender = sender;
+    }
+
+
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
     }
 
 

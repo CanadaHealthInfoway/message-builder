@@ -26,12 +26,48 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II changeIdentifier = new IIImpl();
+    private CV changeType = new CVImpl();
+    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private CV changeReason = new CVImpl();
     private ChangedByBean author;
-    private II changeIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
-    private CV changeType = new CVImpl();
+
+
+    /**
+     * <p>B:Change Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getChangeIdentifier() {
+        return this.changeIdentifier.getValue();
+    }
+    public void setChangeIdentifier(Identifier changeIdentifier) {
+        this.changeIdentifier.setValue(changeIdentifier);
+    }
+
+
+    /**
+     * <p>A:Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
+    }
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
+    }
+
+
+    /**
+     * <p>C:Change Effective Date and End Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getChangeEffectiveDateAndEndDate() {
+        return this.changeEffectiveDateAndEndDate.getValue();
+    }
+    public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
+        this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
+    }
 
 
     /**
@@ -52,42 +88,6 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setAuthor(ChangedByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>B:Change Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getChangeIdentifier() {
-        return this.changeIdentifier.getValue();
-    }
-    public void setChangeIdentifier(Identifier changeIdentifier) {
-        this.changeIdentifier.setValue(changeIdentifier);
-    }
-
-
-    /**
-     * <p>C:Change Effective Date and End Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getChangeEffectiveDateAndEndDate() {
-        return this.changeEffectiveDateAndEndDate.getValue();
-    }
-    public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
-        this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
-    }
-
-
-    /**
-     * <p>A:Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
     }
 
 }

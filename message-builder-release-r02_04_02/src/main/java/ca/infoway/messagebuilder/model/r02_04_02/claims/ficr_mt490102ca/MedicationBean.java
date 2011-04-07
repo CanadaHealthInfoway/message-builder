@@ -17,7 +17,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.DrugContainsBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.Medication"})
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();

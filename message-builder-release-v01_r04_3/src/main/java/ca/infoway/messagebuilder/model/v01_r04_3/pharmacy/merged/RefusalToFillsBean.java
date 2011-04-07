@@ -20,20 +20,25 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RefusedByBean author;
-    private CV refusalToFillReason = new CVImpl();
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private RecordedAtBean location;
+    private static final long serialVersionUID = 20110407L;
     private TS refusalToFillDate = new TSImpl();
+    private CV refusalToFillReason = new CVImpl();
+    private RefusedByBean author;
+    private RecordedAtBean location;
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>RefusalToFillDate</p>
+     * 
+     * <p>Refusal To Fill Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getRefusalToFillDate() {
+        return this.refusalToFillDate.getValue();
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setRefusalToFillDate(Date refusalToFillDate) {
+        this.refusalToFillDate.setValue(refusalToFillDate);
     }
 
 
@@ -53,9 +58,12 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -68,17 +76,9 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>RefusalToFillDate</p>
-     * 
-     * <p>Refusal To Fill Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getRefusalToFillDate() {
-        return this.refusalToFillDate.getValue();
-    }
-    public void setRefusalToFillDate(Date refusalToFillDate) {
-        this.refusalToFillDate.setValue(refusalToFillDate);
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
     }
 
 }

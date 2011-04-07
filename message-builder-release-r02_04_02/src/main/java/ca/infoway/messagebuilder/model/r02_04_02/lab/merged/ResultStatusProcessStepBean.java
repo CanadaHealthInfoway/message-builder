@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ResultStatusProcessStep","POLB_MT004000CA.ResultStatusProcessStep","POLB_MT004100CA.ResultStatusProcessStep","POLB_MT004200CA.ResultStatusProcessStep"})
 public class ResultStatusProcessStepBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD resultStatusProcessStepCode = new CDImpl();
 
 

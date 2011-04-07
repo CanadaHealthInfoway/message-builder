@@ -28,11 +28,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II organizationId = new IIImpl();
-    private TerritorialAuthorityBean territorialAuthority;
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private AD issuingRepresentingQualificationGrantingOrganizationAddressEs = new ADImpl();
+    private TerritorialAuthorityBean territorialAuthority;
 
 
     /**
@@ -111,15 +111,6 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
-    }
-
-
     /**
      * <p>(Issuing Representing Qualification Granting Organization 
      * Name(s</p>
@@ -185,6 +176,15 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setIssuingRepresentingQualificationGrantingOrganizationAddressEs(PostalAddress issuingRepresentingQualificationGrantingOrganizationAddressEs) {
         this.issuingRepresentingQualificationGrantingOrganizationAddressEs.setValue(issuingRepresentingQualificationGrantingOrganizationAddressEs);
+    }
+
+
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
+    }
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
     }
 
 }

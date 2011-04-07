@@ -36,14 +36,20 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV healthcareProviderRoleType = new CVImpl();
-    private OrganizationBean issuingOrganization;
     private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPersonBean healthCarePrincipalPerson;
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private OrganizationBean issuingOrganization;
+
+
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
 
 
     /**
@@ -58,6 +64,12 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getHealthcareProviderRoleIdentification() {
         return this.healthcareProviderRoleIdentification.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 
@@ -76,15 +88,6 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
     public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
         this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
-    }
-
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
     }
 
 
@@ -112,15 +115,12 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
     }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

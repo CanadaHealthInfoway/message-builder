@@ -23,11 +23,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS messageType = new CSImpl();
-    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
     private CV responseCode = new CVImpl();
     private ST messageDescription = new STImpl();
+    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
 
 
     /**
@@ -41,17 +41,6 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
     public void setMessageType(AcknowledgementDetailType messageType) {
         this.messageType.setValue(messageType);
-    }
-
-
-    /**
-     * <p>ReferencedMessageLocations</p>
-     * 
-     * <p>B:Referenced Message Locations</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public Set<String> getReferencedMessageLocations() {
-        return this.referencedMessageLocations.rawSet();
     }
 
 
@@ -80,6 +69,17 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
     public void setMessageDescription(String messageDescription) {
         this.messageDescription.setValue(messageDescription);
+    }
+
+
+    /**
+     * <p>ReferencedMessageLocations</p>
+     * 
+     * <p>B:Referenced Message Locations</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public Set<String> getReferencedMessageLocations() {
+        return this.referencedMessageLocations.rawSet();
     }
 
 }

@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Part"})
 public class PartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS typeCode = new CSImpl();
     private TerritorialAuthorityBean territorialAuthority;
 

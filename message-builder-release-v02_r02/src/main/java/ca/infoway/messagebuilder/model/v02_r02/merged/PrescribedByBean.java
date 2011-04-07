@@ -191,54 +191,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Author2","COCT_MT260020CA.Author2","COCT_MT260030CA.Author2","COCT_MT470002CA.Author2","COCT_MT470012CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ED<String> signature = new EDImpl<String>();
-    private CV prescriptionTransmissionMethod = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
+    private CV prescriptionTransmissionMethod = new CVImpl();
+    private ED<String> signature = new EDImpl<String>();
     private HealthcareWorkerBean assignedEntity;
-
-
-    /**
-     * <p>Signature</p>
-     * 
-     * <p>Signature</p>
-     * 
-     * <p><p>An electronic signature of the prescription by the 
-     * prescriber.</p></p>
-     * 
-     * <p><p>Allows for pure electronic prescriptions without a 
-     * trusted intermediary. The attribute is optional because all 
-     * jurisdictions may not support digital signatures.</p></p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
-    }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
-    }
-
-
-    /**
-     * <p>PrescriptionTransmissionMethod</p>
-     * 
-     * <p>Prescription Transmission Method</p>
-     * 
-     * <p><p>Indicates the medium in which a prescription was 
-     * transmitted to or received by the person who entered it into 
-     * the electronic record.</p></p>
-     * 
-     * <p><p>Some jurisdictions have a requirement to track how an 
-     * order was received. May also be important when orders are 
-     * entered into a central repository from the pharmacy.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getPrescriptionTransmissionMethod() {
-        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
-    }
-    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
-        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
-    }
 
 
     /**
@@ -410,6 +367,49 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setTime(Date time) {
         this.time.setValue(time);
+    }
+
+
+    /**
+     * <p>PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Prescription Transmission Method</p>
+     * 
+     * <p><p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p></p>
+     * 
+     * <p><p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getPrescriptionTransmissionMethod() {
+        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
+    }
+    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
+        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    }
+
+
+    /**
+     * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     * 
+     * <p><p>An electronic signature of the prescription by the 
+     * prescriber.</p></p>
+     * 
+     * <p><p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p></p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getSignature() {
+        return this.signature.getValue();
+    }
+    public void setSignature(String signature) {
+        this.signature.setValue(signature);
     }
 
 

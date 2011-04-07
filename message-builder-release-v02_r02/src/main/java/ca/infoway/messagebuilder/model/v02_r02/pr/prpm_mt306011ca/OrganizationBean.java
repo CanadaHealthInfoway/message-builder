@@ -33,7 +33,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II organizationId = new IIImpl();
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);

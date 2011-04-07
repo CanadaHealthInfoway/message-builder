@@ -25,22 +25,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV priorityCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II dispenseID = new IIImpl();
     private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
-    private DispenseSubstitutionBean componentSubstitution;
+    private CV priorityCode = new CVImpl();
     private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
+    private DispenseSubstitutionBean componentSubstitution;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-
-
-    @Hl7XmlMapping({"priorityCode"})
-    public Code getPriorityCode() {
-        return (Code) this.priorityCode.getValue();
-    }
-    public void setPriorityCode(Code priorityCode) {
-        this.priorityCode.setValue(priorityCode);
-    }
 
 
     /**
@@ -67,12 +58,12 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/substitution"})
-    public DispenseSubstitutionBean getComponentSubstitution() {
-        return this.componentSubstitution;
+    @Hl7XmlMapping({"priorityCode"})
+    public Code getPriorityCode() {
+        return (Code) this.priorityCode.getValue();
     }
-    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
-        this.componentSubstitution = componentSubstitution;
+    public void setPriorityCode(Code priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -82,6 +73,15 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
     public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
         this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
+    }
+
+
+    @Hl7XmlMapping({"component/substitution"})
+    public DispenseSubstitutionBean getComponentSubstitution() {
+        return this.componentSubstitution;
+    }
+    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
+        this.componentSubstitution = componentSubstitution;
     }
 
 

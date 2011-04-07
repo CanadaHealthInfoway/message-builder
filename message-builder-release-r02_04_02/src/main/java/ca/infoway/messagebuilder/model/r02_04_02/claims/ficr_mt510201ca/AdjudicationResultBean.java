@@ -19,11 +19,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV adjudicationResultsAdjudicationCode = new CVImpl();
+    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
-    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
@@ -39,6 +39,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"trigger"})
+    public List<Trigger1Bean> getTrigger() {
+        return this.trigger;
+    }
+
+
     @Hl7XmlMapping({"reference/invoiceElementChoice"})
     public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
         return this.referenceInvoiceElementChoice;
@@ -48,12 +54,6 @@ public class AdjudicationResultBean extends MessagePartBean {
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;
-    }
-
-
-    @Hl7XmlMapping({"trigger"})
-    public List<Trigger1Bean> getTrigger() {
-        return this.trigger;
     }
 
 

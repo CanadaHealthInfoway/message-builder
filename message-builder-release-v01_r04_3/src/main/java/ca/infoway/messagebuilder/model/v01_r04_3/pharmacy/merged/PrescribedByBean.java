@@ -19,20 +19,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ProviderBean assignedPerson;
+    private static final long serialVersionUID = 20110407L;
     private TS prescribedDate = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
     private ED<String> signature = new EDImpl<String>();
-
-
-    @Hl7XmlMapping({"assignedPerson"})
-    public ProviderBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-    public void setAssignedPerson(ProviderBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
-    }
+    private ProviderBean assignedPerson;
 
 
     /**
@@ -74,6 +65,15 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setSignature(String signature) {
         this.signature.setValue(signature);
+    }
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ProviderBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ProviderBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
     }
 
 }

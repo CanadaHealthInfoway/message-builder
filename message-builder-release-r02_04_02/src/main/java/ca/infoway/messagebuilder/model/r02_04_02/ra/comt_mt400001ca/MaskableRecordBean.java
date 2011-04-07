@@ -35,66 +35,12 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV recordType = new CVImpl();
-    private RoleBean directTargetRole;
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private DiagnosisBean reasonDiagnosis;
+    private static final long serialVersionUID = 20110407L;
     private II recordIdentifier = new IIImpl();
-
-
-    /**
-     * <p>B:Record Type</p>
-     * 
-     * <p><p>Indicates a detailed type of record to be masked. E.g. 
-     * All lab tests of a given type.</p></p>
-     * 
-     * <p><p>Allows automatic masking of a particular type of 
-     * record rather than requiring each occurrence to be masked 
-     * individually.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
-    }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
-    }
-
-
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
-    }
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
-    }
-
-
-    /**
-     * <p>A:Masked Indicator</p>
-     * 
-     * <p><p>Indicates the new value for the masking status of the 
-     * item.</p></p>
-     * 
-     * <p><p>Forces the sender of the message to assert what the 
-     * new value should be, rather than performing a 'toggle' and 
-     * potentially ending up in the wrong state. Therefore, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getMaskedIndicator() {
-        return this.maskedIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
-    }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
-    }
+    private CV recordType = new CVImpl();
+    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private RoleBean directTargetRole;
+    private DiagnosisBean reasonDiagnosis;
 
 
     /**
@@ -118,6 +64,60 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setRecordIdentifier(Identifier recordIdentifier) {
         this.recordIdentifier.setValue(recordIdentifier);
+    }
+
+
+    /**
+     * <p>B:Record Type</p>
+     * 
+     * <p><p>Indicates a detailed type of record to be masked. E.g. 
+     * All lab tests of a given type.</p></p>
+     * 
+     * <p><p>Allows automatic masking of a particular type of 
+     * record rather than requiring each occurrence to be masked 
+     * individually.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
+    }
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
+    }
+
+
+    /**
+     * <p>A:Masked Indicator</p>
+     * 
+     * <p><p>Indicates the new value for the masking status of the 
+     * item.</p></p>
+     * 
+     * <p><p>Forces the sender of the message to assert what the 
+     * new value should be, rather than performing a 'toggle' and 
+     * potentially ending up in the wrong state. Therefore, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getMaskedIndicator() {
+        return this.maskedIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
+    }
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
+    }
+
+
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
+    }
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 }

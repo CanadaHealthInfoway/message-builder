@@ -47,22 +47,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private DispensedBean product;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private CS dispenseStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
+    private DispensedBean product;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
-    }
 
 
     /**
@@ -92,6 +83,31 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
     public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    /**
+     * <p>DispenseStatus</p>
+     * 
+     * <p>B:Dispense Status</p>
+     * 
+     * <p><p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
+    }
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -148,31 +164,6 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>DispenseStatus</p>
-     * 
-     * <p>B:Dispense Status</p>
-     * 
-     * <p><p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p></p>
-     * 
-     * <p><p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
-    }
-
-
-    /**
      * <p>C:Dispense Masking Indicator</p>
      * 
      * <p><p>An indication of sensitivity surrounding the related 
@@ -207,6 +198,15 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 

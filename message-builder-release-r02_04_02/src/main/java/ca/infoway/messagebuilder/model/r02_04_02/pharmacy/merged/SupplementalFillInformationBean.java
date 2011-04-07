@@ -22,28 +22,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT fillQuantity = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private INT numberOfFills = new INTImpl();
-
-
-    /**
-     * <p>FillQuantity</p>
-     * 
-     * <p>Fill Quantity</p>
-     * 
-     * <p><p>Specifies the quantity for each fill.</p></p>
-     * 
-     * <p><p>The prescription is usually authorized for a specific 
-     * quantity for each fill.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getFillQuantity() {
-        return this.fillQuantity.getValue();
-    }
-    public void setFillQuantity(Integer fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
-    }
+    private INT fillQuantity = new INTImpl();
 
 
     /**
@@ -62,6 +43,25 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
     public void setNumberOfFills(Integer numberOfFills) {
         this.numberOfFills.setValue(numberOfFills);
+    }
+
+
+    /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>Fill Quantity</p>
+     * 
+     * <p><p>Specifies the quantity for each fill.</p></p>
+     * 
+     * <p><p>The prescription is usually authorized for a specific 
+     * quantity for each fill.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getFillQuantity() {
+        return this.fillQuantity.getValue();
+    }
+    public void setFillQuantity(Integer fillQuantity) {
+        this.fillQuantity.setValue(fillQuantity);
     }
 
 }

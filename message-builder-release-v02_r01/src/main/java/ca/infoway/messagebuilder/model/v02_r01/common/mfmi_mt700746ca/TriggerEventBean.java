@@ -30,15 +30,51 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
     private List<RegistrationEventBean<RR>> subjectRegistrationEvent = new ArrayList<RegistrationEventBean<RR>>();
-    private II eventIdentifier = new IIImpl();
-    private QueryByParameterBean<PL> queryByParameter;
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV eventType = new CVImpl();
-    private QueryAckBean queryAck;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private QueryAckBean queryAck;
+    private QueryByParameterBean<PL> queryByParameter;
+
+
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
 
 
     /**
@@ -59,48 +95,9 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    /**
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 
@@ -113,9 +110,12 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }

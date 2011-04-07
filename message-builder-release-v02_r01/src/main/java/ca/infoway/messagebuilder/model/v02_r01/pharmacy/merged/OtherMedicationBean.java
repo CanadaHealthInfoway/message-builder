@@ -40,15 +40,15 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II otherMedicationId = new IIImpl();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CD otherMedicationType = new CDImpl();
-    private CV routeCode = new CVImpl();
     private CS statusCode = new CSImpl();
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotesBean subjectOfAnnotation;
 
 
@@ -67,13 +67,30 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationMaskingIndicators</p>
+     * <p>OtherMedicationType</p>
      * 
-     * <p>E:Other Medication Masking Indicators</p>
+     * <p>Other Medication Type</p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
-        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    @Hl7XmlMapping({"code"})
+    public ActCode getOtherMedicationType() {
+        return (ActCode) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(ActCode otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    /**
+     * <p>C:Other Medication Status</p>
+     * 
+     * <p>B:Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -94,16 +111,13 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationType</p>
+     * <p>OtherMedicationMaskingIndicators</p>
      * 
-     * <p>Other Medication Type</p>
+     * <p>E:Other Medication Masking Indicators</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
+        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
 
 
@@ -121,32 +135,18 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Other Medication Status</p>
-     * 
-     * <p>B:Medication Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
-    }
-
-
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
-    }
-
-
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
+    }
+
+
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
     }
 
 

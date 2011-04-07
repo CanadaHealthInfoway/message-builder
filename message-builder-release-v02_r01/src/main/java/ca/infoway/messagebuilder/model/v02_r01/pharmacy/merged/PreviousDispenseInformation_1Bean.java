@@ -15,25 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventPastSummary","PORX_MT060160CA.SupplyEventPastSummary","PORX_MT060190CA.SupplyEventPastSummary","PORX_MT060340CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private INT repeatNumber = new INTImpl();
-
-
-    /**
-     * <p>Total Supplied Amount</p>
-     * 
-     * <p>B:Dispensed Quantity To-date</p>
-     * 
-     * <p>B:Total Supplied Amount</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
+    private PQ quantity = new PQImpl();
 
 
     /**
@@ -51,6 +35,22 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
+    }
+
+
+    /**
+     * <p>Total Supplied Amount</p>
+     * 
+     * <p>B:Dispensed Quantity To-date</p>
+     * 
+     * <p>B:Total Supplied Amount</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

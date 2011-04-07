@@ -22,7 +22,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II allergyTestRecordId = new IIImpl();
     private CD allergyTestType = new CDImpl();
     private TS allergyTestDate = new TSImpl();

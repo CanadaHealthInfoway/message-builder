@@ -25,16 +25,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004000CA.InterpretationRange"})
 public class ReferenceRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
+    private static final long serialVersionUID = 20110407L;
     private ANY<Object> referenceRangeValue = new ANYImpl<Object>();
     private CV referenceRangeInterpretationType = new CVImpl();
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<ReferenceRangeCriteriaBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
-    }
+    private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
 
 
     /**
@@ -68,6 +62,12 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
     public void setReferenceRangeInterpretationType(ObservationInterpretation referenceRangeInterpretationType) {
         this.referenceRangeInterpretationType.setValue(referenceRangeInterpretationType);
+    }
+
+
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<ReferenceRangeCriteriaBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
     }
 
 }

@@ -23,22 +23,22 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDrugIndicator = new BLImpl();
+    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
 
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>D:Administration Effective Period</p>
      */
-    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
     }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
     }
 
 
@@ -55,18 +55,6 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Administration Effective Period</p>
-     */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
-    }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
      * <p>Most Recent By Drug Indicator</p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
@@ -75,6 +63,18 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
         this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    }
+
+
+    /**
+     * <p>Most Recent Dispense for each Rx Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
+    public Boolean getMostRecentDispenseForEachRxIndicator() {
+        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    }
+    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
+        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
     }
 
 }

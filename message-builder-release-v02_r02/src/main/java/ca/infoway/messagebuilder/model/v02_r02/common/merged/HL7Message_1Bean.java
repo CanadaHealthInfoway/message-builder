@@ -47,136 +47,22 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST securityToken = new STImpl();
-    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private SenderBean sender;
-    private ToBeRespondedToByBean respondTo;
-    private CS hL7StandardVersion = new CSImpl();
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private static final long serialVersionUID = 20110407L;
     private II messageIdentifier = new IIImpl();
-    private II interactionType = new IIImpl();
-    private CS responseType = new CSImpl();
     private TS messageTimestamp = new TSImpl();
-    private ReceiverBean receiver;
-    private CAE controlActEvent;
+    private ST securityToken = new STImpl();
+    private CS responseType = new CSImpl();
+    private CS hL7StandardVersion = new CSImpl();
+    private II interactionType = new IIImpl();
+    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
+    private CS desiredAcknowledgmentType = new CSImpl();
+    private ReceiverBean receiver;
+    private ToBeRespondedToByBean respondTo;
+    private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
-
-
-    /**
-     * <p>SecurityToken</p>
-     * 
-     * <p>H:Security Token</p>
-     * 
-     * <p><p>A locally-defined field used to maintain a session, 
-     * identify a user, and/or perform some other function related 
-     * to authenticating the message source.</p></p>
-     * 
-     * <p><p>Allows jurisdictions and applications to communicate 
-     * authentication and session information. The attribute is 
-     * optional because not all jurisdictions will require this 
-     * capability.</p></p>
-     */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
-    }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
-    }
-
-
-    /**
-     * <p>ConformanceProfileIdentifiers</p>
-     * 
-     * <p>F:Conformance Profile Identifiers</p>
-     * 
-     * <p><p>Identifies the conformance profile(s) this message 
-     * complies with.</p></p>
-     * 
-     * <p><p>Indicates any additional validation that may be 
-     * appropriate. Also influences what extensions can be 
-     * processed.</p></p>
-     */
-    @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
-    }
-
-
-    /**
-     * <p>DesiredAcknowledgmentType</p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     * 
-     * <p><p>Indicates how the message is expected to be 
-     * acknowledged.</p></p>
-     * 
-     * <p><p>Provides support for immediate, deferred and polling 
-     * mode and distinguishes which mode is desired. The attribute 
-     * is therefore mandatory.</p></p>
-     * 
-     * <p><p>When using SOAP, this attribute MUST be set to NE 
-     * (Never). (Accept acknowledgements are handled via the 
-     * transport protocol, not HL7.)</p></p>
-     */
-    @Hl7XmlMapping({"acceptAckCode"})
-    public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
-    }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
-    }
-
-
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
-    }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
-    }
-
-
-    @Hl7XmlMapping({"respondTo"})
-    public ToBeRespondedToByBean getRespondTo() {
-        return this.respondTo;
-    }
-    public void setRespondTo(ToBeRespondedToByBean respondTo) {
-        this.respondTo = respondTo;
-    }
-
-
-    /**
-     * <p>HL7StandardVersion</p>
-     * 
-     * <p>C: HL7 Standard Version</p>
-     * 
-     * <p><p>Indicates the version of the messaging standard being 
-     * referenced.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:To\ (portion between last '''\''' and 
-     * second-last '''\''')</p></p>
-     * 
-     * <p><p>Needed to know how to validate message definition, 
-     * CMET definition, vocabulary and other information and is 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"versionCode"})
-    public HL7StandardVersionCode getHL7StandardVersion() {
-        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
-    }
-    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
-        this.hL7StandardVersion.setValue(hL7StandardVersion);
-    }
-
-
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
-    }
+    private CAE controlActEvent;
 
 
     /**
@@ -202,26 +88,47 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>InteractionType</p>
+     * <p>MessageTimestamp</p>
      * 
-     * <p>B:Interaction Type</p>
+     * <p>G:Message Timestamp</p>
      * 
-     * <p><p>Indicates the interaction conveyed by this 
-     * message.</p></p>
+     * <p><p>Indicates the time this particular message instance 
+     * was constructed.</p></p>
      * 
-     * <p><p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' 
-     * and before the second underscore, if any)</p></p>
-     * 
-     * <p><p>Identifies what the receiving application should do, 
-     * and how the message should be validated. The attribute is 
-     * therefore mandatory.</p></p>
+     * <p><p>Allows identification of how current the information 
+     * in a message is. Also provides a baseline for identifying 
+     * the time-zone of other times within the message. As a 
+     * result, the attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"interactionId"})
-    public Identifier getInteractionType() {
-        return this.interactionType.getValue();
+    @Hl7XmlMapping({"creationTime"})
+    public Date getMessageTimestamp() {
+        return this.messageTimestamp.getValue();
     }
-    public void setInteractionType(Identifier interactionType) {
-        this.interactionType.setValue(interactionType);
+    public void setMessageTimestamp(Date messageTimestamp) {
+        this.messageTimestamp.setValue(messageTimestamp);
+    }
+
+
+    /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     * 
+     * <p><p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p></p>
+     * 
+     * <p><p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p></p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
+    }
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
     }
 
 
@@ -251,42 +158,68 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>MessageTimestamp</p>
+     * <p>HL7StandardVersion</p>
      * 
-     * <p>G:Message Timestamp</p>
+     * <p>C: HL7 Standard Version</p>
      * 
-     * <p><p>Indicates the time this particular message instance 
-     * was constructed.</p></p>
+     * <p><p>Indicates the version of the messaging standard being 
+     * referenced.</p></p>
      * 
-     * <p><p>Allows identification of how current the information 
-     * in a message is. Also provides a baseline for identifying 
-     * the time-zone of other times within the message. As a 
-     * result, the attribute is mandatory.</p></p>
+     * <p><p>soap:Header\wsa:To\ (portion between last '''\''' and 
+     * second-last '''\''')</p></p>
+     * 
+     * <p><p>Needed to know how to validate message definition, 
+     * CMET definition, vocabulary and other information and is 
+     * therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"creationTime"})
-    public Date getMessageTimestamp() {
-        return this.messageTimestamp.getValue();
+    @Hl7XmlMapping({"versionCode"})
+    public HL7StandardVersionCode getHL7StandardVersion() {
+        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
     }
-    public void setMessageTimestamp(Date messageTimestamp) {
-        this.messageTimestamp.setValue(messageTimestamp);
-    }
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ReceiverBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ReceiverBean receiver) {
-        this.receiver = receiver;
+    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
+        this.hL7StandardVersion.setValue(hL7StandardVersion);
     }
 
 
-    @Hl7XmlMapping({"controlActEvent"})
-    public CAE getControlActEvent() {
-        return this.controlActEvent;
+    /**
+     * <p>InteractionType</p>
+     * 
+     * <p>B:Interaction Type</p>
+     * 
+     * <p><p>Indicates the interaction conveyed by this 
+     * message.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' 
+     * and before the second underscore, if any)</p></p>
+     * 
+     * <p><p>Identifies what the receiving application should do, 
+     * and how the message should be validated. The attribute is 
+     * therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"interactionId"})
+    public Identifier getInteractionType() {
+        return this.interactionType.getValue();
     }
-    public void setControlActEvent(CAE controlActEvent) {
-        this.controlActEvent = controlActEvent;
+    public void setInteractionType(Identifier interactionType) {
+        this.interactionType.setValue(interactionType);
+    }
+
+
+    /**
+     * <p>ConformanceProfileIdentifiers</p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     */
+    @Hl7XmlMapping({"profileId"})
+    public List<Identifier> getConformanceProfileIdentifiers() {
+        return this.conformanceProfileIdentifiers.rawList();
     }
 
 
@@ -313,12 +246,79 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>DesiredAcknowledgmentType</p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     * 
+     * <p><p>Indicates how the message is expected to be 
+     * acknowledged.</p></p>
+     * 
+     * <p><p>Provides support for immediate, deferred and polling 
+     * mode and distinguishes which mode is desired. The attribute 
+     * is therefore mandatory.</p></p>
+     * 
+     * <p><p>When using SOAP, this attribute MUST be set to NE 
+     * (Never). (Accept acknowledgements are handled via the 
+     * transport protocol, not HL7.)</p></p>
+     */
+    @Hl7XmlMapping({"acceptAckCode"})
+    public AcknowledgementCondition getDesiredAcknowledgmentType() {
+        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
+    }
+    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
+        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
+    }
+
+
+    @Hl7XmlMapping({"receiver"})
+    public ReceiverBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ReceiverBean receiver) {
+        this.receiver = receiver;
+    }
+
+
+    @Hl7XmlMapping({"respondTo"})
+    public ToBeRespondedToByBean getRespondTo() {
+        return this.respondTo;
+    }
+    public void setRespondTo(ToBeRespondedToByBean respondTo) {
+        this.respondTo = respondTo;
+    }
+
+
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
+    }
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
+    }
+
+
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
+
+
     @Hl7XmlMapping({"acknowledgement"})
     public AcknowledgementBean getAcknowledgement() {
         return this.acknowledgement;
     }
     public void setAcknowledgement(AcknowledgementBean acknowledgement) {
         this.acknowledgement = acknowledgement;
+    }
+
+
+    @Hl7XmlMapping({"controlActEvent"})
+    public CAE getControlActEvent() {
+        return this.controlActEvent;
+    }
+    public void setControlActEvent(CAE controlActEvent) {
+        this.controlActEvent = controlActEvent;
     }
 
 }

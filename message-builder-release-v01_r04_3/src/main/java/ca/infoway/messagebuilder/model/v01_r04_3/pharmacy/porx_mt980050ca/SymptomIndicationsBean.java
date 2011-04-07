@@ -18,10 +18,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD symptomType = new CDImpl();
-    private CV symptomCode = new CVImpl();
     private ST freeFormSymptomIndication = new STImpl();
+    private CV symptomCode = new CVImpl();
 
 
     /**
@@ -37,18 +37,6 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>A:Symptom Code</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SymptomValue getSymptomCode() {
-        return (SymptomValue) this.symptomCode.getValue();
-    }
-    public void setSymptomCode(SymptomValue symptomCode) {
-        this.symptomCode.setValue(symptomCode);
-    }
-
-
-    /**
      * <p>Free Form Symptom Indication</p>
      */
     @Hl7XmlMapping({"text"})
@@ -57,6 +45,18 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
     public void setFreeFormSymptomIndication(String freeFormSymptomIndication) {
         this.freeFormSymptomIndication.setValue(freeFormSymptomIndication);
+    }
+
+
+    /**
+     * <p>A:Symptom Code</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SymptomValue getSymptomCode() {
+        return (SymptomValue) this.symptomCode.getValue();
+    }
+    public void setSymptomCode(SymptomValue symptomCode) {
+        this.symptomCode.setValue(symptomCode);
     }
 
 }

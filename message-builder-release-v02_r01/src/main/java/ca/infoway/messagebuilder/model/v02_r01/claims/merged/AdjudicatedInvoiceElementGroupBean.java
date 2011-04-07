@@ -30,36 +30,18 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private PaymentIntentBean reasonPaymentIntent;
-    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
+    private static final long serialVersionUID = 20110407L;
     private II adjudicationResultId = new IIImpl();
-    private MO paidAmount = new MOImpl();
     private CV invoiceType = new CVImpl();
     private CS statusCode = new CSImpl();
+    private MO paidAmount = new MOImpl();
+    private PaymentIntentBean reasonPaymentIntent;
     private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
-    private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-    private AdjudicatedInvoiceAuthorBean author;
+    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
     private AdjudicatedResultOutcomeBean outcomeOf;
+    private AdjudicatedInvoiceAuthorBean author;
+    private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
-
-
-    @Hl7XmlMapping({"reason/paymentIntent"})
-    public PaymentIntentBean getReasonPaymentIntent() {
-        return this.reasonPaymentIntent;
-    }
-    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
-        this.reasonPaymentIntent = reasonPaymentIntent;
-    }
-
-
-    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
-    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
-        return this.referencedByAdjudResultsGroup;
-    }
-    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
-        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
-    }
 
 
     /**
@@ -73,20 +55,6 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setAdjudicationResultId(Identifier adjudicationResultId) {
         this.adjudicationResultId.setValue(adjudicationResultId);
-    }
-
-
-    /**
-     * <p>PaidAmount</p>
-     * 
-     * <p>Paid Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
     }
 
 
@@ -113,6 +81,29 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>PaidAmount</p>
+     * 
+     * <p>Paid Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
+    }
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
+    }
+
+
+    @Hl7XmlMapping({"reason/paymentIntent"})
+    public PaymentIntentBean getReasonPaymentIntent() {
+        return this.reasonPaymentIntent;
+    }
+    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
+        this.reasonPaymentIntent = reasonPaymentIntent;
+    }
+
+
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
@@ -122,9 +113,21 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"coverage"})
-    public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
-        return this.coverage;
+    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
+    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
+        return this.referencedByAdjudResultsGroup;
+    }
+    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
+        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
+    }
+
+
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
+    }
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 
@@ -137,12 +140,9 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
+    @Hl7XmlMapping({"coverage"})
+    public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
+        return this.coverage;
     }
 
 

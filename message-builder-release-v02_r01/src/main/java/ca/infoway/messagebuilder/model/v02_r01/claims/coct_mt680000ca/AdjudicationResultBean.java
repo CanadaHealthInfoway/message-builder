@@ -15,16 +15,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
-
-
-    @Hl7XmlMapping({"reference"})
-    public List<AdjudicationResultReferenceBean> getReference() {
-        return this.reference;
-    }
+    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 
 
     @Hl7XmlMapping({"code"})
@@ -39,6 +33,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;
+    }
+
+
+    @Hl7XmlMapping({"reference"})
+    public List<AdjudicationResultReferenceBean> getReference() {
+        return this.reference;
     }
 
 }

@@ -11,6 +11,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.common.merged.TriggerEvent_2Bea
 @Hl7PartTypeMapping({"PORX_IN040040CA"})
 public class RecordOtherMedicationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

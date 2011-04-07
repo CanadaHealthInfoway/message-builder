@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstitutionRole"})
 public class SubstitutionRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II personWhoDidTheSubstitution = new IIImpl();
 
 

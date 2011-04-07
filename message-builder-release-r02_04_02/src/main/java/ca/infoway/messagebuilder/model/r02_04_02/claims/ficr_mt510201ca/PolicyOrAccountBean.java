@@ -23,11 +23,23 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.CoveredPartyAsPat
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II policyIdentifier = new IIImpl();
     private CV policyType = new CVImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
-    private II policyIdentifier = new IIImpl();
     private II carrierId = new IIImpl();
+
+
+    /**
+     * <p>Policy Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPolicyIdentifier() {
+        return this.policyIdentifier.getValue();
+    }
+    public void setPolicyIdentifier(Identifier policyIdentifier) {
+        this.policyIdentifier.setValue(policyIdentifier);
+    }
 
 
     /**
@@ -48,18 +60,6 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
-    }
-
-
-    /**
-     * <p>Policy Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
-    }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
     }
 
 

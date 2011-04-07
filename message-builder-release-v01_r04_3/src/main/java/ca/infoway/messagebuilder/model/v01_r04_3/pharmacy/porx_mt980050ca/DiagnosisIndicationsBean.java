@@ -18,10 +18,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationDiagnosis"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD diagnosisType = new CDImpl();
-    private CV diagnosisCode = new CVImpl();
     private ST freeFormDiagnosisIndication = new STImpl();
+    private CV diagnosisCode = new CVImpl();
 
 
     /**
@@ -37,18 +37,6 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>A:Diagnosis Code</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosisCode() {
-        return (DiagnosisValue) this.diagnosisCode.getValue();
-    }
-    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
-        this.diagnosisCode.setValue(diagnosisCode);
-    }
-
-
-    /**
      * <p>Free Form Diagnosis Indication</p>
      */
     @Hl7XmlMapping({"text"})
@@ -57,6 +45,18 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
     public void setFreeFormDiagnosisIndication(String freeFormDiagnosisIndication) {
         this.freeFormDiagnosisIndication.setValue(freeFormDiagnosisIndication);
+    }
+
+
+    /**
+     * <p>A:Diagnosis Code</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getDiagnosisCode() {
+        return (DiagnosisValue) this.diagnosisCode.getValue();
+    }
+    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
+        this.diagnosisCode.setValue(diagnosisCode);
     }
 
 }

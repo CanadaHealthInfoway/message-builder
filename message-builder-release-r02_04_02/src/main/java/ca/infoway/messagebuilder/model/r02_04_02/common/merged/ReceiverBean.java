@@ -18,11 +18,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TEL receiverNetworkAddress = new TELImpl();
+    private II receiverApplicationIdentifier = new IIImpl();
     private ST receiverApplicationName = new STImpl();
     private II receiverOrganizationIdentifier = new IIImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
 
 
     /**
@@ -45,6 +45,30 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
         this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    }
+
+
+    /**
+     * <p>ReceiverApplicationIdentifier</p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     * 
+     * <p><p>The unique identifier of the application to which the 
+     * message is being sent.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:To\@endpointID</p></p>
+     * 
+     * <p><p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p></p>
+     */
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getReceiverApplicationIdentifier() {
+        return this.receiverApplicationIdentifier.getValue();
+    }
+    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
+        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
     }
 
 
@@ -126,30 +150,6 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
         this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
-    }
-
-
-    /**
-     * <p>ReceiverApplicationIdentifier</p>
-     * 
-     * <p>JA:Receiver Application Identifier</p>
-     * 
-     * <p><p>The unique identifier of the application to which the 
-     * message is being sent.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:To\@endpointID</p></p>
-     * 
-     * <p><p>Used for routing and for verification that &quot;yes, 
-     * this message is intended for me.&quot; This is mandatory 
-     * because it is the key identifier of the receiving 
-     * application.</p></p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
-    }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
     }
 
 }

@@ -25,16 +25,16 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV issueType = new CVImpl();
     private ST text = new STImpl();
-    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
+    private CV issuePriority = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
     private CV severityCode = new CVImpl();
-    private CV issuePriority = new CVImpl();
-    private BL triggerForActRequest = new BLImpl();
-    private BL subjectOf1StorageIntent = new BLImpl();
+    private BL triggerForActRequest = new BLImpl(false);
+    private BL subjectOf1StorageIntent = new BLImpl(false);
 
 
     /**
@@ -69,9 +69,17 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
+    /**
+     * <p>IssuePriority</p>
+     * 
+     * <p>C:Issue Priority</p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActIssuePriority getIssuePriority() {
+        return (ActIssuePriority) this.issuePriority.getValue();
+    }
+    public void setIssuePriority(ActIssuePriority issuePriority) {
+        this.issuePriority.setValue(issuePriority);
     }
 
 
@@ -87,6 +95,12 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
         this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
     }
 
 
@@ -108,20 +122,6 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setSeverityCode(SeverityObservation severityCode) {
         this.severityCode.setValue(severityCode);
-    }
-
-
-    /**
-     * <p>IssuePriority</p>
-     * 
-     * <p>C:Issue Priority</p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
-    }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
     }
 
 

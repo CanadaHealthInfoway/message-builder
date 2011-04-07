@@ -25,14 +25,27 @@ import java.util.List;
 @Hl7RootType
 public interface RequestChoice extends ca.infoway.messagebuilder.model.r02_04_02.lab.merged.FulfillmentChoice {
 
-    public List<IncludesBean> getSubjectOf1();
-
     public List<RecipientChoice> getInformationRecipientRecipientChoice();
 
-    public List<RequestChoice> getComponent4RequestChoice();
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
+
+    public ParentTestBean getOccurrenceOfActParentPointer();
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
+
+    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent();
+
+    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator();
+    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator);
+
+    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator();
+    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator);
 
     public OrderSortKeyBean getComponent3RequestSortKey();
     public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey);
+
+    public List<RequestChoice> getComponent4RequestChoice();
+
+    public List<IncludesBean> getSubjectOf1();
 
     public VersionInformationBean getSubjectOf2ControlActEvent();
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
@@ -40,19 +53,6 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.r02_04_02
     public PriorTestRequestBean getComponentOf1PriorActRequest();
     public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest);
 
-    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator();
-    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator);
-
-    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent();
-
     public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent();
-
-    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator();
-    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator);
-
-    public ParentTestBean getOccurrenceOfActParentPointer();
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
-
-    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
 
 }

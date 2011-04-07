@@ -51,29 +51,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.PriorActRequest","POLB_MT001001CA.PriorActRequest","POLB_MT001010CA.PriorActRequest","POLB_MT001999CA.PriorActRequest"})
 public class PriorTestRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CS priorTestStatus = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private II priorTestIdentifier = new IIImpl();
-
-
-    /**
-     * <p>PriorTestStatus</p>
-     * 
-     * <p>Prior Test Status</p>
-     * 
-     * <p><p>The status of the prior test request.</p></p>
-     * 
-     * <p><p>Used for order referrals.</p></p>
-     * 
-     * <p>Prior Test Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPriorTestStatus() {
-        return (ActStatus) this.priorTestStatus.getValue();
-    }
-    public void setPriorTestStatus(ActStatus priorTestStatus) {
-        this.priorTestStatus.setValue(priorTestStatus);
-    }
+    private CS priorTestStatus = new CSImpl();
 
 
     /**
@@ -96,6 +76,26 @@ public class PriorTestRequestBean extends MessagePartBean {
     }
     public void setPriorTestIdentifier(Identifier priorTestIdentifier) {
         this.priorTestIdentifier.setValue(priorTestIdentifier);
+    }
+
+
+    /**
+     * <p>PriorTestStatus</p>
+     * 
+     * <p>Prior Test Status</p>
+     * 
+     * <p><p>The status of the prior test request.</p></p>
+     * 
+     * <p><p>Used for order referrals.</p></p>
+     * 
+     * <p>Prior Test Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPriorTestStatus() {
+        return (ActStatus) this.priorTestStatus.getValue();
+    }
+    public void setPriorTestStatus(ActStatus priorTestStatus) {
+        this.priorTestStatus.setValue(priorTestStatus);
     }
 
 }

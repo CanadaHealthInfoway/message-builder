@@ -33,14 +33,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS otherMedicationIndicator = new CSImpl();
-    private CV activeMedicationMaskingIndicator = new CVImpl();
-    private PQ activeMedicationDoseQuantity = new PQImpl();
     private II activeMedicationRecordNumber = new IIImpl();
     private CD administrationType = new CDImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private CS activeMedicationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CV activeMedicationMaskingIndicator = new CVImpl();
+    private PQ activeMedicationDoseQuantity = new PQImpl();
     private DrugProductBean consumableMedication;
 
 
@@ -53,30 +53,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
         this.otherMedicationIndicator.setValue(otherMedicationIndicator);
-    }
-
-
-    /**
-     * <p>E:Active Medication Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
-    }
-    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
-        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
-    }
-
-
-    /**
-     * <p>D:Active Medication Dose Quantity</p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getActiveMedicationDoseQuantity() {
-        return this.activeMedicationDoseQuantity.getValue();
-    }
-    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
-        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
     }
 
 
@@ -105,6 +81,18 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
+     * <p>B:Active Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getActiveMedicationStatus() {
+        return (ActStatus) this.activeMedicationStatus.getValue();
+    }
+    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
+        this.activeMedicationStatus.setValue(activeMedicationStatus);
+    }
+
+
+    /**
      * <p>C:Active Medication Time-range</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -117,14 +105,26 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>B:Active Medication Status</p>
+     * <p>E:Active Medication Masking Indicator</p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getActiveMedicationStatus() {
-        return (ActStatus) this.activeMedicationStatus.getValue();
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
     }
-    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
-        this.activeMedicationStatus.setValue(activeMedicationStatus);
+    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
+        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>D:Active Medication Dose Quantity</p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getActiveMedicationDoseQuantity() {
+        return this.activeMedicationDoseQuantity.getValue();
+    }
+    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
+        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
     }
 
 

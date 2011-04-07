@@ -34,14 +34,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailsBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private II submittedInvoiceLineIdentifier = new IIImpl();
-    private MO submittedInvoiceLineAmount = new MOImpl();
-    private INT factorNumber = new INTImpl();
     private CV submittedProductServiceCode = new CVImpl();
     private PQ submittedUnitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
+    private MO submittedInvoiceLineAmount = new MOImpl();
+    private INT factorNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
@@ -59,27 +59,6 @@ public class InvoiceElementDetailsBean extends MessagePartBean implements Invoic
     }
     public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
         this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
-    }
-
-
-    /**
-     * <p>Submitted Invoice Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getSubmittedInvoiceLineAmount() {
-        return this.submittedInvoiceLineAmount.getValue();
-    }
-    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
-        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
-    }
-
-
-    @Hl7XmlMapping({"factorNumber"})
-    public Integer getFactorNumber() {
-        return this.factorNumber.getValue();
-    }
-    public void setFactorNumber(Integer factorNumber) {
-        this.factorNumber.setValue(factorNumber);
     }
 
 
@@ -116,6 +95,27 @@ public class InvoiceElementDetailsBean extends MessagePartBean implements Invoic
     }
     public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
         this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
+    }
+
+
+    /**
+     * <p>Submitted Invoice Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getSubmittedInvoiceLineAmount() {
+        return this.submittedInvoiceLineAmount.getValue();
+    }
+    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
+        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    }
+
+
+    @Hl7XmlMapping({"factorNumber"})
+    public Integer getFactorNumber() {
+        return this.factorNumber.getValue();
+    }
+    public void setFactorNumber(Integer factorNumber) {
+        this.factorNumber.setValue(factorNumber);
     }
 
 }

@@ -56,40 +56,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ observationValue = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private II observationIdentifier = new IIImpl();
     private CD observationType = new CDImpl();
     private CV confidentialityCode = new CVImpl();
-
-
-    /**
-     * <p>ObservationValue</p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p><p>Denotes a specific measurable observation made about a 
-     * person that might have trigger the clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Provides unambiguous reference to the related 
-     * measurable observation.</p></p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p><p>Denotes a specific measurable observation made about a 
-     * person that triggered the clinical issue detection.</p></p>
-     * 
-     * <p><p>Provides unambiguous reference to the implicated 
-     * measurable observation.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationValue() {
-        return this.observationValue.getValue();
-    }
-    public void setObservationValue(PhysicalQuantity observationValue) {
-        this.observationValue.setValue(observationValue);
-    }
+    private PQ observationValue = new PQImpl();
 
 
     /**
@@ -222,6 +193,35 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     }
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
+    }
+
+
+    /**
+     * <p>ObservationValue</p>
+     * 
+     * <p>C:Observation Value</p>
+     * 
+     * <p><p>Denotes a specific measurable observation made about a 
+     * person that might have trigger the clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Provides unambiguous reference to the related 
+     * measurable observation.</p></p>
+     * 
+     * <p>C:Observation Value</p>
+     * 
+     * <p><p>Denotes a specific measurable observation made about a 
+     * person that triggered the clinical issue detection.</p></p>
+     * 
+     * <p><p>Provides unambiguous reference to the implicated 
+     * measurable observation.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public PhysicalQuantity getObservationValue() {
+        return this.observationValue.getValue();
+    }
+    public void setObservationValue(PhysicalQuantity observationValue) {
+        this.observationValue.setValue(observationValue);
     }
 
 }

@@ -60,10 +60,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV contactType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD contactAddress = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -90,22 +90,6 @@ public class ContactPointsBean extends MessagePartBean {
 
 
     /**
-     * <p>ContactPhoneNumberAndEmails</p>
-     * 
-     * <p>C: Contact Phone Number and Emails</p>
-     * 
-     * <p><p>Information used to communicate with the location by 
-     * phone, fax or e-mail.</p></p>
-     * 
-     * <p><p>Used for more immediate contact requirements</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getContactPhoneNumberAndEmails() {
-        return this.contactPhoneNumberAndEmails.rawSet();
-    }
-
-
-    /**
      * <p>ContactAddress</p>
      * 
      * <p>B: Contact Address</p>
@@ -121,6 +105,22 @@ public class ContactPointsBean extends MessagePartBean {
     }
     public void setContactAddress(PostalAddress contactAddress) {
         this.contactAddress.setValue(contactAddress);
+    }
+
+
+    /**
+     * <p>ContactPhoneNumberAndEmails</p>
+     * 
+     * <p>C: Contact Phone Number and Emails</p>
+     * 
+     * <p><p>Information used to communicate with the location by 
+     * phone, fax or e-mail.</p></p>
+     * 
+     * <p><p>Used for more immediate contact requirements</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getContactPhoneNumberAndEmails() {
+        return this.contactPhoneNumberAndEmails.rawSet();
     }
 
 }

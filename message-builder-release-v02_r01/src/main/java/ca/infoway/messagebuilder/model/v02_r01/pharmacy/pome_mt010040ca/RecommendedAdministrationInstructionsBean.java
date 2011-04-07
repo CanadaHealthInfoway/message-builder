@@ -17,11 +17,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private PatientBean subjectPatient;
-    private List<Indications> reasonIndications = new ArrayList<Indications>();
-    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private HealthcareWorkerBean authorAssignedEntity;
+    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<Indications> reasonIndications = new ArrayList<Indications>();
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
@@ -34,9 +34,12 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason/indications"})
-    public List<Indications> getReasonIndications() {
-        return this.reasonIndications;
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
@@ -46,12 +49,9 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    @Hl7XmlMapping({"reason/indications"})
+    public List<Indications> getReasonIndications() {
+        return this.reasonIndications;
     }
 
 

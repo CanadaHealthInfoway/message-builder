@@ -29,23 +29,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ProviderBillingTaxAccount","FICR_MT600201CA.ProviderBillingTaxAccount"})
 public class ProviderBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV actInvoiceDetailscode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II taxNumber = new IIImpl();
-
-
-    /**
-     * <p>ActInvoiceDetailscode</p>
-     * 
-     * <p>ActInvoiceDetailscode</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getActInvoiceDetailscode() {
-        return (Code) this.actInvoiceDetailscode.getValue();
-    }
-    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
-        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
-    }
+    private CV actInvoiceDetailscode = new CVImpl();
 
 
     /**
@@ -59,6 +45,20 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     }
     public void setTaxNumber(Identifier taxNumber) {
         this.taxNumber.setValue(taxNumber);
+    }
+
+
+    /**
+     * <p>ActInvoiceDetailscode</p>
+     * 
+     * <p>ActInvoiceDetailscode</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getActInvoiceDetailscode() {
+        return (Code) this.actInvoiceDetailscode.getValue();
+    }
+    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
+        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
     }
 
 }

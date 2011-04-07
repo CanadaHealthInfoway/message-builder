@@ -58,15 +58,47 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private II activeMedicationRecordNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CD administrationType = new CDImpl();
-    private PQ activeMedicationDoseQuantity = new PQImpl();
-    private CS activeMedicationStatus = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS otherMedicationIndicator = new CSImpl();
-    private DrugProductBean consumableMedication;
+    private II activeMedicationRecordNumber = new IIImpl();
+    private CD administrationType = new CDImpl();
+    private CS activeMedicationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private CV activeMedicationMaskingIndicator = new CVImpl();
+    private PQ activeMedicationDoseQuantity = new PQImpl();
+    private DrugProductBean consumableMedication;
+
+
+    /**
+     * <p>OtherMedicationIndicator</p>
+     * 
+     * <p>Other Medication Indicator</p>
+     * 
+     * <p><p>If the attribute is 'RQO', represents a prescription 
+     * or dispense record. Otherwise if 'EVN', it represents an 
+     * 'Other Medication' record.</p></p>
+     * 
+     * <p><p>Knowing whether a drug is prescribed or not can 
+     * influence actions taken to mitigate an issue. The element is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>Other Medication Indicator</p>
+     * 
+     * <p><p>If the attribute is 'RQO', represents a prescription 
+     * or dispense record. Otherwise if 'EVN', it represents an 
+     * 'Other Medication' record.</p></p>
+     * 
+     * <p><p>Knowing whether a drug is prescribed or not can 
+     * influence actions taken to mitigate an issue. This attribute 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodRequestEvent getOtherMedicationIndicator() {
+        return (x_ActMoodRequestEvent) this.otherMedicationIndicator.getValue();
+    }
+    public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
+        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    }
 
 
     /**
@@ -134,38 +166,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationTimeRange</p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
-     * 
-     * <p><p>Requested Duration</p></p>
-     * 
-     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
-     * and similar timing-based issues.</p></p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
-     * 
-     * <p><p>Requested Duration</p></p>
-     * 
-     * <p><p>Allows the provider to evaluate '''duplicate 
-     * therapy''' and similar timing-based issues.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
-    }
-
-
-    /**
      * <p>AdministrationType</p>
      * 
      * <p>Administration Type</p>
@@ -190,37 +190,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
     public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
         this.administrationType.setValue(administrationType);
-    }
-
-
-    /**
-     * <p>ActiveMedicationDoseQuantity</p>
-     * 
-     * <p>D:Active Medication Dose Quantity</p>
-     * 
-     * <p><p>The amount of medication administered to the 
-     * patient</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Used in Low Dose/High Dose issues.</p></p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getActiveMedicationDoseQuantity() {
-        return this.activeMedicationDoseQuantity.getValue();
-    }
-    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
-        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
     }
 
 
@@ -250,43 +219,34 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>OtherMedicationIndicator</p>
+     * <p>ActiveMedicationTimeRange</p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>C:Active Medication Time-range</p>
      * 
-     * <p><p>If the attribute is 'RQO', represents a prescription 
-     * or dispense record. Otherwise if 'EVN', it represents an 
-     * 'Other Medication' record.</p></p>
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
      * 
-     * <p><p>Knowing whether a drug is prescribed or not can 
-     * influence actions taken to mitigate an issue. The element is 
-     * therefore mandatory.</p></p>
+     * <p><p>Requested Duration</p></p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
+     * and similar timing-based issues.</p></p>
      * 
-     * <p><p>If the attribute is 'RQO', represents a prescription 
-     * or dispense record. Otherwise if 'EVN', it represents an 
-     * 'Other Medication' record.</p></p>
+     * <p>C:Active Medication Time-range</p>
      * 
-     * <p><p>Knowing whether a drug is prescribed or not can 
-     * influence actions taken to mitigate an issue. This attribute 
-     * is therefore mandatory.</p></p>
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
+     * 
+     * <p><p>Requested Duration</p></p>
+     * 
+     * <p><p>Allows the provider to evaluate '''duplicate 
+     * therapy''' and similar timing-based issues.</p></p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodRequestEvent getOtherMedicationIndicator() {
-        return (x_ActMoodRequestEvent) this.otherMedicationIndicator.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
     }
-    public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
-        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 
@@ -327,6 +287,46 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
     public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
         this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>D:Active Medication Dose Quantity</p>
+     * 
+     * <p><p>The amount of medication administered to the 
+     * patient</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Used in Low Dose/High Dose issues.</p></p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getActiveMedicationDoseQuantity() {
+        return this.activeMedicationDoseQuantity.getValue();
+    }
+    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
+        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 }

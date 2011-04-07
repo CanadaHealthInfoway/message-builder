@@ -16,12 +16,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyOrAccount","FICR_MT400003CA.PolicyOrAccount","FICR_MT400004CA.PolicyOrAccount","FICR_MT490101CA.PolicyOrAccount"})
 public class PolicyOrAccount_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV policyType = new CVImpl();
-    private PolicyHolderBean holderPolicyHolder;
-    private CoveredPartyBean beneficiaryCoveredParty;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private CV policyType = new CVImpl();
+    private CoveredPartyBean beneficiaryCoveredParty;
+    private PolicyHolderBean holderPolicyHolder;
     private II carrierIdentifier = new IIImpl();
+
+
+    /**
+     * <p>Policy Identifier(s</p>
+     * 
+     * <p>Policy Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
 
 
     /**
@@ -38,15 +52,6 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"holder/policyHolder"})
-    public PolicyHolderBean getHolderPolicyHolder() {
-        return this.holderPolicyHolder;
-    }
-    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
-        this.holderPolicyHolder = holderPolicyHolder;
-    }
-
-
     @Hl7XmlMapping({"beneficiary/coveredParty"})
     public CoveredPartyBean getBeneficiaryCoveredParty() {
         return this.beneficiaryCoveredParty;
@@ -56,17 +61,12 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Policy Identifier(s</p>
-     * 
-     * <p>Policy Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"holder/policyHolder"})
+    public PolicyHolderBean getHolderPolicyHolder() {
+        return this.holderPolicyHolder;
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
+        this.holderPolicyHolder = holderPolicyHolder;
     }
 
 

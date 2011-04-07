@@ -42,14 +42,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD cultureObservationType = new CDImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
     private ST cultureObservationComment = new STImpl();
     private CS cultureObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
 
     /**
@@ -64,38 +64,6 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setCultureObservationType(Code cultureObservationType) {
         this.cultureObservationType.setValue(cultureObservationType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    /**
-     * <p>Culture Observation Value</p>
-     * 
-     * <p><p>The result value of this culture observation e.g. the 
-     * number value associated with a protein measurement, etc. 
-     * When a coded value applies, values must be selected from the 
-     * CultureObservationValue Concept Domain.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getCultureObservationValue() {
-        return this.cultureObservationValue.getValue();
-    }
-    public void setCultureObservationValue(Object cultureObservationValue) {
-        this.cultureObservationValue.setValue(cultureObservationValue);
     }
 
 
@@ -139,6 +107,38 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
         this.cultureObservationDateTime.setValue(cultureObservationDateTime);
+    }
+
+
+    /**
+     * <p>Culture Observation Value</p>
+     * 
+     * <p><p>The result value of this culture observation e.g. the 
+     * number value associated with a protein measurement, etc. 
+     * When a coded value applies, values must be selected from the 
+     * CultureObservationValue Concept Domain.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Object getCultureObservationValue() {
+        return this.cultureObservationValue.getValue();
+    }
+    public void setCultureObservationValue(Object cultureObservationValue) {
+        this.cultureObservationValue.setValue(cultureObservationValue);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 }

@@ -16,10 +16,10 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedResultOutcome
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementChoice"})
 public interface AdjudicatedInvoiceElementChoice {
 
-    public AdjudicatedResultOutcomeBean getOutcomeOf();
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
-
     public AllowableBean getReference1Allowable();
     public void setReference1Allowable(AllowableBean reference1Allowable);
+
+    public AdjudicatedResultOutcomeBean getOutcomeOf();
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

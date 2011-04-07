@@ -51,11 +51,35 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private CD observationType = new CDImpl();
-    private PQ observationValue = new PQImpl();
-    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private II observationIdentifier = new IIImpl();
+    private CD observationType = new CDImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private PQ observationValue = new PQImpl();
+
+
+    /**
+     * <p>ObservationIdentifier</p>
+     * 
+     * <p>A:Observation Identifier</p>
+     * 
+     * <p><p>Unique identifier for the record of the observation 
+     * (e.g. height, weight or lab test/result) that contributed to 
+     * the issue.</p></p>
+     * 
+     * <p><p>Allows lookup of the specific observation (e.g. 
+     * height, weight, or lab record) for additional details when 
+     * evaluating appropriateness of issue management.</p></p>
+     * 
+     * <p>A:Observation Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getObservationIdentifier() {
+        return this.observationIdentifier.getValue();
+    }
+    public void setObservationIdentifier(Identifier observationIdentifier) {
+        this.observationIdentifier.setValue(observationIdentifier);
+    }
 
 
     /**
@@ -83,29 +107,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     }
     public void setObservationType(SimpleMeasurableClinicalObservationType observationType) {
         this.observationType.setValue(observationType);
-    }
-
-
-    /**
-     * <p>ObservationValue</p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p><p>Denotes a specific measurable observation made about a 
-     * person that might have trigger the clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Provides unambiguous reference to the related 
-     * measurable observation.</p></p>
-     * 
-     * <p>C:Observation Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationValue() {
-        return this.observationValue.getValue();
-    }
-    public void setObservationValue(PhysicalQuantity observationValue) {
-        this.observationValue.setValue(observationValue);
     }
 
 
@@ -161,26 +162,25 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
 
 
     /**
-     * <p>ObservationIdentifier</p>
+     * <p>ObservationValue</p>
      * 
-     * <p>A:Observation Identifier</p>
+     * <p>C:Observation Value</p>
      * 
-     * <p><p>Unique identifier for the record of the observation 
-     * (e.g. height, weight or lab test/result) that contributed to 
-     * the issue.</p></p>
+     * <p><p>Denotes a specific measurable observation made about a 
+     * person that might have trigger the clinical issue 
+     * detection.</p></p>
      * 
-     * <p><p>Allows lookup of the specific observation (e.g. 
-     * height, weight, or lab record) for additional details when 
-     * evaluating appropriateness of issue management.</p></p>
+     * <p><p>Provides unambiguous reference to the related 
+     * measurable observation.</p></p>
      * 
-     * <p>A:Observation Identifier</p>
+     * <p>C:Observation Value</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
+    @Hl7XmlMapping({"value"})
+    public PhysicalQuantity getObservationValue() {
+        return this.observationValue.getValue();
     }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
+    public void setObservationValue(PhysicalQuantity observationValue) {
+        this.observationValue.setValue(observationValue);
     }
 
 }

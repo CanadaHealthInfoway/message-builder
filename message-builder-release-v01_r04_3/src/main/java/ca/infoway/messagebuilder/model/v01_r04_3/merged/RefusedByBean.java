@@ -19,20 +19,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT120600CA.Author","COCT_MT130001CA.Author3","COMT_MT300003CA.Author","MCAI_MT700210CA.Author","MCAI_MT700221CA.Author","MCAI_MT700223CA.Author","POIZ_MT060150CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","QUQI_MT020000CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000007CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT000017CA.Author","REPC_MT100001CA.Author","REPC_MT100002CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ProviderBean assignedPerson;
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
+    private ProviderBean assignedPerson;
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();
-
-
-    @Hl7XmlMapping({"assignedPerson"})
-    public ProviderBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-    public void setAssignedPerson(ProviderBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
-    }
 
 
     /**
@@ -60,6 +51,15 @@ public class RefusedByBean extends MessagePartBean {
     }
     public void setTime(Date time) {
         this.time.setValue(time);
+    }
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ProviderBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ProviderBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
     }
 
 

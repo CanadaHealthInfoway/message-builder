@@ -20,25 +20,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV observationValue = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II observationIdentifier = new IIImpl();
-    private CV confidentialityCode = new CVImpl();
     private CD observationType = new CDImpl();
-
-
-    /**
-     * <p>ObservationValue</p>
-     * 
-     * <p>C:Observation Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IssueTriggerObservationValue getObservationValue() {
-        return (IssueTriggerObservationValue) this.observationValue.getValue();
-    }
-    public void setObservationValue(IssueTriggerObservationValue observationValue) {
-        this.observationValue.setValue(observationValue);
-    }
+    private CV confidentialityCode = new CVImpl();
+    private CV observationValue = new CVImpl();
 
 
     /**
@@ -52,6 +38,20 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setObservationIdentifier(Identifier observationIdentifier) {
         this.observationIdentifier.setValue(observationIdentifier);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getObservationType() {
+        return (ActCode) this.observationType.getValue();
+    }
+    public void setObservationType(ActCode observationType) {
+        this.observationType.setValue(observationType);
     }
 
 
@@ -70,16 +70,16 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>ObservationType</p>
+     * <p>ObservationValue</p>
      * 
-     * <p>B:Observation Type</p>
+     * <p>C:Observation Value</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
+    @Hl7XmlMapping({"value"})
+    public IssueTriggerObservationValue getObservationValue() {
+        return (IssueTriggerObservationValue) this.observationValue.getValue();
     }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
+    public void setObservationValue(IssueTriggerObservationValue observationValue) {
+        this.observationValue.setValue(observationValue);
     }
 
 }

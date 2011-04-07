@@ -27,51 +27,15 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private QueryDefinitionBean<PL> queryByParameter;
-    private CV eventReason = new CVImpl();
-    private QueryResponseInformationBean queryAck;
-    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private TS eventEffectivePeriod = new TSImpl();
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryDefinitionBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    /**
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryResponseInformationBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryResponseInformationBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersToBean<ACT>> getSubject() {
-        return this.subject;
-    }
+    private CV eventReason = new CVImpl();
+    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private QueryResponseInformationBean queryAck;
+    private QueryDefinitionBean<PL> queryByParameter;
 
 
     /**
@@ -98,12 +62,6 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
     /**
      * <p>C:Event Effective Period</p>
      */
@@ -113,6 +71,48 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Date eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>E:Event Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryResponseInformationBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryResponseInformationBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryDefinitionBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }

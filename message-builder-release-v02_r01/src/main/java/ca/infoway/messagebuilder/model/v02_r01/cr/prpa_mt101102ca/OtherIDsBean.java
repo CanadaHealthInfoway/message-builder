@@ -21,7 +21,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> nonHealthcareIdentification = new SETImpl<II, Identifier>(IIImpl.class);
     private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();

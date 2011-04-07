@@ -24,22 +24,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private PQ dispensedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
@@ -67,18 +58,6 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
-    }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
-    }
-
-
-    /**
      * <p>Dispensed Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
@@ -90,12 +69,33 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDispensedDaysSupply() {
+        return this.dispensedDaysSupply.getValue();
+    }
+    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
+        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    }
+
+
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

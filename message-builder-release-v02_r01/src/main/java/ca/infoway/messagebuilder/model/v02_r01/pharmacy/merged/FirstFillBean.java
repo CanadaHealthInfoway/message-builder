@@ -19,24 +19,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ firstFillQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private PQ firstFillQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>FirstFillQuantity</p>
-     * 
-     * <p>First Fill Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFirstFillQuantity() {
-        return this.firstFillQuantity.getValue();
-    }
-    public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
-        this.firstFillQuantity.setValue(firstFillQuantity);
-    }
 
 
     /**
@@ -50,6 +36,20 @@ public class FirstFillBean extends MessagePartBean {
     }
     public void setFirstFillExpiryDate(Interval<Date> firstFillExpiryDate) {
         this.firstFillExpiryDate.setValue(firstFillExpiryDate);
+    }
+
+
+    /**
+     * <p>FirstFillQuantity</p>
+     * 
+     * <p>First Fill Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getFirstFillQuantity() {
+        return this.firstFillQuantity.getValue();
+    }
+    public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
+        this.firstFillQuantity.setValue(firstFillQuantity);
     }
 
 

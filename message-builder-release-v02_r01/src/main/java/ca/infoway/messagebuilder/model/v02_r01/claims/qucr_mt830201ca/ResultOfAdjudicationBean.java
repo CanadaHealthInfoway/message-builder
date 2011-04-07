@@ -15,7 +15,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResult"})
 public class ResultOfAdjudicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II adjudicationID = new IIImpl();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 

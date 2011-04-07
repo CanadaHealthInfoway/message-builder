@@ -27,16 +27,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
+    private static final long serialVersionUID = 20110407L;
     private II organizationId = new IIImpl();
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
-
-
-    @Hl7XmlMapping({"territorialAuthority"})
-    public List<TerritorialAuthorityBean> getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
+    private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
 
 
     /**
@@ -97,6 +91,12 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
         this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
+    }
+
+
+    @Hl7XmlMapping({"territorialAuthority"})
+    public List<TerritorialAuthorityBean> getTerritorialAuthority() {
+        return this.territorialAuthority;
     }
 
 }

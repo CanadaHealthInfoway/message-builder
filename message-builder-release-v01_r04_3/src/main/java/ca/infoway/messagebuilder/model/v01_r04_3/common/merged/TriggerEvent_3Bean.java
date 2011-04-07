@@ -29,31 +29,17 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV eventReason = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private TS eventEffectivePeriod = new TSImpl();
-    private RefusedByBean author;
+    private CV eventReason = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private ProviderBean responsiblePartyAssignedPerson;
+    private RefusedByBean author;
     private ProviderBean dataEntererAssignedPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private RecordedAtBean location;
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
 
 
     /**
@@ -84,12 +70,6 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
     /**
      * <p>EventEffectivePeriod</p>
      * 
@@ -104,12 +84,23 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 
@@ -122,6 +113,15 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
     @Hl7XmlMapping({"dataEnterer/assignedPerson"})
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
@@ -131,21 +131,21 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 }

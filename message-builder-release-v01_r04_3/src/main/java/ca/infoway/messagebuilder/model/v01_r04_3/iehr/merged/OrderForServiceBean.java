@@ -11,7 +11,7 @@ import ca.infoway.messagebuilder.model.v01_r04_3.merged.RefusedByBean;
 @Hl7PartTypeMapping({"REPC_MT000017CA.ActRequest","REPC_MT100001CA.ActRequest"})
 public class OrderForServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private RefusedByBean author;
 
 

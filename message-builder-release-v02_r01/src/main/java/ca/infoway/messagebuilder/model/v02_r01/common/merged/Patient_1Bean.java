@@ -34,55 +34,13 @@ import java.util.List;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
-    private static final long serialVersionUID = 20110318L;
-    private TS patientBirthDate = new TSImpl();
-    private PN patientName = new PNImpl();
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II patientIdentifier = new IIImpl();
     private AD patientContactAddress = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-
-
-    /**
-     * <p>PatientBirthDate</p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
-    }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
-    }
-
-
-    /**
-     * <p>PatientName</p>
-     * 
-     * <p>B:Patient Name</p>
-     */
-    @Hl7XmlMapping({"patientPerson/name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>PatientGender</p>
-     * 
-     * <p>F:Patient Gender</p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
+    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
+    private TS patientBirthDate = new TSImpl();
 
 
     /**
@@ -121,6 +79,48 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
         return this.patientContactPhoneAndEMails.rawList();
+    }
+
+
+    /**
+     * <p>PatientName</p>
+     * 
+     * <p>B:Patient Name</p>
+     */
+    @Hl7XmlMapping({"patientPerson/name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>PatientGender</p>
+     * 
+     * <p>F:Patient Gender</p>
+     */
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>PatientBirthDate</p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     */
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 }

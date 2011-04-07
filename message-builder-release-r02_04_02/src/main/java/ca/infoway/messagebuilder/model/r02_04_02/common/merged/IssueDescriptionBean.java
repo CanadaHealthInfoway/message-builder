@@ -38,57 +38,11 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.PrescribedByBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
-    private PrescribedByBean author;
-    private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20110407L;
     private II issueMonographId = new IIImpl();
-
-
-    @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
-    public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
-        return this.componentSubstanceAdministrationEventCriterion;
-    }
-    public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
-        this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>IssueDescription</p>
-     * 
-     * <p>C:Issue Description</p>
-     * 
-     * <p><p>A free form textual description of the issue. This is 
-     * usually in the form of a monograph.</p></p>
-     * 
-     * <p><p>Monograph URI (Reference)</p><p>Monograph 
-     * description</p></p>
-     * 
-     * <p><p>Monograph URI (Reference)</p><p>Monograph 
-     * description</p></p>
-     * 
-     * <p><p>Provides detailed clinical background on reasons for 
-     * issue.</p></p>
-     * 
-     * <p>C:Issue Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getIssueDescription() {
-        return this.issueDescription.getValue();
-    }
-    public void setIssueDescription(EncapsulatedData issueDescription) {
-        this.issueDescription.setValue(issueDescription);
-    }
+    private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
+    private PrescribedByBean author;
+    private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
     /**
@@ -132,6 +86,52 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
     public void setIssueMonographId(Identifier issueMonographId) {
         this.issueMonographId.setValue(issueMonographId);
+    }
+
+
+    /**
+     * <p>IssueDescription</p>
+     * 
+     * <p>C:Issue Description</p>
+     * 
+     * <p><p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Provides detailed clinical background on reasons for 
+     * issue.</p></p>
+     * 
+     * <p>C:Issue Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getIssueDescription() {
+        return this.issueDescription.getValue();
+    }
+    public void setIssueDescription(EncapsulatedData issueDescription) {
+        this.issueDescription.setValue(issueDescription);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
+    public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
+        return this.componentSubstanceAdministrationEventCriterion;
+    }
+    public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
+        this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
     }
 
 }

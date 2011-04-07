@@ -33,11 +33,30 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II organizationId = new IIImpl();
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);
-    private II organizationId = new IIImpl();
     private TerritorialAuthorityBean territorialAuthority;
+
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p><p>Unique identifier for the organization that assigned 
+     * the specified roleClass identifier.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the scoping organization assigning the id 
+     * to the specified roleClass</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOrganizationId() {
+        return this.organizationId.getValue();
+    }
+    public void setOrganizationId(Identifier organizationId) {
+        this.organizationId.setValue(organizationId);
+    }
 
 
     /**
@@ -103,25 +122,6 @@ public class OrganizationBean extends MessagePartBean {
     @Hl7XmlMapping({"addr"})
     public Set<PostalAddress> getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
         return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.rawSet();
-    }
-
-
-    /**
-     * <p>Organization Id</p>
-     * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the specified roleClass identifier.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the scoping organization assigning the id 
-     * to the specified roleClass</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
-    }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
     }
 
 

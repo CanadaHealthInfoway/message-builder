@@ -21,25 +21,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT numberOfFills = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
+    private INT numberOfFills = new INTImpl();
     private PQ fillQuantity = new PQImpl();
-
-
-    /**
-     * <p>NumberOfFills</p>
-     * 
-     * <p>G:Number of Fills</p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFills() {
-        return this.numberOfFills.getValue();
-    }
-    public void setNumberOfFills(Integer numberOfFills) {
-        this.numberOfFills.setValue(numberOfFills);
-    }
+    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -57,16 +43,16 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>DaysSupply</p>
+     * <p>NumberOfFills</p>
      * 
-     * <p>E:Days Supply</p>
+     * <p>G:Number of Fills</p>
      */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDaysSupply() {
-        return this.daysSupply.getValue();
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfFills() {
+        return this.numberOfFills.getValue();
     }
-    public void setDaysSupply(Interval<Date> daysSupply) {
-        this.daysSupply.setValue(daysSupply);
+    public void setNumberOfFills(Integer numberOfFills) {
+        this.numberOfFills.setValue(numberOfFills);
     }
 
 
@@ -81,6 +67,20 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setFillQuantity(PhysicalQuantity fillQuantity) {
         this.fillQuantity.setValue(fillQuantity);
+    }
+
+
+    /**
+     * <p>DaysSupply</p>
+     * 
+     * <p>E:Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDaysSupply() {
+        return this.daysSupply.getValue();
+    }
+    public void setDaysSupply(Interval<Date> daysSupply) {
+        this.daysSupply.setValue(daysSupply);
     }
 
 }

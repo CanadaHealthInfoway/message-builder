@@ -55,10 +55,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
-    private CV value = new CVImpl();
     private ST diagnosisDescription = new STImpl();
+    private CV value = new CVImpl();
 
 
     /**
@@ -92,6 +92,24 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
+     * <p>DiagnosisDescription</p>
+     * 
+     * <p>Diagnosis Description</p>
+     * 
+     * <p><p>Can be used to supplement a diagnostic code</p></p>
+     * 
+     * <p><p>Can be used to supplement a diagnostic code</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDiagnosisDescription() {
+        return this.diagnosisDescription.getValue();
+    }
+    public void setDiagnosisDescription(String diagnosisDescription) {
+        this.diagnosisDescription.setValue(diagnosisDescription);
+    }
+
+
+    /**
      * <p>Diagnosis Value</p>
      * 
      * <p><p>Diagnosis Code eg. ICD-10-CA code.</p></p>
@@ -116,24 +134,6 @@ public class DiagnosisBean extends MessagePartBean {
     }
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
-    }
-
-
-    /**
-     * <p>DiagnosisDescription</p>
-     * 
-     * <p>Diagnosis Description</p>
-     * 
-     * <p><p>Can be used to supplement a diagnostic code</p></p>
-     * 
-     * <p><p>Can be used to supplement a diagnostic code</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDiagnosisDescription() {
-        return this.diagnosisDescription.getValue();
-    }
-    public void setDiagnosisDescription(String diagnosisDescription) {
-        this.diagnosisDescription.setValue(diagnosisDescription);
     }
 
 }

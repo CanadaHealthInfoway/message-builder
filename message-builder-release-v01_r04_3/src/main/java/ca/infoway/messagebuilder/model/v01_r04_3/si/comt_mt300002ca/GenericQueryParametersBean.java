@@ -25,24 +25,12 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV patientNoteCategoryCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
     private II patientID = new IIImpl();
     private PN patientName = new PNImpl();
-
-
-    /**
-     * <p>Patient Note Category Code</p>
-     */
-    @Hl7XmlMapping({"patientNoteCategoryCode/value"})
-    public ActPatientAnnotationCode getPatientNoteCategoryCode() {
-        return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();
-    }
-    public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
-        this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
-    }
+    private CV patientNoteCategoryCode = new CVImpl();
 
 
     /**
@@ -90,6 +78,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>Patient Note Category Code</p>
+     */
+    @Hl7XmlMapping({"patientNoteCategoryCode/value"})
+    public ActPatientAnnotationCode getPatientNoteCategoryCode() {
+        return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();
+    }
+    public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
+        this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
     }
 
 }

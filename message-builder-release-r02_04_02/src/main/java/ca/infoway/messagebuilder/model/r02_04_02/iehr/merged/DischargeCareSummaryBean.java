@@ -65,28 +65,22 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
+    private static final long serialVersionUID = 20110407L;
     private CV documentCategory = new CVImpl();
-    private IncludesBean subjectOf1;
+    private ST documentTitle = new STImpl();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private RequestedByBean author;
+    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private SectionBean componentStructuredBodyComponentSection;
-    private ST documentTitle = new STImpl();
-    private RequestedByBean author;
+    private IncludesBean subjectOf1;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
     private SET<II, Identifier> documentIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
     /**
@@ -106,33 +100,6 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
     public void setDocumentCategory(CareSummaryDocumentType documentCategory) {
         this.documentCategory.setValue(documentCategory);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf","subjectOf1"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="REPC_MT220001CA.Subject4"),
-        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT220003CA.Subject4")})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
-    }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
-    }
-
-
-    @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public SectionBean getComponentStructuredBodyComponentSection() {
-        return this.componentStructuredBodyComponentSection;
-    }
-    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
-        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
 
@@ -164,21 +131,6 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RequestedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     /**
      * <p>DocumentMaskingIndicators</p>
      * 
@@ -198,12 +150,51 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
+    }
+
+
+    @Hl7XmlMapping({"component/structuredBody/component/section"})
+    public SectionBean getComponentStructuredBodyComponentSection() {
+        return this.componentStructuredBodyComponentSection;
+    }
+    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
+        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf","subjectOf1"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="REPC_MT220001CA.Subject4"),
+        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT220003CA.Subject4")})
+    public IncludesBean getSubjectOf1() {
+        return this.subjectOf1;
+    }
+    public void setSubjectOf1(IncludesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
@@ -276,6 +267,15 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
     public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
         this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 }

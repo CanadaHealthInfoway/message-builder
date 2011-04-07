@@ -27,37 +27,16 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
-    private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private DispenseInformationBean productOf1DispenseGuidelines;
+    private static final long serialVersionUID = 20110407L;
     private DrugOrCompoundBean administerableMedicine;
-    private DrugCostBean subjectOf4PotentialCharge;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
+    private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
+    private DrugCostBean subjectOf4PotentialCharge;
     private DrugHalfLifeBean subjectOf5HalfLife;
+    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
+    private DispenseInformationBean productOf1DispenseGuidelines;
     private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
-
-
-    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
-    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
-        return this.consumedInAdministrationGuideline;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
-        return this.subjectOf3Characteristic;
-    }
-
-
-    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
-    public DispenseInformationBean getProductOf1DispenseGuidelines() {
-        return this.productOf1DispenseGuidelines;
-    }
-    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
-        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
-    }
 
 
     @Hl7XmlMapping({"administerableMedicine"})
@@ -66,15 +45,6 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setAdministerableMedicine(DrugOrCompoundBean administerableMedicine) {
         this.administerableMedicine = administerableMedicine;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf4/potentialCharge"})
-    public DrugCostBean getSubjectOf4PotentialCharge() {
-        return this.subjectOf4PotentialCharge;
-    }
-    public void setSubjectOf4PotentialCharge(DrugCostBean subjectOf4PotentialCharge) {
-        this.subjectOf4PotentialCharge = subjectOf4PotentialCharge;
     }
 
 
@@ -90,12 +60,42 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf3/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
+        return this.subjectOf3Characteristic;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf4/potentialCharge"})
+    public DrugCostBean getSubjectOf4PotentialCharge() {
+        return this.subjectOf4PotentialCharge;
+    }
+    public void setSubjectOf4PotentialCharge(DrugCostBean subjectOf4PotentialCharge) {
+        this.subjectOf4PotentialCharge = subjectOf4PotentialCharge;
+    }
+
+
     @Hl7XmlMapping({"subjectOf5/halfLife"})
     public DrugHalfLifeBean getSubjectOf5HalfLife() {
         return this.subjectOf5HalfLife;
     }
     public void setSubjectOf5HalfLife(DrugHalfLifeBean subjectOf5HalfLife) {
         this.subjectOf5HalfLife = subjectOf5HalfLife;
+    }
+
+
+    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
+    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
+        return this.consumedInAdministrationGuideline;
+    }
+
+
+    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
+    public DispenseInformationBean getProductOf1DispenseGuidelines() {
+        return this.productOf1DispenseGuidelines;
+    }
+    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
+        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
     }
 
 

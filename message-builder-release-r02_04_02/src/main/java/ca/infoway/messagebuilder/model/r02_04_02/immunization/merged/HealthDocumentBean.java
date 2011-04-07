@@ -45,10 +45,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthDocument","POIZ_MT030060CA.HealthDocument","POIZ_MT060150CA.HealthDocument"})
 public class HealthDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II healthDocumentID = new IIImpl();
     private ST healthDocumentTitle = new STImpl();
     private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
-    private II healthDocumentID = new IIImpl();
+
+
+    /**
+     * <p>HealthDocumentID</p>
+     * 
+     * <p>Health Document ID</p>
+     * 
+     * <p><p>Identifies the health document that supports the 
+     * historical immunization information.</p></p>
+     * 
+     * <p><p>Used to reference identified health documents. As not 
+     * all implementations will support this concept, this 
+     * attribute is optional.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getHealthDocumentID() {
+        return this.healthDocumentID.getValue();
+    }
+    public void setHealthDocumentID(Identifier healthDocumentID) {
+        this.healthDocumentID.setValue(healthDocumentID);
+    }
 
 
     /**
@@ -91,27 +112,6 @@ public class HealthDocumentBean extends MessagePartBean {
     }
     public void setHealthDocumentText(EncapsulatedData healthDocumentText) {
         this.healthDocumentText.setValue(healthDocumentText);
-    }
-
-
-    /**
-     * <p>HealthDocumentID</p>
-     * 
-     * <p>Health Document ID</p>
-     * 
-     * <p><p>Identifies the health document that supports the 
-     * historical immunization information.</p></p>
-     * 
-     * <p><p>Used to reference identified health documents. As not 
-     * all implementations will support this concept, this 
-     * attribute is optional.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getHealthDocumentID() {
-        return this.healthDocumentID.getValue();
-    }
-    public void setHealthDocumentID(Identifier healthDocumentID) {
-        this.healthDocumentID.setValue(healthDocumentID);
     }
 
 }

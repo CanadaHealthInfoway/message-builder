@@ -32,13 +32,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD organismIdentificationType = new CDImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private IsolateParticipationBean specimen;
     private CS organsimIdentificationObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IsolateParticipationBean specimen;
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
 
     /**
@@ -54,30 +54,6 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
     public void setOrganismIdentificationType(Code organismIdentificationType) {
         this.organismIdentificationType.setValue(organismIdentificationType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public IsolateParticipationBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(IsolateParticipationBean specimen) {
-        this.specimen = specimen;
     }
 
 
@@ -107,6 +83,30 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
     public void setOrganismObservationEffectiveTime(Interval<Date> organismObservationEffectiveTime) {
         this.organismObservationEffectiveTime.setValue(organismObservationEffectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"specimen"})
+    public IsolateParticipationBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(IsolateParticipationBean specimen) {
+        this.specimen = specimen;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 }

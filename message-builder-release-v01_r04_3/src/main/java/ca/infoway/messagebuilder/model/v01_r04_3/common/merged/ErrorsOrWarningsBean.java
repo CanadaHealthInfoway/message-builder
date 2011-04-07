@@ -23,36 +23,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.AcknowledgementDetail","MCCI_MT000300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV responseCode = new CVImpl();
-    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private CS messageType = new CSImpl();
+    private CV responseCode = new CVImpl();
     private ST messageDescription = new STImpl();
-
-
-    /**
-     * <p>ResponseCode</p>
-     * 
-     * <p>A:Response Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public AcknowledgementDetailCode getResponseCode() {
-        return (AcknowledgementDetailCode) this.responseCode.getValue();
-    }
-    public void setResponseCode(AcknowledgementDetailCode responseCode) {
-        this.responseCode.setValue(responseCode);
-    }
-
-
-    /**
-     * <p>ReferencedMessageLocations</p>
-     * 
-     * <p>B:Referenced Message Locations</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public Set<String> getReferencedMessageLocations() {
-        return this.referencedMessageLocations.rawSet();
-    }
+    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
 
 
     /**
@@ -70,6 +45,20 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
+     * <p>ResponseCode</p>
+     * 
+     * <p>A:Response Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public AcknowledgementDetailCode getResponseCode() {
+        return (AcknowledgementDetailCode) this.responseCode.getValue();
+    }
+    public void setResponseCode(AcknowledgementDetailCode responseCode) {
+        this.responseCode.setValue(responseCode);
+    }
+
+
+    /**
      * <p>MessageDescription</p>
      * 
      * <p>C:Message Description</p>
@@ -80,6 +69,17 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
     public void setMessageDescription(String messageDescription) {
         this.messageDescription.setValue(messageDescription);
+    }
+
+
+    /**
+     * <p>ReferencedMessageLocations</p>
+     * 
+     * <p>B:Referenced Message Locations</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public Set<String> getReferencedMessageLocations() {
+        return this.referencedMessageLocations.rawSet();
     }
 
 }

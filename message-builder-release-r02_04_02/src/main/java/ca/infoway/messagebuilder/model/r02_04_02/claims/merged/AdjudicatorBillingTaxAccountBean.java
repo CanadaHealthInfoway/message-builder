@@ -29,23 +29,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorBillingTaxAccount","FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-
-
-    /**
-     * <p>Adjudicator Billing Tax Account</p>
-     * 
-     * <p>Detail Tax Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
+    private CV code = new CVImpl();
 
 
     /**
@@ -59,6 +45,20 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>Adjudicator Billing Tax Account</p>
+     * 
+     * <p>Detail Tax Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

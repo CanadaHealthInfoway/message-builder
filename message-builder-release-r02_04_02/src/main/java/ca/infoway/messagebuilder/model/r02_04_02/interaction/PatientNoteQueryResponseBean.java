@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.CommentBean;
 @Hl7PartTypeMapping({"COMT_IN300202CA"})
 public class PatientNoteQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<CommentBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

@@ -71,33 +71,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV allergyTestResult = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II allergyTestRecordId = new IIImpl();
-    private TS allergyTestDate = new TSImpl();
     private CD allergyTestType = new CDImpl();
-
-
-    /**
-     * <p>AllergyTestResult</p>
-     * 
-     * <p>C:Allergy Test Result</p>
-     * 
-     * <p><p>A code indicating result of the allergy test.</p></p>
-     * 
-     * <p><p>Allows other providers to evaluate the test. There is 
-     * no point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public AllergyTestValue getAllergyTestResult() {
-        return (AllergyTestValue) this.allergyTestResult.getValue();
-    }
-    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
-        this.allergyTestResult.setValue(allergyTestResult);
-    }
+    private TS allergyTestDate = new TSImpl();
+    private CV allergyTestResult = new CVImpl();
 
 
     /**
@@ -121,6 +99,27 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
+     * <p>AllergyTestType</p>
+     * 
+     * <p>A:Allergy Test Type</p>
+     * 
+     * <p><p>A coded value denoting the type of allergy test 
+     * conducted.</p></p>
+     * 
+     * <p><p>Allows different kinds of allergy/intolerance tests to 
+     * be distinguishable and is therefore mandatory. It uses the 
+     * CD type to support SNOMED post-coordination.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationAllergyTestType getAllergyTestType() {
+        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    }
+    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
+        this.allergyTestType.setValue(allergyTestType);
+    }
+
+
+    /**
      * <p>AllergyTestDate</p>
      * 
      * <p>D:Allergy Test Date</p>
@@ -140,23 +139,24 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestType</p>
+     * <p>AllergyTestResult</p>
      * 
-     * <p>A:Allergy Test Type</p>
+     * <p>C:Allergy Test Result</p>
      * 
-     * <p><p>A coded value denoting the type of allergy test 
-     * conducted.</p></p>
+     * <p><p>A code indicating result of the allergy test.</p></p>
      * 
-     * <p><p>Allows different kinds of allergy/intolerance tests to 
-     * be distinguishable and is therefore mandatory. It uses the 
-     * CD type to support SNOMED post-coordination.</p></p>
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ObservationAllergyTestType getAllergyTestType() {
-        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    @Hl7XmlMapping({"value"})
+    public AllergyTestValue getAllergyTestResult() {
+        return (AllergyTestValue) this.allergyTestResult.getValue();
     }
-    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
-        this.allergyTestType.setValue(allergyTestType);
+    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
+        this.allergyTestResult.setValue(allergyTestResult);
     }
 
 }

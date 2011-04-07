@@ -62,22 +62,53 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AccessTypeBean subject2InformDefinition;
-    private CV consentOverrideReason = new CVImpl();
-    private ConsentedToByBean author1;
-    private SubjectChoice subject1SubjectChoice;
-    private PrescribedByBean author2;
+    private static final long serialVersionUID = 20110407L;
     private II consentFormNumber = new IIImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
+    private CV consentOverrideReason = new CVImpl();
+    private SubjectChoice subject1SubjectChoice;
+    private ConsentedToByBean author1;
+    private PrescribedByBean author2;
+    private AccessTypeBean subject2InformDefinition;
 
 
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
+    /**
+     * <p>D:Consent Form Number</p>
+     * 
+     * <p><p>A unique identifier for a specific consent for a 
+     * patient, client or provider.</p></p>
+     * 
+     * <p><p>Authorization.formNumber</p></p>
+     * 
+     * <p><p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
     }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
+    }
+
+
+    /**
+     * <p>C:Consent Effective and End Time</p>
+     * 
+     * <p><p>Indicates the time that the consent will expire. 'Low' 
+     * is effective time and 'High' is end time.</p></p>
+     * 
+     * <p><p>Authorization.endTime (high)</p></p>
+     * 
+     * <p><p>Most consents are not open-ended, to ensure the 
+     * patient, client, or provider retains a level of control.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 
@@ -104,15 +135,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setConsentOverrideReason(Code consentOverrideReason) {
         this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
-    @Hl7XmlMapping({"author1"})
-    public ConsentedToByBean getAuthor1() {
-        return this.author1;
-    }
-    public void setAuthor1(ConsentedToByBean author1) {
-        this.author1 = author1;
     }
 
 
@@ -160,6 +182,15 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author1"})
+    public ConsentedToByBean getAuthor1() {
+        return this.author1;
+    }
+    public void setAuthor1(ConsentedToByBean author1) {
+        this.author1 = author1;
+    }
+
+
     @Hl7XmlMapping({"author2"})
     public PrescribedByBean getAuthor2() {
         return this.author2;
@@ -169,43 +200,12 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>D:Consent Form Number</p>
-     * 
-     * <p><p>A unique identifier for a specific consent for a 
-     * patient, client or provider.</p></p>
-     * 
-     * <p><p>Authorization.formNumber</p></p>
-     * 
-     * <p><p>Provides a traceable audit link between a physical 
-     * consent form and its electronic record</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
+    @Hl7XmlMapping({"subject2/informDefinition"})
+    public AccessTypeBean getSubject2InformDefinition() {
+        return this.subject2InformDefinition;
     }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
-    }
-
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
-     * 
-     * <p><p>Authorization.endTime (high)</p></p>
-     * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient, client, or provider retains a level of control.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
+        this.subject2InformDefinition = subject2InformDefinition;
     }
 
 }

@@ -59,30 +59,65 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CreatedBy_1Bean author;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private CV eventReason = new CVImpl();
     private StoredInBean recordTarget;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
-    private AuthorizedByBean subjectOf2;
-    private II eventIdentifier = new IIImpl();
-    private QueryByParameterBean<PL> queryByParameter;
-    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
-    private CV eventType = new CVImpl();
-    private CV eventReason = new CVImpl();
+    private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private CreatedAtBean location;
+    private AuthorizedByBean subjectOf2;
+    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
+    private QueryByParameterBean<PL> queryByParameter;
 
 
-    @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
-        return this.author;
+    /**
+     * <p>EventIdentifier</p>
+     * 
+     * <p>B:Event Identifier</p>
+     * 
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
+     * 
+     * <p><p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p></p>
+     * 
+     * <p><p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setAuthor(CreatedBy_1Bean author) {
-        this.author = author;
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -109,12 +144,29 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold' or 'reason for accessing 
+     * information'.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
     }
 
 
@@ -133,6 +185,15 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public CreatedBy_1Bean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(CreatedBy_1Bean author) {
+        this.author = author;
     }
 
 
@@ -166,97 +227,21 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2"})
-    public AuthorizedByBean getSubjectOf2() {
-        return this.subjectOf2;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
-    }
-
-
-    /**
-     * <p>EventIdentifier</p>
-     * 
-     * <p>B:Event Identifier</p>
-     * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
-     * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
-     * indicates whether multiple interactions were caused by the 
-     * same triggering event. Also used for audit purposes.</p></p>
-     * 
-     * <p><p>Identifier needs to be persisted by receiving 
-     * applications, except for queries (queries cannot be 
-     * retracted or undone).</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
     }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    @Hl7XmlMapping({"componentOf"})
-    public List<CareCompositionsBean> getComponentOf() {
-        return this.componentOf;
-    }
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
-     * query, activation request, modification request) 
-     * occurred.</p></p>
-     * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
-     * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -275,12 +260,27 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"componentOf"})
+    public List<CareCompositionsBean> getComponentOf() {
+        return this.componentOf;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }

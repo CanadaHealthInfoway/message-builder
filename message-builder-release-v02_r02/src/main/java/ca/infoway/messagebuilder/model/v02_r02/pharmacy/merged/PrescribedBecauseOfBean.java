@@ -357,33 +357,10 @@ import ca.infoway.messagebuilder.model.v02_r02.common.coct_mt270010ca.Administra
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private Indications indications;
+    private static final long serialVersionUID = 20110407L;
     private INT indicationPriority = new INTImpl();
+    private Indications indications;
     private AdministrationInstructionsBean dosageInstruction;
-
-
-    @Hl7XmlMapping({"indications"})
-    public Indications getIndications() {
-        return this.indications;
-    }
-    public void setIndications(Indications indications) {
-        this.indications = indications;
-    }
-
-    public DiagnosisIndicationsBean getIndicationsAsObservationCondition() {
-        return this.indications instanceof DiagnosisIndicationsBean ? (DiagnosisIndicationsBean) this.indications : null;
-    }
-    public boolean hasIndicationsAsObservationCondition() {
-        return (this.indications instanceof DiagnosisIndicationsBean);
-    }
-
-    public OtherIndicationsBean getIndicationsAsOtherIndication() {
-        return this.indications instanceof OtherIndicationsBean ? (OtherIndicationsBean) this.indications : null;
-    }
-    public boolean hasIndicationsAsOtherIndication() {
-        return (this.indications instanceof OtherIndicationsBean);
-    }
 
 
     /**
@@ -419,6 +396,29 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     }
     public void setIndicationPriority(Integer indicationPriority) {
         this.indicationPriority.setValue(indicationPriority);
+    }
+
+
+    @Hl7XmlMapping({"indications"})
+    public Indications getIndications() {
+        return this.indications;
+    }
+    public void setIndications(Indications indications) {
+        this.indications = indications;
+    }
+
+    public DiagnosisIndicationsBean getIndicationsAsObservationCondition() {
+        return this.indications instanceof DiagnosisIndicationsBean ? (DiagnosisIndicationsBean) this.indications : null;
+    }
+    public boolean hasIndicationsAsObservationCondition() {
+        return (this.indications instanceof DiagnosisIndicationsBean);
+    }
+
+    public OtherIndicationsBean getIndicationsAsOtherIndication() {
+        return this.indications instanceof OtherIndicationsBean ? (OtherIndicationsBean) this.indications : null;
+    }
+    public boolean hasIndicationsAsOtherIndication() {
+        return (this.indications instanceof OtherIndicationsBean);
     }
 
 

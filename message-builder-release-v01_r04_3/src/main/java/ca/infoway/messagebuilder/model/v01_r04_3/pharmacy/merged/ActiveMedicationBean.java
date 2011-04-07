@@ -33,15 +33,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministration","PORX_MT980020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS otherMedicationIndicator = new CSImpl();
-    private CV activeMedicationMaskingIndicator = new CVImpl();
-    private PQ activeMedicationDoseQuantity = new PQImpl();
     private II activeMedicationRecordNumber = new IIImpl();
     private CD administrationType = new CDImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private DrugProductBean consumableMedication;
     private CS activeMedicationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CV activeMedicationMaskingIndicator = new CVImpl();
+    private PQ activeMedicationDoseQuantity = new PQImpl();
+    private DrugProductBean consumableMedication;
 
 
     /**
@@ -55,34 +55,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
     public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
         this.otherMedicationIndicator.setValue(otherMedicationIndicator);
-    }
-
-
-    /**
-     * <p>ActiveMedicationMaskingIndicator</p>
-     * 
-     * <p>E:Active Medication Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
-    }
-    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
-        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
-    }
-
-
-    /**
-     * <p>ActiveMedicationDoseQuantity</p>
-     * 
-     * <p>D:Active Medication Dose Quantity</p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getActiveMedicationDoseQuantity() {
-        return this.activeMedicationDoseQuantity.getValue();
-    }
-    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
-        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
     }
 
 
@@ -115,6 +87,20 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
+     * <p>ActiveMedicationStatus</p>
+     * 
+     * <p>B:Active Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getActiveMedicationStatus() {
+        return (ActStatus) this.activeMedicationStatus.getValue();
+    }
+    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
+        this.activeMedicationStatus.setValue(activeMedicationStatus);
+    }
+
+
+    /**
      * <p>ActiveMedicationTimeRange</p>
      * 
      * <p>C:Active Medication Time-range</p>
@@ -128,26 +114,40 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
 
+    /**
+     * <p>ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>E:Active Medication Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
+    }
+    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
+        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>D:Active Medication Dose Quantity</p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getActiveMedicationDoseQuantity() {
+        return this.activeMedicationDoseQuantity.getValue();
+    }
+    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
+        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
+    }
+
+
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>ActiveMedicationStatus</p>
-     * 
-     * <p>B:Active Medication Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getActiveMedicationStatus() {
-        return (ActStatus) this.activeMedicationStatus.getValue();
-    }
-    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
-        this.activeMedicationStatus.setValue(activeMedicationStatus);
     }
 
 }

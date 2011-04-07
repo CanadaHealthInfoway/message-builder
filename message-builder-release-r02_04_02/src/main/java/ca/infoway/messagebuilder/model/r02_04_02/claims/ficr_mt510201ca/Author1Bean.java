@@ -17,10 +17,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TS adjudicationDateTime = new TSImpl();
-    private AdjudicatorIdBean adjudicatorRole;
     private CV modeCode = new CVImpl();
+    private AdjudicatorIdBean adjudicatorRole;
 
 
     /**
@@ -35,21 +35,21 @@ public class Author1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"adjudicatorRole"})
-    public AdjudicatorIdBean getAdjudicatorRole() {
-        return this.adjudicatorRole;
-    }
-    public void setAdjudicatorRole(AdjudicatorIdBean adjudicatorRole) {
-        this.adjudicatorRole = adjudicatorRole;
-    }
-
-
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
         return (ParticipationMode) this.modeCode.getValue();
     }
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
+    }
+
+
+    @Hl7XmlMapping({"adjudicatorRole"})
+    public AdjudicatorIdBean getAdjudicatorRole() {
+        return this.adjudicatorRole;
+    }
+    public void setAdjudicatorRole(AdjudicatorIdBean adjudicatorRole) {
+        this.adjudicatorRole = adjudicatorRole;
     }
 
 }

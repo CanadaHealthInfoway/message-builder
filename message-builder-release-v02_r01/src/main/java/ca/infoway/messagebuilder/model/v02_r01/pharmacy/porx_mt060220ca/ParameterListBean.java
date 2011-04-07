@@ -30,27 +30,15 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private II otherMedicationRecordId = new IIImpl();
-    private BL includeIssuesIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private BL includeIssuesIndicator = new BLImpl();
     private BL includeNotesIndicator = new BLImpl();
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
+    private CV issueFilterCode = new CVImpl();
+    private II otherMedicationRecordId = new IIImpl();
 
 
     /**
@@ -62,30 +50,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>E:Other Medication Record Id</p>
-     */
-    @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
-    }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
-    }
-
-
-    /**
-     * <p>Include Issues Indicator</p>
-     */
-    @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
-    }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
     }
 
 
@@ -120,6 +84,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
+     * <p>Include Issues Indicator</p>
+     */
+    @Hl7XmlMapping({"includeIssuesIndicator/value"})
+    public Boolean getIncludeIssuesIndicator() {
+        return this.includeIssuesIndicator.getValue();
+    }
+    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
+        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    }
+
+
+    /**
      * <p>Include Notes Indicator</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
@@ -128,6 +104,30 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
         this.includeNotesIndicator.setValue(includeNotesIndicator);
+    }
+
+
+    /**
+     * <p>Issue Filter Code</p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>E:Other Medication Record Id</p>
+     */
+    @Hl7XmlMapping({"otherMedicationRecordId/value"})
+    public Identifier getOtherMedicationRecordId() {
+        return this.otherMedicationRecordId.getValue();
+    }
+    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
+        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
     }
 
 }

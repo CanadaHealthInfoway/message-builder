@@ -16,7 +16,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
     private Party party;
 

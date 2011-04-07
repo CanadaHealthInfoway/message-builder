@@ -24,12 +24,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV genericServiceCodes = new CVImpl();
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
     private MO totalAmountBilledForLineItemElements = new MOImpl();
     private INT factorNumber = new INTImpl();
-    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ unitQuantity = new PQImpl();
 
 
     /**
@@ -48,6 +48,34 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
     public void setGenericServiceCodes(Code genericServiceCodes) {
         this.genericServiceCodes.setValue(genericServiceCodes);
+    }
+
+
+    /**
+     * <p>Unit Quantity</p>
+     * 
+     * <p><p>e.g. 3 {boxes}</p></p>
+     */
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
+    }
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
+    }
+
+
+    /**
+     * <p>Price per unit</p>
+     * 
+     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
+        return this.pricePerUnit.getValue();
+    }
+    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
+        this.pricePerUnit.setValue(pricePerUnit);
     }
 
 
@@ -78,34 +106,6 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
     public void setFactorNumber(Integer factorNumber) {
         this.factorNumber.setValue(factorNumber);
-    }
-
-
-    /**
-     * <p>Price per unit</p>
-     * 
-     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
-    }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
-    }
-
-
-    /**
-     * <p>Unit Quantity</p>
-     * 
-     * <p><p>e.g. 3 {boxes}</p></p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getUnitQuantity() {
-        return this.unitQuantity.getValue();
-    }
-    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
-        this.unitQuantity.setValue(unitQuantity);
     }
 
 }

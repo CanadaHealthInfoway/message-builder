@@ -15,25 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST characteristic = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV characteristicType = new CVImpl();
-
-
-    /**
-     * <p>Characteristic</p>
-     * 
-     * <p>E:Characteristic</p>
-     * 
-     * <p>Characteristic</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public String getCharacteristic() {
-        return this.characteristic.getValue();
-    }
-    public void setCharacteristic(String characteristic) {
-        this.characteristic.setValue(characteristic);
-    }
+    private ST characteristic = new STImpl();
 
 
     /**
@@ -49,6 +33,22 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
     public void setCharacteristicType(MedicationObservationType characteristicType) {
         this.characteristicType.setValue(characteristicType);
+    }
+
+
+    /**
+     * <p>Characteristic</p>
+     * 
+     * <p>E:Characteristic</p>
+     * 
+     * <p>Characteristic</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public String getCharacteristic() {
+        return this.characteristic.getValue();
+    }
+    public void setCharacteristic(String characteristic) {
+        this.characteristic.setValue(characteristic);
     }
 
 }

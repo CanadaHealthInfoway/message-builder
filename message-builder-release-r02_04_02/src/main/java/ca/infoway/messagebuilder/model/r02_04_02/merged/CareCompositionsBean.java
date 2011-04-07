@@ -45,65 +45,13 @@ import java.util.List;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV careCompositionType = new CVImpl();
-    private OccurredAtBean location;
-    private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
-    private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private CV careCompositionType = new CVImpl();
     private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>CareCompositionType</p>
-     * 
-     * <p>A: Care Composition Type</p>
-     * 
-     * <p><p>Identifies the kind of composition represented. 
-     * Examples include encounters (&quot;Emergency 
-     * Encounter&quot;, &quot;Long Term Care Encounter&quot;, etc), 
-     * health condition (episode)-based collections (e.g. 
-     * &quot;Diabetes&quot;, &quot;Hypertension&quot;, etc) and 
-     * general care-based collections such as &quot;gynecological 
-     * care&quot;.</p></p>
-     * 
-     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
-     * 
-     * <p><p>EPHS: vocab concepts needed for LAB ID, Special 
-     * Considerations ID etc.</p></p>
-     * 
-     * <p><p>Allows care compositions to be captured and 
-     * categorized at different levels of abstraction, and is 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
-    }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"attender/assignees"})
-    public List<Assignees> getAttenderAssignees() {
-        return this.attenderAssignees;
-    }
-
-
-    @Hl7XmlMapping({"admitter/assignees"})
-    public List<Assignees> getAdmitterAssignees() {
-        return this.admitterAssignees;
-    }
+    private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
+    private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
+    private OccurredAtBean location;
 
 
     /**
@@ -141,6 +89,37 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
+     * <p>CareCompositionType</p>
+     * 
+     * <p>A: Care Composition Type</p>
+     * 
+     * <p><p>Identifies the kind of composition represented. 
+     * Examples include encounters (&quot;Emergency 
+     * Encounter&quot;, &quot;Long Term Care Encounter&quot;, etc), 
+     * health condition (episode)-based collections (e.g. 
+     * &quot;Diabetes&quot;, &quot;Hypertension&quot;, etc) and 
+     * general care-based collections such as &quot;gynecological 
+     * care&quot;.</p></p>
+     * 
+     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
+     * 
+     * <p><p>EPHS: vocab concepts needed for LAB ID, Special 
+     * Considerations ID etc.</p></p>
+     * 
+     * <p><p>Allows care compositions to be captured and 
+     * categorized at different levels of abstraction, and is 
+     * therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCareEventType getCareCompositionType() {
+        return (ActCareEventType) this.careCompositionType.getValue();
+    }
+    public void setCareCompositionType(ActCareEventType careCompositionType) {
+        this.careCompositionType.setValue(careCompositionType);
+    }
+
+
+    /**
      * <p>CareCompositionEffectiveDate</p>
      * 
      * <p>Care Composition Effective Date</p>
@@ -151,6 +130,27 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setCareCompositionEffectiveDate(Interval<Date> careCompositionEffectiveDate) {
         this.careCompositionEffectiveDate.setValue(careCompositionEffectiveDate);
+    }
+
+
+    @Hl7XmlMapping({"admitter/assignees"})
+    public List<Assignees> getAdmitterAssignees() {
+        return this.admitterAssignees;
+    }
+
+
+    @Hl7XmlMapping({"attender/assignees"})
+    public List<Assignees> getAttenderAssignees() {
+        return this.attenderAssignees;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
     }
 
 }

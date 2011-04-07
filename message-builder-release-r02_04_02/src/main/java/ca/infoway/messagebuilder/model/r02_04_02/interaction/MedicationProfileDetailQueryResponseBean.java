@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.MedicationRecor
 @Hl7PartTypeMapping({"PORX_IN060380CA"})
 public class MedicationProfileDetailQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<MedicationRecord,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

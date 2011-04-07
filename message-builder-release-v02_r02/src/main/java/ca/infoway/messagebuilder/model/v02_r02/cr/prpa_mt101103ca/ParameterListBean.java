@@ -33,19 +33,115 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private TS clientDateOfBirth = new TSImpl();
-    private List<PN> clientName = new ArrayList<PN>();
-    private LanguageCodeBean languageCode;
-    private List<AD> clientAddress = new ArrayList<AD>();
+    private static final long serialVersionUID = 20110407L;
+    private CV clientGender = new CVImpl();
     private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
-    private List<TEL> clientTelecom = new ArrayList<TEL>();
-    private MultipleBirthIndicatorBean multipleBirthIndicator;
-    private PersonalRelationshipCodeBean personalRelationshipCode;
-    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
     private DeceasedIndicatorBean deceasedIndicator;
     private DeceasedTimeBean deceasedTime;
-    private CV clientGender = new CVImpl();
+    private LanguageCodeBean languageCode;
+    private MultipleBirthIndicatorBean multipleBirthIndicator;
+    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
+    private List<AD> clientAddress = new ArrayList<AD>();
+    private TS clientDateOfBirth = new TSImpl();
+    private List<PN> clientName = new ArrayList<PN>();
+    private List<TEL> clientTelecom = new ArrayList<TEL>();
+    private PersonalRelationshipCodeBean personalRelationshipCode;
+
+
+    /**
+     * <p>Client Gender</p>
+     * 
+     * <p><p>Gender of the Client, this is not to be confused with 
+     * Clinical Gender of a client. Administrative Gender is 
+     * typically restricted to Male (M), Female (F) or Unknown 
+     * (U)</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"administrativeGender/value"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
+    }
+
+
+    /**
+     * <p>Identification</p>
+     * 
+     * <p><p>Healthcare identiers may be assigned jurisdictionally 
+     * or by care facility and/or non-healthcare identifiers for 
+     * the Client (e.g. Passport, SIN, DND, DIAND, Drivers 
+     * License)</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"clientId/value"})
+    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
+        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
+    }
+
+
+    @Hl7XmlMapping({"deceasedIndicator"})
+    public DeceasedIndicatorBean getDeceasedIndicator() {
+        return this.deceasedIndicator;
+    }
+    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
+        this.deceasedIndicator = deceasedIndicator;
+    }
+
+
+    @Hl7XmlMapping({"deceasedTime"})
+    public DeceasedTimeBean getDeceasedTime() {
+        return this.deceasedTime;
+    }
+    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
+        this.deceasedTime = deceasedTime;
+    }
+
+
+    @Hl7XmlMapping({"languageCode"})
+    public LanguageCodeBean getLanguageCode() {
+        return this.languageCode;
+    }
+    public void setLanguageCode(LanguageCodeBean languageCode) {
+        this.languageCode = languageCode;
+    }
+
+
+    @Hl7XmlMapping({"multipleBirthIndicator"})
+    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
+        return this.multipleBirthIndicator;
+    }
+    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
+        this.multipleBirthIndicator = multipleBirthIndicator;
+    }
+
+
+    @Hl7XmlMapping({"multipleBirthOrderNumber"})
+    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
+        return this.multipleBirthOrderNumber;
+    }
+    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
+        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
+    }
+
+
+    /**
+     * <p>Client Address</p>
+     * 
+     * <p><p>Address(es) of the Client</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"personAddress/value"})
+    public List<PostalAddress> getClientAddress() {
+        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+    }
 
 
     /**
@@ -79,46 +175,6 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"languageCode"})
-    public LanguageCodeBean getLanguageCode() {
-        return this.languageCode;
-    }
-    public void setLanguageCode(LanguageCodeBean languageCode) {
-        this.languageCode = languageCode;
-    }
-
-
-    /**
-     * <p>Client Address</p>
-     * 
-     * <p><p>Address(es) of the Client</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"personAddress/value"})
-    public List<PostalAddress> getClientAddress() {
-        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
-    }
-
-
-    /**
-     * <p>Identification</p>
-     * 
-     * <p><p>Healthcare identiers may be assigned jurisdictionally 
-     * or by care facility and/or non-healthcare identifiers for 
-     * the Client (e.g. Passport, SIN, DND, DIAND, Drivers 
-     * License)</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"clientId/value"})
-    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
-        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
-    }
-
-
     /**
      * <p>Client Telecom</p>
      * 
@@ -133,68 +189,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"multipleBirthIndicator"})
-    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
-        return this.multipleBirthIndicator;
-    }
-    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
-        this.multipleBirthIndicator = multipleBirthIndicator;
-    }
-
-
     @Hl7XmlMapping({"personalRelationshipCode"})
     public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
         return this.personalRelationshipCode;
     }
     public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
         this.personalRelationshipCode = personalRelationshipCode;
-    }
-
-
-    @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
-        return this.multipleBirthOrderNumber;
-    }
-    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
-        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
-    }
-
-
-    @Hl7XmlMapping({"deceasedIndicator"})
-    public DeceasedIndicatorBean getDeceasedIndicator() {
-        return this.deceasedIndicator;
-    }
-    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
-        this.deceasedIndicator = deceasedIndicator;
-    }
-
-
-    @Hl7XmlMapping({"deceasedTime"})
-    public DeceasedTimeBean getDeceasedTime() {
-        return this.deceasedTime;
-    }
-    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
-        this.deceasedTime = deceasedTime;
-    }
-
-
-    /**
-     * <p>Client Gender</p>
-     * 
-     * <p><p>Gender of the Client, this is not to be confused with 
-     * Clinical Gender of a client. Administrative Gender is 
-     * typically restricted to Male (M), Female (F) or Unknown 
-     * (U)</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"administrativeGender/value"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
-    }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
     }
 
 }

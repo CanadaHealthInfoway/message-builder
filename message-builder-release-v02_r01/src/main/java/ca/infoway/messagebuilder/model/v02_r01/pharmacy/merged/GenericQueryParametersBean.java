@@ -43,95 +43,38 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV drugCode = new CVImpl();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private II prescriptionOrderNumber = new IIImpl();
-    private CV symptomCode = new CVImpl();
-    private CV otherIndicationCode = new CVImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
-    private II prescriberProviderID = new IIImpl();
-    private List<CV> prescriptionStatuses = new ArrayList<CV>();
-    private II otherMedicationRecordId = new IIImpl();
     private CV diagnosisCode = new CVImpl();
-    private List<CV> treatmentTypes = new ArrayList<CV>();
-    private BL mostRecentByDrugIndicator = new BLImpl();
-    private BL includeIssuesIndicator = new BLImpl();
+    private CV drugCode = new CVImpl();
     private BL includeEventHistoryIndicator = new BLImpl();
-    private BL includePendingChangesIndicator = new BLImpl();
+    private BL includeIssuesIndicator = new BLImpl();
     private BL includeNotesIndicator = new BLImpl();
+    private BL includePendingChangesIndicator = new BLImpl();
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
+    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
+    private CV otherIndicationCode = new CVImpl();
+    private II otherMedicationRecordId = new IIImpl();
+    private II prescriberProviderID = new IIImpl();
+    private II prescriptionDispenseNumber = new IIImpl();
+    private II prescriptionOrderNumber = new IIImpl();
+    private List<CV> prescriptionStatuses = new ArrayList<CV>();
+    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
+    private CV symptomCode = new CVImpl();
+    private List<CV> treatmentTypes = new ArrayList<CV>();
     private II medicationDocumentID = new IIImpl();
-    private CV prescribingIndicationDiagnosisCode = new CVImpl();
     private CV medicationDocumentType = new CVImpl();
+    private CV prescribingIndicationDiagnosisCode = new CVImpl();
     private CV prescribingIndicationSymptomCode = new CVImpl();
     private List<HasCharacteristicBean> drugCharacteristics = new ArrayList<HasCharacteristicBean>();
-    private CV drugRouteCode = new CVImpl();
-    private ST drugManufacturerName = new STImpl();
     private CV orderableDrugForm = new CVImpl();
+    private ST drugManufacturerName = new STImpl();
     private ST drugName = new STImpl();
-
-
-    /**
-     * <p>DrugCode</p>
-     * 
-     * <p>E:Drug Code</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
-     * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
-    }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
-    }
-
-
-    /**
-     * <p>RxDispenserIndicators</p>
-     * 
-     * <p>Rx Dispenser Indicators</p>
-     */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
-    }
-
-
-    /**
-     * <p>IssueFilterCode</p>
-     * 
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
+    private CV drugRouteCode = new CVImpl();
 
 
     /**
@@ -187,101 +130,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>D:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
-
-
-    /**
-     * <p>SymptomCode</p>
-     * 
-     * <p>Symptom Code</p>
-     */
-    @Hl7XmlMapping({"symptomCode/value"})
-    public SymptomValue getSymptomCode() {
-        return (SymptomValue) this.symptomCode.getValue();
-    }
-    public void setSymptomCode(SymptomValue symptomCode) {
-        this.symptomCode.setValue(symptomCode);
-    }
-
-
-    /**
-     * <p>OtherIndicationCode</p>
-     * 
-     * <p>Other Indication Code</p>
-     */
-    @Hl7XmlMapping({"otherIndicationCode/value"})
-    public ActNonConditionIndicationCode getOtherIndicationCode() {
-        return (ActNonConditionIndicationCode) this.otherIndicationCode.getValue();
-    }
-    public void setOtherIndicationCode(ActNonConditionIndicationCode otherIndicationCode) {
-        this.otherIndicationCode.setValue(otherIndicationCode);
-    }
-
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>E:Prescription Dispense Number</p>
-     */
-    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    /**
-     * <p>PrescriberProviderID</p>
-     * 
-     * <p>Prescriber Provider ID</p>
-     */
-    @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
-    }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
-    }
-
-
-    /**
-     * <p>PrescriptionStatuses</p>
-     * 
-     * <p>Prescription Statuses</p>
-     */
-    @Hl7XmlMapping({"prescriptionStatus/value"})
-    public List<ActStatus> getPrescriptionStatuses() {
-        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
-    }
-
-
-    /**
-     * <p>OtherMedicationRecordId</p>
-     * 
-     * <p>E:Other Medication Record Id</p>
-     */
-    @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
-    }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
-    }
-
-
-    /**
      * <p>DiagnosisCode</p>
      * 
      * <p>Diagnosis Code</p>
@@ -296,41 +144,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>TreatmentTypes</p>
+     * <p>DrugCode</p>
      * 
-     * <p>Treatment Types</p>
-     */
-    @Hl7XmlMapping({"treatmentType/value"})
-    public List<ActTherapyDurationWorkingListCode> getTreatmentTypes() {
-        return new RawListWrapper<CV, ActTherapyDurationWorkingListCode>(treatmentTypes, CVImpl.class);
-    }
-
-
-    /**
-     * <p>MostRecentByDrugIndicator</p>
+     * <p>E:Drug Code</p>
      * 
-     * <p>Most Recent By Drug Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
-    }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
-    }
-
-
-    /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>B:Drug Code</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Drug Code</p>
      */
-    @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
+    @Hl7XmlMapping({"drugCode/value"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
@@ -349,16 +176,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>IncludeIssuesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Include Issues Indicator</p>
      */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
+    @Hl7XmlMapping({"includeIssuesIndicator/value"})
+    public Boolean getIncludeIssuesIndicator() {
+        return this.includeIssuesIndicator.getValue();
     }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
+        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
     }
 
 
@@ -377,6 +204,179 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    }
+
+
+    /**
+     * <p>IssueFilterCode</p>
+     * 
+     * <p>Issue Filter Code</p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>MostRecentByDrugIndicator</p>
+     * 
+     * <p>Most Recent By Drug Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
+    }
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    }
+
+
+    /**
+     * <p>MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Most Recent Dispense for each Rx Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
+    public Boolean getMostRecentDispenseForEachRxIndicator() {
+        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    }
+    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
+        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    }
+
+
+    /**
+     * <p>OtherIndicationCode</p>
+     * 
+     * <p>Other Indication Code</p>
+     */
+    @Hl7XmlMapping({"otherIndicationCode/value"})
+    public ActNonConditionIndicationCode getOtherIndicationCode() {
+        return (ActNonConditionIndicationCode) this.otherIndicationCode.getValue();
+    }
+    public void setOtherIndicationCode(ActNonConditionIndicationCode otherIndicationCode) {
+        this.otherIndicationCode.setValue(otherIndicationCode);
+    }
+
+
+    /**
+     * <p>OtherMedicationRecordId</p>
+     * 
+     * <p>E:Other Medication Record Id</p>
+     */
+    @Hl7XmlMapping({"otherMedicationRecordId/value"})
+    public Identifier getOtherMedicationRecordId() {
+        return this.otherMedicationRecordId.getValue();
+    }
+    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
+        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
+    }
+
+
+    /**
+     * <p>PrescriberProviderID</p>
+     * 
+     * <p>Prescriber Provider ID</p>
+     */
+    @Hl7XmlMapping({"prescriberProviderID/value"})
+    public Identifier getPrescriberProviderID() {
+        return this.prescriberProviderID.getValue();
+    }
+    public void setPrescriberProviderID(Identifier prescriberProviderID) {
+        this.prescriberProviderID.setValue(prescriberProviderID);
+    }
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>E:Prescription Dispense Number</p>
+     */
+    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>D:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    /**
+     * <p>PrescriptionStatuses</p>
+     * 
+     * <p>Prescription Statuses</p>
+     */
+    @Hl7XmlMapping({"prescriptionStatus/value"})
+    public List<ActStatus> getPrescriptionStatuses() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    }
+
+
+    /**
+     * <p>RxDispenserIndicators</p>
+     * 
+     * <p>Rx Dispenser Indicators</p>
+     */
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
+    }
+
+
+    /**
+     * <p>SymptomCode</p>
+     * 
+     * <p>Symptom Code</p>
+     */
+    @Hl7XmlMapping({"symptomCode/value"})
+    public SymptomValue getSymptomCode() {
+        return (SymptomValue) this.symptomCode.getValue();
+    }
+    public void setSymptomCode(SymptomValue symptomCode) {
+        this.symptomCode.setValue(symptomCode);
+    }
+
+
+    /**
+     * <p>TreatmentTypes</p>
+     * 
+     * <p>Treatment Types</p>
+     */
+    @Hl7XmlMapping({"treatmentType/value"})
+    public List<ActTherapyDurationWorkingListCode> getTreatmentTypes() {
+        return new RawListWrapper<CV, ActTherapyDurationWorkingListCode>(treatmentTypes, CVImpl.class);
+    }
+
+
+    /**
      * <p>MedicationDocumentID</p>
      * 
      * <p>E:Medication Document ID</p>
@@ -391,20 +391,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationDiagnosisCode</p>
-     * 
-     * <p>C:Prescribing Indication Diagnosis Code</p>
-     */
-    @Hl7XmlMapping({"prescribingDiagnosisCode/value"})
-    public DiagnosisValue getPrescribingIndicationDiagnosisCode() {
-        return (DiagnosisValue) this.prescribingIndicationDiagnosisCode.getValue();
-    }
-    public void setPrescribingIndicationDiagnosisCode(DiagnosisValue prescribingIndicationDiagnosisCode) {
-        this.prescribingIndicationDiagnosisCode.setValue(prescribingIndicationDiagnosisCode);
-    }
-
-
-    /**
      * <p>MedicationDocumentType</p>
      * 
      * <p>D:Medication Document Type</p>
@@ -415,6 +401,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setMedicationDocumentType(ActMedicationDocumentCode medicationDocumentType) {
         this.medicationDocumentType.setValue(medicationDocumentType);
+    }
+
+
+    /**
+     * <p>PrescribingIndicationDiagnosisCode</p>
+     * 
+     * <p>C:Prescribing Indication Diagnosis Code</p>
+     */
+    @Hl7XmlMapping({"prescribingDiagnosisCode/value"})
+    public DiagnosisValue getPrescribingIndicationDiagnosisCode() {
+        return (DiagnosisValue) this.prescribingIndicationDiagnosisCode.getValue();
+    }
+    public void setPrescribingIndicationDiagnosisCode(DiagnosisValue prescribingIndicationDiagnosisCode) {
+        this.prescribingIndicationDiagnosisCode.setValue(prescribingIndicationDiagnosisCode);
     }
 
 
@@ -439,16 +439,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>OrderableDrugForm</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>D:Orderable Drug Form</p>
      */
-    @Hl7XmlMapping({"drugRoute/value"})
-    public RouteOfAdministration getDrugRouteCode() {
-        return (RouteOfAdministration) this.drugRouteCode.getValue();
+    @Hl7XmlMapping({"drugForm/value"})
+    public OrderableDrugForm getOrderableDrugForm() {
+        return (OrderableDrugForm) this.orderableDrugForm.getValue();
     }
-    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
-        this.drugRouteCode.setValue(drugRouteCode);
+    public void setOrderableDrugForm(OrderableDrugForm orderableDrugForm) {
+        this.orderableDrugForm.setValue(orderableDrugForm);
     }
 
 
@@ -467,20 +467,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderableDrugForm</p>
-     * 
-     * <p>D:Orderable Drug Form</p>
-     */
-    @Hl7XmlMapping({"drugForm/value"})
-    public OrderableDrugForm getOrderableDrugForm() {
-        return (OrderableDrugForm) this.orderableDrugForm.getValue();
-    }
-    public void setOrderableDrugForm(OrderableDrugForm orderableDrugForm) {
-        this.orderableDrugForm.setValue(orderableDrugForm);
-    }
-
-
-    /**
      * <p>DrugName</p>
      * 
      * <p>C:Drug Name</p>
@@ -491,6 +477,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setDrugName(String drugName) {
         this.drugName.setValue(drugName);
+    }
+
+
+    /**
+     * <p>DrugRouteCode</p>
+     * 
+     * <p>E:Drug Route Code</p>
+     */
+    @Hl7XmlMapping({"drugRoute/value"})
+    public RouteOfAdministration getDrugRouteCode() {
+        return (RouteOfAdministration) this.drugRouteCode.getValue();
+    }
+    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
+        this.drugRouteCode.setValue(drugRouteCode);
     }
 
 }

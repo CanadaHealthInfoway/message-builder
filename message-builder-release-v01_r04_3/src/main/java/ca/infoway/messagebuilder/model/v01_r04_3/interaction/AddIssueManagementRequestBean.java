@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.IssuesBean;
 @Hl7PartTypeMapping({"COMT_IN700001CA"})
 public class AddIssueManagementRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<IssuesBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

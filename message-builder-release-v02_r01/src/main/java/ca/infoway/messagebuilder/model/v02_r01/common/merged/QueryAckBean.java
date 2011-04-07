@@ -18,12 +18,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II queryIdentifier = new IIImpl();
     private CS queryStatus = new CSImpl();
     private INT totalMatchingRows = new INTImpl();
-    private INT remainingRows = new INTImpl();
-    private II queryIdentifier = new IIImpl();
     private INT returnedRows = new INTImpl();
+    private INT remainingRows = new INTImpl();
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
+    }
 
 
     /**
@@ -55,34 +69,6 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>RemainingRows</p>
-     * 
-     * <p>L:Remaining Rows</p>
-     */
-    @Hl7XmlMapping({"resultRemainingQuantity"})
-    public Integer getRemainingRows() {
-        return this.remainingRows.getValue();
-    }
-    public void setRemainingRows(Integer remainingRows) {
-        this.remainingRows.setValue(remainingRows);
-    }
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
-    }
-
-
-    /**
      * <p>ReturnedRows</p>
      * 
      * <p>K:Returned Rows</p>
@@ -93,6 +79,20 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setReturnedRows(Integer returnedRows) {
         this.returnedRows.setValue(returnedRows);
+    }
+
+
+    /**
+     * <p>RemainingRows</p>
+     * 
+     * <p>L:Remaining Rows</p>
+     */
+    @Hl7XmlMapping({"resultRemainingQuantity"})
+    public Integer getRemainingRows() {
+        return this.remainingRows.getValue();
+    }
+    public void setRemainingRows(Integer remainingRows) {
+        this.remainingRows.setValue(remainingRows);
     }
 
 }

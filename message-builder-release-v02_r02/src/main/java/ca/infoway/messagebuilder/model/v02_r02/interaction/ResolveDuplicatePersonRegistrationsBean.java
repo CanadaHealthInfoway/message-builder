@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r02.cr.merged.IdentifiedPersonBean;
 @Hl7PartTypeMapping({"PRPA_IN101004CA"})
 public class ResolveDuplicatePersonRegistrationsBean extends HL7Message_1Bean<TriggerEvent_3Bean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

@@ -20,25 +20,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV confidentialityCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II observationIdentifier = new IIImpl();
     private CD observationType = new CDImpl();
+    private CV confidentialityCode = new CVImpl();
     private CV observationValue = new CVImpl();
-
-
-    /**
-     * <p>D:Observation Masking Indicator</p>
-     * 
-     * <p>D:Observation Masked Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
-    }
-    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
-        this.confidentialityCode.setValue(confidentialityCode);
-    }
 
 
     /**
@@ -66,6 +52,20 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setObservationType(ObservationIssueTriggerCodedObservationType observationType) {
         this.observationType.setValue(observationType);
+    }
+
+
+    /**
+     * <p>D:Observation Masking Indicator</p>
+     * 
+     * <p>D:Observation Masked Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    }
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 

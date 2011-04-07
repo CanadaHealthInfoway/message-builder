@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v01_r04_3.iehr.repc_mt000012ca.ReportedRe
 @Hl7PartTypeMapping({"REPC_IN000008CA"})
 public class UpdateAdverseReactionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

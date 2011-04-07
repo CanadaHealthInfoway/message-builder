@@ -38,10 +38,10 @@ import java.util.Date;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.merged.Choice, ca.infoway.messagebuilder.model.v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.v02_r02.common.merged.Patient_2, ca.infoway.messagebuilder.model.v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II patientIdentifier = new IIImpl();
-    private CV patientGender = new CVImpl();
     private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
     private TS patientBirthDate = new TSImpl();
 
 
@@ -192,32 +192,6 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
     public void setPatientIdentifier(Identifier patientIdentifier) {
         this.patientIdentifier.setValue(patientIdentifier);
-    }
-
-
-    /**
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
     }
 
 
@@ -697,6 +671,32 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
+     */
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 

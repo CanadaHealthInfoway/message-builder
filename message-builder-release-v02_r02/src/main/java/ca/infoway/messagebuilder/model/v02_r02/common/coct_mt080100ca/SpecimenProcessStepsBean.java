@@ -33,31 +33,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV transportationType = new CVImpl();
     private CS transportationStatus = new CSImpl();
-
-
-    /**
-     * <p>Q:Transportation Date/Time</p>
-     * 
-     * <p><p>The date/time the process step took place or the 
-     * duration of that step (days or time in transit, start time, 
-     * end time).</p></p>
-     * 
-     * <p><p>Holds the date/time the process step took place. This 
-     * attribute is especially important for those process steps 
-     * which document the date/time the process happened (specimen 
-     * received date/time).</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTransportationDateTime() {
-        return this.transportationDateTime.getValue();
-    }
-    public void setTransportationDateTime(Interval<Date> transportationDateTime) {
-        this.transportationDateTime.setValue(transportationDateTime);
-    }
+    private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -95,6 +74,27 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
     public void setTransportationStatus(ActStatus transportationStatus) {
         this.transportationStatus.setValue(transportationStatus);
+    }
+
+
+    /**
+     * <p>Q:Transportation Date/Time</p>
+     * 
+     * <p><p>The date/time the process step took place or the 
+     * duration of that step (days or time in transit, start time, 
+     * end time).</p></p>
+     * 
+     * <p><p>Holds the date/time the process step took place. This 
+     * attribute is especially important for those process steps 
+     * which document the date/time the process happened (specimen 
+     * received date/time).</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getTransportationDateTime() {
+        return this.transportationDateTime.getValue();
+    }
+    public void setTransportationDateTime(Interval<Date> transportationDateTime) {
+        this.transportationDateTime.setValue(transportationDateTime);
     }
 
 }

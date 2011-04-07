@@ -78,16 +78,16 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private INT totalPrescribedQuantity = new INTImpl();
-    private OccurredAtBean location;
-    private BL componentContextConductionInd = new BLImpl();
-    private CS componentContextControlCode = new CSImpl();
-    private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private ActRequestBean componentOfActRequest;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private OccurredAtBean location;
+    private CS componentContextControlCode = new CSImpl();
+    private BL componentContextConductionInd = new BLImpl();
+    private SupplementalFillInformationBean componentSupplementalFillInformation;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
+    private ActRequestBean componentOfActRequest;
 
 
     /**
@@ -128,51 +128,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
-    }
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"component/contextControlCode"})
-    public ContextControl getComponentContextControlCode() {
-        return (ContextControl) this.componentContextControlCode.getValue();
-    }
-    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
-        this.componentContextControlCode.setValue(componentContextControlCode);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalFillInformation"})
-    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
-        return this.componentSupplementalFillInformation;
-    }
-    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
-        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
     /**
      * <p>TotalDaysSupply</p>
      * 
@@ -197,18 +152,63 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf/actRequest"})
-    public ActRequestBean getComponentOfActRequest() {
-        return this.componentOfActRequest;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setComponentOfActRequest(ActRequestBean componentOfActRequest) {
-        this.componentOfActRequest = componentOfActRequest;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component/contextControlCode"})
+    public ContextControl getComponentContextControlCode() {
+        return (ContextControl) this.componentContextControlCode.getValue();
+    }
+    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
+        this.componentContextControlCode.setValue(componentContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"component/contextConductionInd"})
+    public Boolean getComponentContextConductionInd() {
+        return this.componentContextConductionInd.getValue();
+    }
+    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
+        this.componentContextConductionInd.setValue(componentContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalFillInformation"})
+    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
+        return this.componentSupplementalFillInformation;
+    }
+    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
+        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
 
 
     @Hl7XmlMapping({"fulfillment/supplyEvent"})
     public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
         return this.fulfillmentSupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/actRequest"})
+    public ActRequestBean getComponentOfActRequest() {
+        return this.componentOfActRequest;
+    }
+    public void setComponentOfActRequest(ActRequestBean componentOfActRequest) {
+        this.componentOfActRequest = componentOfActRequest;
     }
 
 }

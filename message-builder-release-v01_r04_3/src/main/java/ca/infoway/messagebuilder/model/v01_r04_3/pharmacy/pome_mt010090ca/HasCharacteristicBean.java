@@ -15,21 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV drugCharacteristicTypeCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private ST drugCharacteristic = new STImpl();
-
-
-    /**
-     * <p>H:Drug Characteristic Type Code</p>
-     */
-    @Hl7XmlMapping({"drugCharacteristicType/value"})
-    public MedicationObservationType getDrugCharacteristicTypeCode() {
-        return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();
-    }
-    public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
-        this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
-    }
+    private CV drugCharacteristicTypeCode = new CVImpl();
 
 
     /**
@@ -41,6 +29,18 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
     public void setDrugCharacteristic(String drugCharacteristic) {
         this.drugCharacteristic.setValue(drugCharacteristic);
+    }
+
+
+    /**
+     * <p>H:Drug Characteristic Type Code</p>
+     */
+    @Hl7XmlMapping({"drugCharacteristicType/value"})
+    public MedicationObservationType getDrugCharacteristicTypeCode() {
+        return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();
+    }
+    public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
+        this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
     }
 
 }

@@ -19,17 +19,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
+    private static final long serialVersionUID = 20110407L;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
     private DocumentContent_3 component1DocumentContent;
+    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
-
-
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
-    }
 
 
     /**
@@ -73,6 +67,12 @@ public class SectionBean extends MessagePartBean {
     }
     public boolean hasComponent1DocumentContentAsObservation() {
         return (this.component1DocumentContent instanceof ClinicalObservationDocumentBean);
+    }
+
+
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 

@@ -23,27 +23,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT dispensedQuantity = new INTImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private DeviceProductBean productManufacturedProduct;
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private INT dispensedQuantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DeviceProductBean productManufacturedProduct;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private RelatedPersonBean receiverPersonalRelationship;
 
 
     /**
-     * <p>DispensedQuantity</p>
+     * <p>DispenseType</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>Dispense Type</p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -62,25 +62,16 @@ public class DispenseDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>DispensedQuantity</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public Integer getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
-    }
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
+    public void setDispensedQuantity(Integer dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -95,6 +86,15 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
+    }
+
+
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
+    }
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 

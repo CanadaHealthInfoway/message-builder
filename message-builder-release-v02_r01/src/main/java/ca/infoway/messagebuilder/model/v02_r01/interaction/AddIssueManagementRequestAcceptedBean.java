@@ -11,6 +11,6 @@ import ca.infoway.messagebuilder.model.v02_r01.common.merged.TriggerEvent_2Bean;
 @Hl7PartTypeMapping({"COMT_IN700002CA"})
 public class AddIssueManagementRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

@@ -30,29 +30,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110407L;
+    private CE languageOfCommunicationCode = new CEImpl();
     private CV languageOfCommunicationSkillsCode = new CVImpl();
     private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
-    private CE languageOfCommunicationCode = new CEImpl();
+    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
 
 
     /**
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Language of Communication Code</p>
      * 
-     * <p><p>Indicates the preferred language for all 
-     * communications.</p></p>
+     * <p><p>A code indicating the language of communication</p></p>
      * 
-     * <p><p>Required attribute that supports the business 
-     * requirement to indicate the preferred language for all 
-     * communications.</p></p>
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
      */
-    @Hl7XmlMapping({"preferenceInd"})
-    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
-        return this.languageOfCommunicationPreferenceIndicator.getValue();
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getLanguageOfCommunicationCode() {
+        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
     }
-    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
-        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
+    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
+        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
     }
 
 
@@ -97,19 +95,21 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Language of Communication Preference Indicator</p>
      * 
-     * <p><p>A code indicating the language of communication</p></p>
+     * <p><p>Indicates the preferred language for all 
+     * communications.</p></p>
      * 
-     * <p><p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p></p>
+     * <p><p>Required attribute that supports the business 
+     * requirement to indicate the preferred language for all 
+     * communications.</p></p>
      */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
+    @Hl7XmlMapping({"preferenceInd"})
+    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
+        return this.languageOfCommunicationPreferenceIndicator.getValue();
     }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
+        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
     }
 
 }

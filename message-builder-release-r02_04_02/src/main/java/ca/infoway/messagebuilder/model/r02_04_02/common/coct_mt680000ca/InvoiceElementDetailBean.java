@@ -25,13 +25,22 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedResultOutcome
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private CV productServiceCode = new CVImpl();
+    private PQ quantityPerUnit = new PQImpl();
+    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
     private MO invoiceElementAmountBilled = new MOImpl();
     private INT multiplierForTaxes = new INTImpl();
-    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ quantityPerUnit = new PQImpl();
-    private AdjudicatedResultOutcomeBean outcomeOf;
+
+
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
+    }
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
+    }
 
 
     /**
@@ -50,6 +59,34 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
     public void setProductServiceCode(Code productServiceCode) {
         this.productServiceCode.setValue(productServiceCode);
+    }
+
+
+    /**
+     * <p>Quantity per Unit</p>
+     * 
+     * <p><p>e.g. 3 {boxes}</p></p>
+     */
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getQuantityPerUnit() {
+        return this.quantityPerUnit.getValue();
+    }
+    public void setQuantityPerUnit(PhysicalQuantity quantityPerUnit) {
+        this.quantityPerUnit.setValue(quantityPerUnit);
+    }
+
+
+    /**
+     * <p>Price Per Unit</p>
+     * 
+     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
+        return this.pricePerUnit.getValue();
+    }
+    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
+        this.pricePerUnit.setValue(pricePerUnit);
     }
 
 
@@ -80,43 +117,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
     public void setMultiplierForTaxes(Integer multiplierForTaxes) {
         this.multiplierForTaxes.setValue(multiplierForTaxes);
-    }
-
-
-    /**
-     * <p>Price Per Unit</p>
-     * 
-     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
-    }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
-    }
-
-
-    /**
-     * <p>Quantity per Unit</p>
-     * 
-     * <p><p>e.g. 3 {boxes}</p></p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getQuantityPerUnit() {
-        return this.quantityPerUnit.getValue();
-    }
-    public void setQuantityPerUnit(PhysicalQuantity quantityPerUnit) {
-        this.quantityPerUnit.setValue(quantityPerUnit);
-    }
-
-
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
     }
 
 }

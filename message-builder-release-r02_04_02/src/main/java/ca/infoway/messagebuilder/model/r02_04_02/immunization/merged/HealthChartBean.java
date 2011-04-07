@@ -10,18 +10,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthChart","POIZ_MT030060CA.HealthChart","POIZ_MT060150CA.HealthChart"})
 public class HealthChartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AntigenCountBean subjectOf2AntigenCount;
+    private static final long serialVersionUID = 20110407L;
     private AntigenValidityBean subjectOf1AntigenValidity;
-
-
-    @Hl7XmlMapping({"subjectOf2/antigenCount"})
-    public AntigenCountBean getSubjectOf2AntigenCount() {
-        return this.subjectOf2AntigenCount;
-    }
-    public void setSubjectOf2AntigenCount(AntigenCountBean subjectOf2AntigenCount) {
-        this.subjectOf2AntigenCount = subjectOf2AntigenCount;
-    }
+    private AntigenCountBean subjectOf2AntigenCount;
 
 
     @Hl7XmlMapping({"subjectOf1/antigenValidity"})
@@ -30,6 +21,15 @@ public class HealthChartBean extends MessagePartBean {
     }
     public void setSubjectOf1AntigenValidity(AntigenValidityBean subjectOf1AntigenValidity) {
         this.subjectOf1AntigenValidity = subjectOf1AntigenValidity;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/antigenCount"})
+    public AntigenCountBean getSubjectOf2AntigenCount() {
+        return this.subjectOf2AntigenCount;
+    }
+    public void setSubjectOf2AntigenCount(AntigenCountBean subjectOf2AntigenCount) {
+        this.subjectOf2AntigenCount = subjectOf2AntigenCount;
     }
 
 }

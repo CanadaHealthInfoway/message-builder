@@ -29,13 +29,13 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private RefusedByBean author;
-    private CV writtenIn = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV writtenIn = new CVImpl();
+    private RefusedByBean author;
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
 
 
@@ -50,43 +50,6 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
-    }
-
-
-    /**
-     * <p>Monograph Effective/Expiry Date</p>
-     * 
-     * <p>C:Medication Document Effective/Expiry Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -115,6 +78,43 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setMonographContent(EncapsulatedData monographContent) {
         this.monographContent.setValue(monographContent);
+    }
+
+
+    /**
+     * <p>Monograph Effective/Expiry Date</p>
+     * 
+     * <p>C:Medication Document Effective/Expiry Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 

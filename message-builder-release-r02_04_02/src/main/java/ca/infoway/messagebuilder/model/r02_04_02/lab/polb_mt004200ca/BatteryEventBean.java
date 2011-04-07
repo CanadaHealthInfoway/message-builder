@@ -51,31 +51,31 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
+    private static final long serialVersionUID = 20110407L;
+    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
-    private ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private ResultSortKeyBean component2ResultSortKey;
-    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
     private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private CD typeOfBatteryEvent = new CDImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private CS batteryEventStatus = new CSImpl();
-    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private IVL<TS, Interval<Date>> batteryEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
+    private ResultSortKeyBean component2ResultSortKey;
+    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
+    private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
+    @Hl7XmlMapping({"specimen"})
+    public List<ReportSectionSpecimenBean> getSpecimen() {
+        return this.specimen;
     }
 
 
@@ -85,57 +85,18 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"component4/observationChoice"})
-    public List<ObservationChoice> getComponent4ObservationChoice() {
-        return this.component4ObservationChoice;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"component2/resultSortKey"})
-    public ResultSortKeyBean getComponent2ResultSortKey() {
-        return this.component2ResultSortKey;
-    }
-    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
-        this.component2ResultSortKey = component2ResultSortKey;
-    }
-
-
-    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
-    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
-        return this.component3ReportLevelObservationEvent;
-    }
-
-
     /**
      * <p>Battery Event Identifier</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getBatteryEventIdentifier() {
         return this.batteryEventIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
     }
 
 
@@ -151,42 +112,12 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
     }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"component1/reportableTestIndicator"})
-    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
-        return this.component1ReportableTestIndicator;
-    }
-
-
-    /**
-     * <p>Battery Event Confidentiality</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
-        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    public void setPrimaryInformationRecipientAssignedEntity(ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
 
@@ -208,12 +139,6 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
-    @Hl7XmlMapping({"specimen"})
-    public List<ReportSectionSpecimenBean> getSpecimen() {
-        return this.specimen;
-    }
-
-
     /**
      * <p>Battery Event Effective Time</p>
      * 
@@ -225,6 +150,81 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
     public void setBatteryEventEffectiveTime(Interval<Date> batteryEventEffectiveTime) {
         this.batteryEventEffectiveTime.setValue(batteryEventEffectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
+    }
+
+
+    /**
+     * <p>Battery Event Confidentiality</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
+        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component1/reportableTestIndicator"})
+    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
+        return this.component1ReportableTestIndicator;
+    }
+
+
+    @Hl7XmlMapping({"component2/resultSortKey"})
+    public ResultSortKeyBean getComponent2ResultSortKey() {
+        return this.component2ResultSortKey;
+    }
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
+        this.component2ResultSortKey = component2ResultSortKey;
+    }
+
+
+    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
+    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
+        return this.component3ReportLevelObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component4/observationChoice"})
+    public List<ObservationChoice> getComponent4ObservationChoice() {
+        return this.component4ObservationChoice;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

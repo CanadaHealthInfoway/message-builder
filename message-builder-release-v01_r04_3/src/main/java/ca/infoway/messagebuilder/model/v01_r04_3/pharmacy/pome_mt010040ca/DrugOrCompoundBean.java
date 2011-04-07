@@ -31,30 +31,36 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ManufacturerBean asManufacturedProductManufacturer;
-    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
-    private ST description = new STImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private DispensedInBean asContent;
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
-    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST description = new STImpl();
     private CV drugForm = new CVImpl();
+    private ManufacturerBean asManufacturedProductManufacturer;
     private CS regulatoryStatusCode = new CSImpl();
+    private DispensedInBean asContent;
+    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
 
 
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
+    /**
+     * <p>Drug Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
-    @Hl7XmlMapping({"ingredient"})
-    public List<DrugContainsBean> getIngredient() {
-        return this.ingredient;
+    /**
+     * <p>Drug Names</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
     }
 
 
@@ -71,42 +77,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Names</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
-    }
-
-
-    /**
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    @Hl7XmlMapping({"asSpecializedKind"})
-    public List<GroupedWithinBean> getAsSpecializedKind() {
-        return this.asSpecializedKind;
-    }
-
-
-    /**
      * <p>Drug Form</p>
      */
     @Hl7XmlMapping({"formCode"})
@@ -115,6 +85,15 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }
 
 
@@ -127,6 +106,27 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
         this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
+    }
+
+
+    @Hl7XmlMapping({"asSpecializedKind"})
+    public List<GroupedWithinBean> getAsSpecializedKind() {
+        return this.asSpecializedKind;
+    }
+
+
+    @Hl7XmlMapping({"ingredient"})
+    public List<DrugContainsBean> getIngredient() {
+        return this.ingredient;
     }
 
 }

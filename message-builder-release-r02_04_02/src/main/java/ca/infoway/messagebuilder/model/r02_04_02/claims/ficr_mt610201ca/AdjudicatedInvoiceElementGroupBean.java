@@ -27,78 +27,27 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-    private CV invoiceType = new CVImpl();
-    private List<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean>();
-    private MO paidAmount = new MOImpl();
-    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
-    private List<AdjudicatedInvoiceElementComponentBean> component = new ArrayList<AdjudicatedInvoiceElementComponentBean>();
-    private AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup;
-    private AdjudicatedResultOutcomeBean outcomeOf;
+    private static final long serialVersionUID = 20110407L;
     private AllowableBean reference1Allowable;
-    private AdjudicatedInvoiceAuthorBean author;
-    private CS statusOfTheAdjudicatedInvoice = new CSImpl();
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private II adjudicatedResultsIdentifier = new IIImpl();
+    private CV invoiceType = new CVImpl();
+    private CS statusOfTheAdjudicatedInvoice = new CSImpl();
+    private MO paidAmount = new MOImpl();
+    private AdjudicatedInvoiceAuthorBean author;
+    private AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup;
+    private List<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean>();
+    private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
+    private List<AdjudicatedInvoiceElementComponentBean> component = new ArrayList<AdjudicatedInvoiceElementComponentBean>();
+    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
 
 
-    @Hl7XmlMapping({"coverage"})
-    public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
-        return this.coverage;
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
     }
-
-
-    /**
-     * <p>Invoice Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
-    }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
-    /**
-     * <p>Paid Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
-    }
-
-
-    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
-    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
-        return this.referencedByAdjudResultsGroup;
-    }
-    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
-        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
-    }
-
-
-    @Hl7XmlMapping({"component"})
-    public List<AdjudicatedInvoiceElementComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/adjudicatedInvoiceElementGroup"})
-    public AdjudicatedInvoiceElementGroupBean getPredecessorAdjudicatedInvoiceElementGroup() {
-        return this.predecessorAdjudicatedInvoiceElementGroup;
-    }
-    public void setPredecessorAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup) {
-        this.predecessorAdjudicatedInvoiceElementGroup = predecessorAdjudicatedInvoiceElementGroup;
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
     }
 
 
@@ -111,21 +60,27 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"reference1/allowable"})
-    public AllowableBean getReference1Allowable() {
-        return this.reference1Allowable;
+    /**
+     * <p>Adjudicated Results Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicatedResultsIdentifier() {
+        return this.adjudicatedResultsIdentifier.getValue();
     }
-    public void setReference1Allowable(AllowableBean reference1Allowable) {
-        this.reference1Allowable = reference1Allowable;
+    public void setAdjudicatedResultsIdentifier(Identifier adjudicatedResultsIdentifier) {
+        this.adjudicatedResultsIdentifier.setValue(adjudicatedResultsIdentifier);
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public AdjudicatedInvoiceAuthorBean getAuthor() {
-        return this.author;
+    /**
+     * <p>Invoice Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getInvoiceType() {
+        return (Code) this.invoiceType.getValue();
     }
-    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
-        this.author = author;
+    public void setInvoiceType(Code invoiceType) {
+        this.invoiceType.setValue(invoiceType);
     }
 
 
@@ -142,14 +97,59 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Adjudicated Results Identifier</p>
+     * <p>Paid Amount</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedResultsIdentifier() {
-        return this.adjudicatedResultsIdentifier.getValue();
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
     }
-    public void setAdjudicatedResultsIdentifier(Identifier adjudicatedResultsIdentifier) {
-        this.adjudicatedResultsIdentifier.setValue(adjudicatedResultsIdentifier);
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public AdjudicatedInvoiceAuthorBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/adjudicatedInvoiceElementGroup"})
+    public AdjudicatedInvoiceElementGroupBean getPredecessorAdjudicatedInvoiceElementGroup() {
+        return this.predecessorAdjudicatedInvoiceElementGroup;
+    }
+    public void setPredecessorAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup) {
+        this.predecessorAdjudicatedInvoiceElementGroup = predecessorAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"coverage"})
+    public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
+        return this.coverage;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<AdjudicatedInvoiceElementComponentBean> getComponent() {
+        return this.component;
+    }
+
+
+    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
+    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
+        return this.referencedByAdjudResultsGroup;
+    }
+    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
+        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
     }
 
 }

@@ -21,12 +21,26 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private TS refusalToFillDate = new TSImpl();
     private CV refusalToFillReason = new CVImpl();
     private RefusedByBean author;
-    private TS refusalToFillDate = new TSImpl();
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
     private CreatedAtBean location;
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+
+
+    /**
+     * <p>RefusalToFillDate</p>
+     * 
+     * <p>Refusal To Fill Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getRefusalToFillDate() {
+        return this.refusalToFillDate.getValue();
+    }
+    public void setRefusalToFillDate(Date refusalToFillDate) {
+        this.refusalToFillDate.setValue(refusalToFillDate);
+    }
 
 
     /**
@@ -54,32 +68,18 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>RefusalToFillDate</p>
-     * 
-     * <p>Refusal To Fill Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getRefusalToFillDate() {
-        return this.refusalToFillDate.getValue();
-    }
-    public void setRefusalToFillDate(Date refusalToFillDate) {
-        this.refusalToFillDate.setValue(refusalToFillDate);
-    }
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
     }
 
 }

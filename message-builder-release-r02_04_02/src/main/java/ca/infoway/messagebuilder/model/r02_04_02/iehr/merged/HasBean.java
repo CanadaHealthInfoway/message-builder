@@ -65,10 +65,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT500001CA.Participant","REPC_MT500002CA.Participant","REPC_MT500004CA.Participant"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV participationMechanism = new CVImpl();
-    private SET<CV, Code> participantConfidentialities = new SETImpl<CV, Code>(CVImpl.class);
     private II participantIdReference = new IIImpl();
+    private SET<CV, Code> participantConfidentialities = new SETImpl<CV, Code>(CVImpl.class);
 
 
     /**
@@ -90,6 +90,30 @@ public class HasBean extends MessagePartBean {
     }
     public void setParticipationMechanism(ParticipationMode participationMechanism) {
         this.participationMechanism.setValue(participationMechanism);
+    }
+
+
+    /**
+     * <p>ParticipantIdReference</p>
+     * 
+     * <p>A: Participant Id Reference</p>
+     * 
+     * <p><p>The unique identifier of a patient or provider who was 
+     * involved in the encounter at the identified location. This 
+     * will reference one of the patient or provider ids already 
+     * associated with the Care Composition.</p></p>
+     * 
+     * <p><p>Links the participant to the location where they were 
+     * involved in the encounter. The element is mandatory because 
+     * there's no point listing participants unless they can be 
+     * explicitly identified.</p></p>
+     */
+    @Hl7XmlMapping({"role/id"})
+    public Identifier getParticipantIdReference() {
+        return this.participantIdReference.getValue();
+    }
+    public void setParticipantIdReference(Identifier participantIdReference) {
+        this.participantIdReference.setValue(participantIdReference);
     }
 
 
@@ -126,30 +150,6 @@ public class HasBean extends MessagePartBean {
     @Hl7XmlMapping({"role/confidentialityCode"})
     public Set<x_VeryBasicConfidentialityKind> getParticipantConfidentialities() {
         return this.participantConfidentialities.rawSet(x_VeryBasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>ParticipantIdReference</p>
-     * 
-     * <p>A: Participant Id Reference</p>
-     * 
-     * <p><p>The unique identifier of a patient or provider who was 
-     * involved in the encounter at the identified location. This 
-     * will reference one of the patient or provider ids already 
-     * associated with the Care Composition.</p></p>
-     * 
-     * <p><p>Links the participant to the location where they were 
-     * involved in the encounter. The element is mandatory because 
-     * there's no point listing participants unless they can be 
-     * explicitly identified.</p></p>
-     */
-    @Hl7XmlMapping({"role/id"})
-    public Identifier getParticipantIdReference() {
-        return this.participantIdReference.getValue();
-    }
-    public void setParticipantIdReference(Identifier participantIdReference) {
-        this.participantIdReference.setValue(participantIdReference);
     }
 
 }

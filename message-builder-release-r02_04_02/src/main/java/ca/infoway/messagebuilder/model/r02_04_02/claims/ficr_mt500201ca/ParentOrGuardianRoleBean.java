@@ -19,10 +19,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ParentOrGuardianRole"})
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II idOfParent = new IIImpl();
     private CV parentOrGuardianRelationshipToPatient = new CVImpl();
     private PN nameOfParentOrGuardian = new PNImpl();
-    private II idOfParent = new IIImpl();
+
+
+    /**
+     * <p>Id of parent</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIdOfParent() {
+        return this.idOfParent.getValue();
+    }
+    public void setIdOfParent(Identifier idOfParent) {
+        this.idOfParent.setValue(idOfParent);
+    }
 
 
     /**
@@ -46,18 +58,6 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
     }
     public void setNameOfParentOrGuardian(PersonName nameOfParentOrGuardian) {
         this.nameOfParentOrGuardian.setValue(nameOfParentOrGuardian);
-    }
-
-
-    /**
-     * <p>Id of parent</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIdOfParent() {
-        return this.idOfParent.getValue();
-    }
-    public void setIdOfParent(Identifier idOfParent) {
-        this.idOfParent.setValue(idOfParent);
     }
 
 }

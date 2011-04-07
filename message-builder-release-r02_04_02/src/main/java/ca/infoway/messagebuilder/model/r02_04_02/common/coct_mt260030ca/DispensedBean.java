@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProd
 @Hl7PartTypeMapping({"COCT_MT260030CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private DrugProductBean medication;
 
 

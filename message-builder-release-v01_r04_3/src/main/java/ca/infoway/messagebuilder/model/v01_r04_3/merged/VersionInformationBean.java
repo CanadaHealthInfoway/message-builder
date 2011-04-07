@@ -26,47 +26,13 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RefusedByBean author;
-    private ProviderBean responsiblePartyAssignedPerson;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV reasonCode = new CVImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private RefusedByBean author;
     private II changeIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
-     * 
-     * <p>B:Medical Condition Status Change Reason</p>
-     * 
-     * <p>D:Change Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getReasonCode() {
-        return (ControlActReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(ControlActReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
-    }
 
 
     /**
@@ -98,6 +64,40 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * 
+     * <p>B:Medical Condition Status Change Reason</p>
+     * 
+     * <p>D:Change Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
+    }
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 

@@ -15,23 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV languageOfCommunicationCode = new CVImpl();
-
-
-    /**
-     * <p>LanguageOfCommunicationPreferenceIndicator</p>
-     * 
-     * <p>Language of Communication Preference Indicator</p>
-     */
-    @Hl7XmlMapping({"preferenceInd"})
-    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
-        return this.languageOfCommunicationPreferenceIndicator.getValue();
-    }
-    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
-        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
-    }
+    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
 
 
     /**
@@ -45,6 +31,20 @@ public class LanguageCommunicationBean extends MessagePartBean {
     }
     public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
         this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    }
+
+
+    /**
+     * <p>LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Language of Communication Preference Indicator</p>
+     */
+    @Hl7XmlMapping({"preferenceInd"})
+    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
+        return this.languageOfCommunicationPreferenceIndicator.getValue();
+    }
+    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
+        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
     }
 
 }

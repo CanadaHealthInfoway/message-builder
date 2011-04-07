@@ -36,14 +36,41 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV healthcareProviderRoleType = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private OrganizationBean issuingOrganization;
-    private PrinicpalPersonBean healthCarePrincipalPerson;
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
+    private CV healthcareProviderRoleType = new CVImpl();
+    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPersonBean healthCarePrincipalPerson;
+    private OrganizationBean issuingOrganization;
+
+
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
+     * <p>Healthcare Provider Role Identification</p>
+     * 
+     * <p><p>A unique identifier for a provider in a specific 
+     * healthcare role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getHealthcareProviderRoleIdentification() {
+        return this.healthcareProviderRoleIdentification.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"relatedTo/roleChoice"})
+    public List<RoleChoice> getRelatedToRoleChoice() {
+        return this.relatedToRoleChoice;
+    }
 
 
     /**
@@ -64,30 +91,6 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
-
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
-    }
-
-
-    @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
-        return this.healthCarePrincipalPerson;
-    }
-    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
-        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
-    }
-
-
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
@@ -103,24 +106,21 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
-    @Hl7XmlMapping({"relatedTo/roleChoice"})
-    public List<RoleChoice> getRelatedToRoleChoice() {
-        return this.relatedToRoleChoice;
+    @Hl7XmlMapping({"healthCarePrincipalPerson"})
+    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
+        return this.healthCarePrincipalPerson;
+    }
+    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
+        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 
 
-    /**
-     * <p>Healthcare Provider Role Identification</p>
-     * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.rawSet();
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

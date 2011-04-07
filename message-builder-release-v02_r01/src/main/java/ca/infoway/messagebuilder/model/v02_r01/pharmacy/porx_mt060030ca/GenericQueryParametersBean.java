@@ -27,12 +27,24 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDeviceIndicator = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
     private List<CV> rxDispenserIndicators = new ArrayList<CV>();
     private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV issueFilterCode = new CVImpl();
+
+
+    /**
+     * <p>Issue Filter Code</p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
 
 
     /**
@@ -77,18 +89,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
         this.usageEffectivePeriod.setValue(usageEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
     }
 
 }

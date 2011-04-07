@@ -36,50 +36,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110407L;
     private CS prescriptionDispensableIndicator = new CSImpl();
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
-    private CreatedAtBean location;
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-
-
-    /**
-     * <p>A:Dispensing Allowed Period</p>
-     * 
-     * <p><p>This indicates the validity period of a prescription 
-     * (stale dating the Prescription). It reflects the prescriber 
-     * perspective for the validity of the prescription. Dispenses 
-     * must not be made against the prescription outside of this 
-     * period. The lower-bound of the Prescription Effective Period 
-     * signifies the earliest date that the prescription can be 
-     * filled for the first time. If an upper-bound is not 
-     * specified then the Prescription is open-ended or will 
-     * default to a stale-date based on regulations.</p></p>
-     * 
-     * <p><p>Indicates when the Order becomes valid, and when it 
-     * ceases to be an actionable Order. Some jurisdictions place a 
-     * 'stale date' on prescriptions that cause them to become 
-     * invalid a certain amount of time after they are written. 
-     * This time may vary by medication.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
-    }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
+    private CreatedAtBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
 
 
     /**
@@ -110,9 +73,37 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    /**
+     * <p>A:Dispensing Allowed Period</p>
+     * 
+     * <p><p>This indicates the validity period of a prescription 
+     * (stale dating the Prescription). It reflects the prescriber 
+     * perspective for the validity of the prescription. Dispenses 
+     * must not be made against the prescription outside of this 
+     * period. The lower-bound of the Prescription Effective Period 
+     * signifies the earliest date that the prescription can be 
+     * filled for the first time. If an upper-bound is not 
+     * specified then the Prescription is open-ended or will 
+     * default to a stale-date based on regulations.</p></p>
+     * 
+     * <p><p>Indicates when the Order becomes valid, and when it 
+     * ceases to be an actionable Order. Some jurisdictions place a 
+     * 'stale date' on prescriptions that cause them to become 
+     * invalid a certain amount of time after they are written. 
+     * This time may vary by medication.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
+    }
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
+    }
+
+
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
     }
 
 
@@ -125,9 +116,18 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 }

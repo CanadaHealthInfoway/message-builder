@@ -54,13 +54,13 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
     private CV otherSpecimenIdentifierType = new CVImpl();
     private II organizationIdentifier = new IIImpl();
     private ST organizationName = new STImpl();
-    private CV clientGender = new CVImpl();
     private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV clientGender = new CVImpl();
     private TS clientDateOfBirth = new TSImpl();
 
 
@@ -153,6 +153,22 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
+     * <p>ClientName</p>
+     * 
+     * <p>Client Name</p>
+     * 
+     * <p><p>Name(s) for the Client</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/name"})
+    public List<PersonName> getClientName() {
+        return this.clientName.rawList();
+    }
+
+
+    /**
      * <p>ClientGender</p>
      * 
      * <p>Client Gender</p>
@@ -171,22 +187,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
     public void setClientGender(AdministrativeGender clientGender) {
         this.clientGender.setValue(clientGender);
-    }
-
-
-    /**
-     * <p>ClientName</p>
-     * 
-     * <p>Client Name</p>
-     * 
-     * <p><p>Name(s) for the Client</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/name"})
-    public List<PersonName> getClientName() {
-        return this.clientName.rawList();
     }
 
 

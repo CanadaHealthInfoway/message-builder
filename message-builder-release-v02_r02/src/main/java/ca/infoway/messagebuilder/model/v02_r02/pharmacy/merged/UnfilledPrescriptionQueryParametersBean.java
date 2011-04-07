@@ -46,40 +46,11 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II prescriberProviderID = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private II prescriberProviderID = new IIImpl();
     private List<CV> prescriptionStatuses = new ArrayList<CV>();
     private CV rxDispenseIndicator = new CVImpl();
-
-
-    /**
-     * <p>PrescriberProviderID</p>
-     * 
-     * <p>D:Prescriber Provider ID</p>
-     * 
-     * <p><p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p></p>
-     * 
-     * <p><p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of prescriptions based on a 
-     * specific prescriber.</p></p>
-     */
-    @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
-    }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
-    }
 
 
     /**
@@ -131,6 +102,35 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    }
+
+
+    /**
+     * <p>PrescriberProviderID</p>
+     * 
+     * <p>D:Prescriber Provider ID</p>
+     * 
+     * <p><p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p></p>
+     * 
+     * <p><p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of prescriptions based on a 
+     * specific prescriber.</p></p>
+     */
+    @Hl7XmlMapping({"prescriberProviderID/value"})
+    public Identifier getPrescriberProviderID() {
+        return this.prescriberProviderID.getValue();
+    }
+    public void setPrescriberProviderID(Identifier prescriberProviderID) {
+        this.prescriberProviderID.setValue(prescriberProviderID);
     }
 
 

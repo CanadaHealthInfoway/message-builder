@@ -35,10 +35,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CS extensionGrantedIndicator = new CSImpl();
     private II coverageExtensionId = new IIImpl();
     private CarrierRoleBean authorCarrierRole;
-    private CS extensionGrantedIndicator = new CSImpl();
+
+
+    /**
+     * <p>ExtensionGrantedIndicator</p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     * 
+     * <p><p>If set to 'EVN', then coverage has been requested. 
+     * Otherwise it has merely been requested.</p></p>
+     * 
+     * <p><p>Indicates to the pharmacy whether they need to check 
+     * the status of coverage prior to dispensing. Mandatory due to 
+     * HL7 rules.</p></p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     * 
+     * <p><p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p></p>
+     * 
+     * <p><p>Indicates to the pharmacy whether they need to check 
+     * the status of coverage prior to dispensing. The element is 
+     * mandatory to satisfy HL7 rules.</p></p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
+        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
+    }
+    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
+        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    }
 
 
     /**
@@ -105,36 +135,6 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
     public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
         this.authorCarrierRole = authorCarrierRole;
-    }
-
-
-    /**
-     * <p>ExtensionGrantedIndicator</p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     * 
-     * <p><p>If set to 'EVN', then coverage has been requested. 
-     * Otherwise it has merely been requested.</p></p>
-     * 
-     * <p><p>Indicates to the pharmacy whether they need to check 
-     * the status of coverage prior to dispensing. Mandatory due to 
-     * HL7 rules.</p></p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     * 
-     * <p><p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p></p>
-     * 
-     * <p><p>Indicates to the pharmacy whether they need to check 
-     * the status of coverage prior to dispensing. The element is 
-     * mandatory to satisfy HL7 rules.</p></p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
-    }
-    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
     }
 
 }

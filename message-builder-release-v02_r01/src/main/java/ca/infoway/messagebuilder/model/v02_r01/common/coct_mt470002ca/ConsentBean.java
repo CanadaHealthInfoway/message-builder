@@ -30,14 +30,50 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SubjectChoice subject1SubjectChoice;
-    private CV consentOverrideReason = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II consentFormNumber = new IIImpl();
-    private PrescribedByBean author1;
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
+    private CV consentOverrideReason = new CVImpl();
+    private SubjectChoice subject1SubjectChoice;
+    private PrescribedByBean author1;
     private ConsentedToByBean author2;
     private AccessTypeBean subject2InformDefinition;
+
+
+    /**
+     * <p>D:Consent Form Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
+    }
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
+    }
+
+
+    /**
+     * <p>C:Consent Effective and End Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+
+    /**
+     * <p>E:Consent Override Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
 
 
     @Hl7XmlMapping({"subject1/subjectChoice"})
@@ -84,48 +120,12 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Consent Override Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
-    /**
-     * <p>D:Consent Form Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
-    }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
-    }
-
-
     @Hl7XmlMapping({"author1"})
     public PrescribedByBean getAuthor1() {
         return this.author1;
     }
     public void setAuthor1(PrescribedByBean author1) {
         this.author1 = author1;
-    }
-
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 

@@ -73,117 +73,13 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.merged.Recipients, ca.infoway.messagebuilder.model.r02_04_02.merged.Recipient {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST serviceLocationName = new STImpl();
-    private CV serviceLocationType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD serviceLocationAddress = new ADImpl();
-    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private static final long serialVersionUID = 20110407L;
     private II serviceLocationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>ServiceLocationName</p>
-     * 
-     * <p>B:Service Location Name</p>
-     * 
-     * <p><p>The name assigned to the service location.</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>Used for human communication, and for cross-checking 
-     * of location Id and is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
-    }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
-    }
-
-
-    /**
-     * <p>ServiceLocationType</p>
-     * 
-     * <p>A: Service Location Type</p>
-     * 
-     * <p><p>Describes the basic type or category of the service 
-     * delivery location.</p></p>
-     * 
-     * <p><p>Useful in providing context. May also be used for 
-     * grouping and organizing data. Because this is a key element 
-     * in understanding the location, it is mandatory.</p></p>
-     * 
-     * <p>Service Location Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceLocationType.getValue();
-    }
-    public void setServiceLocationType(ServiceDeliveryLocationRoleType serviceLocationType) {
-        this.serviceLocationType.setValue(serviceLocationType);
-    }
-
-
-    /**
-     * <p>ServiceLocationPhonesAndEMails</p>
-     * 
-     * <p>E:Service Location Phones and E-mails</p>
-     * 
-     * <p><p>The phone numbers and/or electronic mail addresses by 
-     * which a service location may be contacted.</p></p>
-     * 
-     * <p><p>Allows a service location to be communicated with and 
-     * is therefore important. Because a contact number won't 
-     * always exist, the field is marked 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
-    }
-
-
-    /**
-     * <p>ServiceLocationAddress</p>
-     * 
-     * <p>D:Service Location Address</p>
-     * 
-     * <p><p>The information by which a service location may be 
-     * contacted either physically or by mail.</p></p>
-     * 
-     * <p><p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p></p>
-     * 
-     * <p><p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceLocationAddress() {
-        return this.serviceLocationAddress.getValue();
-    }
-    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
-        this.serviceLocationAddress.setValue(serviceLocationAddress);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
-    }
+    private CV serviceLocationType = new CVImpl();
+    private AD serviceLocationAddress = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST serviceLocationName = new STImpl();
+    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
     /**
@@ -272,6 +168,110 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
     public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
         this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
+    }
+
+
+    /**
+     * <p>ServiceLocationType</p>
+     * 
+     * <p>A: Service Location Type</p>
+     * 
+     * <p><p>Describes the basic type or category of the service 
+     * delivery location.</p></p>
+     * 
+     * <p><p>Useful in providing context. May also be used for 
+     * grouping and organizing data. Because this is a key element 
+     * in understanding the location, it is mandatory.</p></p>
+     * 
+     * <p>Service Location Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ServiceDeliveryLocationRoleType getServiceLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.serviceLocationType.getValue();
+    }
+    public void setServiceLocationType(ServiceDeliveryLocationRoleType serviceLocationType) {
+        this.serviceLocationType.setValue(serviceLocationType);
+    }
+
+
+    /**
+     * <p>ServiceLocationAddress</p>
+     * 
+     * <p>D:Service Location Address</p>
+     * 
+     * <p><p>The information by which a service location may be 
+     * contacted either physically or by mail.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getServiceLocationAddress() {
+        return this.serviceLocationAddress.getValue();
+    }
+    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
+        this.serviceLocationAddress.setValue(serviceLocationAddress);
+    }
+
+
+    /**
+     * <p>ServiceLocationPhonesAndEMails</p>
+     * 
+     * <p>E:Service Location Phones and E-mails</p>
+     * 
+     * <p><p>The phone numbers and/or electronic mail addresses by 
+     * which a service location may be contacted.</p></p>
+     * 
+     * <p><p>Allows a service location to be communicated with and 
+     * is therefore important. Because a contact number won't 
+     * always exist, the field is marked 'populated'.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
+        return this.serviceLocationPhonesAndEMails.rawSet();
+    }
+
+
+    /**
+     * <p>ServiceLocationName</p>
+     * 
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceLocationName() {
+        return this.serviceLocationName.getValue();
+    }
+    public void setServiceLocationName(String serviceLocationName) {
+        this.serviceLocationName.setValue(serviceLocationName);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
     }
 
 }

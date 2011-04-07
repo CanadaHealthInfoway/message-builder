@@ -60,20 +60,69 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> locationIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV locationType = new CVImpl();
     private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
     private AD locationAddress = new ADImpl();
+    private CS locationStatus = new CSImpl();
+    private PlaceBean location;
+    private ResponsibleOrganizationBean serviceProviderOrganization;
+    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private List<AvailableServicesBean> locationOfServiceDefinition = new ArrayList<AvailableServicesBean>();
     private List<ContactPointsBean> directAuthorityOverContactParty = new ArrayList<ContactPointsBean>();
     private List<SubLocationsBean> partSubLocation = new ArrayList<SubLocationsBean>();
     private IndirectAuthorithyOverBean indirectAuthority;
-    private PlaceBean location;
     private LocationBean partOfServiceDeliveryLocation;
-    private SET<II, Identifier> locationIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
-    private List<AvailableServicesBean> locationOfServiceDefinition = new ArrayList<AvailableServicesBean>();
-    private CV locationType = new CVImpl();
-    private ResponsibleOrganizationBean serviceProviderOrganization;
-    private CS locationStatus = new CSImpl();
+
+
+    /**
+     * <p>A:Location Identifiers</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getLocationIdentifiers() {
+        return this.locationIdentifiers.rawSet();
+    }
+
+
+    /**
+     * <p>B: Location Type</p>
+     * 
+     * <p></p><p>For example, a service delivery location may be 
+     * either an incidental service delivery location (a place at 
+     * which health-related services may be provided without prior 
+     * designation or authorization such as a church or school) or 
+     * a dedicated service delivery location (a place that is 
+     * intended to house the provision of health-related services 
+     * such as a clinic or hospital). Dedicated service delivery 
+     * locations can be further characterized as either clinical or 
+     * non-clinical.</p></p>
+     * 
+     * <p></p><p>For example, a service delivery location may be 
+     * either an incidental service delivery location (a place at 
+     * which health-related services may be provided without prior 
+     * designation or authorization such as a church or school) or 
+     * a dedicated service delivery location (a place that is 
+     * intended to house the provision of health-related services 
+     * such as a clinic or hospital). Dedicated service delivery 
+     * locations can be further characterized as either clinical or 
+     * non-clinical.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ServiceDeliveryLocationRoleType getLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.locationType.getValue();
+    }
+    public void setLocationType(ServiceDeliveryLocationRoleType locationType) {
+        this.locationType.setValue(locationType);
+    }
 
 
     /**
@@ -142,115 +191,6 @@ public class LocationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"directAuthorityOver/contactParty"})
-    public List<ContactPointsBean> getDirectAuthorityOverContactParty() {
-        return this.directAuthorityOverContactParty;
-    }
-
-
-    @Hl7XmlMapping({"part/subLocation"})
-    public List<SubLocationsBean> getPartSubLocation() {
-        return this.partSubLocation;
-    }
-
-
-    @Hl7XmlMapping({"indirectAuthority"})
-    public IndirectAuthorithyOverBean getIndirectAuthority() {
-        return this.indirectAuthority;
-    }
-    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
-        this.indirectAuthority = indirectAuthority;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public PlaceBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(PlaceBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"partOf/serviceDeliveryLocation"})
-    public LocationBean getPartOfServiceDeliveryLocation() {
-        return this.partOfServiceDeliveryLocation;
-    }
-    public void setPartOfServiceDeliveryLocation(LocationBean partOfServiceDeliveryLocation) {
-        this.partOfServiceDeliveryLocation = partOfServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>A:Location Identifiers</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getLocationIdentifiers() {
-        return this.locationIdentifiers.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
-    }
-
-
-    @Hl7XmlMapping({"locationOf/serviceDefinition"})
-    public List<AvailableServicesBean> getLocationOfServiceDefinition() {
-        return this.locationOfServiceDefinition;
-    }
-
-
-    /**
-     * <p>B: Location Type</p>
-     * 
-     * <p></p><p>For example, a service delivery location may be 
-     * either an incidental service delivery location (a place at 
-     * which health-related services may be provided without prior 
-     * designation or authorization such as a church or school) or 
-     * a dedicated service delivery location (a place that is 
-     * intended to house the provision of health-related services 
-     * such as a clinic or hospital). Dedicated service delivery 
-     * locations can be further characterized as either clinical or 
-     * non-clinical.</p></p>
-     * 
-     * <p></p><p>For example, a service delivery location may be 
-     * either an incidental service delivery location (a place at 
-     * which health-related services may be provided without prior 
-     * designation or authorization such as a church or school) or 
-     * a dedicated service delivery location (a place that is 
-     * intended to house the provision of health-related services 
-     * such as a clinic or hospital). Dedicated service delivery 
-     * locations can be further characterized as either clinical or 
-     * non-clinical.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.locationType.getValue();
-    }
-    public void setLocationType(ServiceDeliveryLocationRoleType locationType) {
-        this.locationType.setValue(locationType);
-    }
-
-
-    @Hl7XmlMapping({"serviceProviderOrganization"})
-    public ResponsibleOrganizationBean getServiceProviderOrganization() {
-        return this.serviceProviderOrganization;
-    }
-    public void setServiceProviderOrganization(ResponsibleOrganizationBean serviceProviderOrganization) {
-        this.serviceProviderOrganization = serviceProviderOrganization;
-    }
-
-
     /**
      * <p>C: Location Status</p>
      * 
@@ -278,6 +218,66 @@ public class LocationBean extends MessagePartBean {
     }
     public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
         this.locationStatus.setValue(locationStatus);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public PlaceBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(PlaceBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"serviceProviderOrganization"})
+    public ResponsibleOrganizationBean getServiceProviderOrganization() {
+        return this.serviceProviderOrganization;
+    }
+    public void setServiceProviderOrganization(ResponsibleOrganizationBean serviceProviderOrganization) {
+        this.serviceProviderOrganization = serviceProviderOrganization;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
+    }
+
+
+    @Hl7XmlMapping({"locationOf/serviceDefinition"})
+    public List<AvailableServicesBean> getLocationOfServiceDefinition() {
+        return this.locationOfServiceDefinition;
+    }
+
+
+    @Hl7XmlMapping({"directAuthorityOver/contactParty"})
+    public List<ContactPointsBean> getDirectAuthorityOverContactParty() {
+        return this.directAuthorityOverContactParty;
+    }
+
+
+    @Hl7XmlMapping({"part/subLocation"})
+    public List<SubLocationsBean> getPartSubLocation() {
+        return this.partSubLocation;
+    }
+
+
+    @Hl7XmlMapping({"indirectAuthority"})
+    public IndirectAuthorithyOverBean getIndirectAuthority() {
+        return this.indirectAuthority;
+    }
+    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
+        this.indirectAuthority = indirectAuthority;
+    }
+
+
+    @Hl7XmlMapping({"partOf/serviceDeliveryLocation"})
+    public LocationBean getPartOfServiceDeliveryLocation() {
+        return this.partOfServiceDeliveryLocation;
+    }
+    public void setPartOfServiceDeliveryLocation(LocationBean partOfServiceDeliveryLocation) {
+        this.partOfServiceDeliveryLocation = partOfServiceDeliveryLocation;
     }
 
 }

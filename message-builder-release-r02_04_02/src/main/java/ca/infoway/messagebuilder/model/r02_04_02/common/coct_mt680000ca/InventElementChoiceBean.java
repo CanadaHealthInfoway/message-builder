@@ -18,7 +18,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
 public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV invoiceElementIntentCode = new CVImpl();
     private MO totalAmountBilledForInvoiceElement = new MOImpl();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();

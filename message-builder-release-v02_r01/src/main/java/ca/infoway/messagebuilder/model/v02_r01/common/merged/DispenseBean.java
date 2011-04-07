@@ -26,12 +26,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private CV confidentialityCode = new CVImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private DispensedBean product;
     private CS dispenseStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
+    private DispensedBean product;
     private CreatedAtBean location;
 
 
@@ -50,16 +50,16 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>C:Dispense Masked Indicator</p>
+     * <p>DispenseStatus</p>
      * 
-     * <p>C:Dispense Masking Indicator</p>
+     * <p>B:Dispense Status</p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
     }
-    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
-        this.confidentialityCode.setValue(confidentialityCode);
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -77,26 +77,26 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
 
+    /**
+     * <p>C:Dispense Masked Indicator</p>
+     * 
+     * <p>C:Dispense Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    }
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
+    }
+
+
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
         return this.product;
     }
     public void setProduct(DispensedBean product) {
         this.product = product;
-    }
-
-
-    /**
-     * <p>DispenseStatus</p>
-     * 
-     * <p>B:Dispense Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 

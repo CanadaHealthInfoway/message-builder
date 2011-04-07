@@ -37,43 +37,25 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementGroup","FICR_MT510201CA.InvoiceElementGroup"})
 public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
+    private SET<II, Identifier> invoiceGroupingIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV invoiceType = new CVImpl();
+    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
+    private MO invoiceSubTotal = new MOImpl();
+    private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
+    private FinancialContractBean inFulfillmentOfFinancialContract;
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
+    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
     private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
-    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
-    private SET<II, Identifier> invoiceGroupingIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
-    private CV invoiceType = new CVImpl();
-    private MO invoiceSubTotal = new MOImpl();
-    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
-    private FinancialContractBean inFulfillmentOfFinancialContract;
-    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
-    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceElementComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
-    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
-        return this.triggerForInvoiceElementOverride;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
-    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
-        return this.predecessorInvoiceElementCrossReference;
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
     }
 
 
@@ -85,12 +67,6 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getInvoiceGroupingIdentifierS() {
         return this.invoiceGroupingIdentifierS.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
     }
 
 
@@ -111,6 +87,20 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
+     * <p>TimePeriodForInvoice</p>
+     * 
+     * <p>Time period for invoice</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getTimePeriodForInvoice() {
+        return this.timePeriodForInvoice.getValue();
+    }
+    public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
+        this.timePeriodForInvoice.setValue(timePeriodForInvoice);
+    }
+
+
+    /**
      * <p>InvoiceSubTotal</p>
      * 
      * <p>Invoice Sub-total</p>
@@ -126,9 +116,12 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
+    @Hl7XmlMapping({"coveredParty/coveredPartyAsPatient"})
+    public CoveredPartyAsPatientBean getCoveredPartyCoveredPartyAsPatient() {
+        return this.coveredPartyCoveredPartyAsPatient;
+    }
+    public void setCoveredPartyCoveredPartyAsPatient(CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient) {
+        this.coveredPartyCoveredPartyAsPatient = coveredPartyCoveredPartyAsPatient;
     }
 
 
@@ -141,32 +134,39 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
 
 
-    @Hl7XmlMapping({"reasonOf/billableActChoice"})
-    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
-        return this.reasonOfBillableActChoice;
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
     }
 
 
-    @Hl7XmlMapping({"coveredParty/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getCoveredPartyCoveredPartyAsPatient() {
-        return this.coveredPartyCoveredPartyAsPatient;
-    }
-    public void setCoveredPartyCoveredPartyAsPatient(CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient) {
-        this.coveredPartyCoveredPartyAsPatient = coveredPartyCoveredPartyAsPatient;
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
 
-    /**
-     * <p>TimePeriodForInvoice</p>
-     * 
-     * <p>Time period for invoice</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTimePeriodForInvoice() {
-        return this.timePeriodForInvoice.getValue();
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
     }
-    public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
-        this.timePeriodForInvoice.setValue(timePeriodForInvoice);
+
+
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
+    }
+
+
+    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
+    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
+        return this.triggerForInvoiceElementOverride;
     }
 
 }

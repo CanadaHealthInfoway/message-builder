@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.v01_r04_3.merged.GenericQueryParametersBe
 @Hl7PartTypeMapping({"REPC_IN000026CA"})
 public class PatientMedicalConditionWithHistQueryRespBean extends HL7Message_1Bean<TriggerEventBean<MedicalConditionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

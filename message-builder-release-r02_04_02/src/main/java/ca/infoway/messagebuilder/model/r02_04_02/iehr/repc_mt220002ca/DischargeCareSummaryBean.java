@@ -57,75 +57,22 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private ST documentTitle = new STImpl();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private static final long serialVersionUID = 20110407L;
     private II documentIdentifier = new IIImpl();
     private CV documentCategory = new CVImpl();
+    private ST documentTitle = new STImpl();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private ActingPerson responsiblePartyActingPerson;
+    private RequestedByBean author;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
-    private IncludesBean subjectOf1;
+    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private DocumentContent_2 componentStructuredBodyComponentSectionComponentDocumentContent;
     private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
-    private RequestedByBean author;
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
-    }
-
-
-    /**
-     * <p>J: Document Title</p>
-     * 
-     * <p><p>A human-readable label for this particular 
-     * document.</p></p>
-     * 
-     * <p><p>This is a human-recognizable name intended to be 
-     * displayed on the screen in list transactions and is 
-     * therefore mandatory. It provides a good indication of the 
-     * content of the document at a quick glance.</p></p>
-     * 
-     * <p><p>Titles do not necessarily need to be unique, but 
-     * should be precise-enough to give a pretty good idea of what 
-     * the document contains. For example &quot;Right Knee 
-     * Arthroscopy Report, Jan 3, 2006&quot; would represent a good 
-     * title. &quot;Surgery Report&quot; would not.</p></p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
-    }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
+    private IncludesBean subjectOf1;
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -162,6 +109,49 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
+    /**
+     * <p>J: Document Title</p>
+     * 
+     * <p><p>A human-readable label for this particular 
+     * document.</p></p>
+     * 
+     * <p><p>This is a human-recognizable name intended to be 
+     * displayed on the screen in list transactions and is 
+     * therefore mandatory. It provides a good indication of the 
+     * content of the document at a quick glance.</p></p>
+     * 
+     * <p><p>Titles do not necessarily need to be unique, but 
+     * should be precise-enough to give a pretty good idea of what 
+     * the document contains. For example &quot;Right Knee 
+     * Arthroscopy Report, Jan 3, 2006&quot; would represent a good 
+     * title. &quot;Surgery Report&quot; would not.</p></p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getDocumentTitle() {
+        return this.documentTitle.getValue();
+    }
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle.setValue(documentTitle);
+    }
+
+
+    /**
+     * <p>E: Document Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
     public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
@@ -192,6 +182,15 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
+    }
+
+
     @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
     public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
         return this.custodian1ServiceDeliveryLocation;
@@ -210,12 +209,15 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
-    @Hl7XmlMapping({"subjectOf1"})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
     }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
+
+
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
     }
 
 
@@ -244,29 +246,27 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"subjectOf1"})
+    public IncludesBean getSubjectOf1() {
+        return this.subjectOf1;
     }
-    public void setAuthor(RequestedByBean author) {
-        this.author = author;
+    public void setSubjectOf1(IncludesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
     }
 
 
-    /**
-     * <p>E: Document Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

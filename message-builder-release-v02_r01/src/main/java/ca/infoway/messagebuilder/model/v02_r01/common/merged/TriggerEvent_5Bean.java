@@ -28,41 +28,18 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AuthorizedByBean subjectOf2;
-    private CV eventReason = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
-    private QueryByParameterBean<PL> queryByParameter;
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventType = new CVImpl();
-    private QueryAckBean queryAck;
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventReason = new CVImpl();
     private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private AuthorizedByBean subjectOf2;
+    private QueryAckBean queryAck;
+    private QueryByParameterBean<PL> queryByParameter;
     private RecordTargetBean recordTarget;
     private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public AuthorizedByBean getSubjectOf2() {
-        return this.subjectOf2;
-    }
-    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
 
 
     /**
@@ -79,12 +56,17 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
     }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -103,25 +85,16 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventType</p>
+     * <p>EventReason</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>E:Event Reason</p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
     }
 
 
@@ -134,6 +107,33 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
+    }
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 

@@ -18,10 +18,19 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
 public class InvoiceElementIntentBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
-    private CV code = new CVImpl();
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
+    }
 
 
     @Hl7XmlMapping({"netAmt"})
@@ -36,15 +45,6 @@ public class InvoiceElementIntentBean extends MessagePartBean implements Invoice
     @Hl7XmlMapping({"component"})
     public List<InvoiceElementComponentBean> getComponent() {
         return this.component;
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
     }
 
 }

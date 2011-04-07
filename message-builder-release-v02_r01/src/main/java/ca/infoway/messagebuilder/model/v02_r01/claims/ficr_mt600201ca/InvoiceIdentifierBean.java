@@ -25,26 +25,14 @@ import java.util.Set;
 @Hl7RootType
 public class InvoiceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<TaxAccountOfProviderBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<TaxAccountOfProviderBean>();
-    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private AccountBean debitAccount;
-    private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
     private MO totalBilledAmount = new MOImpl();
     private AdministrativeContactsSBean primaryPerformerContactParty;
-
-
-    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
-    public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {
-        return this.pertinentInformationProviderBillingTaxAccount;
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
-        return this.reasonOfInvoiceElementChoice;
-    }
+    private List<TaxAccountOfProviderBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<TaxAccountOfProviderBean>();
+    private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
+    private AccountBean debitAccount;
+    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
 
 
     /**
@@ -53,24 +41,6 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getInvoiceIdentifier() {
         return this.invoiceIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
-    }
-
-
-    @Hl7XmlMapping({"credit/account"})
-    public ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
-        this.creditAccount = creditAccount;
     }
 
 
@@ -92,6 +62,36 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     }
     public void setPrimaryPerformerContactParty(AdministrativeContactsSBean primaryPerformerContactParty) {
         this.primaryPerformerContactParty = primaryPerformerContactParty;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
+    public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {
+        return this.pertinentInformationProviderBillingTaxAccount;
+    }
+
+
+    @Hl7XmlMapping({"credit/account"})
+    public ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
+        this.creditAccount = creditAccount;
+    }
+
+
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
+    }
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+
+    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
+    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
+        return this.reasonOfInvoiceElementChoice;
     }
 
 }

@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.ProtocolsBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 

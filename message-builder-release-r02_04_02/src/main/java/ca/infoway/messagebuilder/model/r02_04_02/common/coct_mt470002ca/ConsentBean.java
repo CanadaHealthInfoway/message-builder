@@ -57,76 +57,14 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AccessTypeBean subject2InformDefinition;
-    private CV consentOverrideReason = new CVImpl();
-    private ConsentedToByBean author1;
-    private PatientBean subject1Patient;
-    private PrescribedByBean author2;
+    private static final long serialVersionUID = 20110407L;
     private II consentFormNumber = new IIImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
-    }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
-    }
-
-
-    /**
-     * <p>E:Consent Override Reason</p>
-     * 
-     * <p><p>If author1 (provider) is specified, reason code must 
-     * be specified.</p></p>
-     * 
-     * <p><p>Indicates a reason for overriding a patient's consent 
-     * rules.</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Important for audit purposes</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public Code getConsentOverrideReason() {
-        return (Code) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(Code consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
-    @Hl7XmlMapping({"author1"})
-    public ConsentedToByBean getAuthor1() {
-        return this.author1;
-    }
-    public void setAuthor1(ConsentedToByBean author1) {
-        this.author1 = author1;
-    }
-
-
-    @Hl7XmlMapping({"subject1/patient"})
-    public PatientBean getSubject1Patient() {
-        return this.subject1Patient;
-    }
-    public void setSubject1Patient(PatientBean subject1Patient) {
-        this.subject1Patient = subject1Patient;
-    }
-
-
-    @Hl7XmlMapping({"author2"})
-    public PrescribedByBean getAuthor2() {
-        return this.author2;
-    }
-    public void setAuthor2(PrescribedByBean author2) {
-        this.author2 = author2;
-    }
+    private CV consentOverrideReason = new CVImpl();
+    private PatientBean subject1Patient;
+    private ConsentedToByBean author1;
+    private PrescribedByBean author2;
+    private AccessTypeBean subject2InformDefinition;
 
 
     /**
@@ -166,6 +104,68 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
         this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+
+    /**
+     * <p>E:Consent Override Reason</p>
+     * 
+     * <p><p>If author1 (provider) is specified, reason code must 
+     * be specified.</p></p>
+     * 
+     * <p><p>Indicates a reason for overriding a patient's consent 
+     * rules.</p></p>
+     * 
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * 
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * 
+     * <p><p>Important for audit purposes</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public Code getConsentOverrideReason() {
+        return (Code) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(Code consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
+
+
+    @Hl7XmlMapping({"subject1/patient"})
+    public PatientBean getSubject1Patient() {
+        return this.subject1Patient;
+    }
+    public void setSubject1Patient(PatientBean subject1Patient) {
+        this.subject1Patient = subject1Patient;
+    }
+
+
+    @Hl7XmlMapping({"author1"})
+    public ConsentedToByBean getAuthor1() {
+        return this.author1;
+    }
+    public void setAuthor1(ConsentedToByBean author1) {
+        this.author1 = author1;
+    }
+
+
+    @Hl7XmlMapping({"author2"})
+    public PrescribedByBean getAuthor2() {
+        return this.author2;
+    }
+    public void setAuthor2(PrescribedByBean author2) {
+        this.author2 = author2;
+    }
+
+
+    @Hl7XmlMapping({"subject2/informDefinition"})
+    public AccessTypeBean getSubject2InformDefinition() {
+        return this.subject2InformDefinition;
+    }
+    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
+        this.subject2InformDefinition = subject2InformDefinition;
     }
 
 }

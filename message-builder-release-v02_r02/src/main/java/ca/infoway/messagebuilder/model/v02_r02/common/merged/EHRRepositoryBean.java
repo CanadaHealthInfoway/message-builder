@@ -33,32 +33,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST repositoryName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private ST repositoryName = new STImpl();
     private ST repositoryJurisdictionName = new STImpl();
     private ST applicationName = new STImpl();
-
-
-    /**
-     * <p>RepositoryName</p>
-     * 
-     * <p>Repository Name</p>
-     * 
-     * <p><p>The name of the repository which is responsible for 
-     * maintaining the record. E.g. &quot;Ontario Health 
-     * Respository #3&quot;</p></p>
-     * 
-     * <p><p>Provides a human-readable name for the repository and 
-     * is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"assignedRepository/name"})
-    public String getRepositoryName() {
-        return this.repositoryName.getValue();
-    }
-    public void setRepositoryName(String repositoryName) {
-        this.repositoryName.setValue(repositoryName);
-    }
 
 
     /**
@@ -111,6 +90,27 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>RepositoryName</p>
+     * 
+     * <p>Repository Name</p>
+     * 
+     * <p><p>The name of the repository which is responsible for 
+     * maintaining the record. E.g. &quot;Ontario Health 
+     * Respository #3&quot;</p></p>
+     * 
+     * <p><p>Provides a human-readable name for the repository and 
+     * is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"assignedRepository/name"})
+    public String getRepositoryName() {
+        return this.repositoryName.getValue();
+    }
+    public void setRepositoryName(String repositoryName) {
+        this.repositoryName.setValue(repositoryName);
     }
 
 

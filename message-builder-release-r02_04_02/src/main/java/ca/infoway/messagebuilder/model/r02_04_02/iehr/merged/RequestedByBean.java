@@ -173,10 +173,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Author","REPC_MT210002CA.Author","REPC_MT210003CA.Author","REPC_MT220001CA.Author","REPC_MT220001CA.Author3","REPC_MT220002CA.Author","REPC_MT220002CA.Author3","REPC_MT220003CA.Author","REPC_MT220003CA.Author3","REPC_MT230001CA.Author2","REPC_MT230002CA.Author","REPC_MT230002CA.Author2","REPC_MT230003CA.Author","REPC_MT230003CA.Author2","REPC_MT410001CA.Author","REPC_MT410003CA.Author2","REPC_MT410003CA.Author3","REPC_MT420001CA.Author2","REPC_MT420003CA.Author2","REPC_MT500001CA.Author2","REPC_MT500002CA.Author2","REPC_MT500003CA.Author","REPC_MT500003CA.Author2","REPC_MT500004CA.Author","REPC_MT500004CA.Author2","REPC_MT610001CA.Author","REPC_MT610002CA.Author"})
 public class RequestedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
-    private ActingPerson actingPerson;
     private CV attestedIndicator = new CVImpl();
+    private ActingPerson actingPerson;
 
 
     /**
@@ -219,6 +219,30 @@ public class RequestedByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>AttestedIndicator</p>
+     * 
+     * <p>K:Attested Indicator</p>
+     * 
+     * <p>K:Attested Indicator</p>
+     * 
+     * <p><p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p></p>
+     * 
+     * <p><p>Important for assessing the level of 'officialness' of 
+     * a document. Because it must always be known whether a 
+     * document has been attested or not, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getAttestedIndicator() {
+        return (ParticipationSignature) this.attestedIndicator.getValue();
+    }
+    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
+        this.attestedIndicator.setValue(attestedIndicator);
+    }
+
+
     @Hl7XmlMapping({"actingPerson"})
     public ActingPerson getActingPerson() {
         return this.actingPerson;
@@ -246,30 +270,6 @@ public class RequestedByBean extends MessagePartBean {
     }
     public boolean hasActingPersonAsPersonalRelationship() {
         return (this.actingPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>AttestedIndicator</p>
-     * 
-     * <p>K:Attested Indicator</p>
-     * 
-     * <p>K:Attested Indicator</p>
-     * 
-     * <p><p>An indication that the provider attests to the 
-     * authenticity of the document that he/she has authored.</p></p>
-     * 
-     * <p><p>Important for assessing the level of 'officialness' of 
-     * a document. Because it must always be known whether a 
-     * document has been attested or not, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
-    }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 }

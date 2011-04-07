@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.lab.polb_mt001000ca.RequestChoi
 @Hl7PartTypeMapping({"POLB_IN111102CA"})
 public class OrderRevisionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

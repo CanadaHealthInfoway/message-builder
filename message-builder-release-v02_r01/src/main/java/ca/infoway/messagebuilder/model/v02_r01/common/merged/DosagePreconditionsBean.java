@@ -19,23 +19,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationEventCriterion","COCT_MT260020CA.ObservationEventCriterion","COCT_MT260030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20110407L;
     private CV dosagePreconditionType = new CVImpl();
-
-
-    /**
-     * <p>DosagePreconditionValue</p>
-     * 
-     * <p>B:Dosage Precondition Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public UncertainRange<PhysicalQuantity> getDosagePreconditionValue() {
-        return this.dosagePreconditionValue.getValue();
-    }
-    public void setDosagePreconditionValue(UncertainRange<PhysicalQuantity> dosagePreconditionValue) {
-        this.dosagePreconditionValue.setValue(dosagePreconditionValue);
-    }
+    private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
 
 
     /**
@@ -49,6 +35,20 @@ public class DosagePreconditionsBean extends MessagePartBean {
     }
     public void setDosagePreconditionType(ObservationDosageDefinitionPreconditionType dosagePreconditionType) {
         this.dosagePreconditionType.setValue(dosagePreconditionType);
+    }
+
+
+    /**
+     * <p>DosagePreconditionValue</p>
+     * 
+     * <p>B:Dosage Precondition Value</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public UncertainRange<PhysicalQuantity> getDosagePreconditionValue() {
+        return this.dosagePreconditionValue.getValue();
+    }
+    public void setDosagePreconditionValue(UncertainRange<PhysicalQuantity> dosagePreconditionValue) {
+        this.dosagePreconditionValue.setValue(dosagePreconditionValue);
     }
 
 }

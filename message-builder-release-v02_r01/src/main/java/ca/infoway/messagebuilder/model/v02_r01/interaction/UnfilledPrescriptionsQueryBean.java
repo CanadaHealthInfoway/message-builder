@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.UnfilledPrescript
 @Hl7PartTypeMapping({"PORX_IN060490CA"})
 public class UnfilledPrescriptionsQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

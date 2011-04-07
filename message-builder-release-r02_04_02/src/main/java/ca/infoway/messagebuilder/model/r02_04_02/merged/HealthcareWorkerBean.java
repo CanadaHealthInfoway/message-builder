@@ -101,16 +101,58 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AssignedEntity","POIZ_MT030060CA.AssignedEntity","POIZ_MT060150CA.AssignedEntity","REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN providerName = new PNImpl();
-    private II id = new IIImpl();
     private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ActingPersonBean assignedPerson;
+    private II organizationIdentifier = new IIImpl();
+    private ST organizationName = new STImpl();
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ST organizationName = new STImpl();
-    private II organizationIdentifier = new IIImpl();
-    private ActingPersonBean assignedPerson;
+
+
+    /**
+     * <p>A:Healthcare Worker Identifier</p>
+     * 
+     * <p><p>Unique identifier the person involved in the 
+     * action.</p></p>
+     * 
+     * <p><p>Allows unique identification of the person which can 
+     * be critical for authentication, permissions, drill-down and 
+     * traceability. However the ID may not always be known and is 
+     * therefore is populated.</p></p>
+     * 
+     * <p>F: Provider Id</p>
+     * 
+     * <p><p>A unique provider identifier such as the MINC #; (a 
+     * unique lifetime identifier for physicians in Canada). Other 
+     * health care professions such as nursing and dietitians have 
+     * similar identifiers. For those providers (such as family 
+     * members, friends, neighbors and others who are part of the 
+     * patient's informal support network will not have 
+     * identifiers) the system will assign identifiers for the 
+     * purpose of linking information within the message.</p></p>
+     * 
+     * <p><p>For non-professional providers and others who do not 
+     * have unique provider numbers, applications must create 
+     * 'internal' identifiers to allow referencing of the provider 
+     * within the message.</p></p>
+     * 
+     * <p><p>An identifier is the best way of kinking a provider to 
+     * information in a provider registry, and therefore will be 
+     * required in the absence of a provider name.</p></p>
+     * 
+     * <p>F: Provider Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
 
 
     /**
@@ -167,48 +209,6 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Healthcare Worker Identifier</p>
-     * 
-     * <p><p>Unique identifier the person involved in the 
-     * action.</p></p>
-     * 
-     * <p><p>Allows unique identification of the person which can 
-     * be critical for authentication, permissions, drill-down and 
-     * traceability. However the ID may not always be known and is 
-     * therefore is populated.</p></p>
-     * 
-     * <p>F: Provider Id</p>
-     * 
-     * <p><p>A unique provider identifier such as the MINC #; (a 
-     * unique lifetime identifier for physicians in Canada). Other 
-     * health care professions such as nursing and dietitians have 
-     * similar identifiers. For those providers (such as family 
-     * members, friends, neighbors and others who are part of the 
-     * patient's informal support network will not have 
-     * identifiers) the system will assign identifiers for the 
-     * purpose of linking information within the message.</p></p>
-     * 
-     * <p><p>For non-professional providers and others who do not 
-     * have unique provider numbers, applications must create 
-     * 'internal' identifiers to allow referencing of the provider 
-     * within the message.</p></p>
-     * 
-     * <p><p>An identifier is the best way of kinking a provider to 
-     * information in a provider registry, and therefore will be 
-     * required in the absence of a provider name.</p></p>
-     * 
-     * <p>F: Provider Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
-
-
-    /**
      * <p>HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>E: Healthcare Worker Phone and Emails</p>
@@ -223,6 +223,56 @@ public class HealthcareWorkerBean extends MessagePartBean {
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
         return this.healthcareWorkerPhoneAndEmails.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ActingPersonBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ActingPersonBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
+
+
+    /**
+     * <p>OrganizationIdentifier</p>
+     * 
+     * <p>F: Organization identifier</p>
+     * 
+     * <p><p>A unique identifier for the organization</p></p>
+     * 
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
+    }
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
+    }
+
+
+    /**
+     * <p>OrganizationName</p>
+     * 
+     * <p>H: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
     }
 
 
@@ -262,56 +312,6 @@ public class HealthcareWorkerBean extends MessagePartBean {
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
         return this.organizationPhoneAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>OrganizationName</p>
-     * 
-     * <p>H: Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
-    }
-
-
-    /**
-     * <p>OrganizationIdentifier</p>
-     * 
-     * <p>F: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
-    }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"assignedPerson"})
-    public ActingPersonBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-    public void setAssignedPerson(ActingPersonBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
     }
 
 }

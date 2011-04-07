@@ -24,21 +24,32 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DrugProductBean productMedication;
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
     private PQ dispensedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    /**
+     * <p>Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
     }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -71,22 +82,22 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
      * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -112,23 +123,12 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 

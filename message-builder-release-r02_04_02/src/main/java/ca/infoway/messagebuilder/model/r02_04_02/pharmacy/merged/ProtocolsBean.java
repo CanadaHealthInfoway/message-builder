@@ -49,41 +49,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstanceAdministrationDefinition","PORX_MT060160CA.SubstanceAdministrationDefinition","PORX_MT060340CA.SubstanceAdministrationDefinition"})
 public class ProtocolsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II protocolIdentifiers = new IIImpl();
-
-
-    /**
-     * <p>PrescriptionType</p>
-     * 
-     * <p>Prescription Type</p>
-     * 
-     * <p><p>Relevant in understanding the protocol.</p></p>
-     * 
-     * <p><p>Important in confirming that the correct protocol is 
-     * being followed.</p><p>Therefore is Mandatory</p></p>
-     * 
-     * <p><p>Important in confirming that the correct protocol is 
-     * being followed.</p><p>Therefore is Mandatory</p></p>
-     * 
-     * <p>Prescription type</p>
-     * 
-     * <p><p>Relevant in understanding the protocol.</p></p>
-     * 
-     * <p><p>Important in confirming that the correct protocol is 
-     * being followed.</p><p>Therefore is Mandatory</p></p>
-     * 
-     * <p><p>Important in confirming that the correct protocol is 
-     * being followed.</p><p>Therefore is Mandatory</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
-    }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
-    }
+    private CV prescriptionType = new CVImpl();
 
 
     /**
@@ -189,6 +157,38 @@ public class ProtocolsBean extends MessagePartBean {
     }
     public void setProtocolIdentifiers(Identifier protocolIdentifiers) {
         this.protocolIdentifiers.setValue(protocolIdentifiers);
+    }
+
+
+    /**
+     * <p>PrescriptionType</p>
+     * 
+     * <p>Prescription Type</p>
+     * 
+     * <p><p>Relevant in understanding the protocol.</p></p>
+     * 
+     * <p><p>Important in confirming that the correct protocol is 
+     * being followed.</p><p>Therefore is Mandatory</p></p>
+     * 
+     * <p><p>Important in confirming that the correct protocol is 
+     * being followed.</p><p>Therefore is Mandatory</p></p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p><p>Relevant in understanding the protocol.</p></p>
+     * 
+     * <p><p>Important in confirming that the correct protocol is 
+     * being followed.</p><p>Therefore is Mandatory</p></p>
+     * 
+     * <p><p>Important in confirming that the correct protocol is 
+     * being followed.</p><p>Therefore is Mandatory</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getPrescriptionType() {
+        return (Code) this.prescriptionType.getValue();
+    }
+    public void setPrescriptionType(Code prescriptionType) {
+        this.prescriptionType.setValue(prescriptionType);
     }
 
 }

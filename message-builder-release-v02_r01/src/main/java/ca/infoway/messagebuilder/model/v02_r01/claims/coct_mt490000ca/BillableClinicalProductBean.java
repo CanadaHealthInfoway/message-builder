@@ -33,36 +33,27 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private ServiceLocationBean destinationServiceDeliveryLocation;
-    private ServiceLocationBean originServiceDeliveryLocation;
-    private II id = new IIImpl();
-    private HealthCareProviderBean performerHealthCareProvider;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV code = new CVImpl();
-    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
-    private HealthCareProviderBean consultantHealthCareProvider;
-    private ManufacturedProductBean productManufacturedProduct;
+    private static final long serialVersionUID = 20110407L;
     private CS moodCode = new CSImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ManufacturedProductBean productManufacturedProduct;
+    private HealthCareProviderBean performerHealthCareProvider;
     private HealthCareProviderBean referrerHealthCareProvider;
+    private HealthCareProviderBean consultantHealthCareProvider;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private ServiceLocationBean originServiceDeliveryLocation;
+    private ServiceLocationBean destinationServiceDeliveryLocation;
+    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
 
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodIntentEvent getMoodCode() {
+        return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
-    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceLocationBean getOriginServiceDeliveryLocation() {
-        return this.originServiceDeliveryLocation;
-    }
-    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
-        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
+    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -75,12 +66,12 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"performer/healthCareProvider"})
-    public HealthCareProviderBean getPerformerHealthCareProvider() {
-        return this.performerHealthCareProvider;
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPerformerHealthCareProvider(HealthCareProviderBean performerHealthCareProvider) {
-        this.performerHealthCareProvider = performerHealthCareProvider;
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -93,18 +84,30 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public ManufacturedProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
     }
-    public void setCode(Code code) {
-        this.code.setValue(code);
+    public void setProductManufacturedProduct(ManufacturedProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation"})
-    public List<DiagnosisInformationBean> getPertinentInformation() {
-        return this.pertinentInformation;
+    @Hl7XmlMapping({"performer/healthCareProvider"})
+    public HealthCareProviderBean getPerformerHealthCareProvider() {
+        return this.performerHealthCareProvider;
+    }
+    public void setPerformerHealthCareProvider(HealthCareProviderBean performerHealthCareProvider) {
+        this.performerHealthCareProvider = performerHealthCareProvider;
+    }
+
+
+    @Hl7XmlMapping({"referrer/healthCareProvider"})
+    public HealthCareProviderBean getReferrerHealthCareProvider() {
+        return this.referrerHealthCareProvider;
+    }
+    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
+        this.referrerHealthCareProvider = referrerHealthCareProvider;
     }
 
 
@@ -117,24 +120,6 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public ManufacturedProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(ManufacturedProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodIntentEvent getMoodCode() {
-        return (x_ActMoodIntentEvent) this.moodCode.getValue();
-    }
-    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
@@ -144,12 +129,27 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"referrer/healthCareProvider"})
-    public HealthCareProviderBean getReferrerHealthCareProvider() {
-        return this.referrerHealthCareProvider;
+    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
+    public ServiceLocationBean getOriginServiceDeliveryLocation() {
+        return this.originServiceDeliveryLocation;
     }
-    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
-        this.referrerHealthCareProvider = referrerHealthCareProvider;
+    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
+        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation"})
+    public List<DiagnosisInformationBean> getPertinentInformation() {
+        return this.pertinentInformation;
     }
 
 }

@@ -118,18 +118,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private static final long serialVersionUID = 20110407L;
     private TS refusalToFillDate = new TSImpl();
     private CV refusalToFillReason = new CVImpl();
     private RefusedByBean author;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
-    }
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -254,6 +248,12 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
     }
 
 }

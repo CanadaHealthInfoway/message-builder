@@ -15,19 +15,10 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationProfileBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AttachmentBean pertinentInformationAttachment;
+    private static final long serialVersionUID = 20110407L;
     private AdministeredToBean subject1;
     private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
-
-
-    @Hl7XmlMapping({"pertinentInformation/attachment"})
-    public AttachmentBean getPertinentInformationAttachment() {
-        return this.pertinentInformationAttachment;
-    }
-    public void setPertinentInformationAttachment(AttachmentBean pertinentInformationAttachment) {
-        this.pertinentInformationAttachment = pertinentInformationAttachment;
-    }
+    private AttachmentBean pertinentInformationAttachment;
 
 
     @Hl7XmlMapping({"subject1"})
@@ -42,6 +33,15 @@ public class ImmunizationProfileBean extends MessagePartBean {
     @Hl7XmlMapping({"subject2/immunizationForecast"})
     public List<ImmunizationForecastBean> getSubject2ImmunizationForecast() {
         return this.subject2ImmunizationForecast;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/attachment"})
+    public AttachmentBean getPertinentInformationAttachment() {
+        return this.pertinentInformationAttachment;
+    }
+    public void setPertinentInformationAttachment(AttachmentBean pertinentInformationAttachment) {
+        this.pertinentInformationAttachment = pertinentInformationAttachment;
     }
 
 }

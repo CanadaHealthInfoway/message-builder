@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PersonalRelationshipRole"})
 public class PersonalRelationshipRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV personalRelationshipType = new CVImpl();
 
 

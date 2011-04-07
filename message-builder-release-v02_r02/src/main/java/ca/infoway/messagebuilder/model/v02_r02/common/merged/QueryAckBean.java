@@ -18,12 +18,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II queryIdentifier = new IIImpl();
     private CS queryStatus = new CSImpl();
+    private INT totalMatchingRows = new INTImpl();
     private INT returnedRows = new INTImpl();
     private INT remainingRows = new INTImpl();
-    private INT totalMatchingRows = new INTImpl();
-    private II queryIdentifier = new IIImpl();
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Identifies the query being acknowledged</p></p>
+     * 
+     * <p><p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p></p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
+    }
 
 
     /**
@@ -42,6 +62,27 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setQueryStatus(QueryResponse queryStatus) {
         this.queryStatus.setValue(queryStatus);
+    }
+
+
+    /**
+     * <p>TotalMatchingRows</p>
+     * 
+     * <p>J:Total Matching Rows</p>
+     * 
+     * <p><p>Identifies the total number of rows identified that 
+     * matched the query.</p></p>
+     * 
+     * <p><p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p></p>
+     */
+    @Hl7XmlMapping({"resultTotalQuantity"})
+    public Integer getTotalMatchingRows() {
+        return this.totalMatchingRows.getValue();
+    }
+    public void setTotalMatchingRows(Integer totalMatchingRows) {
+        this.totalMatchingRows.setValue(totalMatchingRows);
     }
 
 
@@ -90,47 +131,6 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setRemainingRows(Integer remainingRows) {
         this.remainingRows.setValue(remainingRows);
-    }
-
-
-    /**
-     * <p>TotalMatchingRows</p>
-     * 
-     * <p>J:Total Matching Rows</p>
-     * 
-     * <p><p>Identifies the total number of rows identified that 
-     * matched the query.</p></p>
-     * 
-     * <p><p>Indicates the overall size of the result-set and is 
-     * therefore mandatory. Particularly useful when only part of 
-     * the result set is actually returned.</p></p>
-     */
-    @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getTotalMatchingRows() {
-        return this.totalMatchingRows.getValue();
-    }
-    public void setTotalMatchingRows(Integer totalMatchingRows) {
-        this.totalMatchingRows.setValue(totalMatchingRows);
-    }
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     * 
-     * <p><p>Identifies the query being acknowledged</p></p>
-     * 
-     * <p><p>Allows linking of a response back to the request that 
-     * triggered it and is therefore mandatory. Particularly useful 
-     * when responses are deferred or queued.</p></p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 }

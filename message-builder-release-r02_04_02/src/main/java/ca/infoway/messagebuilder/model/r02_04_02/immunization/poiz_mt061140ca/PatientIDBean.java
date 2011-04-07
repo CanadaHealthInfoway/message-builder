@@ -18,7 +18,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT061140CA.PatientID"})
 public class PatientIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> patientIDs = new SETImpl<II, Identifier>(IIImpl.class);
 
 

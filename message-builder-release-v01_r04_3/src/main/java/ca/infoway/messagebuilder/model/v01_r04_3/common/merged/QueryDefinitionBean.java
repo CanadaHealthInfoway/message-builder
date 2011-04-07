@@ -15,7 +15,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II queryIdentifier = new IIImpl();
     private INT queryLimit = new INTImpl();
     private PL parameterList;

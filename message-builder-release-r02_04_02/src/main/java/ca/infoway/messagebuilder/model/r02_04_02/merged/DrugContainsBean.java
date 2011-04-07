@@ -101,11 +101,84 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","FICR_MT400003CA.Ingredient","FICR_MT400004CA.Ingredient","FICR_MT490102CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private BL negationInd = new BLImpl();
+    private PQ quantity = new PQImpl();
     private CV drugIngredientIdentifier = new CVImpl();
     private ST ingredientName = new STImpl();
+
+
+    /**
+     * <p>L:Does Not Contain Indicator</p>
+     * 
+     * <p><p>An indication that a drug does not contain the 
+     * specified ingredient (active or inactive).</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p>D:Drug Does Not Contain Indicator</p>
+     * 
+     * <p><p>An indication that a drug does not contain the 
+     * specified ingredient (active or inactive).</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>The attribute is 'populated' because the 
+     * distinction between &quot;does/must contain&quot; and 
+     * &quot;does/must not contain&quot; is essential, however in 
+     * some circumstances it is necessary to say &quot;may 
+     * contain&quot;.</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>The attribute is 'populated' because the 
+     * distinction between &quot;does/must contain&quot; and 
+     * &quot;does/must not contain&quot; is essential, however in 
+     * some circumstances it is necessary to say &quot;may 
+     * contain&quot;.</p></p>
+     * 
+     * <p>Does Not Contain Indicator</p>
+     * 
+     * <p><p>An indication that a drug does not contain the 
+     * specified ingredient (active or inactive).</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p>Drug Does Not Contain Indicator</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
+    }
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
+    }
 
 
     /**
@@ -231,79 +304,6 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
-    }
-
-
-    /**
-     * <p>L:Does Not Contain Indicator</p>
-     * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
-     * <p>D:Drug Does Not Contain Indicator</p>
-     * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'populated' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential, however in 
-     * some circumstances it is necessary to say &quot;may 
-     * contain&quot;.</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'populated' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential, however in 
-     * some circumstances it is necessary to say &quot;may 
-     * contain&quot;.</p></p>
-     * 
-     * <p>Does Not Contain Indicator</p>
-     * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
-     * <p>Drug Does Not Contain Indicator</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
-    }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
     }
 
 

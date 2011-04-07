@@ -65,16 +65,42 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20110318L;
-    private CD dischargeCareSummaryReportType = new CDImpl();
-    private OccurredAtBean location;
+    private static final long serialVersionUID = 20110407L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private List<DischargeDiagnosesBean> outcomeConditionEvent = new ArrayList<DischargeDiagnosesBean>();
-    private CV dischargeDisposition = new CVImpl();
-    private CS preliminaryFinalIndicator = new CSImpl();
     private II reportedOnCareCompositionLink = new IIImpl();
-    private Request_1Bean inFulfillmentOfActRequest;
+    private CD dischargeCareSummaryReportType = new CDImpl();
+    private CS preliminaryFinalIndicator = new CSImpl();
     private IVL<TS, Interval<Date>> dischargeCareSummaryReportPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV dischargeDisposition = new CVImpl();
+    private OccurredAtBean location;
+    private List<DischargeDiagnosesBean> outcomeConditionEvent = new ArrayList<DischargeDiagnosesBean>();
+    private Request_1Bean inFulfillmentOfActRequest;
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    /**
+     * <p>ReportedOnCareCompositionLink</p>
+     * 
+     * <p>M:Reported on Care Composition Link</p>
+     * 
+     * <p><p>Provides the identifier of the discrete encounter, 
+     * episode or care event being reported on.</p></p>
+     * 
+     * <p><p>Allows for drill-down and for direct association 
+     * between the report and the discrete record.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReportedOnCareCompositionLink() {
+        return this.reportedOnCareCompositionLink.getValue();
+    }
+    public void setReportedOnCareCompositionLink(Identifier reportedOnCareCompositionLink) {
+        this.reportedOnCareCompositionLink.setValue(reportedOnCareCompositionLink);
+    }
 
 
     /**
@@ -124,50 +150,6 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"outcome/conditionEvent"})
-    public List<DischargeDiagnosesBean> getOutcomeConditionEvent() {
-        return this.outcomeConditionEvent;
-    }
-
-
-    /**
-     * <p>DischargeDisposition</p>
-     * 
-     * <p>N:Discharge Disposition</p>
-     * 
-     * <p><p>Indicates the manner in which the patient left the 
-     * encounter or other care event. E.g. 'Deceased', 'Discharged 
-     * to home', 'Discharged to isolation'</p></p>
-     * 
-     * <p><p>May be important in planning subsequent care for the 
-     * patient. Something must be said about discharge condition 
-     * but in some circumstances the value may not be known. Thus 
-     * the attribute is treated as 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"dischargeDispositionCode"})
-    public EncounterDischargeDisposition getDischargeDisposition() {
-        return (EncounterDischargeDisposition) this.dischargeDisposition.getValue();
-    }
-    public void setDischargeDisposition(EncounterDischargeDisposition dischargeDisposition) {
-        this.dischargeDisposition.setValue(dischargeDisposition);
-    }
-
-
     /**
      * <p>PreliminaryFinalIndicator</p>
      * 
@@ -193,35 +175,6 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
     public void setPreliminaryFinalIndicator(x_ActStatusActiveComplete preliminaryFinalIndicator) {
         this.preliminaryFinalIndicator.setValue(preliminaryFinalIndicator);
-    }
-
-
-    /**
-     * <p>ReportedOnCareCompositionLink</p>
-     * 
-     * <p>M:Reported on Care Composition Link</p>
-     * 
-     * <p><p>Provides the identifier of the discrete encounter, 
-     * episode or care event being reported on.</p></p>
-     * 
-     * <p><p>Allows for drill-down and for direct association 
-     * between the report and the discrete record.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReportedOnCareCompositionLink() {
-        return this.reportedOnCareCompositionLink.getValue();
-    }
-    public void setReportedOnCareCompositionLink(Identifier reportedOnCareCompositionLink) {
-        this.reportedOnCareCompositionLink.setValue(reportedOnCareCompositionLink);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_1Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
@@ -258,6 +211,53 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
     public void setDischargeCareSummaryReportPeriod(Interval<Date> dischargeCareSummaryReportPeriod) {
         this.dischargeCareSummaryReportPeriod.setValue(dischargeCareSummaryReportPeriod);
+    }
+
+
+    /**
+     * <p>DischargeDisposition</p>
+     * 
+     * <p>N:Discharge Disposition</p>
+     * 
+     * <p><p>Indicates the manner in which the patient left the 
+     * encounter or other care event. E.g. 'Deceased', 'Discharged 
+     * to home', 'Discharged to isolation'</p></p>
+     * 
+     * <p><p>May be important in planning subsequent care for the 
+     * patient. Something must be said about discharge condition 
+     * but in some circumstances the value may not be known. Thus 
+     * the attribute is treated as 'populated'.</p></p>
+     */
+    @Hl7XmlMapping({"dischargeDispositionCode"})
+    public EncounterDischargeDisposition getDischargeDisposition() {
+        return (EncounterDischargeDisposition) this.dischargeDisposition.getValue();
+    }
+    public void setDischargeDisposition(EncounterDischargeDisposition dischargeDisposition) {
+        this.dischargeDisposition.setValue(dischargeDisposition);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"outcome/conditionEvent"})
+    public List<DischargeDiagnosesBean> getOutcomeConditionEvent() {
+        return this.outcomeConditionEvent;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public Request_1Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 }

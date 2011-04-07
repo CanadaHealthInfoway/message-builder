@@ -23,10 +23,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV territorialAuthorityType = new CVImpl();
-    private TerritorialAuthorityBean partTerritorialAuthority;
     private CV jurisdictionType = new CVImpl();
+    private TerritorialAuthorityBean partTerritorialAuthority;
 
 
     /**
@@ -44,15 +44,6 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setTerritorialAuthorityType(Code territorialAuthorityType) {
         this.territorialAuthorityType.setValue(territorialAuthorityType);
-    }
-
-
-    @Hl7XmlMapping({"part/territorialAuthority"})
-    public TerritorialAuthorityBean getPartTerritorialAuthority() {
-        return this.partTerritorialAuthority;
-    }
-    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
-        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 
@@ -75,6 +66,15 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setJurisdictionType(Code jurisdictionType) {
         this.jurisdictionType.setValue(jurisdictionType);
+    }
+
+
+    @Hl7XmlMapping({"part/territorialAuthority"})
+    public TerritorialAuthorityBean getPartTerritorialAuthority() {
+        return this.partTerritorialAuthority;
+    }
+    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
+        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 }

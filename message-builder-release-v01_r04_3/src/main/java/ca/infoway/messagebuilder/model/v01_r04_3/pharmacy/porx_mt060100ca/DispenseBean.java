@@ -29,69 +29,18 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.SupplyEventBean
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
-    private SupplyEventBean component1SupplyEvent;
-    private CV prescriptionMaskingIndicator = new CVImpl();
-    private ST renderedDosageInstruction = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private RecordedAtBean location;
-    private ProviderBean performerAssignedPerson;
     private CS dispenseStatus = new CSImpl();
+    private CV prescriptionMaskingIndicator = new CVImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private ProviderBean performerAssignedPerson;
+    private RecordedAtBean location;
+    private SupplyEventBean component1SupplyEvent;
+    private ST renderedDosageInstruction = new STImpl();
     private CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public Boolean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    @Hl7XmlMapping({"component1/supplyEvent"})
-    public SupplyEventBean getComponent1SupplyEvent() {
-        return this.component1SupplyEvent;
-    }
-    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
-        this.component1SupplyEvent = component1SupplyEvent;
-    }
-
-
-    /**
-     * <p>E:Prescription Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
-    }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
-    }
-
-
-    /**
-     * <p>Rendered Dosage Instruction</p>
-     */
-    @Hl7XmlMapping({"component2/administrationInstructions/text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
-    }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
-    }
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
     /**
@@ -103,24 +52,6 @@ public class DispenseBean extends MessagePartBean {
     }
     public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedPerson"})
-    public ProviderBean getPerformerAssignedPerson() {
-        return this.performerAssignedPerson;
-    }
-    public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
-        this.performerAssignedPerson = performerAssignedPerson;
     }
 
 
@@ -136,12 +67,81 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>E:Prescription Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    }
+    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
+        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedPerson"})
+    public ProviderBean getPerformerAssignedPerson() {
+        return this.performerAssignedPerson;
+    }
+    public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
+        this.performerAssignedPerson = performerAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component1/supplyEvent"})
+    public SupplyEventBean getComponent1SupplyEvent() {
+        return this.component1SupplyEvent;
+    }
+    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
+        this.component1SupplyEvent = component1SupplyEvent;
+    }
+
+
+    /**
+     * <p>Rendered Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"component2/administrationInstructions/text"})
+    public String getRenderedDosageInstruction() {
+        return this.renderedDosageInstruction.getValue();
+    }
+    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
+        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    }
+
+
     @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
     public CombinedMedicationRequest_1Bean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
     public void setFulfillmentSubstanceAdministrationRequest(CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
+    public Boolean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
     }
 
 

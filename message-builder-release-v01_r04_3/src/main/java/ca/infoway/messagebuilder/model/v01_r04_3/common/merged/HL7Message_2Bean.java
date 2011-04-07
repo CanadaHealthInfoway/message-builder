@@ -30,48 +30,75 @@ import java.util.Set;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CS processingCode = new CSImpl();
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private ReceiverBean receiver;
-    private II interactionType = new IIImpl();
-    private SET<II, Identifier> conformanceProfileIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private II messageIdentifier = new IIImpl();
-    private SenderBean sender;
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private ToBeRespondedToByBean respondTo;
-    private CS hL7StandardVersion = new CSImpl();
     private TS messageTimestamp = new TSImpl();
     private ST securityToken = new STImpl();
+    private CS hL7StandardVersion = new CSImpl();
+    private II interactionType = new IIImpl();
+    private SET<II, Identifier> conformanceProfileIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private CS processingCode = new CSImpl();
+    private CS desiredAcknowledgmentType = new CSImpl();
+    private ReceiverBean receiver;
+    private ToBeRespondedToByBean respondTo;
+    private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
 
 
     /**
-     * <p>ProcessingCode</p>
+     * <p>MessageIdentifier</p>
      * 
-     * <p>D:Processing Code</p>
+     * <p>A:Message Identifier</p>
      */
-    @Hl7XmlMapping({"processingCode"})
-    public ProcessingID getProcessingCode() {
-        return (ProcessingID) this.processingCode.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
     }
-    public void setProcessingCode(ProcessingID processingCode) {
-        this.processingCode.setValue(processingCode);
-    }
-
-
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
     }
 
 
-    @Hl7XmlMapping({"receiver"})
-    public ReceiverBean getReceiver() {
-        return this.receiver;
+    /**
+     * <p>MessageTimestamp</p>
+     * 
+     * <p>G:Message Timestamp</p>
+     */
+    @Hl7XmlMapping({"creationTime"})
+    public Date getMessageTimestamp() {
+        return this.messageTimestamp.getValue();
     }
-    public void setReceiver(ReceiverBean receiver) {
-        this.receiver = receiver;
+    public void setMessageTimestamp(Date messageTimestamp) {
+        this.messageTimestamp.setValue(messageTimestamp);
+    }
+
+
+    /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
+    }
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
+    }
+
+
+    /**
+     * <p>HL7StandardVersion</p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     */
+    @Hl7XmlMapping({"versionCode"})
+    public HL7StandardVersionCode getHL7StandardVersion() {
+        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
+    }
+    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
+        this.hL7StandardVersion.setValue(hL7StandardVersion);
     }
 
 
@@ -101,25 +128,16 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>ProcessingCode</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>D:Processing Code</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
+    @Hl7XmlMapping({"processingCode"})
+    public ProcessingID getProcessingCode() {
+        return (ProcessingID) this.processingCode.getValue();
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
-    }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
+    public void setProcessingCode(ProcessingID processingCode) {
+        this.processingCode.setValue(processingCode);
     }
 
 
@@ -137,6 +155,15 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"receiver"})
+    public ReceiverBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ReceiverBean receiver) {
+        this.receiver = receiver;
+    }
+
+
     @Hl7XmlMapping({"respondTo"})
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
@@ -146,45 +173,18 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>HL7StandardVersion</p>
-     * 
-     * <p>C: HL7 Standard Version</p>
-     */
-    @Hl7XmlMapping({"versionCode"})
-    public HL7StandardVersionCode getHL7StandardVersion() {
-        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
     }
-    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
-        this.hL7StandardVersion.setValue(hL7StandardVersion);
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
     }
 
 
-    /**
-     * <p>MessageTimestamp</p>
-     * 
-     * <p>G:Message Timestamp</p>
-     */
-    @Hl7XmlMapping({"creationTime"})
-    public Date getMessageTimestamp() {
-        return this.messageTimestamp.getValue();
-    }
-    public void setMessageTimestamp(Date messageTimestamp) {
-        this.messageTimestamp.setValue(messageTimestamp);
-    }
-
-
-    /**
-     * <p>SecurityToken</p>
-     * 
-     * <p>H:Security Token</p>
-     */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
-    }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
     }
 
 

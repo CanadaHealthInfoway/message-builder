@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.HealthcareWorkerBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
     private HealthcareWorkerBean performerAssignedEntity;

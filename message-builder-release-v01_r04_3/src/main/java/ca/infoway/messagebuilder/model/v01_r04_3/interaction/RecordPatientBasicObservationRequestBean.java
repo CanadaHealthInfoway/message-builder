@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v01_r04_3.iehr.merged.PatientMeasurements
 @Hl7PartTypeMapping({"REPC_IN000051CA"})
 public class RecordPatientBasicObservationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PatientMeasurementsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

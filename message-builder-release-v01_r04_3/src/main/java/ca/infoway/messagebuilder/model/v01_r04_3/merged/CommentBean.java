@@ -24,25 +24,16 @@ import ca.infoway.messagebuilder.model.v01_r04_3.si.comt_mt301001ca.AnnotatedAct
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PatientBean recordTargetPatient;
+    private static final long serialVersionUID = 20110407L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
-    private RefusedByBean author;
-    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean recordTargetPatient;
     private II patientNoteId = new IIImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private RefusedByBean author;
     private RecordedAtBean location;
     private CV writtenIn = new CVImpl();
     private AnnotatedActBean subjectAnnotatedAct;
-
-
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
 
 
     /**
@@ -77,21 +68,12 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -106,6 +88,24 @@ public class CommentBean extends MessagePartBean {
     }
     public void setPatientNoteId(Identifier patientNoteId) {
         this.patientNoteId.setValue(patientNoteId);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 

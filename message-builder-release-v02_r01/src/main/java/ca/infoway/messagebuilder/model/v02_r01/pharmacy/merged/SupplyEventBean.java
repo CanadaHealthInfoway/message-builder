@@ -24,38 +24,29 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RelatedPersonBean receiverPersonalRelationship;
-    private PQ dispensedQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private PQ dispensedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
+    private RelatedPersonBean receiverPersonalRelationship;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public RelatedPersonBean getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
-    }
-    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
-        this.receiverPersonalRelationship = receiverPersonalRelationship;
-    }
-
-
     /**
-     * <p>DispensedQuantity</p>
+     * <p>DispenseType</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>Dispense Type</p>
      * 
-     * <p>F:Dispensed Quantity</p>
+     * <p>B:Dispense Type</p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -74,18 +65,18 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>DispensedQuantity</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      * 
-     * <p>B:Dispense Type</p>
+     * <p>F:Dispensed Quantity</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -111,6 +102,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public RelatedPersonBean getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
+    }
+    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
+        this.receiverPersonalRelationship = receiverPersonalRelationship;
     }
 
 

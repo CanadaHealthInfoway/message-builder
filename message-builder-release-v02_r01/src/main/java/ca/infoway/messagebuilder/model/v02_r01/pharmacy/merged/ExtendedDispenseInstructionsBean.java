@@ -22,26 +22,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
+    private static final long serialVersionUID = 20110407L;
     private PQ totalPrescribedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
     private FirstFillBean component2InitialSupplyRequest;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
-        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
-        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
-    }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
-    }
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
 
 
     /**
@@ -55,6 +41,20 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    }
+
+
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>A:Total Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
     }
 
 
@@ -81,17 +81,17 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>A:Total Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
+        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
+        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 }

@@ -79,12 +79,12 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.merged.Party, Choice, Consenter, ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt120600ca.AssignedPerson {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN relatedPersonName = new PNImpl();
-    private AD relatedPersonAddress = new ADImpl();
     private II relatedPersonIdentifier = new IIImpl();
+    private PN relatedPersonName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD relatedPersonAddress = new ADImpl();
 
 
     /**
@@ -120,581 +120,6 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setCode(x_SimplePersonalRelationship code) {
         this.code.setValue(code);
-    }
-
-
-    /**
-     * <p>RelatedPersonPhonesAndEmails</p>
-     * 
-     * <p>E:Related Person Phones and Emails</p>
-     * 
-     * <p><p>The phone number(s) and email address(s) by which a 
-     * related person may be contacted.</p></p>
-     * 
-     * <p><p>Used to contact the related person.</p></p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>RelatedPersonName</p>
-     * 
-     * <p>A:Related Person Name</p>
-     * 
-     * <p><p>The name by which the responsible person is known</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
-     * 
-     * <p><p>Used when contacting or addressing the responsible 
-     * person. Because this will be the principle means of 
-     * identifying the responsible person, it is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getRelatedPersonName() {
-        return this.relatedPersonName.getValue();
-    }
-    public void setRelatedPersonName(PersonName relatedPersonName) {
-        this.relatedPersonName.setValue(relatedPersonName);
-    }
-
-
-    /**
-     * <p>RelatedPersonAddress</p>
-     * 
-     * <p>D:Related Person Address</p>
-     * 
-     * <p><p>The mail and/or physical address associated with a 
-     * related person.</p></p>
-     * 
-     * <p><p>Used to contact the related person.</p></p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/addr"})
-    public PostalAddress getRelatedPersonAddress() {
-        return this.relatedPersonAddress.getValue();
-    }
-    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
-        this.relatedPersonAddress.setValue(relatedPersonAddress);
     }
 
 
@@ -1941,6 +1366,581 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
         this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
+    }
+
+
+    /**
+     * <p>RelatedPersonName</p>
+     * 
+     * <p>A:Related Person Name</p>
+     * 
+     * <p><p>The name by which the responsible person is known</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>ZPB3.13</p><p>PVD.050-01 (PartType = 
+     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
+     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer when supervisor is also specified 
+     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>D1a</p><p>Practitioner's 
+     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
+     * Physician 
+     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p></p>
+     * 
+     * <p><p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/name"})
+    public PersonName getRelatedPersonName() {
+        return this.relatedPersonName.getValue();
+    }
+    public void setRelatedPersonName(PersonName relatedPersonName) {
+        this.relatedPersonName.setValue(relatedPersonName);
+    }
+
+
+    /**
+     * <p>RelatedPersonPhonesAndEmails</p>
+     * 
+     * <p>E:Related Person Phones and Emails</p>
+     * 
+     * <p><p>The phone number(s) and email address(s) by which a 
+     * related person may be contacted.</p></p>
+     * 
+     * <p><p>Used to contact the related person.</p></p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/telecom"})
+    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
+        return this.relatedPersonPhonesAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>RelatedPersonAddress</p>
+     * 
+     * <p>D:Related Person Address</p>
+     * 
+     * <p><p>The mail and/or physical address associated with a 
+     * related person.</p></p>
+     * 
+     * <p><p>Used to contact the related person.</p></p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/addr"})
+    public PostalAddress getRelatedPersonAddress() {
+        return this.relatedPersonAddress.getValue();
+    }
+    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
+        this.relatedPersonAddress.setValue(relatedPersonAddress);
     }
 
 }

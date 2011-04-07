@@ -42,10 +42,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Antigens","POIZ_MT030060CA.Antigens","POIZ_MT060150CA.Antigens"})
 public class AntigensBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV antigenCode = new CVImpl();
-    private HealthChartBean asHealthChart;
     private ST antigenName = new STImpl();
+    private HealthChartBean asHealthChart;
 
 
     /**
@@ -74,15 +74,6 @@ public class AntigensBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asHealthChart"})
-    public HealthChartBean getAsHealthChart() {
-        return this.asHealthChart;
-    }
-    public void setAsHealthChart(HealthChartBean asHealthChart) {
-        this.asHealthChart = asHealthChart;
-    }
-
-
     /**
      * <p>AntigenName</p>
      * 
@@ -100,6 +91,15 @@ public class AntigensBean extends MessagePartBean {
     }
     public void setAntigenName(String antigenName) {
         this.antigenName.setValue(antigenName);
+    }
+
+
+    @Hl7XmlMapping({"asHealthChart"})
+    public HealthChartBean getAsHealthChart() {
+        return this.asHealthChart;
+    }
+    public void setAsHealthChart(HealthChartBean asHealthChart) {
+        this.asHealthChart = asHealthChart;
     }
 
 }

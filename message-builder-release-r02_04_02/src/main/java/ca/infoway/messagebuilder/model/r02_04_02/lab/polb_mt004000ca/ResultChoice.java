@@ -31,11 +31,19 @@ import java.util.List;
 @Hl7RootType
 public interface ResultChoice extends ca.infoway.messagebuilder.model.r02_04_02.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.r02_04_02.lab.polb_mt001999ca.ResultChoice {
 
-    public List<RoleChoice> getPerformerRoleChoice();
+    public List<ReportSectionSpecimenBean> getSpecimen();
 
-    public List<ResultChoice> getComponent3ResultChoice();
+    public Patient_1Bean getRecordTargetPatient();
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
     public List<RoleChoice> getReceiverRoleChoice();
+
+    public List<RoleChoice> getPerformerRoleChoice();
+
+    public RecipientChoice getPrimaryInformationRecipientRecipientChoice();
+    public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice);
+
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 
     public OutbreakBean getPertinentInformation1OutbreakEvent();
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
@@ -45,24 +53,16 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.r02_04_02.
     public ResultSortKeyBean getComponent1ResultSortKey();
     public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey);
 
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
-
-    public List<IncludesBean> getSubjectOf2();
-
-    public Patient_1Bean getRecordTargetPatient();
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
-
-    public RecipientChoice getPrimaryInformationRecipientRecipientChoice();
-    public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice);
-
     public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator();
+
+    public List<ResultChoice> getComponent3ResultChoice();
 
     public VersionInformationBean getSubjectOf1ControlActEvent();
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
+    public List<IncludesBean> getSubjectOf2();
 
-    public List<ReportSectionSpecimenBean> getSpecimen();
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
 }

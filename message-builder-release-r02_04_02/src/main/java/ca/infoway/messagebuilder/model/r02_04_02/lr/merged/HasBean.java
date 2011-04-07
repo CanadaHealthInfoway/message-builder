@@ -48,10 +48,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II identifier = new IIImpl();
     private CV identifierType = new CVImpl();
     private ST identifyingOrganization = new STImpl();
-    private II identifier = new IIImpl();
+
+
+    /**
+     * <p>Identifier</p>
+     * 
+     * <p>A: Identifier</p>
+     * 
+     * <p><p>An identifier by which the location is known.</p></p>
+     * 
+     * <p><p>Specifies the actual identifier that can be used for 
+     * searching or linking. The attribute is mandatory because 
+     * there is no point specifying an &quot;Other 
+     * Identifiers&quot; class if you are not going to specify an 
+     * identifier.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIdentifier() {
+        return this.identifier.getValue();
+    }
+    public void setIdentifier(Identifier identifier) {
+        this.identifier.setValue(identifier);
+    }
 
 
     /**
@@ -95,28 +117,6 @@ public class HasBean extends MessagePartBean {
     }
     public void setIdentifyingOrganization(String identifyingOrganization) {
         this.identifyingOrganization.setValue(identifyingOrganization);
-    }
-
-
-    /**
-     * <p>Identifier</p>
-     * 
-     * <p>A: Identifier</p>
-     * 
-     * <p><p>An identifier by which the location is known.</p></p>
-     * 
-     * <p><p>Specifies the actual identifier that can be used for 
-     * searching or linking. The attribute is mandatory because 
-     * there is no point specifying an &quot;Other 
-     * Identifiers&quot; class if you are not going to specify an 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIdentifier() {
-        return this.identifier.getValue();
-    }
-    public void setIdentifier(Identifier identifier) {
-        this.identifier.setValue(identifier);
     }
 
 }

@@ -51,56 +51,26 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private PayeeAccountBean creditAccount;
-    private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
-    private MO totalAmountOfPaymentIntent = new MOImpl();
-    private AccountBean debitAccount;
-    private CS paymentIntentStatus = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private II paymentIntentIdentifier = new IIImpl();
+    private CS paymentIntentStatus = new CSImpl();
     private TS paymentIntentDateTime = new TSImpl();
-
-
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
-    }
-
-
-    @Hl7XmlMapping({"credit/account"})
-    public PayeeAccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(PayeeAccountBean creditAccount) {
-        this.creditAccount = creditAccount;
-    }
-
-
-    @Hl7XmlMapping({"reasonOf"})
-    public List<Reason2Bean> getReasonOf() {
-        return this.reasonOf;
-    }
+    private MO totalAmountOfPaymentIntent = new MOImpl();
+    private PayeeAccountBean creditAccount;
+    private AccountBean debitAccount;
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
 
 
     /**
-     * <p>Total Amount of Payment Intent</p>
+     * <p>Payment Intent Identifier</p>
      */
-    @Hl7XmlMapping({"amt"})
-    public Money getTotalAmountOfPaymentIntent() {
-        return this.totalAmountOfPaymentIntent.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPaymentIntentIdentifier() {
+        return this.paymentIntentIdentifier.getValue();
     }
-    public void setTotalAmountOfPaymentIntent(Money totalAmountOfPaymentIntent) {
-        this.totalAmountOfPaymentIntent.setValue(totalAmountOfPaymentIntent);
-    }
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
+    public void setPaymentIntentIdentifier(Identifier paymentIntentIdentifier) {
+        this.paymentIntentIdentifier.setValue(paymentIntentIdentifier);
     }
 
 
@@ -117,18 +87,6 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Payment Intent Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPaymentIntentIdentifier() {
-        return this.paymentIntentIdentifier.getValue();
-    }
-    public void setPaymentIntentIdentifier(Identifier paymentIntentIdentifier) {
-        this.paymentIntentIdentifier.setValue(paymentIntentIdentifier);
-    }
-
-
-    /**
      * <p>Payment Intent Date/Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -137,6 +95,48 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
     public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
         this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    }
+
+
+    /**
+     * <p>Total Amount of Payment Intent</p>
+     */
+    @Hl7XmlMapping({"amt"})
+    public Money getTotalAmountOfPaymentIntent() {
+        return this.totalAmountOfPaymentIntent.getValue();
+    }
+    public void setTotalAmountOfPaymentIntent(Money totalAmountOfPaymentIntent) {
+        this.totalAmountOfPaymentIntent.setValue(totalAmountOfPaymentIntent);
+    }
+
+
+    @Hl7XmlMapping({"credit/account"})
+    public PayeeAccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(PayeeAccountBean creditAccount) {
+        this.creditAccount = creditAccount;
+    }
+
+
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
+    }
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    }
+
+
+    @Hl7XmlMapping({"reasonOf"})
+    public List<Reason2Bean> getReasonOf() {
+        return this.reasonOf;
     }
 
 }

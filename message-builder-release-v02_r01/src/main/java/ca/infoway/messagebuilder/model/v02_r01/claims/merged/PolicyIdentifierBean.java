@@ -17,20 +17,11 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.CarrierRoleBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
     private CD policyType = new CDImpl();
+    private CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient;
     private CarrierRoleBean authorCarrierRole;
-
-
-    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
-    public CoveredPartyInformationBean getBeneficiaryCoveredPartyAsPatient() {
-        return this.beneficiaryCoveredPartyAsPatient;
-    }
-    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient) {
-        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
-    }
 
 
     /**
@@ -58,6 +49,15 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
     public void setPolicyType(ActCode policyType) {
         this.policyType.setValue(policyType);
+    }
+
+
+    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
+    public CoveredPartyInformationBean getBeneficiaryCoveredPartyAsPatient() {
+        return this.beneficiaryCoveredPartyAsPatient;
+    }
+    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient) {
+        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }
 
 

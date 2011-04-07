@@ -30,25 +30,13 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL mostRecentByDrugIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
 
 
     /**
@@ -60,18 +48,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Most Recent By Drug Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
-    }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 
@@ -102,6 +78,30 @@ public class ParameterListBean extends MessagePartBean {
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypes() {
         return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Issue Filter Code</p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>Most Recent By Drug Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
+    }
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 }

@@ -36,9 +36,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST characteristic = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV characteristicType = new CVImpl();
+    private ST characteristic = new STImpl();
+
+
+    /**
+     * <p>CharacteristicType</p>
+     * 
+     * <p>A:Characteristic Type</p>
+     * 
+     * <p><p>A coded value denoting the type of physical 
+     * characteristic being documented. Kinds of characteristics 
+     * include: Color, Shape, Markings, Size, etc.</p></p>
+     * 
+     * <p><p>Identifies what kind of characteristic is being 
+     * identified. This is mandatory as providing the 
+     * characteristic alone without specifying the type can result 
+     * in ambiguity.</p></p>
+     * 
+     * <p>Characteristic Type</p>
+     * 
+     * <p><p>A coded value denoting the type of physical 
+     * characteristic being documented. Kinds of characteristics 
+     * include: Color, Shape, Markings, Size.</p></p>
+     * 
+     * <p><p>Identifies what kind of characteristic is being 
+     * identified. This is mandatory as providing the 
+     * characteristic alone without specifying the type can result 
+     * in ambiguity</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public MedicationObservationType getCharacteristicType() {
+        return (MedicationObservationType) this.characteristicType.getValue();
+    }
+    public void setCharacteristicType(MedicationObservationType characteristicType) {
+        this.characteristicType.setValue(characteristicType);
+    }
 
 
     /**
@@ -82,40 +116,6 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
     public void setCharacteristic(String characteristic) {
         this.characteristic.setValue(characteristic);
-    }
-
-
-    /**
-     * <p>CharacteristicType</p>
-     * 
-     * <p>A:Characteristic Type</p>
-     * 
-     * <p><p>A coded value denoting the type of physical 
-     * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size, etc.</p></p>
-     * 
-     * <p><p>Identifies what kind of characteristic is being 
-     * identified. This is mandatory as providing the 
-     * characteristic alone without specifying the type can result 
-     * in ambiguity.</p></p>
-     * 
-     * <p>Characteristic Type</p>
-     * 
-     * <p><p>A coded value denoting the type of physical 
-     * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size.</p></p>
-     * 
-     * <p><p>Identifies what kind of characteristic is being 
-     * identified. This is mandatory as providing the 
-     * characteristic alone without specifying the type can result 
-     * in ambiguity</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public MedicationObservationType getCharacteristicType() {
-        return (MedicationObservationType) this.characteristicType.getValue();
-    }
-    public void setCharacteristicType(MedicationObservationType characteristicType) {
-        this.characteristicType.setValue(characteristicType);
     }
 
 }

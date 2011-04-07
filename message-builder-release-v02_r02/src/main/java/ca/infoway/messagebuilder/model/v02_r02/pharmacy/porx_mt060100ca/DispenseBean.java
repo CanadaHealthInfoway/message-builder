@@ -45,27 +45,18 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean performerAssignedEntity;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private ST renderedDosageInstruction = new STImpl();
     private CS dispenseStatus = new CSImpl();
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private SupplyEventBean component1SupplyEvent;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean performerAssignedEntity;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
+    private SupplyEventBean component1SupplyEvent;
+    private ST renderedDosageInstruction = new STImpl();
+    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
     /**
@@ -95,72 +86,6 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public Boolean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
-    }
-
-
-    /**
-     * <p>Rendered Dosage Instruction</p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>For dosage instructions which cannot be summarized in 
-     * the space allocated, a string such as &quot;Complex 
-     * dose&quot; or &quot;Scaling dose&quot; or something similar 
-     * should be sent. Dosage instructions should never be 
-     * truncated.</p></p>
-     */
-    @Hl7XmlMapping({"component2/administrationInstructions/text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
-    }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
-    }
-
-
     /**
      * <p>C:Dispense Status</p>
      * 
@@ -177,15 +102,6 @@ public class DispenseBean extends MessagePartBean {
     }
     public void setDispenseStatus(ActStatus dispenseStatus) {
         this.dispenseStatus.setValue(dispenseStatus);
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
-    }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
 
 
@@ -284,15 +200,6 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/supplyEvent"})
-    public SupplyEventBean getComponent1SupplyEvent() {
-        return this.component1SupplyEvent;
-    }
-    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
-        this.component1SupplyEvent = component1SupplyEvent;
-    }
-
-
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
@@ -302,12 +209,105 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component1/supplyEvent"})
+    public SupplyEventBean getComponent1SupplyEvent() {
+        return this.component1SupplyEvent;
+    }
+    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
+        this.component1SupplyEvent = component1SupplyEvent;
+    }
+
+
+    /**
+     * <p>Rendered Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>For dosage instructions which cannot be summarized in 
+     * the space allocated, a string such as &quot;Complex 
+     * dose&quot; or &quot;Scaling dose&quot; or something similar 
+     * should be sent. Dosage instructions should never be 
+     * truncated.</p></p>
+     */
+    @Hl7XmlMapping({"component2/administrationInstructions/text"})
+    public String getRenderedDosageInstruction() {
+        return this.renderedDosageInstruction.getValue();
+    }
+    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
+        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
+    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+        return this.fulfillmentSubstanceAdministrationRequest;
+    }
+    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
+    public Boolean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 }

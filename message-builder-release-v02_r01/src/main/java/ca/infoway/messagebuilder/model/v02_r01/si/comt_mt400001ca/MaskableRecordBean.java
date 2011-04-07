@@ -26,21 +26,12 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RoleBean directTargetRole;
+    private static final long serialVersionUID = 20110407L;
     private II recordIdentifier = new IIImpl();
-    private DiagnosisBean reasonDiagnosis;
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private CV recordType = new CVImpl();
-
-
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
-    }
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
-    }
+    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private RoleBean directTargetRole;
+    private DiagnosisBean reasonDiagnosis;
 
 
     /**
@@ -55,12 +46,15 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
+    /**
+     * <p>B:Record Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
     }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
     }
 
 
@@ -73,15 +67,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Record Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
     }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
+    }
+
+
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
+    }
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 }

@@ -32,17 +32,41 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ totalDispensed = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV typeOfDispense = new CVImpl();
+    private TS dispenseTime = new TSImpl();
+    private PQ totalDispensed = new PQImpl();
+    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DispensedInBean productContent;
+    private PharmacistRoleBean performerPharmacistRole;
+    private ServiceLocationBean originServiceDeliveryLocation;
+    private ServiceLocationBean destinationServiceDeliveryLocation;
     private DispenseInstructionsBean pertinentInformation;
     private PatientEncounterBean componentOfPatientEncounter;
-    private ServiceLocationBean originServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private PharmacistRoleBean performerPharmacistRole;
-    private DispensedInBean productContent;
-    private ServiceLocationBean destinationServiceDeliveryLocation;
-    private TS dispenseTime = new TSImpl();
+
+
+    /**
+     * <p>Type of Dispense</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getTypeOfDispense() {
+        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
+    }
+    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
+        this.typeOfDispense.setValue(typeOfDispense);
+    }
+
+
+    /**
+     * <p>Dispense Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getDispenseTime() {
+        return this.dispenseTime.getValue();
+    }
+    public void setDispenseTime(Date dispenseTime) {
+        this.dispenseTime.setValue(dispenseTime);
+    }
 
 
     /**
@@ -58,14 +82,50 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Type of Dispense</p>
+     * <p>Dispensed Days Supply</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getTypeOfDispense() {
-        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDispensedDaysSupply() {
+        return this.dispensedDaysSupply.getValue();
     }
-    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
-        this.typeOfDispense.setValue(typeOfDispense);
+    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
+        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"product/content"})
+    public DispensedInBean getProductContent() {
+        return this.productContent;
+    }
+    public void setProductContent(DispensedInBean productContent) {
+        this.productContent = productContent;
+    }
+
+
+    @Hl7XmlMapping({"performer/pharmacistRole"})
+    public PharmacistRoleBean getPerformerPharmacistRole() {
+        return this.performerPharmacistRole;
+    }
+    public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
+        this.performerPharmacistRole = performerPharmacistRole;
+    }
+
+
+    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
+    public ServiceLocationBean getOriginServiceDeliveryLocation() {
+        return this.originServiceDeliveryLocation;
+    }
+    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
+        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -84,66 +144,6 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setComponentOfPatientEncounter(PatientEncounterBean componentOfPatientEncounter) {
         this.componentOfPatientEncounter = componentOfPatientEncounter;
-    }
-
-
-    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceLocationBean getOriginServiceDeliveryLocation() {
-        return this.originServiceDeliveryLocation;
-    }
-    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
-        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Dispensed Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
-    }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
-    }
-
-
-    @Hl7XmlMapping({"performer/pharmacistRole"})
-    public PharmacistRoleBean getPerformerPharmacistRole() {
-        return this.performerPharmacistRole;
-    }
-    public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
-        this.performerPharmacistRole = performerPharmacistRole;
-    }
-
-
-    @Hl7XmlMapping({"product/content"})
-    public DispensedInBean getProductContent() {
-        return this.productContent;
-    }
-    public void setProductContent(DispensedInBean productContent) {
-        this.productContent = productContent;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Dispense Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getDispenseTime() {
-        return this.dispenseTime.getValue();
-    }
-    public void setDispenseTime(Date dispenseTime) {
-        this.dispenseTime.setValue(dispenseTime);
     }
 
 }

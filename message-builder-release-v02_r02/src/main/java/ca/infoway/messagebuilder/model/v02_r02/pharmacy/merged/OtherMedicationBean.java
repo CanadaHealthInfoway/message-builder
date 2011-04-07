@@ -80,46 +80,16 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV routeCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II otherMedicationId = new IIImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CD otherMedicationType = new CDImpl();
     private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
-    private NotesBean subjectOfAnnotation;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-
-
-    /**
-     * <p>D:Route</p>
-     * 
-     * <p><p>This is the means by which the patient is taking the 
-     * other medication.</p></p>
-     * 
-     * <p><p>Ensures consistency in description of routes. Provides 
-     * potential for cross-checking dosage form and route. Because 
-     * this information is pre-coordinated into 'code' for SNOMED, 
-     * it is marked as optional.</p></p>
-     * 
-     * <p>F:Route of Administration</p>
-     * 
-     * <p><p>This is the means by which the patient is taking the 
-     * other medication.</p></p>
-     * 
-     * <p><p>Ensures consistency in description of routes. Provides 
-     * potential for cross-checking dosage form and route. Because 
-     * this information is pre-coordinated into 'code' for SNOMED, 
-     * it is marked as optional.</p></p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteCode() {
-        return (RouteOfAdministration) this.routeCode.getValue();
-    }
-    public void setRouteCode(RouteOfAdministration routeCode) {
-        this.routeCode.setValue(routeCode);
-    }
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -139,38 +109,6 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setOtherMedicationId(Identifier otherMedicationId) {
         this.otherMedicationId.setValue(otherMedicationId);
-    }
-
-
-    /**
-     * <p>DrugActivePeriod</p>
-     * 
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p><p>The new period in which the active medication is 
-     * deemed to be active.</p></p>
-     * 
-     * <p><p>Allows the drug active period information to be 
-     * changed.</p></p>
-     * 
-     * <p>d:Drug Active Period</p>
-     * 
-     * <p><p>Indicates the time-period in which the patient has 
-     * been taking or is expected to be taking the medication.</p></p>
-     * 
-     * <p><p>Used to help determine whether the medication is 
-     * currently active. Because this information won't always be 
-     * available, the attribute is marked as 'populated'.</p></p>
-     * 
-     * <p><p>Either the start or end or both can be null if they 
-     * are not known.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
     }
 
 
@@ -266,6 +204,38 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>DrugActivePeriod</p>
+     * 
+     * <p>C:Drug Active Period</p>
+     * 
+     * <p><p>The new period in which the active medication is 
+     * deemed to be active.</p></p>
+     * 
+     * <p><p>Allows the drug active period information to be 
+     * changed.</p></p>
+     * 
+     * <p>d:Drug Active Period</p>
+     * 
+     * <p><p>Indicates the time-period in which the patient has 
+     * been taking or is expected to be taking the medication.</p></p>
+     * 
+     * <p><p>Used to help determine whether the medication is 
+     * currently active. Because this information won't always be 
+     * available, the attribute is marked as 'populated'.</p></p>
+     * 
+     * <p><p>Either the start or end or both can be null if they 
+     * are not known.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
+    }
+
+
+    /**
      * <p>OtherMedicationMaskingIndicators</p>
      * 
      * <p>E:Other Medication Masking Indicators</p>
@@ -335,6 +305,36 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>D:Route</p>
+     * 
+     * <p><p>This is the means by which the patient is taking the 
+     * other medication.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of routes. Provides 
+     * potential for cross-checking dosage form and route. Because 
+     * this information is pre-coordinated into 'code' for SNOMED, 
+     * it is marked as optional.</p></p>
+     * 
+     * <p>F:Route of Administration</p>
+     * 
+     * <p><p>This is the means by which the patient is taking the 
+     * other medication.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of routes. Provides 
+     * potential for cross-checking dosage form and route. Because 
+     * this information is pre-coordinated into 'code' for SNOMED, 
+     * it is marked as optional.</p></p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
+    }
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
+    }
+
+
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
@@ -344,18 +344,18 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
     }
 
 }

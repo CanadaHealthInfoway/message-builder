@@ -25,18 +25,36 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
+    private static final long serialVersionUID = 20110407L;
+    private CS prescriptionDispensableIndicator = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private CS prescriptionDispensableIndicator = new CSImpl();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
 
 
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    /**
+     * <p>Prescription Dispensable Indicator</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispensableIndicator() {
+        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    }
+    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
+        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
+    }
+
+
+    /**
+     * <p>A:Dispensing Allowed Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
+    }
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
     }
 
 
@@ -55,36 +73,18 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A:Dispensing Allowed Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
-    }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    /**
-     * <p>Prescription Dispensable Indicator</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
-    }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
-    }
-
-
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 }

@@ -39,15 +39,15 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II localDispenseId = new IIImpl();
-    private SupplyEventBean component3SupplyEvent;
-    private SubstitutionBean component1SubstitutionMade;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
-    private NotesBean subjectOfAnnotation;
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
+    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+    private SubstitutionBean component1SubstitutionMade;
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private SupplyEventBean component3SupplyEvent;
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -64,48 +64,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setLocalDispenseId(Identifier localDispenseId) {
         this.localDispenseId.setValue(localDispenseId);
-    }
-
-
-    @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
-        return this.component3SupplyEvent;
-    }
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
-        this.component3SupplyEvent = component3SupplyEvent;
-    }
-
-
-    @Hl7XmlMapping({"component1/substitutionMade"})
-    public SubstitutionBean getComponent1SubstitutionMade() {
-        return this.component1SubstitutionMade;
-    }
-    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
-        this.component1SubstitutionMade = component1SubstitutionMade;
-    }
-
-
-    @Hl7XmlMapping({"component2/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -178,6 +136,48 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setSubject(Boolean subject) {
         this.subject.setValue(subject);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitutionMade"})
+    public SubstitutionBean getComponent1SubstitutionMade() {
+        return this.component1SubstitutionMade;
+    }
+    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
+        this.component1SubstitutionMade = component1SubstitutionMade;
+    }
+
+
+    @Hl7XmlMapping({"component2/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"component3/supplyEvent"})
+    public SupplyEventBean getComponent3SupplyEvent() {
+        return this.component3SupplyEvent;
+    }
+    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
+        this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

@@ -19,7 +19,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor","QUCR_MT830201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS contextControlCode = new CSImpl();
     private TS adjudicationDateTime = new TSImpl();
     private CV modeCode = new CVImpl();

@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.lab.polb_mt002000ca.PromiseChoi
 @Hl7PartTypeMapping({"POLB_IN222300CA"})
 public class PromiseCancelBean extends HL7Message_1Bean<TriggerEvent_1Bean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

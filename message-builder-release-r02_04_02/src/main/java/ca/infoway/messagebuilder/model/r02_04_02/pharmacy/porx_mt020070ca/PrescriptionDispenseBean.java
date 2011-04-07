@@ -38,65 +38,31 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IncludesBean subjectOf;
-    private SupplyEventBean component3SupplyEvent;
+    private static final long serialVersionUID = 20110407L;
+    private II localDispenseId = new IIImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private II localDispenseId = new IIImpl();
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private SupplyEventBean component3SupplyEvent;
+    private IncludesBean subjectOf;
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    /**
+     * <p>A:Local Dispense Id</p>
+     * 
+     * <p><p>Identifier assigned by the dispensing facility.</p></p>
+     * 
+     * <p><p>Allows formal tracking of centrally recorded dispenses 
+     * to local records for audit and related purposes.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getLocalDispenseId() {
+        return this.localDispenseId.getValue();
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
-        return this.component3SupplyEvent;
-    }
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
-        this.component3SupplyEvent = component3SupplyEvent;
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public AnimalPatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    @Hl7XmlMapping({"component2/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    @Hl7XmlMapping({"component1/substitutionMade"})
-    public SubstitutionBean getComponent1SubstitutionMade() {
-        return this.component1SubstitutionMade;
-    }
-    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
-        this.component1SubstitutionMade = component1SubstitutionMade;
+    public void setLocalDispenseId(Identifier localDispenseId) {
+        this.localDispenseId.setValue(localDispenseId);
     }
 
 
@@ -210,20 +176,54 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A:Local Dispense Id</p>
-     * 
-     * <p><p>Identifier assigned by the dispensing facility.</p></p>
-     * 
-     * <p><p>Allows formal tracking of centrally recorded dispenses 
-     * to local records for audit and related purposes.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseId() {
-        return this.localDispenseId.getValue();
+    @Hl7XmlMapping({"subject/patient"})
+    public AnimalPatientBean getSubjectPatient() {
+        return this.subjectPatient;
     }
-    public void setLocalDispenseId(Identifier localDispenseId) {
-        this.localDispenseId.setValue(localDispenseId);
+    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitutionMade"})
+    public SubstitutionBean getComponent1SubstitutionMade() {
+        return this.component1SubstitutionMade;
+    }
+    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
+        this.component1SubstitutionMade = component1SubstitutionMade;
+    }
+
+
+    @Hl7XmlMapping({"component2/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"component3/supplyEvent"})
+    public SupplyEventBean getComponent3SupplyEvent() {
+        return this.component3SupplyEvent;
+    }
+    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
+        this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
 }

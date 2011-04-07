@@ -30,16 +30,30 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000001CA.ObservationEvent","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000005CA.ObservationEvent","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000009CA.ObservationEvent","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment","REPC_MT000013CA.ObservationEvent"})
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
-    private CD code = new CDImpl();
     private ReportedReactionsBean subjectObservationEvent;
     private II reactionRecordId = new IIImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private ST description = new STImpl();
     private BL noReactionOccurred = new BLImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p>Assessment Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
+    }
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
+    }
 
 
     /**
@@ -62,20 +76,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
         this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     * 
-     * <p>Assessment Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getCode() {
-        return (ActCode) this.code.getValue();
-    }
-    public void setCode(ActCode code) {
-        this.code.setValue(code);
     }
 
 
@@ -103,16 +103,16 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>ReactionOnsetDate</p>
+     * <p>NoReactionOccurred</p>
      * 
-     * <p>F:Reaction Onset Date</p>
+     * <p>D:No reaction occurred</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNoReactionOccurred() {
+        return this.noReactionOccurred.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setNoReactionOccurred(Boolean noReactionOccurred) {
+        this.noReactionOccurred.setValue(noReactionOccurred);
     }
 
 
@@ -131,16 +131,16 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>NoReactionOccurred</p>
+     * <p>ReactionOnsetDate</p>
      * 
-     * <p>D:No reaction occurred</p>
+     * <p>F:Reaction Onset Date</p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNoReactionOccurred() {
-        return this.noReactionOccurred.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
     }
-    public void setNoReactionOccurred(Boolean noReactionOccurred) {
-        this.noReactionOccurred.setValue(noReactionOccurred);
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 

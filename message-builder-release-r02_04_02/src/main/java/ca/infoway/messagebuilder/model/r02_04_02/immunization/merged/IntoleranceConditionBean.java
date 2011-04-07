@@ -33,12 +33,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.IntoleranceCondition","POIZ_MT030060CA.IntoleranceCondition","POIZ_MT060150CA.IntoleranceCondition"})
 public class IntoleranceConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II allergyIntoleranceRecordID = new IIImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
     private CS allergyIntoleranceStatus = new CSImpl();
-    private II allergyIntoleranceRecordID = new IIImpl();
     private CV confirmedIndicator = new CVImpl();
+
+
+    /**
+     * <p>AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Allergy/Intolerance Record ID</p>
+     * 
+     * <p>Allergy/Intolerance Record ID</p>
+     * 
+     * <p><p>Unique identifier for the intolerance condition.</p></p>
+     * 
+     * <p><p>Needed to reference allergy and intolerance records 
+     * stored in a patient's logitudinal electronic health record. 
+     * As a result, this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyIntoleranceRecordID() {
+        return this.allergyIntoleranceRecordID.getValue();
+    }
+    public void setAllergyIntoleranceRecordID(Identifier allergyIntoleranceRecordID) {
+        this.allergyIntoleranceRecordID.setValue(allergyIntoleranceRecordID);
+    }
 
 
     /**
@@ -112,28 +134,6 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
         this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceRecordID</p>
-     * 
-     * <p>Allergy/Intolerance Record ID</p>
-     * 
-     * <p>Allergy/Intolerance Record ID</p>
-     * 
-     * <p><p>Unique identifier for the intolerance condition.</p></p>
-     * 
-     * <p><p>Needed to reference allergy and intolerance records 
-     * stored in a patient's logitudinal electronic health record. 
-     * As a result, this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordID() {
-        return this.allergyIntoleranceRecordID.getValue();
-    }
-    public void setAllergyIntoleranceRecordID(Identifier allergyIntoleranceRecordID) {
-        this.allergyIntoleranceRecordID.setValue(allergyIntoleranceRecordID);
     }
 
 

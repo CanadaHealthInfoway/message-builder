@@ -16,11 +16,39 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.RespondTo","MCCI_MT000200CA.RespondTo","MCCI_MT000300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private TEL respondToNetworkAddress = new TELImpl();
+    private II respondToApplicationIdentifier = new IIImpl();
     private II respondToOrganizationId = new IIImpl();
     private II respondToFacilityId = new IIImpl();
-    private II respondToApplicationIdentifier = new IIImpl();
-    private TEL respondToNetworkAddress = new TELImpl();
+
+
+    /**
+     * <p>RespondToNetworkAddress</p>
+     * 
+     * <p>KB:Respond to Network Address</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getRespondToNetworkAddress() {
+        return this.respondToNetworkAddress.getValue();
+    }
+    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
+        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
+    }
+
+
+    /**
+     * <p>RespondToApplicationIdentifier</p>
+     * 
+     * <p>KA:Respond to Application Identifier</p>
+     */
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getRespondToApplicationIdentifier() {
+        return this.respondToApplicationIdentifier.getValue();
+    }
+    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
+        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    }
 
 
     /**
@@ -48,34 +76,6 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
     public void setRespondToFacilityId(Identifier respondToFacilityId) {
         this.respondToFacilityId.setValue(respondToFacilityId);
-    }
-
-
-    /**
-     * <p>RespondToApplicationIdentifier</p>
-     * 
-     * <p>KA:Respond to Application Identifier</p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getRespondToApplicationIdentifier() {
-        return this.respondToApplicationIdentifier.getValue();
-    }
-    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
-    }
-
-
-    /**
-     * <p>RespondToNetworkAddress</p>
-     * 
-     * <p>KB:Respond to Network Address</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getRespondToNetworkAddress() {
-        return this.respondToNetworkAddress.getValue();
-    }
-    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
     }
 
 }

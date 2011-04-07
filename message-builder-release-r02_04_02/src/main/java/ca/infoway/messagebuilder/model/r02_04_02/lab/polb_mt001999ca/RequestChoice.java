@@ -34,47 +34,47 @@ import java.util.List;
 @Hl7RootType
 public interface RequestChoice extends ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.Lab {
 
-    public List<RecipientChoice> getInformationRecipientRecipientChoice();
+    public List<SpecimenRoleBean> getSpecimenSpecimen();
+
+    public Patient_1Bean getRecordTargetPatient();
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
+
+    public HealthcareOrganizationBean getPerformerAssignedEntity();
+    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
 
     public List<HealthcareWorkerBean> getCallBackContactAssignedEntity();
 
-    public PriorTestRequestBean getComponentOfPriorActRequest();
-    public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest);
+    public List<RecipientChoice> getInformationRecipientRecipientChoice();
+
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
+
+    public ParentTestBean getOccurrenceOfActParentPointer();
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
 
     public OutbreakBean getPertinentInformation1OutbreakEvent();
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
-
-    public List<RequestChoice> getComponent4RequestChoice();
 
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
     public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator();
     public void setComponent1ReferralRedirectIndicator(ReferralRedirectIndicatorBean component1ReferralRedirectIndicator);
 
-    public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator();
-    public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
-
-    public List<IncludesBean> getSubjectOf1();
-
-    public Patient_1Bean getRecordTargetPatient();
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
-
     public OrderSortKeyBean getComponent2RequestSortKey();
     public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey);
 
+    public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator();
+    public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
+
+    public List<RequestChoice> getComponent4RequestChoice();
+
     public List<ca.infoway.messagebuilder.model.r02_04_02.lab.polb_mt001999ca.ResultChoice> getFulfillmentResultChoice1();
 
-    public HealthcareOrganizationBean getPerformerAssignedEntity();
-    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
+    public List<IncludesBean> getSubjectOf1();
 
     public VersionInformationBean getSubjectOf2ControlActEvent();
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
 
-    public ParentTestBean getOccurrenceOfActParentPointer();
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
-
-    public List<SpecimenRoleBean> getSpecimenSpecimen();
-
-    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
+    public PriorTestRequestBean getComponentOfPriorActRequest();
+    public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest);
 
 }

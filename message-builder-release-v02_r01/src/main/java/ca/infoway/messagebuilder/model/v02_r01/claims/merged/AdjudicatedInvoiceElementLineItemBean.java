@@ -29,15 +29,15 @@ import ca.infoway.messagebuilder.model.v02_r01.claims.ficr_mt610201ca.AllowableB
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail","FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice, ca.infoway.messagebuilder.model.v02_r01.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private AdjudicatedResultOutcomeBean outcomeOf;
-    private MO adjudicatedInvoiceLineAmount = new MOImpl();
-    private INT percentageOfTaxAppliedToUnitPriceAmt = new INTImpl();
     private CV adjudicatedProductServiceCode = new CVImpl();
     private PQ adjudicatedUnitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
+    private MO adjudicatedInvoiceLineAmount = new MOImpl();
+    private INT percentageOfTaxAppliedToUnitPriceAmt = new INTImpl();
     private AllowableBean reference1Allowable;
+    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
 
 
     @Hl7XmlMapping({"outcomeOf"})
@@ -46,34 +46,6 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
     }
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
-    }
-
-
-    /**
-     * <p>AdjudicatedInvoiceLineAmount</p>
-     * 
-     * <p>Adjudicated Invoice Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getAdjudicatedInvoiceLineAmount() {
-        return this.adjudicatedInvoiceLineAmount.getValue();
-    }
-    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
-        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
-    }
-
-
-    /**
-     * <p>PercentageOfTaxAppliedToUnitPriceAmt</p>
-     * 
-     * <p>Percentage of Tax applied to unitPriceAmt</p>
-     */
-    @Hl7XmlMapping({"factorNumber"})
-    public Integer getPercentageOfTaxAppliedToUnitPriceAmt() {
-        return this.percentageOfTaxAppliedToUnitPriceAmt.getValue();
-    }
-    public void setPercentageOfTaxAppliedToUnitPriceAmt(Integer percentageOfTaxAppliedToUnitPriceAmt) {
-        this.percentageOfTaxAppliedToUnitPriceAmt.setValue(percentageOfTaxAppliedToUnitPriceAmt);
     }
 
 
@@ -120,6 +92,43 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
 
 
     /**
+     * <p>AdjudicatedInvoiceLineAmount</p>
+     * 
+     * <p>Adjudicated Invoice Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getAdjudicatedInvoiceLineAmount() {
+        return this.adjudicatedInvoiceLineAmount.getValue();
+    }
+    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
+        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
+    }
+
+
+    /**
+     * <p>PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * 
+     * <p>Percentage of Tax applied to unitPriceAmt</p>
+     */
+    @Hl7XmlMapping({"factorNumber"})
+    public Integer getPercentageOfTaxAppliedToUnitPriceAmt() {
+        return this.percentageOfTaxAppliedToUnitPriceAmt.getValue();
+    }
+    public void setPercentageOfTaxAppliedToUnitPriceAmt(Integer percentageOfTaxAppliedToUnitPriceAmt) {
+        this.percentageOfTaxAppliedToUnitPriceAmt.setValue(percentageOfTaxAppliedToUnitPriceAmt);
+    }
+
+
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
+    }
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
+    }
+
+
+    /**
      * <p>AdjudicatedInvoiceElementIdentifier</p>
      * 
      * <p>Adjudicated Invoice Element Identifier</p>
@@ -130,15 +139,6 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
     }
     public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
         this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"reference1/allowable"})
-    public AllowableBean getReference1Allowable() {
-        return this.reference1Allowable;
-    }
-    public void setReference1Allowable(AllowableBean reference1Allowable) {
-        this.reference1Allowable = reference1Allowable;
     }
 
 }

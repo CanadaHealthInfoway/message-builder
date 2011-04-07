@@ -19,9 +19,25 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RoleChoice roleChoice;
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> relationshipEffectiveDateAndTime = new IVLImpl<TS, Interval<Date>>();
+    private RoleChoice roleChoice;
+
+
+    /**
+     * <p>Relationship Effective Date and Time</p>
+     * 
+     * <p><p>Effective date and time of the role relationships.</p></p>
+     * 
+     * <p><p>Required</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getRelationshipEffectiveDateAndTime() {
+        return this.relationshipEffectiveDateAndTime.getValue();
+    }
+    public void setRelationshipEffectiveDateAndTime(Interval<Date> relationshipEffectiveDateAndTime) {
+        this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
+    }
 
 
     @Hl7XmlMapping({"roleChoice"})
@@ -51,22 +67,6 @@ public class RelatedToBean extends MessagePartBean {
     }
     public boolean hasRoleChoiceAsHealthCareProvider() {
         return (this.roleChoice instanceof HealthcareProviderBean);
-    }
-
-
-    /**
-     * <p>Relationship Effective Date and Time</p>
-     * 
-     * <p><p>Effective date and time of the role relationships.</p></p>
-     * 
-     * <p><p>Required</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getRelationshipEffectiveDateAndTime() {
-        return this.relationshipEffectiveDateAndTime.getValue();
-    }
-    public void setRelationshipEffectiveDateAndTime(Interval<Date> relationshipEffectiveDateAndTime) {
-        this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
     }
 
 }

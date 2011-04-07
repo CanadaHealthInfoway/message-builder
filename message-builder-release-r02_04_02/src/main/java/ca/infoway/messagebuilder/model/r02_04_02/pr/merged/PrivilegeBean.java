@@ -83,14 +83,42 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II restrictionsToPracticeIdentifier = new IIImpl();
     private CV restrictionsToPracticeType = new CVImpl();
     private BL restrictionsToPracticeNegationIndicator = new BLImpl();
-    private List<PrivilegeCategorizationBean> subjectOfPrivilegeCategorization = new ArrayList<PrivilegeCategorizationBean>();
-    private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
     private ST restrictionsToPracticeText = new STImpl();
-    private II restrictionsToPracticeIdentifier = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
+    private List<PrivilegeCategorizationBean> subjectOfPrivilegeCategorization = new ArrayList<PrivilegeCategorizationBean>();
+
+
+    /**
+     * <p>RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Restrictions to Practice Identifier</p>
+     * 
+     * <p><p>Unique identifier for the restriction.</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p>Restrictions to Practice Identifier</p>
+     * 
+     * <p><p>Unique identifier for the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRestrictionsToPracticeIdentifier() {
+        return this.restrictionsToPracticeIdentifier.getValue();
+    }
+    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
+        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
+    }
 
 
     /**
@@ -147,9 +175,66 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/privilegeCategorization"})
-    public List<PrivilegeCategorizationBean> getSubjectOfPrivilegeCategorization() {
-        return this.subjectOfPrivilegeCategorization;
+    /**
+     * <p>RestrictionsToPracticeText</p>
+     * 
+     * <p>Restrictions to Practice Text</p>
+     * 
+     * <p><p>Comments pertaining to the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getRestrictionsToPracticeText() {
+        return this.restrictionsToPracticeText.getValue();
+    }
+    public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
+        this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
+    }
+
+
+    /**
+     * <p>Restrictions to Practice Effective Date</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Effective Date</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Type</p>
+     * 
+     * <p><p>Effective date of the restriction.</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Effective Date Must Exist</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -220,94 +305,9 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>RestrictionsToPracticeText</p>
-     * 
-     * <p>Restrictions to Practice Text</p>
-     * 
-     * <p><p>Comments pertaining to the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getRestrictionsToPracticeText() {
-        return this.restrictionsToPracticeText.getValue();
-    }
-    public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
-        this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
-    }
-
-
-    /**
-     * <p>RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRestrictionsToPracticeIdentifier() {
-        return this.restrictionsToPracticeIdentifier.getValue();
-    }
-    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
-        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
-    }
-
-
-    /**
-     * <p>Restrictions to Practice Effective Date</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     * 
-     * <p>Restrictions to Practice Effective Date</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     * 
-     * <p>Restrictions to Practice Type</p>
-     * 
-     * <p><p>Effective date of the restriction.</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Effective Date Must Exist</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
+    @Hl7XmlMapping({"subjectOf/privilegeCategorization"})
+    public List<PrivilegeCategorizationBean> getSubjectOfPrivilegeCategorization() {
+        return this.subjectOfPrivilegeCategorization;
     }
 
 }

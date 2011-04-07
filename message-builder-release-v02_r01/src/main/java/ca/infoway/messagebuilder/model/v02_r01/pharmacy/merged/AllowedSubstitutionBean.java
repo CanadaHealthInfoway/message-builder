@@ -15,23 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private BL negationInd = new BLImpl();
-
-
-    /**
-     * <p>B:Substitution Not Allowed Reason</p>
-     * 
-     * <p>Not Allowed Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionNotAllowedReason getReasonCode() {
-        return (SubstanceAdminSubstitutionNotAllowedReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
-    }
+    private CV reasonCode = new CVImpl();
 
 
     /**
@@ -45,6 +31,20 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
+    }
+
+
+    /**
+     * <p>B:Substitution Not Allowed Reason</p>
+     * 
+     * <p>Not Allowed Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionNotAllowedReason getReasonCode() {
+        return (SubstanceAdminSubstitutionNotAllowedReason) this.reasonCode.getValue();
+    }
+    public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 }

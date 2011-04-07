@@ -84,7 +84,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.ReferralRedirectIndicator","POLB_MT001001CA.ReferralRedirectIndicator","POLB_MT001010CA.ReferralRedirectIndicator","POLB_MT001999CA.ReferralRedirectIndicator"})
 public class ReferralRedirectIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD referralRedirectIndicator = new CDImpl();
 
 

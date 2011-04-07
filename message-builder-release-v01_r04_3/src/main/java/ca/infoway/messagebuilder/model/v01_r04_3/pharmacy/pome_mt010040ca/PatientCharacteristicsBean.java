@@ -21,10 +21,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV patientCharacteristicType = new CVImpl();
-    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
     private BL excludeCharacteristic = new BLImpl();
+    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
 
 
     /**
@@ -40,18 +40,6 @@ public class PatientCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Characteristic Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
-        return this.patientCharacteristicValue.getValue();
-    }
-    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
-        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
-    }
-
-
-    /**
      * <p>Exclude characteristic?</p>
      */
     @Hl7XmlMapping({"negationInd"})
@@ -60,6 +48,18 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
     public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
         this.excludeCharacteristic.setValue(excludeCharacteristic);
+    }
+
+
+    /**
+     * <p>Patient Characteristic Value</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
+        return this.patientCharacteristicValue.getValue();
+    }
+    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
+        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
     }
 
 }

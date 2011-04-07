@@ -44,20 +44,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private OrganizationBean representedOrganization;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV functionalRoleType = new CVImpl();
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPerson_2Bean assignedPrincipalPerson;
-    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private OrganizationBean representedOrganization;
 
 
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
+    /**
+     * <p>Functional Role Identifier</p>
+     * 
+     * <p><p>Identifies specific functional role that a provider 
+     * may play within an organization.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getFunctionalRoleIdentifier() {
+        return this.functionalRoleIdentifier.rawSet();
     }
 
 
@@ -102,18 +108,12 @@ public class AssignedEntityBean extends MessagePartBean implements ca.infoway.me
     }
 
 
-    /**
-     * <p>Functional Role Identifier</p>
-     * 
-     * <p><p>Identifies specific functional role that a provider 
-     * may play within an organization.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getFunctionalRoleIdentifier() {
-        return this.functionalRoleIdentifier.rawSet();
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
     }
 
 }

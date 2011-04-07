@@ -22,29 +22,23 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private FirstFillBean component2InitialSupplyRequest;
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private PQ totalPrescribedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
+    private FirstFillBean component2InitialSupplyRequest;
 
 
-    @Hl7XmlMapping({"component2/initialSupplyRequest"})
-    public FirstFillBean getComponent2InitialSupplyRequest() {
-        return this.component2InitialSupplyRequest;
+    /**
+     * <p>B:Total Prescribed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getTotalPrescribedQuantity() {
+        return this.totalPrescribedQuantity.getValue();
     }
-    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
-        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
-    }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
+        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
     }
 
 
@@ -60,24 +54,30 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Total Prescribed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
-    }
-    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"component2/initialSupplyRequest"})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
+    }
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }
 
 }

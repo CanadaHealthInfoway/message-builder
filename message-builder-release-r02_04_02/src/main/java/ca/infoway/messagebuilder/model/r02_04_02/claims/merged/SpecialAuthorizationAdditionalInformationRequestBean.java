@@ -17,18 +17,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
-    private ST additionalInformationQuestion = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II additionalInformationRequestID = new IIImpl();
+    private ST additionalInformationQuestion = new STImpl();
+    private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
 
 
-    @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
-    public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
-        return this.referenceSpecialAuthorizationRequest;
+    /**
+     * <p>AdditionalInformationRequestID</p>
+     * 
+     * <p>Additional Information Request ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdditionalInformationRequestID() {
+        return this.additionalInformationRequestID.getValue();
     }
-    public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
-        this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
+    public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
+        this.additionalInformationRequestID.setValue(additionalInformationRequestID);
     }
 
 
@@ -46,17 +51,12 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
 
 
-    /**
-     * <p>AdditionalInformationRequestID</p>
-     * 
-     * <p>Additional Information Request ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdditionalInformationRequestID() {
-        return this.additionalInformationRequestID.getValue();
+    @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
+    public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
+        return this.referenceSpecialAuthorizationRequest;
     }
-    public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
-        this.additionalInformationRequestID.setValue(additionalInformationRequestID);
+    public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
+        this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
     }
 
 }

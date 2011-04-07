@@ -20,10 +20,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TS authoredDatetime = new TSImpl();
-    private ActingPerson actingPerson;
     private CE attestedIndicator = new CEImpl();
+    private ActingPerson actingPerson;
 
 
     /**
@@ -35,6 +35,18 @@ public class AuthorBean extends MessagePartBean {
     }
     public void setAuthoredDatetime(Date authoredDatetime) {
         this.authoredDatetime.setValue(authoredDatetime);
+    }
+
+
+    /**
+     * <p>K: Attested Indicator</p>
+     */
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getAttestedIndicator() {
+        return (ParticipationSignature) this.attestedIndicator.getValue();
+    }
+    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
+        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 
@@ -65,18 +77,6 @@ public class AuthorBean extends MessagePartBean {
     }
     public boolean hasActingPersonAsPersonalRelationship() {
         return (this.actingPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>K: Attested Indicator</p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
-    }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 }

@@ -33,51 +33,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ResultStatusProcessStepBean subjectOfResultStatusProcessStep;
-    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private List<SensitivityBatteryBean> component3SensitivityBattery = new ArrayList<SensitivityBatteryBean>();
-    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
-    private HasComponentBean component2;
+    private static final long serialVersionUID = 20110407L;
     private ST clusterComment = new STImpl();
     private CS clusterStatus = new CSImpl();
     private IVL<TS, Interval<Date>> clusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOfResultStatusProcessStep() {
-        return this.subjectOfResultStatusProcessStep;
-    }
-    public void setSubjectOfResultStatusProcessStep(ResultStatusProcessStepBean subjectOfResultStatusProcessStep) {
-        this.subjectOfResultStatusProcessStep = subjectOfResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
-    }
-
-
-    @Hl7XmlMapping({"component3/sensitivityBattery"})
-    public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
-        return this.component3SensitivityBattery;
-    }
-
-
-    @Hl7XmlMapping({"component1/isolateObservationEvent"})
-    public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
-        return this.component1IsolateObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public HasComponentBean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(HasComponentBean component2) {
-        this.component2 = component2;
-    }
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
+    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
+    private HasComponentBean component2;
+    private List<SensitivityBatteryBean> component3SensitivityBattery = new ArrayList<SensitivityBatteryBean>();
+    private ResultStatusProcessStepBean subjectOfResultStatusProcessStep;
 
 
     /**
@@ -120,6 +84,42 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
     public void setClusterEffectiveTime(Interval<Date> clusterEffectiveTime) {
         this.clusterEffectiveTime.setValue(clusterEffectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
+    }
+
+
+    @Hl7XmlMapping({"component1/isolateObservationEvent"})
+    public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
+        return this.component1IsolateObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public HasComponentBean getComponent2() {
+        return this.component2;
+    }
+    public void setComponent2(HasComponentBean component2) {
+        this.component2 = component2;
+    }
+
+
+    @Hl7XmlMapping({"component3/sensitivityBattery"})
+    public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
+        return this.component3SensitivityBattery;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOfResultStatusProcessStep() {
+        return this.subjectOfResultStatusProcessStep;
+    }
+    public void setSubjectOfResultStatusProcessStep(ResultStatusProcessStepBean subjectOfResultStatusProcessStep) {
+        this.subjectOfResultStatusProcessStep = subjectOfResultStatusProcessStep;
     }
 
 }

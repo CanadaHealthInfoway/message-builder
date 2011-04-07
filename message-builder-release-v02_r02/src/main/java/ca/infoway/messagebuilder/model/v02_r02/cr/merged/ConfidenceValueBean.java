@@ -43,30 +43,9 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private REAL confidenceValue = new REALImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV probabilityMatchCode = new CVImpl();
-
-
-    /**
-     * <p>ConfidenceValue</p>
-     * 
-     * <p>Confidence Value</p>
-     * 
-     * <p><p>A real number value indicating the confidence of the 
-     * query with regard to finding the intended target client i.e. 
-     * the value would be the computed confidence value.</p></p>
-     * 
-     * <p><p>Required attribute to provide information about 
-     * success of query</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public BigDecimal getConfidenceValue() {
-        return this.confidenceValue.getValue();
-    }
-    public void setConfidenceValue(BigDecimal confidenceValue) {
-        this.confidenceValue.setValue(confidenceValue);
-    }
+    private REAL confidenceValue = new REALImpl();
 
 
     /**
@@ -87,6 +66,27 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
     public void setProbabilityMatchCode(ActCode probabilityMatchCode) {
         this.probabilityMatchCode.setValue(probabilityMatchCode);
+    }
+
+
+    /**
+     * <p>ConfidenceValue</p>
+     * 
+     * <p>Confidence Value</p>
+     * 
+     * <p><p>A real number value indicating the confidence of the 
+     * query with regard to finding the intended target client i.e. 
+     * the value would be the computed confidence value.</p></p>
+     * 
+     * <p><p>Required attribute to provide information about 
+     * success of query</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public BigDecimal getConfidenceValue() {
+        return this.confidenceValue.getValue();
+    }
+    public void setConfidenceValue(BigDecimal confidenceValue) {
+        this.confidenceValue.setValue(confidenceValue);
     }
 
 }

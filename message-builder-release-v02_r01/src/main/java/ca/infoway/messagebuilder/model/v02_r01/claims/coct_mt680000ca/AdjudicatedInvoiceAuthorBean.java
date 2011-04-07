@@ -14,18 +14,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private ED<String> signatureText = new EDImpl<String>();
-
-
-    @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
-    public String getAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName() {
-        return this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.getValue();
-    }
-    public void setAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName(String adjudicatorRolePlayingAdjudicatorDeviceSoftwareName) {
-        this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.setValue(adjudicatorRolePlayingAdjudicatorDeviceSoftwareName);
-    }
+    private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
 
 
     @Hl7XmlMapping({"signatureText"})
@@ -34,6 +25,15 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     }
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
+    }
+
+
+    @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
+    public String getAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName() {
+        return this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.getValue();
+    }
+    public void setAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName(String adjudicatorRolePlayingAdjudicatorDeviceSoftwareName) {
+        this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.setValue(adjudicatorRolePlayingAdjudicatorDeviceSoftwareName);
     }
 
 }

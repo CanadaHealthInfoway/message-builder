@@ -28,43 +28,40 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ConsentBean subjectOf2ConsentEvent;
-    private RefusedByBean author;
-    private QueryDefinitionBean<PL> queryByParameter;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
     private CV eventReason = new CVImpl();
+    private RefusedByBean author;
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private II eventIdentifier = new IIImpl();
     private RecordedAtBean location;
-    private CV eventType = new CVImpl();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private ConsentBean subjectOf2ConsentEvent;
+    private QueryDefinitionBean<PL> queryByParameter;
 
 
-    @Hl7XmlMapping({"subjectOf2/consentEvent"})
-    public ConsentBean getSubjectOf2ConsentEvent() {
-        return this.subjectOf2ConsentEvent;
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
-        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
     }
 
 
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryDefinitionBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
     }
-    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -77,6 +74,15 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -98,18 +104,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -119,21 +113,27 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/consentEvent"})
+    public ConsentBean getSubjectOf2ConsentEvent() {
+        return this.subjectOf2ConsentEvent;
+    }
+    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
+        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryDefinitionBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }

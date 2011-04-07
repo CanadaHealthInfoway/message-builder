@@ -37,12 +37,29 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II immunizationEventID = new IIImpl();
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
-    private II immunizationEventID = new IIImpl();
     private SET<II, Identifier> patientIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
     private PN patientName = new PNImpl();
+
+
+    /**
+     * <p>A:Immunization Event ID</p>
+     * 
+     * <p><p>Specifies the identifier of the immunization event</p></p>
+     * 
+     * <p><p>Allows for filtering of queries by immuniation event 
+     * ID. As a result, this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"immunizationEventID/value"})
+    public Identifier getImmunizationEventID() {
+        return this.immunizationEventID.getValue();
+    }
+    public void setImmunizationEventID(Identifier immunizationEventID) {
+        this.immunizationEventID.setValue(immunizationEventID);
+    }
 
 
     /**
@@ -76,23 +93,6 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
     public void setPatientGender(AdministrativeGender patientGender) {
         this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>A:Immunization Event ID</p>
-     * 
-     * <p><p>Specifies the identifier of the immunization event</p></p>
-     * 
-     * <p><p>Allows for filtering of queries by immuniation event 
-     * ID. As a result, this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"immunizationEventID/value"})
-    public Identifier getImmunizationEventID() {
-        return this.immunizationEventID.getValue();
-    }
-    public void setImmunizationEventID(Identifier immunizationEventID) {
-        this.immunizationEventID.setValue(immunizationEventID);
     }
 
 

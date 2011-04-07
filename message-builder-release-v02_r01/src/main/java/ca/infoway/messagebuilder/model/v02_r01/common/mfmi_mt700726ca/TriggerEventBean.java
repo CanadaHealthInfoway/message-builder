@@ -33,16 +33,52 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
+    private BL cascadeResponsibilityIndicator = new BLImpl();
     private RegisteredItemBean<RR> subjectRegistrationEventSubject;
     private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
     private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
-    private BL cascadeResponsibilityIndicator = new BLImpl();
-    private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV eventType = new CVImpl();
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+
+
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
 
 
     /**
@@ -54,6 +90,18 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
+    }
+
+
+    /**
+     * <p>Cascade Responsibility Indicator</p>
+     */
+    @Hl7XmlMapping({"subject/contextConductionInd"})
+    public Boolean getCascadeResponsibilityIndicator() {
+        return this.cascadeResponsibilityIndicator.getValue();
+    }
+    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
+        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
     }
 
 
@@ -78,54 +126,6 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
     public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
         return this.subjectRegistrationEventReplacementOf;
-    }
-
-
-    /**
-     * <p>Cascade Responsibility Indicator</p>
-     */
-    @Hl7XmlMapping({"subject/contextConductionInd"})
-    public Boolean getCascadeResponsibilityIndicator() {
-        return this.cascadeResponsibilityIndicator.getValue();
-    }
-    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
-        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
-    }
-
-
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
-
-
-    /**
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
     }
 
 

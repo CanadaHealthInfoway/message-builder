@@ -78,53 +78,20 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AccountBean debitAccount;
-    private ProviderIDBean performerAdjudResultsProviderRole;
-    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
-    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private static final long serialVersionUID = 20110407L;
     private II adjudicatedResultsGroupID = new IIImpl();
     private CV code = new CVImpl();
-    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private MO netAmt = new MOImpl();
-    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
-    private PayeeAccountBean creditAccount;
-    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
-    }
-
-
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
-    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
-        return this.performerAdjudResultsProviderRole;
-    }
-    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
-        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
-    }
-
-
-    @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
-    public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
-        return this.summaryAdjudResultsGroupSummaryData;
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
-    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
-        return this.referenceAdjudResultsFinancialContract;
-    }
-    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
-        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
-    }
+    private MO netAmt = new MOImpl();
+    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
+    private ProviderIDBean performerAdjudResultsProviderRole;
+    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
+    private PayeeAccountBean creditAccount;
+    private AccountBean debitAccount;
+    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
 
 
     /**
@@ -250,21 +217,29 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
-    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
-        return this.deviceAdjudResultsSendingAppRole;
+    /**
+     * <p>Summary Period Date Range</p>
+     * 
+     * <p>Time period for the payment</p>
+     * 
+     * <p><p>Time period for the payment or summary period.</p></p>
+     * 
+     * <p><p>For Payment Advice: Can also indicate time period over 
+     * which the clawback and/or retro adjustment applies.</p></p>
+     * 
+     * <p>Time period for the payment</p>
+     * 
+     * <p><p>Time period for the payment or summary period.</p></p>
+     * 
+     * <p><p>For Payment Advice: Can also indicate time period over 
+     * which the clawback and/or retro adjustment applies.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
-        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -307,12 +282,54 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
+    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
+        return this.deviceAdjudResultsSendingAppRole;
+    }
+    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
+        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
+    }
+
+
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
+    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
+        return this.performerAdjudResultsProviderRole;
+    }
+    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
+        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
+    }
+
+
     @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
     public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
         return this.authorAdjudResultsCarrierRole;
     }
     public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
         this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
+    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
+        return this.referenceAdjudResultsFinancialContract;
+    }
+    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
+        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    }
+
+
+    @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
+    public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
+        return this.summaryAdjudResultsGroupSummaryData;
     }
 
 
@@ -325,35 +342,18 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
+    }
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+
     @Hl7XmlMapping({"component/adjudResultsGroup"})
     public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
         return this.componentAdjudResultsGroup;
-    }
-
-
-    /**
-     * <p>Summary Period Date Range</p>
-     * 
-     * <p>Time period for the payment</p>
-     * 
-     * <p><p>Time period for the payment or summary period.</p></p>
-     * 
-     * <p><p>For Payment Advice: Can also indicate time period over 
-     * which the clawback and/or retro adjustment applies.</p></p>
-     * 
-     * <p>Time period for the payment</p>
-     * 
-     * <p><p>Time period for the payment or summary period.</p></p>
-     * 
-     * <p><p>For Payment Advice: Can also indicate time period over 
-     * which the clawback and/or retro adjustment applies.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

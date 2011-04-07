@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.lab.merged.ParameterListBean;
 @Hl7PartTypeMapping({"POLB_IN354000CA"})
 public class RequestQueryResultsBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

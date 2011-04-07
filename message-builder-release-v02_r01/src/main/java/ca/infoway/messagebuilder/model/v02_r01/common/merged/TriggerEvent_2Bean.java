@@ -36,35 +36,63 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RecordTargetBean participant;
-    private CV eventReason = new CVImpl();
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ActingPerson dataEntererActingPerson;
-    private CreatedByBean author;
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventType = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventReason = new CVImpl();
+    private RecordTargetBean participant;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private CreatedByBean author;
+    private ActingPerson dataEntererActingPerson;
     private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private II queryIdentifier = new IIImpl();
     private INT startPosition = new INTImpl();
     private INT queryLimit = new INTImpl();
-    private II queryIdentifier = new IIImpl();
 
 
-    @Hl7XmlMapping({"participant","recordTarget"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="participant", type="MCAI_MT700236CA.RecordTarget"),
-        @Hl7MapByPartType(name="participant", type="MCAI_MT700237CA.RecordTarget"),
-        @Hl7MapByPartType(name="recordTarget", type="MCAI_MT700230CA.RecordTarget"),
-        @Hl7MapByPartType(name="recordTarget", type="MCAI_MT700231CA.RecordTarget")})
-    public RecordTargetBean getParticipant() {
-        return this.participant;
+    /**
+     * <p>EventIdentifier</p>
+     * 
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setParticipant(RecordTargetBean participant) {
-        this.participant = participant;
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
 
@@ -82,12 +110,35 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
+    @Hl7XmlMapping({"participant","recordTarget"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="participant", type="MCAI_MT700236CA.RecordTarget"),
+        @Hl7MapByPartType(name="participant", type="MCAI_MT700237CA.RecordTarget"),
+        @Hl7MapByPartType(name="recordTarget", type="MCAI_MT700230CA.RecordTarget"),
+        @Hl7MapByPartType(name="recordTarget", type="MCAI_MT700231CA.RecordTarget")})
+    public RecordTargetBean getParticipant() {
+        return this.participant;
     }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
+    public void setParticipant(RecordTargetBean participant) {
+        this.participant = participant;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public CreatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(CreatedByBean author) {
+        this.author = author;
     }
 
 
@@ -121,69 +172,21 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public CreatedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setAuthor(CreatedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>EventIdentifier</p>
-     * 
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>EventEffectivePeriod</p>
-     * 
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -196,12 +199,23 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     */
+    @Hl7XmlMapping({"queryContinuation/queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 
@@ -230,20 +244,6 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
     public void setQueryLimit(Integer queryLimit) {
         this.queryLimit.setValue(queryLimit);
-    }
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     */
-    @Hl7XmlMapping({"queryContinuation/queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 }

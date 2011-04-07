@@ -36,12 +36,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
-    private OrganizationBean issuingOrganization;
     private CV healthcareProviderRoleType = new CVImpl();
-    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
     private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
+    private OrganizationBean issuingOrganization;
 
 
     /**
@@ -56,15 +56,6 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getHealthcareProviderRoleIdentification() {
         return this.healthcareProviderRoleIdentification.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
     }
 
 
@@ -86,15 +77,6 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
-    @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
-        return this.healthCarePrincipalPerson;
-    }
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
-        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
-    }
-
-
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
@@ -107,6 +89,24 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     @Hl7XmlMapping({"name"})
     public List<PersonName> getHealthcareProviderRoleName() {
         return this.healthcareProviderRoleName.rawList();
+    }
+
+
+    @Hl7XmlMapping({"healthCarePrincipalPerson"})
+    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
+        return this.healthCarePrincipalPerson;
+    }
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
+        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
+    }
+
+
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

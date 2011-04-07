@@ -23,12 +23,12 @@ import java.util.Date;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II accountID = new IIImpl();
-    private ST nameOnCreditCard = new STImpl();
-    private PayeeRoleBean holderPayeeRole;
-    private TS expiryDateOnCreditCard = new TSImpl();
     private CV typeOfCreditCard = new CVImpl();
+    private ST nameOnCreditCard = new STImpl();
+    private TS expiryDateOnCreditCard = new TSImpl();
+    private PayeeRoleBean holderPayeeRole;
 
 
     /**
@@ -44,6 +44,18 @@ public class AccountBean extends MessagePartBean {
 
 
     /**
+     * <p>Type of credit card</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getTypeOfCreditCard() {
+        return (Code) this.typeOfCreditCard.getValue();
+    }
+    public void setTypeOfCreditCard(Code typeOfCreditCard) {
+        this.typeOfCreditCard.setValue(typeOfCreditCard);
+    }
+
+
+    /**
      * <p>name on credit card</p>
      */
     @Hl7XmlMapping({"title"})
@@ -52,15 +64,6 @@ public class AccountBean extends MessagePartBean {
     }
     public void setNameOnCreditCard(String nameOnCreditCard) {
         this.nameOnCreditCard.setValue(nameOnCreditCard);
-    }
-
-
-    @Hl7XmlMapping({"holder/payeeRole"})
-    public PayeeRoleBean getHolderPayeeRole() {
-        return this.holderPayeeRole;
-    }
-    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
-        this.holderPayeeRole = holderPayeeRole;
     }
 
 
@@ -76,15 +79,12 @@ public class AccountBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Type of credit card</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getTypeOfCreditCard() {
-        return (Code) this.typeOfCreditCard.getValue();
+    @Hl7XmlMapping({"holder/payeeRole"})
+    public PayeeRoleBean getHolderPayeeRole() {
+        return this.holderPayeeRole;
     }
-    public void setTypeOfCreditCard(Code typeOfCreditCard) {
-        this.typeOfCreditCard.setValue(typeOfCreditCard);
+    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
+        this.holderPayeeRole = holderPayeeRole;
     }
 
 }

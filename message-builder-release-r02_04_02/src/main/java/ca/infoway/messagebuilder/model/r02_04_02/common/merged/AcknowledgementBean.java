@@ -23,12 +23,54 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.Acknowledgement","MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CS acknowledgementCode = new CSImpl();
+    private INT numberOfWaitingMessages = new INTImpl();
     private CV messageWaitingPriority = new CVImpl();
     private II acknowledgedMessageId = new IIImpl();
-    private INT numberOfWaitingMessages = new INTImpl();
-    private CS acknowledgementCode = new CSImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
+
+
+    /**
+     * <p>AcknowledgementCode</p>
+     * 
+     * <p>GA:Acknowledgement Code</p>
+     * 
+     * <p><p>Indicates whether the previous interaction was 
+     * successfully processed.</p></p>
+     * 
+     * <p><p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public AcknowledgementType getAcknowledgementCode() {
+        return (AcknowledgementType) this.acknowledgementCode.getValue();
+    }
+    public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
+        this.acknowledgementCode.setValue(acknowledgementCode);
+    }
+
+
+    /**
+     * <p>NumberOfWaitingMessages</p>
+     * 
+     * <p>GC:Number of Waiting Messages</p>
+     * 
+     * <p><p>For applications which support polling, indicates the 
+     * total number of messages waiting to be retrieved.</p></p>
+     * 
+     * <p><p>Indicates to a system how many polled messages are 
+     * available without the need so send a separate query. The 
+     * element is optional because not all systems will support 
+     * polling.</p></p>
+     */
+    @Hl7XmlMapping({"messageWaitingNumber"})
+    public Integer getNumberOfWaitingMessages() {
+        return this.numberOfWaitingMessages.getValue();
+    }
+    public void setNumberOfWaitingMessages(Integer numberOfWaitingMessages) {
+        this.numberOfWaitingMessages.setValue(numberOfWaitingMessages);
+    }
 
 
     /**
@@ -74,48 +116,6 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
         this.acknowledgedMessageId.setValue(acknowledgedMessageId);
-    }
-
-
-    /**
-     * <p>NumberOfWaitingMessages</p>
-     * 
-     * <p>GC:Number of Waiting Messages</p>
-     * 
-     * <p><p>For applications which support polling, indicates the 
-     * total number of messages waiting to be retrieved.</p></p>
-     * 
-     * <p><p>Indicates to a system how many polled messages are 
-     * available without the need so send a separate query. The 
-     * element is optional because not all systems will support 
-     * polling.</p></p>
-     */
-    @Hl7XmlMapping({"messageWaitingNumber"})
-    public Integer getNumberOfWaitingMessages() {
-        return this.numberOfWaitingMessages.getValue();
-    }
-    public void setNumberOfWaitingMessages(Integer numberOfWaitingMessages) {
-        this.numberOfWaitingMessages.setValue(numberOfWaitingMessages);
-    }
-
-
-    /**
-     * <p>AcknowledgementCode</p>
-     * 
-     * <p>GA:Acknowledgement Code</p>
-     * 
-     * <p><p>Indicates whether the previous interaction was 
-     * successfully processed.</p></p>
-     * 
-     * <p><p>Key to understanding whether the interaction has been 
-     * successful and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementType getAcknowledgementCode() {
-        return (AcknowledgementType) this.acknowledgementCode.getValue();
-    }
-    public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
-        this.acknowledgementCode.setValue(acknowledgementCode);
     }
 
 

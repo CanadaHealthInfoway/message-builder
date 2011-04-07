@@ -58,81 +58,22 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV reaction = new CVImpl();
-    private ReportedByBean informant;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
+    private static final long serialVersionUID = 20110407L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV reaction = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private RefusedByBean author;
+    private ReportedByBean informant;
     private OccurredAtBean location;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private RefusedByBean author;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private ST description = new STImpl();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>B:Reaction</p>
-     * 
-     * <p><p>Value is mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>B.1</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf4/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
-        return this.subjectOf4SeverityObservation;
-    }
-    public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
-        this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
-    }
+    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -176,45 +117,6 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
-
-
     /**
      * <p>G:Description</p>
      * 
@@ -229,6 +131,24 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
     public void setDescription(String description) {
         this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -301,20 +221,100 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>B:Reaction</p>
      * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
      * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>B.1</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf4/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
+        return this.subjectOf4SeverityObservation;
+    }
+    public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
+        this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

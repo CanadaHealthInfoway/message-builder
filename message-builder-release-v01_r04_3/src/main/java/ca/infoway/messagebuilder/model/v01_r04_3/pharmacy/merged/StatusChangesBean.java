@@ -22,38 +22,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ProviderBean responsiblePartyAssignedPerson;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ChangedBy authorChangedBy;
+    private CV reasonCode = new CVImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
     private TS changeTimestamp = new TSImpl();
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Change Reason</p>
-     * 
-     * <p>Dispense Status Change Reason</p>
-     * 
-     * <p>Other Medication Status Change Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getReasonCode() {
-        return (ControlActReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(ControlActReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
-    }
+    private ChangedBy authorChangedBy;
 
 
     /**
@@ -88,6 +63,45 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Change Reason</p>
+     * 
+     * <p>Dispense Status Change Reason</p>
+     * 
+     * <p>Other Medication Status Change Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
+    }
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>ChangeTimestamp</p>
+     * 
+     * <p>Change Timestamp</p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getChangeTimestamp() {
+        return this.changeTimestamp.getValue();
+    }
+    public void setChangeTimestamp(Date changeTimestamp) {
+        this.changeTimestamp.setValue(changeTimestamp);
+    }
+
+
     @Hl7XmlMapping({"author/changedBy"})
     public ChangedBy getAuthorChangedBy() {
         return this.authorChangedBy;
@@ -108,20 +122,6 @@ public class StatusChangesBean extends MessagePartBean {
     }
     public boolean hasAuthorChangedByAsAssignedDevice() {
         return (this.authorChangedBy instanceof ApplicationBean);
-    }
-
-
-    /**
-     * <p>ChangeTimestamp</p>
-     * 
-     * <p>Change Timestamp</p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getChangeTimestamp() {
-        return this.changeTimestamp.getValue();
-    }
-    public void setChangeTimestamp(Date changeTimestamp) {
-        this.changeTimestamp.setValue(changeTimestamp);
     }
 
 }

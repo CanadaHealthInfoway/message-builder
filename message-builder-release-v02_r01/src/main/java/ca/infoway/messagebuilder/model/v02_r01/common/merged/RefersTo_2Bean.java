@@ -14,11 +14,25 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private BL cascadeResponsibilityIndicator = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
     private List<ReplacesBean> registrationRequestReplacementOf = new ArrayList<ReplacesBean>();
-    private BL cascadeResponsibilityIndicator = new BLImpl();
+
+
+    /**
+     * <p>CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Cascade Responsibility Indicator</p>
+     */
+    @Hl7XmlMapping({"contextConductionInd"})
+    public Boolean getCascadeResponsibilityIndicator() {
+        return this.cascadeResponsibilityIndicator.getValue();
+    }
+    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
+        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
+    }
 
 
     @Hl7XmlMapping({"registrationRequest/subject"})
@@ -42,20 +56,6 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"registrationRequest/replacementOf"})
     public List<ReplacesBean> getRegistrationRequestReplacementOf() {
         return this.registrationRequestReplacementOf;
-    }
-
-
-    /**
-     * <p>CascadeResponsibilityIndicator</p>
-     * 
-     * <p>Cascade Responsibility Indicator</p>
-     */
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getCascadeResponsibilityIndicator() {
-        return this.cascadeResponsibilityIndicator.getValue();
-    }
-    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
-        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
     }
 
 }

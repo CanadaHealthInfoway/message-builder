@@ -33,19 +33,10 @@ import ca.infoway.messagebuilder.model.v02_r02.merged.PrescribedByBean;
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PrescribedByBean author;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionIdentifier = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
+    private PrescribedByBean author;
 
 
     /**
@@ -83,6 +74,15 @@ public class SupplyOrderBean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 }

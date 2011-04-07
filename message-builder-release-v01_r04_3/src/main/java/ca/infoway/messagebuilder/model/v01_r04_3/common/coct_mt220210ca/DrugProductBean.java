@@ -31,30 +31,39 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20110318L;
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private ST drugDescription = new STImpl();
-    private ST drugLotNumber = new STImpl();
-    private ST drugName = new STImpl();
-    private DispensedInBean playerAsContent;
+    private static final long serialVersionUID = 20110407L;
     private CE drugCode = new CEImpl();
-    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private ST drugName = new STImpl();
+    private ST drugDescription = new STImpl();
     private CV drugForm = new CVImpl();
+    private ST drugLotNumber = new STImpl();
+    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
+    private DispensedInBean playerAsContent;
+    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
 
 
-    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
-        return this.playerAsManufacturedProductManufacturer;
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"player/code"})
+    public ManufacturedDrug getDrugCode() {
+        return (ManufacturedDrug) this.drugCode.getValue();
     }
-    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
-        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    public void setDrugCode(ManufacturedDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
-    @Hl7XmlMapping({"player/ingredient"})
-    public List<DrugContainsBean> getPlayerIngredient() {
-        return this.playerIngredient;
+    /**
+     * <p>B:Drug Name</p>
+     */
+    @Hl7XmlMapping({"player/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 
@@ -71,6 +80,18 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
+     * <p>D:Drug Form</p>
+     */
+    @Hl7XmlMapping({"player/formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
      * <p>E:Drug Lot Number</p>
      */
     @Hl7XmlMapping({"player/lotNumberText"})
@@ -79,39 +100,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugLotNumber(String drugLotNumber) {
         this.drugLotNumber.setValue(drugLotNumber);
-    }
-
-
-    /**
-     * <p>B:Drug Name</p>
-     */
-    @Hl7XmlMapping({"player/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
-
-
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"player/code"})
-    public ManufacturedDrug getDrugCode() {
-        return (ManufacturedDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ManufacturedDrug drugCode) {
-        this.drugCode.setValue(drugCode);
     }
 
 
@@ -127,15 +115,27 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    /**
-     * <p>D:Drug Form</p>
-     */
-    @Hl7XmlMapping({"player/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
+        return this.playerAsManufacturedProductManufacturer;
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
+        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"player/asContent"})
+    public DispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+    public void setPlayerAsContent(DispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
+    }
+
+
+    @Hl7XmlMapping({"player/ingredient"})
+    public List<DrugContainsBean> getPlayerIngredient() {
+        return this.playerIngredient;
     }
 
 }

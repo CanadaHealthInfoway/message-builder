@@ -15,9 +15,23 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.ficr_mt400001ca.PolicyHo
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyHolder","FICR_MT400003CA.PolicyHolder","FICR_MT400004CA.PolicyHolder","FICR_MT490102CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PolicyHolderChoice policyHolderChoice;
+    private static final long serialVersionUID = 20110407L;
     private II policyHolderIdentifier = new IIImpl();
+    private PolicyHolderChoice policyHolderChoice;
+
+
+    /**
+     * <p>PolicyHolderIdentifier</p>
+     * 
+     * <p>Policy Holder Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPolicyHolderIdentifier() {
+        return this.policyHolderIdentifier.getValue();
+    }
+    public void setPolicyHolderIdentifier(Identifier policyHolderIdentifier) {
+        this.policyHolderIdentifier.setValue(policyHolderIdentifier);
+    }
 
 
     @Hl7XmlMapping({"policyHolderChoice"})
@@ -40,20 +54,6 @@ public class PolicyHolderBean extends MessagePartBean {
     }
     public boolean hasPolicyHolderChoiceAsPolicyHolderOrganization() {
         return (this.policyHolderChoice instanceof PolicyHolderOrganizationBean);
-    }
-
-
-    /**
-     * <p>PolicyHolderIdentifier</p>
-     * 
-     * <p>Policy Holder Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPolicyHolderIdentifier() {
-        return this.policyHolderIdentifier.getValue();
-    }
-    public void setPolicyHolderIdentifier(Identifier policyHolderIdentifier) {
-        this.policyHolderIdentifier.setValue(policyHolderIdentifier);
     }
 
 }

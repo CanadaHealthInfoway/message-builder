@@ -35,11 +35,11 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD typeOfSummary = new CDImpl();
+    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
     private MO summaryPeriodAmt = new MOImpl();
     private List<AdjudicationResultIdentifierBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicationResultIdentifierBean>();
-    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -102,6 +102,28 @@ public class TypeOfSummaryBean extends MessagePartBean {
 
 
     /**
+     * <p>Summary period date range</p>
+     * 
+     * <p><p>Summary period date range - Time period for the 
+     * payment or summary period.</p></p>
+     * 
+     * <p><p>Time period for the payment or summary period. Can 
+     * also indicate time period over which the clawback and/or 
+     * retro adjustment applies</p></p>
+     * 
+     * <p><p>For Payment Advice: Can also indicate time period over 
+     * which the clawback and/or retro adjustment applies.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSummaryPeriodDateRange() {
+        return this.summaryPeriodDateRange.getValue();
+    }
+    public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
+        this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
+    }
+
+
+    /**
      * <p>Summary Period Amt</p>
      * 
      * <p><p>The AdjudResultsGroup.netAmt must equal the sum of all 
@@ -127,28 +149,6 @@ public class TypeOfSummaryBean extends MessagePartBean {
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
-    /**
-     * <p>Summary period date range</p>
-     * 
-     * <p><p>Summary period date range - Time period for the 
-     * payment or summary period.</p></p>
-     * 
-     * <p><p>Time period for the payment or summary period. Can 
-     * also indicate time period over which the clawback and/or 
-     * retro adjustment applies</p></p>
-     * 
-     * <p><p>For Payment Advice: Can also indicate time period over 
-     * which the clawback and/or retro adjustment applies.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSummaryPeriodDateRange() {
-        return this.summaryPeriodDateRange.getValue();
-    }
-    public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
-        this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
     }
 
 }

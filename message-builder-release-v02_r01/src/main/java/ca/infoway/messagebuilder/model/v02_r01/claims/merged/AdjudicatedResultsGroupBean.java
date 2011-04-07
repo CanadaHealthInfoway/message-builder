@@ -34,91 +34,20 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AdjudResultsCarrierRoleBean authorAdjudResultsCarrierRole;
-    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
-    private AdjudResultsSendingAppRoleBean deviceAdjudResultsSendingAppRole;
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
-    private ProviderIDBean performerAdjudResultsProviderRole;
-    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
+    private static final long serialVersionUID = 20110407L;
     private II adjudicatedResultsGroupID = new IIImpl();
-    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
-    private MO netAmt = new MOImpl();
     private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private MO netAmt = new MOImpl();
+    private AdjudResultsSendingAppRoleBean deviceAdjudResultsSendingAppRole;
+    private ProviderIDBean performerAdjudResultsProviderRole;
+    private AdjudResultsCarrierRoleBean authorAdjudResultsCarrierRole;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
+    private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
     private AccountBean debitAccount;
-
-
-    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
-    public AdjudResultsCarrierRoleBean getAuthorAdjudResultsCarrierRole() {
-        return this.authorAdjudResultsCarrierRole;
-    }
-    public void setAuthorAdjudResultsCarrierRole(AdjudResultsCarrierRoleBean authorAdjudResultsCarrierRole) {
-        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
-    }
-
-
-    @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
-    public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
-        return this.summaryAdjudResultsGroupSummaryData;
-    }
-
-
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
-    public AdjudResultsSendingAppRoleBean getDeviceAdjudResultsSendingAppRole() {
-        return this.deviceAdjudResultsSendingAppRole;
-    }
-    public void setDeviceAdjudResultsSendingAppRole(AdjudResultsSendingAppRoleBean deviceAdjudResultsSendingAppRole) {
-        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Summary Period Date Range</p>
-     * 
-     * <p>Time period for the payment</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"credit/account"})
-    public ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
-        this.creditAccount = creditAccount;
-    }
-
-
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
-    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
-        return this.performerAdjudResultsProviderRole;
-    }
-    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
-        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
-    }
-
-
-    @Hl7XmlMapping({"component/adjudResultsGroup"})
-    public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
-        return this.componentAdjudResultsGroup;
-    }
+    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
 
 
     /**
@@ -132,29 +61,6 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
     public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
         this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
-    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
-        return this.referenceAdjudResultsFinancialContract;
-    }
-    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
-        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
-    }
-
-
-    /**
-     * <p>Summary Period Amount</p>
-     * 
-     * <p>Summary Period Amt</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
-    }
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
     }
 
 
@@ -174,12 +80,106 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Summary Period Date Range</p>
+     * 
+     * <p>Time period for the payment</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>Summary Period Amount</p>
+     * 
+     * <p>Summary Period Amt</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
+    }
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
+    }
+
+
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
+    public AdjudResultsSendingAppRoleBean getDeviceAdjudResultsSendingAppRole() {
+        return this.deviceAdjudResultsSendingAppRole;
+    }
+    public void setDeviceAdjudResultsSendingAppRole(AdjudResultsSendingAppRoleBean deviceAdjudResultsSendingAppRole) {
+        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
+    }
+
+
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
+    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
+        return this.performerAdjudResultsProviderRole;
+    }
+    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
+        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
+    }
+
+
+    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
+    public AdjudResultsCarrierRoleBean getAuthorAdjudResultsCarrierRole() {
+        return this.authorAdjudResultsCarrierRole;
+    }
+    public void setAuthorAdjudResultsCarrierRole(AdjudResultsCarrierRoleBean authorAdjudResultsCarrierRole) {
+        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
+    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
+        return this.referenceAdjudResultsFinancialContract;
+    }
+    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
+        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    }
+
+
+    @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
+    public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
+        return this.summaryAdjudResultsGroupSummaryData;
+    }
+
+
+    @Hl7XmlMapping({"credit/account"})
+    public ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
+        this.creditAccount = creditAccount;
+    }
+
+
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
+    }
+
+
+    @Hl7XmlMapping({"component/adjudResultsGroup"})
+    public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
+        return this.componentAdjudResultsGroup;
     }
 
 }

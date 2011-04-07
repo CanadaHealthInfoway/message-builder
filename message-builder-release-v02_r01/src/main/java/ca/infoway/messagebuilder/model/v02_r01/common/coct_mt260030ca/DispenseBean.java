@@ -26,12 +26,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private CV dispenseMaskingIndicator = new CVImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private DispensedBean product;
     private CS dispenseStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private CV dispenseMaskingIndicator = new CVImpl();
+    private DispensedBean product;
     private CreatedAtBean location;
 
 
@@ -48,14 +48,14 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>C:Dispense Masking Indicator</p>
+     * <p>B:Dispense Status</p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
     }
-    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
-        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -71,24 +71,24 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
 
+    /**
+     * <p>C:Dispense Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
+    }
+    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
+        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
+    }
+
+
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
         return this.product;
     }
     public void setProduct(DispensedBean product) {
         this.product = product;
-    }
-
-
-    /**
-     * <p>B:Dispense Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 

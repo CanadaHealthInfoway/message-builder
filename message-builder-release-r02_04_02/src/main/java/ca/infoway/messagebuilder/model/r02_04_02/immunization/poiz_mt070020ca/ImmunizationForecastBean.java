@@ -28,11 +28,35 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
     private INT doseNumber = new INTImpl();
     private CV immunizingAgentCode = new CVImpl();
     private CV immunizationStatus = new CVImpl();
-    private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Eligibility Period</p>
+     * 
+     * <p><p>Represents the dates that the patient is eligible and 
+     * due for a vaccine administration.</p></p>
+     * 
+     * <p><p>Needed for informing service providers as to when a 
+     * patient is eligible or due for an administration. As such, 
+     * this attribute is mandatory.</p></p>
+     * 
+     * <p><p>Low date in range represents the earliest eligible 
+     * administration date. The high date in the range represents 
+     * the date that the patient is due for the vaccine 
+     * administration.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEligibilityPeriod() {
+        return this.eligibilityPeriod.getValue();
+    }
+    public void setEligibilityPeriod(Interval<Date> eligibilityPeriod) {
+        this.eligibilityPeriod.setValue(eligibilityPeriod);
+    }
 
 
     /**
@@ -90,30 +114,6 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
     public void setImmunizationStatus(Code immunizationStatus) {
         this.immunizationStatus.setValue(immunizationStatus);
-    }
-
-
-    /**
-     * <p>Eligibility Period</p>
-     * 
-     * <p><p>Represents the dates that the patient is eligible and 
-     * due for a vaccine administration.</p></p>
-     * 
-     * <p><p>Needed for informing service providers as to when a 
-     * patient is eligible or due for an administration. As such, 
-     * this attribute is mandatory.</p></p>
-     * 
-     * <p><p>Low date in range represents the earliest eligible 
-     * administration date. The high date in the range represents 
-     * the date that the patient is due for the vaccine 
-     * administration.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEligibilityPeriod() {
-        return this.eligibilityPeriod.getValue();
-    }
-    public void setEligibilityPeriod(Interval<Date> eligibilityPeriod) {
-        this.eligibilityPeriod.setValue(eligibilityPeriod);
     }
 
 }

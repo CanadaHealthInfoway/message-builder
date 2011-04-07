@@ -61,16 +61,16 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private II patientNoteId = new IIImpl();
-    private AnnotatedByBean author;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private AnnotatedByBean author;
     private CreatedAtBean location;
-    private II recordId = new IIImpl();
     private CV writtenIn = new CVImpl();
+    private II recordId = new IIImpl();
 
 
     /**
@@ -256,15 +256,6 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public AnnotatedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AnnotatedByBean author) {
-        this.author = author;
-    }
-
-
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
@@ -274,12 +265,35 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public AnnotatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AnnotatedByBean author) {
+        this.author = author;
+    }
+
+
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>D:Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
     }
 
 
@@ -300,20 +314,6 @@ public class CommentBean extends MessagePartBean {
     }
     public void setRecordId(Identifier recordId) {
         this.recordId.setValue(recordId);
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>D:Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
     }
 
 }

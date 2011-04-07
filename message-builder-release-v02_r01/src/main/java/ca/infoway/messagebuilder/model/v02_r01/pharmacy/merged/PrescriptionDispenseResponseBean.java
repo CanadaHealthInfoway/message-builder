@@ -27,31 +27,17 @@ import java.util.Date;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II prescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private II prescriptionOrderNumber = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;
-    private II shipToFacilityId = new IIImpl();
-    private PQ suppliedQuantity = new PQImpl();
-    private TS supplyDate = new TSImpl();
     private CV dispenseType = new CVImpl();
-    private NotesBean subjectOfAnnotation;
-    private SupplyOrderBean fulfillmentSupplyRequest;
+    private TS supplyDate = new TSImpl();
+    private PQ suppliedQuantity = new PQImpl();
     private DrugProductBean productMedication;
-
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>A:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
+    private II shipToFacilityId = new IIImpl();
+    private SupplyOrderBean fulfillmentSupplyRequest;
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -70,6 +56,20 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>A:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
@@ -80,30 +80,16 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>ShipToFacilityId</p>
+     * <p>DispenseType</p>
      * 
-     * <p>C:Ship-to Facility Id</p>
+     * <p>Dispense Type</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActCode getDispenseType() {
+        return (ActCode) this.dispenseType.getValue();
     }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
-    }
-
-
-    /**
-     * <p>SuppliedQuantity</p>
-     * 
-     * <p>B:Supplied Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
-    }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
+    public void setDispenseType(ActCode dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -122,25 +108,39 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>SuppliedQuantity</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>B:Supplied Quantity</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDispenseType() {
-        return (ActCode) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getSuppliedQuantity() {
+        return this.suppliedQuantity.getValue();
     }
-    public void setDispenseType(ActCode dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
+        this.suppliedQuantity.setValue(suppliedQuantity);
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
+    /**
+     * <p>ShipToFacilityId</p>
+     * 
+     * <p>C:Ship-to Facility Id</p>
+     */
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
+    public Identifier getShipToFacilityId() {
+        return this.shipToFacilityId.getValue();
+    }
+    public void setShipToFacilityId(Identifier shipToFacilityId) {
+        this.shipToFacilityId.setValue(shipToFacilityId);
     }
 
 
@@ -153,12 +153,12 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

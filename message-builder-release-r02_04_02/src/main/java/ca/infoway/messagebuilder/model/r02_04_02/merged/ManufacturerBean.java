@@ -82,45 +82,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POIZ_MT030050CA.Manufacturer","POIZ_MT030060CA.Manufacturer","POIZ_MT060150CA.Manufacturer","POIZ_MT061150CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST manufacturerName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-
-
-    /**
-     * <p>ManufacturerName</p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p><p>The name of the drug manufacturer.</p></p>
-     * 
-     * <p><p>Used for reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
-     * 
-     * <p><p>Used for reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p><p>The name of the drug manufacturer.</p></p>
-     * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
-     * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getManufacturerName() {
-        return this.manufacturerName.getValue();
-    }
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName.setValue(manufacturerName);
-    }
+    private ST manufacturerName = new STImpl();
 
 
     /**
@@ -157,6 +121,42 @@ public class ManufacturerBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>ManufacturerName</p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p><p>The name of the drug manufacturer.</p></p>
+     * 
+     * <p><p>Used for reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     * 
+     * <p><p>Used for reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p><p>The name of the drug manufacturer.</p></p>
+     * 
+     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     * 
+     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getManufacturerName() {
+        return this.manufacturerName.getValue();
+    }
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName.setValue(manufacturerName);
     }
 
 }

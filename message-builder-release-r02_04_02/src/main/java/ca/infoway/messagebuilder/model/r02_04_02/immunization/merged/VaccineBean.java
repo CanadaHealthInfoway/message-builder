@@ -61,15 +61,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Vaccine","POIZ_MT030060CA.Vaccine","POIZ_MT060150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV vaccineCode = new CVImpl();
-    private List<AntigensBean> ingredientsIngredient = new ArrayList<AntigensBean>();
-    private IVL<TS, Interval<Date>> vaccineExpiryDate = new IVLImpl<TS, Interval<Date>>();
     private ST vaccineName = new STImpl();
     private ST vaccineDescription = new STImpl();
-    private ManufacturerBean asManufacturedProductManufacturer;
     private CV drugForm = new CVImpl();
     private ST vaccineLotNumber = new STImpl();
+    private IVL<TS, Interval<Date>> vaccineExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private ManufacturerBean asManufacturedProductManufacturer;
+    private List<AntigensBean> ingredientsIngredient = new ArrayList<AntigensBean>();
 
 
     /**
@@ -94,42 +94,6 @@ public class VaccineBean extends MessagePartBean {
     }
     public void setVaccineCode(ClinicalDrug vaccineCode) {
         this.vaccineCode.setValue(vaccineCode);
-    }
-
-
-    @Hl7XmlMapping({"ingredients/ingredient"})
-    public List<AntigensBean> getIngredientsIngredient() {
-        return this.ingredientsIngredient;
-    }
-
-
-    /**
-     * <p>VaccineExpiryDate</p>
-     * 
-     * <p>Vaccine Expiry Date</p>
-     * 
-     * <p><p>Indicates either the length of time a drug product can 
-     * remain viable (when talking about a drug in general terms), 
-     * or the date on which the drug product is no longer 
-     * considered viable (when talking about a specific medication 
-     * that has been dispensed).</p></p>
-     * 
-     * <p><p>The potency, effectiveness and safety of drug products 
-     * changes over time. When determining quantities to be 
-     * supplied to a patient, one of the considerations is how long 
-     * the drug will remain viable.</p></p>
-     * 
-     * <p><p>To indicate the length of time after opening a product 
-     * remains viable, specify the 'Width' property. To indicate a 
-     * specific end date for an actual dispensed product, specify 
-     * the 'High' property</p></p>
-     */
-    @Hl7XmlMapping({"expirationTime"})
-    public Interval<Date> getVaccineExpiryDate() {
-        return this.vaccineExpiryDate.getValue();
-    }
-    public void setVaccineExpiryDate(Interval<Date> vaccineExpiryDate) {
-        this.vaccineExpiryDate.setValue(vaccineExpiryDate);
     }
 
 
@@ -177,15 +141,6 @@ public class VaccineBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
-    }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
-    }
-
-
     /**
      * <p>DrugForm</p>
      * 
@@ -227,6 +182,51 @@ public class VaccineBean extends MessagePartBean {
     }
     public void setVaccineLotNumber(String vaccineLotNumber) {
         this.vaccineLotNumber.setValue(vaccineLotNumber);
+    }
+
+
+    /**
+     * <p>VaccineExpiryDate</p>
+     * 
+     * <p>Vaccine Expiry Date</p>
+     * 
+     * <p><p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p></p>
+     * 
+     * <p><p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p></p>
+     * 
+     * <p><p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p></p>
+     */
+    @Hl7XmlMapping({"expirationTime"})
+    public Interval<Date> getVaccineExpiryDate() {
+        return this.vaccineExpiryDate.getValue();
+    }
+    public void setVaccineExpiryDate(Interval<Date> vaccineExpiryDate) {
+        this.vaccineExpiryDate.setValue(vaccineExpiryDate);
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"ingredients/ingredient"})
+    public List<AntigensBean> getIngredientsIngredient() {
+        return this.ingredientsIngredient;
     }
 
 }

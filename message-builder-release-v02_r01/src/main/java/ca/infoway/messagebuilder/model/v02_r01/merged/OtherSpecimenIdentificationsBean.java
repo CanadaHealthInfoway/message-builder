@@ -31,14 +31,14 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private CV otherSpecimenIdentifierType = new CVImpl();
     private II organizationIdentifier = new IIImpl();
     private ST organizationName = new STImpl();
-    private CV otherSpecimenIdentifierType = new CVImpl();
-    private TS clientDateOfBirth = new TSImpl();
     private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV clientGender = new CVImpl();
+    private TS clientDateOfBirth = new TSImpl();
 
 
     /**
@@ -52,6 +52,20 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>OtherSpecimenIdentifierType</p>
+     * 
+     * <p>Other Specimen Identifier Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getOtherSpecimenIdentifierType() {
+        return (Code) this.otherSpecimenIdentifierType.getValue();
+    }
+    public void setOtherSpecimenIdentifierType(Code otherSpecimenIdentifierType) {
+        this.otherSpecimenIdentifierType.setValue(otherSpecimenIdentifierType);
     }
 
 
@@ -84,34 +98,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherSpecimenIdentifierType</p>
-     * 
-     * <p>Other Specimen Identifier Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getOtherSpecimenIdentifierType() {
-        return (Code) this.otherSpecimenIdentifierType.getValue();
-    }
-    public void setOtherSpecimenIdentifierType(Code otherSpecimenIdentifierType) {
-        this.otherSpecimenIdentifierType.setValue(otherSpecimenIdentifierType);
-    }
-
-
-    /**
-     * <p>ClientDateOfBirth</p>
-     * 
-     * <p>Client Date of Birth</p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/birthTime"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
-    }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
-    }
-
-
-    /**
      * <p>ClientName</p>
      * 
      * <p>Client Name</p>
@@ -133,6 +119,20 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
     public void setClientGender(AdministrativeGender clientGender) {
         this.clientGender.setValue(clientGender);
+    }
+
+
+    /**
+     * <p>ClientDateOfBirth</p>
+     * 
+     * <p>Client Date of Birth</p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/birthTime"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
+    }
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
     }
 
 }

@@ -15,18 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MothersMaidenName"})
 public class MothersMaidenNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST semanticsText = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private PN motherSMaidenName = new PNImpl();
-
-
-    @Hl7XmlMapping({"semanticsText"})
-    public String getSemanticsText() {
-        return this.semanticsText.getValue();
-    }
-    public void setSemanticsText(String semanticsText) {
-        this.semanticsText.setValue(semanticsText);
-    }
+    private ST semanticsText = new STImpl();
 
 
     /**
@@ -52,6 +43,15 @@ public class MothersMaidenNameBean extends MessagePartBean {
     }
     public void setMotherSMaidenName(PersonName motherSMaidenName) {
         this.motherSMaidenName.setValue(motherSMaidenName);
+    }
+
+
+    @Hl7XmlMapping({"semanticsText"})
+    public String getSemanticsText() {
+        return this.semanticsText.getValue();
+    }
+    public void setSemanticsText(String semanticsText) {
+        this.semanticsText.setValue(semanticsText);
     }
 
 }

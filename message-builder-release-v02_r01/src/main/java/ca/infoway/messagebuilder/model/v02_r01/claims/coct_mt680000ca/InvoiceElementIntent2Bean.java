@@ -24,30 +24,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private MO netAmt = new MOImpl();
-    private INT factorNumber = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
-
-
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
-    }
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
-    }
-
-
-    @Hl7XmlMapping({"factorNumber"})
-    public Integer getFactorNumber() {
-        return this.factorNumber.getValue();
-    }
-    public void setFactorNumber(Integer factorNumber) {
-        this.factorNumber.setValue(factorNumber);
-    }
+    private MO netAmt = new MOImpl();
+    private INT factorNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"code"})
@@ -74,6 +56,24 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
+    }
+
+
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
+    }
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
+    }
+
+
+    @Hl7XmlMapping({"factorNumber"})
+    public Integer getFactorNumber() {
+        return this.factorNumber.getValue();
+    }
+    public void setFactorNumber(Integer factorNumber) {
+        this.factorNumber.setValue(factorNumber);
     }
 
 }

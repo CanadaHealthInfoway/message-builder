@@ -14,24 +14,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV substitutionCode = new CVImpl();
+    private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
-
-
-    /**
-     * <p>Product Selection Reason Code</p>
-     * 
-     * <p>Product Selection Code</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getReasonCode() {
-        return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
-    }
 
 
     /**
@@ -45,6 +31,20 @@ public class SubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
         this.substitutionCode.setValue(substitutionCode);
+    }
+
+
+    /**
+     * <p>Product Selection Reason Code</p>
+     * 
+     * <p>Product Selection Code</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionReason getReasonCode() {
+        return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
+    }
+    public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

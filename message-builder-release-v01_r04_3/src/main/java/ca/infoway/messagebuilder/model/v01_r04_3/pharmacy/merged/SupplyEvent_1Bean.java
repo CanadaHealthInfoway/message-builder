@@ -26,13 +26,55 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II prescriptionDispenseNumber = new IIImpl();
+    private CS dispenseStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
     private DispensedBean product;
-    private II prescriptionDispenseNumber = new IIImpl();
     private RecordedAtBean location;
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private CS dispenseStatus = new CSImpl();
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    /**
+     * <p>DispenseStatus</p>
+     * 
+     * <p>B:Dispense Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
+    }
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
+    }
+
+
+    /**
+     * <p>DispensedDate</p>
+     * 
+     * <p>B:Dispensed Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensedDate() {
+        return this.dispensedDate.getValue();
+    }
+    public void setDispensedDate(Interval<Date> dispensedDate) {
+        this.dispensedDate.setValue(dispensedDate);
+    }
 
 
     /**
@@ -58,54 +100,12 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
     }
 
 
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>DispensedDate</p>
-     * 
-     * <p>B:Dispensed Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
-    }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    /**
-     * <p>DispenseStatus</p>
-     * 
-     * <p>B:Dispense Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 }

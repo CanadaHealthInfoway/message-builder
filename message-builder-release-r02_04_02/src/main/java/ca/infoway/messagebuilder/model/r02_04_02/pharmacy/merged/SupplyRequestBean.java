@@ -45,12 +45,44 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CS prescriptionDispensableIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;
-    private CS prescriptionDispensableIndicator = new CSImpl();
     private INT numberOfAuthorizedFills = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>PrescriptionDispensableIndicator</p>
+     * 
+     * <p>A:Prescription Dispensable Indicator</p>
+     * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispensableIndicator() {
+        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    }
+    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
+        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
+    }
 
 
     /**
@@ -107,38 +139,6 @@ public class SupplyRequestBean extends MessagePartBean {
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>PrescriptionDispensableIndicator</p>
-     * 
-     * <p>A:Prescription Dispensable Indicator</p>
-     * 
-     * <p><p>This generally mirrors the status for the 
-     * prescription, but in some circumstances may be changed to 
-     * 'aborted' while the prescription is still active. When this 
-     * occurs, it means the prescription may no longer be 
-     * dispensed, though it may still be administered.</p></p>
-     * 
-     * <p><p>Allows the dispensing authorization of the 
-     * prescription to be controlled/manipulates as 
-     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
-     * as the dispensing authority of the prescription will always 
-     * be known.</p></p>
-     * 
-     * <p><p>Allows the dispensing authorization of the 
-     * prescription to be controlled/manipulates as 
-     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
-     * as the dispensing authority of the prescription will always 
-     * be known.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
-    }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
     }
 
 

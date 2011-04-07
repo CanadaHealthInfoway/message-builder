@@ -42,28 +42,55 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private static final long serialVersionUID = 20110407L;
+    private II otherMedicationRecordNumber = new IIImpl();
+    private CD otherMedicationType = new CDImpl();
+    private CS otherMedicationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeOfAdministration = new CVImpl();
     private DrugProductBean consumableMedication;
-    private II otherMedicationRecordNumber = new IIImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private CD otherMedicationType = new CDImpl();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CS otherMedicationStatus = new CSImpl();
     private CreatedAtBean location;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    /**
+     * <p>A:Other Medication Record Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOtherMedicationRecordNumber() {
+        return this.otherMedicationRecordNumber.getValue();
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setOtherMedicationRecordNumber(Identifier otherMedicationRecordNumber) {
+        this.otherMedicationRecordNumber.setValue(otherMedicationRecordNumber);
+    }
+
+
+    /**
+     * <p>Other Medication Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getOtherMedicationType() {
+        return (ActCode) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(ActCode otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    /**
+     * <p>B:Other Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getOtherMedicationStatus() {
+        return (ActStatus) this.otherMedicationStatus.getValue();
+    }
+    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
+        this.otherMedicationStatus.setValue(otherMedicationStatus);
     }
 
 
@@ -79,18 +106,12 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    /**
+     * <p>D:Other Medication Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
+        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
 
 
@@ -115,15 +136,12 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    /**
-     * <p>A:Other Medication Record Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOtherMedicationRecordNumber() {
-        return this.otherMedicationRecordNumber.getValue();
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setOtherMedicationRecordNumber(Identifier otherMedicationRecordNumber) {
-        this.otherMedicationRecordNumber.setValue(otherMedicationRecordNumber);
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -136,6 +154,15 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
@@ -145,45 +172,18 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    /**
-     * <p>Other Medication Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 
-    /**
-     * <p>D:Other Medication Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
-        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>B:Other Medication Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOtherMedicationStatus() {
-        return (ActStatus) this.otherMedicationStatus.getValue();
-    }
-    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
-        this.otherMedicationStatus.setValue(otherMedicationStatus);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

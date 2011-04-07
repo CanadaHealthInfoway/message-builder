@@ -26,27 +26,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.r02_04_02.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice, ca.infoway.messagebuilder.model.r02_04_02.common.merged.EntererChoice, ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt011001ca.Assignees {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST organizationName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II organizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>E: Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
-    }
+    private ST organizationName = new STImpl();
 
 
     /**
@@ -65,6 +47,24 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
     public void setOrganizationIdentifier(Identifier organizationIdentifier) {
         this.organizationIdentifier.setValue(organizationIdentifier);
+    }
+
+
+    /**
+     * <p>E: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
     }
 
 }

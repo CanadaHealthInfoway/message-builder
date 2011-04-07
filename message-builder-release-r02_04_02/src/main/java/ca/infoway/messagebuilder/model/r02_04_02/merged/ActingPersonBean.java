@@ -46,16 +46,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT050007CA.Person","COCT_MT050202CA.Person","COCT_MT050207CA.Person","COCT_MT050208CA.Person","COCT_MT090102CA.Person","COCT_MT090108CA.Person","COCT_MT910108CA.Person","POIZ_MT030050CA.Person","POIZ_MT030060CA.Person","POIZ_MT060150CA.Person"})
 public class ActingPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private PN name = new PNImpl();
-    private TS birthTime = new TSImpl();
     private CV patientGender = new CVImpl();
+    private TS birthTime = new TSImpl();
     private II licenseNumber = new IIImpl();
     private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD relatedPersonAddress = new ADImpl();
+    private BL patientDeceasedIndicator = new BLImpl();
     private TS patientDeceasedDatetime = new TSImpl();
     private List<OtherSpecimenIdentificationsBean> asIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
-    private BL patientDeceasedIndicator = new BLImpl();
 
 
     /**
@@ -2029,6 +2029,118 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
+     * <p>PatientGender</p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
+     * 
+     * <p>D:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient. Complex 
+     * genetic genders are handled as observations if they are 
+     * considered relevant.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p></p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
+     */
+    @Hl7XmlMapping({"administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
      * <p>E:Patient Birth Date</p>
      * 
      * <p><p>Indicates the date on which the patient was born as 
@@ -2147,118 +2259,6 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientGender</p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
-     * 
-     * <p>D:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient. Complex 
-     * genetic genders are handled as observations if they are 
-     * considered relevant.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p></p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
-     */
-    @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
      * <p>LicenseNumber</p>
      * 
      * <p>D: License Number</p>
@@ -2362,6 +2362,22 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
+     * <p>PatientDeceasedIndicator</p>
+     * 
+     * <p>G:Patient Deceased Indicator</p>
+     * 
+     * <p><p>Indicates whether the patient is deceased.</p></p>
+     */
+    @Hl7XmlMapping({"deceasedInd"})
+    public Boolean getPatientDeceasedIndicator() {
+        return this.patientDeceasedIndicator.getValue();
+    }
+    public void setPatientDeceasedIndicator(Boolean patientDeceasedIndicator) {
+        this.patientDeceasedIndicator.setValue(patientDeceasedIndicator);
+    }
+
+
+    /**
      * <p>PatientDeceasedDatetime</p>
      * 
      * <p>H:Patient Deceased Datetime</p>
@@ -2381,22 +2397,6 @@ public class ActingPersonBean extends MessagePartBean {
     @Hl7XmlMapping({"asIdentifiedEntity"})
     public List<OtherSpecimenIdentificationsBean> getAsIdentifiedEntity() {
         return this.asIdentifiedEntity;
-    }
-
-
-    /**
-     * <p>PatientDeceasedIndicator</p>
-     * 
-     * <p>G:Patient Deceased Indicator</p>
-     * 
-     * <p><p>Indicates whether the patient is deceased.</p></p>
-     */
-    @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPatientDeceasedIndicator() {
-        return this.patientDeceasedIndicator.getValue();
-    }
-    public void setPatientDeceasedIndicator(Boolean patientDeceasedIndicator) {
-        this.patientDeceasedIndicator.setValue(patientDeceasedIndicator);
     }
 
 }

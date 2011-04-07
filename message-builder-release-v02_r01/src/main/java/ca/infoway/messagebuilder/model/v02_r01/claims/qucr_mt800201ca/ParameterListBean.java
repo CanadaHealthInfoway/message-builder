@@ -21,33 +21,24 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II payeeIdValue = new IIImpl();
-    private II providerIdValue = new IIImpl();
-    private II adjudResultsGroupIdValue = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> adjudResultsGroupAuthorTimeValue = new IVLImpl<TS, Interval<Date>>();
-    private II payorIdValue = new IIImpl();
-    private II locationIdValue = new IIImpl();
-    private II sendingApplicationIdValue = new IIImpl();
-    private II insuranceCarrierRoleIdValue = new IIImpl();
+    private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
+    private II insuranceCarrierRoleIdValue = new IIImpl();
+    private II locationIdValue = new IIImpl();
+    private II payeeIdValue = new IIImpl();
+    private II payorIdValue = new IIImpl();
+    private II providerIdValue = new IIImpl();
+    private II sendingApplicationIdValue = new IIImpl();
 
 
-    @Hl7XmlMapping({"payeeId/value"})
-    public Identifier getPayeeIdValue() {
-        return this.payeeIdValue.getValue();
+    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
+    public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
+        return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
-    public void setPayeeIdValue(Identifier payeeIdValue) {
-        this.payeeIdValue.setValue(payeeIdValue);
-    }
-
-
-    @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderIdValue() {
-        return this.providerIdValue.getValue();
-    }
-    public void setProviderIdValue(Identifier providerIdValue) {
-        this.providerIdValue.setValue(providerIdValue);
+    public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
+        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
@@ -60,39 +51,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
-        return this.adjudResultsGroupAuthorTimeValue.getValue();
+    @Hl7XmlMapping({"financialContractId/value"})
+    public Identifier getFinancialContractIdValue() {
+        return this.financialContractIdValue.getValue();
     }
-    public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
-        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
-    }
-
-
-    @Hl7XmlMapping({"payorId/value"})
-    public Identifier getPayorIdValue() {
-        return this.payorIdValue.getValue();
-    }
-    public void setPayorIdValue(Identifier payorIdValue) {
-        this.payorIdValue.setValue(payorIdValue);
-    }
-
-
-    @Hl7XmlMapping({"locationId/value"})
-    public Identifier getLocationIdValue() {
-        return this.locationIdValue.getValue();
-    }
-    public void setLocationIdValue(Identifier locationIdValue) {
-        this.locationIdValue.setValue(locationIdValue);
-    }
-
-
-    @Hl7XmlMapping({"sendingApplicationId/value"})
-    public Identifier getSendingApplicationIdValue() {
-        return this.sendingApplicationIdValue.getValue();
-    }
-    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
-        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
+    public void setFinancialContractIdValue(Identifier financialContractIdValue) {
+        this.financialContractIdValue.setValue(financialContractIdValue);
     }
 
 
@@ -105,12 +69,48 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"financialContractId/value"})
-    public Identifier getFinancialContractIdValue() {
-        return this.financialContractIdValue.getValue();
+    @Hl7XmlMapping({"locationId/value"})
+    public Identifier getLocationIdValue() {
+        return this.locationIdValue.getValue();
     }
-    public void setFinancialContractIdValue(Identifier financialContractIdValue) {
-        this.financialContractIdValue.setValue(financialContractIdValue);
+    public void setLocationIdValue(Identifier locationIdValue) {
+        this.locationIdValue.setValue(locationIdValue);
+    }
+
+
+    @Hl7XmlMapping({"payeeId/value"})
+    public Identifier getPayeeIdValue() {
+        return this.payeeIdValue.getValue();
+    }
+    public void setPayeeIdValue(Identifier payeeIdValue) {
+        this.payeeIdValue.setValue(payeeIdValue);
+    }
+
+
+    @Hl7XmlMapping({"payorId/value"})
+    public Identifier getPayorIdValue() {
+        return this.payorIdValue.getValue();
+    }
+    public void setPayorIdValue(Identifier payorIdValue) {
+        this.payorIdValue.setValue(payorIdValue);
+    }
+
+
+    @Hl7XmlMapping({"providerId/value"})
+    public Identifier getProviderIdValue() {
+        return this.providerIdValue.getValue();
+    }
+    public void setProviderIdValue(Identifier providerIdValue) {
+        this.providerIdValue.setValue(providerIdValue);
+    }
+
+
+    @Hl7XmlMapping({"sendingApplicationId/value"})
+    public Identifier getSendingApplicationIdValue() {
+        return this.sendingApplicationIdValue.getValue();
+    }
+    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
+        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 }

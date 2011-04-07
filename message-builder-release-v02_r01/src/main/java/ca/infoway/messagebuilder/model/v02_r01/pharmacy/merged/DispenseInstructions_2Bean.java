@@ -23,11 +23,25 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ totalPrescribedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS statusCode = new CSImpl();
+    private PQ totalPrescribedQuantity = new PQImpl();
     private CreatedAtBean location;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>A:Prescription Dispensable Indicator</p>
+     * 
+     * <p>A:Prescription Dispense Indicator</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
+    }
 
 
     /**
@@ -43,20 +57,6 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
-    /**
-     * <p>A:Prescription Dispensable Indicator</p>
-     * 
-     * <p>A:Prescription Dispense Indicator</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
     }
 
 

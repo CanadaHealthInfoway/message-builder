@@ -16,10 +16,22 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.RelatedPersonBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV patientConsentMechanism = new CVImpl();
     private ED<String> keyword = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;
-    private CV patientConsentMechanism = new CVImpl();
+
+
+    /**
+     * <p>Patient Consent Mechanism</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
+        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    }
+    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
+        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
 
 
     /**
@@ -40,18 +52,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
         this.personalRelationship = personalRelationship;
-    }
-
-
-    /**
-     * <p>Patient Consent Mechanism</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
-    }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
     }
 
 }

@@ -24,41 +24,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ResponsiblePersonBean receiverResponsibleParty;
-    private DrugProductBean productMedication;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private PQ dispensedQuantity = new PQImpl();
-
-
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public ResponsiblePersonBean getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
-    }
-    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
-        this.receiverResponsibleParty = receiverResponsibleParty;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
+    private ResponsiblePersonBean receiverResponsibleParty;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
@@ -92,6 +65,22 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
+     * <p>DispensedQuantity</p>
+     * 
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p>F:Dispensed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
+    }
+
+
+    /**
      * <p>Dispense Days Supply</p>
      * 
      * <p>Dispensed Days Supply</p>
@@ -107,19 +96,30 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p>F:Dispensed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public ResponsiblePersonBean getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
+    }
+    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
+        this.receiverResponsibleParty = receiverResponsibleParty;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

@@ -34,49 +34,21 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV reactionTypeValue = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
     private BL includeNotesIndicator = new BLImpl();
-    private BL includeIssuesIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV reactionTypeValue = new CVImpl();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private BL includeEventHistoryIndicator = new BLImpl();
+    private BL includeIssuesIndicator = new BLImpl();
     private BL includePendingChangesIndicator = new BLImpl();
     private II prescriptionOrderNumber = new IIImpl();
     private CV allergyIntoleranceStatus = new CVImpl();
-    private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
     private CD allergyIntoleranceType = new CDImpl();
+    private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
     private II prescriptionDispenseNumber = new IIImpl();
-
-
-    /**
-     * <p>ReactionPeriod</p>
-     * 
-     * <p>F:Reaction Period</p>
-     */
-    @Hl7XmlMapping({"reactionPeriod/value"})
-    public Interval<Date> getReactionPeriod() {
-        return this.reactionPeriod.getValue();
-    }
-    public void setReactionPeriod(Interval<Date> reactionPeriod) {
-        this.reactionPeriod.setValue(reactionPeriod);
-    }
-
-
-    /**
-     * <p>I:Reaction</p>
-     * 
-     * <p>G:Reaction Type</p>
-     */
-    @Hl7XmlMapping({"reactionType/value"})
-    public SubjectReaction getReactionTypeValue() {
-        return (SubjectReaction) this.reactionTypeValue.getValue();
-    }
-    public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
-        this.reactionTypeValue.setValue(reactionTypeValue);
-    }
 
 
     /**
@@ -116,16 +88,30 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>ReactionPeriod</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>F:Reaction Period</p>
      */
-    @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
+    @Hl7XmlMapping({"reactionPeriod/value"})
+    public Interval<Date> getReactionPeriod() {
+        return this.reactionPeriod.getValue();
     }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    public void setReactionPeriod(Interval<Date> reactionPeriod) {
+        this.reactionPeriod.setValue(reactionPeriod);
+    }
+
+
+    /**
+     * <p>I:Reaction</p>
+     * 
+     * <p>G:Reaction Type</p>
+     */
+    @Hl7XmlMapping({"reactionType/value"})
+    public SubjectReaction getReactionTypeValue() {
+        return (SubjectReaction) this.reactionTypeValue.getValue();
+    }
+    public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
+        this.reactionTypeValue.setValue(reactionTypeValue);
     }
 
 
@@ -154,6 +140,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
         this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
+    }
+
+
+    /**
+     * <p>IncludeIssuesIndicator</p>
+     * 
+     * <p>Include Issues Indicator</p>
+     */
+    @Hl7XmlMapping({"includeIssuesIndicator/value"})
+    public Boolean getIncludeIssuesIndicator() {
+        return this.includeIssuesIndicator.getValue();
+    }
+    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
+        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
     }
 
 
@@ -200,20 +200,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceChangePeriod</p>
-     * 
-     * <p>F:Allergy/Intolerance Change Period</p>
-     */
-    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
-    public Interval<Date> getAllergyIntoleranceChangePeriod() {
-        return this.allergyIntoleranceChangePeriod.getValue();
-    }
-    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
-        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
-    }
-
-
-    /**
      * <p>AllergyIntoleranceType</p>
      * 
      * <p>H:Allergy/Intolerance Type</p>
@@ -224,6 +210,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
         this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>F:Allergy/Intolerance Change Period</p>
+     */
+    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
+    public Interval<Date> getAllergyIntoleranceChangePeriod() {
+        return this.allergyIntoleranceChangePeriod.getValue();
+    }
+    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
+        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
     }
 
 

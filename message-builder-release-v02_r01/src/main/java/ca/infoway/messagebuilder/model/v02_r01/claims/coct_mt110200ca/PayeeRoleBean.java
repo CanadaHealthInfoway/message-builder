@@ -18,9 +18,18 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRole"})
 public class PayeeRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PayeeChoice payeeChoice;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> payeeIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private PayeeChoice payeeChoice;
+
+
+    /**
+     * <p>payee identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getPayeeIdentifier() {
+        return this.payeeIdentifier.rawSet();
+    }
 
 
     @Hl7XmlMapping({"payeeChoice"})
@@ -43,15 +52,6 @@ public class PayeeRoleBean extends MessagePartBean {
     }
     public boolean hasPayeeChoiceAsPayeeOrganization() {
         return (this.payeeChoice instanceof PayeeOrganisationBean);
-    }
-
-
-    /**
-     * <p>payee identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPayeeIdentifier() {
-        return this.payeeIdentifier.rawSet();
     }
 
 }

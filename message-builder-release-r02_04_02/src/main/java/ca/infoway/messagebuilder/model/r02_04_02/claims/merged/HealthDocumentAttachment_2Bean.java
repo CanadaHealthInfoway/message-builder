@@ -61,10 +61,21 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.HealthDocumentAttachment","FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV attachmentType = new CVImpl();
     private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
-    private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+
+
+    /**
+     * <p>AttachmentIdentifier</p>
+     * 
+     * <p>Attachment identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAttachmentIdentifier() {
+        return this.attachmentIdentifier.rawSet();
+    }
 
 
     /**
@@ -98,17 +109,6 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
     }
     public void setAttachmentContent(EncapsulatedData attachmentContent) {
         this.attachmentContent.setValue(attachmentContent);
-    }
-
-
-    /**
-     * <p>AttachmentIdentifier</p>
-     * 
-     * <p>Attachment identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAttachmentIdentifier() {
-        return this.attachmentIdentifier.rawSet();
     }
 
 }

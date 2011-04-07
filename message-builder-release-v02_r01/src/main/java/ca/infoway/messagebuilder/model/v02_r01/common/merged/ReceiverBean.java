@@ -16,23 +16,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II receiverApplicationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private TEL receiverNetworkAddress = new TELImpl();
-
-
-    /**
-     * <p>ReceiverApplicationIdentifier</p>
-     * 
-     * <p>JA:Receiver Application Identifier</p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
-    }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
-    }
+    private II receiverApplicationIdentifier = new IIImpl();
 
 
     /**
@@ -46,6 +32,20 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
         this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    }
+
+
+    /**
+     * <p>ReceiverApplicationIdentifier</p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     */
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getReceiverApplicationIdentifier() {
+        return this.receiverApplicationIdentifier.getValue();
+    }
+    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
+        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
     }
 
 }

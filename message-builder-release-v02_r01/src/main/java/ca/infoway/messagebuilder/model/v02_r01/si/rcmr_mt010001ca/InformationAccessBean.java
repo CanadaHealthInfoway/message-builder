@@ -17,7 +17,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ConsentGivenToBean receiver;
     private List<CV> consentInformationTypes = new ArrayList<CV>();
 

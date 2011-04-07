@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r02.pr.prpm_mt309000ca.RoleChoice;
 @Hl7PartTypeMapping({"PRPM_IN303011CA"})
 public class UpdateProviderConfirmationBean extends HL7Message_1Bean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

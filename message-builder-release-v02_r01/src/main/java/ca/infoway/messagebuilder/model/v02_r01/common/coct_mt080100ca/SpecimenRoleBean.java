@@ -27,16 +27,16 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS classCode = new CSImpl();
-    private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
     private II specimenIdentifier = new IIImpl();
-    private ST specimenText = new STImpl();
-    private CV specimenContainerRisk = new CVImpl();
     private CV specimenCode = new CVImpl();
+    private ST specimenText = new STImpl();
     private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
-    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
+    private CV specimenContainerRisk = new CVImpl();
     private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
+    private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
+    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
 
 
     @Hl7XmlMapping({"classCode"})
@@ -45,12 +45,6 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
-    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
-        return this.subjectOf2SpecimenObservationEvent;
     }
 
 
@@ -67,6 +61,18 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
+     * <p>V:Specimen Code</p>
+     */
+    @Hl7XmlMapping({"specimenMaterial/code"})
+    public Code getSpecimenCode() {
+        return (Code) this.specimenCode.getValue();
+    }
+    public void setSpecimenCode(Code specimenCode) {
+        this.specimenCode.setValue(specimenCode);
+    }
+
+
+    /**
      * <p>W:Specimen Text</p>
      */
     @Hl7XmlMapping({"specimenMaterial/desc"})
@@ -75,6 +81,12 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
     public void setSpecimenText(String specimenText) {
         this.specimenText.setValue(specimenText);
+    }
+
+
+    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
+    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
+        return this.specimenMaterialAsIdentifiedEntity;
     }
 
 
@@ -90,21 +102,15 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>V:Specimen Code</p>
-     */
-    @Hl7XmlMapping({"specimenMaterial/code"})
-    public Code getSpecimenCode() {
-        return (Code) this.specimenCode.getValue();
-    }
-    public void setSpecimenCode(Code specimenCode) {
-        this.specimenCode.setValue(specimenCode);
+    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
+    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
+        return this.subjectOf1TransportationEvent;
     }
 
 
-    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
-    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
-        return this.specimenMaterialAsIdentifiedEntity;
+    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
+    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
+        return this.subjectOf2SpecimenObservationEvent;
     }
 
 
@@ -114,12 +120,6 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
-    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
-        return this.subjectOf1TransportationEvent;
     }
 
 }

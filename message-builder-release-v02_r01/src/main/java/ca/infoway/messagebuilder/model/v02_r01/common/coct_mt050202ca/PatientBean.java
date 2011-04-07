@@ -24,22 +24,22 @@ import java.util.Date;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.iehr.merged.Party, ca.infoway.messagebuilder.model.v02_r01.common.coct_mt470002ca.SubjectChoice, ca.infoway.messagebuilder.model.v02_r01.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20110318L;
-    private TS patientBirthDate = new TSImpl();
+    private static final long serialVersionUID = 20110407L;
+    private II patientIdentifier = new IIImpl();
     private PN patientName = new PNImpl();
     private CV patientGender = new CVImpl();
-    private II patientIdentifier = new IIImpl();
+    private TS patientBirthDate = new TSImpl();
 
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>A:Patient Identifier</p>
      */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPatientIdentifier() {
+        return this.patientIdentifier.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientIdentifier(Identifier patientIdentifier) {
+        this.patientIdentifier.setValue(patientIdentifier);
     }
 
 
@@ -68,14 +68,14 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>A:Patient Identifier</p>
+     * <p>E:Patient Birth Date</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
     }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 }

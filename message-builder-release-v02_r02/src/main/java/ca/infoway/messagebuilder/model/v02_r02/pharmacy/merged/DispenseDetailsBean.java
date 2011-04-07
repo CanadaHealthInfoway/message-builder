@@ -24,14 +24,36 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
     private INT dispensedQuantity = new INTImpl();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DeviceProductBean productManufacturedProduct;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private RelatedPersonBean receiverPersonalRelationship;
+
+
+    /**
+     * <p>DispenseType</p>
+     * 
+     * <p>Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    }
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
+    }
 
 
     /**
@@ -100,24 +122,36 @@ public class DispenseDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>DispensedQuantity</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * <p><p>The number of devices that have been dispensed.</p></p>
      * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Critical in understanding the patient's profile, both 
+     * past and current, This is also mandatory to allow 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p></p>
+     * 
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p><p>The number of devices that have been dispensed.</p></p>
+     * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's profile, both 
+     * past and current, This is also mandatory to allow 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public Integer getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setDispensedQuantity(Integer dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -192,37 +226,12 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The number of devices that have been dispensed.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's profile, both 
-     * past and current, This is also mandatory to allow 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p></p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The number of devices that have been dispensed.</p></p>
-     * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's profile, both 
-     * past and current, This is also mandatory to allow 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 
@@ -232,15 +241,6 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 

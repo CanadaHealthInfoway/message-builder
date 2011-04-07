@@ -254,12 +254,28 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatient","FICR_MT510201CA.CoveredPartyAsPatient","FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II coveredPartyIdentifier = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
-    private II coveredPartyIdentifier = new IIImpl();
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
     private List<SubjectBean> subjectOf = new ArrayList<SubjectBean>();
+
+
+    /**
+     * <p>CoveredPartyIdentifier</p>
+     * 
+     * <p>Covered party Identifier</p>
+     * 
+     * <p>Covered Party Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getCoveredPartyIdentifier() {
+        return this.coveredPartyIdentifier.getValue();
+    }
+    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
+        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
+    }
 
 
     /**
@@ -282,22 +298,6 @@ public class CoveredPartyAsPatientBean extends MessagePartBean {
     }
     public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
-    }
-
-
-    /**
-     * <p>CoveredPartyIdentifier</p>
-     * 
-     * <p>Covered party Identifier</p>
-     * 
-     * <p>Covered Party Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getCoveredPartyIdentifier() {
-        return this.coveredPartyIdentifier.getValue();
-    }
-    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
-        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
     }
 
 

@@ -199,116 +199,23 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private CE messageLanguage = new CEImpl();
     private RefersTo_1Bean<ACT> subject;
-    private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private Patient recordTargetPatient1;
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private ActingPerson dataEntererActingPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
-    private ConsentBean subjectOf1ConsentEvent;
+    private ActingPerson dataEntererActingPerson;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ServiceLocationBean locationServiceDeliveryLocation;
+    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private ConsentBean subjectOf1ConsentEvent;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
-     * query, activation request, modification request) 
-     * occurred.</p></p>
-     * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
-     * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf2/detectedIssueEvent"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700216CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700217CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700218CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700220CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700221CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700222CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700226CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700227CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700228CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260010CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260020CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260022CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700210CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700211CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700212CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260010CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent")})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersTo_1Bean<ACT> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersTo_1Bean<ACT> subject) {
-        this.subject = subject;
-    }
 
 
     /**
@@ -353,6 +260,25 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
      * <p>EventEffectivePeriod</p>
      * 
      * <p>C:Event Effective Period</p>
@@ -372,6 +298,80 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold' or 'reason for accessing 
+     * information'.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersTo_1Bean<ACT> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersTo_1Bean<ACT> subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf2/detectedIssueEvent"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700216CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700217CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700218CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700220CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700221CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700222CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700226CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700227CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700228CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260010CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260020CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260022CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700210CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700211CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf2", type="MCAI_MT700212CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260010CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent")})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 
@@ -405,12 +405,21 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
-    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
-        return this.pertinentInformationAuthorizationToken;
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
-        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public CreatedBy_1Bean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(CreatedBy_1Bean author) {
+        this.author = author;
     }
 
 
@@ -453,21 +462,21 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
+    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
+        return this.pertinentInformationAuthorizationToken;
     }
-    public void setAuthor(CreatedBy_1Bean author) {
-        this.author = author;
+    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
+        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
     }
 
 
@@ -477,15 +486,6 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
     public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
         this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 

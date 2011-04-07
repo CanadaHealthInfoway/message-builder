@@ -43,35 +43,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CS regulatoryStatusCode = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
-    private CV drugForm = new CVImpl();
-    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
-    private ManufacturerBean asManufacturedProductManufacturer;
-    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private DispensedInBean asContent;
     private ST description = new STImpl();
-
-
-    /**
-     * <p>Regulatory Status Code</p>
-     * 
-     * <p><p>Indicates whether the drug is approved for use in 
-     * Canada or not. (active = currently approved, terminated or 
-     * pending = not approved)</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p></p>
-     */
-    @Hl7XmlMapping({"asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
-    }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
+    private CV drugForm = new CVImpl();
+    private ManufacturerBean asManufacturedProductManufacturer;
+    private CS regulatoryStatusCode = new CSImpl();
+    private DispensedInBean asContent;
+    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
 
 
     /**
@@ -94,46 +75,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>Drug Form</p>
-     * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared.</p></p>
-     * 
-     * <p><p>Provides a constrained vocabulary for describing dose 
-     * forms. The form of the drug influences how it can be used by 
-     * the patient.</p></p>
-     */
-    @Hl7XmlMapping({"formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
-    }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
-    }
-
-
-    @Hl7XmlMapping({"ingredient"})
-    public List<DrugContainsBean> getIngredient() {
-        return this.ingredient;
-    }
-
-
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
-    }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"asSpecializedKind"})
-    public List<GroupedWithinBean> getAsSpecializedKind() {
-        return this.asSpecializedKind;
     }
 
 
@@ -166,15 +107,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
-    }
-
-
     /**
      * <p>Description</p>
      * 
@@ -192,6 +124,74 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setDescription(String description) {
         this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared.</p></p>
+     * 
+     * <p><p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p></p>
+     */
+    @Hl7XmlMapping({"formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    }
+
+
+    /**
+     * <p>Regulatory Status Code</p>
+     * 
+     * <p><p>Indicates whether the drug is approved for use in 
+     * Canada or not. (active = currently approved, terminated or 
+     * pending = not approved)</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p></p>
+     */
+    @Hl7XmlMapping({"asRegulatedProduct/statusCode"})
+    public RoleStatusNormal getRegulatoryStatusCode() {
+        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    }
+    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
+        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
+    }
+
+
+    @Hl7XmlMapping({"asSpecializedKind"})
+    public List<GroupedWithinBean> getAsSpecializedKind() {
+        return this.asSpecializedKind;
+    }
+
+
+    @Hl7XmlMapping({"ingredient"})
+    public List<DrugContainsBean> getIngredient() {
+        return this.ingredient;
     }
 
 }

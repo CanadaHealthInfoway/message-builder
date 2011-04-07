@@ -45,30 +45,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Organization","PRPA_MT202302CA.Organization","PRPA_MT202303CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST responsibleOrganizationName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II responsibleOrganizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>ResponsibleOrganizationName</p>
-     * 
-     * <p>B: Responsible Organization Name</p>
-     * 
-     * <p><p>The label by which the responsible organization is 
-     * known and communicated with e.g. Capital Health 
-     * District.</p></p>
-     * 
-     * <p><p>Provides a user-accessible label for the organization 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getResponsibleOrganizationName() {
-        return this.responsibleOrganizationName.getValue();
-    }
-    public void setResponsibleOrganizationName(String responsibleOrganizationName) {
-        this.responsibleOrganizationName.setValue(responsibleOrganizationName);
-    }
+    private ST responsibleOrganizationName = new STImpl();
 
 
     /**
@@ -94,6 +73,27 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
     public void setResponsibleOrganizationIdentifier(Identifier responsibleOrganizationIdentifier) {
         this.responsibleOrganizationIdentifier.setValue(responsibleOrganizationIdentifier);
+    }
+
+
+    /**
+     * <p>ResponsibleOrganizationName</p>
+     * 
+     * <p>B: Responsible Organization Name</p>
+     * 
+     * <p><p>The label by which the responsible organization is 
+     * known and communicated with e.g. Capital Health 
+     * District.</p></p>
+     * 
+     * <p><p>Provides a user-accessible label for the organization 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getResponsibleOrganizationName() {
+        return this.responsibleOrganizationName.getValue();
+    }
+    public void setResponsibleOrganizationName(String responsibleOrganizationName) {
+        this.responsibleOrganizationName.setValue(responsibleOrganizationName);
     }
 
 }

@@ -61,39 +61,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV restrictionsCategorizationValue = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV restrictionsCategorizationType = new CVImpl();
-
-
-    /**
-     * <p>RestrictionsCategorizationValue</p>
-     * 
-     * <p>Restrictions Categorization Value</p>
-     * 
-     * <p><p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p>Restrictions Categorization Value</p>
-     * 
-     * <p><p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public ObservationValue getRestrictionsCategorizationValue() {
-        return (ObservationValue) this.restrictionsCategorizationValue.getValue();
-    }
-    public void setRestrictionsCategorizationValue(ObservationValue restrictionsCategorizationValue) {
-        this.restrictionsCategorizationValue.setValue(restrictionsCategorizationValue);
-    }
+    private CV restrictionsCategorizationValue = new CVImpl();
 
 
     /**
@@ -138,6 +108,36 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
     }
     public void setRestrictionsCategorizationType(ActPrivilegeCategorization restrictionsCategorizationType) {
         this.restrictionsCategorizationType.setValue(restrictionsCategorizationType);
+    }
+
+
+    /**
+     * <p>RestrictionsCategorizationValue</p>
+     * 
+     * <p>Restrictions Categorization Value</p>
+     * 
+     * <p><p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p>Restrictions Categorization Value</p>
+     * 
+     * <p><p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public ObservationValue getRestrictionsCategorizationValue() {
+        return (ObservationValue) this.restrictionsCategorizationValue.getValue();
+    }
+    public void setRestrictionsCategorizationValue(ObservationValue restrictionsCategorizationValue) {
+        this.restrictionsCategorizationValue.setValue(restrictionsCategorizationValue);
     }
 
 }

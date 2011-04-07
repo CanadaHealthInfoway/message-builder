@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.SubstanceAdminist
 @Hl7PartTypeMapping({"PORX_IN010420CA"})
 public class PrescriptionClinicalPreDeterminationCheckBean extends HL7Message_1Bean<TriggerEvent_1Bean<SubstanceAdministrationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

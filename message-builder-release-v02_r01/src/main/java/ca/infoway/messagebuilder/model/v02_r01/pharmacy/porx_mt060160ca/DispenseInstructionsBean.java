@@ -25,18 +25,24 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CS prescriptionDispensableIndicator = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
 
 
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    /**
+     * <p>Prescription Dispensable Indicator</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispensableIndicator() {
+        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    }
+    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
+        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
     }
 
 
@@ -52,21 +58,18 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Prescription Dispensable Indicator</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
-    }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
-    }
-
-
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public List<RelatedPersonBean> getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -79,12 +82,9 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 }

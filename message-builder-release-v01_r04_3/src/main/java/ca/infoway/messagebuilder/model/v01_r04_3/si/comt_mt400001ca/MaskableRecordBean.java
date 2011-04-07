@@ -20,30 +20,36 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PatientBean recordTargetPatient;
-    private DiagnosisBean reasonDiagnosis;
-    private CV maskedIndicator = new CVImpl();
-    private RoleBean directTargetRole;
+    private static final long serialVersionUID = 20110407L;
     private II recordIdentifier = new IIImpl();
     private CV recordType = new CVImpl();
+    private CV maskedIndicator = new CVImpl();
+    private RoleBean directTargetRole;
+    private PatientBean recordTargetPatient;
+    private DiagnosisBean reasonDiagnosis;
 
 
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
+    /**
+     * <p>C:Record Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRecordIdentifier() {
+        return this.recordIdentifier.getValue();
     }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+    public void setRecordIdentifier(Identifier recordIdentifier) {
+        this.recordIdentifier.setValue(recordIdentifier);
     }
 
 
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
+    /**
+     * <p>B:Record Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
     }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
     }
 
 
@@ -68,27 +74,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Record Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
-    /**
-     * <p>B:Record Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
     }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 }

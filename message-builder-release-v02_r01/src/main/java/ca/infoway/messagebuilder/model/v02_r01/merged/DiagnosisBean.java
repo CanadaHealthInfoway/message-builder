@@ -16,24 +16,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV diagnosis = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV diagnosisType = new CVImpl();
     private ST text = new STImpl();
-
-
-    /**
-     * <p>Diagnosis</p>
-     * 
-     * <p>B:Diagnosis</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosis() {
-        return (DiagnosisValue) this.diagnosis.getValue();
-    }
-    public void setDiagnosis(DiagnosisValue diagnosis) {
-        this.diagnosis.setValue(diagnosis);
-    }
+    private CV diagnosis = new CVImpl();
 
 
     /**
@@ -56,6 +42,20 @@ public class DiagnosisBean extends MessagePartBean {
     }
     public void setText(String text) {
         this.text.setValue(text);
+    }
+
+
+    /**
+     * <p>Diagnosis</p>
+     * 
+     * <p>B:Diagnosis</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getDiagnosis() {
+        return (DiagnosisValue) this.diagnosis.getValue();
+    }
+    public void setDiagnosis(DiagnosisValue diagnosis) {
+        this.diagnosis.setValue(diagnosis);
     }
 
 }

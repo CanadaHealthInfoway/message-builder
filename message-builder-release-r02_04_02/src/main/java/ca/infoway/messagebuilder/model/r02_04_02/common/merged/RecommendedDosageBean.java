@@ -49,15 +49,32 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministrationEventCriterion","COCT_MT260020CA.SubstanceAdministrationEventCriterion","COCT_MT260030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
 
 
-    @Hl7XmlMapping({"component/observationEventCriterion"})
-    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
-        return this.componentObservationEventCriterion;
+    /**
+     * <p>DoseDuration</p>
+     * 
+     * <p>A:Dose Duration</p>
+     * 
+     * <p>A:Dose Duration</p>
+     * 
+     * <p><p>Indicates the recommended duration for drug therapy 
+     * that was exceeded or not met.</p></p>
+     * 
+     * <p><p>Recommended Duration (width)</p></p>
+     * 
+     * <p><p>Allows calculation of amount under or over.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDoseDuration() {
+        return this.doseDuration.getValue();
+    }
+    public void setDoseDuration(Interval<Date> doseDuration) {
+        this.doseDuration.setValue(doseDuration);
     }
 
 
@@ -92,26 +109,9 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DoseDuration</p>
-     * 
-     * <p>A:Dose Duration</p>
-     * 
-     * <p>A:Dose Duration</p>
-     * 
-     * <p><p>Indicates the recommended duration for drug therapy 
-     * that was exceeded or not met.</p></p>
-     * 
-     * <p><p>Recommended Duration (width)</p></p>
-     * 
-     * <p><p>Allows calculation of amount under or over.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDoseDuration() {
-        return this.doseDuration.getValue();
-    }
-    public void setDoseDuration(Interval<Date> doseDuration) {
-        this.doseDuration.setValue(doseDuration);
+    @Hl7XmlMapping({"component/observationEventCriterion"})
+    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
+        return this.componentObservationEventCriterion;
     }
 
 }

@@ -42,14 +42,28 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementDetail","FICR_MT510201CA.InvoiceElementDetail","FICR_MT610201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II submittedInvoiceLineIdentifier = new IIImpl();
     private CV submittedProductServiceCode = new CVImpl();
     private MO submittedInvoiceLineAmount = new MOImpl();
-    private II submittedInvoiceLineIdentifier = new IIImpl();
-    private REAL taxAppliedToUnitPriceAmt = new REALImpl();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ submittedUnitQuantity = new PQImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
+    private PQ submittedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
+    private REAL taxAppliedToUnitPriceAmt = new REALImpl();
+
+
+    /**
+     * <p>SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Submitted Invoice Line Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSubmittedInvoiceLineIdentifier() {
+        return this.submittedInvoiceLineIdentifier.getValue();
+    }
+    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
+        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    }
 
 
     /**
@@ -82,31 +96,23 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
 
-    /**
-     * <p>SubmittedInvoiceLineIdentifier</p>
-     * 
-     * <p>Submitted Invoice Line Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSubmittedInvoiceLineIdentifier() {
-        return this.submittedInvoiceLineIdentifier.getValue();
-    }
-    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
-        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
     }
 
 
     /**
-     * <p>TaxAppliedToUnitPriceAmt</p>
+     * <p>SubmittedUnitQuantity</p>
      * 
-     * <p>Tax % applied to unitPriceAmt.</p>
+     * <p>Submitted Unit Quantity</p>
      */
-    @Hl7XmlMapping({"factorNumber"})
-    public BigDecimal getTaxAppliedToUnitPriceAmt() {
-        return this.taxAppliedToUnitPriceAmt.getValue();
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getSubmittedUnitQuantity() {
+        return this.submittedUnitQuantity.getValue();
     }
-    public void setTaxAppliedToUnitPriceAmt(BigDecimal taxAppliedToUnitPriceAmt) {
-        this.taxAppliedToUnitPriceAmt.setValue(taxAppliedToUnitPriceAmt);
+    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
+        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
     }
 
 
@@ -125,22 +131,16 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedUnitQuantity</p>
+     * <p>TaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Submitted Unit Quantity</p>
+     * <p>Tax % applied to unitPriceAmt.</p>
      */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getSubmittedUnitQuantity() {
-        return this.submittedUnitQuantity.getValue();
+    @Hl7XmlMapping({"factorNumber"})
+    public BigDecimal getTaxAppliedToUnitPriceAmt() {
+        return this.taxAppliedToUnitPriceAmt.getValue();
     }
-    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
-        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/billableActChoice"})
-    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
-        return this.reasonOfBillableActChoice;
+    public void setTaxAppliedToUnitPriceAmt(BigDecimal taxAppliedToUnitPriceAmt) {
+        this.taxAppliedToUnitPriceAmt.setValue(taxAppliedToUnitPriceAmt);
     }
 
 }

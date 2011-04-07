@@ -21,22 +21,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ remainingQuantitySupply = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private INT remainingFillsPermitted = new INTImpl();
+    private PQ remainingQuantitySupply = new PQImpl();
     private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>Remaining Quantity Supply</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getRemainingQuantitySupply() {
-        return this.remainingQuantitySupply.getValue();
-    }
-    public void setRemainingQuantitySupply(PhysicalQuantity remainingQuantitySupply) {
-        this.remainingQuantitySupply.setValue(remainingQuantitySupply);
-    }
 
 
     /**
@@ -48,6 +36,18 @@ public class RemainingLimitsBean extends MessagePartBean {
     }
     public void setRemainingFillsPermitted(Integer remainingFillsPermitted) {
         this.remainingFillsPermitted.setValue(remainingFillsPermitted);
+    }
+
+
+    /**
+     * <p>Remaining Quantity Supply</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getRemainingQuantitySupply() {
+        return this.remainingQuantitySupply.getValue();
+    }
+    public void setRemainingQuantitySupply(PhysicalQuantity remainingQuantitySupply) {
+        this.remainingQuantitySupply.setValue(remainingQuantitySupply);
     }
 
 

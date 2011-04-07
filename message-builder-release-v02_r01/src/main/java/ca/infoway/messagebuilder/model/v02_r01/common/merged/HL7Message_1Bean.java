@@ -30,22 +30,50 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II messageIdentifier = new IIImpl();
+    private TS messageTimestamp = new TSImpl();
     private ST securityToken = new STImpl();
+    private CS responseType = new CSImpl();
+    private CS hL7StandardVersion = new CSImpl();
+    private II interactionType = new IIImpl();
     private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
+    private CS processingCode = new CSImpl();
+    private CS desiredAcknowledgmentType = new CSImpl();
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private CAE controlActEvent;
-    private CS hL7StandardVersion = new CSImpl();
-    private TS messageTimestamp = new TSImpl();
-    private CS responseType = new CSImpl();
-    private II interactionType = new IIImpl();
-    private II messageIdentifier = new IIImpl();
-    private CS processingCode = new CSImpl();
-    private AcknowledgementBean acknowledgement;
-    private CS desiredAcknowledgmentType = new CSImpl();
     private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private AcknowledgementBean acknowledgement;
+    private CAE controlActEvent;
+
+
+    /**
+     * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
+    }
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
+    }
+
+
+    /**
+     * <p>MessageTimestamp</p>
+     * 
+     * <p>G:Message Timestamp</p>
+     */
+    @Hl7XmlMapping({"creationTime"})
+    public Date getMessageTimestamp() {
+        return this.messageTimestamp.getValue();
+    }
+    public void setMessageTimestamp(Date messageTimestamp) {
+        this.messageTimestamp.setValue(messageTimestamp);
+    }
 
 
     /**
@@ -63,6 +91,48 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
+     * <p>ResponseType</p>
+     * 
+     * <p>DA: Response Type</p>
+     */
+    @Hl7XmlMapping({"responseModeCode"})
+    public ResponseMode getResponseType() {
+        return (ResponseMode) this.responseType.getValue();
+    }
+    public void setResponseType(ResponseMode responseType) {
+        this.responseType.setValue(responseType);
+    }
+
+
+    /**
+     * <p>HL7StandardVersion</p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     */
+    @Hl7XmlMapping({"versionCode"})
+    public HL7StandardVersionCode getHL7StandardVersion() {
+        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
+    }
+    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
+        this.hL7StandardVersion.setValue(hL7StandardVersion);
+    }
+
+
+    /**
+     * <p>InteractionType</p>
+     * 
+     * <p>B:Interaction Type</p>
+     */
+    @Hl7XmlMapping({"interactionId"})
+    public Identifier getInteractionType() {
+        return this.interactionType.getValue();
+    }
+    public void setInteractionType(Identifier interactionType) {
+        this.interactionType.setValue(interactionType);
+    }
+
+
+    /**
      * <p>ConformanceProfileIdentifiers</p>
      * 
      * <p>F:Conformance Profile Identifiers</p>
@@ -70,6 +140,34 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     @Hl7XmlMapping({"profileId"})
     public List<Identifier> getConformanceProfileIdentifiers() {
         return this.conformanceProfileIdentifiers.rawList();
+    }
+
+
+    /**
+     * <p>ProcessingCode</p>
+     * 
+     * <p>DB:Processing Code</p>
+     */
+    @Hl7XmlMapping({"processingCode"})
+    public ProcessingID getProcessingCode() {
+        return (ProcessingID) this.processingCode.getValue();
+    }
+    public void setProcessingCode(ProcessingID processingCode) {
+        this.processingCode.setValue(processingCode);
+    }
+
+
+    /**
+     * <p>DesiredAcknowledgmentType</p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     */
+    @Hl7XmlMapping({"acceptAckCode"})
+    public AcknowledgementCondition getDesiredAcknowledgmentType() {
+        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
+    }
+    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
+        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
     }
 
 
@@ -91,102 +189,18 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
+    }
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
+    }
+
+
     @Hl7XmlMapping({"attentionLine"})
     public List<RoutingInstructionLinesBean> getAttentionLine() {
         return this.attentionLine;
-    }
-
-
-    @Hl7XmlMapping({"controlActEvent"})
-    public CAE getControlActEvent() {
-        return this.controlActEvent;
-    }
-    public void setControlActEvent(CAE controlActEvent) {
-        this.controlActEvent = controlActEvent;
-    }
-
-
-    /**
-     * <p>HL7StandardVersion</p>
-     * 
-     * <p>C: HL7 Standard Version</p>
-     */
-    @Hl7XmlMapping({"versionCode"})
-    public HL7StandardVersionCode getHL7StandardVersion() {
-        return (HL7StandardVersionCode) this.hL7StandardVersion.getValue();
-    }
-    public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
-        this.hL7StandardVersion.setValue(hL7StandardVersion);
-    }
-
-
-    /**
-     * <p>MessageTimestamp</p>
-     * 
-     * <p>G:Message Timestamp</p>
-     */
-    @Hl7XmlMapping({"creationTime"})
-    public Date getMessageTimestamp() {
-        return this.messageTimestamp.getValue();
-    }
-    public void setMessageTimestamp(Date messageTimestamp) {
-        this.messageTimestamp.setValue(messageTimestamp);
-    }
-
-
-    /**
-     * <p>ResponseType</p>
-     * 
-     * <p>DA: Response Type</p>
-     */
-    @Hl7XmlMapping({"responseModeCode"})
-    public ResponseMode getResponseType() {
-        return (ResponseMode) this.responseType.getValue();
-    }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType.setValue(responseType);
-    }
-
-
-    /**
-     * <p>InteractionType</p>
-     * 
-     * <p>B:Interaction Type</p>
-     */
-    @Hl7XmlMapping({"interactionId"})
-    public Identifier getInteractionType() {
-        return this.interactionType.getValue();
-    }
-    public void setInteractionType(Identifier interactionType) {
-        this.interactionType.setValue(interactionType);
-    }
-
-
-    /**
-     * <p>MessageIdentifier</p>
-     * 
-     * <p>A:Message Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
-    }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
-    }
-
-
-    /**
-     * <p>ProcessingCode</p>
-     * 
-     * <p>DB:Processing Code</p>
-     */
-    @Hl7XmlMapping({"processingCode"})
-    public ProcessingID getProcessingCode() {
-        return (ProcessingID) this.processingCode.getValue();
-    }
-    public void setProcessingCode(ProcessingID processingCode) {
-        this.processingCode.setValue(processingCode);
     }
 
 
@@ -199,26 +213,12 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DesiredAcknowledgmentType</p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     */
-    @Hl7XmlMapping({"acceptAckCode"})
-    public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
+    @Hl7XmlMapping({"controlActEvent"})
+    public CAE getControlActEvent() {
+        return this.controlActEvent;
     }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
-    }
-
-
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
-    }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
+    public void setControlActEvent(CAE controlActEvent) {
+        this.controlActEvent = controlActEvent;
     }
 
 }

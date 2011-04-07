@@ -16,22 +16,10 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.HealthcareWorkerBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST programName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV programType = new CVImpl();
+    private ST programName = new STImpl();
     private HealthcareWorkerBean custodianAssignedEntity;
-
-
-    /**
-     * <p>Program Name</p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getProgramName() {
-        return this.programName.getValue();
-    }
-    public void setProgramName(String programName) {
-        this.programName.setValue(programName);
-    }
 
 
     /**
@@ -43,6 +31,18 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
     public void setProgramType(ActMonitoringProtocolCode programType) {
         this.programType.setValue(programType);
+    }
+
+
+    /**
+     * <p>Program Name</p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getProgramName() {
+        return this.programName.getValue();
+    }
+    public void setProgramName(String programName) {
+        this.programName.setValue(programName);
     }
 
 

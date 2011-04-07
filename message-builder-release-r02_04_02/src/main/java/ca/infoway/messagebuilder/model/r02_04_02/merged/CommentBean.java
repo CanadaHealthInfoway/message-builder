@@ -51,16 +51,16 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV patientNoteCategory = new CVImpl();
-    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private ST text = new STImpl();
-    private OccurredAtBean location;
+    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
+    private II patientNoteId = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AnnotatedByBean author;
-    private II patientNoteId = new IIImpl();
-    private II recordId = new IIImpl();
+    private OccurredAtBean location;
     private CV writtenIn = new CVImpl();
+    private II recordId = new IIImpl();
 
 
     /**
@@ -96,6 +96,28 @@ public class CommentBean extends MessagePartBean {
     }
     public void setPatientNoteCategory(ActPatientAnnotationCode patientNoteCategory) {
         this.patientNoteCategory.setValue(patientNoteCategory);
+    }
+
+
+    /**
+     * <p>C:Annotation Text</p>
+     * 
+     * <p>C:Patient Note Text</p>
+     * 
+     * <p><p>Free textual description of the patient note.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
+     * content in the note.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -193,55 +215,6 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Annotation Text</p>
-     * 
-     * <p>C:Patient Note Text</p>
-     * 
-     * <p><p>Free textual description of the patient note.</p></p>
-     * 
-     * <p><p>Allows a provider to attach comments to a patient as a 
-     * whole or to the patient's profile (such as medication, lab. 
-     * DI, etc). This attribute is mandatory because there's no 
-     * point in having a patient note unless there's actually 
-     * content in the note.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public AnnotatedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AnnotatedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
      * <p>PatientNoteId</p>
      * 
      * <p>B:Patient Note Id</p>
@@ -267,17 +240,30 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>RecordId</p>
-     * 
-     * <p>A:Record Id</p>
-     */
-    @Hl7XmlMapping({"subject/annotatedAct/id"})
-    public Identifier getRecordId() {
-        return this.recordId.getValue();
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setRecordId(Identifier recordId) {
-        this.recordId.setValue(recordId);
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public AnnotatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AnnotatedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
     }
 
 
@@ -292,6 +278,20 @@ public class CommentBean extends MessagePartBean {
     }
     public void setWrittenIn(HumanLanguage writtenIn) {
         this.writtenIn.setValue(writtenIn);
+    }
+
+
+    /**
+     * <p>RecordId</p>
+     * 
+     * <p>A:Record Id</p>
+     */
+    @Hl7XmlMapping({"subject/annotatedAct/id"})
+    public Identifier getRecordId() {
+        return this.recordId.getValue();
+    }
+    public void setRecordId(Identifier recordId) {
+        this.recordId.setValue(recordId);
     }
 
 }

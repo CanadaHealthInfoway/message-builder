@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRelationshipRole"})
 public class PayeeRelationshipRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS classCode = new CSImpl();
 
 

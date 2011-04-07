@@ -10,18 +10,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DrugValidityPeriodBean component2InitialDispense;
+    private static final long serialVersionUID = 20110407L;
     private SubsequentDispenseBean component1SubsequentDispense;
-
-
-    @Hl7XmlMapping({"component2/initialDispense"})
-    public DrugValidityPeriodBean getComponent2InitialDispense() {
-        return this.component2InitialDispense;
-    }
-    public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
-        this.component2InitialDispense = component2InitialDispense;
-    }
+    private DrugValidityPeriodBean component2InitialDispense;
 
 
     @Hl7XmlMapping({"component1/subsequentDispense"})
@@ -30,6 +21,15 @@ public class DispenseInformationBean extends MessagePartBean {
     }
     public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
         this.component1SubsequentDispense = component1SubsequentDispense;
+    }
+
+
+    @Hl7XmlMapping({"component2/initialDispense"})
+    public DrugValidityPeriodBean getComponent2InitialDispense() {
+        return this.component2InitialDispense;
+    }
+    public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
+        this.component2InitialDispense = component2InitialDispense;
     }
 
 }

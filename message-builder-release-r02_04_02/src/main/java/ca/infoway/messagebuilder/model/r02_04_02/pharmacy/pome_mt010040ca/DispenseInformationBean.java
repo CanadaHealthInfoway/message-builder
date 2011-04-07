@@ -22,7 +22,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SubsequentDispenseBean component1SubsequentDispense;
     private DrugValidityPeriodBean component2InitialDispense;
 

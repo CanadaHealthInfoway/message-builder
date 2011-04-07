@@ -55,15 +55,31 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II locationIdentifier = new IIImpl();
     private CV locationType = new CVImpl();
     private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
     private AD locationAddress = new ADImpl();
-    private IndirectAuthorithyOverBean indirectAuthority;
+    private CS locationStatus = new CSImpl();
     private PlaceBean location;
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
-    private CS locationStatus = new CSImpl();
-    private II locationIdentifier = new IIImpl();
+    private IndirectAuthorithyOverBean indirectAuthority;
+
+
+    /**
+     * <p>A: Location Identifier</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getLocationIdentifier() {
+        return this.locationIdentifier.getValue();
+    }
+    public void setLocationIdentifier(Identifier locationIdentifier) {
+        this.locationIdentifier.setValue(locationIdentifier);
+    }
 
 
     /**
@@ -168,30 +184,6 @@ public class LocationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"indirectAuthority"})
-    public IndirectAuthorithyOverBean getIndirectAuthority() {
-        return this.indirectAuthority;
-    }
-    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
-        this.indirectAuthority = indirectAuthority;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public PlaceBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(PlaceBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
-    }
-
-
     /**
      * <p>C: Location Status</p>
      * 
@@ -222,19 +214,27 @@ public class LocationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A: Location Identifier</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getLocationIdentifier() {
-        return this.locationIdentifier.getValue();
+    @Hl7XmlMapping({"location"})
+    public PlaceBean getLocation() {
+        return this.location;
     }
-    public void setLocationIdentifier(Identifier locationIdentifier) {
-        this.locationIdentifier.setValue(locationIdentifier);
+    public void setLocation(PlaceBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
+    }
+
+
+    @Hl7XmlMapping({"indirectAuthority"})
+    public IndirectAuthorithyOverBean getIndirectAuthority() {
+        return this.indirectAuthority;
+    }
+    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
+        this.indirectAuthority = indirectAuthority;
     }
 
 }

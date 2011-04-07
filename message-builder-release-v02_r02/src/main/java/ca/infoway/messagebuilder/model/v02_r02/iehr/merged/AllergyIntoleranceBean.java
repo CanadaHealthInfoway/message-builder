@@ -62,66 +62,19 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<Records> supportRecords = new ArrayList<Records>();
-    private CV agent = new CVImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
+    private static final long serialVersionUID = 20110407L;
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
     private CS allergyIntoleranceStatus = new CSImpl();
-    private ReportedByBean informant;
-    private NotesBean subjectOf1Annotation;
-    private CV confirmedIndicator = new CVImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
     private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV confirmedIndicator = new CVImpl();
+    private CV agent = new CVImpl();
+    private ReportedByBean informant;
+    private List<Records> supportRecords = new ArrayList<Records>();
+    private NotesBean subjectOf1Annotation;
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
     private II allergyIntoleranceRecordId = new IIImpl();
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
-    /**
-     * <p>Agent</p>
-     * 
-     * <p>B:Agent</p>
-     * 
-     * <p><p>Indicates the substance to which the patient is 
-     * allergic</p></p>
-     * 
-     * <p><p>Critical for identifying the allergy or intolerance. 
-     * However, because the attribute is not used for SNOMED, it is 
-     * optional.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
-    }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceDate</p>
-     * 
-     * <p>I:Allergy/Intolerance Date</p>
-     * 
-     * <p><p>The date on which the recorded allergy is considered 
-     * active.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the period of relevance 
-     * for the allergy/intolerance record.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
-    }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
-    }
 
 
     /**
@@ -182,20 +135,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
-        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
-        return this.subjectOfSeverityObservation;
-    }
-    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
-        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
-    }
-
-
     /**
      * <p>AllergyIntoleranceStatus</p>
      * 
@@ -232,21 +171,184 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    /**
+     * <p>AllergyIntoleranceDate</p>
+     * 
+     * <p>I:Allergy/Intolerance Date</p>
+     * 
+     * <p><p>The date on which the recorded allergy is considered 
+     * active.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the period of relevance 
+     * for the allergy/intolerance record.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyIntoleranceDate() {
+        return this.allergyIntoleranceDate.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
+        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public NotesBean getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
-    }
-    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
-        this.subjectOf1Annotation = subjectOf1Annotation;
+    /**
+     * <p>AllergyIntoleranceMaskingIndicators</p>
+     * 
+     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Provides support 
+     * for additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
+     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Provides support 
+     * for additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
+     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Provides support 
+     * for additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
+     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Provides support 
+     * for additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
+     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
+        return this.allergyIntoleranceMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
 
 
@@ -461,163 +563,61 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceMaskingIndicators</p>
+     * <p>Agent</p>
      * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * <p>B:Agent</p>
      * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * <p><p>Indicates the substance to which the patient is 
+     * allergic</p></p>
      * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Provides support 
-     * for additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
-     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p></p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Provides support 
-     * for additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
-     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p></p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Provides support 
-     * for additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
-     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p></p>
-     * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Provides support 
-     * for additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'N' (normal - denotes 'Not Masked'); 'R' (restricted - 
-     * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * <p><p>Critical for identifying the allergy or intolerance. 
+     * However, because the attribute is not used for SNOMED, it is 
+     * optional.</p></p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
-        return this.allergyIntoleranceMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    @Hl7XmlMapping({"value"})
+    public IntoleranceValue getAgent() {
+        return (IntoleranceValue) this.agent.getValue();
+    }
+    public void setAgent(IntoleranceValue agent) {
+        this.agent.setValue(agent);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public NotesBean getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
+        this.subjectOf1Annotation = subjectOf1Annotation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
+    }
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 

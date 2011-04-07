@@ -35,41 +35,18 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PatientBean subjectPatient;
-    private CV professionalServiceMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV serviceCode = new CVImpl();
-    private OrderForServiceBean inFulfillmentOfActRequest;
     private IVL<TS, Interval<Date>> consultationTimeAndLength = new IVLImpl<TS, Interval<Date>>();
+    private CV professionalServiceMaskingIndicator = new CVImpl();
+    private PatientBean subjectPatient;
+    private OrderForServiceBean inFulfillmentOfActRequest;
     private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
-    private ProviderBean responsiblePartyAssignedPerson;
     private II serviceRecordIdentifier = new IIImpl();
-    private RecordedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
-    private BL subjectOf1AnnotationIndicator = new BLImpl();
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>ProfessionalServiceMaskingIndicator</p>
-     * 
-     * <p>D:Professional Service Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getProfessionalServiceMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.professionalServiceMaskingIndicator.getValue();
-    }
-    public void setProfessionalServiceMaskingIndicator(x_VeryBasicConfidentialityKind professionalServiceMaskingIndicator) {
-        this.professionalServiceMaskingIndicator.setValue(professionalServiceMaskingIndicator);
-    }
+    private RecordedAtBean location;
+    private BL subjectOf1AnnotationIndicator = new BLImpl(false);
 
 
     /**
@@ -83,15 +60,6 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
     public void setServiceCode(ActProfessionalServiceCode serviceCode) {
         this.serviceCode.setValue(serviceCode);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public OrderForServiceBean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(OrderForServiceBean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
@@ -109,6 +77,38 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>D:Professional Service Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getProfessionalServiceMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.professionalServiceMaskingIndicator.getValue();
+    }
+    public void setProfessionalServiceMaskingIndicator(x_VeryBasicConfidentialityKind professionalServiceMaskingIndicator) {
+        this.professionalServiceMaskingIndicator.setValue(professionalServiceMaskingIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public OrderForServiceBean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(OrderForServiceBean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000017CA.Subject2"),
@@ -117,15 +117,6 @@ public class ProfessionalServiceBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf2/annotation", type="COCT_MT120600CA.Annotation")})
     public List<CommentBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
@@ -143,12 +134,12 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
     }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
@@ -158,6 +149,15 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 

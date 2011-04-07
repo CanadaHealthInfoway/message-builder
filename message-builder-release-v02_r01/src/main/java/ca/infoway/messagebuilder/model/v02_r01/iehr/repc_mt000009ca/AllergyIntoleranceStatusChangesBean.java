@@ -22,41 +22,23 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV allergyIntoleranceStatusChangeReason = new CVImpl();
-    private ChangedByBean author;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV allergyIntoleranceStatusChangeType = new CVImpl();
+    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV allergyIntoleranceStatusChangeReason = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private ChangedByBean author;
 
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>A:Allergy/Intolerance Status Change Type</p>
      */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getAllergyIntoleranceStatusChangeReason() {
-        return (ControlActReason) this.allergyIntoleranceStatusChangeReason.getValue();
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
+        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
     }
-    public void setAllergyIntoleranceStatusChangeReason(ControlActReason allergyIntoleranceStatusChangeReason) {
-        this.allergyIntoleranceStatusChangeReason.setValue(allergyIntoleranceStatusChangeReason);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
+        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
     }
 
 
@@ -73,14 +55,32 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>C:Allergy/Intolerance Status Change Reason</p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
-        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getAllergyIntoleranceStatusChangeReason() {
+        return (ControlActReason) this.allergyIntoleranceStatusChangeReason.getValue();
     }
-    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
-        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
+    public void setAllergyIntoleranceStatusChangeReason(ControlActReason allergyIntoleranceStatusChangeReason) {
+        this.allergyIntoleranceStatusChangeReason.setValue(allergyIntoleranceStatusChangeReason);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

@@ -25,9 +25,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV diagnosis = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV diagnosisType = new CVImpl();
+    private CV diagnosis = new CVImpl();
+
+
+    /**
+     * <p>A:Diagnosis Type</p>
+     * 
+     * <p><p>Used to indicate that this observation is a diagnosis, 
+     * and for SNOMED, provides details of what the diagnosis 
+     * is.</p></p>
+     * 
+     * <p><p>Needed to convey the diagnosis information to be 
+     * masked, and attribute is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
+    }
 
 
     /**
@@ -47,25 +66,6 @@ public class DiagnosisBean extends MessagePartBean {
     }
     public void setDiagnosis(DiagnosisValue diagnosis) {
         this.diagnosis.setValue(diagnosis);
-    }
-
-
-    /**
-     * <p>A:Diagnosis Type</p>
-     * 
-     * <p><p>Used to indicate that this observation is a diagnosis, 
-     * and for SNOMED, provides details of what the diagnosis 
-     * is.</p></p>
-     * 
-     * <p><p>Needed to convey the diagnosis information to be 
-     * masked, and attribute is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

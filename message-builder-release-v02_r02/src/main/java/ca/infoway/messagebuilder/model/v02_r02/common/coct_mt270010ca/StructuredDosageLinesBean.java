@@ -49,14 +49,98 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private GTS dosageTimingFrequency = new GTSImpl();
-    private AdditionalSIGInstructionBean componentSupplementalInstruction;
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
+    private static final long serialVersionUID = 20110407L;
     private CS dosageUsageContext = new CSImpl();
     private ST adHocDosageInstruction = new STImpl();
+    private GTS dosageTimingFrequency = new GTSImpl();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private AdministrationPreconditionBean triggerActEventCriterion;
+    private AdditionalSIGInstructionBean componentSupplementalInstruction;
+
+
+    /**
+     * <p>Dosage Usage Context</p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Puts the class in context, and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    }
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    /**
+     * <p>C:Ad-hoc Dosage Instruction</p>
+     * 
+     * <p><p>A free form description of how the dispensed 
+     * medication is to be administered to the patient.</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
+     * 
+     * <p><p>Not all dosage instructions can easily be expressed in 
+     * formal terms</p><p>Allows dosage instructions to be sent 
+     * across as one string of information without breaking it 
+     * up.</p></p>
+     * 
+     * <p><p>Not all dosage instructions can easily be expressed in 
+     * formal terms</p><p>Allows dosage instructions to be sent 
+     * across as one string of information without breaking it 
+     * up.</p></p>
+     * 
+     * <p><p>This field must not be used for components of the 
+     * prescription that are coded elsewhere.(e.g. Coded Dosage 
+     * Timing).</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdHocDosageInstruction() {
+        return this.adHocDosageInstruction.getValue();
+    }
+    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
+        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    }
 
 
     /**
@@ -180,15 +264,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
-    }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
-    }
-
-
     /**
      * <p>D:Dosage Range</p>
      * 
@@ -218,99 +293,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"trigger/actEventCriterion"})
-    public AdministrationPreconditionBean getTriggerActEventCriterion() {
-        return this.triggerActEventCriterion;
-    }
-    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
-        this.triggerActEventCriterion = triggerActEventCriterion;
-    }
-
-
-    /**
-     * <p>Dosage Usage Context</p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Puts the class in context, and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
-    }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
-    }
-
-
-    /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
-     * 
-     * <p><p>A free form description of how the dispensed 
-     * medication is to be administered to the patient.</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p></p>
-     * 
-     * <p><p>Not all dosage instructions can easily be expressed in 
-     * formal terms</p><p>Allows dosage instructions to be sent 
-     * across as one string of information without breaking it 
-     * up.</p></p>
-     * 
-     * <p><p>Not all dosage instructions can easily be expressed in 
-     * formal terms</p><p>Allows dosage instructions to be sent 
-     * across as one string of information without breaking it 
-     * up.</p></p>
-     * 
-     * <p><p>This field must not be used for components of the 
-     * prescription that are coded elsewhere.(e.g. Coded Dosage 
-     * Timing).</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdHocDosageInstruction() {
-        return this.adHocDosageInstruction.getValue();
-    }
-    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
-        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
-    }
-
-
     /**
      * <p>E:Dosage Rate</p>
      * 
@@ -327,6 +309,24 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
         this.dosageRate.setValue(dosageRate);
+    }
+
+
+    @Hl7XmlMapping({"trigger/actEventCriterion"})
+    public AdministrationPreconditionBean getTriggerActEventCriterion() {
+        return this.triggerActEventCriterion;
+    }
+    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
+        this.triggerActEventCriterion = triggerActEventCriterion;
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
     }
 
 }

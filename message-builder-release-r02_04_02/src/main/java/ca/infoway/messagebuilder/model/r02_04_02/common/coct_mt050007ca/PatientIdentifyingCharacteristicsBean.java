@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent"})
 public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV identifyingCharacteristicsObservationType = new CVImpl();
     private ST patientCharacteristicsText = new STImpl();
 

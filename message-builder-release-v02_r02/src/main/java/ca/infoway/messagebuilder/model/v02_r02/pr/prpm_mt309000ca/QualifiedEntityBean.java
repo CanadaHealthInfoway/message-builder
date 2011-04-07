@@ -42,14 +42,20 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
-    private OrganizationBean qualificationGrantingOrganization;
-    private PrinicpalPersonBean qualifiedPrincipalPerson;
+    private static final long serialVersionUID = 20110407L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private PrinicpalPersonBean qualifiedPrincipalPerson;
+    private OrganizationBean qualificationGrantingOrganization;
+
+
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
 
 
     /**
@@ -63,6 +69,31 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
         return this.expertiseOrCredentialsRoleIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
+     * <p>Expertise or Credentials Role Type</p>
+     * 
+     * <p><p>A code for the degree or educational rank that the 
+     * credential specifies. May also apply to an Expertise 
+     * type.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public QualifiedRoleType getExpertiseOrCredentialsRoleType() {
+        return (QualifiedRoleType) this.expertiseOrCredentialsRoleType.getValue();
+    }
+    public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
+        this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
     }
 
 
@@ -87,34 +118,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    /**
-     * <p>Expertise or Credentials Role Type</p>
-     * 
-     * <p><p>A code for the degree or educational rank that the 
-     * credential specifies. May also apply to an Expertise 
-     * type.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public QualifiedRoleType getExpertiseOrCredentialsRoleType() {
-        return (QualifiedRoleType) this.expertiseOrCredentialsRoleType.getValue();
-    }
-    public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
-        this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
-    }
-
-
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
-    }
-
-
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
     public PrinicpalPersonBean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
@@ -124,15 +127,12 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
     }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }

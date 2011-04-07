@@ -52,11 +52,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.SubLocation","PRPA_MT202302CA.SubLocation","PRPA_MT202303CA.SubLocation"})
 public class SubLocationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II subLocationIdentifier = new IIImpl();
     private CV subLocationType = new CVImpl();
     private ST locationName = new STImpl();
     private CV subLocationPlaceType = new CVImpl();
-    private II subLocationIdentifier = new IIImpl();
+
+
+    /**
+     * <p>SubLocationIdentifier</p>
+     * 
+     * <p>A: Sub-Location Identifier</p>
+     * 
+     * <p><p>Unique identifier for the contained service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Allows subsequent queries to drill down to detail 
+     * information about this specific sub location and is 
+     * therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSubLocationIdentifier() {
+        return this.subLocationIdentifier.getValue();
+    }
+    public void setSubLocationIdentifier(Identifier subLocationIdentifier) {
+        this.subLocationIdentifier.setValue(subLocationIdentifier);
+    }
 
 
     /**
@@ -127,27 +148,6 @@ public class SubLocationsBean extends MessagePartBean {
     }
     public void setSubLocationPlaceType(ServiceDeliveryLocationPlaceType subLocationPlaceType) {
         this.subLocationPlaceType.setValue(subLocationPlaceType);
-    }
-
-
-    /**
-     * <p>SubLocationIdentifier</p>
-     * 
-     * <p>A: Sub-Location Identifier</p>
-     * 
-     * <p><p>Unique identifier for the contained service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Allows subsequent queries to drill down to detail 
-     * information about this specific sub location and is 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSubLocationIdentifier() {
-        return this.subLocationIdentifier.getValue();
-    }
-    public void setSubLocationIdentifier(Identifier subLocationIdentifier) {
-        this.subLocationIdentifier.setValue(subLocationIdentifier);
     }
 
 }

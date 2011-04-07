@@ -60,88 +60,14 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV eventType = new CVImpl();
-    private RefersTo_3Bean<RR> subject;
-    private CV eventReason = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private CE messageLanguage = new CEImpl();
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersTo_3Bean<RR> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersTo_3Bean<RR> subject) {
-        this.subject = subject;
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
-     * query, activation request, modification request) 
-     * occurred.</p></p>
-     * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
-     * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
+    private CV eventReason = new CVImpl();
+    private CE messageLanguage = new CEImpl();
+    private RefersTo_3Bean<RR> subject;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -173,6 +99,25 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
 
     /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
      * <p>EventEffectivePeriod</p>
      * 
      * <p>C:Event Effective Period</p>
@@ -192,6 +137,61 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold' or 'reason for accessing 
+     * information'.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersTo_3Bean<RR> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersTo_3Bean<RR> subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

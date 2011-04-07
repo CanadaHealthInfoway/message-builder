@@ -48,24 +48,24 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private ConfidenceValueBean subjectOfObservationEvent;
-    private CV clientMaskedInformation = new CVImpl();
-    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
     private CS clientStatusCode = new CSImpl();
-    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
-    private INT clientMultipleBirthOrderNumber = new INTImpl();
-    private List<LanguageCommunicationBean> identifiedPersonLanguageCommunication = new ArrayList<LanguageCommunicationBean>();
-    private LIST<AD, PostalAddress> clientAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private TS clientDateOfBirth = new TSImpl();
+    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV clientMaskedInformation = new CVImpl();
+    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
+    private ConfidenceValueBean subjectOfObservationEvent;
     private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private LIST<TEL, TelecommunicationAddress> clientTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private CV clientGender = new CVImpl();
+    private TS clientDateOfBirth = new TSImpl();
+    private BL clientDeceasedIndicator = new BLImpl();
     private TS clientDeceasedDate = new TSImpl();
     private BL clientMultipleBirthIndicator = new BLImpl();
-    private LIST<TEL, TelecommunicationAddress> clientTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private BL clientDeceasedIndicator = new BLImpl();
-    private CV clientGender = new CVImpl();
+    private INT clientMultipleBirthOrderNumber = new INTImpl();
+    private LIST<AD, PostalAddress> clientAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
+    private List<LanguageCommunicationBean> identifiedPersonLanguageCommunication = new ArrayList<LanguageCommunicationBean>();
 
 
     /**
@@ -76,49 +76,6 @@ public class IdentifiedPersonBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getClientHealthcareIdentificationNumber() {
         return this.clientHealthcareIdentificationNumber.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/observationEvent"})
-    public ConfidenceValueBean getSubjectOfObservationEvent() {
-        return this.subjectOfObservationEvent;
-    }
-    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
-        this.subjectOfObservationEvent = subjectOfObservationEvent;
-    }
-
-
-    /**
-     * <p>ClientMaskedInformation</p>
-     * 
-     * <p>Client Masked Information</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_NormalRestrictedTabooConfidentialityKind getClientMaskedInformation() {
-        return (x_NormalRestrictedTabooConfidentialityKind) this.clientMaskedInformation.getValue();
-    }
-    public void setClientMaskedInformation(x_NormalRestrictedTabooConfidentialityKind clientMaskedInformation) {
-        this.clientMaskedInformation.setValue(clientMaskedInformation);
-    }
-
-
-    /**
-     * <p>ClientEffectiveTime</p>
-     * 
-     * <p>Client Effective Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClientEffectiveTime() {
-        return this.clientEffectiveTime.getValue();
-    }
-    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
-        this.clientEffectiveTime.setValue(clientEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
-    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
-        return this.identifiedPersonAsOtherIDs;
     }
 
 
@@ -136,40 +93,82 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
-    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
-        return this.identifiedPersonPersonalRelationship;
+    /**
+     * <p>ClientEffectiveTime</p>
+     * 
+     * <p>Client Effective Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getClientEffectiveTime() {
+        return this.clientEffectiveTime.getValue();
+    }
+    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
+        this.clientEffectiveTime.setValue(clientEffectiveTime);
     }
 
 
     /**
-     * <p>ClientMultipleBirthOrderNumber</p>
+     * <p>ClientMaskedInformation</p>
      * 
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Client Masked Information</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
-    public Integer getClientMultipleBirthOrderNumber() {
-        return this.clientMultipleBirthOrderNumber.getValue();
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_NormalRestrictedTabooConfidentialityKind getClientMaskedInformation() {
+        return (x_NormalRestrictedTabooConfidentialityKind) this.clientMaskedInformation.getValue();
     }
-    public void setClientMultipleBirthOrderNumber(Integer clientMultipleBirthOrderNumber) {
-        this.clientMultipleBirthOrderNumber.setValue(clientMultipleBirthOrderNumber);
+    public void setClientMaskedInformation(x_NormalRestrictedTabooConfidentialityKind clientMaskedInformation) {
+        this.clientMaskedInformation.setValue(clientMaskedInformation);
     }
 
 
-    @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
-    public List<LanguageCommunicationBean> getIdentifiedPersonLanguageCommunication() {
-        return this.identifiedPersonLanguageCommunication;
+    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
+    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
+        return this.identifiedPersonAsOtherIDs;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/observationEvent"})
+    public ConfidenceValueBean getSubjectOfObservationEvent() {
+        return this.subjectOfObservationEvent;
+    }
+    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
+        this.subjectOfObservationEvent = subjectOfObservationEvent;
     }
 
 
     /**
-     * <p>ClientAddress</p>
+     * <p>ClientName</p>
      * 
-     * <p>Client Address</p>
+     * <p>Client Name</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/addr"})
-    public List<PostalAddress> getClientAddress() {
-        return this.clientAddress.rawList();
+    @Hl7XmlMapping({"identifiedPerson/name"})
+    public List<PersonName> getClientName() {
+        return this.clientName.rawList();
+    }
+
+
+    /**
+     * <p>ClientTelecom</p>
+     * 
+     * <p>Client Telecom</p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/telecom"})
+    public List<TelecommunicationAddress> getClientTelecom() {
+        return this.clientTelecom.rawList();
+    }
+
+
+    /**
+     * <p>ClientGender</p>
+     * 
+     * <p>Client Gender</p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
     }
 
 
@@ -188,13 +187,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientName</p>
+     * <p>ClientDeceasedIndicator</p>
      * 
-     * <p>Client Name</p>
+     * <p>Client Deceased Indicator</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/name"})
-    public List<PersonName> getClientName() {
-        return this.clientName.rawList();
+    @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
+    public Boolean getClientDeceasedIndicator() {
+        return this.clientDeceasedIndicator.getValue();
+    }
+    public void setClientDeceasedIndicator(Boolean clientDeceasedIndicator) {
+        this.clientDeceasedIndicator.setValue(clientDeceasedIndicator);
     }
 
 
@@ -227,41 +229,39 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientTelecom</p>
+     * <p>ClientMultipleBirthOrderNumber</p>
      * 
-     * <p>Client Telecom</p>
+     * <p>Client Multiple Birth Order Number</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/telecom"})
-    public List<TelecommunicationAddress> getClientTelecom() {
-        return this.clientTelecom.rawList();
+    @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
+    public Integer getClientMultipleBirthOrderNumber() {
+        return this.clientMultipleBirthOrderNumber.getValue();
+    }
+    public void setClientMultipleBirthOrderNumber(Integer clientMultipleBirthOrderNumber) {
+        this.clientMultipleBirthOrderNumber.setValue(clientMultipleBirthOrderNumber);
     }
 
 
     /**
-     * <p>ClientDeceasedIndicator</p>
+     * <p>ClientAddress</p>
      * 
-     * <p>Client Deceased Indicator</p>
+     * <p>Client Address</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
-    public Boolean getClientDeceasedIndicator() {
-        return this.clientDeceasedIndicator.getValue();
-    }
-    public void setClientDeceasedIndicator(Boolean clientDeceasedIndicator) {
-        this.clientDeceasedIndicator.setValue(clientDeceasedIndicator);
+    @Hl7XmlMapping({"identifiedPerson/addr"})
+    public List<PostalAddress> getClientAddress() {
+        return this.clientAddress.rawList();
     }
 
 
-    /**
-     * <p>ClientGender</p>
-     * 
-     * <p>Client Gender</p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
+    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
+    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
+        return this.identifiedPersonPersonalRelationship;
     }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
+
+
+    @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
+    public List<LanguageCommunicationBean> getIdentifiedPersonLanguageCommunication() {
+        return this.identifiedPersonLanguageCommunication;
     }
 
 }

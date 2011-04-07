@@ -20,11 +20,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private BL negationInd = new BLImpl();
+    private PQ quantity = new PQImpl();
     private CV drugIngredientIdentifier = new CVImpl();
     private ST ingredientName = new STImpl();
-    private PQ quantity = new PQImpl();
-    private BL negationInd = new BLImpl();
+
+
+    /**
+     * <p>L:Does Not Contain Indicator</p>
+     * 
+     * <p>D:Drug Does Not Contain Indicator</p>
+     * 
+     * <p>Does Not Contain Indicator</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
+    }
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
+    }
+
+
+    /**
+     * <p>Ingredient Quantity</p>
+     * 
+     * <p>C:Drug Ingredient Quantity</p>
+     * 
+     * <p>M:Ingredient Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
+    }
 
 
     /**
@@ -58,38 +90,6 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setIngredientName(String ingredientName) {
         this.ingredientName.setValue(ingredientName);
-    }
-
-
-    /**
-     * <p>Ingredient Quantity</p>
-     * 
-     * <p>C:Drug Ingredient Quantity</p>
-     * 
-     * <p>M:Ingredient Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
-
-
-    /**
-     * <p>L:Does Not Contain Indicator</p>
-     * 
-     * <p>D:Drug Does Not Contain Indicator</p>
-     * 
-     * <p>Does Not Contain Indicator</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
-    }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
     }
 
 }

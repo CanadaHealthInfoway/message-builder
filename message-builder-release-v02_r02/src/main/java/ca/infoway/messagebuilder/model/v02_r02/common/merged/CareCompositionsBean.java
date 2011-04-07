@@ -98,19 +98,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Component","MCAI_MT700211CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
+    private static final long serialVersionUID = 20110407L;
     private BL contextConductionInd = new BLImpl();
+    private ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
     private CS typeCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"patientCareProvisionEvent"})
-    public ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
-        return this.patientCareProvisionEvent;
-    }
-    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
-        this.patientCareProvisionEvent = patientCareProvisionEvent;
-    }
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -119,6 +110,15 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"patientCareProvisionEvent"})
+    public ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
+        return this.patientCareProvisionEvent;
+    }
+    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
+        this.patientCareProvisionEvent = patientCareProvisionEvent;
     }
 
 

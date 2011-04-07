@@ -29,11 +29,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CE territorialAuthorityType = new CEImpl();
+    private CV jurisdictionType = new CVImpl();
     private CS partTypeCode = new CSImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
-    private CV jurisdictionType = new CVImpl();
 
 
     /**
@@ -51,24 +51,6 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setTerritorialAuthorityType(RoleCode territorialAuthorityType) {
         this.territorialAuthorityType.setValue(territorialAuthorityType);
-    }
-
-
-    @Hl7XmlMapping({"part/typeCode"})
-    public RoleLinkType getPartTypeCode() {
-        return (RoleLinkType) this.partTypeCode.getValue();
-    }
-    public void setPartTypeCode(RoleLinkType partTypeCode) {
-        this.partTypeCode.setValue(partTypeCode);
-    }
-
-
-    @Hl7XmlMapping({"part/territorialAuthority"})
-    public TerritorialAuthorityBean getPartTerritorialAuthority() {
-        return this.partTerritorialAuthority;
-    }
-    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
-        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 
@@ -91,6 +73,24 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setJurisdictionType(PlaceEntityType jurisdictionType) {
         this.jurisdictionType.setValue(jurisdictionType);
+    }
+
+
+    @Hl7XmlMapping({"part/typeCode"})
+    public RoleLinkType getPartTypeCode() {
+        return (RoleLinkType) this.partTypeCode.getValue();
+    }
+    public void setPartTypeCode(RoleLinkType partTypeCode) {
+        this.partTypeCode.setValue(partTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"part/territorialAuthority"})
+    public TerritorialAuthorityBean getPartTerritorialAuthority() {
+        return this.partTerritorialAuthority;
+    }
+    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
+        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 }

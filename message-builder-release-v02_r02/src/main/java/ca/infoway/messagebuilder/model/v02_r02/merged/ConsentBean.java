@@ -99,26 +99,17 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PrescribedByBean author2;
+    private static final long serialVersionUID = 20110407L;
     private II consentFormNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private CV consentType = new CVImpl();
-    private InformationAccessBean componentPermissionToInform;
-    private CV consentOverrideReason = new CVImpl();
     private BL consentRefusedIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
+    private CV consentOverrideReason = new CVImpl();
     private ConsentedToByBean author1;
-    private AccessTypeBean subject2InformDefinition;
+    private PrescribedByBean author2;
+    private InformationAccessBean componentPermissionToInform;
     private SubjectChoice subject1SubjectChoice;
-
-
-    @Hl7XmlMapping({"author2"})
-    public PrescribedByBean getAuthor2() {
-        return this.author2;
-    }
-    public void setAuthor2(PrescribedByBean author2) {
-        this.author2 = author2;
-    }
+    private AccessTypeBean subject2InformDefinition;
 
 
     /**
@@ -152,36 +143,6 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentEffectiveAndEndTime</p>
-     * 
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
-     * 
-     * <p><p>Authorization.endTime (high)</p></p>
-     * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient, client, or provider retains a level of control.</p></p>
-     * 
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
-     * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient retains a level of control</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
-    }
-
-
-    /**
      * <p>ConsentType</p>
      * 
      * <p>A:Consent Type</p>
@@ -198,47 +159,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setConsentType(ActConsentType consentType) {
         this.consentType.setValue(consentType);
-    }
-
-
-    @Hl7XmlMapping({"component/permissionToInform"})
-    public InformationAccessBean getComponentPermissionToInform() {
-        return this.componentPermissionToInform;
-    }
-    public void setComponentPermissionToInform(InformationAccessBean componentPermissionToInform) {
-        this.componentPermissionToInform = componentPermissionToInform;
-    }
-
-
-    /**
-     * <p>ConsentOverrideReason</p>
-     * 
-     * <p>E:Consent Override Reason</p>
-     * 
-     * <p><p>Indicates a reason for overriding a patient's consent 
-     * rules or accessing information without consent.</p></p>
-     * 
-     * <p><p>Important for audit purposes</p></p>
-     * 
-     * <p>E:Consent Override Reason</p>
-     * 
-     * <p><p>Indicates a reason for overriding a patient's (or 
-     * client or provider) consent rules.</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Important for audit purposes</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
     }
 
 
@@ -277,6 +197,68 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>C:Consent Effective and End Time</p>
+     * 
+     * <p><p>Indicates the time that the consent will expire. 'Low' 
+     * is effective time and 'High' is end time.</p></p>
+     * 
+     * <p><p>Authorization.endTime (high)</p></p>
+     * 
+     * <p><p>Most consents are not open-ended, to ensure the 
+     * patient, client, or provider retains a level of control.</p></p>
+     * 
+     * <p>C:Consent Effective and End Time</p>
+     * 
+     * <p><p>Indicates the time that the consent will expire. 'Low' 
+     * is effective time and 'High' is end time.</p></p>
+     * 
+     * <p><p>Most consents are not open-ended, to ensure the 
+     * patient retains a level of control</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+
+    /**
+     * <p>ConsentOverrideReason</p>
+     * 
+     * <p>E:Consent Override Reason</p>
+     * 
+     * <p><p>Indicates a reason for overriding a patient's consent 
+     * rules or accessing information without consent.</p></p>
+     * 
+     * <p><p>Important for audit purposes</p></p>
+     * 
+     * <p>E:Consent Override Reason</p>
+     * 
+     * <p><p>Indicates a reason for overriding a patient's (or 
+     * client or provider) consent rules.</p></p>
+     * 
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * 
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * 
+     * <p><p>Important for audit purposes</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
+
+
     @Hl7XmlMapping({"author1"})
     public ConsentedToByBean getAuthor1() {
         return this.author1;
@@ -286,12 +268,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
+    @Hl7XmlMapping({"author2"})
+    public PrescribedByBean getAuthor2() {
+        return this.author2;
     }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
+    public void setAuthor2(PrescribedByBean author2) {
+        this.author2 = author2;
+    }
+
+
+    @Hl7XmlMapping({"component/permissionToInform"})
+    public InformationAccessBean getComponentPermissionToInform() {
+        return this.componentPermissionToInform;
+    }
+    public void setComponentPermissionToInform(InformationAccessBean componentPermissionToInform) {
+        this.componentPermissionToInform = componentPermissionToInform;
     }
 
 
@@ -336,6 +327,15 @@ public class ConsentBean extends MessagePartBean {
     }
     public boolean hasSubject1SubjectChoiceAsActingPerson() {
         return (this.subject1SubjectChoice instanceof ActingPerson);
+    }
+
+
+    @Hl7XmlMapping({"subject2/informDefinition"})
+    public AccessTypeBean getSubject2InformDefinition() {
+        return this.subject2InformDefinition;
+    }
+    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
+        this.subject2InformDefinition = subject2InformDefinition;
     }
 
 }

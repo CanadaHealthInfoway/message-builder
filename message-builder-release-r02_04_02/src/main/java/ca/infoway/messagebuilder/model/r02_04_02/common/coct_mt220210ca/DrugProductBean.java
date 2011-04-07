@@ -45,15 +45,15 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD drugCode = new CDImpl();
-    private DispensedInBean administerableMedicineAsContent;
-    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private CV drugForm = new CVImpl();
     private ST drugLotNumber = new STImpl();
+    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
+    private DispensedInBean administerableMedicineAsContent;
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
 
 
@@ -745,52 +745,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
-    }
-    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
-    }
-
-
-    /**
-     * <p>F:Drug Expiry Date</p>
-     * 
-     * <p><p>Indicates either the length of time a drug product can 
-     * remain viable (when talking about a drug in general terms), 
-     * or the date on which the drug product is no longer 
-     * considered viable (when talking about a specific medication 
-     * that has been dispensed).</p></p>
-     * 
-     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
-     * Date</p><p>C7</p></p>
-     * 
-     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
-     * Date</p><p>C7</p></p>
-     * 
-     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
-     * Date</p><p>C7</p></p>
-     * 
-     * <p><p>The potency, effectiveness and safety of drug products 
-     * changes over time. When determining quantities to be 
-     * supplied to a patient, one of the considerations is how long 
-     * the drug will remain viable.</p></p>
-     * 
-     * <p><p>To indicate the length of time after opening a product 
-     * remains viable, specify the 'Width' property. To indicate a 
-     * specific end date for an actual dispensed product, specify 
-     * the 'High' property</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/expirationTime"})
-    public Interval<Date> getDrugExpiryDate() {
-        return this.drugExpiryDate.getValue();
-    }
-    public void setDrugExpiryDate(Interval<Date> drugExpiryDate) {
-        this.drugExpiryDate.setValue(drugExpiryDate);
-    }
-
-
     /**
      * <p>B:Drug Name</p>
      * 
@@ -950,15 +904,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
     /**
      * <p>D:Drug Form</p>
      * 
@@ -1062,6 +1007,61 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugLotNumber(String drugLotNumber) {
         this.drugLotNumber.setValue(drugLotNumber);
+    }
+
+
+    /**
+     * <p>F:Drug Expiry Date</p>
+     * 
+     * <p><p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p></p>
+     * 
+     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
+     * Date</p><p>C7</p></p>
+     * 
+     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
+     * Date</p><p>C7</p></p>
+     * 
+     * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
+     * Date</p><p>C7</p></p>
+     * 
+     * <p><p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p></p>
+     * 
+     * <p><p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/expirationTime"})
+    public Interval<Date> getDrugExpiryDate() {
+        return this.drugExpiryDate.getValue();
+    }
+    public void setDrugExpiryDate(Interval<Date> drugExpiryDate) {
+        this.drugExpiryDate.setValue(drugExpiryDate);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 

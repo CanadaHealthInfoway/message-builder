@@ -27,11 +27,11 @@ import ca.infoway.messagebuilder.model.r02_04_02.immunization.merged.AntigenVali
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV antigenCode = new CVImpl();
-    private INT antigenCountValue = new INTImpl();
-    private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
     private ST antigenName = new STImpl();
+    private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
+    private INT antigenCountValue = new INTImpl();
 
 
     /**
@@ -59,32 +59,6 @@ public class AntigenBean extends MessagePartBean {
 
 
     /**
-     * <p>Antigen Count Value</p>
-     * 
-     * <p><p>Represents the asserted antigen count.</p></p>
-     * 
-     * <p><p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p></p>
-     */
-    @Hl7XmlMapping({"asHealthChart/subjectOf2/antigenCount/value"})
-    public Integer getAntigenCountValue() {
-        return this.antigenCountValue.getValue();
-    }
-    public void setAntigenCountValue(Integer antigenCountValue) {
-        this.antigenCountValue.setValue(antigenCountValue);
-    }
-
-
-    @Hl7XmlMapping({"asHealthChart/subjectOf1/antigenValidity"})
-    public AntigenValidityBean getAsHealthChartSubjectOf1AntigenValidity() {
-        return this.asHealthChartSubjectOf1AntigenValidity;
-    }
-    public void setAsHealthChartSubjectOf1AntigenValidity(AntigenValidityBean asHealthChartSubjectOf1AntigenValidity) {
-        this.asHealthChartSubjectOf1AntigenValidity = asHealthChartSubjectOf1AntigenValidity;
-    }
-
-
-    /**
      * <p>Antigen Name</p>
      * 
      * <p><p>The name of the antigen contained within a 
@@ -99,6 +73,32 @@ public class AntigenBean extends MessagePartBean {
     }
     public void setAntigenName(String antigenName) {
         this.antigenName.setValue(antigenName);
+    }
+
+
+    @Hl7XmlMapping({"asHealthChart/subjectOf1/antigenValidity"})
+    public AntigenValidityBean getAsHealthChartSubjectOf1AntigenValidity() {
+        return this.asHealthChartSubjectOf1AntigenValidity;
+    }
+    public void setAsHealthChartSubjectOf1AntigenValidity(AntigenValidityBean asHealthChartSubjectOf1AntigenValidity) {
+        this.asHealthChartSubjectOf1AntigenValidity = asHealthChartSubjectOf1AntigenValidity;
+    }
+
+
+    /**
+     * <p>Antigen Count Value</p>
+     * 
+     * <p><p>Represents the asserted antigen count.</p></p>
+     * 
+     * <p><p>Allows for an immunization registry to communicate the 
+     * current antigen count value.</p></p>
+     */
+    @Hl7XmlMapping({"asHealthChart/subjectOf2/antigenCount/value"})
+    public Integer getAntigenCountValue() {
+        return this.antigenCountValue.getValue();
+    }
+    public void setAntigenCountValue(Integer antigenCountValue) {
+        this.antigenCountValue.setValue(antigenCountValue);
     }
 
 }

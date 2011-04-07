@@ -23,32 +23,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DeviceProductBean productManufacturedProduct;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private INT dispensedQuantity = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DeviceProductBean productManufacturedProduct;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private ResponsiblePersonBean receiverResponsibleParty;
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
 
 
     /**
@@ -80,6 +62,20 @@ public class DispenseDetailsBean extends MessagePartBean {
 
 
     /**
+     * <p>DispensedQuantity</p>
+     * 
+     * <p>Dispensed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(Integer dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
+    }
+
+
+    /**
      * <p>Dispense Days Supply</p>
      * 
      * <p>Dispensed Days Supply</p>
@@ -93,17 +89,21 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 

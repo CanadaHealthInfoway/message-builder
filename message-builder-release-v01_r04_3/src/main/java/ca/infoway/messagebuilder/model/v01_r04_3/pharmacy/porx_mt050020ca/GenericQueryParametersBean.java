@@ -25,12 +25,24 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV drugCode = new CVImpl();
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
     private II patientID = new IIImpl();
     private PN patientName = new PNImpl();
-    private CV drugCode = new CVImpl();
+
+
+    /**
+     * <p>E:Drug Code</p>
+     */
+    @Hl7XmlMapping({"drugCode/value"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
 
 
     /**
@@ -78,18 +90,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>E:Drug Code</p>
-     */
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
     }
 
 }

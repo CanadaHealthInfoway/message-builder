@@ -18,11 +18,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II receiverApplicationIdentifier = new IIImpl();
-    private II receiverOrganizationIdentifier = new IIImpl();
-    private ST deviceName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private TEL receiverNetworkAddress = new TELImpl();
+    private II receiverApplicationIdentifier = new IIImpl();
+    private ST deviceName = new STImpl();
+    private II receiverOrganizationIdentifier = new IIImpl();
+
+
+    /**
+     * <p>ReceiverNetworkAddress</p>
+     * 
+     * <p>JB:Receiver Network Address</p>
+     * 
+     * <p><p>The address to which this message is being sent.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:To</p></p>
+     * 
+     * <p><p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getReceiverNetworkAddress() {
+        return this.receiverNetworkAddress.getValue();
+    }
+    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
+        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    }
 
 
     /**
@@ -46,6 +69,38 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
         this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    }
+
+
+    /**
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p><p>Name of receiver application.</p></p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p><p>Name of receiver application.</p></p>
+     * 
+     * <p><p>Optional name of receiver application</p></p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p><p>Optional name of receiver application.</p></p>
+     * 
+     * <p><p>Optional application name.</p></p>
+     * 
+     * <p>JE:Receiving Application Name</p>
+     * 
+     * <p><p>Name of the receiving application.</p></p>
+     * 
+     * <p><p>Optional name of the receiving application.</p></p>
+     */
+    @Hl7XmlMapping({"device/name"})
+    public String getDeviceName() {
+        return this.deviceName.getValue();
+    }
+    public void setDeviceName(String deviceName) {
+        this.deviceName.setValue(deviceName);
     }
 
 
@@ -93,61 +148,6 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
         this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
-    }
-
-
-    /**
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Name of receiver application.</p></p>
-     * 
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Name of receiver application.</p></p>
-     * 
-     * <p><p>Optional name of receiver application</p></p>
-     * 
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Optional name of receiver application.</p></p>
-     * 
-     * <p><p>Optional application name.</p></p>
-     * 
-     * <p>JE:Receiving Application Name</p>
-     * 
-     * <p><p>Name of the receiving application.</p></p>
-     * 
-     * <p><p>Optional name of the receiving application.</p></p>
-     */
-    @Hl7XmlMapping({"device/name"})
-    public String getDeviceName() {
-        return this.deviceName.getValue();
-    }
-    public void setDeviceName(String deviceName) {
-        this.deviceName.setValue(deviceName);
-    }
-
-
-    /**
-     * <p>ReceiverNetworkAddress</p>
-     * 
-     * <p>JB:Receiver Network Address</p>
-     * 
-     * <p><p>The address to which this message is being sent.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:To</p></p>
-     * 
-     * <p><p>Indicates where the message should be sent. This is 
-     * optional because not all environments require network 
-     * addresses. It is mandatory when communicating using 
-     * SOAP.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getReceiverNetworkAddress() {
-        return this.receiverNetworkAddress.getValue();
-    }
-    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
     }
 
 }

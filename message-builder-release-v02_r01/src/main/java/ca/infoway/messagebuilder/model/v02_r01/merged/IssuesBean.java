@@ -32,45 +32,16 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
-    private CV issuePriority = new CVImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private static final long serialVersionUID = 20110407L;
     private CV issueType = new CVImpl();
     private ST text = new STImpl();
-    private CV severityCode = new CVImpl();
+    private CV issuePriority = new CVImpl();
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private BL triggerForActRequest = new BLImpl();
-    private BL subjectOf1StorageIntent = new BLImpl();
-
-
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
-
-
-    /**
-     * <p>IssuePriority</p>
-     * 
-     * <p>C:Issue Priority</p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
-    }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
-    }
-
-
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
-    }
+    private CV severityCode = new CVImpl();
+    private BL triggerForActRequest = new BLImpl(false);
+    private BL subjectOf1StorageIntent = new BLImpl(false);
 
 
     /**
@@ -106,6 +77,41 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
+     * <p>IssuePriority</p>
+     * 
+     * <p>C:Issue Priority</p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActIssuePriority getIssuePriority() {
+        return (ActIssuePriority) this.issuePriority.getValue();
+    }
+    public void setIssuePriority(ActIssuePriority issuePriority) {
+        this.issuePriority.setValue(issuePriority);
+    }
+
+
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
+    }
+
+
+    /**
      * <p>SeverityCode</p>
      * 
      * <p>B:Severity Code</p>
@@ -123,12 +129,6 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setSeverityCode(SeverityObservation severityCode) {
         this.severityCode.setValue(severityCode);
-    }
-
-
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
     }
 
 

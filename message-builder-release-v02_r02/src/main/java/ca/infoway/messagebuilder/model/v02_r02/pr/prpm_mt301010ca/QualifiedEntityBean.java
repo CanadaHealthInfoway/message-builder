@@ -40,14 +40,20 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private II expertiseOrCredentialsRoleIdentifier = new IIImpl();
-    private OrganizationBean qualificationGrantingOrganization;
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
-    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
+    private static final long serialVersionUID = 20110407L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private II expertiseOrCredentialsRoleIdentifier = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
+    private OrganizationBean qualificationGrantingOrganization;
+
+
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
 
 
     /**
@@ -67,33 +73,9 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
-    }
-
-
-    /**
-     * <p>Expertise or Credentials Role Effective Date</p>
-     * 
-     * <p><p>The effective date of the provider expertise or 
-     * credentials in the healthcare provider role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     * 
-     * <p><p>If Expertise or Credentials are included in the 
-     * message, then Role Effective Date Must Exist</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getExpertiseOrCredentialsRoleEffectiveDate() {
-        return this.expertiseOrCredentialsRoleEffectiveDate.getValue();
-    }
-    public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
-        this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 
@@ -119,6 +101,27 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Expertise or Credentials Role Effective Date</p>
+     * 
+     * <p><p>The effective date of the provider expertise or 
+     * credentials in the healthcare provider role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     * 
+     * <p><p>If Expertise or Credentials are included in the 
+     * message, then Role Effective Date Must Exist</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getExpertiseOrCredentialsRoleEffectiveDate() {
+        return this.expertiseOrCredentialsRoleEffectiveDate.getValue();
+    }
+    public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
+        this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
+    }
+
+
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
     public PrinicpalPerson_1Bean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
@@ -128,15 +131,12 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
     }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }

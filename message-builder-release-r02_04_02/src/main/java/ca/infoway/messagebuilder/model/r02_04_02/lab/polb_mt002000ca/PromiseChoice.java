@@ -28,34 +28,34 @@ import java.util.List;
 @Hl7RootType
 public interface PromiseChoice {
 
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
-
-    public List<IncludesBean> getSubjectOf2();
-
-    public List<PromiseChoice> getComponentPromiseChoice();
-
-    public List<RoleChoice> getPerformerRoleChoice();
-
-    public List<RoleChoice> getReceiverRoleChoice();
+    public ReportSectionSpecimenBean getSpecimen();
+    public void setSpecimen(ReportSectionSpecimenBean specimen);
 
     public Patient_1Bean getRecordTargetPatient();
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
-    public VersionInformationBean getSubjectOf1ControlActEvent();
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
+    public List<RoleChoice> getReceiverRoleChoice();
 
-    public OutbreakBean getPertinentInformation1OutbreakEvent();
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
-
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
+    public List<RoleChoice> getPerformerRoleChoice();
 
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity();
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity);
 
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 
-    public ReportSectionSpecimenBean getSpecimen();
-    public void setSpecimen(ReportSectionSpecimenBean specimen);
+    public OutbreakBean getPertinentInformation1OutbreakEvent();
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
+
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
+
+    public List<PromiseChoice> getComponentPromiseChoice();
+
+    public VersionInformationBean getSubjectOf1ControlActEvent();
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
+
+    public List<IncludesBean> getSubjectOf2();
+
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
 }

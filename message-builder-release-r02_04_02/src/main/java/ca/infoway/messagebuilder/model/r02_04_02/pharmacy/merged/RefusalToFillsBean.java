@@ -118,29 +118,53 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private OccurredAtBean location;
-    private RefusedByBean author;
-    private CV refusalToFillReason = new CVImpl();
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private static final long serialVersionUID = 20110407L;
     private TS refusalToFillDate = new TSImpl();
+    private CV refusalToFillReason = new CVImpl();
+    private RefusedByBean author;
+    private OccurredAtBean location;
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>RefusalToFillDate</p>
+     * 
+     * <p>Refusal To Fill Date</p>
+     * 
+     * <p><p>The date that the dispenser refused to fill the 
+     * prescription</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occurred.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occurred.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
+     * 
+     * <p>Refusal To Fill Date</p>
+     * 
+     * <p><p>The date that the dispenser refused to fill the 
+     * prescitpion</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occured.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occured.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getRefusalToFillDate() {
+        return this.refusalToFillDate.getValue();
     }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setRefusalToFillDate(Date refusalToFillDate) {
+        this.refusalToFillDate.setValue(refusalToFillDate);
     }
 
 
@@ -209,51 +233,27 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
     @Hl7XmlMapping({"reason/detectedIssueEvent"})
     public List<IssuesBean> getReasonDetectedIssueEvent() {
         return this.reasonDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>RefusalToFillDate</p>
-     * 
-     * <p>Refusal To Fill Date</p>
-     * 
-     * <p><p>The date that the dispenser refused to fill the 
-     * prescription</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occurred.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occurred.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
-     * 
-     * <p>Refusal To Fill Date</p>
-     * 
-     * <p><p>The date that the dispenser refused to fill the 
-     * prescitpion</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occured.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occured.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getRefusalToFillDate() {
-        return this.refusalToFillDate.getValue();
-    }
-    public void setRefusalToFillDate(Date refusalToFillDate) {
-        this.refusalToFillDate.setValue(refusalToFillDate);
     }
 
 }

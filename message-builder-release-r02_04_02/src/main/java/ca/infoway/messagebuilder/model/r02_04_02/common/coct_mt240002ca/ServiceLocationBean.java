@@ -32,42 +32,10 @@ import java.util.List;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II serviceLocationIdentifier = new IIImpl();
     private ST serviceLocationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
-    private II serviceLocationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>B:Service Location Name</p>
-     * 
-     * <p><p>The name assigned to the service location.</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>Used for human communication, and for cross-checking 
-     * of location Id and is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
-    }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
-    }
 
 
     /**
@@ -120,6 +88,38 @@ public class ServiceLocationBean extends MessagePartBean {
     }
     public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
         this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
+    }
+
+
+    /**
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceLocationName() {
+        return this.serviceLocationName.getValue();
+    }
+    public void setServiceLocationName(String serviceLocationName) {
+        this.serviceLocationName.setValue(serviceLocationName);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
     }
 
 }

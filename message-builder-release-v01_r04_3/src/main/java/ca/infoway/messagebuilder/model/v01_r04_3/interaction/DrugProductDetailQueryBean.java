@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.DrugQueryParame
 @Hl7PartTypeMapping({"POME_IN010050CA"})
 public class DrugProductDetailQueryBean extends HL7Message_1Bean<TriggerEventBean<DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

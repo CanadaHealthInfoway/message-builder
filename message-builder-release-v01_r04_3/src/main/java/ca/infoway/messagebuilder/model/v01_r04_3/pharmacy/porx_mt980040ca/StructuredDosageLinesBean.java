@@ -24,14 +24,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS dosageUsageContext = new CSImpl();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private GTS dosageTimingFrequency = new GTSImpl();
-    private AdditionalSIGInstructionBean componentSupplementalInstruction;
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
     private ST adHocDosageInstruction = new STImpl();
+    private GTS dosageTimingFrequency = new GTSImpl();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
     private AdministrationPreconditionBean triggerActEventCriterion;
+    private AdditionalSIGInstructionBean componentSupplementalInstruction;
 
 
     /**
@@ -43,6 +43,30 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
         this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    /**
+     * <p>C:Ad-hoc Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdHocDosageInstruction() {
+        return this.adHocDosageInstruction.getValue();
+    }
+    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
+        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    }
+
+
+    /**
+     * <p>C:Dosage Timing/Frequency</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public GeneralTimingSpecification getDosageTimingFrequency() {
+        return this.dosageTimingFrequency.getValue();
+    }
+    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
+        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
     }
 
 
@@ -59,27 +83,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public GeneralTimingSpecification getDosageTimingFrequency() {
-        return this.dosageTimingFrequency.getValue();
-    }
-    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
-        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
-    }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
-    }
-
-
-    /**
      * <p>E:Dosage Rate</p>
      */
     @Hl7XmlMapping({"rateQuantity"})
@@ -91,24 +94,21 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdHocDosageInstruction() {
-        return this.adHocDosageInstruction.getValue();
-    }
-    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
-        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
-    }
-
-
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
         return this.triggerActEventCriterion;
     }
     public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
         this.triggerActEventCriterion = triggerActEventCriterion;
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
     }
 
 }

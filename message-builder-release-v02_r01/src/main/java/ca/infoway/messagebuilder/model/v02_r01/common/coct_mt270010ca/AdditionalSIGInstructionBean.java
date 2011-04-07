@@ -15,21 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.SupplementalInstruction"})
 public class AdditionalSIGInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST additionalDosageInstruction = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS dosageUsageContext = new CSImpl();
-
-
-    /**
-     * <p>F:Additional Dosage Instruction</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdditionalDosageInstruction() {
-        return this.additionalDosageInstruction.getValue();
-    }
-    public void setAdditionalDosageInstruction(String additionalDosageInstruction) {
-        this.additionalDosageInstruction.setValue(additionalDosageInstruction);
-    }
+    private ST additionalDosageInstruction = new STImpl();
 
 
     /**
@@ -41,6 +29,18 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     }
     public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
         this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    /**
+     * <p>F:Additional Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdditionalDosageInstruction() {
+        return this.additionalDosageInstruction.getValue();
+    }
+    public void setAdditionalDosageInstruction(String additionalDosageInstruction) {
+        this.additionalDosageInstruction.setValue(additionalDosageInstruction);
     }
 
 }

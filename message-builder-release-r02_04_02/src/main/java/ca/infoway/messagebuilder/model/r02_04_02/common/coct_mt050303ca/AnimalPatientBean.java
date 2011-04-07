@@ -38,11 +38,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ST animalName = new STImpl();
+    private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN ownerName = new PNImpl();
-    private AD ownerAddress = new ADImpl();
 
 
     /**
@@ -515,6 +515,23 @@ public class AnimalPatientBean extends MessagePartBean {
 
 
     /**
+     * <p>Owner address</p>
+     * 
+     * <p><p>The mail and/or physical address associated with the 
+     * owner or contact person for the animal.</p></p>
+     * 
+     * <p><p>Used to contact the owner or contact person</p></p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
+    public PostalAddress getOwnerAddress() {
+        return this.ownerAddress.getValue();
+    }
+    public void setOwnerAddress(PostalAddress ownerAddress) {
+        this.ownerAddress.setValue(ownerAddress);
+    }
+
+
+    /**
      * <p>Owner Phones and Emails</p>
      * 
      * <p><p>The phone number(s) and email address(s) by which the 
@@ -543,23 +560,6 @@ public class AnimalPatientBean extends MessagePartBean {
     }
     public void setOwnerName(PersonName ownerName) {
         this.ownerName.setValue(ownerName);
-    }
-
-
-    /**
-     * <p>Owner address</p>
-     * 
-     * <p><p>The mail and/or physical address associated with the 
-     * owner or contact person for the animal.</p></p>
-     * 
-     * <p><p>Used to contact the owner or contact person</p></p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
-    }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
     }
 
 }

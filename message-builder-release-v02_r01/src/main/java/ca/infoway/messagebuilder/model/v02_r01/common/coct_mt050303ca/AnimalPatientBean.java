@@ -28,22 +28,22 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PN ownerName = new PNImpl();
+    private static final long serialVersionUID = 20110407L;
+    private ST animalName = new STImpl();
     private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ST animalName = new STImpl();
+    private PN ownerName = new PNImpl();
 
 
     /**
-     * <p>Owner Name</p>
+     * <p>B:Animal name</p>
      */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
+    public String getAnimalName() {
+        return this.animalName.getValue();
     }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
+    public void setAnimalName(String animalName) {
+        this.animalName.setValue(animalName);
     }
 
 
@@ -69,14 +69,14 @@ public class AnimalPatientBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Animal name</p>
+     * <p>Owner Name</p>
      */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
+    public PersonName getOwnerName() {
+        return this.ownerName.getValue();
     }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
+    public void setOwnerName(PersonName ownerName) {
+        this.ownerName.setValue(ownerName);
     }
 
 }

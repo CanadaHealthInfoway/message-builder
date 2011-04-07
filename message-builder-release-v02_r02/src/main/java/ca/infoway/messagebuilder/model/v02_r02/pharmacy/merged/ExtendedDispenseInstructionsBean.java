@@ -53,66 +53,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
-    private FirstFillBean component2InitialSupplyRequest;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private PQ totalPrescribedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
-
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
-        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
-        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
-    }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
-        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160CA.InitialSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component7"),
-        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340CA.InitialSupplyRequest")})
-    public FirstFillBean getComponent2InitialSupplyRequest() {
-        return this.component2InitialSupplyRequest;
-    }
-    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
-        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
-    }
-
-
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>A:Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed. This attribute is mandatory because 
-     * the prescriber (in discussion with the patient) has a better 
-     * understanding of the days supply needed by the patient.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
-    }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
-    }
+    private FirstFillBean component2InitialSupplyRequest;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
 
 
     /**
@@ -148,12 +94,66 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>A:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed. This attribute is mandatory because 
+     * the prescriber (in discussion with the patient) has a better 
+     * understanding of the days supply needed by the patient.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
+        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160CA.InitialSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component7"),
+        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340CA.InitialSupplyRequest")})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
+    }
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
+        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
+        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 }

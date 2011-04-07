@@ -58,92 +58,29 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110318L;
-    private AdministrationInstructionsBean component1AdministrationInstructions;
-    private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
-    private ClassifiesBean componentOf2;
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
-    private BL subjectOf1AnnotationIndicator = new BLImpl();
-    private DrugProductBean directTargetMedication;
-    private List<CareCompositionsBean> componentOf1PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CD prescriptionType = new CDImpl();
-    private OccurredAtBean location;
-    private BL subjectOf2DetectedIssueIndicator = new BLImpl();
+    private CS prescriptionStatus = new CSImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private DrugProductBean directTargetMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private PrescribedByBean author;
+    private OccurredAtBean location;
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private BL derivedFromSourceDispense = new BLImpl(false);
+    private AdministrationInstructionsBean component1AdministrationInstructions;
     private Component2Bean component2;
-    private PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
-    private PrescribedByBean author;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-    private CS prescriptionStatus = new CSImpl();
-    private BL derivedFromSourceDispense = new BLImpl();
-
-
-    @Hl7XmlMapping({"component1/administrationInstructions"})
-    public AdministrationInstructionsBean getComponent1AdministrationInstructions() {
-        return this.component1AdministrationInstructions;
-    }
-    public void setComponent1AdministrationInstructions(AdministrationInstructionsBean component1AdministrationInstructions) {
-        this.component1AdministrationInstructions = component1AdministrationInstructions;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/refusalToFill"})
-    public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
-        return this.subjectOf3RefusalToFill;
-    }
-
-
-    @Hl7XmlMapping({"componentOf2"})
-    public ClassifiesBean getComponentOf2() {
-        return this.componentOf2;
-    }
-    public void setComponentOf2(ClassifiesBean componentOf2) {
-        this.componentOf2 = componentOf2;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment3/supplyEventLastSummary"})
-    public LastDispenseInformation_1Bean getFulfillment3SupplyEventLastSummary() {
-        return this.fulfillment3SupplyEventLastSummary;
-    }
-    public void setFulfillment3SupplyEventLastSummary(LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary) {
-        this.fulfillment3SupplyEventLastSummary = fulfillment3SupplyEventLastSummary;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
-    public Boolean getSubjectOf1AnnotationIndicator() {
-        return this.subjectOf1AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
-        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
-    }
-
-
-    @Hl7XmlMapping({"componentOf1/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOf1PatientCareProvisionEvent() {
-        return this.componentOf1PatientCareProvisionEvent;
-    }
+    private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
+    private PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary;
+    private BL subjectOf1AnnotationIndicator = new BLImpl(false);
+    private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
+    private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
+    private List<CareCompositionsBean> componentOf1PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private ClassifiesBean componentOf2;
 
 
     /**
@@ -199,75 +136,28 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: NEW, 
+     * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
+     * NULLIFIED.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
     }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
-    public Boolean getSubjectOf2DetectedIssueIndicator() {
-        return this.subjectOf2DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
-        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public Component2Bean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(Component2Bean component2) {
-        this.component2 = component2;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment4/supplyEventPastSummary"})
-    public PreviousDispenseInformation_1Bean getFulfillment4SupplyEventPastSummary() {
-        return this.fulfillment4SupplyEventPastSummary;
-    }
-    public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary) {
-        this.fulfillment4SupplyEventPastSummary = fulfillment4SupplyEventPastSummary;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment1/supplyEventFutureSummary"})
-    public RemainingDispenseInformation_1Bean getFulfillment1SupplyEventFutureSummary() {
-        return this.fulfillment1SupplyEventFutureSummary;
-    }
-    public void setFulfillment1SupplyEventFutureSummary(RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary) {
-        this.fulfillment1SupplyEventFutureSummary = fulfillment1SupplyEventFutureSummary;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment2/supplyEventFirstSummary"})
-    public FirstDispenseInformation_1Bean getFulfillment2SupplyEventFirstSummary() {
-        return this.fulfillment2SupplyEventFirstSummary;
-    }
-    public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary) {
-        this.fulfillment2SupplyEventFirstSummary = fulfillment2SupplyEventFirstSummary;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
     }
 
 
@@ -376,6 +266,48 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -385,37 +317,105 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
-    /**
-     * <p>C:Prescription Status</p>
-     * 
-     * <p><p>This denotes the state of the prescription in the 
-     * lifecycle of the prescription. Valid statuses are: NEW, 
-     * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
-     * NULLIFIED.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
-    }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
-    }
-
-
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
     }
     public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
         this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
+    }
+
+
+    @Hl7XmlMapping({"component1/administrationInstructions"})
+    public AdministrationInstructionsBean getComponent1AdministrationInstructions() {
+        return this.component1AdministrationInstructions;
+    }
+    public void setComponent1AdministrationInstructions(AdministrationInstructionsBean component1AdministrationInstructions) {
+        this.component1AdministrationInstructions = component1AdministrationInstructions;
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public Component2Bean getComponent2() {
+        return this.component2;
+    }
+    public void setComponent2(Component2Bean component2) {
+        this.component2 = component2;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment1/supplyEventFutureSummary"})
+    public RemainingDispenseInformation_1Bean getFulfillment1SupplyEventFutureSummary() {
+        return this.fulfillment1SupplyEventFutureSummary;
+    }
+    public void setFulfillment1SupplyEventFutureSummary(RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary) {
+        this.fulfillment1SupplyEventFutureSummary = fulfillment1SupplyEventFutureSummary;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment2/supplyEventFirstSummary"})
+    public FirstDispenseInformation_1Bean getFulfillment2SupplyEventFirstSummary() {
+        return this.fulfillment2SupplyEventFirstSummary;
+    }
+    public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary) {
+        this.fulfillment2SupplyEventFirstSummary = fulfillment2SupplyEventFirstSummary;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment3/supplyEventLastSummary"})
+    public LastDispenseInformation_1Bean getFulfillment3SupplyEventLastSummary() {
+        return this.fulfillment3SupplyEventLastSummary;
+    }
+    public void setFulfillment3SupplyEventLastSummary(LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary) {
+        this.fulfillment3SupplyEventLastSummary = fulfillment3SupplyEventLastSummary;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment4/supplyEventPastSummary"})
+    public PreviousDispenseInformation_1Bean getFulfillment4SupplyEventPastSummary() {
+        return this.fulfillment4SupplyEventPastSummary;
+    }
+    public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary) {
+        this.fulfillment4SupplyEventPastSummary = fulfillment4SupplyEventPastSummary;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
+    public Boolean getSubjectOf1AnnotationIndicator() {
+        return this.subjectOf1AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
+        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
+    public Boolean getSubjectOf2DetectedIssueIndicator() {
+        return this.subjectOf2DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
+        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/refusalToFill"})
+    public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
+        return this.subjectOf3RefusalToFill;
+    }
+
+
+    @Hl7XmlMapping({"componentOf1/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOf1PatientCareProvisionEvent() {
+        return this.componentOf1PatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"componentOf2"})
+    public ClassifiesBean getComponentOf2() {
+        return this.componentOf2;
+    }
+    public void setComponentOf2(ClassifiesBean componentOf2) {
+        this.componentOf2 = componentOf2;
     }
 
 }

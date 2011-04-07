@@ -60,17 +60,17 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV conditionType = new CVImpl();
-    private IncludesBean subjectOf;
-    private CD condition = new CDImpl();
     private BL refutedIndicator = new BLImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
-    private ActingPerson informantActingPerson;
     private CS conditionStatus = new CSImpl();
     private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CD condition = new CDImpl();
+    private ActingPerson informantActingPerson;
+    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
+    private IncludesBean subjectOf;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -99,36 +99,6 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    /**
-     * <p>K:Condition</p>
-     * 
-     * <p><p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
-    }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
-    }
-
-
     /**
      * <p>E: Refuted Indicator</p>
      * 
@@ -144,65 +114,6 @@ public class HealthConditionBean extends MessagePartBean {
     }
     public void setRefutedIndicator(Boolean refutedIndicator) {
         this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>F: Condition Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
-        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldCondition"})
-    public List<OldConditionBean> getPredecessorOldCondition() {
-        return this.predecessorOldCondition;
-    }
-
-
-    @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
-        return this.informantActingPerson;
-    }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
-        this.informantActingPerson = informantActingPerson;
-    }
-
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
     }
 
 
@@ -310,6 +221,95 @@ public class HealthConditionBean extends MessagePartBean {
     }
     public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
         this.conditionTimePeriod.setValue(conditionTimePeriod);
+    }
+
+
+    /**
+     * <p>F: Condition Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
+        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>K:Condition</p>
+     * 
+     * <p><p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
+    }
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
+    }
+
+
+    @Hl7XmlMapping({"informant/actingPerson"})
+    public ActingPerson getInformantActingPerson() {
+        return this.informantActingPerson;
+    }
+    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+        this.informantActingPerson = informantActingPerson;
+    }
+
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
+        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
+    }
+
+    public Patient_2Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsPatient() {
+        return (this.informantActingPerson instanceof Patient_2Bean);
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

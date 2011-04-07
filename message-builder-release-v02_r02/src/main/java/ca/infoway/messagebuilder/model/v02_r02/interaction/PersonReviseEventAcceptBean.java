@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r02.cr.prpa_mt101102ca.IdentifiedPers
 @Hl7PartTypeMapping({"PRPA_IN101205CA"})
 public class PersonReviseEventAcceptBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

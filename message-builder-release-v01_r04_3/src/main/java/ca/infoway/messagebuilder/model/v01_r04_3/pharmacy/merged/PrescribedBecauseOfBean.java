@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.porx_mt980050ca.Sympto
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private INT indicationPriority = new INTImpl();
     private Indications indications;
 

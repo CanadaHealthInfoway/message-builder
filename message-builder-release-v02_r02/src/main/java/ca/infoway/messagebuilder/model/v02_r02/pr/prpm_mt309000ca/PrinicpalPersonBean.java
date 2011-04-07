@@ -44,35 +44,15 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.PrincipalPerson"})
 public class PrinicpalPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV principalPersonGender = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> principalPersonAggregateIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private BL principalPersonDeceasedIndicator = new BLImpl();
-    private List<LanguageOfCommunicationBean> languageCommunication = new ArrayList<LanguageOfCommunicationBean>();
     private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV principalPersonGender = new CVImpl();
     private TS principalPersonDateOfBirth = new TSImpl();
-    private AD birthplaceAddress = new ADImpl();
+    private BL principalPersonDeceasedIndicator = new BLImpl();
     private TS principalPersonDeceasedDate = new TSImpl();
-
-
-    /**
-     * <p>Principal Person Gender</p>
-     * 
-     * <p><p>The principal person'''s gender.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Person Gender is Expected to Exist.</p></p>
-     */
-    @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPrincipalPersonGender() {
-        return (AdministrativeGender) this.principalPersonGender.getValue();
-    }
-    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
-        this.principalPersonGender.setValue(principalPersonGender);
-    }
+    private AD birthplaceAddress = new ADImpl();
+    private List<LanguageOfCommunicationBean> languageCommunication = new ArrayList<LanguageOfCommunicationBean>();
 
 
     /**
@@ -92,30 +72,6 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Deceased Indicator</p>
-     * 
-     * <p><p>An indication that the principal person is 
-     * deceased.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPrincipalPersonDeceasedIndicator() {
-        return this.principalPersonDeceasedIndicator.getValue();
-    }
-    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
-        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"languageCommunication"})
-    public List<LanguageOfCommunicationBean> getLanguageCommunication() {
-        return this.languageCommunication;
-    }
-
-
-    /**
      * <p>Principal Person Name</p>
      * 
      * <p><p>The person'''s name independent of any role they may 
@@ -130,6 +86,26 @@ public class PrinicpalPersonBean extends MessagePartBean {
     @Hl7XmlMapping({"name"})
     public List<PersonName> getPrincipalPersonName() {
         return this.principalPersonName.rawList();
+    }
+
+
+    /**
+     * <p>Principal Person Gender</p>
+     * 
+     * <p><p>The principal person'''s gender.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Person Gender is Expected to Exist.</p></p>
+     */
+    @Hl7XmlMapping({"administrativeGenderCode"})
+    public AdministrativeGender getPrincipalPersonGender() {
+        return (AdministrativeGender) this.principalPersonGender.getValue();
+    }
+    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
+        this.principalPersonGender.setValue(principalPersonGender);
     }
 
 
@@ -154,6 +130,42 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
+     * <p>Principal Person Deceased Indicator</p>
+     * 
+     * <p><p>An indication that the principal person is 
+     * deceased.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"deceasedInd"})
+    public Boolean getPrincipalPersonDeceasedIndicator() {
+        return this.principalPersonDeceasedIndicator.getValue();
+    }
+    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
+        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
+    }
+
+
+    /**
+     * <p>Principal Person Deceased Date</p>
+     * 
+     * <p><p>The date and time that a healthcare provider's death 
+     * occurred.</p></p>
+     * 
+     * <p><p>Required attribute supports verification of death from 
+     * official source such as Vital Statistics.</p></p>
+     */
+    @Hl7XmlMapping({"deceasedTime"})
+    public Date getPrincipalPersonDeceasedDate() {
+        return this.principalPersonDeceasedDate.getValue();
+    }
+    public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
+        this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
+    }
+
+
+    /**
      * <p>Birthplace Address</p>
      * 
      * <p><p>Principal person's address at time of birth</p></p>
@@ -173,21 +185,9 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Principal Person Deceased Date</p>
-     * 
-     * <p><p>The date and time that a healthcare provider's death 
-     * occurred.</p></p>
-     * 
-     * <p><p>Required attribute supports verification of death from 
-     * official source such as Vital Statistics.</p></p>
-     */
-    @Hl7XmlMapping({"deceasedTime"})
-    public Date getPrincipalPersonDeceasedDate() {
-        return this.principalPersonDeceasedDate.getValue();
-    }
-    public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
-        this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
+    @Hl7XmlMapping({"languageCommunication"})
+    public List<LanguageOfCommunicationBean> getLanguageCommunication() {
+        return this.languageCommunication;
     }
 
 }

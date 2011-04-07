@@ -21,9 +21,21 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.InvoiceTypeBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private InvoiceElementChoice invoiceElementChoice;
+    private static final long serialVersionUID = 20110407L;
     private INT invoiceElementSequenceNumber = new INTImpl();
+    private InvoiceElementChoice invoiceElementChoice;
+
+
+    /**
+     * <p>Invoice Element Sequence Number</p>
+     */
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getInvoiceElementSequenceNumber() {
+        return this.invoiceElementSequenceNumber.getValue();
+    }
+    public void setInvoiceElementSequenceNumber(Integer invoiceElementSequenceNumber) {
+        this.invoiceElementSequenceNumber.setValue(invoiceElementSequenceNumber);
+    }
 
 
     @Hl7XmlMapping({"invoiceElementChoice"})
@@ -46,18 +58,6 @@ public class InvoiceElementComponentBean extends MessagePartBean {
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
         return (this.invoiceElementChoice instanceof InvoiceElementDetailBean);
-    }
-
-
-    /**
-     * <p>Invoice Element Sequence Number</p>
-     */
-    @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getInvoiceElementSequenceNumber() {
-        return this.invoiceElementSequenceNumber.getValue();
-    }
-    public void setInvoiceElementSequenceNumber(Integer invoiceElementSequenceNumber) {
-        this.invoiceElementSequenceNumber.setValue(invoiceElementSequenceNumber);
     }
 
 }

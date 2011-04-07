@@ -31,27 +31,16 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
+    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private II patientNoteId = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CreatedAtBean location;
     private AnnotatedByBean author;
-    private II recordId = new IIImpl();
+    private CreatedAtBean location;
     private CV writtenIn = new CVImpl();
-
-
-    /**
-     * <p>RestrictedPatientAccess</p>
-     * 
-     * <p>D:Restricted Patient Access</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getRestrictedPatientAccess() {
-        return this.restrictedPatientAccess.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
+    private II recordId = new IIImpl();
 
 
     /**
@@ -85,6 +74,17 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
+     * <p>RestrictedPatientAccess</p>
+     * 
+     * <p>D:Restricted Patient Access</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getRestrictedPatientAccess() {
+        return this.restrictedPatientAccess.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
      * <p>PatientNoteId</p>
      * 
      * <p>B:Patient Note Id</p>
@@ -107,15 +107,6 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
     @Hl7XmlMapping({"author"})
     public AnnotatedByBean getAuthor() {
         return this.author;
@@ -125,17 +116,12 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>RecordId</p>
-     * 
-     * <p>A:Record Id</p>
-     */
-    @Hl7XmlMapping({"subject/annotatedAct/id"})
-    public Identifier getRecordId() {
-        return this.recordId.getValue();
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setRecordId(Identifier recordId) {
-        this.recordId.setValue(recordId);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -150,6 +136,20 @@ public class CommentBean extends MessagePartBean {
     }
     public void setWrittenIn(HumanLanguage writtenIn) {
         this.writtenIn.setValue(writtenIn);
+    }
+
+
+    /**
+     * <p>RecordId</p>
+     * 
+     * <p>A:Record Id</p>
+     */
+    @Hl7XmlMapping({"subject/annotatedAct/id"})
+    public Identifier getRecordId() {
+        return this.recordId.getValue();
+    }
+    public void setRecordId(Identifier recordId) {
+        this.recordId.setValue(recordId);
     }
 
 }

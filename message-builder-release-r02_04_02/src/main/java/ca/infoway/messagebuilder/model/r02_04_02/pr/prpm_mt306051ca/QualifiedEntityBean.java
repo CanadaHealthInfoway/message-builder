@@ -36,19 +36,24 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private OrganizationBean qualificationGrantingOrganization;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV expertiseOrCredentialsRoleType = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
-    private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private OrganizationBean qualificationGrantingOrganization;
 
 
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    /**
+     * <p>Expertise or Credentials Role Identifier</p>
+     * 
+     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
+        return this.expertiseOrCredentialsRoleIdentifier.rawSet();
     }
 
 
@@ -83,17 +88,12 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    /**
-     * <p>Expertise or Credentials Role Identifier</p>
-     * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.rawSet();
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }

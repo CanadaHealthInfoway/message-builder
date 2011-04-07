@@ -17,18 +17,23 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.CarrierRoleBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CarrierRoleBean authorCarrierRole;
-    private II coverageExtensionId = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS extensionGrantedIndicator = new CSImpl();
+    private II coverageExtensionId = new IIImpl();
+    private CarrierRoleBean authorCarrierRole;
 
 
-    @Hl7XmlMapping({"author/carrierRole"})
-    public CarrierRoleBean getAuthorCarrierRole() {
-        return this.authorCarrierRole;
+    /**
+     * <p>ExtensionGrantedIndicator</p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
+        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
     }
-    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
-        this.authorCarrierRole = authorCarrierRole;
+    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
+        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
     }
 
 
@@ -46,17 +51,12 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>ExtensionGrantedIndicator</p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
+    @Hl7XmlMapping({"author/carrierRole"})
+    public CarrierRoleBean getAuthorCarrierRole() {
+        return this.authorCarrierRole;
     }
-    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
+        this.authorCarrierRole = authorCarrierRole;
     }
 
 }

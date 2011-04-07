@@ -23,26 +23,14 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST drugDescription = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
     private ST drugName = new STImpl();
-    private DrugDispensedInBean administerableMedicineAsContent;
+    private ST drugDescription = new STImpl();
     private CV drugForm = new CVImpl();
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-
-
-    /**
-     * <p>C:Drug Description</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
+    private DrugDispensedInBean administerableMedicineAsContent;
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
 
 
     /**
@@ -69,12 +57,15 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DrugDispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
+    /**
+     * <p>C:Drug Description</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
     }
-    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
     }
 
 
@@ -90,18 +81,27 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
-
-
     @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
         return this.administerableMedicineAsManufacturedProductManufacturer;
     }
     public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
         this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DrugDispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
     }
 
 }

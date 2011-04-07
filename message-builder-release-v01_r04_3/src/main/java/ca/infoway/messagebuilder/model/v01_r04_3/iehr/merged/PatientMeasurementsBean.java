@@ -38,60 +38,19 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RefusedByBean author;
-    private ProviderBean responsiblePartyAssignedPerson;
-    private PatientBean subjectPatient;
-    private CV commonObservationMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II observationMeasurementId = new IIImpl();
-    private RecordedAtBean location;
     private CD measurementType = new CDImpl();
-    private List<ComponentMeasurementsBean> componentSubObservationEvent = new ArrayList<ComponentMeasurementsBean>();
     private TS effectiveTime = new TSImpl();
+    private CV commonObservationMaskingIndicator = new CVImpl();
     private PQ observationMeasurementValue = new PQImpl();
+    private PatientBean subjectPatient;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private RefusedByBean author;
+    private RecordedAtBean location;
+    private List<ComponentMeasurementsBean> componentSubObservationEvent = new ArrayList<ComponentMeasurementsBean>();
+    private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private CommentBean subjectOfAnnotation;
-    private BL subjectOf1AnnotationIndicator = new BLImpl();
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>CommonObservationMaskingIndicator</p>
-     * 
-     * <p>D:Common Observation Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getCommonObservationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.commonObservationMaskingIndicator.getValue();
-    }
-    public void setCommonObservationMaskingIndicator(x_VeryBasicConfidentialityKind commonObservationMaskingIndicator) {
-        this.commonObservationMaskingIndicator.setValue(commonObservationMaskingIndicator);
-    }
 
 
     /**
@@ -105,15 +64,6 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
     public void setObservationMeasurementId(Identifier observationMeasurementId) {
         this.observationMeasurementId.setValue(observationMeasurementId);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
     }
 
 
@@ -133,12 +83,6 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/subObservationEvent"})
-    public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
-        return this.componentSubObservationEvent;
-    }
-
-
     /**
      * <p>C:Observation Timestamp</p>
      * 
@@ -150,6 +94,20 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>CommonObservationMaskingIndicator</p>
+     * 
+     * <p>D:Common Observation Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getCommonObservationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.commonObservationMaskingIndicator.getValue();
+    }
+    public void setCommonObservationMaskingIndicator(x_VeryBasicConfidentialityKind commonObservationMaskingIndicator) {
+        this.commonObservationMaskingIndicator.setValue(commonObservationMaskingIndicator);
     }
 
 
@@ -167,6 +125,57 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component/subObservationEvent"})
+    public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
+        return this.componentSubObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
+    public Boolean getSubjectOf1AnnotationIndicator() {
+        return this.subjectOf1AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
+        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
+    }
+
+
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000018CA.Subject"),
@@ -178,15 +187,6 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
-    public Boolean getSubjectOf1AnnotationIndicator() {
-        return this.subjectOf1AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
-        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
 
 }

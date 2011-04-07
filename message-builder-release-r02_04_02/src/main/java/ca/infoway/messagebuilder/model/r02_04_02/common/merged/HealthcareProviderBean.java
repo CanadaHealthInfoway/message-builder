@@ -45,14 +45,35 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
-    private TEL healthCareProviderPersonTelecom = new TELImpl();
-    private PN healthCareProviderPersonName = new PNImpl();
-    private AD providerAddress = new ADImpl();
-    private TS healthCareProviderPersonBirthTime = new TSImpl();
-    private CV providerGender = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private PN healthCareProviderPersonName = new PNImpl();
+    private TEL healthCareProviderPersonTelecom = new TELImpl();
+    private CV providerGender = new CVImpl();
+    private TS healthCareProviderPersonBirthTime = new TSImpl();
+    private AD providerAddress = new ADImpl();
+
+
+    /**
+     * <p>Provider ID</p>
+     * 
+     * <p><p>More than 1 Provider identifier can be provided for a 
+     * particular role, e.g. some dental claims. An Id may not be 
+     * available for out of jurisdiction providers and 
+     * consulltants.</p></p>
+     * 
+     * <p>Provider identifiers</p>
+     * 
+     * <p><p>Provider ID, eg. Prof. license no.</p></p>
+     * 
+     * <p><p>More than provider identifier could be provided, eg. 
+     * for dental claims.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
+    }
 
 
     /**
@@ -70,27 +91,6 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
-    }
-
-
-    /**
-     * <p>contact no.</p>
-     * 
-     * <p><p>contact info. for Provider</p></p>
-     * 
-     * <p>Provider Telecom</p>
-     * 
-     * <p><p>Telephone no. of provider</p></p>
-     * 
-     * <p><p>only required if provider is not known to the 
-     * Payor</p></p>
-     */
-    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
-    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
-        return this.healthCareProviderPersonTelecom.getValue();
-    }
-    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
-        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
     }
 
 
@@ -113,47 +113,23 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderAddress</p>
+     * <p>contact no.</p>
      * 
-     * <p>Provider Address</p>
+     * <p><p>contact info. for Provider</p></p>
      * 
-     * <p><p>Can be used to specify jurisdiction for OOJ 
-     * providers</p></p>
+     * <p>Provider Telecom</p>
      * 
-     * <p>Provider Address</p>
-     * 
-     * <p><p>Telecom, gender, birth time, addr are only required if 
-     * provider is not known to the Payor</p></p>
-     * 
-     * <p><p>Can be used to specify jurisdiction for OOJ 
-     * providers</p></p>
-     */
-    @Hl7XmlMapping({"healthCareProviderPerson/addr"})
-    public PostalAddress getProviderAddress() {
-        return this.providerAddress.getValue();
-    }
-    public void setProviderAddress(PostalAddress providerAddress) {
-        this.providerAddress.setValue(providerAddress);
-    }
-
-
-    /**
-     * <p>Provider Birth date</p>
+     * <p><p>Telephone no. of provider</p></p>
      * 
      * <p><p>only required if provider is not known to the 
      * Payor</p></p>
-     * 
-     * <p>Provider Date of Birth</p>
-     * 
-     * <p><p>Telecom, gender, birth time, addr are only required if 
-     * provider is not known to the Payor</p></p>
      */
-    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
-    public Date getHealthCareProviderPersonBirthTime() {
-        return this.healthCareProviderPersonBirthTime.getValue();
+    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
+    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
+        return this.healthCareProviderPersonTelecom.getValue();
     }
-    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
-        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
+    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
+        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
     }
 
 
@@ -180,23 +156,47 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Provider ID</p>
+     * <p>Provider Birth date</p>
      * 
-     * <p><p>More than 1 Provider identifier can be provided for a 
-     * particular role, e.g. some dental claims. An Id may not be 
-     * available for out of jurisdiction providers and 
-     * consulltants.</p></p>
+     * <p><p>only required if provider is not known to the 
+     * Payor</p></p>
      * 
-     * <p>Provider identifiers</p>
+     * <p>Provider Date of Birth</p>
      * 
-     * <p><p>Provider ID, eg. Prof. license no.</p></p>
-     * 
-     * <p><p>More than provider identifier could be provided, eg. 
-     * for dental claims.</p></p>
+     * <p><p>Telecom, gender, birth time, addr are only required if 
+     * provider is not known to the Payor</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getId() {
-        return this.id.rawSet();
+    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
+    public Date getHealthCareProviderPersonBirthTime() {
+        return this.healthCareProviderPersonBirthTime.getValue();
+    }
+    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
+        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
+    }
+
+
+    /**
+     * <p>ProviderAddress</p>
+     * 
+     * <p>Provider Address</p>
+     * 
+     * <p><p>Can be used to specify jurisdiction for OOJ 
+     * providers</p></p>
+     * 
+     * <p>Provider Address</p>
+     * 
+     * <p><p>Telecom, gender, birth time, addr are only required if 
+     * provider is not known to the Payor</p></p>
+     * 
+     * <p><p>Can be used to specify jurisdiction for OOJ 
+     * providers</p></p>
+     */
+    @Hl7XmlMapping({"healthCareProviderPerson/addr"})
+    public PostalAddress getProviderAddress() {
+        return this.providerAddress.getValue();
+    }
+    public void setProviderAddress(PostalAddress providerAddress) {
+        this.providerAddress.setValue(providerAddress);
     }
 
 }

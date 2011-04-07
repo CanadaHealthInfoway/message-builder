@@ -24,16 +24,57 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private static final long serialVersionUID = 20110407L;
+    private II invoiceGroupID = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO invoiceSubTotal = new MOImpl();
-    private II invoiceGroupID = new IIImpl();
+    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
 
 
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
+    /**
+     * <p>Invoice Group ID</p>
+     * 
+     * <p><p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p></p>
+     * 
+     * <p><p>Invoice Grouping Identifier: There are some situations 
+     * where more than 1 identifier for this object can be included 
+     * in a message.</p></p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p><p>1. 
+     * unique invoice group identifier, independent of adjudicator 
+     * recipient.</p><p>2. sequential invoice grouping identifier 
+     * by adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p></p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p><p>1. 
+     * unique invoice group identifier, independent of adjudicator 
+     * recipient.</p><p>2. sequential invoice grouping identifier 
+     * by adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p></p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p><p>1. 
+     * unique invoice group identifier, independent of adjudicator 
+     * recipient.</p><p>2. sequential invoice grouping identifier 
+     * by adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p></p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p><p>1. 
+     * unique invoice group identifier, independent of adjudicator 
+     * recipient.</p><p>2. sequential invoice grouping identifier 
+     * by adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getInvoiceGroupID() {
+        return this.invoiceGroupID.getValue();
+    }
+    public void setInvoiceGroupID(Identifier invoiceGroupID) {
+        this.invoiceGroupID.setValue(invoiceGroupID);
     }
 
 
@@ -165,50 +206,9 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Invoice Group ID</p>
-     * 
-     * <p><p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p></p>
-     * 
-     * <p><p>Invoice Grouping Identifier: There are some situations 
-     * where more than 1 identifier for this object can be included 
-     * in a message.</p></p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p><p>1. 
-     * unique invoice group identifier, independent of adjudicator 
-     * recipient.</p><p>2. sequential invoice grouping identifier 
-     * by adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.).</p></p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p><p>1. 
-     * unique invoice group identifier, independent of adjudicator 
-     * recipient.</p><p>2. sequential invoice grouping identifier 
-     * by adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.).</p></p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p><p>1. 
-     * unique invoice group identifier, independent of adjudicator 
-     * recipient.</p><p>2. sequential invoice grouping identifier 
-     * by adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.).</p></p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p><p>1. 
-     * unique invoice group identifier, independent of adjudicator 
-     * recipient.</p><p>2. sequential invoice grouping identifier 
-     * by adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.).</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getInvoiceGroupID() {
-        return this.invoiceGroupID.getValue();
-    }
-    public void setInvoiceGroupID(Identifier invoiceGroupID) {
-        this.invoiceGroupID.setValue(invoiceGroupID);
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
 }

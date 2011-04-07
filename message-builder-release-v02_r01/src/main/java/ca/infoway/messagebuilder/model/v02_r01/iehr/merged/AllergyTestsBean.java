@@ -22,25 +22,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV allergyTestResult = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II allergyTestRecordId = new IIImpl();
-    private TS allergyTestDate = new TSImpl();
     private CD allergyTestType = new CDImpl();
-
-
-    /**
-     * <p>AllergyTestResult</p>
-     * 
-     * <p>C:Allergy Test Result</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public AllergyTestValue getAllergyTestResult() {
-        return (AllergyTestValue) this.allergyTestResult.getValue();
-    }
-    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
-        this.allergyTestResult.setValue(allergyTestResult);
-    }
+    private TS allergyTestDate = new TSImpl();
+    private CV allergyTestResult = new CVImpl();
 
 
     /**
@@ -54,6 +40,20 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
         this.allergyTestRecordId.setValue(allergyTestRecordId);
+    }
+
+
+    /**
+     * <p>AllergyTestType</p>
+     * 
+     * <p>A:Allergy Test Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationAllergyTestType getAllergyTestType() {
+        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    }
+    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
+        this.allergyTestType.setValue(allergyTestType);
     }
 
 
@@ -72,16 +72,16 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestType</p>
+     * <p>AllergyTestResult</p>
      * 
-     * <p>A:Allergy Test Type</p>
+     * <p>C:Allergy Test Result</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ObservationAllergyTestType getAllergyTestType() {
-        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    @Hl7XmlMapping({"value"})
+    public AllergyTestValue getAllergyTestResult() {
+        return (AllergyTestValue) this.allergyTestResult.getValue();
     }
-    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
-        this.allergyTestType.setValue(allergyTestType);
+    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
+        this.allergyTestResult.setValue(allergyTestResult);
     }
 
 }

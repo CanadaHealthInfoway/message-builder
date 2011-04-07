@@ -28,10 +28,38 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.OccurredAtBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CS prescriptionDispenseIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;
-    private CS prescriptionDispenseIndicator = new CSImpl();
+
+
+    /**
+     * <p>A:Prescription Dispense Indicator</p>
+     * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispenseIndicator() {
+        return (ActStatus) this.prescriptionDispenseIndicator.getValue();
+    }
+    public void setPrescriptionDispenseIndicator(ActStatus prescriptionDispenseIndicator) {
+        this.prescriptionDispenseIndicator.setValue(prescriptionDispenseIndicator);
+    }
 
 
     /**
@@ -71,34 +99,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>A:Prescription Dispense Indicator</p>
-     * 
-     * <p><p>This generally mirrors the status for the 
-     * prescription, but in some circumstances may be changed to 
-     * 'aborted' while the prescription is still active. When this 
-     * occurs, it means the prescription may no longer be 
-     * dispensed, though it may still be administered.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispenseIndicator() {
-        return (ActStatus) this.prescriptionDispenseIndicator.getValue();
-    }
-    public void setPrescriptionDispenseIndicator(ActStatus prescriptionDispenseIndicator) {
-        this.prescriptionDispenseIndicator.setValue(prescriptionDispenseIndicator);
     }
 
 }

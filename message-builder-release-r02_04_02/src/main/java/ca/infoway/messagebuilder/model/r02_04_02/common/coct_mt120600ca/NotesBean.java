@@ -47,10 +47,37 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private ST noteText = new STImpl();
     private TS noteTimestamp = new TSImpl();
     private AssignedPerson authorAssignedPerson;
-    private ST noteText = new STImpl();
+
+
+    /**
+     * <p>B: Note Text</p>
+     * 
+     * <p><p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p><p>Language is supported to allow 
+     * grouping or filtering comments based on language</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p><p>Language is supported to allow 
+     * grouping or filtering comments based on language</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getNoteText() {
+        return this.noteText.getValue();
+    }
+    public void setNoteText(String noteText) {
+        this.noteText.setValue(noteText);
+    }
 
 
     /**
@@ -146,33 +173,6 @@ public class NotesBean extends MessagePartBean {
     }
     public boolean hasAuthorAssignedPersonAsPersonalRelationship4() {
         return (this.authorAssignedPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>B: Note Text</p>
-     * 
-     * <p><p>Free text comments. Additional textual iinformation 
-     * entered about an object.</p></p>
-     * 
-     * <p><p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p></p>
-     * 
-     * <p><p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getNoteText() {
-        return this.noteText.getValue();
-    }
-    public void setNoteText(String noteText) {
-        this.noteText.setValue(noteText);
     }
 
 }

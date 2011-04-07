@@ -44,42 +44,10 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.ActingPersonBean;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II relatedPersonIdentifier = new IIImpl();
     private CV responsiblePersonType = new CVImpl();
     private ActingPersonBean relationshipHolder;
-    private II relatedPersonIdentifier = new IIImpl();
-
-
-    /**
-     * <p>C:Responsible Person Type</p>
-     * 
-     * <p><p>A coded value indicating how the person is related to 
-     * the patient. If the code is &quot;SELF&quot;, it indicates 
-     * that the action was performed by the patient themselves.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>EPHS:this cmet is used for self-reports as well as 
-     * reports by other related parties</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public x_SimplePersonalRelationship getResponsiblePersonType() {
-        return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
-    }
-    public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
-        this.responsiblePersonType.setValue(responsiblePersonType);
-    }
-
-
-    @Hl7XmlMapping({"relationshipHolder"})
-    public ActingPersonBean getRelationshipHolder() {
-        return this.relationshipHolder;
-    }
-    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
-        this.relationshipHolder = relationshipHolder;
-    }
 
 
     /**
@@ -707,6 +675,38 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
         this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
+    }
+
+
+    /**
+     * <p>C:Responsible Person Type</p>
+     * 
+     * <p><p>A coded value indicating how the person is related to 
+     * the patient. If the code is &quot;SELF&quot;, it indicates 
+     * that the action was performed by the patient themselves.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>EPHS:this cmet is used for self-reports as well as 
+     * reports by other related parties</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public x_SimplePersonalRelationship getResponsiblePersonType() {
+        return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
+    }
+    public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
+        this.responsiblePersonType.setValue(responsiblePersonType);
+    }
+
+
+    @Hl7XmlMapping({"relationshipHolder"})
+    public ActingPersonBean getRelationshipHolder() {
+        return this.relationshipHolder;
+    }
+    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
+        this.relationshipHolder = relationshipHolder;
     }
 
 }

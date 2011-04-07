@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400003CA.PolicyHolderOrganization"})
 public class PolicyHolderOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.claims.merged.PolicyHolderChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TN policyHolderOrganizationName = new TNImpl();
 
 

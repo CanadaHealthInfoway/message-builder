@@ -14,18 +14,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.Subject"})
 public class PatientConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL patientConsent = new BLImpl(false);
+    private static final long serialVersionUID = 20110407L;
     private ST patientKeyword = new STImpl();
-
-
-    @Hl7XmlMapping({"patientConsent"})
-    public Boolean getPatientConsent() {
-        return this.patientConsent.getValue();
-    }
-    public void setPatientConsent(Boolean patientConsent) {
-        this.patientConsent.setValue(patientConsent);
-    }
+    private BL patientConsent = new BLImpl(false);
 
 
     /**
@@ -37,6 +28,15 @@ public class PatientConsentBean extends MessagePartBean {
     }
     public void setPatientKeyword(String patientKeyword) {
         this.patientKeyword.setValue(patientKeyword);
+    }
+
+
+    @Hl7XmlMapping({"patientConsent"})
+    public Boolean getPatientConsent() {
+        return this.patientConsent.getValue();
+    }
+    public void setPatientConsent(Boolean patientConsent) {
+        this.patientConsent.setValue(patientConsent);
     }
 
 }

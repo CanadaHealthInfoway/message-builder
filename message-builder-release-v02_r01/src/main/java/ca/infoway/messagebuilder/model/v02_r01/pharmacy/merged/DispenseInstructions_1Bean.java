@@ -32,19 +32,19 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
     private INT totalPrescribedQuantity = new INTImpl();
-    private SubstanceAdministrationRequestBean componentOfActRequest;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
+    private SubstanceAdministrationRequestBean componentOfActRequest;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private BL sourceOfContextConductionInd = new BLImpl();
-    private CS sourceOfContextControlCode = new CSImpl();
     private CS sourceOfTypeCode = new CSImpl();
+    private CS sourceOfContextControlCode = new CSImpl();
+    private BL sourceOfContextConductionInd = new BLImpl();
     private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
 
 
@@ -62,15 +62,18 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplyRequestItem"})
-    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
-        return this.componentSupplyRequestItem;
-    }
-
-
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public List<RelatedPersonBean> getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -83,12 +86,9 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    @Hl7XmlMapping({"component/supplyRequestItem"})
+    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
+        return this.componentSupplyRequestItem;
     }
 
 
@@ -106,18 +106,18 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"fulfillment/supplyEvent"})
+    public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
+        return this.fulfillmentSupplyEvent;
+    }
+
+
     @Hl7XmlMapping({"componentOf/actRequest"})
     public SubstanceAdministrationRequestBean getComponentOfActRequest() {
         return this.componentOfActRequest;
     }
     public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
         this.componentOfActRequest = componentOfActRequest;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/supplyEvent"})
-    public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
-        return this.fulfillmentSupplyEvent;
     }
 
 
@@ -135,12 +135,12 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
-    public Boolean getSourceOfContextConductionInd() {
-        return this.sourceOfContextConductionInd.getValue();
+    @Hl7XmlMapping({"sourceOf/typeCode"})
+    public ActRelationshipType getSourceOfTypeCode() {
+        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
     }
-    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
-        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
+    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
+        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
     }
 
 
@@ -153,12 +153,12 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sourceOf/typeCode"})
-    public ActRelationshipType getSourceOfTypeCode() {
-        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
+    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
+    public Boolean getSourceOfContextConductionInd() {
+        return this.sourceOfContextConductionInd.getValue();
     }
-    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
-        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
+    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
+        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
     }
 
 

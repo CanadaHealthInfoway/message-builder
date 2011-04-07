@@ -28,12 +28,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ContactParty","FICR_MT500201CA.ContactParty","FICR_MT600201CA.ContactParty"})
 public class ContactPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II administrativeContactID = new IIImpl();
     private CV code = new CVImpl();
     private ContactPersonBean contactPerson;
-    private II administrativeContactID = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> callBackContactPersonTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN callBackContactPersonName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> callBackContactPersonTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+
+
+    /**
+     * <p>AdministrativeContactID</p>
+     * 
+     * <p>Administrative Contact ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdministrativeContactID() {
+        return this.administrativeContactID.getValue();
+    }
+    public void setAdministrativeContactID(Identifier administrativeContactID) {
+        this.administrativeContactID.setValue(administrativeContactID);
+    }
 
 
     /**
@@ -60,16 +74,16 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrativeContactID</p>
+     * <p>CallBackContactPersonName</p>
      * 
-     * <p>Administrative Contact ID</p>
+     * <p>Call Back Contact Person Name</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdministrativeContactID() {
-        return this.administrativeContactID.getValue();
+    @Hl7XmlMapping({"contactCallBackPerson/name"})
+    public PersonName getCallBackContactPersonName() {
+        return this.callBackContactPersonName.getValue();
     }
-    public void setAdministrativeContactID(Identifier administrativeContactID) {
-        this.administrativeContactID.setValue(administrativeContactID);
+    public void setCallBackContactPersonName(PersonName callBackContactPersonName) {
+        this.callBackContactPersonName.setValue(callBackContactPersonName);
     }
 
 
@@ -81,20 +95,6 @@ public class ContactPartyBean extends MessagePartBean {
     @Hl7XmlMapping({"contactCallBackPerson/telecom"})
     public Set<TelecommunicationAddress> getCallBackContactPersonTelecom() {
         return this.callBackContactPersonTelecom.rawSet();
-    }
-
-
-    /**
-     * <p>CallBackContactPersonName</p>
-     * 
-     * <p>Call Back Contact Person Name</p>
-     */
-    @Hl7XmlMapping({"contactCallBackPerson/name"})
-    public PersonName getCallBackContactPersonName() {
-        return this.callBackContactPersonName.getValue();
-    }
-    public void setCallBackContactPersonName(PersonName callBackContactPersonName) {
-        this.callBackContactPersonName.setValue(callBackContactPersonName);
     }
 
 }

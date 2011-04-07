@@ -36,18 +36,41 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private MO amt = new MOImpl();
-    private List<PaymentIntentReasonBean> reasonOf = new ArrayList<PaymentIntentReasonBean>();
-    private AccountBean debitAccount;
-    private PayeeAccountBean creditAccount;
+    private static final long serialVersionUID = 20110407L;
     private TS paymentIntentDateTime = new TSImpl();
+    private MO amt = new MOImpl();
+    private PayeeAccountBean creditAccount;
+    private AccountBean debitAccount;
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private List<PaymentIntentReasonBean> reasonOf = new ArrayList<PaymentIntentReasonBean>();
 
 
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    /**
+     * <p>PaymentIntentDateTime</p>
+     * 
+     * <p>Payment Intent Date/Time</p>
+     * 
+     * <p>Payment Intent Date/Time</p>
+     * 
+     * <p><p>Parment Intent Date/Time - Time payor intends to make 
+     * payment (e.g. date of cheque/EFT run).</p></p>
+     * 
+     * <p><p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p></p>
+     * 
+     * <p><p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getPaymentIntentDateTime() {
+        return this.paymentIntentDateTime.getValue();
+    }
+    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
+        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
     }
 
 
@@ -97,9 +120,12 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reasonOf"})
-    public List<PaymentIntentReasonBean> getReasonOf() {
-        return this.reasonOf;
+    @Hl7XmlMapping({"credit/account"})
+    public PayeeAccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(PayeeAccountBean creditAccount) {
+        this.creditAccount = creditAccount;
     }
 
 
@@ -112,41 +138,15 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"credit/account"})
-    public PayeeAccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(PayeeAccountBean creditAccount) {
-        this.creditAccount = creditAccount;
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
     }
 
 
-    /**
-     * <p>PaymentIntentDateTime</p>
-     * 
-     * <p>Payment Intent Date/Time</p>
-     * 
-     * <p>Payment Intent Date/Time</p>
-     * 
-     * <p><p>Parment Intent Date/Time - Time payor intends to make 
-     * payment (e.g. date of cheque/EFT run).</p></p>
-     * 
-     * <p><p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p></p>
-     * 
-     * <p><p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getPaymentIntentDateTime() {
-        return this.paymentIntentDateTime.getValue();
-    }
-    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
-        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    @Hl7XmlMapping({"reasonOf"})
+    public List<PaymentIntentReasonBean> getReasonOf() {
+        return this.reasonOf;
     }
 
 }

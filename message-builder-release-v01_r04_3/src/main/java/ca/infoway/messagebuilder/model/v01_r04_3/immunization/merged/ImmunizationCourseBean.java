@@ -10,18 +10,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationPlan","POIZ_MT030060CA.ImmunizationPlan","POIZ_MT060150CA.ImmunizationPlan"})
 public class ImmunizationCourseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private NextImmunizationPlanBean successorNextImmunizationPlan;
+    private static final long serialVersionUID = 20110407L;
     private NextPlannedImmunizationBean fulfillmentNextPlannedImmunization;
-
-
-    @Hl7XmlMapping({"successor/nextImmunizationPlan"})
-    public NextImmunizationPlanBean getSuccessorNextImmunizationPlan() {
-        return this.successorNextImmunizationPlan;
-    }
-    public void setSuccessorNextImmunizationPlan(NextImmunizationPlanBean successorNextImmunizationPlan) {
-        this.successorNextImmunizationPlan = successorNextImmunizationPlan;
-    }
+    private NextImmunizationPlanBean successorNextImmunizationPlan;
 
 
     @Hl7XmlMapping({"fulfillment/nextPlannedImmunization"})
@@ -30,6 +21,15 @@ public class ImmunizationCourseBean extends MessagePartBean {
     }
     public void setFulfillmentNextPlannedImmunization(NextPlannedImmunizationBean fulfillmentNextPlannedImmunization) {
         this.fulfillmentNextPlannedImmunization = fulfillmentNextPlannedImmunization;
+    }
+
+
+    @Hl7XmlMapping({"successor/nextImmunizationPlan"})
+    public NextImmunizationPlanBean getSuccessorNextImmunizationPlan() {
+        return this.successorNextImmunizationPlan;
+    }
+    public void setSuccessorNextImmunizationPlan(NextImmunizationPlanBean successorNextImmunizationPlan) {
+        this.successorNextImmunizationPlan = successorNextImmunizationPlan;
     }
 
 }

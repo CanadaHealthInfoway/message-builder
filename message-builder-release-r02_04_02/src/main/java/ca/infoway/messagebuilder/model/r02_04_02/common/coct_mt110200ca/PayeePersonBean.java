@@ -27,51 +27,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV languageOfCommunication = new CVImpl();
-    private BL preferredLanguageIndicator = new BLImpl();
-    private CV payeePersonLanguage = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
+    private PayeeRelationshipRoleBean asRole;
     private PN payeeName = new PNImpl();
     private AD payeeAddress = new ADImpl();
-    private PayeeRelationshipRoleBean asRole;
+    private CV payeePersonLanguage = new CVImpl();
+    private CV languageOfCommunication = new CVImpl();
+    private BL preferredLanguageIndicator = new BLImpl();
 
 
-    /**
-     * <p>Language of Communication</p>
-     * 
-     * <p><p>A value presenting the method of expression of the 
-     * language.</p></p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/modeCode"})
-    public LanguageAbilityMode getLanguageOfCommunication() {
-        return (LanguageAbilityMode) this.languageOfCommunication.getValue();
+    @Hl7XmlMapping({"asRole"})
+    public PayeeRelationshipRoleBean getAsRole() {
+        return this.asRole;
     }
-    public void setLanguageOfCommunication(LanguageAbilityMode languageOfCommunication) {
-        this.languageOfCommunication.setValue(languageOfCommunication);
-    }
-
-
-    /**
-     * <p>Preferred Language Indicator</p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
-    public Boolean getPreferredLanguageIndicator() {
-        return this.preferredLanguageIndicator.getValue();
-    }
-    public void setPreferredLanguageIndicator(Boolean preferredLanguageIndicator) {
-        this.preferredLanguageIndicator.setValue(preferredLanguageIndicator);
-    }
-
-
-    /**
-     * <p>Payee Person Language</p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/languageCode"})
-    public HumanLanguage getPayeePersonLanguage() {
-        return (HumanLanguage) this.payeePersonLanguage.getValue();
-    }
-    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
-        this.payeePersonLanguage.setValue(payeePersonLanguage);
+    public void setAsRole(PayeeRelationshipRoleBean asRole) {
+        this.asRole = asRole;
     }
 
 
@@ -101,12 +71,42 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
 
-    @Hl7XmlMapping({"asRole"})
-    public PayeeRelationshipRoleBean getAsRole() {
-        return this.asRole;
+    /**
+     * <p>Payee Person Language</p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/languageCode"})
+    public HumanLanguage getPayeePersonLanguage() {
+        return (HumanLanguage) this.payeePersonLanguage.getValue();
     }
-    public void setAsRole(PayeeRelationshipRoleBean asRole) {
-        this.asRole = asRole;
+    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
+        this.payeePersonLanguage.setValue(payeePersonLanguage);
+    }
+
+
+    /**
+     * <p>Language of Communication</p>
+     * 
+     * <p><p>A value presenting the method of expression of the 
+     * language.</p></p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/modeCode"})
+    public LanguageAbilityMode getLanguageOfCommunication() {
+        return (LanguageAbilityMode) this.languageOfCommunication.getValue();
+    }
+    public void setLanguageOfCommunication(LanguageAbilityMode languageOfCommunication) {
+        this.languageOfCommunication.setValue(languageOfCommunication);
+    }
+
+
+    /**
+     * <p>Preferred Language Indicator</p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
+    public Boolean getPreferredLanguageIndicator() {
+        return this.preferredLanguageIndicator.getValue();
+    }
+    public void setPreferredLanguageIndicator(Boolean preferredLanguageIndicator) {
+        this.preferredLanguageIndicator.setValue(preferredLanguageIndicator);
     }
 
 }

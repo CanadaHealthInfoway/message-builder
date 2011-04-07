@@ -45,13 +45,31 @@ import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt490000ca.Manufact
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
-    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
-    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
-    private ManufacturedMaterialKindBean manufacturedMaterialKind;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ManufacturedMaterialKindBean manufacturedMaterialKind;
+    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
+    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
     private CD productNumber = new CDImpl();
+
+
+    /**
+     * <p>Product Number</p>
+     * 
+     * <p><p>serial number</p></p>
+     * 
+     * <p>Product ID</p>
+     * 
+     * <p><p>serial number</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
 
 
     /**
@@ -73,21 +91,12 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Manufacturer Telecom</p>
-     * 
-     * <p><p>Telephone no. for manufacturer</p></p>
-     * 
-     * <p>Organisation telephone/email</p>
-     * 
-     * <p><p>Organisation telephone/email</p></p>
-     */
-    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
-    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
-        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
+    @Hl7XmlMapping({"manufacturedMaterialKind"})
+    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
+        return this.manufacturedMaterialKind;
     }
-    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
-        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
+    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
+        this.manufacturedMaterialKind = manufacturedMaterialKind;
     }
 
 
@@ -109,30 +118,21 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"manufacturedMaterialKind"})
-    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
-        return this.manufacturedMaterialKind;
-    }
-    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
-        this.manufacturedMaterialKind = manufacturedMaterialKind;
-    }
-
-
     /**
-     * <p>Product Number</p>
+     * <p>Manufacturer Telecom</p>
      * 
-     * <p><p>serial number</p></p>
+     * <p><p>Telephone no. for manufacturer</p></p>
      * 
-     * <p>Product ID</p>
+     * <p>Organisation telephone/email</p>
      * 
-     * <p><p>serial number</p></p>
+     * <p><p>Organisation telephone/email</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
+    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
+        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
+        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
     }
 
 

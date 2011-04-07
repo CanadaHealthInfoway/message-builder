@@ -29,15 +29,63 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientPerson"})
 public class PersonPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private PN patientName = new PNImpl();
+    private CV personGender = new CVImpl();
+    private TS personDateOfBirth = new TSImpl();
+    private BL personMultipleBirthIndicator = new BLImpl();
     private INT personMultipleBirthOrderNumber = new INTImpl();
     private II idOfParent = new IIImpl();
     private CE parentOrGuardianRelationshipToPatient = new CEImpl();
     private PN nameOfParentOrGuardian = new PNImpl();
-    private TS personDateOfBirth = new TSImpl();
-    private PN patientName = new PNImpl();
-    private BL personMultipleBirthIndicator = new BLImpl();
-    private CV personGender = new CVImpl();
+
+
+    /**
+     * <p>Patient Name</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>Person Gender</p>
+     */
+    @Hl7XmlMapping({"administrativeGenderCode"})
+    public AdministrativeGender getPersonGender() {
+        return (AdministrativeGender) this.personGender.getValue();
+    }
+    public void setPersonGender(AdministrativeGender personGender) {
+        this.personGender.setValue(personGender);
+    }
+
+
+    /**
+     * <p>Person Date of birth</p>
+     */
+    @Hl7XmlMapping({"birthTime"})
+    public Date getPersonDateOfBirth() {
+        return this.personDateOfBirth.getValue();
+    }
+    public void setPersonDateOfBirth(Date personDateOfBirth) {
+        this.personDateOfBirth.setValue(personDateOfBirth);
+    }
+
+
+    /**
+     * <p>Person multiple birth indicator</p>
+     */
+    @Hl7XmlMapping({"multipleBirthInd"})
+    public Boolean getPersonMultipleBirthIndicator() {
+        return this.personMultipleBirthIndicator.getValue();
+    }
+    public void setPersonMultipleBirthIndicator(Boolean personMultipleBirthIndicator) {
+        this.personMultipleBirthIndicator.setValue(personMultipleBirthIndicator);
+    }
 
 
     /**
@@ -85,54 +133,6 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     }
     public void setNameOfParentOrGuardian(PersonName nameOfParentOrGuardian) {
         this.nameOfParentOrGuardian.setValue(nameOfParentOrGuardian);
-    }
-
-
-    /**
-     * <p>Person Date of birth</p>
-     */
-    @Hl7XmlMapping({"birthTime"})
-    public Date getPersonDateOfBirth() {
-        return this.personDateOfBirth.getValue();
-    }
-    public void setPersonDateOfBirth(Date personDateOfBirth) {
-        this.personDateOfBirth.setValue(personDateOfBirth);
-    }
-
-
-    /**
-     * <p>Patient Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>Person multiple birth indicator</p>
-     */
-    @Hl7XmlMapping({"multipleBirthInd"})
-    public Boolean getPersonMultipleBirthIndicator() {
-        return this.personMultipleBirthIndicator.getValue();
-    }
-    public void setPersonMultipleBirthIndicator(Boolean personMultipleBirthIndicator) {
-        this.personMultipleBirthIndicator.setValue(personMultipleBirthIndicator);
-    }
-
-
-    /**
-     * <p>Person Gender</p>
-     */
-    @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPersonGender() {
-        return (AdministrativeGender) this.personGender.getValue();
-    }
-    public void setPersonGender(AdministrativeGender personGender) {
-        this.personGender.setValue(personGender);
     }
 
 }

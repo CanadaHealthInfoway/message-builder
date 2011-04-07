@@ -23,20 +23,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RecordedAtBean location;
+    private static final long serialVersionUID = 20110407L;
     private CS statusCode = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
+    private RecordedAtBean location;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
 
 
     /**
@@ -66,6 +57,15 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 

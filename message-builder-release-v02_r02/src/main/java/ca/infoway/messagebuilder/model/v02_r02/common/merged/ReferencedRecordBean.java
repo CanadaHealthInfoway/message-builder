@@ -47,7 +47,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> recordIds = new SETImpl<II, Identifier>(IIImpl.class);
 
 

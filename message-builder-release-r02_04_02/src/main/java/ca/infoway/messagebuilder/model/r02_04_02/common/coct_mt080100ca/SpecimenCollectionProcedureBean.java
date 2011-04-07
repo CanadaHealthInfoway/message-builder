@@ -37,33 +37,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
-    private CV specimenCollectionProcedureMethod = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private ST specimenCollectionText = new STImpl();
-    private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
     private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    /**
-     * <p>Specimen Collection Procedure Method</p>
-     * 
-     * <p><p>Method of specimen collection used primariy for 
-     * Surgical Pathology.</p></p>
-     */
-    @Hl7XmlMapping({"methodCode"})
-    public Code getSpecimenCollectionProcedureMethod() {
-        return (Code) this.specimenCollectionProcedureMethod.getValue();
-    }
-    public void setSpecimenCollectionProcedureMethod(Code specimenCollectionProcedureMethod) {
-        this.specimenCollectionProcedureMethod.setValue(specimenCollectionProcedureMethod);
-    }
+    private CV specimenCollectionProcedureMethod = new CVImpl();
+    private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
+    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
 
 
     /**
@@ -94,12 +73,6 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"performer/performerChoice"})
-    public List<PerformerChoice> getPerformerPerformerChoice() {
-        return this.performerPerformerChoice;
-    }
-
-
     /**
      * <p>E:Specimen Collection Date/Time</p>
      * 
@@ -121,6 +94,33 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
     public void setSpecimenCollectionDateTime(Interval<Date> specimenCollectionDateTime) {
         this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
+    }
+
+
+    /**
+     * <p>Specimen Collection Procedure Method</p>
+     * 
+     * <p><p>Method of specimen collection used primariy for 
+     * Surgical Pathology.</p></p>
+     */
+    @Hl7XmlMapping({"methodCode"})
+    public Code getSpecimenCollectionProcedureMethod() {
+        return (Code) this.specimenCollectionProcedureMethod.getValue();
+    }
+    public void setSpecimenCollectionProcedureMethod(Code specimenCollectionProcedureMethod) {
+        this.specimenCollectionProcedureMethod.setValue(specimenCollectionProcedureMethod);
+    }
+
+
+    @Hl7XmlMapping({"performer/performerChoice"})
+    public List<PerformerChoice> getPerformerPerformerChoice() {
+        return this.performerPerformerChoice;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 }

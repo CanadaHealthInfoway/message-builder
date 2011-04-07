@@ -45,50 +45,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private BL negationInd = new BLImpl();
-
-
-    /**
-     * <p>Not Allowed Reason</p>
-     * 
-     * <p><p>The reason why the prescriber has indicated that 
-     * substitution is not allowed by the dispensing pharmacy.</p></p>
-     * 
-     * <p><p>Some jurisdictions demand that a prescriber gives a 
-     * reason for prohibiting substitution.</p><p>The field is 
-     * marked as 'Populated' because the reason for substitution is 
-     * important to understanding the decision. However when a 
-     * prescription is being recorded in the pharmacy, the 
-     * information may not be available.</p></p>
-     * 
-     * <p><p>Some jurisdictions demand that a prescriber gives a 
-     * reason for prohibiting substitution.</p><p>The field is 
-     * marked as 'Populated' because the reason for substitution is 
-     * important to understanding the decision. However when a 
-     * prescription is being recorded in the pharmacy, the 
-     * information may not be available.</p></p>
-     * 
-     * <p>B:Substitution Not Allowed Reason</p>
-     * 
-     * <p><p>The reason why the prescriber has indicated that 
-     * substitution is not allowed by the dispensing pharmacy.</p></p>
-     * 
-     * <p><p>Some jurisdictions demand that a prescriber gives a 
-     * reason for prohibiting substitution. The field is marked as 
-     * 'Populated' because the reason for substitution is important 
-     * to understanding the decision. However when a prescription 
-     * is being recorded in the pharmacy, the information may not 
-     * be available.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionNotAllowedReason getReasonCode() {
-        return (SubstanceAdminSubstitutionNotAllowedReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
-    }
+    private CV reasonCode = new CVImpl();
 
 
     /**
@@ -132,6 +91,47 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
+    }
+
+
+    /**
+     * <p>Not Allowed Reason</p>
+     * 
+     * <p><p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution.</p><p>The field is 
+     * marked as 'Populated' because the reason for substitution is 
+     * important to understanding the decision. However when a 
+     * prescription is being recorded in the pharmacy, the 
+     * information may not be available.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution.</p><p>The field is 
+     * marked as 'Populated' because the reason for substitution is 
+     * important to understanding the decision. However when a 
+     * prescription is being recorded in the pharmacy, the 
+     * information may not be available.</p></p>
+     * 
+     * <p>B:Substitution Not Allowed Reason</p>
+     * 
+     * <p><p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution. The field is marked as 
+     * 'Populated' because the reason for substitution is important 
+     * to understanding the decision. However when a prescription 
+     * is being recorded in the pharmacy, the information may not 
+     * be available.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionNotAllowedReason getReasonCode() {
+        return (SubstanceAdminSubstitutionNotAllowedReason) this.reasonCode.getValue();
+    }
+    public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 }

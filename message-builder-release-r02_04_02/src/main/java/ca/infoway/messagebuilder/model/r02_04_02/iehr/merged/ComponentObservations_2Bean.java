@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT420001CA.SubObservationEvent","REPC_MT420003CA.SubObservationEvent"})
 public class ComponentObservations_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD componentObservationType = new CDImpl();
     private CD componentObservationValue = new CDImpl();
 

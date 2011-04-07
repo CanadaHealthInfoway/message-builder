@@ -58,212 +58,24 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private TS allergyIntoleranceDate = new TSImpl();
-    private RefusedByBean author;
-    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
-    private CV confirmedIndicator = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private static final long serialVersionUID = 20110407L;
     private II allergyIntoleranceRecordId = new IIImpl();
-    private CV agent = new CVImpl();
-    private List<Records> supportRecords = new ArrayList<Records>();
-    private BL subjectOf3AnnotationIndicator = new BLImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
-    private ReportedByBean informant;
+    private CS allergyIntoleranceStatus = new CSImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
     private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV confirmedIndicator = new CVImpl();
+    private CV agent = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private RefusedByBean author;
+    private ReportedByBean informant;
     private CreatedAtBean location;
-
-
-    /**
-     * <p>I:Allergy/Intolerance Date</p>
-     * 
-     * <p><p>The date on which the recorded allergy is considered 
-     * active.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the period of relevance 
-     * for the allergy/intolerance record.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
-    }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
-        return this.subjectOf2SeverityObservation;
-    }
-    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
-        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
-    }
-
-
-    /**
-     * <p>E:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
-     * longer active).</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'ACTIVE' and is therefore mandatory.</p></p>
-     * 
-     * <p><p>System must default the status to 'ACTIVE'.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public List<NotesBean> getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
-    }
-
-
-    /**
-     * <p>F:Confirmed Indicator</p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
-     * 
-     * <p><p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either U or 
-     * N.</p></p>
-     * 
-     * <p><p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either U or 
-     * N.</p></p>
-     */
-    @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getConfirmedIndicator() {
-        return (ActUncertainty) this.confirmedIndicator.getValue();
-    }
-    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
-        this.confirmedIndicator.setValue(confirmedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
+    private List<Records> supportRecords = new ArrayList<Records>();
+    private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
+    private BL subjectOf3AnnotationIndicator = new BLImpl(false);
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -282,40 +94,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
         this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
-    }
-
-
-    /**
-     * <p>B:Agent</p>
-     * 
-     * <p><p>Indicates the substance to which the patient is 
-     * allergic</p></p>
-     * 
-     * <p><p>Critical for identifying the allergy or intolerance. 
-     * Because it is not used for SNOMED, this element is 
-     * optional.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
-    }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
-    }
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
-    public Boolean getSubjectOf3AnnotationIndicator() {
-        return this.subjectOf3AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
-        this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
     }
 
 
@@ -362,12 +140,43 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    /**
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
+     * longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'ACTIVE' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'ACTIVE'.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+
+    /**
+     * <p>I:Allergy/Intolerance Date</p>
+     * 
+     * <p><p>The date on which the recorded allergy is considered 
+     * active.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the period of relevance 
+     * for the allergy/intolerance record.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyIntoleranceDate() {
+        return this.allergyIntoleranceDate.getValue();
+    }
+    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
+        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
     }
 
 
@@ -480,12 +289,203 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>F:Confirmed Indicator</p>
+     * 
+     * <p><p>An indication of the level of confidence/surety placed 
+     * in the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N</p></p>
+     * 
+     * <p><p>An indication of the level of confidence/surety placed 
+     * in the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N</p></p>
+     * 
+     * <p><p>An indication of the level of confidence/surety placed 
+     * in the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N</p></p>
+     * 
+     * <p><p>An indication of the level of confidence/surety placed 
+     * in the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N</p></p>
+     * 
+     * <p><p>An indication of the level of confidence/surety placed 
+     * in the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N</p></p>
+     * 
+     * <p><p>Helps other providers to make appropriate decisions in 
+     * their management of allergy or intolerance 
+     * contraindications.</p><p>Attribute is mandatory because an 
+     * allergy or intolerance record must be tagged as either U or 
+     * N.</p></p>
+     * 
+     * <p><p>Helps other providers to make appropriate decisions in 
+     * their management of allergy or intolerance 
+     * contraindications.</p><p>Attribute is mandatory because an 
+     * allergy or intolerance record must be tagged as either U or 
+     * N.</p></p>
+     */
+    @Hl7XmlMapping({"uncertaintyCode"})
+    public ActUncertainty getConfirmedIndicator() {
+        return (ActUncertainty) this.confirmedIndicator.getValue();
+    }
+    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
+        this.confirmedIndicator.setValue(confirmedIndicator);
+    }
+
+
+    /**
+     * <p>B:Agent</p>
+     * 
+     * <p><p>Indicates the substance to which the patient is 
+     * allergic</p></p>
+     * 
+     * <p><p>Critical for identifying the allergy or intolerance. 
+     * Because it is not used for SNOMED, this element is 
+     * optional.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public IntoleranceValue getAgent() {
+        return (IntoleranceValue) this.agent.getValue();
+    }
+    public void setAgent(IntoleranceValue agent) {
+        this.agent.setValue(agent);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public List<NotesBean> getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
+        return this.subjectOf2SeverityObservation;
+    }
+    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
+        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
+    public Boolean getSubjectOf3AnnotationIndicator() {
+        return this.subjectOf3AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
+        this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

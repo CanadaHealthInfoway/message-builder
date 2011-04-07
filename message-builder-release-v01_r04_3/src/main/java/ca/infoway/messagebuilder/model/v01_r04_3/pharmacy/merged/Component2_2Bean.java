@@ -12,18 +12,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.Component2","PORX_MT030040CA.Component6","PORX_MT060190CA.Component6"})
 public class Component2_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DispenseInstructions_2Bean supplyRequest;
+    private static final long serialVersionUID = 20110407L;
     private BL contextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"supplyRequest"})
-    public DispenseInstructions_2Bean getSupplyRequest() {
-        return this.supplyRequest;
-    }
-    public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
-        this.supplyRequest = supplyRequest;
-    }
+    private DispenseInstructions_2Bean supplyRequest;
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -32,6 +23,15 @@ public class Component2_2Bean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"supplyRequest"})
+    public DispenseInstructions_2Bean getSupplyRequest() {
+        return this.supplyRequest;
+    }
+    public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
+        this.supplyRequest = supplyRequest;
     }
 
 }

@@ -30,16 +30,16 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000001CA.ObservationEvent","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000005CA.ObservationEvent","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000009CA.ObservationEvent","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment","REPC_MT000013CA.ObservationEvent"})
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
     private ReportedReactionsBean subjectObservationEvent;
     private II reactionRecordId = new IIImpl();
+    private BL noReactionOccurred = new BLImpl();
+    private ST description = new STImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private ST description = new STImpl();
-    private BL noReactionOccurred = new BLImpl();
 
 
     /**
@@ -103,6 +103,34 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
+     * <p>NoReactionOccurred</p>
+     * 
+     * <p>D:No reaction occurred</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNoReactionOccurred() {
+        return this.noReactionOccurred.getValue();
+    }
+    public void setNoReactionOccurred(Boolean noReactionOccurred) {
+        this.noReactionOccurred.setValue(noReactionOccurred);
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p>G:Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
      * <p>ReactionOnsetDate</p>
      * 
      * <p>F:Reaction Onset Date</p>
@@ -122,34 +150,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
-    }
-
-
-    /**
-     * <p>Description</p>
-     * 
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    /**
-     * <p>NoReactionOccurred</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNoReactionOccurred() {
-        return this.noReactionOccurred.getValue();
-    }
-    public void setNoReactionOccurred(Boolean noReactionOccurred) {
-        this.noReactionOccurred.setValue(noReactionOccurred);
     }
 
 }

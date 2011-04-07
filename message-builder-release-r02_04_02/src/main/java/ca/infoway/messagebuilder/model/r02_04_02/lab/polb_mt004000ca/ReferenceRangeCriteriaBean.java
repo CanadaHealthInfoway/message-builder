@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEventCriterion"})
 public class ReferenceRangeCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD referenceRangeCriteriaType = new CDImpl();
     private ST referenceRangeCriteriaValue = new STImpl();
 

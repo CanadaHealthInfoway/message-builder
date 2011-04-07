@@ -24,10 +24,10 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II invoiceGroupID = new IIImpl();
-    private MO invoiceSubTotal = new MOImpl();
     private CV invoiceType = new CVImpl();
+    private MO invoiceSubTotal = new MOImpl();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
 
 
@@ -44,18 +44,6 @@ public class InvoiceElementGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Sub-total</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
-    }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
-    }
-
-
-    /**
      * <p>Invoice Type</p>
      */
     @Hl7XmlMapping({"code"})
@@ -64,6 +52,18 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
     public void setInvoiceType(Code invoiceType) {
         this.invoiceType.setValue(invoiceType);
+    }
+
+
+    /**
+     * <p>Invoice Sub-total</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getInvoiceSubTotal() {
+        return this.invoiceSubTotal.getValue();
+    }
+    public void setInvoiceSubTotal(Money invoiceSubTotal) {
+        this.invoiceSubTotal.setValue(invoiceSubTotal);
     }
 
 

@@ -28,25 +28,11 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II prescriberProviderID = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV rxDispenseIndicator = new CVImpl();
+    private II prescriberProviderID = new IIImpl();
     private List<CV> prescriptionStatuses = new ArrayList<CV>();
-
-
-    /**
-     * <p>PrescriberProviderID</p>
-     * 
-     * <p>D:Prescriber Provider ID</p>
-     */
-    @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
-    }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
-    }
+    private CV rxDispenseIndicator = new CVImpl();
 
 
     /**
@@ -66,16 +52,16 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>RxDispenseIndicator</p>
+     * <p>PrescriberProviderID</p>
      * 
-     * <p>Rx Dispense Indicator</p>
+     * <p>D:Prescriber Provider ID</p>
      */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public PrescriptionDispenseFilterCode getRxDispenseIndicator() {
-        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicator.getValue();
+    @Hl7XmlMapping({"prescriberProviderID/value"})
+    public Identifier getPrescriberProviderID() {
+        return this.prescriberProviderID.getValue();
     }
-    public void setRxDispenseIndicator(PrescriptionDispenseFilterCode rxDispenseIndicator) {
-        this.rxDispenseIndicator.setValue(rxDispenseIndicator);
+    public void setPrescriberProviderID(Identifier prescriberProviderID) {
+        this.prescriberProviderID.setValue(prescriberProviderID);
     }
 
 
@@ -87,6 +73,20 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     @Hl7XmlMapping({"prescriptionStatus/value"})
     public List<ActStatus> getPrescriptionStatuses() {
         return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    }
+
+
+    /**
+     * <p>RxDispenseIndicator</p>
+     * 
+     * <p>Rx Dispense Indicator</p>
+     */
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public PrescriptionDispenseFilterCode getRxDispenseIndicator() {
+        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicator.getValue();
+    }
+    public void setRxDispenseIndicator(PrescriptionDispenseFilterCode rxDispenseIndicator) {
+        this.rxDispenseIndicator.setValue(rxDispenseIndicator);
     }
 
 }

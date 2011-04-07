@@ -32,11 +32,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> nonHealthcareIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
     private ST nonHealthcareOrganizationName = new STImpl();
-    private CV nonHealthcareIdentificationCode = new CVImpl();
 
 
     /**
@@ -51,6 +51,25 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getNonHealthcareIdentification() {
         return this.nonHealthcareIdentification.rawSet();
+    }
+
+
+    /**
+     * <p>NonHealthcare Identification Code</p>
+     * 
+     * <p><p>A pan Canadian code further specifying the kind of 
+     * Role such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
+        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
+    }
+    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
+        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 
@@ -86,25 +105,6 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
     public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
         this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
-    }
-
-
-    /**
-     * <p>NonHealthcare Identification Code</p>
-     * 
-     * <p><p>A pan Canadian code further specifying the kind of 
-     * Role such as Drivers License, RCMP, DND, Social Insurance 
-     * Number</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
-        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
-    }
-    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
-        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 }

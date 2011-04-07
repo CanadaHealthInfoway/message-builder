@@ -19,11 +19,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV managementType = new CVImpl();
-    private ProviderBean authorAssignedPerson;
-    private TS managementDate = new TSImpl();
     private ST managementDescription = new STImpl();
+    private TS managementDate = new TSImpl();
+    private ProviderBean authorAssignedPerson;
 
 
     /**
@@ -40,12 +40,17 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/assignedPerson"})
-    public ProviderBean getAuthorAssignedPerson() {
-        return this.authorAssignedPerson;
+    /**
+     * <p>ManagementDescription</p>
+     * 
+     * <p>C:Management Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getManagementDescription() {
+        return this.managementDescription.getValue();
     }
-    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
-        this.authorAssignedPerson = authorAssignedPerson;
+    public void setManagementDescription(String managementDescription) {
+        this.managementDescription.setValue(managementDescription);
     }
 
 
@@ -63,17 +68,12 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>ManagementDescription</p>
-     * 
-     * <p>C:Management Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getManagementDescription() {
-        return this.managementDescription.getValue();
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
     }
-    public void setManagementDescription(String managementDescription) {
-        this.managementDescription.setValue(managementDescription);
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
     }
 
 }

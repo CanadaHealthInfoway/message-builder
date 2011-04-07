@@ -21,24 +21,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT400003CA.MaximumLimits","FICR_MT400004CA.MaximumLimits","FICR_MT490102CA.MaximumLimits"})
 public class MaximumLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ maximumQuantitySupply = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private INT maximumFillsPermitted = new INTImpl();
+    private PQ maximumQuantitySupply = new PQImpl();
     private IVL<TS, Interval<Date>> maximumDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>MaximumQuantitySupply</p>
-     * 
-     * <p>Maximum Quantity Supply</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getMaximumQuantitySupply() {
-        return this.maximumQuantitySupply.getValue();
-    }
-    public void setMaximumQuantitySupply(PhysicalQuantity maximumQuantitySupply) {
-        this.maximumQuantitySupply.setValue(maximumQuantitySupply);
-    }
 
 
     /**
@@ -52,6 +38,20 @@ public class MaximumLimitsBean extends MessagePartBean {
     }
     public void setMaximumFillsPermitted(Integer maximumFillsPermitted) {
         this.maximumFillsPermitted.setValue(maximumFillsPermitted);
+    }
+
+
+    /**
+     * <p>MaximumQuantitySupply</p>
+     * 
+     * <p>Maximum Quantity Supply</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getMaximumQuantitySupply() {
+        return this.maximumQuantitySupply.getValue();
+    }
+    public void setMaximumQuantitySupply(PhysicalQuantity maximumQuantitySupply) {
+        this.maximumQuantitySupply.setValue(maximumQuantitySupply);
     }
 
 

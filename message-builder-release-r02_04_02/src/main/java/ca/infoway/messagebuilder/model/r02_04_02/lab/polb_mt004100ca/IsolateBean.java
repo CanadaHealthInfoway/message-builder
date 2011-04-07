@@ -24,10 +24,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Isolate2"})
 public class IsolateBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II isolateIdentifier = new IIImpl();
     private CD microorganism = new CDImpl();
     private ST microorganismDescription = new STImpl();
-    private II isolateIdentifier = new IIImpl();
+
+
+    /**
+     * <p>Isolate Identifier</p>
+     * 
+     * <p><p>Unique identifier for the isolated microorganism.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIsolateIdentifier() {
+        return this.isolateIdentifier.getValue();
+    }
+    public void setIsolateIdentifier(Identifier isolateIdentifier) {
+        this.isolateIdentifier.setValue(isolateIdentifier);
+    }
 
 
     /**
@@ -56,20 +70,6 @@ public class IsolateBean extends MessagePartBean {
     }
     public void setMicroorganismDescription(String microorganismDescription) {
         this.microorganismDescription.setValue(microorganismDescription);
-    }
-
-
-    /**
-     * <p>Isolate Identifier</p>
-     * 
-     * <p><p>Unique identifier for the isolated microorganism.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIsolateIdentifier() {
-        return this.isolateIdentifier.getValue();
-    }
-    public void setIsolateIdentifier(Identifier isolateIdentifier) {
-        this.isolateIdentifier.setValue(isolateIdentifier);
     }
 
 }

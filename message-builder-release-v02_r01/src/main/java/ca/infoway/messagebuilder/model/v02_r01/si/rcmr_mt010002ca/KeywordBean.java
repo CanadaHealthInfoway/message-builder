@@ -22,19 +22,10 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20110407L;
     private ST keyword = new STImpl();
     private Consenter authorConsenter;
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
-    }
+    private List<CV> consentInformationTypes = new ArrayList<CV>();
 
 
     /**
@@ -69,6 +60,15 @@ public class KeywordBean extends MessagePartBean {
     }
     public boolean hasAuthorConsenterAsPersonalRelationship() {
         return (this.authorConsenter instanceof RelatedPersonBean);
+    }
+
+
+    /**
+     * <p>B:Consent Information Types</p>
+     */
+    @Hl7XmlMapping({"subject/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

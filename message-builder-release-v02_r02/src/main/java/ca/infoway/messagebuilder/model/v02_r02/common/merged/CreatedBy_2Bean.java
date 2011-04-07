@@ -43,53 +43,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ED<String> digitalSignature = new EDImpl<String>();
-    private CV informationReceivedMethod = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private TS timeOfCreation = new TSImpl();
+    private CV informationReceivedMethod = new CVImpl();
+    private ED<String> digitalSignature = new EDImpl<String>();
     private AuthorPerson authorPerson;
-
-
-    /**
-     * <p>DigitalSignature</p>
-     * 
-     * <p>G:Digital Signature</p>
-     * 
-     * <p><p>Indicates the formal digital signature of the message 
-     * content.</p></p>
-     * 
-     * <p><p>Digital signatures may be needed for authentication of 
-     * message content. The attribute is marked as optional because 
-     * it is not yet clear whether there is a use-case for this, or 
-     * where it will be used.</p></p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getDigitalSignature() {
-        return this.digitalSignature.getValue();
-    }
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature.setValue(digitalSignature);
-    }
-
-
-    /**
-     * <p>InformationReceivedMethod</p>
-     * 
-     * <p>F:Information Received Method</p>
-     * 
-     * <p><p>Indicates how the person who recorded the event became 
-     * aware of it.. E.g. Verbal, written, fax, etc.</p></p>
-     * 
-     * <p><p>May have ramifications for the audit trail and 
-     * reliability of the information.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationReceivedMethod() {
-        return (ParticipationMode) this.informationReceivedMethod.getValue();
-    }
-    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
-        this.informationReceivedMethod.setValue(informationReceivedMethod);
-    }
 
 
     /**
@@ -122,6 +80,48 @@ public class CreatedBy_2Bean extends MessagePartBean {
     }
     public void setTimeOfCreation(Date timeOfCreation) {
         this.timeOfCreation.setValue(timeOfCreation);
+    }
+
+
+    /**
+     * <p>InformationReceivedMethod</p>
+     * 
+     * <p>F:Information Received Method</p>
+     * 
+     * <p><p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p></p>
+     * 
+     * <p><p>May have ramifications for the audit trail and 
+     * reliability of the information.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getInformationReceivedMethod() {
+        return (ParticipationMode) this.informationReceivedMethod.getValue();
+    }
+    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
+        this.informationReceivedMethod.setValue(informationReceivedMethod);
+    }
+
+
+    /**
+     * <p>DigitalSignature</p>
+     * 
+     * <p>G:Digital Signature</p>
+     * 
+     * <p><p>Indicates the formal digital signature of the message 
+     * content.</p></p>
+     * 
+     * <p><p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p></p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getDigitalSignature() {
+        return this.digitalSignature.getValue();
+    }
+    public void setDigitalSignature(String digitalSignature) {
+        this.digitalSignature.setValue(digitalSignature);
     }
 
 

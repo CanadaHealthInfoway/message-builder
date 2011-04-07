@@ -48,84 +48,24 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private CV routeOfAdministration = new CVImpl();
-    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
-    private DrugProductBean consumableMedication;
+    private static final long serialVersionUID = 20110407L;
     private II administrationRecordId = new IIImpl();
-    private RefusedByBean author;
-    private BL subjectOf2DetectedIssueIndicator = new BLImpl();
     private CD otherMedicationType = new CDImpl();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private CS otherMedicationStatus = new CSImpl();
-    private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private BL subjectOf4AnnotationIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV routeOfAdministration = new CVImpl();
+    private DrugProductBean consumableMedication;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private RefusedByBean author;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>C:Drug Active Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/annotation"})
-    public List<NotesBean> getSubjectOf3Annotation() {
-        return this.subjectOf3Annotation;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>E:Route of Administration</p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
-    }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
+    private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
+    private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
+    private BL subjectOf4AnnotationIndicator = new BLImpl(false);
+    private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -137,24 +77,6 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setAdministrationRecordId(Identifier administrationRecordId) {
         this.administrationRecordId.setValue(administrationRecordId);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
-    public Boolean getSubjectOf2DetectedIssueIndicator() {
-        return this.subjectOf2DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
-        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
     }
 
 
@@ -171,21 +93,6 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Other Medication Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
-        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
-    }
-
-
-    /**
      * <p>B:Other Medication Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
@@ -197,9 +104,99 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
-        return this.subjectOf5DetectedIssueEvent;
+    /**
+     * <p>C:Drug Active Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
+    }
+
+
+    /**
+     * <p>D:Other Medication Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
+        return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>E:Route of Administration</p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteOfAdministration() {
+        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    }
+    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
+        this.routeOfAdministration.setValue(routeOfAdministration);
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
+    public Boolean getSubjectOf2DetectedIssueIndicator() {
+        return this.subjectOf2DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
+        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/annotation"})
+    public List<NotesBean> getSubjectOf3Annotation() {
+        return this.subjectOf3Annotation;
     }
 
 
@@ -212,12 +209,15 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
+        return this.subjectOf5DetectedIssueEvent;
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

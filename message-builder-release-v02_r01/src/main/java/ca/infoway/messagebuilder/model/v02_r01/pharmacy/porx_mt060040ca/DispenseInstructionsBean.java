@@ -27,15 +27,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private INT totalPrescribedQuantity = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private BL sourceOfContextConductionInd = new BLImpl();
-    private CS sourceOfContextControlCode = new CSImpl();
-    private CS sourceOfTypeCode = new CSImpl();
-    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private CS sourceOfTypeCode = new CSImpl();
+    private CS sourceOfContextControlCode = new CSImpl();
+    private BL sourceOfContextConductionInd = new BLImpl();
+    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
 
 
     /**
@@ -62,39 +62,12 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
-    public Boolean getSourceOfContextConductionInd() {
-        return this.sourceOfContextConductionInd.getValue();
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
-        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/contextControlCode"})
-    public ContextControl getSourceOfContextControlCode() {
-        return (ContextControl) this.sourceOfContextControlCode.getValue();
-    }
-    public void setSourceOfContextControlCode(ContextControl sourceOfContextControlCode) {
-        this.sourceOfContextControlCode.setValue(sourceOfContextControlCode);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/typeCode"})
-    public ActRelationshipType getSourceOfTypeCode() {
-        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
-    }
-    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
-        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
-    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
-        return this.sourceOfSupplementalFillInformation;
-    }
-    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
-        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -107,12 +80,39 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"sourceOf/typeCode"})
+    public ActRelationshipType getSourceOfTypeCode() {
+        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
+        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/contextControlCode"})
+    public ContextControl getSourceOfContextControlCode() {
+        return (ContextControl) this.sourceOfContextControlCode.getValue();
+    }
+    public void setSourceOfContextControlCode(ContextControl sourceOfContextControlCode) {
+        this.sourceOfContextControlCode.setValue(sourceOfContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
+    public Boolean getSourceOfContextConductionInd() {
+        return this.sourceOfContextConductionInd.getValue();
+    }
+    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
+        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
+    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
+        return this.sourceOfSupplementalFillInformation;
+    }
+    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
+        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
     }
 
 }

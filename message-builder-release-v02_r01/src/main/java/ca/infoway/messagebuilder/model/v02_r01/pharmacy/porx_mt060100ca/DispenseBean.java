@@ -35,36 +35,18 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SupplyEventBean component1SupplyEvent;
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private HealthcareWorkerBean performerAssignedEntity;
     private CS dispenseStatus = new CSImpl();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private ST renderedDosageInstruction = new STImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean performerAssignedEntity;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"component1/supplyEvent"})
-    public SupplyEventBean getComponent1SupplyEvent() {
-        return this.component1SupplyEvent;
-    }
-    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
-        this.component1SupplyEvent = component1SupplyEvent;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
-    }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
-    }
+    private SupplyEventBean component1SupplyEvent;
+    private ST renderedDosageInstruction = new STImpl();
+    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
     /**
@@ -76,42 +58,6 @@ public class DispenseBean extends MessagePartBean {
     }
     public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public Boolean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>E:Prescription Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 
@@ -127,12 +73,48 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    /**
+     * <p>E:Prescription Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component1/supplyEvent"})
+    public SupplyEventBean getComponent1SupplyEvent() {
+        return this.component1SupplyEvent;
+    }
+    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
+        this.component1SupplyEvent = component1SupplyEvent;
     }
 
 
@@ -148,12 +130,30 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
+    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+        return this.fulfillmentSubstanceAdministrationRequest;
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
+    public Boolean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 }

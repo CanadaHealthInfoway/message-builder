@@ -23,15 +23,122 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT dispensedQuantity = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private INT numberOfRemainingFills = new INTImpl();
-    private DeviceProductBean productManufacturedProduct;
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private INT numberOfRemainingFills = new INTImpl();
+    private INT dispensedQuantity = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DeviceProductBean productManufacturedProduct;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private RelatedPersonBean receiverPersonalRelationship;
+
+
+    /**
+     * <p>DispenseType</p>
+     * 
+     * <p>Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    }
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
+    }
+
+
+    /**
+     * <p>DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Dispense Processing and Pickup Date</p>
+     * 
+     * <p><p>Represents the date the dispense product was prepared 
+     * and when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p></p>
+     * 
+     * <p><p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking. This attribute is 
+     * mandatory because an existing dispense record must at least 
+     * indicate the date it was processed.</p></p>
+     * 
+     * <p><p>Must be able to post-date a dispense (enter 
+     * retroactively) e.g. system failure.</p></p>
+     * 
+     * <p>Dispense Processing and Pickup Date</p>
+     * 
+     * <p><p>Represents the date the dispense product was prepared 
+     * and when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p></p>
+     * 
+     * <p><p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking.</p><p>This attribute 
+     * is mandatory because an existing dispense record must at 
+     * least indicate the date it was processed.</p></p>
+     * 
+     * <p><p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking.</p><p>This attribute 
+     * is mandatory because an existing dispense record must at 
+     * least indicate the date it was processed.</p></p>
+     * 
+     * <p>Dispense Processing and Pickup Date</p>
+     * 
+     * <p><p>Represents the date the dispense product was prepared 
+     * and when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p></p>
+     * 
+     * <p><p>Used by the system in calculating expected exhaustion 
+     * time. Valuable in compliance checking. This attribute is 
+     * mandatory because an existing dispense record must at least 
+     * indicate the date it was processed.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseProcessingAndPickupDate() {
+        return this.dispenseProcessingAndPickupDate.getValue();
+    }
+    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
+        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    }
+
+
+    /**
+     * <p>NumberOfRemainingFills</p>
+     * 
+     * <p>Number of remaining fills</p>
+     * 
+     * <p><p>Stipulates the number of remaining fills for this 
+     * prescription</p></p>
+     * 
+     * <p><p>The number of remaining fills is used to evaluate the 
+     * &quot;completed&quot; status of the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfRemainingFills() {
+        return this.numberOfRemainingFills.getValue();
+    }
+    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
+        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
+    }
 
 
     /**
@@ -65,66 +172,6 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setDispensedQuantity(Integer dispensedQuantity) {
         this.dispensedQuantity.setValue(dispensedQuantity);
-    }
-
-
-    /**
-     * <p>DispenseType</p>
-     * 
-     * <p>Dispense Type</p>
-     * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
-     * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
-    }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>NumberOfRemainingFills</p>
-     * 
-     * <p>Number of remaining fills</p>
-     * 
-     * <p><p>Stipulates the number of remaining fills for this 
-     * prescription</p></p>
-     * 
-     * <p><p>The number of remaining fills is used to evaluate the 
-     * &quot;completed&quot; status of the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfRemainingFills() {
-        return this.numberOfRemainingFills.getValue();
-    }
-    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
-        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
-    }
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 
@@ -199,68 +246,21 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispenseProcessingAndPickupDate</p>
-     * 
-     * <p>Dispense Processing and Pickup Date</p>
-     * 
-     * <p><p>Represents the date the dispense product was prepared 
-     * and when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p></p>
-     * 
-     * <p><p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking. This attribute is 
-     * mandatory because an existing dispense record must at least 
-     * indicate the date it was processed.</p></p>
-     * 
-     * <p><p>Must be able to post-date a dispense (enter 
-     * retroactively) e.g. system failure.</p></p>
-     * 
-     * <p>Dispense Processing and Pickup Date</p>
-     * 
-     * <p><p>Represents the date the dispense product was prepared 
-     * and when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p></p>
-     * 
-     * <p><p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking.</p><p>This attribute 
-     * is mandatory because an existing dispense record must at 
-     * least indicate the date it was processed.</p></p>
-     * 
-     * <p><p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking.</p><p>This attribute 
-     * is mandatory because an existing dispense record must at 
-     * least indicate the date it was processed.</p></p>
-     * 
-     * <p>Dispense Processing and Pickup Date</p>
-     * 
-     * <p><p>Represents the date the dispense product was prepared 
-     * and when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p></p>
-     * 
-     * <p><p>Used by the system in calculating expected exhaustion 
-     * time. Valuable in compliance checking. This attribute is 
-     * mandatory because an existing dispense record must at least 
-     * indicate the date it was processed.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 

@@ -24,24 +24,24 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ dispensedQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private DrugProductBean productMedication;
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private PQ dispensedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
-     * <p>Dispensed Quantity</p>
+     * <p>Dispense Type</p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -58,23 +58,14 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -87,6 +78,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
         this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 

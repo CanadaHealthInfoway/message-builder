@@ -20,7 +20,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.PolicyUnderwriterBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV policyAccountCode = new CVImpl();
     private PolicyUnderwriterBean author;
 

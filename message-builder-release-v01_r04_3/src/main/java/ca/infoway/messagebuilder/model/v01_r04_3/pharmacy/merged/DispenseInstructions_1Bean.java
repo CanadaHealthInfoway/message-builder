@@ -19,38 +19,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT020060CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RecordedAtBean location;
-    private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private INT totalPrescribedQuantity = new INTImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private RecordedAtBean location;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private SupplementalFillInformationBean componentSupplementalFillInformation;
 
 
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>TotalPrescribedQuantity</p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>Total Prescribed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getTotalPrescribedQuantity() {
+        return this.totalPrescribedQuantity.getValue();
     }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalFillInformation"})
-    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
-        return this.componentSupplementalFillInformation;
-    }
-    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
-        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
+        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
     }
 
 
@@ -70,19 +59,30 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>TotalPrescribedQuantity</p>
-     * 
-     * <p>B:Total Prescribed Quantity</p>
-     * 
-     * <p>Total Prescribed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
     }
-    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalFillInformation"})
+    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
+        return this.componentSupplementalFillInformation;
+    }
+    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
+        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
 
 }

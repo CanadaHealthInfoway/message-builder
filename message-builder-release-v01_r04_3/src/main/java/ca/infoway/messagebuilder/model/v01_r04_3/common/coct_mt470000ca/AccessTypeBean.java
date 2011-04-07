@@ -17,18 +17,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20110407L;
     private ConsentGivenToBean receiver;
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject/actDefinition/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
-    }
+    private List<CV> consentInformationTypes = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"receiver"})
@@ -37,6 +28,15 @@ public class AccessTypeBean extends MessagePartBean {
     }
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
+    }
+
+
+    /**
+     * <p>B:Consent Information Types</p>
+     */
+    @Hl7XmlMapping({"subject/actDefinition/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

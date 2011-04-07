@@ -79,12 +79,12 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.si.merged.Consenter, ca.infoway.messagebuilder.model.v02_r02.merged.Choice, ca.infoway.messagebuilder.model.v02_r02.common.coct_mt120600ca.AssignedPerson, ca.infoway.messagebuilder.model.v02_r02.iehr.merged.Party, ActingPerson {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II relatedPersonIdentifier = new IIImpl();
     private CV code = new CVImpl();
     private PN relatedPersonName = new PNImpl();
-    private AD relatedPersonAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD relatedPersonAddress = new ADImpl();
 
 
     /**
@@ -1904,6 +1904,22 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
+     * <p>RelatedPersonPhonesAndEmails</p>
+     * 
+     * <p>E:Related Person Phones and Emails</p>
+     * 
+     * <p><p>The phone number(s) and email address(s) by which a 
+     * related person may be contacted.</p></p>
+     * 
+     * <p><p>Used to contact the related person.</p></p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/telecom"})
+    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
+        return this.relatedPersonPhonesAndEmails.rawSet();
+    }
+
+
+    /**
      * <p>RelatedPersonAddress</p>
      * 
      * <p>D:Related Person Address</p>
@@ -1919,22 +1935,6 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
         this.relatedPersonAddress.setValue(relatedPersonAddress);
-    }
-
-
-    /**
-     * <p>RelatedPersonPhonesAndEmails</p>
-     * 
-     * <p>E:Related Person Phones and Emails</p>
-     * 
-     * <p><p>The phone number(s) and email address(s) by which a 
-     * related person may be contacted.</p></p>
-     * 
-     * <p><p>Used to contact the related person.</p></p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
     }
 
 }

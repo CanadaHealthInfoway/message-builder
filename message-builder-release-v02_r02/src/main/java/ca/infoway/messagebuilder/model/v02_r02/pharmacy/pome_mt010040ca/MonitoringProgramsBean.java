@@ -30,10 +30,34 @@ import ca.infoway.messagebuilder.model.v02_r02.pharmacy.merged.AssignedEntity3Be
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV programType = new CVImpl();
     private ST programName = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
-    private CV programType = new CVImpl();
+
+
+    /**
+     * <p>Program Type</p>
+     * 
+     * <p><p>A coded value denoting a specific kind of monitoring 
+     * program. For example, &quot;Drugs of potential abuse&quot;, 
+     * &quot;Antibiotics&quot;, etc.</p></p>
+     * 
+     * <p><p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p></p>
+     * 
+     * <p><p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMonitoringProtocolCode getProgramType() {
+        return (ActMonitoringProtocolCode) this.programType.getValue();
+    }
+    public void setProgramType(ActMonitoringProtocolCode programType) {
+        this.programType.setValue(programType);
+    }
 
 
     /**
@@ -60,30 +84,6 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
     public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
         this.custodianAssignedEntity = custodianAssignedEntity;
-    }
-
-
-    /**
-     * <p>Program Type</p>
-     * 
-     * <p><p>A coded value denoting a specific kind of monitoring 
-     * program. For example, &quot;Drugs of potential abuse&quot;, 
-     * &quot;Antibiotics&quot;, etc.</p></p>
-     * 
-     * <p><p>Used for classifying and sorting monitoring 
-     * programs.</p><p>This is mandatory because, different program 
-     * types have different business rules.</p></p>
-     * 
-     * <p><p>Used for classifying and sorting monitoring 
-     * programs.</p><p>This is mandatory because, different program 
-     * types have different business rules.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActMonitoringProtocolCode getProgramType() {
-        return (ActMonitoringProtocolCode) this.programType.getValue();
-    }
-    public void setProgramType(ActMonitoringProtocolCode programType) {
-        this.programType.setValue(programType);
     }
 
 }

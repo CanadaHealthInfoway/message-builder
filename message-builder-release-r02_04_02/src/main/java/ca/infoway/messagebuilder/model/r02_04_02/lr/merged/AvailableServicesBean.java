@@ -55,10 +55,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV serviceType = new CVImpl();
-    private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
     private CS serviceAvailability = new CSImpl();
+    private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
 
 
     /**
@@ -78,28 +78,6 @@ public class AvailableServicesBean extends MessagePartBean {
     }
     public void setServiceType(ActServiceDeliveryLocationService serviceType) {
         this.serviceType.setValue(serviceType);
-    }
-
-
-    /**
-     * <p>ServiceAvailabilityTime</p>
-     * 
-     * <p>C: Service Availability Time</p>
-     * 
-     * <p><p>Specifies the time that a specific service is 
-     * generally available. E.g. 8am to 7pm, Monday through 
-     * Friday.</p></p>
-     * 
-     * <p><p>We'd like this to be String, but need a datatype 
-     * change to make that possible.</p></p>
-     * 
-     * <p><p>Allows for a greater level of detail on service 
-     * availability, i.e. hours of operation of a specific service 
-     * at this location.</p></p>
-     */
-    @Hl7XmlMapping({"activityTime"})
-    public Set<PeriodicIntervalTime> getServiceAvailabilityTime() {
-        return this.serviceAvailabilityTime.rawSet();
     }
 
 
@@ -132,6 +110,28 @@ public class AvailableServicesBean extends MessagePartBean {
     }
     public void setServiceAvailability(x_ActStatusActiveSuspended serviceAvailability) {
         this.serviceAvailability.setValue(serviceAvailability);
+    }
+
+
+    /**
+     * <p>ServiceAvailabilityTime</p>
+     * 
+     * <p>C: Service Availability Time</p>
+     * 
+     * <p><p>Specifies the time that a specific service is 
+     * generally available. E.g. 8am to 7pm, Monday through 
+     * Friday.</p></p>
+     * 
+     * <p><p>We'd like this to be String, but need a datatype 
+     * change to make that possible.</p></p>
+     * 
+     * <p><p>Allows for a greater level of detail on service 
+     * availability, i.e. hours of operation of a specific service 
+     * at this location.</p></p>
+     */
+    @Hl7XmlMapping({"activityTime"})
+    public Set<PeriodicIntervalTime> getServiceAvailabilityTime() {
+        return this.serviceAvailabilityTime.rawSet();
     }
 
 }

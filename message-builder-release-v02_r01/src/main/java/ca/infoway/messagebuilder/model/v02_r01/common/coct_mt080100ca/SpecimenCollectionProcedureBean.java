@@ -22,19 +22,22 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean performerAssignedEntity;
-    private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private ST specimenCollectionText = new STImpl();
+    private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
+    private HealthcareWorkerBean performerAssignedEntity;
     private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
 
 
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
+    /**
+     * <p>G:Specimen Collection Text</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getSpecimenCollectionText() {
+        return this.specimenCollectionText.getValue();
     }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
+    public void setSpecimenCollectionText(String specimenCollectionText) {
+        this.specimenCollectionText.setValue(specimenCollectionText);
     }
 
 
@@ -50,15 +53,12 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Specimen Collection Text</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getSpecimenCollectionText() {
-        return this.specimenCollectionText.getValue();
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
-    public void setSpecimenCollectionText(String specimenCollectionText) {
-        this.specimenCollectionText.setValue(specimenCollectionText);
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 

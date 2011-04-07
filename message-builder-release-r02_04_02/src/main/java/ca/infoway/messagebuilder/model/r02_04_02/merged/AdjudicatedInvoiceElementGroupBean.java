@@ -41,18 +41,38 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
-    private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
-    private PaymentIntentBean reasonPaymentIntent;
-    private MO netAmt = new MOImpl();
-    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
-    private CS statusCode = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private II adjudicationResultId = new IIImpl();
-    private AdjudicatedInvoiceAuthorBean author;
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private MO netAmt = new MOImpl();
+    private PaymentIntentBean reasonPaymentIntent;
+    private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
+    private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
     private AdjudicatedResultOutcomeBean outcomeOf;
+    private AdjudicatedInvoiceAuthorBean author;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+
+
+    /**
+     * <p>AdjudicationResultId</p>
+     * 
+     * <p>Adjudication Result Id</p>
+     * 
+     * <p><p>Adjudication Result Id - Technique to identify that 
+     * the EOB was not electronic (manual) is through the 
+     * participation mode code for the adjudicator.</p></p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicationResultId() {
+        return this.adjudicationResultId.getValue();
+    }
+    public void setAdjudicationResultId(Identifier adjudicationResultId) {
+        this.adjudicationResultId.setValue(adjudicationResultId);
+    }
 
 
     /**
@@ -108,57 +128,6 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setCode(Code code) {
         this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-    public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
-        this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
-    @Hl7XmlMapping({"reason/paymentIntent"})
-    public PaymentIntentBean getReasonPaymentIntent() {
-        return this.reasonPaymentIntent;
-    }
-    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
-        this.reasonPaymentIntent = reasonPaymentIntent;
-    }
-
-
-    /**
-     * <p>Paid Amount</p>
-     * 
-     * <p><p>Paid Amount</p></p>
-     * 
-     * <p><p>For Coverage Extension Results, this is typically not 
-     * specified, as dollar limits are noted as information 
-     * codes</p></p>
-     * 
-     * <p>Invoice Element amount billed</p>
-     * 
-     * <p><p>Identifies the total monetary amount billed for the 
-     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
-    }
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
-    }
-
-
-    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
-    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
-        return this.referencedByAdjudResultsGroup;
-    }
-    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
-        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
     }
 
 
@@ -269,31 +238,53 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>AdjudicationResultId</p>
+     * <p>Paid Amount</p>
      * 
-     * <p>Adjudication Result Id</p>
+     * <p><p>Paid Amount</p></p>
      * 
-     * <p><p>Adjudication Result Id - Technique to identify that 
-     * the EOB was not electronic (manual) is through the 
-     * participation mode code for the adjudicator.</p></p>
+     * <p><p>For Coverage Extension Results, this is typically not 
+     * specified, as dollar limits are noted as information 
+     * codes</p></p>
      * 
-     * <p><p>May include data centre and sequence numbers</p></p>
+     * <p>Invoice Element amount billed</p>
+     * 
+     * <p><p>Identifies the total monetary amount billed for the 
+     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultId() {
-        return this.adjudicationResultId.getValue();
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setAdjudicationResultId(Identifier adjudicationResultId) {
-        this.adjudicationResultId.setValue(adjudicationResultId);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public AdjudicatedInvoiceAuthorBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"reason/paymentIntent"})
+    public PaymentIntentBean getReasonPaymentIntent() {
+        return this.reasonPaymentIntent;
     }
-    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
-        this.author = author;
+    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
+        this.reasonPaymentIntent = reasonPaymentIntent;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+    public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
+        this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
+    public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
+        return this.referencedByAdjudResultsGroup;
+    }
+    public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
+        this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
     }
 
 
@@ -303,6 +294,15 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public AdjudicatedInvoiceAuthorBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
+        this.author = author;
     }
 
 

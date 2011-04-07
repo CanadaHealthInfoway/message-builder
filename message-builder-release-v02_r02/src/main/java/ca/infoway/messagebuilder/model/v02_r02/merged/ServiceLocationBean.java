@@ -95,12 +95,12 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II serviceLocationIdentifier = new IIImpl();
     private CV serviceLocationType = new CVImpl();
     private AD serviceLocationAddress = new ADImpl();
-    private ST serviceLocationName = new STImpl();
     private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST serviceLocationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
@@ -244,6 +244,24 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
+     * <p>ServiceLocationPhonesAndEMails</p>
+     * 
+     * <p>E:Service Location Phones and E-mails</p>
+     * 
+     * <p><p>The phone numbers and/or electronic mail addresses by 
+     * which a service location may be contacted.</p></p>
+     * 
+     * <p><p>Allows a service location to be communicated with and 
+     * is therefore important. Because a contact number won't 
+     * always exist, the field is marked 'populated'.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
+        return this.serviceLocationPhonesAndEMails.rawSet();
+    }
+
+
+    /**
      * <p>ServiceLocationName</p>
      * 
      * <p>B:Service Location Name</p>
@@ -268,24 +286,6 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
     public void setServiceLocationName(String serviceLocationName) {
         this.serviceLocationName.setValue(serviceLocationName);
-    }
-
-
-    /**
-     * <p>ServiceLocationPhonesAndEMails</p>
-     * 
-     * <p>E:Service Location Phones and E-mails</p>
-     * 
-     * <p><p>The phone numbers and/or electronic mail addresses by 
-     * which a service location may be contacted.</p></p>
-     * 
-     * <p><p>Allows a service location to be communicated with and 
-     * is therefore important. Because a contact number won't 
-     * always exist, the field is marked 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
     }
 
 

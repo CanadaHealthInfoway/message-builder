@@ -18,36 +18,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT queryResultSetSize = new INTImpl();
-    private INT queryItemsRemaining = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private II queryIdentifier = new IIImpl();
-    private INT queryItemsReturned = new INTImpl();
     private CS queryResultStatus = new CSImpl();
-
-
-    /**
-     * <p>O:Query Result-set Size</p>
-     */
-    @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getQueryResultSetSize() {
-        return this.queryResultSetSize.getValue();
-    }
-    public void setQueryResultSetSize(Integer queryResultSetSize) {
-        this.queryResultSetSize.setValue(queryResultSetSize);
-    }
-
-
-    /**
-     * <p>Q:Query Items Remaining</p>
-     */
-    @Hl7XmlMapping({"resultRemainingQuantity"})
-    public Integer getQueryItemsRemaining() {
-        return this.queryItemsRemaining.getValue();
-    }
-    public void setQueryItemsRemaining(Integer queryItemsRemaining) {
-        this.queryItemsRemaining.setValue(queryItemsRemaining);
-    }
+    private INT queryResultSetSize = new INTImpl();
+    private INT queryItemsReturned = new INTImpl();
+    private INT queryItemsRemaining = new INTImpl();
 
 
     /**
@@ -59,6 +35,30 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
     public void setQueryIdentifier(Identifier queryIdentifier) {
         this.queryIdentifier.setValue(queryIdentifier);
+    }
+
+
+    /**
+     * <p>N:Query Result Status</p>
+     */
+    @Hl7XmlMapping({"queryResponseCode"})
+    public QueryResponse getQueryResultStatus() {
+        return (QueryResponse) this.queryResultStatus.getValue();
+    }
+    public void setQueryResultStatus(QueryResponse queryResultStatus) {
+        this.queryResultStatus.setValue(queryResultStatus);
+    }
+
+
+    /**
+     * <p>O:Query Result-set Size</p>
+     */
+    @Hl7XmlMapping({"resultTotalQuantity"})
+    public Integer getQueryResultSetSize() {
+        return this.queryResultSetSize.getValue();
+    }
+    public void setQueryResultSetSize(Integer queryResultSetSize) {
+        this.queryResultSetSize.setValue(queryResultSetSize);
     }
 
 
@@ -75,14 +75,14 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>Q:Query Items Remaining</p>
      */
-    @Hl7XmlMapping({"queryResponseCode"})
-    public QueryResponse getQueryResultStatus() {
-        return (QueryResponse) this.queryResultStatus.getValue();
+    @Hl7XmlMapping({"resultRemainingQuantity"})
+    public Integer getQueryItemsRemaining() {
+        return this.queryItemsRemaining.getValue();
     }
-    public void setQueryResultStatus(QueryResponse queryResultStatus) {
-        this.queryResultStatus.setValue(queryResultStatus);
+    public void setQueryItemsRemaining(Integer queryItemsRemaining) {
+        this.queryItemsRemaining.setValue(queryItemsRemaining);
     }
 
 }

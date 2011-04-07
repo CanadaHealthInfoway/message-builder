@@ -33,15 +33,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CS otherMedicationIndicator = new CSImpl();
     private II activeMedicationRecordNumber = new IIImpl();
-    private CV activeMedicationMaskingIndicator = new CVImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private CD administrationType = new CDImpl();
     private CS activeMedicationStatus = new CSImpl();
-    private CS otherMedicationIndicator = new CSImpl();
-    private DrugProductBean consumableMedication;
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CV activeMedicationMaskingIndicator = new CVImpl();
     private PQ activeMedicationDoseQuantity = new PQImpl();
+    private DrugProductBean consumableMedication;
+
+
+    /**
+     * <p>Other Medication Indicator</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getOtherMedicationIndicator() {
+        return (x_ActMoodOrderEvent) this.otherMedicationIndicator.getValue();
+    }
+    public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
+        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    }
 
 
     /**
@@ -53,30 +65,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
         this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
-    }
-
-
-    /**
-     * <p>E:Active Medication Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
-    }
-    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
-        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
-    }
-
-
-    /**
-     * <p>C:Active Medication Time-range</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 
@@ -105,23 +93,26 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Medication Indicator</p>
+     * <p>C:Active Medication Time-range</p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getOtherMedicationIndicator() {
-        return (x_ActMoodOrderEvent) this.otherMedicationIndicator.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
     }
-    public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
-        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
+    /**
+     * <p>E:Active Medication Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getActiveMedicationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.activeMedicationMaskingIndicator.getValue();
     }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
+    public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
+        this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
     }
 
 
@@ -134,6 +125,15 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
         this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 }

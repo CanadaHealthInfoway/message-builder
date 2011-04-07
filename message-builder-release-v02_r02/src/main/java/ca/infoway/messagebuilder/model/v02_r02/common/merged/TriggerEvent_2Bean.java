@@ -113,31 +113,22 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CreatedBy_1Bean author;
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventType = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private StoredInBean recordTarget;
-    private ActingPerson dataEntererActingPerson;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private CreatedBy_1Bean author;
+    private ActingPerson dataEntererActingPerson;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private II queryIdentifier = new IIImpl();
     private INT startPosition = new INTImpl();
     private INT queryLimit = new INTImpl();
-    private II queryIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(CreatedBy_1Bean author) {
-        this.author = author;
-    }
 
 
     /**
@@ -166,6 +157,25 @@ public class TriggerEvent_2Bean extends MessagePartBean {
 
 
     /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
      * <p>EventEffectivePeriod</p>
      * 
      * <p>C:Event Effective Period</p>
@@ -185,25 +195,6 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
     }
 
 
@@ -233,36 +224,30 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
-    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
-        return this.pertinentInformationAuthorizationToken;
-    }
-    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
-        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
-    }
-
-
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
     @Hl7XmlMapping({"recordTarget"})
     public StoredInBean getRecordTarget() {
         return this.recordTarget;
     }
     public void setRecordTarget(StoredInBean recordTarget) {
         this.recordTarget = recordTarget;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public CreatedBy_1Bean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(CreatedBy_1Bean author) {
+        this.author = author;
     }
 
 
@@ -296,12 +281,12 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -311,6 +296,42 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
+    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
+        return this.pertinentInformationAuthorizationToken;
+    }
+    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
+        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Unique number for the query to be continued.</p></p>
+     * 
+     * <p><p>Links to the query for which continuation is desired. 
+     * Needed to ensure that the query is not re-executed, as the 
+     * results may have changed. As a result, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"queryContinuation/queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 
@@ -352,27 +373,6 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     }
     public void setQueryLimit(Integer queryLimit) {
         this.queryLimit.setValue(queryLimit);
-    }
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     * 
-     * <p><p>Unique number for the query to be continued.</p></p>
-     * 
-     * <p><p>Links to the query for which continuation is desired. 
-     * Needed to ensure that the query is not re-executed, as the 
-     * results may have changed. As a result, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryContinuation/queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 }

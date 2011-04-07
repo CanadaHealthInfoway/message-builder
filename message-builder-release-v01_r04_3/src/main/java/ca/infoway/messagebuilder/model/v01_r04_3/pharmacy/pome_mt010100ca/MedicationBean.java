@@ -35,32 +35,38 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private ST description = new STImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private DispensedInBean playerAsContent;
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
-    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST description = new STImpl();
     private CV drugForm = new CVImpl();
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
     private CS regulatoryStatusCode = new CSImpl();
-    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
+    private DispensedInBean playerAsContent;
+    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
     private DrugCostBean subjectOf1PotentialCharge;
+    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
 
-    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
-        return this.playerAsManufacturedProductManufacturer;
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"player/code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
-        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
-    @Hl7XmlMapping({"player/ingredient"})
-    public List<DrugContainsBean> getPlayerIngredient() {
-        return this.playerIngredient;
+    /**
+     * <p>B:Drug Names</p>
+     */
+    @Hl7XmlMapping({"player/name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
     }
 
 
@@ -77,42 +83,6 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Drug Names</p>
-     */
-    @Hl7XmlMapping({"player/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"player/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    @Hl7XmlMapping({"player/asSpecializedKind"})
-    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
-        return this.playerAsSpecializedKind;
-    }
-
-
-    /**
      * <p>D:Drug Form</p>
      */
     @Hl7XmlMapping({"player/formCode"})
@@ -121,6 +91,15 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
+        return this.playerAsManufacturedProductManufacturer;
+    }
+    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
+        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
     }
 
 
@@ -136,9 +115,24 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
-        return this.subjectOf2Characteristic;
+    @Hl7XmlMapping({"player/asContent"})
+    public DispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+    public void setPlayerAsContent(DispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
+    }
+
+
+    @Hl7XmlMapping({"player/asSpecializedKind"})
+    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
+        return this.playerAsSpecializedKind;
+    }
+
+
+    @Hl7XmlMapping({"player/ingredient"})
+    public List<DrugContainsBean> getPlayerIngredient() {
+        return this.playerIngredient;
     }
 
 
@@ -148,6 +142,12 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
+        return this.subjectOf2Characteristic;
     }
 
 }

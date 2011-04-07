@@ -28,28 +28,14 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV writtenIn = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private AssignedEntity3Bean authorAssignedEntity;
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV writtenIn = new CVImpl();
+    private AssignedEntity3Bean authorAssignedEntity;
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
-    }
 
 
     /**
@@ -81,6 +67,20 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
+     * <p>MonographContent</p>
+     * 
+     * <p>Monograph Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getMonographContent() {
+        return this.monographContent.getValue();
+    }
+    public void setMonographContent(EncapsulatedData monographContent) {
+        this.monographContent.setValue(monographContent);
+    }
+
+
+    /**
      * <p>Monograph Effective/Expiry Date</p>
      * 
      * <p>C:Medication Document Effective/Expiry Date</p>
@@ -94,26 +94,26 @@ public class MonographsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
+    }
+
+
     @Hl7XmlMapping({"author/assignedEntity"})
     public AssignedEntity3Bean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
     public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    /**
-     * <p>MonographContent</p>
-     * 
-     * <p>Monograph Content</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getMonographContent() {
-        return this.monographContent.getValue();
-    }
-    public void setMonographContent(EncapsulatedData monographContent) {
-        this.monographContent.setValue(monographContent);
     }
 
 

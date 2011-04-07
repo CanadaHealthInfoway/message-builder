@@ -24,15 +24,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private TEL sendingNetworkAddress = new TELImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private II sendingApplicationIdentifier = new IIImpl();
     private ST sendingApplicationName = new STImpl();
     private ST sendingApplicationConfigurationInformation = new STImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
     private ST sendingSoftwareVersionNumber = new STImpl();
-    private II sendingOrganizationIdentifier = new IIImpl();
     private ST sendingApplicationSoftwareName = new STImpl();
-    private II sendingApplicationIdentifier = new IIImpl();
+    private II sendingOrganizationIdentifier = new IIImpl();
 
 
     /**
@@ -60,22 +60,36 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationVersionDate</p>
+     * <p>SendingApplicationIdentifier</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>IA:Sending Application Identifier</p>
      * 
-     * <p><p>Indicates the last time the sending application was 
-     * modified or reconfigured.</p></p>
+     * <p><p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p></p>
      * 
-     * <p><p>Can help to isolate the source of a problem when 
-     * debugging.</p></p>
+     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
+     * 
+     * <p><p>Because this is the key identifier of where the 
+     * message is intended to go, this attribute is mandatory.</p></p>
+     * 
+     * <p>IA:Sending Application Identifier</p>
+     * 
+     * <p><p>The unique identifier of the application or system 
+     * from which the message has originated.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
+     * 
+     * <p><p>Because this is the key identifier of where the 
+     * message has originated, this attribute is mandatory in order 
+     * to support efficient logging, auditing and debugging 
+     * requirements.</p></p>
      */
-    @Hl7XmlMapping({"device/existenceTime"})
-    public Interval<Date> getSendingApplicationVersionDate() {
-        return this.sendingApplicationVersionDate.getValue();
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getSendingApplicationIdentifier() {
+        return this.sendingApplicationIdentifier.getValue();
     }
-    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
+        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
     }
 
 
@@ -120,6 +134,26 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
+     * <p>SendingApplicationVersionDate</p>
+     * 
+     * <p>IH:Sending Application Version Date</p>
+     * 
+     * <p><p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p></p>
+     * 
+     * <p><p>Can help to isolate the source of a problem when 
+     * debugging.</p></p>
+     */
+    @Hl7XmlMapping({"device/existenceTime"})
+    public Interval<Date> getSendingApplicationVersionDate() {
+        return this.sendingApplicationVersionDate.getValue();
+    }
+    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
+        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    }
+
+
+    /**
      * <p>SendingSoftwareVersionNumber</p>
      * 
      * <p>IG:Sending Software Version Number</p>
@@ -136,6 +170,26 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
         this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
+    }
+
+
+    /**
+     * <p>SendingApplicationSoftwareName</p>
+     * 
+     * <p>IF:Sending Application Software Name</p>
+     * 
+     * <p><p>Indicates the name of the software used to construct 
+     * the message.</p></p>
+     * 
+     * <p><p>May be used to filter messages based on sending 
+     * application compliance testing.</p></p>
+     */
+    @Hl7XmlMapping({"device/softwareName"})
+    public String getSendingApplicationSoftwareName() {
+        return this.sendingApplicationSoftwareName.getValue();
+    }
+    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
+        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
     }
 
 
@@ -165,60 +219,6 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
         this.sendingOrganizationIdentifier.setValue(sendingOrganizationIdentifier);
-    }
-
-
-    /**
-     * <p>SendingApplicationSoftwareName</p>
-     * 
-     * <p>IF:Sending Application Software Name</p>
-     * 
-     * <p><p>Indicates the name of the software used to construct 
-     * the message.</p></p>
-     * 
-     * <p><p>May be used to filter messages based on sending 
-     * application compliance testing.</p></p>
-     */
-    @Hl7XmlMapping({"device/softwareName"})
-    public String getSendingApplicationSoftwareName() {
-        return this.sendingApplicationSoftwareName.getValue();
-    }
-    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
-    }
-
-
-    /**
-     * <p>SendingApplicationIdentifier</p>
-     * 
-     * <p>IA:Sending Application Identifier</p>
-     * 
-     * <p><p>The unique identifier of the application or system to 
-     * whom the message is being routed.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
-     * 
-     * <p><p>Because this is the key identifier of where the 
-     * message is intended to go, this attribute is mandatory.</p></p>
-     * 
-     * <p>IA:Sending Application Identifier</p>
-     * 
-     * <p><p>The unique identifier of the application or system 
-     * from which the message has originated.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
-     * 
-     * <p><p>Because this is the key identifier of where the 
-     * message has originated, this attribute is mandatory in order 
-     * to support efficient logging, auditing and debugging 
-     * requirements.</p></p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getSendingApplicationIdentifier() {
-        return this.sendingApplicationIdentifier.getValue();
-    }
-    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
-        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
     }
 
 }

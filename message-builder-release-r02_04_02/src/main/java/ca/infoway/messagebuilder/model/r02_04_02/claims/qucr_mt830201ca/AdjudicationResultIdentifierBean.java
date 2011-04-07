@@ -34,15 +34,33 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II adjudicationResultIdentifier = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO paidAmount = new MOImpl();
-    private AdjudicatedResultOutcomeBean outcomeOf;
-    private TS adjudicationDateTime = new TSImpl();
-    private AdjudicatorIdBean authorAdjudicatorRole;
-    private CV eOBCommunicationMethod = new CVImpl();
     private CS contextControlCode = new CSImpl();
-    private II adjudicationResultIdentifier = new IIImpl();
+    private TS adjudicationDateTime = new TSImpl();
+    private CV eOBCommunicationMethod = new CVImpl();
+    private AdjudicatorIdBean authorAdjudicatorRole;
+    private AdjudicatedResultOutcomeBean outcomeOf;
+
+
+    /**
+     * <p>Adjudication Result Identifier</p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p></p>
+     * 
+     * <p><p>Technique to identify that the EOB was not electronic 
+     * (manual) is through the participation mode code for the 
+     * adjudicator.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicationResultIdentifier() {
+        return this.adjudicationResultIdentifier.getValue();
+    }
+    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
+        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
+    }
 
 
     /**
@@ -115,12 +133,15 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
+    /**
+     * <p>Context Control code</p>
+     */
+    @Hl7XmlMapping({"author/contextControlCode"})
+    public ContextControl getContextControlCode() {
+        return (ContextControl) this.contextControlCode.getValue();
     }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
+    public void setContextControlCode(ContextControl contextControlCode) {
+        this.contextControlCode.setValue(contextControlCode);
     }
 
 
@@ -138,15 +159,6 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
     public void setAdjudicationDateTime(Date adjudicationDateTime) {
         this.adjudicationDateTime.setValue(adjudicationDateTime);
-    }
-
-
-    @Hl7XmlMapping({"author/adjudicatorRole"})
-    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
-        return this.authorAdjudicatorRole;
-    }
-    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
-        this.authorAdjudicatorRole = authorAdjudicatorRole;
     }
 
 
@@ -182,33 +194,21 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Context Control code</p>
-     */
-    @Hl7XmlMapping({"author/contextControlCode"})
-    public ContextControl getContextControlCode() {
-        return (ContextControl) this.contextControlCode.getValue();
+    @Hl7XmlMapping({"author/adjudicatorRole"})
+    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
+        return this.authorAdjudicatorRole;
     }
-    public void setContextControlCode(ContextControl contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
+    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
+        this.authorAdjudicatorRole = authorAdjudicatorRole;
     }
 
 
-    /**
-     * <p>Adjudication Result Identifier</p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p></p>
-     * 
-     * <p><p>Technique to identify that the EOB was not electronic 
-     * (manual) is through the participation mode code for the 
-     * adjudicator.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultIdentifier() {
-        return this.adjudicationResultIdentifier.getValue();
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
-    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
-        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

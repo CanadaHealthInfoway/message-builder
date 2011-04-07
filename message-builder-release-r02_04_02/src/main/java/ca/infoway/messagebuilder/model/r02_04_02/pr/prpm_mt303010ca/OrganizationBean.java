@@ -28,88 +28,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private TerritorialAuthorityBean territorialAuthority;
+    private static final long serialVersionUID = 20110407L;
+    private II organizationId = new IIImpl();
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private AD issuingRepresentingQualificationGrantingOrganizationAddressEs = new ADImpl();
-    private II organizationId = new IIImpl();
-
-
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
-    }
-
-
-    /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
-     * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
-     * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
-     * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getIssuingRepresentingQualificationGrantingOrganizationNameS() {
-        return this.issuingRepresentingQualificationGrantingOrganizationNameS.getValue();
-    }
-    public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
-        this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
-    }
-
-
-    /**
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
-        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.getValue();
-    }
-    public void setIssuingRepresentingQualificationGrantingOrganizationAddressEs(PostalAddress issuingRepresentingQualificationGrantingOrganizationAddressEs) {
-        this.issuingRepresentingQualificationGrantingOrganizationAddressEs.setValue(issuingRepresentingQualificationGrantingOrganizationAddressEs);
-    }
+    private TerritorialAuthorityBean territorialAuthority;
 
 
     /**
@@ -185,6 +108,83 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setOrganizationId(Identifier organizationId) {
         this.organizationId.setValue(organizationId);
+    }
+
+
+    /**
+     * <p>(Issuing Representing Qualification Granting Organization 
+     * Name(s</p>
+     * 
+     * <p><p>1. Organization that is responsible for registering 
+     * the provider for a specific healthcare provider 
+     * role.</p><p>2. Organization associated with a provider'''s 
+     * functional role.</p><p>3. Organization that grants the 
+     * qualifications or expertise.</p></p>
+     * 
+     * <p><p>1. Organization that is responsible for registering 
+     * the provider for a specific healthcare provider 
+     * role.</p><p>2. Organization associated with a provider'''s 
+     * functional role.</p><p>3. Organization that grants the 
+     * qualifications or expertise.</p></p>
+     * 
+     * <p><p>1. Organization that is responsible for registering 
+     * the provider for a specific healthcare provider 
+     * role.</p><p>2. Organization associated with a provider'''s 
+     * functional role.</p><p>3. Organization that grants the 
+     * qualifications or expertise.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getIssuingRepresentingQualificationGrantingOrganizationNameS() {
+        return this.issuingRepresentingQualificationGrantingOrganizationNameS.getValue();
+    }
+    public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
+        this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
+    }
+
+
+    /**
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
+        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.getValue();
+    }
+    public void setIssuingRepresentingQualificationGrantingOrganizationAddressEs(PostalAddress issuingRepresentingQualificationGrantingOrganizationAddressEs) {
+        this.issuingRepresentingQualificationGrantingOrganizationAddressEs.setValue(issuingRepresentingQualificationGrantingOrganizationAddressEs);
+    }
+
+
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
+    }
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
     }
 
 }

@@ -45,15 +45,21 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV functionalRoleType = new CVImpl();
-    private OrganizationBean representedOrganization;
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPersonBean assignedPrincipalPerson;
+    private OrganizationBean representedOrganization;
     private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+
+
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
 
 
     /**
@@ -71,6 +77,12 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
     /**
      * <p>Functional Role Type</p>
      * 
@@ -85,15 +97,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
         this.functionalRoleType.setValue(functionalRoleType);
-    }
-
-
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
     }
 
 
@@ -121,21 +124,18 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
+    }
+
+
     @Hl7XmlMapping({"performance"})
     public List<PrimaryPerformer3Bean> getPerformance() {
         return this.performance;
-    }
-
-
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
-    }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 }

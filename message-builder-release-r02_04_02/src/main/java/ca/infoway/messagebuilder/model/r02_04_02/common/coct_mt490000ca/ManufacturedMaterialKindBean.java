@@ -32,14 +32,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV manufacturedMaterialCode = new CVImpl();
     private ST packageDescription = new STImpl();
+    private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
+    private ST warrantorOrganisationName = new STImpl();
+    private TEL warrantorOrganisationTelecom = new TELImpl();
     private PQ packageQuantity = new PQImpl();
     private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
-    private TEL warrantorOrganisationTelecom = new TELImpl();
-    private ST warrantorOrganisationName = new STImpl();
-    private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -72,6 +72,48 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Time of warranty</p>
+     * 
+     * <p><p>time of warranty</p></p>
+     */
+    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
+    public Interval<Date> getTimeOfWarranty() {
+        return this.timeOfWarranty.getValue();
+    }
+    public void setTimeOfWarranty(Interval<Date> timeOfWarranty) {
+        this.timeOfWarranty.setValue(timeOfWarranty);
+    }
+
+
+    /**
+     * <p>Warrantor Organisation Name</p>
+     * 
+     * <p><p>name of Organization that holds warranty</p></p>
+     */
+    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
+    public String getWarrantorOrganisationName() {
+        return this.warrantorOrganisationName.getValue();
+    }
+    public void setWarrantorOrganisationName(String warrantorOrganisationName) {
+        this.warrantorOrganisationName.setValue(warrantorOrganisationName);
+    }
+
+
+    /**
+     * <p>Warrantor Organisation telecom</p>
+     * 
+     * <p><p>Warrantor Organization telephone number</p></p>
+     */
+    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
+    public TelecommunicationAddress getWarrantorOrganisationTelecom() {
+        return this.warrantorOrganisationTelecom.getValue();
+    }
+    public void setWarrantorOrganisationTelecom(TelecommunicationAddress warrantorOrganisationTelecom) {
+        this.warrantorOrganisationTelecom.setValue(warrantorOrganisationTelecom);
+    }
+
+
+    /**
      * <p>Package Quantity</p>
      * 
      * <p><p>number of items in the package</p></p>
@@ -91,48 +133,6 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
     public void setContentPackagedProductContainedManufacturedMaterialKind(ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind) {
         this.contentPackagedProductContainedManufacturedMaterialKind = contentPackagedProductContainedManufacturedMaterialKind;
-    }
-
-
-    /**
-     * <p>Warrantor Organisation telecom</p>
-     * 
-     * <p><p>Warrantor Organization telephone number</p></p>
-     */
-    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
-    public TelecommunicationAddress getWarrantorOrganisationTelecom() {
-        return this.warrantorOrganisationTelecom.getValue();
-    }
-    public void setWarrantorOrganisationTelecom(TelecommunicationAddress warrantorOrganisationTelecom) {
-        this.warrantorOrganisationTelecom.setValue(warrantorOrganisationTelecom);
-    }
-
-
-    /**
-     * <p>Warrantor Organisation Name</p>
-     * 
-     * <p><p>name of Organization that holds warranty</p></p>
-     */
-    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
-    public String getWarrantorOrganisationName() {
-        return this.warrantorOrganisationName.getValue();
-    }
-    public void setWarrantorOrganisationName(String warrantorOrganisationName) {
-        this.warrantorOrganisationName.setValue(warrantorOrganisationName);
-    }
-
-
-    /**
-     * <p>Time of warranty</p>
-     * 
-     * <p><p>time of warranty</p></p>
-     */
-    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
-    public Interval<Date> getTimeOfWarranty() {
-        return this.timeOfWarranty.getValue();
-    }
-    public void setTimeOfWarranty(Interval<Date> timeOfWarranty) {
-        this.timeOfWarranty.setValue(timeOfWarranty);
     }
 
 }

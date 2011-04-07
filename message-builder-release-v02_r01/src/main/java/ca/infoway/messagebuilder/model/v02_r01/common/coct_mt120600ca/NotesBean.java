@@ -21,10 +21,22 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private ST noteText = new STImpl();
     private TS noteTimestamp = new TSImpl();
     private AssignedPerson authorAssignedPerson;
-    private ST noteText = new STImpl();
+
+
+    /**
+     * <p>B: Note Text</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getNoteText() {
+        return this.noteText.getValue();
+    }
+    public void setNoteText(String noteText) {
+        this.noteText.setValue(noteText);
+    }
 
 
     /**
@@ -108,18 +120,6 @@ public class NotesBean extends MessagePartBean {
     }
     public boolean hasAuthorAssignedPersonAsPersonalRelationship4() {
         return (this.authorAssignedPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>B: Note Text</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getNoteText() {
-        return this.noteText.getValue();
-    }
-    public void setNoteText(String noteText) {
-        this.noteText.setValue(noteText);
     }
 
 }

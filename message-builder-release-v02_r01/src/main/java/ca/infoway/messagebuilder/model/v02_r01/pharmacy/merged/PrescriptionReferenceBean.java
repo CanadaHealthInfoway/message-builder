@@ -34,55 +34,22 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private Includes_1Bean component2;
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
-    private ProcedureRequestBean component1ProcedureRequest;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private NotesBean subjectOfAnnotation;
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private DeviceProductBean directTargetManufacturedProduct;
     private CS prescriptionStatus = new CSImpl();
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-    private RefusedByBean author;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private DeviceProductBean directTargetManufacturedProduct;
+    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private ProcedureRequestBean component1ProcedureRequest;
+    private Includes_1Bean component2;
+    private NotesBean subjectOfAnnotation;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private DispenseInstructions_2Bean componentSupplyRequest;
+    private RefusedByBean author;
     private BL componentContextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"component2"})
-    public Includes_1Bean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(Includes_1Bean component2) {
-        this.component2 = component2;
-    }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
-    }
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
-    }
-
-
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
-    }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
+    private DispenseInstructions_2Bean componentSupplyRequest;
 
 
     /**
@@ -102,41 +69,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionMaskingIndicators</p>
-     * 
-     * <p>F:Prescription Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
-    }
-
-
-    /**
      * <p>PrescriptionStatus</p>
      * 
      * <p>C:Prescription Status</p>
@@ -150,6 +82,41 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescriptionMaskingIndicators</p>
+     * 
+     * <p>F:Prescription Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
+    }
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
+    }
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -159,12 +126,36 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+
+
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
+    }
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public Includes_1Bean getComponent2() {
+        return this.component2;
+    }
+    public void setComponent2(Includes_1Bean component2) {
+        this.component2 = component2;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -177,12 +168,12 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplyRequest"})
-    public DispenseInstructions_2Bean getComponentSupplyRequest() {
-        return this.componentSupplyRequest;
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
-    public void setComponentSupplyRequest(DispenseInstructions_2Bean componentSupplyRequest) {
-        this.componentSupplyRequest = componentSupplyRequest;
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -192,6 +183,15 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
     public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
         this.componentContextConductionInd.setValue(componentContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"component/supplyRequest"})
+    public DispenseInstructions_2Bean getComponentSupplyRequest() {
+        return this.componentSupplyRequest;
+    }
+    public void setComponentSupplyRequest(DispenseInstructions_2Bean componentSupplyRequest) {
+        this.componentSupplyRequest = componentSupplyRequest;
     }
 
 }

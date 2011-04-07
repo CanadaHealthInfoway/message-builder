@@ -44,19 +44,10 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.UnderwriterBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private UnderwriterBean authorUnderwriter;
+    private static final long serialVersionUID = 20110407L;
     private CS extensionGrantedIndicator = new CSImpl();
     private II coverageExtensionId = new IIImpl();
-
-
-    @Hl7XmlMapping({"author/underwriter"})
-    public UnderwriterBean getAuthorUnderwriter() {
-        return this.authorUnderwriter;
-    }
-    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
-        this.authorUnderwriter = authorUnderwriter;
-    }
+    private UnderwriterBean authorUnderwriter;
 
 
     /**
@@ -152,6 +143,15 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     }
     public void setCoverageExtensionId(Identifier coverageExtensionId) {
         this.coverageExtensionId.setValue(coverageExtensionId);
+    }
+
+
+    @Hl7XmlMapping({"author/underwriter"})
+    public UnderwriterBean getAuthorUnderwriter() {
+        return this.authorUnderwriter;
+    }
+    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
+        this.authorUnderwriter = authorUnderwriter;
     }
 
 }

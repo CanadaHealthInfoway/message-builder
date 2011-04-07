@@ -27,33 +27,39 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SubstitutionBean component1SubstitutionMade;
-    private PatientBean recordTargetPatient;
-    private Patient subjectPatient1;
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II localDispenseId = new IIImpl();
+    private CV prescriptionMaskingIndicator = new CVImpl();
+    private Patient subjectPatient1;
+    private PatientBean recordTargetPatient;
     private SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
+    private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
     private CommentBean subjectOfAnnotation;
 
 
-    @Hl7XmlMapping({"component1/substitutionMade"})
-    public SubstitutionBean getComponent1SubstitutionMade() {
-        return this.component1SubstitutionMade;
+    /**
+     * <p>A:Local Dispense Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getLocalDispenseId() {
+        return this.localDispenseId.getValue();
     }
-    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
-        this.component1SubstitutionMade = component1SubstitutionMade;
+    public void setLocalDispenseId(Identifier localDispenseId) {
+        this.localDispenseId.setValue(localDispenseId);
     }
 
 
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
+    /**
+     * <p>E:Prescription Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
     }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
+        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
     }
 
 
@@ -80,27 +86,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Prescription Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
-    }
-
-
-    /**
-     * <p>A:Local Dispense Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseId() {
-        return this.localDispenseId.getValue();
-    }
-    public void setLocalDispenseId(Identifier localDispenseId) {
-        this.localDispenseId.setValue(localDispenseId);
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -110,6 +101,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitutionMade"})
+    public SubstitutionBean getComponent1SubstitutionMade() {
+        return this.component1SubstitutionMade;
+    }
+    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
+        this.component1SubstitutionMade = component1SubstitutionMade;
     }
 
 

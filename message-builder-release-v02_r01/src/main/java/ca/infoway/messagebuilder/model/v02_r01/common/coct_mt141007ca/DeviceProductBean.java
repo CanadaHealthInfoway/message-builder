@@ -4,11 +4,9 @@ package ca.infoway.messagebuilder.model.v02_r01.common.coct_mt141007ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -21,45 +19,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
-    private INT devicePackageQuantity = new INTImpl();
-    private ST deviceDescription = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV deviceCode = new CVImpl();
     private ST deviceName = new STImpl();
-
-
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
-    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
-        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
-    }
-    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
-        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
-    }
-
-
-    /**
-     * <p>F:Device Package Quantity</p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
-    public Integer getDevicePackageQuantity() {
-        return this.devicePackageQuantity.getValue();
-    }
-    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
-        this.devicePackageQuantity.setValue(devicePackageQuantity);
-    }
-
-
-    /**
-     * <p>C:Device Description</p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
-    public String getDeviceDescription() {
-        return this.deviceDescription.getValue();
-    }
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription.setValue(deviceDescription);
-    }
+    private ST deviceDescription = new STImpl();
+    private INT devicePackageQuantity = new INTImpl();
 
 
     /**
@@ -83,6 +47,30 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
+    }
+
+
+    /**
+     * <p>C:Device Description</p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
+    public String getDeviceDescription() {
+        return this.deviceDescription.getValue();
+    }
+    public void setDeviceDescription(String deviceDescription) {
+        this.deviceDescription.setValue(deviceDescription);
+    }
+
+
+    /**
+     * <p>F:Device Package Quantity</p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
+    public Integer getDevicePackageQuantity() {
+        return this.devicePackageQuantity.getValue();
+    }
+    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
+        this.devicePackageQuantity.setValue(devicePackageQuantity);
     }
 
 }

@@ -32,14 +32,28 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.CoveredParty","FICR_MT400003CA.CoveredParty","FICR_MT400004CA.CoveredParty","FICR_MT490101CA.CoveredParty","FICR_MT490102CA.CoveredParty"})
 public class CoveredPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II coveredPartyIdentifier = new IIImpl();
     private CV relationshipToPolicyHolder = new CVImpl();
     private SET<PN, PersonName> coveredPartyPatientNameS = new SETImpl<PN, PersonName>(PNImpl.class);
-    private AD coveredPartyPatientAddress = new ADImpl();
-    private TS coveredPartyPatientDateOfBirth = new TSImpl();
     private CV coveredPartyPatientGender = new CVImpl();
+    private TS coveredPartyPatientDateOfBirth = new TSImpl();
+    private AD coveredPartyPatientAddress = new ADImpl();
     private List<RelatedPersonBean> indirectAuthorityPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private II coveredPartyIdentifier = new IIImpl();
+
+
+    /**
+     * <p>CoveredPartyIdentifier</p>
+     * 
+     * <p>Covered Party Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getCoveredPartyIdentifier() {
+        return this.coveredPartyIdentifier.getValue();
+    }
+    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
+        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
+    }
 
 
     /**
@@ -68,16 +82,16 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientAddress</p>
+     * <p>CoveredPartyPatientGender</p>
      * 
-     * <p>Covered Party (Patient) Address</p>
+     * <p>Covered Party (Patient) Gender</p>
      */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/addr"})
-    public PostalAddress getCoveredPartyPatientAddress() {
-        return this.coveredPartyPatientAddress.getValue();
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
+    public AdministrativeGender getCoveredPartyPatientGender() {
+        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
     }
-    public void setCoveredPartyPatientAddress(PostalAddress coveredPartyPatientAddress) {
-        this.coveredPartyPatientAddress.setValue(coveredPartyPatientAddress);
+    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
+        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
     }
 
 
@@ -96,36 +110,22 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientGender</p>
+     * <p>CoveredPartyPatientAddress</p>
      * 
-     * <p>Covered Party (Patient) Gender</p>
+     * <p>Covered Party (Patient) Address</p>
      */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
-    public AdministrativeGender getCoveredPartyPatientGender() {
-        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/addr"})
+    public PostalAddress getCoveredPartyPatientAddress() {
+        return this.coveredPartyPatientAddress.getValue();
     }
-    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
-        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
+    public void setCoveredPartyPatientAddress(PostalAddress coveredPartyPatientAddress) {
+        this.coveredPartyPatientAddress.setValue(coveredPartyPatientAddress);
     }
 
 
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
     public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;
-    }
-
-
-    /**
-     * <p>CoveredPartyIdentifier</p>
-     * 
-     * <p>Covered Party Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getCoveredPartyIdentifier() {
-        return this.coveredPartyIdentifier.getValue();
-    }
-    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
-        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
     }
 
 }

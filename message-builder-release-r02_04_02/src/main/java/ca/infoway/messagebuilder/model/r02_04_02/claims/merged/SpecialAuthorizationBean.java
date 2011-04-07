@@ -23,32 +23,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
-    private HealthcareOrganizationBean authorAssignedEntity;
+    private static final long serialVersionUID = 20110407L;
     private CS specialAuthorizationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
+    private HealthcareOrganizationBean authorAssignedEntity;
+    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
     private MaximumLimitsBean limitationMaximumLimits;
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
-        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareOrganizationBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
+    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
 
 
     /**
@@ -79,9 +61,21 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareOrganizationBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
+        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
@@ -97,6 +91,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
     public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
         this.limitationMaximumLimits = limitationMaximumLimits;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 }

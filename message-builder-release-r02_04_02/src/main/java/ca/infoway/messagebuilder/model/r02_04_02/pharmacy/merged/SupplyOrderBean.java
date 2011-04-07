@@ -41,48 +41,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private CS prescriptionStatus = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
-    private CS prescriptionStatus = new CSImpl();
-    private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>PrescriptionStatus</p>
-     * 
-     * <p>Prescription Status</p>
-     * 
-     * <p><p>Provides the status of the prescription without 
-     * requiring additional queries</p></p>
-     * 
-     * <p><p>Needed in some jurisdictions</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
-    }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
-    }
 
 
     /**
@@ -108,6 +71,43 @@ public class SupplyOrderBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPrescriptionIdentifier() {
         return this.prescriptionIdentifier.rawSet();
+    }
+
+
+    /**
+     * <p>PrescriptionStatus</p>
+     * 
+     * <p>Prescription Status</p>
+     * 
+     * <p><p>Provides the status of the prescription without 
+     * requiring additional queries</p></p>
+     * 
+     * <p><p>Needed in some jurisdictions</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
+    }
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 }

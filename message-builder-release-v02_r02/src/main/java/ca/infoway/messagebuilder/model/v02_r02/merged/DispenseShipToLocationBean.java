@@ -156,13 +156,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
 public class DispenseShipToLocationBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II serviceDeliveryLocationIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private CV serviceDeliveryLocationType = new CVImpl();
     private AD addr = new ADImpl();
-    private ST serviceDeliveryLocationName = new STImpl();
     private TEL serviceDeliveryLocationTelecom = new TELImpl();
+    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private ST serviceDeliveryLocationName = new STImpl();
 
 
     /**
@@ -182,26 +182,6 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
     public void setServiceDeliveryLocationIdentifier(Identifier serviceDeliveryLocationIdentifier) {
         this.serviceDeliveryLocationIdentifier.setValue(serviceDeliveryLocationIdentifier);
-    }
-
-
-    /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Service Delivery Location Effective Date</p>
-     * 
-     * <p><p>Effective date of the specific service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
-    }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
     }
 
 
@@ -285,25 +265,6 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
-     * 
-     * <p>Service Delivery Location Name</p>
-     * 
-     * <p><p>The name of the service delivery location</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceDeliveryLocationName() {
-        return this.serviceDeliveryLocationName.getValue();
-    }
-    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
-        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
-    }
-
-
-    /**
      * <p>ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Service Delivery Location Telecom</p>
@@ -320,6 +281,45 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
     public void setServiceDeliveryLocationTelecom(TelecommunicationAddress serviceDeliveryLocationTelecom) {
         this.serviceDeliveryLocationTelecom.setValue(serviceDeliveryLocationTelecom);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Service Delivery Location Effective Date</p>
+     * 
+     * <p><p>Effective date of the specific service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
+        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    }
+    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
+        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationName</p>
+     * 
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceDeliveryLocationName() {
+        return this.serviceDeliveryLocationName.getValue();
+    }
+    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
+        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
     }
 
 }

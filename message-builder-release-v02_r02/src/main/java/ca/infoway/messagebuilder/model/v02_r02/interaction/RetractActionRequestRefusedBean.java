@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.v02_r02.common.merged.TriggerEvent_1Bean;
 @Hl7PartTypeMapping({"COMT_IN600003CA"})
 public class RetractActionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

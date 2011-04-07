@@ -25,14 +25,46 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private RelatedPersonBean receiverPersonalRelationship;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ dispensedQuantity = new PQImpl();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
+    private RelatedPersonBean receiverPersonalRelationship;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+
+
+    /**
+     * <p>DispenseType</p>
+     * 
+     * <p>Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p>B:Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    }
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
+    }
 
 
     /**
@@ -101,34 +133,34 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>DispensedQuantity</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Dispensed Quantity</p>
      * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
      * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
      * 
-     * <p>B:Dispense Type</p>
+     * <p>F:Dispensed Quantity</p>
      * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
      * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 
@@ -185,6 +217,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
@@ -194,53 +235,12 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     * 
-     * <p>F:Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
-    }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
-    }
-
-
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
     }
 
 }

@@ -42,11 +42,31 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV responseCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS messageType = new CSImpl();
-    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
+    private CV responseCode = new CVImpl();
     private ST messageDescription = new STImpl();
+    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
+
+
+    /**
+     * <p>MessageType</p>
+     * 
+     * <p>Message type</p>
+     * 
+     * <p><p>Distinguishes between errors, warnings and information 
+     * messages.</p></p>
+     * 
+     * <p><p>Different types of messages have substantially 
+     * different ramifications.</p></p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public AcknowledgementDetailType getMessageType() {
+        return (AcknowledgementDetailType) this.messageType.getValue();
+    }
+    public void setMessageType(AcknowledgementDetailType messageType) {
+        this.messageType.setValue(messageType);
+    }
 
 
     /**
@@ -89,22 +109,24 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageType</p>
+     * <p>MessageDescription</p>
      * 
-     * <p>Message type</p>
+     * <p>C:Message Description</p>
      * 
-     * <p><p>Distinguishes between errors, warnings and information 
-     * messages.</p></p>
+     * <p><p>The human-readable description of the error, warning 
+     * or information message. May convey additional details not 
+     * present in the 'code', but is not intended to be 
+     * human-processable.</p></p>
      * 
-     * <p><p>Different types of messages have substantially 
-     * different ramifications.</p></p>
+     * <p><p>Allows supplementing the 'computer' information for 
+     * human-readability.</p></p>
      */
-    @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementDetailType getMessageType() {
-        return (AcknowledgementDetailType) this.messageType.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getMessageDescription() {
+        return this.messageDescription.getValue();
     }
-    public void setMessageType(AcknowledgementDetailType messageType) {
-        this.messageType.setValue(messageType);
+    public void setMessageDescription(String messageDescription) {
+        this.messageDescription.setValue(messageDescription);
     }
 
 
@@ -127,28 +149,6 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     @Hl7XmlMapping({"location"})
     public Set<String> getReferencedMessageLocations() {
         return this.referencedMessageLocations.rawSet();
-    }
-
-
-    /**
-     * <p>MessageDescription</p>
-     * 
-     * <p>C:Message Description</p>
-     * 
-     * <p><p>The human-readable description of the error, warning 
-     * or information message. May convey additional details not 
-     * present in the 'code', but is not intended to be 
-     * human-processable.</p></p>
-     * 
-     * <p><p>Allows supplementing the 'computer' information for 
-     * human-readability.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getMessageDescription() {
-        return this.messageDescription.getValue();
-    }
-    public void setMessageDescription(String messageDescription) {
-        this.messageDescription.setValue(messageDescription);
     }
 
 }

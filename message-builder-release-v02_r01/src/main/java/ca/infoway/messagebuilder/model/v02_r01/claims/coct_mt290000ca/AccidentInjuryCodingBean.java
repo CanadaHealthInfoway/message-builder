@@ -13,19 +13,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV value = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV code = new CVImpl();
+    private CV value = new CVImpl();
     private CV targetSiteCode = new CVImpl();
-
-
-    @Hl7XmlMapping({"value"})
-    public Code getValue() {
-        return (Code) this.value.getValue();
-    }
-    public void setValue(Code value) {
-        this.value.setValue(value);
-    }
 
 
     @Hl7XmlMapping({"code"})
@@ -34,6 +25,15 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"value"})
+    public Code getValue() {
+        return (Code) this.value.getValue();
+    }
+    public void setValue(Code value) {
+        this.value.setValue(value);
     }
 
 

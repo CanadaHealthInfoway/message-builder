@@ -33,16 +33,38 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
+    private static final long serialVersionUID = 20110407L;
+    private ST specimenCollectionText = new STImpl();
     private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
-    private ST specimenCollectionText = new STImpl();
+    private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public List<NotesBean> getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    /**
+     * <p>G:Specimen Collection Text</p>
+     * 
+     * <p><p>Used to describe any additional information regarding 
+     * the specimen collection procedure or the collected material, 
+     * e.g. left ear; where &quot;ear&quot; is atomically 
+     * represented by the Natural entity code but the 
+     * &quot;left&quot; is not able, at this time, to also be 
+     * communicated within the Natural entity. This attribute is 
+     * not used for notes or comments regarding the specimen 
+     * collection process. Notes and annotations are documented 
+     * using the Annotation CMET.</p></p>
+     * 
+     * <p><p>The text attribute documents any additional 
+     * information regarding this specimen collection procedure 
+     * event that is not able to be communicated using the other 
+     * attribution of this act e.g. for granularity of coding 
+     * reasons.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getSpecimenCollectionText() {
+        return this.specimenCollectionText.getValue();
+    }
+    public void setSpecimenCollectionText(String specimenCollectionText) {
+        this.specimenCollectionText.setValue(specimenCollectionText);
     }
 
 
@@ -79,31 +101,9 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Specimen Collection Text</p>
-     * 
-     * <p><p>Used to describe any additional information regarding 
-     * the specimen collection procedure or the collected material, 
-     * e.g. left ear; where &quot;ear&quot; is atomically 
-     * represented by the Natural entity code but the 
-     * &quot;left&quot; is not able, at this time, to also be 
-     * communicated within the Natural entity. This attribute is 
-     * not used for notes or comments regarding the specimen 
-     * collection process. Notes and annotations are documented 
-     * using the Annotation CMET.</p></p>
-     * 
-     * <p><p>The text attribute documents any additional 
-     * information regarding this specimen collection procedure 
-     * event that is not able to be communicated using the other 
-     * attribution of this act e.g. for granularity of coding 
-     * reasons.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getSpecimenCollectionText() {
-        return this.specimenCollectionText.getValue();
-    }
-    public void setSpecimenCollectionText(String specimenCollectionText) {
-        this.specimenCollectionText.setValue(specimenCollectionText);
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public List<NotesBean> getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
 
 }

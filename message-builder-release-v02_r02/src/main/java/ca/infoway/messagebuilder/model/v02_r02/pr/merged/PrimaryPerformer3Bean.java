@@ -13,18 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrimaryPerformer3","PRPM_MT309000CA.PrimaryPerformer3"})
 public class PrimaryPerformer3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ActDefinitionOrEventName_2Bean actDefinitionOrEvent;
+    private static final long serialVersionUID = 20110407L;
     private CS typeCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"actDefinitionOrEvent"})
-    public ActDefinitionOrEventName_2Bean getActDefinitionOrEvent() {
-        return this.actDefinitionOrEvent;
-    }
-    public void setActDefinitionOrEvent(ActDefinitionOrEventName_2Bean actDefinitionOrEvent) {
-        this.actDefinitionOrEvent = actDefinitionOrEvent;
-    }
+    private ActDefinitionOrEventName_2Bean actDefinitionOrEvent;
 
 
     @Hl7XmlMapping({"typeCode"})
@@ -33,6 +24,15 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
     }
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
+    }
+
+
+    @Hl7XmlMapping({"actDefinitionOrEvent"})
+    public ActDefinitionOrEventName_2Bean getActDefinitionOrEvent() {
+        return this.actDefinitionOrEvent;
+    }
+    public void setActDefinitionOrEvent(ActDefinitionOrEventName_2Bean actDefinitionOrEvent) {
+        this.actDefinitionOrEvent = actDefinitionOrEvent;
     }
 
 }

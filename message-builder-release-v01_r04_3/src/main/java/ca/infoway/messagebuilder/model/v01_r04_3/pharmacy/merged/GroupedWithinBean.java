@@ -16,23 +16,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST drugName = new STImpl();
-    private CV drugCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV drugCategoryCode = new CVImpl();
+    private CV drugCode = new CVImpl();
+    private ST drugName = new STImpl();
 
 
     /**
-     * <p>DrugName</p>
+     * <p>DrugCategoryCode</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Drug Category Code</p>
      */
-    @Hl7XmlMapping({"generalizedMedicineClass/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
+    @Hl7XmlMapping({"code"})
+    public MedicationGeneralizationRoleType getDrugCategoryCode() {
+        return (MedicationGeneralizationRoleType) this.drugCategoryCode.getValue();
     }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
+        this.drugCategoryCode.setValue(drugCategoryCode);
     }
 
 
@@ -51,16 +51,16 @@ public class GroupedWithinBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCategoryCode</p>
+     * <p>DrugName</p>
      * 
-     * <p>Drug Category Code</p>
+     * <p>Drug Name</p>
      */
-    @Hl7XmlMapping({"code"})
-    public MedicationGeneralizationRoleType getDrugCategoryCode() {
-        return (MedicationGeneralizationRoleType) this.drugCategoryCode.getValue();
+    @Hl7XmlMapping({"generalizedMedicineClass/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
     }
-    public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
-        this.drugCategoryCode.setValue(drugCategoryCode);
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 }

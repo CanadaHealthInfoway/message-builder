@@ -80,29 +80,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.SortControl","MFMI_MT700751CA.SortControl","QUQI_MT020000CA.SortControl","QUQI_MT020002CA.SortControl","QUQI_MT120006CA.SortControl","QUQI_MT120008CA.SortControl"})
 public class SortControlBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CS sortControlDirection = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private INT sequenceNumber = new INTImpl();
     private ST sortElementName = new STImpl();
-
-
-    /**
-     * <p>SortControlDirection</p>
-     * 
-     * <p>Sort Control Direction</p>
-     * 
-     * <p><p>Sets the ascending or descending nature of the sort 
-     * request.</p></p>
-     * 
-     * <p><p>This element is required.</p></p>
-     */
-    @Hl7XmlMapping({"directionCode"})
-    public Sequencing getSortControlDirection() {
-        return (Sequencing) this.sortControlDirection.getValue();
-    }
-    public void setSortControlDirection(Sequencing sortControlDirection) {
-        this.sortControlDirection.setValue(sortControlDirection);
-    }
+    private CS sortControlDirection = new CSImpl();
 
 
     /**
@@ -140,6 +121,25 @@ public class SortControlBean extends MessagePartBean {
     }
     public void setSortElementName(String sortElementName) {
         this.sortElementName.setValue(sortElementName);
+    }
+
+
+    /**
+     * <p>SortControlDirection</p>
+     * 
+     * <p>Sort Control Direction</p>
+     * 
+     * <p><p>Sets the ascending or descending nature of the sort 
+     * request.</p></p>
+     * 
+     * <p><p>This element is required.</p></p>
+     */
+    @Hl7XmlMapping({"directionCode"})
+    public Sequencing getSortControlDirection() {
+        return (Sequencing) this.sortControlDirection.getValue();
+    }
+    public void setSortControlDirection(Sequencing sortControlDirection) {
+        this.sortControlDirection.setValue(sortControlDirection);
     }
 
 }

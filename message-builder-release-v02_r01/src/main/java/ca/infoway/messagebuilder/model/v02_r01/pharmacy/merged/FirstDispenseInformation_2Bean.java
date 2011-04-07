@@ -18,25 +18,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFirstSummary","PORX_MT060060CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT firstQuantityDispensed = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> firstDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>FirstQuantityDispensed</p>
-     * 
-     * <p>First Quantity Dispensed</p>
-     * 
-     * <p>B:First Quantity Dispensed</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getFirstQuantityDispensed() {
-        return this.firstQuantityDispensed.getValue();
-    }
-    public void setFirstQuantityDispensed(Integer firstQuantityDispensed) {
-        this.firstQuantityDispensed.setValue(firstQuantityDispensed);
-    }
+    private INT firstQuantityDispensed = new INTImpl();
 
 
     /**
@@ -52,6 +36,22 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     }
     public void setFirstDispensePickupDate(Interval<Date> firstDispensePickupDate) {
         this.firstDispensePickupDate.setValue(firstDispensePickupDate);
+    }
+
+
+    /**
+     * <p>FirstQuantityDispensed</p>
+     * 
+     * <p>First Quantity Dispensed</p>
+     * 
+     * <p>B:First Quantity Dispensed</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getFirstQuantityDispensed() {
+        return this.firstQuantityDispensed.getValue();
+    }
+    public void setFirstQuantityDispensed(Integer firstQuantityDispensed) {
+        this.firstQuantityDispensed.setValue(firstQuantityDispensed);
     }
 
 }

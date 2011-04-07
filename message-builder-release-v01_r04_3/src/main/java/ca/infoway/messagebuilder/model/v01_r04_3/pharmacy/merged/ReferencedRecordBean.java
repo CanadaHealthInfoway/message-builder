@@ -20,24 +20,10 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PatientBean recordTargetPatient;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-
-
-    @Hl7XmlMapping({"recordTarget/patient","subject/patient"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="recordTarget", type="PORX_MT990010CA.RecordTarget"),
-        @Hl7MapByPartType(name="recordTarget/patient", type="COCT_MT050203CA.Patient"),
-        @Hl7MapByPartType(name="subject", type="PORX_MT990020CA.Subject"),
-        @Hl7MapByPartType(name="subject/patient", type="COCT_MT050203CA.Patient")})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
+    private PatientBean recordTargetPatient;
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
 
 
     /**
@@ -51,6 +37,20 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    @Hl7XmlMapping({"recordTarget/patient","subject/patient"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="recordTarget", type="PORX_MT990010CA.RecordTarget"),
+        @Hl7MapByPartType(name="recordTarget/patient", type="COCT_MT050203CA.Patient"),
+        @Hl7MapByPartType(name="subject", type="PORX_MT990020CA.Subject"),
+        @Hl7MapByPartType(name="subject/patient", type="COCT_MT050203CA.Patient")})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
+    }
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 

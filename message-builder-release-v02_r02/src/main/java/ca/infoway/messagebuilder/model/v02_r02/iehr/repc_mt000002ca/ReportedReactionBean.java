@@ -56,58 +56,16 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV reaction = new CVImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV reaction = new CVImpl();
+    private ReportedByBean informant;
+    private NotesBean subjectOf1Annotation;
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private ReportedByBean informant;
-    private ST description = new STImpl();
-    private NotesBean subjectOf1Annotation;
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-
-
-    /**
-     * <p>B:Reaction</p>
-     * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>B.1</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    /**
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
 
 
     /**
@@ -128,30 +86,6 @@ public class ReportedReactionBean extends MessagePartBean {
     }
     public void setDiagnosisType(ActCode diagnosisType) {
         this.diagnosisType.setValue(diagnosisType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
-        return this.subjectOf2SeverityObservation;
-    }
-    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
-        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
     }
 
 
@@ -203,12 +137,21 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public NotesBean getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
     }
-    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
-        this.subjectOf1Annotation = subjectOf1Annotation;
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -300,6 +243,63 @@ public class ReportedReactionBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
         return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>B:Reaction</p>
+     * 
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>B.1</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public NotesBean getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
+        this.subjectOf1Annotation = subjectOf1Annotation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
+        return this.subjectOf2SeverityObservation;
+    }
+    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
+        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
     }
 
 }

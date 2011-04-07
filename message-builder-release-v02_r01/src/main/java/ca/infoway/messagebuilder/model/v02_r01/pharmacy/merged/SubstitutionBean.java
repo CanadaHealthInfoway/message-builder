@@ -14,18 +14,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AgentBean responsiblePartyAgent;
-    private CV reasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV substitutionCode = new CVImpl();
+    private CV reasonCode = new CVImpl();
+    private AgentBean responsiblePartyAgent;
 
 
-    @Hl7XmlMapping({"responsibleParty/agent"})
-    public AgentBean getResponsiblePartyAgent() {
-        return this.responsiblePartyAgent;
+    /**
+     * <p>SubstitutionCode</p>
+     * 
+     * <p>Substitution Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdminSubstitutionCode getSubstitutionCode() {
+        return (ActSubstanceAdminSubstitutionCode) this.substitutionCode.getValue();
     }
-    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
-        this.responsiblePartyAgent = responsiblePartyAgent;
+    public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
+        this.substitutionCode.setValue(substitutionCode);
     }
 
 
@@ -43,17 +48,12 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>SubstitutionCode</p>
-     * 
-     * <p>Substitution Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdminSubstitutionCode getSubstitutionCode() {
-        return (ActSubstanceAdminSubstitutionCode) this.substitutionCode.getValue();
+    @Hl7XmlMapping({"responsibleParty/agent"})
+    public AgentBean getResponsiblePartyAgent() {
+        return this.responsiblePartyAgent;
     }
-    public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
-        this.substitutionCode.setValue(substitutionCode);
+    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
+        this.responsiblePartyAgent = responsiblePartyAgent;
     }
 
 }

@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV otherIndication = new CVImpl();
     private ST otherIndicationAdHocDescription = new STImpl();
 

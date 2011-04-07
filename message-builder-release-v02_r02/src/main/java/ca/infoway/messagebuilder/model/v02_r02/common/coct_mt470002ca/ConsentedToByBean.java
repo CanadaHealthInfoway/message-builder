@@ -29,28 +29,10 @@ import ca.infoway.messagebuilder.model.v02_r02.common.merged.RelatedPersonBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ED<String> keyword = new EDImpl<String>();
+    private static final long serialVersionUID = 20110407L;
     private CV patientConsentMechanism = new CVImpl();
+    private ED<String> keyword = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;
-
-
-    /**
-     * <p>Keyword</p>
-     * 
-     * <p><p>Indicates the keyword appropriate to the action being 
-     * performed by the message.</p></p>
-     * 
-     * <p><p>Allows providers who know the keyword to access 
-     * information protected by patient keywords.</p></p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
-    }
 
 
     /**
@@ -68,6 +50,24 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
         this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
+
+
+    /**
+     * <p>Keyword</p>
+     * 
+     * <p><p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p></p>
+     * 
+     * <p><p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p></p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getKeyword() {
+        return this.keyword.getValue();
+    }
+    public void setKeyword(String keyword) {
+        this.keyword.setValue(keyword);
     }
 
 

@@ -17,7 +17,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II applicationId = new IIImpl();
     private ST applicationName = new STImpl();
 

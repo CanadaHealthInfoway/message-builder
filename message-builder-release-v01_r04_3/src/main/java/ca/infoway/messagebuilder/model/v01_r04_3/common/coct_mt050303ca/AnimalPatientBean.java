@@ -28,11 +28,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.Patient {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ST animalName = new STImpl();
-    private PN ownerName = new PNImpl();
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD ownerAddress = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN ownerName = new PNImpl();
 
 
     /**
@@ -48,14 +48,14 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Owner Name</p>
+     * <p>Owner address</p>
      */
-    @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
+    @Hl7XmlMapping({"patientAnimal/contactParty/addr"})
+    public PostalAddress getOwnerAddress() {
+        return this.ownerAddress.getValue();
     }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
+    public void setOwnerAddress(PostalAddress ownerAddress) {
+        this.ownerAddress.setValue(ownerAddress);
     }
 
 
@@ -69,14 +69,14 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Owner address</p>
+     * <p>Owner Name</p>
      */
-    @Hl7XmlMapping({"patientAnimal/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
+    @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
+    public PersonName getOwnerName() {
+        return this.ownerName.getValue();
     }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
+    public void setOwnerName(PersonName ownerName) {
+        this.ownerName.setValue(ownerName);
     }
 
 }

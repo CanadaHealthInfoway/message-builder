@@ -79,86 +79,17 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL componentContextConductionInd = new BLImpl();
-    private CS componentTypeCode = new CSImpl();
-    private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private CS componentContextControlCode = new CSImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110407L;
     private INT totalPrescribedQuantity = new INTImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private CreatedAtBean location;
-    private SubstanceAdministrationRequestBean componentOfActRequest;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private CS componentTypeCode = new CSImpl();
+    private CS componentContextControlCode = new CSImpl();
+    private BL componentContextConductionInd = new BLImpl();
+    private SupplementalFillInformationBean componentSupplementalFillInformation;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
-
-
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
-    }
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"component/typeCode"})
-    public ActRelationshipType getComponentTypeCode() {
-        return (ActRelationshipType) this.componentTypeCode.getValue();
-    }
-    public void setComponentTypeCode(ActRelationshipType componentTypeCode) {
-        this.componentTypeCode.setValue(componentTypeCode);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalFillInformation"})
-    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
-        return this.componentSupplementalFillInformation;
-    }
-    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
-        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"component/contextControlCode"})
-    public ContextControl getComponentContextControlCode() {
-        return (ContextControl) this.componentContextControlCode.getValue();
-    }
-    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
-        this.componentContextControlCode.setValue(componentContextControlCode);
-    }
-
-
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>C:Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
-    }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
+    private SubstanceAdministrationRequestBean componentOfActRequest;
 
 
     /**
@@ -199,6 +130,30 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
@@ -208,18 +163,63 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf/actRequest"})
-    public SubstanceAdministrationRequestBean getComponentOfActRequest() {
-        return this.componentOfActRequest;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
-        this.componentOfActRequest = componentOfActRequest;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component/typeCode"})
+    public ActRelationshipType getComponentTypeCode() {
+        return (ActRelationshipType) this.componentTypeCode.getValue();
+    }
+    public void setComponentTypeCode(ActRelationshipType componentTypeCode) {
+        this.componentTypeCode.setValue(componentTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"component/contextControlCode"})
+    public ContextControl getComponentContextControlCode() {
+        return (ContextControl) this.componentContextControlCode.getValue();
+    }
+    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
+        this.componentContextControlCode.setValue(componentContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"component/contextConductionInd"})
+    public Boolean getComponentContextConductionInd() {
+        return this.componentContextConductionInd.getValue();
+    }
+    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
+        this.componentContextConductionInd.setValue(componentContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalFillInformation"})
+    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
+        return this.componentSupplementalFillInformation;
+    }
+    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
+        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
 
 
     @Hl7XmlMapping({"fulfillment/supplyEvent"})
     public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
         return this.fulfillmentSupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/actRequest"})
+    public SubstanceAdministrationRequestBean getComponentOfActRequest() {
+        return this.componentOfActRequest;
+    }
+    public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
+        this.componentOfActRequest = componentOfActRequest;
     }
 
 }

@@ -22,20 +22,11 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20110407L;
     private ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean subject1Patient;
     private ST keyword = new STImpl();
     private Consenter authorConsenter;
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject2/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
-    }
+    private List<CV> consentInformationTypes = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"subject1/patient"})
@@ -79,6 +70,15 @@ public class KeywordBean extends MessagePartBean {
     }
     public boolean hasAuthorConsenterAsResponsibleParty() {
         return (this.authorConsenter instanceof ResponsiblePersonBean);
+    }
+
+
+    /**
+     * <p>B:Consent Information Types</p>
+     */
+    @Hl7XmlMapping({"subject2/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

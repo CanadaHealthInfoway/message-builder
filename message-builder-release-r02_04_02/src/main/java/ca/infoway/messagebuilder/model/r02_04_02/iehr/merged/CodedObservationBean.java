@@ -116,32 +116,218 @@ import java.util.Set;
 @Hl7RootType
 public class CodedObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II observationRecordId = new IIImpl();
+    private CD observationType = new CDImpl();
+    private BL refutedIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> observationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> observationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CD observationValue = new CDImpl();
     private CE observationNormalityInterpretation = new CEImpl();
-    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
-    private II observationRecordId = new IIImpl();
-    private ServiceLocationBean custodian2ServiceDeliveryLocation;
-    private EHRRepositoryBean custodian1AssignedDevice;
-    private OccurredAtBean location;
-    private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
-    private BL refutedIndicator = new BLImpl();
-    private List<Component2Bean> componentOf2 = new ArrayList<Component2Bean>();
-    private SET<CV, Code> observationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private ChangedByBean author;
-    private List<OldCommonObservationEventBean> predecessorOldCommonObservationEvent = new ArrayList<OldCommonObservationEventBean>();
-    private NewCommonObservationEventBean successorNewCommonObservationEvent;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private List<ComponentObservations_2Bean> componentSubObservationEvent = new ArrayList<ComponentObservations_2Bean>();
     private ServiceLocationBean indirectTargetServiceDeliveryLocation;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson informantActingPerson;
     private ActingPerson responsiblePartyActingPerson;
-    private CD observationType = new CDImpl();
-    private IncludesBean subjectOf;
+    private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
+    private ChangedByBean author;
+    private ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson informantActingPerson;
+    private EHRRepositoryBean custodian1AssignedDevice;
+    private ServiceLocationBean custodian2ServiceDeliveryLocation;
+    private OccurredAtBean location;
     private Request_2Bean inFulfillmentOfActRequest;
-    private IVL<TS, Interval<Date>> observationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
+    private List<OldCommonObservationEventBean> predecessorOldCommonObservationEvent = new ArrayList<OldCommonObservationEventBean>();
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private List<ComponentObservations_2Bean> componentSubObservationEvent = new ArrayList<ComponentObservations_2Bean>();
+    private NewCommonObservationEventBean successorNewCommonObservationEvent;
+    private IncludesBean subjectOf;
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<Component2Bean> componentOf2 = new ArrayList<Component2Bean>();
+
+
+    /**
+     * <p>ObservationRecordId</p>
+     * 
+     * <p>A:Observation Record Id</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getObservationRecordId() {
+        return this.observationRecordId.getValue();
+    }
+    public void setObservationRecordId(Identifier observationRecordId) {
+        this.observationRecordId.setValue(observationRecordId);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Only 'nullFlavor' value of OTH is available.</p></p>
+     * 
+     * <p></p><p>Observation types include: Assertion, blood type, 
+     * APGAR, etc.</p></p>
+     * 
+     * <p></p><p>Observation types include: Assertion, blood type, 
+     * APGAR, etc.</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p><p>EPHS: new vocab concepts needed. See implementation 
+     * notes</p><p>EPHS: vocab code needed for immunization 
+     * interpretation</p><p>EPHS: vocab domain needed for medical 
+     * history</p><p>EPHS: vocab domain needed for 
+     * Assessment</p><p>EPHS: vocab domain needed for encounter 
+     * complication</p><p>EPHS: concept code needed for Outbreak 
+     * Complication</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>EPHS:Observation.code fixed to &quot;OUTCOME&quot; at 
+     * runtime</p><p>EPHS: observation.code fixed to &quot;DIRECTLY 
+     * OBSERVED DOSES TAKEN&quot; at runtime</p></p>
+     * 
+     * <p><p>EPHS:Observation.code fixed to &quot;OUTCOME&quot; at 
+     * runtime</p><p>EPHS: observation.code fixed to &quot;DIRECTLY 
+     * OBSERVED DOSES TAKEN&quot; at runtime</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getObservationType() {
+        return (Code) this.observationType.getValue();
+    }
+    public void setObservationType(Code observationType) {
+        this.observationType.setValue(observationType);
+    }
+
+
+    /**
+     * <p>RefutedIndicator</p>
+     * 
+     * <p>D:Refuted Indicator</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
+    }
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
+    }
+
+
+    /**
+     * <p>ObservationPeriod</p>
+     * 
+     * <p>E:Observation Period</p>
+     * 
+     * <p><p>Identifies the time at which the observation applies. 
+     * Usually, this will be conveyed as a single point in time 
+     * (center with a width of 0). However, some observations may 
+     * cover a time-period with in which case start and end or 
+     * start and duration may be specified.</p><p>Note that the 
+     * date the observation applies is not always the same as the 
+     * time the observation is actually made. A lab example: if 
+     * blood was drawn two days ago and White Blood Count (WBC) was 
+     * done today, then WBC observation date should reflect the 
+     * date of two days ago because that is the time the 
+     * observation actually applies to.</p></p>
+     * 
+     * <p><p>Identifies the time at which the observation applies. 
+     * Usually, this will be conveyed as a single point in time 
+     * (center with a width of 0). However, some observations may 
+     * cover a time-period with in which case start and end or 
+     * start and duration may be specified.</p><p>Note that the 
+     * date the observation applies is not always the same as the 
+     * time the observation is actually made. A lab example: if 
+     * blood was drawn two days ago and White Blood Count (WBC) was 
+     * done today, then WBC observation date should reflect the 
+     * date of two days ago because that is the time the 
+     * observation actually applies to.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>EPHS: signs and symptoms onset date maps to beginning 
+     * of time interval, recovery date to end of interval</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getObservationPeriod() {
+        return this.observationPeriod.getValue();
+    }
+    public void setObservationPeriod(Interval<Date> observationPeriod) {
+        this.observationPeriod.setValue(observationPeriod);
+    }
+
+
+    /**
+     * <p>ObservationMaskingIndicators</p>
+     * 
+     * <p>D:Observation Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getObservationMaskingIndicators() {
+        return this.observationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
 
 
     /**
@@ -248,200 +434,12 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"definition/actDefinition"})
-    public List<ActDefinitionBean> getDefinitionActDefinition() {
-        return this.definitionActDefinition;
-    }
-
-
-    /**
-     * <p>ObservationRecordId</p>
-     * 
-     * <p>A:Observation Record Id</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getObservationRecordId() {
-        return this.observationRecordId.getValue();
-    }
-    public void setObservationRecordId(Identifier observationRecordId) {
-        this.observationRecordId.setValue(observationRecordId);
-    }
-
-
-    @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
-        return this.custodian2ServiceDeliveryLocation;
-    }
-    public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
-        this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"custodian1/assignedDevice"})
-    public EHRRepositoryBean getCustodian1AssignedDevice() {
-        return this.custodian1AssignedDevice;
-    }
-    public void setCustodian1AssignedDevice(EHRRepositoryBean custodian1AssignedDevice) {
-        this.custodian1AssignedDevice = custodian1AssignedDevice;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ActingPerson> getPerformerActingPerson() {
-        return this.performerActingPerson;
-    }
-
-
-    /**
-     * <p>RefutedIndicator</p>
-     * 
-     * <p>D:Refuted Indicator</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
-    }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"componentOf2"})
-    public List<Component2Bean> getComponentOf2() {
-        return this.componentOf2;
-    }
-
-
-    /**
-     * <p>ObservationMaskingIndicators</p>
-     * 
-     * <p>D:Observation Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getObservationMaskingIndicators() {
-        return this.observationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldCommonObservationEvent"})
-    public List<OldCommonObservationEventBean> getPredecessorOldCommonObservationEvent() {
-        return this.predecessorOldCommonObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"successor/newCommonObservationEvent"})
-    public NewCommonObservationEventBean getSuccessorNewCommonObservationEvent() {
-        return this.successorNewCommonObservationEvent;
-    }
-    public void setSuccessorNewCommonObservationEvent(NewCommonObservationEventBean successorNewCommonObservationEvent) {
-        this.successorNewCommonObservationEvent = successorNewCommonObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"component/subObservationEvent"})
-    public List<ComponentObservations_2Bean> getComponentSubObservationEvent() {
-        return this.componentSubObservationEvent;
-    }
-
-
     @Hl7XmlMapping({"indirectTarget/serviceDeliveryLocation"})
     public ServiceLocationBean getIndirectTargetServiceDeliveryLocation() {
         return this.indirectTargetServiceDeliveryLocation;
     }
     public void setIndirectTargetServiceDeliveryLocation(ServiceLocationBean indirectTargetServiceDeliveryLocation) {
         this.indirectTargetServiceDeliveryLocation = indirectTargetServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent","componentOf1/patientCareProvisionEvent"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="componentOf", type="REPC_MT420001CA.Component3"),
-        @Hl7MapByPartType(name="componentOf/patientCareProvisionEvent", type="COCT_MT011001CA.PatientCareProvisionEvent"),
-        @Hl7MapByPartType(name="componentOf1", type="REPC_MT420003CA.Component3"),
-        @Hl7MapByPartType(name="componentOf1/patientCareProvisionEvent", type="COCT_MT011001CA.PatientCareProvisionEvent")})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"informant/actingPerson"})
-    public ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
-        return this.informantActingPerson;
-    }
-    public void setInformantActingPerson(ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson informantActingPerson) {
-        this.informantActingPerson = informantActingPerson;
-    }
-
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
     }
 
 
@@ -475,89 +473,117 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>ObservationType</p>
-     * 
-     * <p>B:Observation Type</p>
-     * 
-     * <p><p>Only 'nullFlavor' value of OTH is available.</p></p>
-     * 
-     * <p></p><p>Observation types include: Assertion, blood type, 
-     * APGAR, etc.</p></p>
-     * 
-     * <p></p><p>Observation types include: Assertion, blood type, 
-     * APGAR, etc.</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p><p>EPHS: new vocab concepts needed. See implementation 
-     * notes</p><p>EPHS: vocab code needed for immunization 
-     * interpretation</p><p>EPHS: vocab domain needed for medical 
-     * history</p><p>EPHS: vocab domain needed for 
-     * Assessment</p><p>EPHS: vocab domain needed for encounter 
-     * complication</p><p>EPHS: concept code needed for Outbreak 
-     * Complication</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>EPHS:Observation.code fixed to &quot;OUTCOME&quot; at 
-     * runtime</p><p>EPHS: observation.code fixed to &quot;DIRECTLY 
-     * OBSERVED DOSES TAKEN&quot; at runtime</p></p>
-     * 
-     * <p><p>EPHS:Observation.code fixed to &quot;OUTCOME&quot; at 
-     * runtime</p><p>EPHS: observation.code fixed to &quot;DIRECTLY 
-     * OBSERVED DOSES TAKEN&quot; at runtime</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getObservationType() {
-        return (Code) this.observationType.getValue();
+    @Hl7XmlMapping({"performer/actingPerson"})
+    public List<ActingPerson> getPerformerActingPerson() {
+        return this.performerActingPerson;
     }
-    public void setObservationType(Code observationType) {
-        this.observationType.setValue(observationType);
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"informant/actingPerson"})
+    public ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
+        return this.informantActingPerson;
+    }
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson informantActingPerson) {
+        this.informantActingPerson = informantActingPerson;
+    }
+
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
+        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
+    }
+
+    public Patient_2Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsPatient() {
+        return (this.informantActingPerson instanceof Patient_2Bean);
+    }
+
+
+    @Hl7XmlMapping({"custodian1/assignedDevice"})
+    public EHRRepositoryBean getCustodian1AssignedDevice() {
+        return this.custodian1AssignedDevice;
+    }
+    public void setCustodian1AssignedDevice(EHRRepositoryBean custodian1AssignedDevice) {
+        this.custodian1AssignedDevice = custodian1AssignedDevice;
+    }
+
+
+    @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
+    public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
+        return this.custodian2ServiceDeliveryLocation;
+    }
+    public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
+        this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public Request_2Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
+
+
+    @Hl7XmlMapping({"definition/actDefinition"})
+    public List<ActDefinitionBean> getDefinitionActDefinition() {
+        return this.definitionActDefinition;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldCommonObservationEvent"})
+    public List<OldCommonObservationEventBean> getPredecessorOldCommonObservationEvent() {
+        return this.predecessorOldCommonObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"component/subObservationEvent"})
+    public List<ComponentObservations_2Bean> getComponentSubObservationEvent() {
+        return this.componentSubObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"successor/newCommonObservationEvent"})
+    public NewCommonObservationEventBean getSuccessorNewCommonObservationEvent() {
+        return this.successorNewCommonObservationEvent;
+    }
+    public void setSuccessorNewCommonObservationEvent(NewCommonObservationEventBean successorNewCommonObservationEvent) {
+        this.successorNewCommonObservationEvent = successorNewCommonObservationEvent;
     }
 
 
@@ -573,55 +599,29 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_2Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 
-    /**
-     * <p>ObservationPeriod</p>
-     * 
-     * <p>E:Observation Period</p>
-     * 
-     * <p><p>Identifies the time at which the observation applies. 
-     * Usually, this will be conveyed as a single point in time 
-     * (center with a width of 0). However, some observations may 
-     * cover a time-period with in which case start and end or 
-     * start and duration may be specified.</p><p>Note that the 
-     * date the observation applies is not always the same as the 
-     * time the observation is actually made. A lab example: if 
-     * blood was drawn two days ago and White Blood Count (WBC) was 
-     * done today, then WBC observation date should reflect the 
-     * date of two days ago because that is the time the 
-     * observation actually applies to.</p></p>
-     * 
-     * <p><p>Identifies the time at which the observation applies. 
-     * Usually, this will be conveyed as a single point in time 
-     * (center with a width of 0). However, some observations may 
-     * cover a time-period with in which case start and end or 
-     * start and duration may be specified.</p><p>Note that the 
-     * date the observation applies is not always the same as the 
-     * time the observation is actually made. A lab example: if 
-     * blood was drawn two days ago and White Blood Count (WBC) was 
-     * done today, then WBC observation date should reflect the 
-     * date of two days ago because that is the time the 
-     * observation actually applies to.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>EPHS: signs and symptoms onset date maps to beginning 
-     * of time interval, recovery date to end of interval</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getObservationPeriod() {
-        return this.observationPeriod.getValue();
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent","componentOf1/patientCareProvisionEvent"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="componentOf", type="REPC_MT420001CA.Component3"),
+        @Hl7MapByPartType(name="componentOf/patientCareProvisionEvent", type="COCT_MT011001CA.PatientCareProvisionEvent"),
+        @Hl7MapByPartType(name="componentOf1", type="REPC_MT420003CA.Component3"),
+        @Hl7MapByPartType(name="componentOf1/patientCareProvisionEvent", type="COCT_MT011001CA.PatientCareProvisionEvent")})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
-    public void setObservationPeriod(Interval<Date> observationPeriod) {
-        this.observationPeriod.setValue(observationPeriod);
+
+
+    @Hl7XmlMapping({"componentOf2"})
+    public List<Component2Bean> getComponentOf2() {
+        return this.componentOf2;
     }
 
 }

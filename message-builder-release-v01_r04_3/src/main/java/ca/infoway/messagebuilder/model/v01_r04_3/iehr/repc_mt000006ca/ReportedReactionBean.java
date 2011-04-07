@@ -42,30 +42,93 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private RefusedByBean author;
+    private static final long serialVersionUID = 20110407L;
+    private II reactionRecordId = new IIImpl();
+    private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private CV adverseReactionMaskingIndicator = new CVImpl();
+    private CV reaction = new CVImpl();
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private RefusedByBean author;
     private ReportedByBean informant;
-    private CV adverseReactionMaskingIndicator = new CVImpl();
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private II reactionRecordId = new IIImpl();
     private RecordedAtBean location;
-    private CD diagnosisType = new CDImpl();
-    private CV reaction = new CVImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
-    private ST description = new STImpl();
     private List<CommentBean> subjectOf1Annotation = new ArrayList<CommentBean>();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>C:Reaction Record Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReactionRecordId() {
+        return this.reactionRecordId.getValue();
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setReactionRecordId(Identifier reactionRecordId) {
+        this.reactionRecordId.setValue(reactionRecordId);
+    }
+
+
+    /**
+     * <p>Diagnosis Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
+    }
+
+
+    /**
+     * <p>G:Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    }
+
+
+    /**
+     * <p>G:Adverse Reaction Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    }
+    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
+        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
+    }
+
+
+    /**
+     * <p>B:Reaction</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
     }
 
 
@@ -87,15 +150,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>F:Reaction Onset Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -108,87 +168,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Adverse Reaction Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
-    }
-    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
-        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
-
-
-    /**
-     * <p>C:Reaction Record Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReactionRecordId() {
-        return this.reactionRecordId.getValue();
-    }
-    public void setReactionRecordId(Identifier reactionRecordId) {
-        this.reactionRecordId.setValue(reactionRecordId);
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
-
-
-    /**
-     * <p>B:Reaction</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf4/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
-        return this.subjectOf4SeverityObservation;
-    }
-    public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
-        this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
-    }
-
-
-    /**
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
     }
 
 
@@ -204,6 +189,21 @@ public class ReportedReactionBean extends MessagePartBean {
     }
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf4/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
+        return this.subjectOf4SeverityObservation;
+    }
+    public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
+        this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
     }
 
 }

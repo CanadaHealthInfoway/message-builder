@@ -17,43 +17,16 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<MonitoringProgramsBean> subjectOf4MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
-    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
-    private DispenseInformationBean productOf1DispenseGuidelines;
-    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
+    private static final long serialVersionUID = 20110407L;
     private DrugOrCompoundBean player;
+    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;
     private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
+    private List<MonitoringProgramsBean> subjectOf4MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
     private DrugCostBean subjectOf5PotentialCharge;
-
-
-    @Hl7XmlMapping({"subjectOf4/monitoringProgram"})
-    public List<MonitoringProgramsBean> getSubjectOf4MonitoringProgram() {
-        return this.subjectOf4MonitoringProgram;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/document"})
-    public List<MonographsBean> getSubjectOf1Document() {
-        return this.subjectOf1Document;
-    }
-
-
-    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
-    public DispenseInformationBean getProductOf1DispenseGuidelines() {
-        return this.productOf1DispenseGuidelines;
-    }
-    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
-        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
-    }
-
-
-    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
-    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
-        return this.consumedInAdministrationGuideline;
-    }
+    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
+    private DispenseInformationBean productOf1DispenseGuidelines;
+    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
 
 
     @Hl7XmlMapping({"player"})
@@ -62,6 +35,12 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setPlayer(DrugOrCompoundBean player) {
         this.player = player;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/document"})
+    public List<MonographsBean> getSubjectOf1Document() {
+        return this.subjectOf1Document;
     }
 
 
@@ -80,9 +59,9 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"productOf2/potentialSupply"})
-    public List<FormulariesBean> getProductOf2PotentialSupply() {
-        return this.productOf2PotentialSupply;
+    @Hl7XmlMapping({"subjectOf4/monitoringProgram"})
+    public List<MonitoringProgramsBean> getSubjectOf4MonitoringProgram() {
+        return this.subjectOf4MonitoringProgram;
     }
 
 
@@ -92,6 +71,27 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setSubjectOf5PotentialCharge(DrugCostBean subjectOf5PotentialCharge) {
         this.subjectOf5PotentialCharge = subjectOf5PotentialCharge;
+    }
+
+
+    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
+    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
+        return this.consumedInAdministrationGuideline;
+    }
+
+
+    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
+    public DispenseInformationBean getProductOf1DispenseGuidelines() {
+        return this.productOf1DispenseGuidelines;
+    }
+    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
+        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
+    }
+
+
+    @Hl7XmlMapping({"productOf2/potentialSupply"})
+    public List<FormulariesBean> getProductOf2PotentialSupply() {
+        return this.productOf2PotentialSupply;
     }
 
 }

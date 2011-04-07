@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.v02_r02.common.merged.HealthcareWorkerBea
 @Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private Recipient recipient;
 
 

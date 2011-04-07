@@ -37,42 +37,39 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private CV reaction = new CVImpl();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CD diagnosisType = new CDImpl();
-    private NotesBean subjectOf1Annotation;
     private ST description = new STImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV reaction = new CVImpl();
     private ReportedByBean informant;
+    private NotesBean subjectOf1Annotation;
+    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
 
 
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
+    /**
+     * <p>Diagnosis Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>G:Description</p>
      */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    /**
-     * <p>G:Adverse Reaction Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
-        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 
@@ -89,14 +86,32 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>G:Adverse Reaction Masking Indicators</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
+        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+
+
+    /**
+     * <p>B:Reaction</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
     }
 
 
@@ -109,18 +124,6 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
     @Hl7XmlMapping({"subjectOf2/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
         return this.subjectOf2SeverityObservation;
@@ -130,12 +133,9 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
     }
 
 }

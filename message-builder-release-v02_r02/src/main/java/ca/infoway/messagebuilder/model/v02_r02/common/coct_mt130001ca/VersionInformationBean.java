@@ -36,12 +36,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II changeIdentifier = new IIImpl();
-    private ChangedByBean author;
-    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private CV changeType = new CVImpl();
+    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private CV changeReason = new CVImpl();
+    private ChangedByBean author;
 
 
     /**
@@ -62,12 +62,20 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>A:Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
     }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
     }
 
 
@@ -94,23 +102,6 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
-    }
-
-
-    /**
      * <p>D:Change Reason</p>
      * 
      * <p><p>Denotes the reason the record was modified.</p></p>
@@ -125,6 +116,15 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeReason(ControlActReason changeReason) {
         this.changeReason.setValue(changeReason);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

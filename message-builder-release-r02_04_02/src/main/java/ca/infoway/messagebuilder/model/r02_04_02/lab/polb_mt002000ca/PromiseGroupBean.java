@@ -40,63 +40,39 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.PromiseGroup"})
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private II promiseGrouperIdentifier = new IIImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private static final long serialVersionUID = 20110407L;
+    private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
-    private VersionInformationBean subjectOf1ControlActEvent;
+    private II promiseGrouperIdentifier = new IIImpl();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private TS promiseGrouperDateTime = new TSImpl();
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private ReportSectionSpecimenBean specimen;
-    private TS promiseGrouperDateTime = new TSImpl();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
+    @Hl7XmlMapping({"specimen"})
+    public ReportSectionSpecimenBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(ReportSectionSpecimenBean specimen) {
+        this.specimen = specimen;
     }
 
 
-    @Hl7XmlMapping({"component/promiseChoice"})
-    public List<PromiseChoice> getComponentPromiseChoice() {
-        return this.componentPromiseChoice;
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -112,36 +88,36 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
-    }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
 
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
+    @Hl7XmlMapping({"performer/roleChoice"})
+    public List<RoleChoice> getPerformerRoleChoice() {
+        return this.performerRoleChoice;
     }
 
 
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
+    /**
+     * <p>Promise Grouper Date/Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getPromiseGrouperDateTime() {
+        return this.promiseGrouperDateTime.getValue();
     }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+    public void setPromiseGrouperDateTime(Date promiseGrouperDateTime) {
+        this.promiseGrouperDateTime.setValue(promiseGrouperDateTime);
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
     }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
 
@@ -160,24 +136,48 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
-    @Hl7XmlMapping({"specimen"})
-    public ReportSectionSpecimenBean getSpecimen() {
-        return this.specimen;
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
     }
-    public void setSpecimen(ReportSectionSpecimenBean specimen) {
-        this.specimen = specimen;
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
-    /**
-     * <p>Promise Grouper Date/Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getPromiseGrouperDateTime() {
-        return this.promiseGrouperDateTime.getValue();
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
-    public void setPromiseGrouperDateTime(Date promiseGrouperDateTime) {
-        this.promiseGrouperDateTime.setValue(promiseGrouperDateTime);
+
+
+    @Hl7XmlMapping({"component/promiseChoice"})
+    public List<PromiseChoice> getComponentPromiseChoice() {
+        return this.componentPromiseChoice;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

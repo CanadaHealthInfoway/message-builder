@@ -18,12 +18,24 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.PolicyHolderBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV policyType = new CVImpl();
-    private II carrierIdentifier = new IIImpl();
-    private PolicyHolderBean holderPolicyHolder;
-    private CoveredPartyBean beneficiaryCoveredParty;
+    private static final long serialVersionUID = 20110407L;
     private II policyIdentifier = new IIImpl();
+    private CV policyType = new CVImpl();
+    private CoveredPartyBean beneficiaryCoveredParty;
+    private PolicyHolderBean holderPolicyHolder;
+    private II carrierIdentifier = new IIImpl();
+
+
+    /**
+     * <p>Policy Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPolicyIdentifier() {
+        return this.policyIdentifier.getValue();
+    }
+    public void setPolicyIdentifier(Identifier policyIdentifier) {
+        this.policyIdentifier.setValue(policyIdentifier);
+    }
 
 
     /**
@@ -38,15 +50,12 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Carrier Identifier</p>
-     */
-    @Hl7XmlMapping({"author/underwriter/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
+    @Hl7XmlMapping({"beneficiary/coveredParty"})
+    public CoveredPartyBean getBeneficiaryCoveredParty() {
+        return this.beneficiaryCoveredParty;
     }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
+    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
+        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
     }
 
 
@@ -59,24 +68,15 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"beneficiary/coveredParty"})
-    public CoveredPartyBean getBeneficiaryCoveredParty() {
-        return this.beneficiaryCoveredParty;
-    }
-    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
-        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
-    }
-
-
     /**
-     * <p>Policy Identifier</p>
+     * <p>Carrier Identifier</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
+    @Hl7XmlMapping({"author/underwriter/id"})
+    public Identifier getCarrierIdentifier() {
+        return this.carrierIdentifier.getValue();
     }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
+    public void setCarrierIdentifier(Identifier carrierIdentifier) {
+        this.carrierIdentifier.setValue(carrierIdentifier);
     }
 
 }

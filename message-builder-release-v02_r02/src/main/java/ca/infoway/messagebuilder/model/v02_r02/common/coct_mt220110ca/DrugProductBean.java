@@ -38,14 +38,14 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
-    private CV drugForm = new CVImpl();
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();
+    private CV drugForm = new CVImpl();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private DrugDispensedInBean administerableMedicineAsContent;
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
 
 
     /**
@@ -740,103 +740,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>D:Drug Form</p>
-     * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared.</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Provides a constrained vocabulary for describing dose 
-     * forms. The form of the drug influences how it can be used by 
-     * the patient.</p></p>
-     * 
-     * <p><p>Must be recorded if the Drug Id does not specify the 
-     * Drug Form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
-    }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    /**
      * <p>B:Drug Name</p>
      * 
      * <p><p>The name assigned to a drug.</p></p>
@@ -995,12 +898,109 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>D:Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared.</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p></p>
+     * 
+     * <p><p>Must be recorded if the Drug Id does not specify the 
+     * Drug Form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    }
+
+
     @Hl7XmlMapping({"administerableMedicine/asContent"})
     public DrugDispensedInBean getAdministerableMedicineAsContent() {
         return this.administerableMedicineAsContent;
     }
     public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
         this.administerableMedicineAsContent = administerableMedicineAsContent;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
     }
 
 }

@@ -47,83 +47,82 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IncludesBean subjectOf;
-    private DispenseInstructionsBean component2SupplyRequest;
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
-    private DeviceProductBean directTargetManufacturedProduct;
-    private ProcedureRequestBean component1ProcedureRequest;
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CS prescriptionStatus = new CSImpl();
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionNumber = new IIImpl();
+    private CS prescriptionStatus = new CSImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private DeviceProductBean directTargetManufacturedProduct;
+    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private ProcedureRequestBean component1ProcedureRequest;
+    private DispenseInstructionsBean component2SupplyRequest;
+    private IncludesBean subjectOf;
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    /**
+     * <p>A: Prescription Number</p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionNumber() {
+        return this.prescriptionNumber.getValue();
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
-        return this.component2SupplyRequest;
-    }
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
-        this.component2SupplyRequest = component2SupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
-    }
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
-    }
-
-
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
-    }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
+    public void setPrescriptionNumber(Identifier prescriptionNumber) {
+        this.prescriptionNumber.setValue(prescriptionNumber);
     }
 
 
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
+    /**
+     * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'active' when registering a new prescription 
+     * or converting a predetermination into a valid 
+     * prescription.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
     }
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
     }
 
 
@@ -201,68 +200,69 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Prescription Status</p>
-     * 
-     * <p><p>This denotes the state of the prescription in the 
-     * lifecycle of the prescription. Valid statuses are: new, 
-     * active, suspended, aborted, completed, obsolete and 
-     * nullified. Use 'active' when registering a new prescription 
-     * or converting a predetermination into a valid 
-     * prescription.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
     }
 
 
-    /**
-     * <p>A: Prescription Number</p>
-     * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionNumber() {
-        return this.prescriptionNumber.getValue();
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
     }
-    public void setPrescriptionNumber(Identifier prescriptionNumber) {
-        this.prescriptionNumber.setValue(prescriptionNumber);
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
+    }
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
+    }
+
+
+    @Hl7XmlMapping({"component2/supplyRequest"})
+    public DispenseInstructionsBean getComponent2SupplyRequest() {
+        return this.component2SupplyRequest;
+    }
+    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
+        this.component2SupplyRequest = component2SupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
 }

@@ -67,51 +67,132 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV routeCode = new CVImpl();
-    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
-    private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private CD dosageType = new CDImpl();
-    private AdditionalSIGInstructionBean component1SupplementalInstruction;
-    private Medication consumableMedication1;
-    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private CS dosageUsageContext = new CSImpl();
+    private CD dosageType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();
-    private CV dosageUnit = new CVImpl();
+    private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV routeCode = new CVImpl();
     private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
+    private CV dosageUnit = new CVImpl();
+    private Medication consumableMedication1;
+    private AdditionalSIGInstructionBean component1SupplementalInstruction;
+    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
 
 
     /**
-     * <p>A:Route Code</p>
+     * <p>Dosage Usage Context</p>
      * 
-     * <p><p>This is the means by which the dispensed drug is to be 
-     * administered to the patient.</p></p>
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
      * 
-     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
      * 
-     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
      * 
-     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
      * 
-     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
-     * 
-     * <p><p>Ensures consistency in description of routes. Provides 
-     * potential for cross-checking dosage form and route. Route is 
-     * an optional because it is pre-coordinated with 
-     * SubstanceAdministration.code when using SNOMED.</p></p>
+     * <p><p>Puts the class in context, and is therefore 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteCode() {
-        return (RouteOfAdministration) this.routeCode.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
     }
-    public void setRouteCode(RouteOfAdministration routeCode) {
-        this.routeCode.setValue(routeCode);
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
     }
 
 
-    @Hl7XmlMapping({"component2"})
-    public List<ConsistsOfBean> getComponent2() {
-        return this.component2;
+    /**
+     * <p>Dosage Type</p>
+     * 
+     * <p><p>Distinguishes types of dosage.</p></p>
+     * 
+     * <p><p>Distinguishes between types of dosage administration 
+     * and is therefore mandatory. Datatype is CD to allow for 
+     * SNOMED codes.</p></p>
+     * 
+     * <p><p>For SNOMED this will pre-coordinate route, body site 
+     * and potentially drug. For non-SNOMED, this will be a fixed 
+     * value of DRUG.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDosageType() {
+        return (ActCode) this.dosageType.getValue();
+    }
+    public void setDosageType(ActCode dosageType) {
+        this.dosageType.setValue(dosageType);
+    }
+
+
+    /**
+     * <p>C:Rendered Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getRenderedDosageInstruction() {
+        return this.renderedDosageInstruction.getValue();
+    }
+    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
+        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
     }
 
 
@@ -171,33 +252,103 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Type</p>
+     * <p>A:Route Code</p>
      * 
-     * <p><p>Distinguishes types of dosage.</p></p>
+     * <p><p>This is the means by which the dispensed drug is to be 
+     * administered to the patient.</p></p>
      * 
-     * <p><p>Distinguishes between types of dosage administration 
-     * and is therefore mandatory. Datatype is CD to allow for 
-     * SNOMED codes.</p></p>
+     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
      * 
-     * <p><p>For SNOMED this will pre-coordinate route, body site 
-     * and potentially drug. For non-SNOMED, this will be a fixed 
-     * value of DRUG.</p></p>
+     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * 
+     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * 
+     * <p><p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p></p>
+     * 
+     * <p><p>Ensures consistency in description of routes. Provides 
+     * potential for cross-checking dosage form and route. Route is 
+     * an optional because it is pre-coordinated with 
+     * SubstanceAdministration.code when using SNOMED.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDosageType() {
-        return (ActCode) this.dosageType.getValue();
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setDosageType(ActCode dosageType) {
-        this.dosageType.setValue(dosageType);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 
-    @Hl7XmlMapping({"component1/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
-        return this.component1SupplementalInstruction;
+    /**
+     * <p>Administration Sites</p>
+     * 
+     * <p><p>A value denoting the body area where the medicine 
+     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
+     * multiples sites are specified they should be treated as 
+     * 'AND'.</p></p>
+     * 
+     * <p><p>Allows specificity when a drug can potentially be 
+     * applied to different parts of the patien's body. Multiple 
+     * repetitions are used when the product should be administered 
+     * to multiple parts of the body. CWE is used because using a 
+     * code system is not essential for understanding or analyzing 
+     * the prescription. The attribute is optional because it can 
+     * be pre-coordinated with SubstanceAdministration.code when 
+     * using SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"approachSiteCode"})
+    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
+        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
     }
-    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
-        this.component1SupplementalInstruction = component1SupplementalInstruction;
+
+
+    /**
+     * <p>D:Maximum Daily/Weekly Doses</p>
+     * 
+     * <p><p>The maximum amount of the dispensed medication to be 
+     * administered to the patient in a 24-hr period (doses per 
+     * day) or in a 7 day period (doses per week).</p></p>
+     * 
+     * <p><p>ZPB3.5(denominator=1D)</p></p>
+     * 
+     * <p><p>Sets an upper boundary for the quantity of the drug to 
+     * be administered over a specified period of time. 
+     * Particularly useful for PRN medications.</p></p>
+     * 
+     * <p><p>This field can only capture maximum doses based on 
+     * explicit time periods. Dosage maximums based on other 
+     * constraints such as patient lifetime, menstrual cycles must 
+     * be recorded using additional dosage instruction 
+     * comments.</p></p>
+     */
+    @Hl7XmlMapping({"maxDoseQuantity"})
+    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
+        return this.maximumDailyWeeklyDoses.rawSet();
+    }
+
+
+    /**
+     * <p>Dosage Unit</p>
+     * 
+     * <p><p>Identifies how the drug is measured for 
+     * administration.</p><p>Specified when not implicit from the 
+     * drug form (e.g. puff, inhalation, drops, etc.).</p></p>
+     * 
+     * <p><p>Identifies how the drug is measured for 
+     * administration.</p><p>Specified when not implicit from the 
+     * drug form (e.g. puff, inhalation, drops, etc.).</p></p>
+     * 
+     * <p><p>Needed when the dosage unit is not expressed as part 
+     * of the dose quantity (mg, mL) or implicit as part of the 
+     * drug form (capsules, tablets). Examples are Puffs, 
+     * Actuations, etc.</p></p>
+     */
+    @Hl7XmlMapping({"administrationUnitCode"})
+    public AdministrableDrugForm getDosageUnit() {
+        return (AdministrableDrugForm) this.dosageUnit.getValue();
+    }
+    public void setDosageUnit(AdministrableDrugForm dosageUnit) {
+        this.dosageUnit.setValue(dosageUnit);
     }
 
 
@@ -238,169 +389,18 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
-     * 
-     * <p><p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a 24-hr period (doses per 
-     * day) or in a 7 day period (doses per week).</p></p>
-     * 
-     * <p><p>ZPB3.5(denominator=1D)</p></p>
-     * 
-     * <p><p>Sets an upper boundary for the quantity of the drug to 
-     * be administered over a specified period of time. 
-     * Particularly useful for PRN medications.</p></p>
-     * 
-     * <p><p>This field can only capture maximum doses based on 
-     * explicit time periods. Dosage maximums based on other 
-     * constraints such as patient lifetime, menstrual cycles must 
-     * be recorded using additional dosage instruction 
-     * comments.</p></p>
-     */
-    @Hl7XmlMapping({"maxDoseQuantity"})
-    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
-        return this.maximumDailyWeeklyDoses.rawSet();
+    @Hl7XmlMapping({"component1/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
+        return this.component1SupplementalInstruction;
+    }
+    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
+        this.component1SupplementalInstruction = component1SupplementalInstruction;
     }
 
 
-    /**
-     * <p>Dosage Usage Context</p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Puts the class in context, and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
-    }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
-    }
-
-
-    /**
-     * <p>C:Rendered Dosage Instruction</p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
-    }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
-    }
-
-
-    /**
-     * <p>Dosage Unit</p>
-     * 
-     * <p><p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p></p>
-     * 
-     * <p><p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p></p>
-     * 
-     * <p><p>Needed when the dosage unit is not expressed as part 
-     * of the dose quantity (mg, mL) or implicit as part of the 
-     * drug form (capsules, tablets). Examples are Puffs, 
-     * Actuations, etc.</p></p>
-     */
-    @Hl7XmlMapping({"administrationUnitCode"})
-    public AdministrableDrugForm getDosageUnit() {
-        return (AdministrableDrugForm) this.dosageUnit.getValue();
-    }
-    public void setDosageUnit(AdministrableDrugForm dosageUnit) {
-        this.dosageUnit.setValue(dosageUnit);
-    }
-
-
-    /**
-     * <p>Administration Sites</p>
-     * 
-     * <p><p>A value denoting the body area where the medicine 
-     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
-     * multiples sites are specified they should be treated as 
-     * 'AND'.</p></p>
-     * 
-     * <p><p>Allows specificity when a drug can potentially be 
-     * applied to different parts of the patien's body. Multiple 
-     * repetitions are used when the product should be administered 
-     * to multiple parts of the body. CWE is used because using a 
-     * code system is not essential for understanding or analyzing 
-     * the prescription. The attribute is optional because it can 
-     * be pre-coordinated with SubstanceAdministration.code when 
-     * using SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"approachSiteCode"})
-    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
-        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
+    @Hl7XmlMapping({"component2"})
+    public List<ConsistsOfBean> getComponent2() {
+        return this.component2;
     }
 
 }

@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.SpecimenRoleBean;
 @Hl7PartTypeMapping({"POLB_MT002000CA.Specimen","POLB_MT004000CA.Specimen","POLB_MT004100CA.Specimen1","POLB_MT004200CA.Specimen"})
 public class ReportSectionSpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SpecimenRoleBean specimen;
     private INT specimenSequenceNumber = new INTImpl();
 

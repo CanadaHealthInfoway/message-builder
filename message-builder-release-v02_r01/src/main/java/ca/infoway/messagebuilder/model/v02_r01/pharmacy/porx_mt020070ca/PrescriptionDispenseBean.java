@@ -30,33 +30,15 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
-    private BL subject = new BLImpl(false);
+    private static final long serialVersionUID = 20110407L;
     private II localDispenseId = new IIImpl();
-    private SubstitutionBean component1SubstitutionMade;
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private NotesBean subjectOfAnnotation;
+    private BL subject = new BLImpl(false);
+    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+    private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public Boolean getSubject() {
-        return this.subject.getValue();
-    }
-    public void setSubject(Boolean subject) {
-        this.subject.setValue(subject);
-    }
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -71,15 +53,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/substitutionMade"})
-    public SubstitutionBean getComponent1SubstitutionMade() {
-        return this.component1SubstitutionMade;
-    }
-    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
-        this.component1SubstitutionMade = component1SubstitutionMade;
-    }
-
-
     /**
      * <p>E:Prescription Masking Indicators</p>
      */
@@ -89,12 +62,30 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    @Hl7XmlMapping({"subject"})
+    public Boolean getSubject() {
+        return this.subject.getValue();
     }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setSubject(Boolean subject) {
+        this.subject.setValue(subject);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitutionMade"})
+    public SubstitutionBean getComponent1SubstitutionMade() {
+        return this.component1SubstitutionMade;
+    }
+    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
+        this.component1SubstitutionMade = component1SubstitutionMade;
     }
 
 
@@ -110,6 +101,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

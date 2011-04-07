@@ -37,56 +37,17 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV routeCode = new CVImpl();
-    private PatientBean subjectPatient;
-    private CV otherMedicationMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II otherMedicationId = new IIImpl();
     private CD otherMedicationType = new CDImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV otherMedicationMaskingIndicator = new CVImpl();
+    private CV routeCode = new CVImpl();
+    private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
-    private CommentBean subjectOfAnnotation;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-
-
-    /**
-     * <p>E:Route</p>
-     * 
-     * <p>F:Route of Administration</p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteCode() {
-        return (RouteOfAdministration) this.routeCode.getValue();
-    }
-    public void setRouteCode(RouteOfAdministration routeCode) {
-        this.routeCode.setValue(routeCode);
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>OtherMedicationMaskingIndicator</p>
-     * 
-     * <p>D:Other Medication Masking Indicator</p>
-     * 
-     * <p>E:Other Medication Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
-    }
-    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
-        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
-    }
+    private CommentBean subjectOfAnnotation;
 
 
     /**
@@ -118,6 +79,20 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>C:Other Medication Status</p>
+     * 
+     * <p>B:Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
+    }
+
+
+    /**
      * <p>DrugActivePeriod</p>
      * 
      * <p>C:Drug Active Period</p>
@@ -134,16 +109,41 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Other Medication Status</p>
+     * <p>OtherMedicationMaskingIndicator</p>
      * 
-     * <p>B:Medication Status</p>
+     * <p>D:Other Medication Masking Indicator</p>
+     * 
+     * <p>E:Other Medication Masking Indicator</p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
     }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
+    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
+        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>E:Route</p>
+     * 
+     * <p>F:Route of Administration</p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
+    }
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
+    }
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -156,18 +156,18 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
     }
 
 }

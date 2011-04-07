@@ -76,81 +76,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV prescriptionType = new CVImpl();
-    private RefusedByBean author;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private Component2Bean component;
-    private ClassifiesBean component1;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV prescriptionType = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private RefusedByBean author;
+    private ClassifiesBean component1;
+    private Component2Bean component;
     private CS prescriptionStatus = new CSImpl();
-
-
-    /**
-     * <p>PrescriptionType</p>
-     * 
-     * <p>Prescription Type</p>
-     * 
-     * <p><p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p></p>
-     * 
-     * <p><p>Important in understanding the context of the 
-     * prescription being fulfilled. Therefoe is Mandatory.</p></p>
-     * 
-     * <p>Prescription type</p>
-     * 
-     * <p><p>Indicates that this is a drug rather than a 
-     * vaccine.</p></p>
-     * 
-     * <p><p>Relevant to a full understanding of the prescription. 
-     * For this reason is Mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
-    }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"component","component2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2")})
-    public Component2Bean getComponent() {
-        return this.component;
-    }
-    public void setComponent(Component2Bean component) {
-        this.component = component;
-    }
-
-
-    @Hl7XmlMapping({"component1"})
-    public ClassifiesBean getComponent1() {
-        return this.component1;
-    }
-    public void setComponent1(ClassifiesBean component1) {
-        this.component1 = component1;
-    }
 
 
     /**
@@ -223,6 +156,73 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPrescriptionOrderNumber() {
         return this.prescriptionOrderNumber.rawSet();
+    }
+
+
+    /**
+     * <p>PrescriptionType</p>
+     * 
+     * <p>Prescription Type</p>
+     * 
+     * <p><p>Differentiates the type of medication e.g. drug, 
+     * vaccine</p></p>
+     * 
+     * <p><p>Important in understanding the context of the 
+     * prescription being fulfilled. Therefoe is Mandatory.</p></p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p><p>Indicates that this is a drug rather than a 
+     * vaccine.</p></p>
+     * 
+     * <p><p>Relevant to a full understanding of the prescription. 
+     * For this reason is Mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getPrescriptionType() {
+        return (Code) this.prescriptionType.getValue();
+    }
+    public void setPrescriptionType(Code prescriptionType) {
+        this.prescriptionType.setValue(prescriptionType);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"component1"})
+    public ClassifiesBean getComponent1() {
+        return this.component1;
+    }
+    public void setComponent1(ClassifiesBean component1) {
+        this.component1 = component1;
+    }
+
+
+    @Hl7XmlMapping({"component","component2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2")})
+    public Component2Bean getComponent() {
+        return this.component;
+    }
+    public void setComponent(Component2Bean component) {
+        this.component = component;
     }
 
 

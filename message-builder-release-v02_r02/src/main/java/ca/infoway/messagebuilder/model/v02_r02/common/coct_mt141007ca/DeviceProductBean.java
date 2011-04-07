@@ -4,11 +4,9 @@ package ca.infoway.messagebuilder.model.v02_r02.common.coct_mt141007ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -34,48 +32,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
-    private INT devicePackageQuantity = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV deviceCode = new CVImpl();
     private ST deviceName = new STImpl();
     private ST deviceDescription = new STImpl();
-
-
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
-    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
-        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
-    }
-    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
-        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
-    }
-
-
-    /**
-     * <p>F:Device Package Quantity</p>
-     * 
-     * <p><p>The quantity of devices contained in the package given 
-     * or to be given to the patient.</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p></p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
-    public Integer getDevicePackageQuantity() {
-        return this.devicePackageQuantity.getValue();
-    }
-    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
-        this.devicePackageQuantity.setValue(devicePackageQuantity);
-    }
+    private INT devicePackageQuantity = new INTImpl();
 
 
     /**
@@ -137,6 +98,33 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDeviceDescription(String deviceDescription) {
         this.deviceDescription.setValue(deviceDescription);
+    }
+
+
+    /**
+     * <p>F:Device Package Quantity</p>
+     * 
+     * <p><p>The quantity of devices contained in the package given 
+     * or to be given to the patient.</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p><p>Attribute is marked 
+     * as &quot;mandatory&quot; to ensure that quantity in a 
+     * package is always known.</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p><p>Attribute is marked 
+     * as &quot;mandatory&quot; to ensure that quantity in a 
+     * package is always known.</p></p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
+    public Integer getDevicePackageQuantity() {
+        return this.devicePackageQuantity.getValue();
+    }
+    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
+        this.devicePackageQuantity.setValue(devicePackageQuantity);
     }
 
 }

@@ -93,10 +93,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT220001CA.ActRequest","REPC_MT220002CA.ActRequest","REPC_MT220003CA.ActRequest","REPC_MT500001CA.ActRequest","REPC_MT500002CA.ActRequest","REPC_MT500003CA.ActRequest","REPC_MT500004CA.ActRequest"})
 public class Request_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS requestType = new CSImpl();
-    private RequestedByBean author;
     private II requestId = new IIImpl();
+    private RequestedByBean author;
 
 
     /**
@@ -128,15 +128,6 @@ public class Request_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RequestedByBean author) {
-        this.author = author;
-    }
-
-
     /**
      * <p>RequestId</p>
      * 
@@ -162,6 +153,15 @@ public class Request_1Bean extends MessagePartBean {
     }
     public void setRequestId(Identifier requestId) {
         this.requestId.setValue(requestId);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
     }
 
 }

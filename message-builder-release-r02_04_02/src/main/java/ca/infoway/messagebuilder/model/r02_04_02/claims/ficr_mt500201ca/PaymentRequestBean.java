@@ -33,19 +33,22 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private MO totalBilledAmount = new MOImpl();
+    private ContactPartyBean primaryPerformerContactParty;
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<ProviderBillingTaxAccountBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<ProviderBillingTaxAccountBean>();
-    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ContactPartyBean primaryPerformerContactParty;
+    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
 
 
-    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
-        return this.reasonOfInvoiceElementChoice;
+    /**
+     * <p>Invoice Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getInvoiceIdentifier() {
+        return this.invoiceIdentifier.rawSet();
     }
 
 
@@ -58,6 +61,15 @@ public class PaymentRequestBean extends MessagePartBean {
     }
     public void setTotalBilledAmount(Money totalBilledAmount) {
         this.totalBilledAmount.setValue(totalBilledAmount);
+    }
+
+
+    @Hl7XmlMapping({"primaryPerformer/contactParty"})
+    public ContactPartyBean getPrimaryPerformerContactParty() {
+        return this.primaryPerformerContactParty;
+    }
+    public void setPrimaryPerformerContactParty(ContactPartyBean primaryPerformerContactParty) {
+        this.primaryPerformerContactParty = primaryPerformerContactParty;
     }
 
 
@@ -85,21 +97,9 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Invoice Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceIdentifier() {
-        return this.invoiceIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"primaryPerformer/contactParty"})
-    public ContactPartyBean getPrimaryPerformerContactParty() {
-        return this.primaryPerformerContactParty;
-    }
-    public void setPrimaryPerformerContactParty(ContactPartyBean primaryPerformerContactParty) {
-        this.primaryPerformerContactParty = primaryPerformerContactParty;
+    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
+    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
+        return this.reasonOfInvoiceElementChoice;
     }
 
 }

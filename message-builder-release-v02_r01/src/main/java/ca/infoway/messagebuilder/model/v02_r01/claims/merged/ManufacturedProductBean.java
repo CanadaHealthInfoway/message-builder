@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt490000ca.Manufactur
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;

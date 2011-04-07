@@ -14,18 +14,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean assignedEntity;
+    private static final long serialVersionUID = 20110407L;
     private TS patientNoteDate = new TSImpl();
-
-
-    @Hl7XmlMapping({"assignedEntity"})
-    public HealthcareWorkerBean getAssignedEntity() {
-        return this.assignedEntity;
-    }
-    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
-        this.assignedEntity = assignedEntity;
-    }
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
@@ -37,6 +28,15 @@ public class AnnotatedByBean extends MessagePartBean {
     }
     public void setPatientNoteDate(Date patientNoteDate) {
         this.patientNoteDate.setValue(patientNoteDate);
+    }
+
+
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
+    }
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

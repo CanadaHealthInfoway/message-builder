@@ -16,7 +16,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> refillPeriod = new IVLImpl<TS, Interval<Date>>();
 
 

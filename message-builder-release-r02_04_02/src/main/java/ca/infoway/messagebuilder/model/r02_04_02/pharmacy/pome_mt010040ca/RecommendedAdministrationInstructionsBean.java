@@ -26,18 +26,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
+    private static final long serialVersionUID = 20110407L;
     private PatientBean subjectPatient;
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private ST recommendingAuthorityName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
-    }
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -46,12 +40,6 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
     }
 
 
@@ -77,6 +65,18 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     @Hl7XmlMapping({"option/dosageInstruction"})
     public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
         return this.optionDosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
     }
 
 }

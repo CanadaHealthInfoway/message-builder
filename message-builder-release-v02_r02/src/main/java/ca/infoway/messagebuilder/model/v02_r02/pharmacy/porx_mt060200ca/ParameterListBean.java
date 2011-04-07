@@ -36,63 +36,69 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL mostRecentByDrugIndicator = new BLImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
 
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Administration Effective Period</p>
      * 
-     * <p><p>Indicates whether or not the medication records are to 
-     * be retrieved based on the most recent by Drug Code. If true, 
-     * only the most recent prescription, dispense or other active 
-     * medication for a particular drug generic classification will 
-     * be returned. The default is 'FALSE' indicating that 
-     * retrieval of prescription, dispense and other active 
-     * medication records should not be limited to one per 
-     * drug.</p></p>
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Allows the requester to specify the administration 
+     * period of interest for the retrieval. Useful for 
+     * constraining run-away queries.</p></p>
      */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
     }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
     }
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Amended in Time Range</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to &quot;retrieve everything that has been 
+     * amended since xxx&quot;.</p></p>
      * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
      */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
     }
 
 
@@ -131,29 +137,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Care Composition Types</p>
      * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to &quot;retrieve everything that has been 
-     * amended since xxx&quot;.</p></p>
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
      * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
      */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 
@@ -183,32 +180,35 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Most Recent By Drug Indicator</p>
      * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
+     * <p><p>Indicates whether or not the medication records are to 
+     * be retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p></p>
      * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
      * 
-     * <p><p>Allows the requester to specify the administration 
-     * period of interest for the retrieval. Useful for 
-     * constraining run-away queries.</p></p>
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 }

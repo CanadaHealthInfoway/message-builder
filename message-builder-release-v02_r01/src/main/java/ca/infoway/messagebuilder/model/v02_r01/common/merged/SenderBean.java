@@ -24,41 +24,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST sendingSoftwareVersionNumber = new STImpl();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private II sendingApplicationIdentifier = new IIImpl();
-    private ST sendingApplicationSoftwareName = new STImpl();
-    private ST sendingApplicationName = new STImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private TEL sendingNetworkAddress = new TELImpl();
+    private II sendingApplicationIdentifier = new IIImpl();
+    private ST sendingApplicationName = new STImpl();
+    private ST sendingApplicationConfigurationInformation = new STImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private ST sendingSoftwareVersionNumber = new STImpl();
+    private ST sendingApplicationSoftwareName = new STImpl();
 
 
     /**
-     * <p>SendingSoftwareVersionNumber</p>
+     * <p>SendingNetworkAddress</p>
      * 
-     * <p>IG:Sending Software Version Number</p>
+     * <p>IB:Sending Network Address</p>
      */
-    @Hl7XmlMapping({"device/manufacturerModelName"})
-    public String getSendingSoftwareVersionNumber() {
-        return this.sendingSoftwareVersionNumber.getValue();
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getSendingNetworkAddress() {
+        return this.sendingNetworkAddress.getValue();
     }
-    public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
-        this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
-    }
-
-
-    /**
-     * <p>SendingApplicationConfigurationInformation</p>
-     * 
-     * <p>II:Sending Application Configuration Information</p>
-     */
-    @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
-    }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
+        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
     }
 
 
@@ -77,20 +63,6 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationSoftwareName</p>
-     * 
-     * <p>IF:Sending Application Software Name</p>
-     */
-    @Hl7XmlMapping({"device/softwareName"})
-    public String getSendingApplicationSoftwareName() {
-        return this.sendingApplicationSoftwareName.getValue();
-    }
-    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
-    }
-
-
-    /**
      * <p>SendingApplicationName</p>
      * 
      * <p>IE:Sending Application Name</p>
@@ -101,6 +73,20 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingApplicationName(String sendingApplicationName) {
         this.sendingApplicationName.setValue(sendingApplicationName);
+    }
+
+
+    /**
+     * <p>SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     */
+    @Hl7XmlMapping({"device/desc"})
+    public String getSendingApplicationConfigurationInformation() {
+        return this.sendingApplicationConfigurationInformation.getValue();
+    }
+    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
+        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
     }
 
 
@@ -119,16 +105,30 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingNetworkAddress</p>
+     * <p>SendingSoftwareVersionNumber</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>IG:Sending Software Version Number</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getSendingNetworkAddress() {
-        return this.sendingNetworkAddress.getValue();
+    @Hl7XmlMapping({"device/manufacturerModelName"})
+    public String getSendingSoftwareVersionNumber() {
+        return this.sendingSoftwareVersionNumber.getValue();
     }
-    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
-        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
+    public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
+        this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
+    }
+
+
+    /**
+     * <p>SendingApplicationSoftwareName</p>
+     * 
+     * <p>IF:Sending Application Software Name</p>
+     */
+    @Hl7XmlMapping({"device/softwareName"})
+    public String getSendingApplicationSoftwareName() {
+        return this.sendingApplicationSoftwareName.getValue();
+    }
+    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
+        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
     }
 
 }

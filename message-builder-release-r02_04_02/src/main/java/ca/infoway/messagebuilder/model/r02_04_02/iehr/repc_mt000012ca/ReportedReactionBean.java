@@ -51,16 +51,34 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CV reaction = new CVImpl();
     private ReportedByBean informant;
-    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST description = new STImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
-    private II reactionRecordId = new IIImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+
+
+    /**
+     * <p>C:Reaction Record Id</p>
+     * 
+     * <p><p>An identifier assigned to the record of the adverse 
+     * reaction.</p></p>
+     * 
+     * <p><p>Uniquely identifies the specific reaction record and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReactionRecordId() {
+        return this.reactionRecordId.getValue();
+    }
+    public void setReactionRecordId(Identifier reactionRecordId) {
+        this.reactionRecordId.setValue(reactionRecordId);
+    }
 
 
     /**
@@ -87,41 +105,37 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>G:Description</p>
      * 
-     * <p><p>Value must be mandatory if not using SNOMED</p></p>
+     * <p><p>A free form description of the reaction.</p></p>
      * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
      */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
-        return this.subjectOf2CausalityAssessment;
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -186,19 +200,35 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
+     * <p>B:Reaction</p>
      * 
-     * <p><p>A free form description of the reaction.</p></p>
+     * <p><p>Value must be mandatory if not using SNOMED</p></p>
      * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
     }
 
 
@@ -211,39 +241,9 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Reaction Record Id</p>
-     * 
-     * <p><p>An identifier assigned to the record of the adverse 
-     * reaction.</p></p>
-     * 
-     * <p><p>Uniquely identifies the specific reaction record and 
-     * is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReactionRecordId() {
-        return this.reactionRecordId.getValue();
-    }
-    public void setReactionRecordId(Identifier reactionRecordId) {
-        this.reactionRecordId.setValue(reactionRecordId);
-    }
-
-
-    /**
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
+        return this.subjectOf2CausalityAssessment;
     }
 
 }

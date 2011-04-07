@@ -50,7 +50,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements EntererChoice, AuthorPerson, ca.infoway.messagebuilder.model.v02_r02.common.coct_mt911108ca.ActingPerson, ActingPerson {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II organizationIdentifier = new IIImpl();
     private ST organizationName = new STImpl();
     private CV organizationType = new CVImpl();

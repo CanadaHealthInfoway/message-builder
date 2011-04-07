@@ -22,29 +22,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II previousPrescriptionOrderNumber = new IIImpl();
-
-
-    /**
-     * <p>Prescription type</p>
-     * 
-     * <p><p>It signifies the type of prescription (same as it is 
-     * on the prescription pointed to by the Previous Prescription 
-     * Order Number )</p></p>
-     * 
-     * <p><p>This allows for instant identification of the type of 
-     * prescription being replaced/renewed, etc; and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
-    }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
-    }
+    private CV prescriptionType = new CVImpl();
 
 
     /**
@@ -77,6 +57,26 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
     }
     public void setPreviousPrescriptionOrderNumber(Identifier previousPrescriptionOrderNumber) {
         this.previousPrescriptionOrderNumber.setValue(previousPrescriptionOrderNumber);
+    }
+
+
+    /**
+     * <p>Prescription type</p>
+     * 
+     * <p><p>It signifies the type of prescription (same as it is 
+     * on the prescription pointed to by the Previous Prescription 
+     * Order Number )</p></p>
+     * 
+     * <p><p>This allows for instant identification of the type of 
+     * prescription being replaced/renewed, etc; and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getPrescriptionType() {
+        return (Code) this.prescriptionType.getValue();
+    }
+    public void setPrescriptionType(Code prescriptionType) {
+        this.prescriptionType.setValue(prescriptionType);
     }
 
 }

@@ -15,25 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Substance","COCT_MT220110CA.Substance","COCT_MT220200CA.Substance","COCT_MT220210CA.Substance","POME_MT010040CA.Substance","POME_MT010100CA.Substance"})
 public class DrugIngredientsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST name = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV drugIngredientIdentifier = new CVImpl();
-
-
-    /**
-     * <p>K:Ingredient Name</p>
-     * 
-     * <p>Ingredient Name</p>
-     * 
-     * <p>B:Drug Ingredient Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getName() {
-        return this.name.getValue();
-    }
-    public void setName(String name) {
-        this.name.setValue(name);
-    }
+    private ST name = new STImpl();
 
 
     /**
@@ -51,6 +35,22 @@ public class DrugIngredientsBean extends MessagePartBean {
     }
     public void setDrugIngredientIdentifier(ActiveIngredientDrugEntityType drugIngredientIdentifier) {
         this.drugIngredientIdentifier.setValue(drugIngredientIdentifier);
+    }
+
+
+    /**
+     * <p>K:Ingredient Name</p>
+     * 
+     * <p>Ingredient Name</p>
+     * 
+     * <p>B:Drug Ingredient Name</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getName() {
+        return this.name.getValue();
+    }
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 }

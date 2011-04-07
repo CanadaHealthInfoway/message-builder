@@ -33,20 +33,30 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ChangedByBean author;
-    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private CV allergyIntoleranceStatusChangeType = new CVImpl();
+    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private CV allergyIntoleranceStatusChangeReason = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private ChangedByBean author;
 
 
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred. 
+     * Allergy/Intolerance change types are Revise, Reactivate and 
+     * Complete.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
+        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
     }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
+        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
     }
 
 
@@ -66,25 +76,6 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatusChangeEffectiveDate(Interval<Date> allergyIntoleranceStatusChangeEffectiveDate) {
         this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
-    }
-
-
-    /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred. 
-     * Allergy/Intolerance change types are Revise, Reactivate and 
-     * Complete.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
-        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
-    }
-    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
-        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
     }
 
 
@@ -113,6 +104,15 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

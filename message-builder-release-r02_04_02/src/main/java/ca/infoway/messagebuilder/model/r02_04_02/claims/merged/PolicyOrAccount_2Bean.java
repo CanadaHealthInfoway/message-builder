@@ -33,12 +33,26 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.PolicyUnderwriterBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyOrAccount_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II id = new IIImpl();
     private CD policyType = new CDImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
     private PolicyUnderwriterBean author;
-    private II id = new IIImpl();
     private PolicyHolderBean holderPolicyHolder;
+
+
+    /**
+     * <p>Policy ID</p>
+     * 
+     * <p>Policy Identifier(s</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
 
 
     /**
@@ -70,20 +84,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
     public void setAuthor(PolicyUnderwriterBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>Policy ID</p>
-     * 
-     * <p>Policy Identifier(s</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
     }
 
 

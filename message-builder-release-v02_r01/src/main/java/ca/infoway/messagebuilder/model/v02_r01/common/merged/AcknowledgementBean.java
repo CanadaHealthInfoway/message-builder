@@ -23,11 +23,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.Acknowledgement","MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS acknowledgementCode = new CSImpl();
-    private II acknowledgedMessageId = new IIImpl();
     private INT numberOfWaitingMessages = new INTImpl();
     private CV messageWaitingPriority = new CVImpl();
+    private II acknowledgedMessageId = new IIImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
 
 
@@ -42,20 +42,6 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
         this.acknowledgementCode.setValue(acknowledgementCode);
-    }
-
-
-    /**
-     * <p>AcknowledgedMessageId</p>
-     * 
-     * <p>BA:Acknowledged Message Id</p>
-     */
-    @Hl7XmlMapping({"targetMessage/id"})
-    public Identifier getAcknowledgedMessageId() {
-        return this.acknowledgedMessageId.getValue();
-    }
-    public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
-        this.acknowledgedMessageId.setValue(acknowledgedMessageId);
     }
 
 
@@ -84,6 +70,20 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
         this.messageWaitingPriority.setValue(messageWaitingPriority);
+    }
+
+
+    /**
+     * <p>AcknowledgedMessageId</p>
+     * 
+     * <p>BA:Acknowledged Message Id</p>
+     */
+    @Hl7XmlMapping({"targetMessage/id"})
+    public Identifier getAcknowledgedMessageId() {
+        return this.acknowledgedMessageId.getValue();
+    }
+    public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
+        this.acknowledgedMessageId.setValue(acknowledgedMessageId);
     }
 
 

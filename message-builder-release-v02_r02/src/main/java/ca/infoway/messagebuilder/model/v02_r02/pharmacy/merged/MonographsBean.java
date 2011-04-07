@@ -45,13 +45,13 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV code = new CVImpl();
-    private AssignedEntity3Bean authorAssignedEntity;
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV writtenIn = new CVImpl();
+    private AssignedEntity3Bean authorAssignedEntity;
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
 
 
@@ -87,6 +87,66 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>Monograph Type</p>
+     * 
+     * <p><p>Distinguishes between different kinds of documents and 
+     * monographs. Kinds of monographs include: Clinical Monograph, 
+     * Patient Education Monograph, etc.</p></p>
+     * 
+     * <p><p>Allows monograph types to be distinguished for 
+     * display, printing, etc.</p><p>Code is mandatory because an 
+     * application can't know what to do with a monograph without 
+     * knowing its type.</p></p>
+     * 
+     * <p><p>Allows monograph types to be distinguished for 
+     * display, printing, etc.</p><p>Code is mandatory because an 
+     * application can't know what to do with a monograph without 
+     * knowing its type.</p></p>
+     * 
+     * <p>A:Medication Document Type</p>
+     * 
+     * <p><p>Distinguishes between different kinds of documents and 
+     * medication documents. Kinds of medication documents include: 
+     * Clinical Medication document, Patient Education Medication 
+     * document, Indication Protocol, etc</p></p>
+     * 
+     * <p><p>Allows medication document types to be distinguished 
+     * for display, printing, etc. Code is mandatory because an 
+     * application can't know what to do with a medication document 
+     * without knowing its type.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMedicationDocumentCode getCode() {
+        return (ActMedicationDocumentCode) this.code.getValue();
+    }
+    public void setCode(ActMedicationDocumentCode code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>MonographContent</p>
+     * 
+     * <p>Monograph Content</p>
+     * 
+     * <p><p>Includes either the full-blown content of the 
+     * monograph (as a PDF, HTML or HL7 CDA document), or provides 
+     * a reference to where the monograph can be accessed on the 
+     * network via HTTP or FTP</p></p>
+     * 
+     * <p><p>Allows delivery of the monograph information to the 
+     * provider either embedded or by reference</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getMonographContent() {
+        return this.monographContent.getValue();
+    }
+    public void setMonographContent(EncapsulatedData monographContent) {
+        this.monographContent.setValue(monographContent);
     }
 
 
@@ -145,75 +205,6 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Monograph Type</p>
-     * 
-     * <p><p>Distinguishes between different kinds of documents and 
-     * monographs. Kinds of monographs include: Clinical Monograph, 
-     * Patient Education Monograph, etc.</p></p>
-     * 
-     * <p><p>Allows monograph types to be distinguished for 
-     * display, printing, etc.</p><p>Code is mandatory because an 
-     * application can't know what to do with a monograph without 
-     * knowing its type.</p></p>
-     * 
-     * <p><p>Allows monograph types to be distinguished for 
-     * display, printing, etc.</p><p>Code is mandatory because an 
-     * application can't know what to do with a monograph without 
-     * knowing its type.</p></p>
-     * 
-     * <p>A:Medication Document Type</p>
-     * 
-     * <p><p>Distinguishes between different kinds of documents and 
-     * medication documents. Kinds of medication documents include: 
-     * Clinical Medication document, Patient Education Medication 
-     * document, Indication Protocol, etc</p></p>
-     * 
-     * <p><p>Allows medication document types to be distinguished 
-     * for display, printing, etc. Code is mandatory because an 
-     * application can't know what to do with a medication document 
-     * without knowing its type.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActMedicationDocumentCode getCode() {
-        return (ActMedicationDocumentCode) this.code.getValue();
-    }
-    public void setCode(ActMedicationDocumentCode code) {
-        this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity3Bean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    /**
-     * <p>MonographContent</p>
-     * 
-     * <p>Monograph Content</p>
-     * 
-     * <p><p>Includes either the full-blown content of the 
-     * monograph (as a PDF, HTML or HL7 CDA document), or provides 
-     * a reference to where the monograph can be accessed on the 
-     * network via HTTP or FTP</p></p>
-     * 
-     * <p><p>Allows delivery of the monograph information to the 
-     * provider either embedded or by reference</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getMonographContent() {
-        return this.monographContent.getValue();
-    }
-    public void setMonographContent(EncapsulatedData monographContent) {
-        this.monographContent.setValue(monographContent);
-    }
-
-
-    /**
      * <p>WrittenIn</p>
      * 
      * <p>Written in</p>
@@ -239,6 +230,15 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setWrittenIn(HumanLanguage writtenIn) {
         this.writtenIn.setValue(writtenIn);
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntity3Bean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 

@@ -41,14 +41,32 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV submittedProductServiceCode = new CVImpl();
-    private MO submittedInvoiceLineAmount = new MOImpl();
-    private List<REAL> multiplierEG007 = new ArrayList<REAL>();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ submittedUnitQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private II submittedInvoiceLineIdentifier = new IIImpl();
+    private CV submittedProductServiceCode = new CVImpl();
+    private PQ submittedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
+    private MO submittedInvoiceLineAmount = new MOImpl();
+    private List<REAL> multiplierEG007 = new ArrayList<REAL>();
+
+
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
+    }
+
+
+    /**
+     * <p>Submitted Invoice Line Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSubmittedInvoiceLineIdentifier() {
+        return this.submittedInvoiceLineIdentifier.getValue();
+    }
+    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
+        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    }
 
 
     /**
@@ -60,6 +78,30 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
     public void setSubmittedProductServiceCode(Code submittedProductServiceCode) {
         this.submittedProductServiceCode.setValue(submittedProductServiceCode);
+    }
+
+
+    /**
+     * <p>Submitted Unit Quantity</p>
+     */
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getSubmittedUnitQuantity() {
+        return this.submittedUnitQuantity.getValue();
+    }
+    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
+        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
+    }
+
+
+    /**
+     * <p>Submitted Unit Amount Price</p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
+    }
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 
@@ -81,48 +123,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     @Hl7XmlMapping({"factorNumber"})
     public List<BigDecimal> getMultiplierEG007() {
         return new RawListWrapper<REAL, BigDecimal>(multiplierEG007, REALImpl.class);
-    }
-
-
-    /**
-     * <p>Submitted Unit Amount Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
-    }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
-    }
-
-
-    /**
-     * <p>Submitted Unit Quantity</p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getSubmittedUnitQuantity() {
-        return this.submittedUnitQuantity.getValue();
-    }
-    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
-        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/billableActChoice"})
-    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
-        return this.reasonOfBillableActChoice;
-    }
-
-
-    /**
-     * <p>Submitted Invoice Line Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSubmittedInvoiceLineIdentifier() {
-        return this.submittedInvoiceLineIdentifier.getValue();
-    }
-    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
-        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
     }
 
 }

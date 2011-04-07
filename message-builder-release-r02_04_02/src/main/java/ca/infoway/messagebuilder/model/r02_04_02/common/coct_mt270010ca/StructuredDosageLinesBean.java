@@ -39,43 +39,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20110407L;
     private CS dosageUsageContext = new CSImpl();
     private ST adHocDosageInstruction = new STImpl();
-    private AdditionalSIGInstructionBean componentSupplementalInstruction;
-    private AdministrationPreconditionBean triggerActEventCriterion;
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
     private GTS dosageTimingFrequency = new GTSImpl();
-
-
-    /**
-     * <p>D:Dosage Range</p>
-     * 
-     * <p><p>This specifies the minimum and maximum amount of the 
-     * medication to be taken during a single administration.</p></p>
-     * 
-     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
-     * 
-     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
-     * 
-     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
-     * 
-     * <p><p>Enables the checking of administration compliance that 
-     * could results in fill-too-soon/fill-too-late 
-     * contraindications. Supports circumstances where the dose can 
-     * vary. (e.g. 1-2 tablets)</p></p>
-     * 
-     * <p><p>Where no range is needed, a single value should be 
-     * specified as the center, with a width of 0.</p></p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRange() {
-        return this.dosageRange.getValue();
-    }
-    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
-        this.dosageRange.setValue(dosageRange);
-    }
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private AdministrationPreconditionBean triggerActEventCriterion;
+    private AdditionalSIGInstructionBean componentSupplementalInstruction;
 
 
     /**
@@ -164,43 +135,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setAdHocDosageInstruction(String adHocDosageInstruction) {
         this.adHocDosageInstruction.setValue(adHocDosageInstruction);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
-    }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
-    }
-
-
-    @Hl7XmlMapping({"trigger/actEventCriterion"})
-    public AdministrationPreconditionBean getTriggerActEventCriterion() {
-        return this.triggerActEventCriterion;
-    }
-    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
-        this.triggerActEventCriterion = triggerActEventCriterion;
-    }
-
-
-    /**
-     * <p>E:Dosage Rate</p>
-     * 
-     * <p><p>For intravenous and other such routes, this is the 
-     * time period over which one dose is to be administered. The 
-     * flow rate is determined by dividing the dose quantity by the 
-     * Dosage rate.</p></p>
-     * 
-     * <p><p>Required for intravenous administration</p></p>
-     */
-    @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
-    }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
     }
 
 
@@ -322,6 +256,72 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
         this.dosageTimingFrequency.setValue(dosageTimingFrequency);
+    }
+
+
+    /**
+     * <p>D:Dosage Range</p>
+     * 
+     * <p><p>This specifies the minimum and maximum amount of the 
+     * medication to be taken during a single administration.</p></p>
+     * 
+     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
+     * 
+     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
+     * 
+     * <p><p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p></p>
+     * 
+     * <p><p>Enables the checking of administration compliance that 
+     * could results in fill-too-soon/fill-too-late 
+     * contraindications. Supports circumstances where the dose can 
+     * vary. (e.g. 1-2 tablets)</p></p>
+     * 
+     * <p><p>Where no range is needed, a single value should be 
+     * specified as the center, with a width of 0.</p></p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRange() {
+        return this.dosageRange.getValue();
+    }
+    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
+        this.dosageRange.setValue(dosageRange);
+    }
+
+
+    /**
+     * <p>E:Dosage Rate</p>
+     * 
+     * <p><p>For intravenous and other such routes, this is the 
+     * time period over which one dose is to be administered. The 
+     * flow rate is determined by dividing the dose quantity by the 
+     * Dosage rate.</p></p>
+     * 
+     * <p><p>Required for intravenous administration</p></p>
+     */
+    @Hl7XmlMapping({"rateQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRate() {
+        return this.dosageRate.getValue();
+    }
+    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
+        this.dosageRate.setValue(dosageRate);
+    }
+
+
+    @Hl7XmlMapping({"trigger/actEventCriterion"})
+    public AdministrationPreconditionBean getTriggerActEventCriterion() {
+        return this.triggerActEventCriterion;
+    }
+    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
+        this.triggerActEventCriterion = triggerActEventCriterion;
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
     }
 
 }

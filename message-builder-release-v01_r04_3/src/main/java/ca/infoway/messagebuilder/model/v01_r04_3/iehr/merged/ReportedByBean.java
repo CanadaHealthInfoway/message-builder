@@ -18,11 +18,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000007CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private Party party;
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
+    private Party party;
     private Consenter consenter;
     private Choice choice;
+
+
+    /**
+     * <p>Reported Date</p>
+     * 
+     * <p>Reported Timestamp</p>
+     * 
+     * <p>Reported date</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getTime() {
+        return this.time.getValue();
+    }
+    public void setTime(Date time) {
+        this.time.setValue(time);
+    }
 
 
     @Hl7XmlMapping({"party"})
@@ -52,22 +68,6 @@ public class ReportedByBean extends MessagePartBean {
     }
     public boolean hasPartyAsAssignedPerson() {
         return (this.party instanceof ProviderBean);
-    }
-
-
-    /**
-     * <p>Reported Date</p>
-     * 
-     * <p>Reported Timestamp</p>
-     * 
-     * <p>Reported date</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getTime() {
-        return this.time.getValue();
-    }
-    public void setTime(Date time) {
-        this.time.setValue(time);
     }
 
 

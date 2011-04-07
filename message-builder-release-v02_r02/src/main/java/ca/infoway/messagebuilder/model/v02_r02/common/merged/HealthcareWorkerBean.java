@@ -62,16 +62,16 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements EntererChoice, AuthorPerson, ca.infoway.messagebuilder.model.v02_r02.merged.Recipient, ca.infoway.messagebuilder.model.v02_r02.merged.Choice, ca.infoway.messagebuilder.model.v02_r02.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.v02_r02.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.v02_r02.iehr.merged.Party, ActingPerson {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ST assignedOrganizationName = new STImpl();
     private II healthcareWorkerIdentifier = new IIImpl();
     private CV healthcareWorkerType = new CVImpl();
-    private II licenseNumber = new IIImpl();
+    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN healthcareWorkerName = new PNImpl();
+    private II licenseNumber = new IIImpl();
     private II organizationIdentifier = new IIImpl();
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -172,6 +172,52 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
 
 
     /**
+     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * 
+     * <p>E: Healthcare Worker Phone and Emails</p>
+     * 
+     * <p><p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p></p>
+     * 
+     * <p><p>This is the most commonly used piece of contact 
+     * information and is returned here to avoid unnecessary 
+     * queries of the provider registry.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
+        return this.healthcareWorkerPhoneAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>HealthcareWorkerName</p>
+     * 
+     * <p>B: Healthcare Worker Name</p>
+     * 
+     * <p><p>The name of the involved person.</p></p>
+     * 
+     * <p><p>This is a human-readable name and is essential for 
+     * validation of the person. As a result, the attribute is 
+     * mandatory</p></p>
+     * 
+     * <p>C: Healthcare Worker Name</p>
+     * 
+     * <p><p>The name of the participating person.</p></p>
+     * 
+     * <p><p>This is a human-readable name and is thus essential 
+     * for both display and validation of the person. As a result, 
+     * the attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"assignedPerson/name"})
+    public PersonName getHealthcareWorkerName() {
+        return this.healthcareWorkerName.getValue();
+    }
+    public void setHealthcareWorkerName(PersonName healthcareWorkerName) {
+        this.healthcareWorkerName.setValue(healthcareWorkerName);
+    }
+
+
+    /**
      * <p>LicenseNumber</p>
      * 
      * <p>D: License Number</p>
@@ -214,34 +260,6 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
     }
     public void setLicenseNumber(Identifier licenseNumber) {
         this.licenseNumber.setValue(licenseNumber);
-    }
-
-
-    /**
-     * <p>HealthcareWorkerName</p>
-     * 
-     * <p>B: Healthcare Worker Name</p>
-     * 
-     * <p><p>The name of the involved person.</p></p>
-     * 
-     * <p><p>This is a human-readable name and is essential for 
-     * validation of the person. As a result, the attribute is 
-     * mandatory</p></p>
-     * 
-     * <p>C: Healthcare Worker Name</p>
-     * 
-     * <p><p>The name of the participating person.</p></p>
-     * 
-     * <p><p>This is a human-readable name and is thus essential 
-     * for both display and validation of the person. As a result, 
-     * the attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"assignedPerson/name"})
-    public PersonName getHealthcareWorkerName() {
-        return this.healthcareWorkerName.getValue();
-    }
-    public void setHealthcareWorkerName(PersonName healthcareWorkerName) {
-        this.healthcareWorkerName.setValue(healthcareWorkerName);
     }
 
 
@@ -311,24 +329,6 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
         return this.organizationPhoneAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
-     * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
-     * 
-     * <p><p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p></p>
-     * 
-     * <p><p>This is the most commonly used piece of contact 
-     * information and is returned here to avoid unnecessary 
-     * queries of the provider registry.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
     }
 
 }

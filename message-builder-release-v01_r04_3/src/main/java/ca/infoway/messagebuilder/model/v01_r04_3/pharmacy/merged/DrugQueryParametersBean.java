@@ -28,17 +28,45 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV drugCode = new CVImpl();
+    private II medicationDocumentID = new IIImpl();
     private CV medicationDocumentType = new CVImpl();
     private CV prescribingIndicationDiagnosisCode = new CVImpl();
-    private II medicationDocumentID = new IIImpl();
     private CV prescribingIndicationSymptomCode = new CVImpl();
-    private CV drugCode = new CVImpl();
-    private CV drugRouteCode = new CVImpl();
-    private ST drugName = new STImpl();
-    private ST drugManufacturerName = new STImpl();
-    private CV orderableDrugForm = new CVImpl();
     private List<HasCharacteristicBean> drugCharacteristics = new ArrayList<HasCharacteristicBean>();
+    private CV orderableDrugForm = new CVImpl();
+    private ST drugManufacturerName = new STImpl();
+    private ST drugName = new STImpl();
+    private CV drugRouteCode = new CVImpl();
+
+
+    /**
+     * <p>DrugCode</p>
+     * 
+     * <p>B:Drug Code</p>
+     */
+    @Hl7XmlMapping({"drugCode/value"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>MedicationDocumentID</p>
+     * 
+     * <p>E:Medication Document ID</p>
+     */
+    @Hl7XmlMapping({"medicationDocumentID/value"})
+    public Identifier getMedicationDocumentID() {
+        return this.medicationDocumentID.getValue();
+    }
+    public void setMedicationDocumentID(Identifier medicationDocumentID) {
+        this.medicationDocumentID.setValue(medicationDocumentID);
+    }
 
 
     /**
@@ -70,20 +98,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicationDocumentID</p>
-     * 
-     * <p>E:Medication Document ID</p>
-     */
-    @Hl7XmlMapping({"medicationDocumentID/value"})
-    public Identifier getMedicationDocumentID() {
-        return this.medicationDocumentID.getValue();
-    }
-    public void setMedicationDocumentID(Identifier medicationDocumentID) {
-        this.medicationDocumentID.setValue(medicationDocumentID);
-    }
-
-
-    /**
      * <p>PrescribingIndicationSymptomCode</p>
      * 
      * <p>Prescribing Indication Symptom Code</p>
@@ -97,45 +111,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DrugCode</p>
-     * 
-     * <p>B:Drug Code</p>
-     */
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    @Hl7XmlMapping({"drugCharacteristics"})
+    public List<HasCharacteristicBean> getDrugCharacteristics() {
+        return this.drugCharacteristics;
     }
 
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>OrderableDrugForm</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>D:Orderable Drug Form</p>
      */
-    @Hl7XmlMapping({"drugRoute/value"})
-    public RouteOfAdministration getDrugRouteCode() {
-        return (RouteOfAdministration) this.drugRouteCode.getValue();
+    @Hl7XmlMapping({"drugForm/value"})
+    public OrderableDrugForm getOrderableDrugForm() {
+        return (OrderableDrugForm) this.orderableDrugForm.getValue();
     }
-    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
-        this.drugRouteCode.setValue(drugRouteCode);
-    }
-
-
-    /**
-     * <p>DrugName</p>
-     * 
-     * <p>C:Drug Name</p>
-     */
-    @Hl7XmlMapping({"drugName/value"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setOrderableDrugForm(OrderableDrugForm orderableDrugForm) {
+        this.orderableDrugForm.setValue(orderableDrugForm);
     }
 
 
@@ -154,22 +146,30 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderableDrugForm</p>
+     * <p>DrugName</p>
      * 
-     * <p>D:Orderable Drug Form</p>
+     * <p>C:Drug Name</p>
      */
-    @Hl7XmlMapping({"drugForm/value"})
-    public OrderableDrugForm getOrderableDrugForm() {
-        return (OrderableDrugForm) this.orderableDrugForm.getValue();
+    @Hl7XmlMapping({"drugName/value"})
+    public String getDrugName() {
+        return this.drugName.getValue();
     }
-    public void setOrderableDrugForm(OrderableDrugForm orderableDrugForm) {
-        this.orderableDrugForm.setValue(orderableDrugForm);
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 
-    @Hl7XmlMapping({"drugCharacteristics"})
-    public List<HasCharacteristicBean> getDrugCharacteristics() {
-        return this.drugCharacteristics;
+    /**
+     * <p>DrugRouteCode</p>
+     * 
+     * <p>E:Drug Route Code</p>
+     */
+    @Hl7XmlMapping({"drugRoute/value"})
+    public RouteOfAdministration getDrugRouteCode() {
+        return (RouteOfAdministration) this.drugRouteCode.getValue();
+    }
+    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
+        this.drugRouteCode.setValue(drugRouteCode);
     }
 
 }

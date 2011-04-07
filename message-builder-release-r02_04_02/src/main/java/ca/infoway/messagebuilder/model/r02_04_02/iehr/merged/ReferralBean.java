@@ -47,15 +47,21 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.repc_mt210001ca.DocumentContent, DocumentContent_1 {
 
-    private static final long serialVersionUID = 20110318L;
-    private CD referralType = new CDImpl();
-    private OccurredAtBean location;
+    private static final long serialVersionUID = 20110407L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private ActRequest2Bean componentActRequest;
-    private AdministeredByBean performer;
-    private CareCompositionsBean fulfillmentPatientCareProvisionEvent;
+    private CD referralType = new CDImpl();
     private CS referralStatus = new CSImpl();
     private IVL<TS, Interval<Date>> referralRequestedByTime = new IVLImpl<TS, Interval<Date>>();
+    private AdministeredByBean performer;
+    private OccurredAtBean location;
+    private ActRequest2Bean componentActRequest;
+    private CareCompositionsBean fulfillmentPatientCareProvisionEvent;
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
 
 
     /**
@@ -83,48 +89,6 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setReferralType(ActCareProvisionRequestType referralType) {
         this.referralType.setValue(referralType);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"component/actRequest"})
-    public ActRequest2Bean getComponentActRequest() {
-        return this.componentActRequest;
-    }
-    public void setComponentActRequest(ActRequest2Bean componentActRequest) {
-        this.componentActRequest = componentActRequest;
-    }
-
-
-    @Hl7XmlMapping({"performer"})
-    public AdministeredByBean getPerformer() {
-        return this.performer;
-    }
-    public void setPerformer(AdministeredByBean performer) {
-        this.performer = performer;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/patientCareProvisionEvent"})
-    public CareCompositionsBean getFulfillmentPatientCareProvisionEvent() {
-        return this.fulfillmentPatientCareProvisionEvent;
-    }
-    public void setFulfillmentPatientCareProvisionEvent(CareCompositionsBean fulfillmentPatientCareProvisionEvent) {
-        this.fulfillmentPatientCareProvisionEvent = fulfillmentPatientCareProvisionEvent;
     }
 
 
@@ -198,6 +162,42 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setReferralRequestedByTime(Interval<Date> referralRequestedByTime) {
         this.referralRequestedByTime.setValue(referralRequestedByTime);
+    }
+
+
+    @Hl7XmlMapping({"performer"})
+    public AdministeredByBean getPerformer() {
+        return this.performer;
+    }
+    public void setPerformer(AdministeredByBean performer) {
+        this.performer = performer;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component/actRequest"})
+    public ActRequest2Bean getComponentActRequest() {
+        return this.componentActRequest;
+    }
+    public void setComponentActRequest(ActRequest2Bean componentActRequest) {
+        this.componentActRequest = componentActRequest;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/patientCareProvisionEvent"})
+    public CareCompositionsBean getFulfillmentPatientCareProvisionEvent() {
+        return this.fulfillmentPatientCareProvisionEvent;
+    }
+    public void setFulfillmentPatientCareProvisionEvent(CareCompositionsBean fulfillmentPatientCareProvisionEvent) {
+        this.fulfillmentPatientCareProvisionEvent = fulfillmentPatientCareProvisionEvent;
     }
 
 }

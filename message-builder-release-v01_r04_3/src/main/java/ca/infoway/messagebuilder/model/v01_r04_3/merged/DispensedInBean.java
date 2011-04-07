@@ -16,9 +16,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV containerPackagedMedicineFormCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private PQ quantity = new PQImpl();
+    private CV containerPackagedMedicineFormCode = new CVImpl();
+
+
+    /**
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p>Package Quantity</p>
+     * 
+     * <p>F:Drug Package Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
+    }
 
 
     /**
@@ -38,22 +54,6 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
-    }
-
-
-    /**
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p>Package Quantity</p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
     }
 
 }

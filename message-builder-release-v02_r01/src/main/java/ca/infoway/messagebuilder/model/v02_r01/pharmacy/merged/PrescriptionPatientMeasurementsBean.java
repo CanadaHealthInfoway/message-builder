@@ -19,23 +19,23 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ prescriptionPatientMeasuredValue = new PQImpl();
-    private TS effectiveTime = new TSImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV prescriptionPatientMeasurementType = new CVImpl();
+    private TS effectiveTime = new TSImpl();
+    private PQ prescriptionPatientMeasuredValue = new PQImpl();
 
 
     /**
-     * <p>PrescriptionPatientMeasuredValue</p>
+     * <p>PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Prescription Patient Measured Value</p>
+     * <p>Prescription Patient Measurement Type</p>
      */
-    @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getPrescriptionPatientMeasuredValue() {
-        return this.prescriptionPatientMeasuredValue.getValue();
+    @Hl7XmlMapping({"code"})
+    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
+        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
     }
-    public void setPrescriptionPatientMeasuredValue(PhysicalQuantity prescriptionPatientMeasuredValue) {
-        this.prescriptionPatientMeasuredValue.setValue(prescriptionPatientMeasuredValue);
+    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
+        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
     }
 
 
@@ -54,16 +54,16 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionPatientMeasurementType</p>
+     * <p>PrescriptionPatientMeasuredValue</p>
      * 
-     * <p>Prescription Patient Measurement Type</p>
+     * <p>Prescription Patient Measured Value</p>
      */
-    @Hl7XmlMapping({"code"})
-    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
-        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
+    @Hl7XmlMapping({"value"})
+    public PhysicalQuantity getPrescriptionPatientMeasuredValue() {
+        return this.prescriptionPatientMeasuredValue.getValue();
     }
-    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
-        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
+    public void setPrescriptionPatientMeasuredValue(PhysicalQuantity prescriptionPatientMeasuredValue) {
+        this.prescriptionPatientMeasuredValue.setValue(prescriptionPatientMeasuredValue);
     }
 
 }

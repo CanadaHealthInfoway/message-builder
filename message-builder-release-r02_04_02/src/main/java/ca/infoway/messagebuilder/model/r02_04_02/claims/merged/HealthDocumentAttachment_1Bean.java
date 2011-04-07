@@ -19,10 +19,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.HealthDocumentAttachment","FICR_MT490102CA.HealthDocumentAttachment","FICR_MT490103CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II attachmentIdentifier = new IIImpl();
     private CV attachmentType = new CVImpl();
     private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
-    private II attachmentIdentifier = new IIImpl();
+
+
+    /**
+     * <p>AttachmentIdentifier</p>
+     * 
+     * <p>Attachment Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAttachmentIdentifier() {
+        return this.attachmentIdentifier.getValue();
+    }
+    public void setAttachmentIdentifier(Identifier attachmentIdentifier) {
+        this.attachmentIdentifier.setValue(attachmentIdentifier);
+    }
 
 
     /**
@@ -58,20 +72,6 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     }
     public void setAttachmentContent(EncapsulatedData attachmentContent) {
         this.attachmentContent.setValue(attachmentContent);
-    }
-
-
-    /**
-     * <p>AttachmentIdentifier</p>
-     * 
-     * <p>Attachment Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAttachmentIdentifier() {
-        return this.attachmentIdentifier.getValue();
-    }
-    public void setAttachmentIdentifier(Identifier attachmentIdentifier) {
-        this.attachmentIdentifier.setValue(attachmentIdentifier);
     }
 
 }

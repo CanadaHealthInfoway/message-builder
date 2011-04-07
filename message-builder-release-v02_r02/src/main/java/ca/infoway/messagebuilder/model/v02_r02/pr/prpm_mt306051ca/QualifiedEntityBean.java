@@ -36,11 +36,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private OrganizationBean qualificationGrantingOrganization;
     private CV expertiseOrCredentialsRoleType = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
+    private OrganizationBean qualificationGrantingOrganization;
 
 
     /**
@@ -54,15 +54,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
         return this.expertiseOrCredentialsRoleIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 
@@ -94,6 +85,15 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
+    }
+
+
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }

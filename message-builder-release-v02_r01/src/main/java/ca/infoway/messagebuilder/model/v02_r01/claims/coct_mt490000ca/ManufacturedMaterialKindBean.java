@@ -27,14 +27,23 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CV code = new CVImpl();
     private ST desc = new STImpl();
     private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ST asWarrantorWarrantingWarrantorOrganizationName = new STImpl();
     private TEL asWarrantorWarrantingWarrantorOrganizationTelecom = new TELImpl();
-    private CV code = new CVImpl();
     private PQ contentPackagedProductQuantity = new PQImpl();
     private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
+    }
 
 
     @Hl7XmlMapping({"desc"})
@@ -70,15 +79,6 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
     public void setAsWarrantorWarrantingWarrantorOrganizationTelecom(TelecommunicationAddress asWarrantorWarrantingWarrantorOrganizationTelecom) {
         this.asWarrantorWarrantingWarrantorOrganizationTelecom.setValue(asWarrantorWarrantingWarrantorOrganizationTelecom);
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
     }
 
 

@@ -30,27 +30,10 @@ import ca.infoway.messagebuilder.model.v02_r02.pharmacy.merged.AssignedEntity3Be
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ST formularyName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II formularyId = new IIImpl();
+    private ST formularyName = new STImpl();
     private AssignedEntity3Bean performerAssignedEntity;
-
-
-    /**
-     * <p>Formulary Name</p>
-     * 
-     * <p><p>The name by which the formulary is commonly known.</p></p>
-     * 
-     * <p><p>Gives a provider-recognizable label for the 
-     * formulary.</p></p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getFormularyName() {
-        return this.formularyName.getValue();
-    }
-    public void setFormularyName(String formularyName) {
-        this.formularyName.setValue(formularyName);
-    }
 
 
     /**
@@ -67,6 +50,23 @@ public class FormulariesBean extends MessagePartBean {
     }
     public void setFormularyId(Identifier formularyId) {
         this.formularyId.setValue(formularyId);
+    }
+
+
+    /**
+     * <p>Formulary Name</p>
+     * 
+     * <p><p>The name by which the formulary is commonly known.</p></p>
+     * 
+     * <p><p>Gives a provider-recognizable label for the 
+     * formulary.</p></p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getFormularyName() {
+        return this.formularyName.getValue();
+    }
+    public void setFormularyName(String formularyName) {
+        this.formularyName.setValue(formularyName);
     }
 
 

@@ -14,22 +14,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV substitutionReason = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV substitutionType = new CVImpl();
+    private CV substitutionReason = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
-
-
-    /**
-     * <p>Substitution Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
-        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
-    }
-    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
-        this.substitutionReason.setValue(substitutionReason);
-    }
 
 
     /**
@@ -41,6 +29,18 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
         this.substitutionType.setValue(substitutionType);
+    }
+
+
+    /**
+     * <p>Substitution Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
+        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
+    }
+    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
+        this.substitutionReason.setValue(substitutionReason);
     }
 
 

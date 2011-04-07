@@ -64,117 +64,19 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
-    private QueryByParameterBean<PL> queryByParameter;
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
-    private QueryAckBean queryAck;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private CE messageLanguage = new CEImpl();
     private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private ConsentBean subjectOf2ConsentEvent;
-    private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private QueryAckBean queryAck;
+    private QueryByParameterBean<PL> queryByParameter;
     private Patient recordTargetPatient1;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
-     * query, activation request, modification request) 
-     * occurred.</p></p>
-     * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
-     * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersTo_1Bean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/consentEvent"})
-    public ConsentBean getSubjectOf2ConsentEvent() {
-        return this.subjectOf2ConsentEvent;
-    }
-    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
-        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
 
 
     /**
@@ -206,6 +108,25 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
      * <p>EventEffectivePeriod</p>
      * 
      * <p>C:Event Effective Period</p>
@@ -225,6 +146,85 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold' or 'reason for accessing 
+     * information'.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/consentEvent"})
+    public ConsentBean getSubjectOf2ConsentEvent() {
+        return this.subjectOf2ConsentEvent;
+    }
+    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
+        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
+    }
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 

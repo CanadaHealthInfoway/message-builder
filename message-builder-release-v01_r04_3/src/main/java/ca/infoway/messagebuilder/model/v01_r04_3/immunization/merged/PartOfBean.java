@@ -12,18 +12,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf3","POIZ_MT030060CA.InFulfillmentOf3","POIZ_MT060150CA.InFulfillmentOf3"})
 public class PartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ImmunizationCourseBean immunizationPlan;
+    private static final long serialVersionUID = 20110407L;
     private INT vaccineDoseNumber = new INTImpl();
-
-
-    @Hl7XmlMapping({"immunizationPlan"})
-    public ImmunizationCourseBean getImmunizationPlan() {
-        return this.immunizationPlan;
-    }
-    public void setImmunizationPlan(ImmunizationCourseBean immunizationPlan) {
-        this.immunizationPlan = immunizationPlan;
-    }
+    private ImmunizationCourseBean immunizationPlan;
 
 
     /**
@@ -37,6 +28,15 @@ public class PartOfBean extends MessagePartBean {
     }
     public void setVaccineDoseNumber(Integer vaccineDoseNumber) {
         this.vaccineDoseNumber.setValue(vaccineDoseNumber);
+    }
+
+
+    @Hl7XmlMapping({"immunizationPlan"})
+    public ImmunizationCourseBean getImmunizationPlan() {
+        return this.immunizationPlan;
+    }
+    public void setImmunizationPlan(ImmunizationCourseBean immunizationPlan) {
+        this.immunizationPlan = immunizationPlan;
     }
 
 }

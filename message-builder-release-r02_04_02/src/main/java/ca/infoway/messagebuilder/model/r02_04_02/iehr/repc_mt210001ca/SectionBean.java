@@ -18,16 +18,22 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
-    private DocumentContent component1DocumentContent;
+    private static final long serialVersionUID = 20110407L;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
+    private DocumentContent component1DocumentContent;
+    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
 
 
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
+    /**
+     * <p>M: Document Overview Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getDocumentOverviewContent() {
+        return this.documentOverviewContent.getValue();
+    }
+    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
+        this.documentOverviewContent.setValue(documentOverviewContent);
     }
 
 
@@ -47,15 +53,9 @@ public class SectionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>M: Document Overview Content</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
-    }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 

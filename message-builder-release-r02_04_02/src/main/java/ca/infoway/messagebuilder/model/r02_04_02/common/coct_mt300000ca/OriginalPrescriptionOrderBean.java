@@ -10,19 +10,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DispenseSubstitutionBean component1Substitution;
+    private static final long serialVersionUID = 20110407L;
     private PlayingPrescribePersonBean authorPresriberRole;
+    private DispenseSubstitutionBean component1Substitution;
     private OriginalPrescriptionBean component2SupplyOrder;
-
-
-    @Hl7XmlMapping({"component1/substitution"})
-    public DispenseSubstitutionBean getComponent1Substitution() {
-        return this.component1Substitution;
-    }
-    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
-        this.component1Substitution = component1Substitution;
-    }
 
 
     @Hl7XmlMapping({"author/presriberRole"})
@@ -31,6 +22,15 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     }
     public void setAuthorPresriberRole(PlayingPrescribePersonBean authorPresriberRole) {
         this.authorPresriberRole = authorPresriberRole;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitution"})
+    public DispenseSubstitutionBean getComponent1Substitution() {
+        return this.component1Substitution;
+    }
+    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
+        this.component1Substitution = component1Substitution;
     }
 
 

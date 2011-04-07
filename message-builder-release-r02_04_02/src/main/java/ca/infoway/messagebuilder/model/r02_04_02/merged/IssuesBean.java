@@ -131,17 +131,17 @@ import java.util.Set;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV issueType = new CVImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private ST text = new STImpl();
+    private CV issuePriority = new CVImpl();
     private SET<ST, String> messageIssueLocation = new SETImpl<ST, String>(STImpl.class);
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
-    private ST text = new STImpl();
-    private CV severityCode = new CVImpl();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV issuePriority = new CVImpl();
-    private BL triggerForActRequest = new BLImpl();
-    private BL subjectOf1StorageIntent = new BLImpl();
+    private CV severityCode = new CVImpl();
+    private BL triggerForActRequest = new BLImpl(false);
+    private BL subjectOf1StorageIntent = new BLImpl(false);
 
 
     /**
@@ -865,48 +865,6 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
-    }
-
-
-    /**
-     * <p>MessageIssueLocation</p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes from the message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath referencesthat indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     */
-    @Hl7XmlMapping({"targetSiteCode"})
-    public Set<String> getMessageIssueLocation() {
-        return this.messageIssueLocation.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
-
-
     /**
      * <p>Issue Comment</p>
      * 
@@ -972,6 +930,80 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
+     * <p>IssuePriority</p>
+     * 
+     * <p>C:Issue Priority</p>
+     * 
+     * <p><p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p></p>
+     * 
+     * <p><p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p></p>
+     * 
+     * <p>C:Issue Priority</p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActIssuePriority getIssuePriority() {
+        return (ActIssuePriority) this.issuePriority.getValue();
+    }
+    public void setIssuePriority(ActIssuePriority issuePriority) {
+        this.issuePriority.setValue(issuePriority);
+    }
+
+
+    /**
+     * <p>MessageIssueLocation</p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes from the message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath referencesthat indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     */
+    @Hl7XmlMapping({"targetSiteCode"})
+    public Set<String> getMessageIssueLocation() {
+        return this.messageIssueLocation.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
+    }
+
+
+    /**
      * <p>SeverityCode</p>
      * 
      * <p>B:Severity Code</p>
@@ -1018,38 +1050,6 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setSeverityCode(SeverityObservation severityCode) {
         this.severityCode.setValue(severityCode);
-    }
-
-
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
-    }
-
-
-    /**
-     * <p>IssuePriority</p>
-     * 
-     * <p>C:Issue Priority</p>
-     * 
-     * <p><p>A coded value denoting the importance of a detectable 
-     * issue. Valid codes are: I - for Information, E - for Error, 
-     * and W - for Warning.</p></p>
-     * 
-     * <p><p>Allows the provider to make informed decision on the 
-     * importance and criticality of an issue. May also be used by 
-     * the DIS to determine the order of returning issues. 
-     * Attribute is mandatory because every issue needs to be 
-     * prioritized.</p></p>
-     * 
-     * <p>C:Issue Priority</p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
-    }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
     }
 
 

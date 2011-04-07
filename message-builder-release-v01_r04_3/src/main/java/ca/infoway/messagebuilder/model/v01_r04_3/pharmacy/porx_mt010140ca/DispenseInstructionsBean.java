@@ -17,17 +17,11 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
+    private static final long serialVersionUID = 20110407L;
     private PatientBean subjectPatient;
     private RecordedAtBean location;
+    private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
     private ReferencedRecordBean componentOfActRequest;
-
-
-    @Hl7XmlMapping({"fulfillment/supplyEvent"})
-    public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
-        return this.fulfillmentSupplyEvent;
-    }
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -45,6 +39,12 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyEvent"})
+    public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
+        return this.fulfillmentSupplyEvent;
     }
 
 

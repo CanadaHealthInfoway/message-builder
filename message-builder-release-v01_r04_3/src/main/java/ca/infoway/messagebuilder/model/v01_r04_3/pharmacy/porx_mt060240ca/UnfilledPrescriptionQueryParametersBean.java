@@ -32,14 +32,26 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
     private II patientID = new IIImpl();
-    private List<CV> prescriptionStatuses = new ArrayList<CV>();
     private PN patientName = new PNImpl();
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<CV> prescriptionStatuses = new ArrayList<CV>();
     private CV rxDispenseIndicator = new CVImpl();
+
+
+    /**
+     * <p>D:Administration Effective Period</p>
+     */
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
+    }
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    }
 
 
     /**
@@ -79,15 +91,6 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Statuses</p>
-     */
-    @Hl7XmlMapping({"prescriptionStatus/value"})
-    public List<ActStatus> getPrescriptionStatuses() {
-        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
-    }
-
-
-    /**
      * <p>C:Patient Name</p>
      */
     @Hl7XmlMapping({"patientName/value"})
@@ -100,14 +103,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Administration Effective Period</p>
+     * <p>E:Prescription Statuses</p>
      */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
-    }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    @Hl7XmlMapping({"prescriptionStatus/value"})
+    public List<ActStatus> getPrescriptionStatuses() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
     }
 
 

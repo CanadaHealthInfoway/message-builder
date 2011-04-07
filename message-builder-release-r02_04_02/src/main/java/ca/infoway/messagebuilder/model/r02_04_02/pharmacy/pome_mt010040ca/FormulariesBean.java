@@ -30,10 +30,27 @@ import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.AssignedEntity3
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
     private AssignedEntity3Bean performerAssignedEntity;
-    private II formularyId = new IIImpl();
+
+
+    /**
+     * <p>Formulary Id</p>
+     * 
+     * <p><p>A unique identifier for a specific formulary.</p></p>
+     * 
+     * <p><p>Allows the formulary to be unambiguously 
+     * referenced</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getFormularyId() {
+        return this.formularyId.getValue();
+    }
+    public void setFormularyId(Identifier formularyId) {
+        this.formularyId.setValue(formularyId);
+    }
 
 
     /**
@@ -59,23 +76,6 @@ public class FormulariesBean extends MessagePartBean {
     }
     public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    /**
-     * <p>Formulary Id</p>
-     * 
-     * <p><p>A unique identifier for a specific formulary.</p></p>
-     * 
-     * <p><p>Allows the formulary to be unambiguously 
-     * referenced</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getFormularyId() {
-        return this.formularyId.getValue();
-    }
-    public void setFormularyId(Identifier formularyId) {
-        this.formularyId.setValue(formularyId);
     }
 
 }

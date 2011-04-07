@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.v02_r01.common.merged.TriggerEvent_5Bean;
 @Hl7PartTypeMapping({"QUCR_IN810102CA"})
 public class SOFAPaymentAdviceQueryResponseRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

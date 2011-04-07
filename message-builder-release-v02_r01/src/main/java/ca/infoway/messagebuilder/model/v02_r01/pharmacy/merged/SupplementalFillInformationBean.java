@@ -16,11 +16,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CS classCode = new CSImpl();
-    private INT fillQuantity = new INTImpl();
-    private INT numberOfFills = new INTImpl();
     private CS moodCode = new CSImpl();
+    private INT numberOfFills = new INTImpl();
+    private INT fillQuantity = new INTImpl();
 
 
     @Hl7XmlMapping({"classCode"})
@@ -32,17 +32,12 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>FillQuantity</p>
-     * 
-     * <p>Fill Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getFillQuantity() {
-        return this.fillQuantity.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public ActMood getMoodCode() {
+        return (ActMood) this.moodCode.getValue();
     }
-    public void setFillQuantity(Integer fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
+    public void setMoodCode(ActMood moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -60,12 +55,17 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"moodCode"})
-    public ActMood getMoodCode() {
-        return (ActMood) this.moodCode.getValue();
+    /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>Fill Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getFillQuantity() {
+        return this.fillQuantity.getValue();
     }
-    public void setMoodCode(ActMood moodCode) {
-        this.moodCode.setValue(moodCode);
+    public void setFillQuantity(Integer fillQuantity) {
+        this.fillQuantity.setValue(fillQuantity);
     }
 
 }

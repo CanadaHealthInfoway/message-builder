@@ -63,11 +63,31 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110318L;
-    private CD allergyTestType = new CDImpl();
-    private CV allergyTestResult = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II allergyTestRecordId = new IIImpl();
+    private CD allergyTestType = new CDImpl();
     private TS allergyTestDate = new TSImpl();
+    private CV allergyTestResult = new CVImpl();
+
+
+    /**
+     * <p>AllergyTestRecordId</p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyTestRecordId() {
+        return this.allergyTestRecordId.getValue();
+    }
+    public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
+        this.allergyTestRecordId.setValue(allergyTestRecordId);
+    }
 
 
     /**
@@ -99,6 +119,25 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
         this.allergyTestType.setValue(allergyTestType);
+    }
+
+
+    /**
+     * <p>AllergyTestDate</p>
+     * 
+     * <p>D:Allergy Test Date</p>
+     * 
+     * <p><p>The date on which the allergy test was performed.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the currency of the 
+     * test.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyTestDate() {
+        return this.allergyTestDate.getValue();
+    }
+    public void setAllergyTestDate(Date allergyTestDate) {
+        this.allergyTestDate.setValue(allergyTestDate);
     }
 
 
@@ -135,45 +174,6 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
         this.allergyTestResult.setValue(allergyTestResult);
-    }
-
-
-    /**
-     * <p>AllergyTestRecordId</p>
-     * 
-     * <p>B:Allergy Test Record Id</p>
-     * 
-     * <p><p>An identifier for a specific instance of an 
-     * allergy/intolerance test.</p></p>
-     * 
-     * <p><p>Allows an allergy/intolerance test record to be 
-     * directly referenced.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyTestRecordId() {
-        return this.allergyTestRecordId.getValue();
-    }
-    public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
-        this.allergyTestRecordId.setValue(allergyTestRecordId);
-    }
-
-
-    /**
-     * <p>AllergyTestDate</p>
-     * 
-     * <p>D:Allergy Test Date</p>
-     * 
-     * <p><p>The date on which the allergy test was performed.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the currency of the 
-     * test.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyTestDate() {
-        return this.allergyTestDate.getValue();
-    }
-    public void setAllergyTestDate(Date allergyTestDate) {
-        this.allergyTestDate.setValue(allergyTestDate);
     }
 
 }

@@ -21,24 +21,24 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ fillQuantity = new PQImpl();
-    private INT numberOfFills = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
+    private INT numberOfFills = new INTImpl();
+    private PQ fillQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>FillQuantity</p>
+     * <p>DispenseInterval</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>F:Dispense Interval</p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFillQuantity() {
-        return this.fillQuantity.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseInterval() {
+        return this.dispenseInterval.getValue();
     }
-    public void setFillQuantity(PhysicalQuantity fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
+    public void setDispenseInterval(Interval<Date> dispenseInterval) {
+        this.dispenseInterval.setValue(dispenseInterval);
     }
 
 
@@ -57,16 +57,16 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseInterval</p>
+     * <p>FillQuantity</p>
      * 
-     * <p>F:Dispense Interval</p>
+     * <p>D:Fill Quantity</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseInterval() {
-        return this.dispenseInterval.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getFillQuantity() {
+        return this.fillQuantity.getValue();
     }
-    public void setDispenseInterval(Interval<Date> dispenseInterval) {
-        this.dispenseInterval.setValue(dispenseInterval);
+    public void setFillQuantity(PhysicalQuantity fillQuantity) {
+        this.fillQuantity.setValue(fillQuantity);
     }
 
 

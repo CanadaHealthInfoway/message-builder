@@ -15,18 +15,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DrugIngredientsBean ingredient;
-    private PQ quantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private BL negationInd = new BLImpl();
+    private PQ quantity = new PQImpl();
+    private DrugIngredientsBean ingredient;
 
 
-    @Hl7XmlMapping({"ingredient"})
-    public DrugIngredientsBean getIngredient() {
-        return this.ingredient;
+    /**
+     * <p>L:Does Not Contain Indicator</p>
+     * 
+     * <p>D:Drug Does Not Contain Indicator</p>
+     * 
+     * <p>Does Not Contain Indicator</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setIngredient(DrugIngredientsBean ingredient) {
-        this.ingredient = ingredient;
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -46,19 +53,12 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>L:Does Not Contain Indicator</p>
-     * 
-     * <p>D:Drug Does Not Contain Indicator</p>
-     * 
-     * <p>Does Not Contain Indicator</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
+    @Hl7XmlMapping({"ingredient"})
+    public DrugIngredientsBean getIngredient() {
+        return this.ingredient;
     }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
+    public void setIngredient(DrugIngredientsBean ingredient) {
+        this.ingredient = ingredient;
     }
 
 }

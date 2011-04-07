@@ -47,28 +47,13 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ConfidenceValueBean subjectOfObservationEvent;
-    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CS clientStatusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV clientMaskedInformation = new CVImpl();
-
-
-    @Hl7XmlMapping({"subjectOf/observationEvent"})
-    public ConfidenceValueBean getSubjectOfObservationEvent() {
-        return this.subjectOfObservationEvent;
-    }
-    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
-        this.subjectOfObservationEvent = subjectOfObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
-    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
-        return this.identifiedPersonAsOtherIDs;
-    }
+    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
+    private ConfidenceValueBean subjectOfObservationEvent;
 
 
     /**
@@ -92,23 +77,6 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
-     * 
-     * <p><p>Indicates the effective time of the Client role</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClientEffectiveTime() {
-        return this.clientEffectiveTime.getValue();
-    }
-    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
-        this.clientEffectiveTime.setValue(clientEffectiveTime);
-    }
-
-
-    /**
      * <p>Client Status Code</p>
      * 
      * <p><p>Indicates the status of the Client role (e.g. 
@@ -123,6 +91,23 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setClientStatusCode(RoleStatus clientStatusCode) {
         this.clientStatusCode.setValue(clientStatusCode);
+    }
+
+
+    /**
+     * <p>Client Effective Time</p>
+     * 
+     * <p><p>Indicates the effective time of the Client role</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getClientEffectiveTime() {
+        return this.clientEffectiveTime.getValue();
+    }
+    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
+        this.clientEffectiveTime.setValue(clientEffectiveTime);
     }
 
 
@@ -155,6 +140,21 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setClientMaskedInformation(Code clientMaskedInformation) {
         this.clientMaskedInformation.setValue(clientMaskedInformation);
+    }
+
+
+    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
+    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
+        return this.identifiedPersonAsOtherIDs;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/observationEvent"})
+    public ConfidenceValueBean getSubjectOfObservationEvent() {
+        return this.subjectOfObservationEvent;
+    }
+    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
+        this.subjectOfObservationEvent = subjectOfObservationEvent;
     }
 
 }

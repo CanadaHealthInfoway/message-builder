@@ -53,11 +53,134 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV observationValue = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II observationIdentifier = new IIImpl();
     private CD observationType = new CDImpl();
     private CV confidentialityCode = new CVImpl();
+    private CV observationValue = new CVImpl();
+
+
+    /**
+     * <p>ObservationIdentifier</p>
+     * 
+     * <p>A:Observation Identifier</p>
+     * 
+     * <p><p>Unique identifier for the record of the coded 
+     * observation (e.g. allergy, medical condition, pregnancy 
+     * status, etc.) that contributed to the issue.</p></p>
+     * 
+     * <p><p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p></p>
+     * 
+     * <p>A:Observation Identifier</p>
+     * 
+     * <p><p>Unique identifier for the record of the coded 
+     * observation (e.g. allergy, medical condition, pregnancy 
+     * status, etc.) that contributed to the issue.</p></p>
+     * 
+     * <p><p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc.) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getObservationIdentifier() {
+        return this.observationIdentifier.getValue();
+    }
+    public void setObservationIdentifier(Identifier observationIdentifier) {
+        this.observationIdentifier.setValue(observationIdentifier);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Distinguishes the kinds of coded observation that 
+     * could be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getObservationType() {
+        return (ActCode) this.observationType.getValue();
+    }
+    public void setObservationType(ActCode observationType) {
+        this.observationType.setValue(observationType);
+    }
+
+
+    /**
+     * <p>D:Observation Masked Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the 
+     * implicated condition, and thus defines the required 
+     * sensitivity for the detected issue.</p></p>
+     * 
+     * <p><p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the observation.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the observation.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p>D:Observation Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    }
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
+    }
 
 
     /**
@@ -215,129 +338,6 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setObservationValue(IssueTriggerObservationValue observationValue) {
         this.observationValue.setValue(observationValue);
-    }
-
-
-    /**
-     * <p>ObservationIdentifier</p>
-     * 
-     * <p>A:Observation Identifier</p>
-     * 
-     * <p><p>Unique identifier for the record of the coded 
-     * observation (e.g. allergy, medical condition, pregnancy 
-     * status, etc.) that contributed to the issue.</p></p>
-     * 
-     * <p><p>Allows lookup of the specific coded observation (e.g. 
-     * allergy, medical condition, pregnancy status, etc) for 
-     * additional details when evaluating appropriateness of issue 
-     * management.</p></p>
-     * 
-     * <p>A:Observation Identifier</p>
-     * 
-     * <p><p>Unique identifier for the record of the coded 
-     * observation (e.g. allergy, medical condition, pregnancy 
-     * status, etc.) that contributed to the issue.</p></p>
-     * 
-     * <p><p>Allows lookup of the specific coded observation (e.g. 
-     * allergy, medical condition, pregnancy status, etc.) for 
-     * additional details when evaluating appropriateness of issue 
-     * management.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
-    }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
-    }
-
-
-    /**
-     * <p>ObservationType</p>
-     * 
-     * <p>B:Observation Type</p>
-     * 
-     * <p><p>Distinguishes the kinds of coded observation that 
-     * could be the trigger for clinical issue detection. Coded 
-     * Observation types include: Allergy, Intolerance, Medical 
-     * Condition, Indication, Pregnancy status, Lactation status 
-     * and other observable information about a person that may be 
-     * deemed as a possible trigger for clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Indicates the type of recorded observation being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
-    }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
-    }
-
-
-    /**
-     * <p>D:Observation Masked Indicator</p>
-     * 
-     * <p><p>An indication of sensitivity surrounding the 
-     * implicated condition, and thus defines the required 
-     * sensitivity for the detected issue.</p></p>
-     * 
-     * <p><p>Contraindication.intractingSourceMasked (Normal=false; 
-     * Restricted or Very Restricted = True); (Information is 
-     * withheld because the prescription is masked will be given a 
-     * NULL flavour of 'Masked')</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the observation.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the observation.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p>D:Observation Masking Indicator</p>
-     * 
-     * <p><p>An indication of sensitivity surrounding the related 
-     * condition, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
-     * 
-     * <p><p>Contraindication.intractingSourceMasked (Normal=false; 
-     * Restricted or Very Restricted = True); (Information is 
-     * withheld because the prescription is masked will be given a 
-     * NULL flavour of 'Masked')</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the observation information.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the observation information.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
-    }
-    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
-        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 }

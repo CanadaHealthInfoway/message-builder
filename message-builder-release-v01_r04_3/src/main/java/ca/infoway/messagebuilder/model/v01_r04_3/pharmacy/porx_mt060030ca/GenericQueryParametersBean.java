@@ -30,26 +30,38 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDeviceIndicator = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
     private TS patientBirthDate = new TSImpl();
-    private BL mostRecentByDeviceIndicator = new BLImpl();
     private CV patientGender = new CVImpl();
-    private CV issueFilterCode = new CVImpl();
     private II patientID = new IIImpl();
     private PN patientName = new PNImpl();
+    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>D:Usage Effective Period</p>
+     * <p>Issue Filter Code</p>
      */
-    @Hl7XmlMapping({"usageEffectivePeriod/value"})
-    public Interval<Date> getUsageEffectivePeriod() {
-        return this.usageEffectivePeriod.getValue();
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
     }
-    public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
-        this.usageEffectivePeriod.setValue(usageEffectivePeriod);
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>Most Recent By Device Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
+    public Boolean getMostRecentByDeviceIndicator() {
+        return this.mostRecentByDeviceIndicator.getValue();
+    }
+    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
+        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
     }
 
 
@@ -78,18 +90,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Device Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
-    public Boolean getMostRecentByDeviceIndicator() {
-        return this.mostRecentByDeviceIndicator.getValue();
-    }
-    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
-        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
-    }
-
-
-    /**
      * <p>Patient Gender</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
@@ -98,18 +98,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientGender(AdministrativeGender patientGender) {
         this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
     }
 
 
@@ -134,6 +122,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>D:Usage Effective Period</p>
+     */
+    @Hl7XmlMapping({"usageEffectivePeriod/value"})
+    public Interval<Date> getUsageEffectivePeriod() {
+        return this.usageEffectivePeriod.getValue();
+    }
+    public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
+        this.usageEffectivePeriod.setValue(usageEffectivePeriod);
     }
 
 }

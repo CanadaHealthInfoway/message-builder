@@ -37,64 +37,64 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL mostRecentByDrugIndicator = new BLImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
+    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
 
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Administration Effective Period</p>
      * 
-     * <p><p>Indicates whether or not the medication records are to 
-     * be retrieved based on the most recent by Drug Code. If true, 
-     * only the most recent prescription, dispense or other active 
-     * medication for a particular drug generic classification will 
-     * be returned. The default is 'FALSE' indicating that 
-     * retrieval of prescription, dispense and other active 
-     * medication records should not be limited to one per 
-     * drug.</p></p>
+     * <p><p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p></p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p></p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Allows the requester to specify the period of interest 
+     * for the retrieval. Useful for constraining run-away 
+     * queries.</p></p>
      */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
     }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
     }
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Amended in Time Range</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to 'retrieve everything that has been 
+     * amended since xxx'.</p></p>
      * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
      */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
     }
 
 
@@ -131,55 +131,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Care Composition Types</p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
-     * 
-     * <p><p>Allows for finer sub-set of prescriptions to be 
-     * retrieved based on the fill status of the prescription.</p></p>
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
      */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
-    }
-
-
-    /**
-     * <p>Amended in Time Range</p>
-     * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to 'retrieve everything that has been 
-     * amended since xxx'.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 
@@ -209,26 +174,61 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Most Recent By Drug Indicator</p>
      * 
-     * <p><p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p></p>
+     * <p><p>Indicates whether or not the medication records are to 
+     * be retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p></p>
      * 
-     * <p><p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p></p>
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
      * 
-     * <p><p>Allows the requester to specify the period of interest 
-     * for the retrieval. Useful for constraining run-away 
-     * queries.</p></p>
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    }
+
+
+    /**
+     * <p>Rx Dispenser Indicators</p>
+     * 
+     * <p><p>A coded value indicating the dispensing (fill) status 
+     * of the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p></p>
+     * 
+     * <p><p>A coded value indicating the dispensing (fill) status 
+     * of the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p></p>
+     * 
+     * <p><p>Allows for finer sub-set of prescriptions to be 
+     * retrieved based on the fill status of the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
     }
 
 }

@@ -58,13 +58,13 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ST patientHealthCardVersionCode = new STImpl();
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
     private AD patientAddress = new ADImpl();
+    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST patientHealthCardVersionCode = new STImpl();
     private ActingPersonBean patientPerson;
+    private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
 
 
     /**
@@ -217,16 +217,16 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>PatientHealthCardVersionCode</p>
+     * <p>PatientAddress</p>
      * 
-     * <p>L:Patient Health Card Version Code</p>
+     * <p>E:Patient Address</p>
      */
-    @Hl7XmlMapping({"certificateText"})
-    public String getPatientHealthCardVersionCode() {
-        return this.patientHealthCardVersionCode.getValue();
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getPatientAddress() {
+        return this.patientAddress.getValue();
     }
-    public void setPatientHealthCardVersionCode(String patientHealthCardVersionCode) {
-        this.patientHealthCardVersionCode.setValue(patientHealthCardVersionCode);
+    public void setPatientAddress(PostalAddress patientAddress) {
+        this.patientAddress.setValue(patientAddress);
     }
 
 
@@ -241,26 +241,17 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
 
-    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
-    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
-        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
-    }
-    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
-        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
-    }
-
-
     /**
-     * <p>PatientAddress</p>
+     * <p>PatientHealthCardVersionCode</p>
      * 
-     * <p>E:Patient Address</p>
+     * <p>L:Patient Health Card Version Code</p>
      */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientAddress() {
-        return this.patientAddress.getValue();
+    @Hl7XmlMapping({"certificateText"})
+    public String getPatientHealthCardVersionCode() {
+        return this.patientHealthCardVersionCode.getValue();
     }
-    public void setPatientAddress(PostalAddress patientAddress) {
-        this.patientAddress.setValue(patientAddress);
+    public void setPatientHealthCardVersionCode(String patientHealthCardVersionCode) {
+        this.patientHealthCardVersionCode.setValue(patientHealthCardVersionCode);
     }
 
 
@@ -270,6 +261,15 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
     public void setPatientPerson(ActingPersonBean patientPerson) {
         this.patientPerson = patientPerson;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
+    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
+        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
+    }
+    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
+        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
     }
 
 }

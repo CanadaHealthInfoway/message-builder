@@ -18,34 +18,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Author2","COCT_MT260020CA.Author2","COCT_MT260030CA.Author2","COCT_MT470002CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean assignedEntity;
-    private ED<String> signature = new EDImpl<String>();
+    private static final long serialVersionUID = 20110407L;
     private TS time = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
-
-
-    @Hl7XmlMapping({"assignedEntity"})
-    public HealthcareWorkerBean getAssignedEntity() {
-        return this.assignedEntity;
-    }
-    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
-        this.assignedEntity = assignedEntity;
-    }
-
-
-    /**
-     * <p>Signature</p>
-     * 
-     * <p>Signature</p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
-    }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
-    }
+    private ED<String> signature = new EDImpl<String>();
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
@@ -75,6 +52,29 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
         this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    }
+
+
+    /**
+     * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getSignature() {
+        return this.signature.getValue();
+    }
+    public void setSignature(String signature) {
+        this.signature.setValue(signature);
+    }
+
+
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
+    }
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

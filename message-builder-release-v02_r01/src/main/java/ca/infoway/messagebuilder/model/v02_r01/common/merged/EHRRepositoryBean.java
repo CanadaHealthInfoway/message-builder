@@ -17,7 +17,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
     private ST repositoryName = new STImpl();
     private ST repositoryJurisdictionName = new STImpl();

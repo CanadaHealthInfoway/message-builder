@@ -16,18 +16,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private UnderwriterBean authorUnderwriter;
-    private II coverageExtensionId = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private CS extensionGrantedIndicator = new CSImpl();
+    private II coverageExtensionId = new IIImpl();
+    private UnderwriterBean authorUnderwriter;
 
 
-    @Hl7XmlMapping({"author/underwriter"})
-    public UnderwriterBean getAuthorUnderwriter() {
-        return this.authorUnderwriter;
+    /**
+     * <p>ExtensionGrantedIndicator</p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
+        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
     }
-    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
-        this.authorUnderwriter = authorUnderwriter;
+    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
+        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
     }
 
 
@@ -45,17 +50,12 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>ExtensionGrantedIndicator</p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
+    @Hl7XmlMapping({"author/underwriter"})
+    public UnderwriterBean getAuthorUnderwriter() {
+        return this.authorUnderwriter;
     }
-    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
+        this.authorUnderwriter = authorUnderwriter;
     }
 
 }

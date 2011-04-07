@@ -16,18 +16,21 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.AssignedEntity3
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private AssignedEntity3Bean custodianAssignedEntity;
-    private ST programName = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV programType = new CVImpl();
+    private ST programName = new STImpl();
+    private AssignedEntity3Bean custodianAssignedEntity;
 
 
-    @Hl7XmlMapping({"custodian/assignedEntity"})
-    public AssignedEntity3Bean getCustodianAssignedEntity() {
-        return this.custodianAssignedEntity;
+    /**
+     * <p>Program Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMonitoringProtocolCode getProgramType() {
+        return (ActMonitoringProtocolCode) this.programType.getValue();
     }
-    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
-        this.custodianAssignedEntity = custodianAssignedEntity;
+    public void setProgramType(ActMonitoringProtocolCode programType) {
+        this.programType.setValue(programType);
     }
 
 
@@ -43,15 +46,12 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Program Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActMonitoringProtocolCode getProgramType() {
-        return (ActMonitoringProtocolCode) this.programType.getValue();
+    @Hl7XmlMapping({"custodian/assignedEntity"})
+    public AssignedEntity3Bean getCustodianAssignedEntity() {
+        return this.custodianAssignedEntity;
     }
-    public void setProgramType(ActMonitoringProtocolCode programType) {
-        this.programType.setValue(programType);
+    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
+        this.custodianAssignedEntity = custodianAssignedEntity;
     }
 
 }

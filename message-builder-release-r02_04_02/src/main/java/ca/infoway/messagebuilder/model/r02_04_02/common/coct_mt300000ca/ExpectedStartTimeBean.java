@@ -34,57 +34,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private DispenseSubstitutionBean componentSubstitution;
-    private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private CV inLieuOfDaysSupply = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II dispenseID = new IIImpl();
     private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"component/substitution"})
-    public DispenseSubstitutionBean getComponentSubstitution() {
-        return this.componentSubstitution;
-    }
-    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
-        this.componentSubstitution = componentSubstitution;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
-    public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
-        return this.inFulfillmentOfSubstanceAdministrationOrder;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
-        this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>In lieu of days supply.</p>
-     * 
-     * <p><p>In lieu of days supply, specify PRN, UD or use 
-     * NullFlavor of UNK (unknown), else not specified.</p></p>
-     * 
-     * <p><p>In lieu of days supply, specify PRN, UD or use 
-     * NullFlavor of UNK (unknown), else not specified.</p></p>
-     * 
-     * <p><p>for PRN, UD or unknown (use NullFlavor</p></p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public Code getInLieuOfDaysSupply() {
-        return (Code) this.inLieuOfDaysSupply.getValue();
-    }
-    public void setInLieuOfDaysSupply(Code inLieuOfDaysSupply) {
-        this.inLieuOfDaysSupply.setValue(inLieuOfDaysSupply);
-    }
+    private CV inLieuOfDaysSupply = new CVImpl();
+    private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
+    private DispenseSubstitutionBean componentSubstitution;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -117,6 +73,50 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
     public void setSubstanceAdministrationTime(Interval<Date> substanceAdministrationTime) {
         this.substanceAdministrationTime.setValue(substanceAdministrationTime);
+    }
+
+
+    /**
+     * <p>In lieu of days supply.</p>
+     * 
+     * <p><p>In lieu of days supply, specify PRN, UD or use 
+     * NullFlavor of UNK (unknown), else not specified.</p></p>
+     * 
+     * <p><p>In lieu of days supply, specify PRN, UD or use 
+     * NullFlavor of UNK (unknown), else not specified.</p></p>
+     * 
+     * <p><p>for PRN, UD or unknown (use NullFlavor</p></p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public Code getInLieuOfDaysSupply() {
+        return (Code) this.inLieuOfDaysSupply.getValue();
+    }
+    public void setInLieuOfDaysSupply(Code inLieuOfDaysSupply) {
+        this.inLieuOfDaysSupply.setValue(inLieuOfDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
+    public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
+        return this.inFulfillmentOfSubstanceAdministrationOrder;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
+        this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
+    }
+
+
+    @Hl7XmlMapping({"component/substitution"})
+    public DispenseSubstitutionBean getComponentSubstitution() {
+        return this.componentSubstitution;
+    }
+    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
+        this.componentSubstitution = componentSubstitution;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

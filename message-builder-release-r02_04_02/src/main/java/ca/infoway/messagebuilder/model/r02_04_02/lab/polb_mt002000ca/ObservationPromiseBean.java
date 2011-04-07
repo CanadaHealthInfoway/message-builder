@@ -46,65 +46,41 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
-    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private II labOrderObservationIdentifier = new IIImpl();
-    private CD orderableObservationType = new CDImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private CV plannedObservationMethod = new CVImpl();
-    private Patient_1Bean recordTargetPatient;
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
+    private static final long serialVersionUID = 20110407L;
     private ReportSectionSpecimenBean specimen;
+    private Patient_1Bean recordTargetPatient;
+    private II labOrderObservationIdentifier = new IIImpl();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private CD orderableObservationType = new CDImpl();
+    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private IVL<TS, Interval<Date>> orderObservationActivatedDateTime = new IVLImpl<TS, Interval<Date>>();
+    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
+    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private CV plannedObservationMethod = new CVImpl();
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
-    @Hl7XmlMapping({"component/promiseChoice"})
-    public List<PromiseChoice> getComponentPromiseChoice() {
-        return this.componentPromiseChoice;
+    @Hl7XmlMapping({"specimen"})
+    public ReportSectionSpecimenBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(ReportSectionSpecimenBean specimen) {
+        this.specimen = specimen;
     }
 
 
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -120,6 +96,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
+    }
+
+
     /**
      * <p>Orderable Observation Type</p>
      */
@@ -132,18 +114,54 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
-    }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
+    @Hl7XmlMapping({"performer/roleChoice"})
+    public List<RoleChoice> getPerformerRoleChoice() {
+        return this.performerRoleChoice;
     }
 
 
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
+    }
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
+    }
+
+
+    /**
+     * <p>Order Observation Activated Date/Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getOrderObservationActivatedDateTime() {
+        return this.orderObservationActivatedDateTime.getValue();
+    }
+    public void setOrderObservationActivatedDateTime(Interval<Date> orderObservationActivatedDateTime) {
+        this.orderObservationActivatedDateTime.setValue(orderObservationActivatedDateTime);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
+        return this.inFulfillmentOfFulfillmentChoice;
+    }
+
+
+    /**
+     * <p>Result Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
+        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
@@ -159,12 +177,15 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+
+
+    @Hl7XmlMapping({"component/promiseChoice"})
+    public List<PromiseChoice> getComponentPromiseChoice() {
+        return this.componentPromiseChoice;
     }
 
 
@@ -177,39 +198,18 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
-    /**
-     * <p>Result Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
     }
 
 
-    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
-        return this.inFulfillmentOfFulfillmentChoice;
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
     }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public ReportSectionSpecimenBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(ReportSectionSpecimenBean specimen) {
-        this.specimen = specimen;
-    }
-
-
-    /**
-     * <p>Order Observation Activated Date/Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getOrderObservationActivatedDateTime() {
-        return this.orderObservationActivatedDateTime.getValue();
-    }
-    public void setOrderObservationActivatedDateTime(Interval<Date> orderObservationActivatedDateTime) {
-        this.orderObservationActivatedDateTime.setValue(orderObservationActivatedDateTime);
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

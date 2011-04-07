@@ -49,16 +49,16 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD diagnosisType = new CDImpl();
-    private IncludesBean subjectOf1;
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CV reaction = new CVImpl();
     private ReportedByBean informant;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST description = new STImpl();
+    private IncludesBean subjectOf1;
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
 
 
     /**
@@ -84,53 +84,69 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1"})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>F:Reaction Onset Date</p>
      * 
-     * <p><p>Value is mandatory if not using SNOMED</p></p>
+     * <p><p>The date on which the reaction occurrence began.</p></p>
      * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>B.1</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
      */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -195,50 +211,46 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
+     * <p>B:Reaction</p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * <p><p>B.1</p></p>
      * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public IncludesBean getSubjectOf1() {
+        return this.subjectOf1;
+    }
+    public void setSubjectOf1(IncludesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
     }
 
 
@@ -251,21 +263,9 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
     }
 
 }

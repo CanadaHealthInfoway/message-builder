@@ -34,14 +34,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthCareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> providerIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
-    private AD canBeUsedToSpecifyJurisdictionForOOJProviders = new ADImpl();
-    private TS healthCareProviderPersonBirthTime = new TSImpl();
     private PN nameOfProvider = new PNImpl();
     private TEL healthCareProviderPersonTelecom = new TELImpl();
     private CV healthCareProviderPersonAdministrativeGenderCode = new CVImpl();
+    private TS healthCareProviderPersonBirthTime = new TSImpl();
+    private AD canBeUsedToSpecifyJurisdictionForOOJProviders = new ADImpl();
 
 
     /**
@@ -61,29 +61,6 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
-    }
-
-
-    /**
-     * <p>CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
-     * 
-     * <p>Can be used to specify jurisdiction for OOJ providers</p>
-     */
-    @Hl7XmlMapping({"healthCareProviderPerson/addr"})
-    public PostalAddress getCanBeUsedToSpecifyJurisdictionForOOJProviders() {
-        return this.canBeUsedToSpecifyJurisdictionForOOJProviders.getValue();
-    }
-    public void setCanBeUsedToSpecifyJurisdictionForOOJProviders(PostalAddress canBeUsedToSpecifyJurisdictionForOOJProviders) {
-        this.canBeUsedToSpecifyJurisdictionForOOJProviders.setValue(canBeUsedToSpecifyJurisdictionForOOJProviders);
-    }
-
-
-    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
-    public Date getHealthCareProviderPersonBirthTime() {
-        return this.healthCareProviderPersonBirthTime.getValue();
-    }
-    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
-        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
     }
 
 
@@ -116,6 +93,29 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
     public void setHealthCareProviderPersonAdministrativeGenderCode(AdministrativeGender healthCareProviderPersonAdministrativeGenderCode) {
         this.healthCareProviderPersonAdministrativeGenderCode.setValue(healthCareProviderPersonAdministrativeGenderCode);
+    }
+
+
+    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
+    public Date getHealthCareProviderPersonBirthTime() {
+        return this.healthCareProviderPersonBirthTime.getValue();
+    }
+    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
+        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
+    }
+
+
+    /**
+     * <p>CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
+     * 
+     * <p>Can be used to specify jurisdiction for OOJ providers</p>
+     */
+    @Hl7XmlMapping({"healthCareProviderPerson/addr"})
+    public PostalAddress getCanBeUsedToSpecifyJurisdictionForOOJProviders() {
+        return this.canBeUsedToSpecifyJurisdictionForOOJProviders.getValue();
+    }
+    public void setCanBeUsedToSpecifyJurisdictionForOOJProviders(PostalAddress canBeUsedToSpecifyJurisdictionForOOJProviders) {
+        this.canBeUsedToSpecifyJurisdictionForOOJProviders.setValue(canBeUsedToSpecifyJurisdictionForOOJProviders);
     }
 
 }

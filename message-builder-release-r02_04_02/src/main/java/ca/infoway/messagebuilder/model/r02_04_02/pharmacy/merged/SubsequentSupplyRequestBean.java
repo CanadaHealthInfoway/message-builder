@@ -34,52 +34,31 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ fillQuantity = new PQImpl();
-    private INT numberOfFills = new INTImpl();
-    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
+    private INT numberOfFills = new INTImpl();
+    private PQ fillQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>FillQuantity</p>
+     * <p>DispenseInterval</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>F:Dispense Interval</p>
      * 
-     * <p><p>The amount of medication to be dispensed to the 
-     * patient for each normal fill (excluding trial or other 
-     * special first fills).</p></p>
+     * <p><p>Indicates a minimum amount of time that must occur 
+     * between dispenses.</p></p>
      * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Limits the quantity of medication in patient's 
-     * possession at a time. Used in compliance checking</p></p>
-     * 
-     * <p>D:Fill Quantity</p>
-     * 
-     * <p><p>The amount of medication to be dispensed to the 
-     * patient for each normal fill (excluding trial or other 
-     * special first fills).</p></p>
-     * 
-     * <p><p>Limits the quantity of medication in patient's 
-     * possession at a time. Used in compliance checking.</p></p>
+     * <p><p>Helps the prescriber ensure that the patient does not 
+     * ever receive more than the appropriate amount of medication 
+     * in a particular timeframe.</p></p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFillQuantity() {
-        return this.fillQuantity.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseInterval() {
+        return this.dispenseInterval.getValue();
     }
-    public void setFillQuantity(PhysicalQuantity fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
+    public void setDispenseInterval(Interval<Date> dispenseInterval) {
+        this.dispenseInterval.setValue(dispenseInterval);
     }
 
 
@@ -161,6 +140,48 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>D:Fill Quantity</p>
+     * 
+     * <p><p>The amount of medication to be dispensed to the 
+     * patient for each normal fill (excluding trial or other 
+     * special first fills).</p></p>
+     * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Limits the quantity of medication in patient's 
+     * possession at a time. Used in compliance checking</p></p>
+     * 
+     * <p>D:Fill Quantity</p>
+     * 
+     * <p><p>The amount of medication to be dispensed to the 
+     * patient for each normal fill (excluding trial or other 
+     * special first fills).</p></p>
+     * 
+     * <p><p>Limits the quantity of medication in patient's 
+     * possession at a time. Used in compliance checking.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getFillQuantity() {
+        return this.fillQuantity.getValue();
+    }
+    public void setFillQuantity(PhysicalQuantity fillQuantity) {
+        this.fillQuantity.setValue(fillQuantity);
+    }
+
+
+    /**
      * <p>DaysSupply</p>
      * 
      * <p>E:Days Supply</p>
@@ -200,27 +221,6 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setDaysSupply(Interval<Date> daysSupply) {
         this.daysSupply.setValue(daysSupply);
-    }
-
-
-    /**
-     * <p>DispenseInterval</p>
-     * 
-     * <p>F:Dispense Interval</p>
-     * 
-     * <p><p>Indicates a minimum amount of time that must occur 
-     * between dispenses.</p></p>
-     * 
-     * <p><p>Helps the prescriber ensure that the patient does not 
-     * ever receive more than the appropriate amount of medication 
-     * in a particular timeframe.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseInterval() {
-        return this.dispenseInterval.getValue();
-    }
-    public void setDispenseInterval(Interval<Date> dispenseInterval) {
-        this.dispenseInterval.setValue(dispenseInterval);
     }
 
 }

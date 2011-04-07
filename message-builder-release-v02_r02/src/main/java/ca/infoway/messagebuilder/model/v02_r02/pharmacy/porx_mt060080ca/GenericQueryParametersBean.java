@@ -26,32 +26,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private II prescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV issueFilterCode = new CVImpl();
-
-
-    /**
-     * <p>D:Prescription Order Number</p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be retrieved 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
+    private II prescriptionOrderNumber = new IIImpl();
 
 
     /**
@@ -76,6 +53,29 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
         this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>D:Prescription Order Number</p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifies the prescription that is to be retrieved 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
     }
 
 }

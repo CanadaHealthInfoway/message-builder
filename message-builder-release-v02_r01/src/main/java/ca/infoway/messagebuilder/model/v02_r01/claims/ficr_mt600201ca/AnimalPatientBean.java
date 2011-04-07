@@ -12,7 +12,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientAnimal"})
 public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ST nameOfTheAnimal = new STImpl();
 
 

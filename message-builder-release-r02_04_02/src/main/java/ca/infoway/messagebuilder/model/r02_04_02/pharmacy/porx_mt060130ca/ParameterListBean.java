@@ -37,39 +37,14 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV issueFilterCode = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL mostRecentByDrugIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private CV issueFilterCode = new CVImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
     private List<CV> rxDispenserIndicators = new ArrayList<CV>();
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     * 
-     * <p><p>Indicates whether records to be returned (e.g. 
-     * prescription order, prescription dispense and/or other 
-     * medication) should be filtered to those with at least one 
-     * persistent un-managed issue (against the record), with at 
-     * least one persistent issues or should return all records, 
-     * independent of the presence of persistent issues.</p></p>
-     * 
-     * <p><p>By filtering returned records to include only those 
-     * which have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
 
 
     /**
@@ -97,39 +72,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Most Recent By Drug Indicator</p>
-     * 
-     * <p><p>Indicates whether or not the medication records are to 
-     * be retrieved based on the most recent by Drug Code. If true, 
-     * only the most recent prescription, dispense or other active 
-     * medication for a particular drug generic classification will 
-     * be returned. The default is 'FALSE' indicating that 
-     * retrieval of prescription, dispense and other active 
-     * medication records should not be limited to one per 
-     * drug.</p></p>
-     * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
-    }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 
@@ -207,6 +149,64 @@ public class ParameterListBean extends MessagePartBean {
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypes() {
         return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Issue Filter Code</p>
+     * 
+     * <p><p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p></p>
+     * 
+     * <p><p>By filtering returned records to include only those 
+     * which have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>Most Recent By Drug Indicator</p>
+     * 
+     * <p><p>Indicates whether or not the medication records are to 
+     * be retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p></p>
+     * 
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
+    }
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 

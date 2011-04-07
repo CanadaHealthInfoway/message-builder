@@ -33,53 +33,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II id = new IIImpl();
     private ST repositoryName = new STImpl();
     private ST repositoryJurisdictionName = new STImpl();
-    private II id = new IIImpl();
     private ST applicationName = new STImpl();
-
-
-    /**
-     * <p>RepositoryName</p>
-     * 
-     * <p>Repository Name</p>
-     * 
-     * <p><p>The name of the repository which is responsible for 
-     * maintaining the record. E.g. &quot;Ontario Health 
-     * Respository #3&quot;</p></p>
-     * 
-     * <p><p>Provides a human-readable name for the repository and 
-     * is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"assignedRepository/name"})
-    public String getRepositoryName() {
-        return this.repositoryName.getValue();
-    }
-    public void setRepositoryName(String repositoryName) {
-        this.repositoryName.setValue(repositoryName);
-    }
-
-
-    /**
-     * <p>RepositoryJurisdictionName</p>
-     * 
-     * <p>Repository Jurisdiction Name</p>
-     * 
-     * <p><p>The name of the jurisdiction that is responsible for 
-     * the EHR infostructure that contains and manages the 
-     * record.</p></p>
-     * 
-     * <p><p>Establishes business context for determining 
-     * custodianship, and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
-    public String getRepositoryJurisdictionName() {
-        return this.repositoryJurisdictionName.getValue();
-    }
-    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
-        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
-    }
 
 
     /**
@@ -132,6 +90,48 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>RepositoryName</p>
+     * 
+     * <p>Repository Name</p>
+     * 
+     * <p><p>The name of the repository which is responsible for 
+     * maintaining the record. E.g. &quot;Ontario Health 
+     * Respository #3&quot;</p></p>
+     * 
+     * <p><p>Provides a human-readable name for the repository and 
+     * is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"assignedRepository/name"})
+    public String getRepositoryName() {
+        return this.repositoryName.getValue();
+    }
+    public void setRepositoryName(String repositoryName) {
+        this.repositoryName.setValue(repositoryName);
+    }
+
+
+    /**
+     * <p>RepositoryJurisdictionName</p>
+     * 
+     * <p>Repository Jurisdiction Name</p>
+     * 
+     * <p><p>The name of the jurisdiction that is responsible for 
+     * the EHR infostructure that contains and manages the 
+     * record.</p></p>
+     * 
+     * <p><p>Establishes business context for determining 
+     * custodianship, and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
+    public String getRepositoryJurisdictionName() {
+        return this.repositoryJurisdictionName.getValue();
+    }
+    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
+        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
     }
 
 

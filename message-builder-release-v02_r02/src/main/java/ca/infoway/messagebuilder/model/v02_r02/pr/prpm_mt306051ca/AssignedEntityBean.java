@@ -44,12 +44,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private OrganizationBean representedOrganization;
     private CV functionalRoleType = new CVImpl();
-    private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
+    private OrganizationBean representedOrganization;
 
 
     /**
@@ -64,15 +64,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getFunctionalRoleIdentifier() {
         return this.functionalRoleIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
     }
 
 
@@ -93,15 +84,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
-    }
-    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
-
-
     /**
      * <p>Functional Role Name</p>
      * 
@@ -114,6 +96,24 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"name"})
     public List<PersonName> getFunctionalRoleName() {
         return this.functionalRoleName.rawList();
+    }
+
+
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
+    }
+
+
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
     }
 
 }

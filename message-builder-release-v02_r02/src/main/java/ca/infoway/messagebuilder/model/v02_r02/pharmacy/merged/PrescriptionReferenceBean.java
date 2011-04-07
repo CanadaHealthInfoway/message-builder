@@ -91,22 +91,22 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
-    private ProcedureRequestBean component1ProcedureRequest;
-    private DeviceProductBean directTargetManufacturedProduct;
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private CS prescriptionStatus = new CSImpl();
-    private BL preconditionVerificationEventCriterion = new BLImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private DeviceProductBean directTargetManufacturedProduct;
     private PriorDeviceRequestBean predecessorPriorDeviceRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private NotesBean subjectOfAnnotation;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private ProcedureRequestBean component1ProcedureRequest;
     private DispenseInstructions_1Bean component2SupplyRequest;
+    private NotesBean subjectOfAnnotation;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private RefusedByBean author;
     private BL componentContextConductionInd = new BLImpl();
     private DispenseInstructions_2Bean componentSupplyRequest;
-    private RefusedByBean author;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
     /**
@@ -215,30 +215,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
-    }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
-
-
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
     /**
      * <p>PrescriptionStatus</p>
      * 
@@ -261,39 +237,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
     public void setPrescriptionStatus(ActStatus prescriptionStatus) {
         this.prescriptionStatus.setValue(prescriptionStatus);
-    }
-
-
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
-    }
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
-    }
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -367,12 +310,87 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
+    }
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
+    }
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
+    }
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
+    }
+
+
     @Hl7XmlMapping({"component2/supplyRequest"})
     public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
     public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -391,24 +409,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
     public void setComponentSupplyRequest(DispenseInstructions_2Bean componentSupplyRequest) {
         this.componentSupplyRequest = componentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

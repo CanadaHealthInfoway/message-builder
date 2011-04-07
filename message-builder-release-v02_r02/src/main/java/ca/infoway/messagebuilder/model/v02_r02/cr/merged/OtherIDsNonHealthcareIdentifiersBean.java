@@ -65,11 +65,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II nonHealthcareIdentification = new IIImpl();
+    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
     private ST nonHealthcareOrganizationName = new STImpl();
-    private CV nonHealthcareIdentificationCode = new CVImpl();
 
 
     /**
@@ -97,6 +97,27 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
     public void setNonHealthcareIdentification(Identifier nonHealthcareIdentification) {
         this.nonHealthcareIdentification.setValue(nonHealthcareIdentification);
+    }
+
+
+    /**
+     * <p>NonHealthcareIdentificationCode</p>
+     * 
+     * <p>NonHealthcare Identification Code</p>
+     * 
+     * <p><p>A pan Canadian code further specifying the kind of 
+     * Role such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
+        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
+    }
+    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
+        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 
@@ -136,27 +157,6 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
     public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
         this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
-    }
-
-
-    /**
-     * <p>NonHealthcareIdentificationCode</p>
-     * 
-     * <p>NonHealthcare Identification Code</p>
-     * 
-     * <p><p>A pan Canadian code further specifying the kind of 
-     * Role such as Drivers License, RCMP, DND, Social Insurance 
-     * Number</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
-        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
-    }
-    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
-        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 }

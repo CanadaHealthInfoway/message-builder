@@ -24,22 +24,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV attachmentType = new CVImpl();
-
-
-    /**
-     * <p>Attachment content</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
-    }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
-    }
+    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -60,6 +48,18 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
     }
     public void setAttachmentType(Code attachmentType) {
         this.attachmentType.setValue(attachmentType);
+    }
+
+
+    /**
+     * <p>Attachment content</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public EncapsulatedData getAttachmentContent() {
+        return this.attachmentContent.getValue();
+    }
+    public void setAttachmentContent(EncapsulatedData attachmentContent) {
+        this.attachmentContent.setValue(attachmentContent);
     }
 
 }

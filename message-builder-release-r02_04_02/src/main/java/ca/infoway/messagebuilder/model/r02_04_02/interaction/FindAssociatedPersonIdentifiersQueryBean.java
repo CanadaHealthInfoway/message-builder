@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.cr.prpa_mt101101ca.ParameterLis
 @Hl7PartTypeMapping({"PRPA_IN101105CA"})
 public class FindAssociatedPersonIdentifiersQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

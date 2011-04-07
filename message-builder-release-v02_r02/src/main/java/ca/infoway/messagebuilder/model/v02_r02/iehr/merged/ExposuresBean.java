@@ -136,30 +136,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV exposureMethod = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private II incidenceIdentifier = new IIImpl();
+    private CV exposureMethod = new CVImpl();
     private CV exposedMaterialType = new CVImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
-
-
-    /**
-     * <p>ExposureMethod</p>
-     * 
-     * <p>C:Exposure Method</p>
-     * 
-     * <p><p>The method by which the patient was exposed to the 
-     * substance.</p></p>
-     * 
-     * <p><p>Helps evaluate the cause of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getExposureMethod() {
-        return (RouteOfAdministration) this.exposureMethod.getValue();
-    }
-    public void setExposureMethod(RouteOfAdministration exposureMethod) {
-        this.exposureMethod.setValue(exposureMethod);
-    }
 
 
     /**
@@ -190,6 +171,25 @@ public class ExposuresBean extends MessagePartBean {
     }
     public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
         this.incidenceIdentifier.setValue(incidenceIdentifier);
+    }
+
+
+    /**
+     * <p>ExposureMethod</p>
+     * 
+     * <p>C:Exposure Method</p>
+     * 
+     * <p><p>The method by which the patient was exposed to the 
+     * substance.</p></p>
+     * 
+     * <p><p>Helps evaluate the cause of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getExposureMethod() {
+        return (RouteOfAdministration) this.exposureMethod.getValue();
+    }
+    public void setExposureMethod(RouteOfAdministration exposureMethod) {
+        this.exposureMethod.setValue(exposureMethod);
     }
 
 

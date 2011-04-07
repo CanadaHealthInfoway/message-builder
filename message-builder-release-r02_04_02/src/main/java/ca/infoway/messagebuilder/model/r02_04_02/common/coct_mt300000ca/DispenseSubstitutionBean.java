@@ -14,10 +14,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV substitutionType = new CVImpl();
-    private SubstitutionRoleBean performerSubstitutionRole;
     private CV substitutionReason = new CVImpl();
+    private SubstitutionRoleBean performerSubstitutionRole;
 
 
     /**
@@ -31,15 +31,6 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
         this.substitutionType.setValue(substitutionType);
-    }
-
-
-    @Hl7XmlMapping({"performer/substitutionRole"})
-    public SubstitutionRoleBean getPerformerSubstitutionRole() {
-        return this.performerSubstitutionRole;
-    }
-    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
-        this.performerSubstitutionRole = performerSubstitutionRole;
     }
 
 
@@ -57,6 +48,15 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
         this.substitutionReason.setValue(substitutionReason);
+    }
+
+
+    @Hl7XmlMapping({"performer/substitutionRole"})
+    public SubstitutionRoleBean getPerformerSubstitutionRole() {
+        return this.performerSubstitutionRole;
+    }
+    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
+        this.performerSubstitutionRole = performerSubstitutionRole;
     }
 
 }

@@ -37,67 +37,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CD reportSectionObservationType = new CDImpl();
-    private ANY<Object> reportSectionObservationValue = new ANYImpl<Object>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private ST noteType = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II sectionIdentifier = new IIImpl();
+    private CD reportSectionObservationType = new CDImpl();
+    private ST noteType = new STImpl();
     private TS reportSectionObservationDateTime = new TSImpl();
-
-
-    /**
-     * <p>Report Section Observation Type</p>
-     * 
-     * <p><p>Specifies the type of report section.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getReportSectionObservationType() {
-        return (Code) this.reportSectionObservationType.getValue();
-    }
-    public void setReportSectionObservationType(Code reportSectionObservationType) {
-        this.reportSectionObservationType.setValue(reportSectionObservationType);
-    }
-
-
-    /**
-     * <p>Report Section Observation Value</p>
-     * 
-     * <p><p>The report section values - usually this is 
-     * text-based. If a coded value applies, values must be 
-     * selected from the SectionHeadingObservationValue Concept 
-     * Domain.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getReportSectionObservationValue() {
-        return this.reportSectionObservationValue.getValue();
-    }
-    public void setReportSectionObservationValue(Object reportSectionObservationValue) {
-        this.reportSectionObservationValue.setValue(reportSectionObservationValue);
-    }
-
-
-    /**
-     * <p>Result Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>Note Type</p>
-     * 
-     * <p><p>Type of comment or note.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getNoteType() {
-        return this.noteType.getValue();
-    }
-    public void setNoteType(String noteType) {
-        this.noteType.setValue(noteType);
-    }
+    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private ANY<Object> reportSectionObservationValue = new ANYImpl<Object>();
 
 
     /**
@@ -116,6 +62,34 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
+     * <p>Report Section Observation Type</p>
+     * 
+     * <p><p>Specifies the type of report section.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getReportSectionObservationType() {
+        return (Code) this.reportSectionObservationType.getValue();
+    }
+    public void setReportSectionObservationType(Code reportSectionObservationType) {
+        this.reportSectionObservationType.setValue(reportSectionObservationType);
+    }
+
+
+    /**
+     * <p>Note Type</p>
+     * 
+     * <p><p>Type of comment or note.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getNoteType() {
+        return this.noteType.getValue();
+    }
+    public void setNoteType(String noteType) {
+        this.noteType.setValue(noteType);
+    }
+
+
+    /**
      * <p>Report Section Observation Date/Time</p>
      * 
      * <p><p>The date/time this report section was 
@@ -127,6 +101,32 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
     public void setReportSectionObservationDateTime(Date reportSectionObservationDateTime) {
         this.reportSectionObservationDateTime.setValue(reportSectionObservationDateTime);
+    }
+
+
+    /**
+     * <p>Result Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
+        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>Report Section Observation Value</p>
+     * 
+     * <p><p>The report section values - usually this is 
+     * text-based. If a coded value applies, values must be 
+     * selected from the SectionHeadingObservationValue Concept 
+     * Domain.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Object getReportSectionObservationValue() {
+        return this.reportSectionObservationValue.getValue();
+    }
+    public void setReportSectionObservationValue(Object reportSectionObservationValue) {
+        this.reportSectionObservationValue.setValue(reportSectionObservationValue);
     }
 
 }

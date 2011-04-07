@@ -15,38 +15,11 @@ import ca.infoway.messagebuilder.model.v01_r04_3.merged.RefusedByBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class SupplyRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private Component2_2Bean component;
-    private RefusedByBean author;
-    private ProviderBean responsiblePartyAssignedPerson;
+    private static final long serialVersionUID = 20110407L;
     private II prescriptionOrderNumber = new IIImpl();
-
-
-    @Hl7XmlMapping({"component"})
-    public Component2_2Bean getComponent() {
-        return this.component;
-    }
-    public void setComponent(Component2_2Bean component) {
-        this.component = component;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
+    private ProviderBean responsiblePartyAssignedPerson;
+    private RefusedByBean author;
+    private Component2_2Bean component;
 
 
     /**
@@ -62,6 +35,33 @@ public class SupplyRequest_1Bean extends MessagePartBean {
     }
     public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
         this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public Component2_2Bean getComponent() {
+        return this.component;
+    }
+    public void setComponent(Component2_2Bean component) {
+        this.component = component;
     }
 
 }

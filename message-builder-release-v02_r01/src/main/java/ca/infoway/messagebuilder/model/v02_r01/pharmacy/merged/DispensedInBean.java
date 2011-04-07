@@ -19,9 +19,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV containerType = new CVImpl();
+    private static final long serialVersionUID = 20110407L;
     private RTO<PhysicalQuantity, PhysicalQuantity> packageQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
+    private CV containerType = new CVImpl();
+
+
+    /**
+     * <p>PackageQuantity</p>
+     * 
+     * <p>Package Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
+        return this.packageQuantity.getValue();
+    }
+    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
+        this.packageQuantity.setValue(packageQuantity);
+    }
 
 
     /**
@@ -37,20 +51,6 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerType(CompliancePackageEntityType containerType) {
         this.containerType.setValue(containerType);
-    }
-
-
-    /**
-     * <p>PackageQuantity</p>
-     * 
-     * <p>Package Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
-        return this.packageQuantity.getValue();
-    }
-    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
-        this.packageQuantity.setValue(packageQuantity);
     }
 
 }

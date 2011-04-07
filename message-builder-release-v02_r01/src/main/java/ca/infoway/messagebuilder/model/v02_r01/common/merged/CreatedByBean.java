@@ -21,25 +21,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","MFMI_MT700711CA.Author","MFMI_MT700751CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private ED<String> digitalSignature = new EDImpl<String>();
+    private static final long serialVersionUID = 20110407L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
+    private ED<String> digitalSignature = new EDImpl<String>();
     private AuthorPerson authorPerson;
-
-
-    /**
-     * <p>DigitalSignature</p>
-     * 
-     * <p>G:Digital Signature</p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getDigitalSignature() {
-        return this.digitalSignature.getValue();
-    }
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature.setValue(digitalSignature);
-    }
 
 
     /**
@@ -67,6 +53,20 @@ public class CreatedByBean extends MessagePartBean {
     }
     public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
         this.informationReceivedMethod.setValue(informationReceivedMethod);
+    }
+
+
+    /**
+     * <p>DigitalSignature</p>
+     * 
+     * <p>G:Digital Signature</p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getDigitalSignature() {
+        return this.digitalSignature.getValue();
+    }
+    public void setDigitalSignature(String digitalSignature) {
+        this.digitalSignature.setValue(digitalSignature);
     }
 
 

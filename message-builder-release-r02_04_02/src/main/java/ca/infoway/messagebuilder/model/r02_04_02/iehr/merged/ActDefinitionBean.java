@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410001CA.ActDefinition","REPC_MT410003CA.ActDefinition","REPC_MT420001CA.ActDefinition","REPC_MT420003CA.ActDefinition","REPC_MT610001CA.ActDefinition","REPC_MT610002CA.ActDefinition"})
 public class ActDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II protocolIds = new IIImpl();
 
 

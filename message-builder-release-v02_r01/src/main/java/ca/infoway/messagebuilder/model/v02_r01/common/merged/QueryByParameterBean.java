@@ -24,38 +24,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PL parameterList;
-    private INT queryLimit = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private II queryIdentifier = new IIImpl();
-    private CV queryLimitType = new CVImpl();
     private CS expeditedQueryIndicator = new CSImpl();
-    private CS sortControlDirection = new CSImpl();
+    private INT queryLimit = new INTImpl();
+    private CV queryLimitType = new CVImpl();
+    private PL parameterList;
     private INT sequenceNumber = new INTImpl();
     private ST sortElementName = new STImpl();
-
-
-    @Hl7XmlMapping({"parameterList"})
-    public PL getParameterList() {
-        return this.parameterList;
-    }
-    public void setParameterList(PL parameterList) {
-        this.parameterList = parameterList;
-    }
-
-
-    /**
-     * <p>QueryLimit</p>
-     * 
-     * <p>I:Query Limit</p>
-     */
-    @Hl7XmlMapping({"initialQuantity"})
-    public Integer getQueryLimit() {
-        return this.queryLimit.getValue();
-    }
-    public void setQueryLimit(Integer queryLimit) {
-        this.queryLimit.setValue(queryLimit);
-    }
+    private CS sortControlDirection = new CSImpl();
 
 
     /**
@@ -69,20 +46,6 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
     public void setQueryIdentifier(Identifier queryIdentifier) {
         this.queryIdentifier.setValue(queryIdentifier);
-    }
-
-
-    /**
-     * <p>QueryLimitType</p>
-     * 
-     * <p>J:Query Limit Type</p>
-     */
-    @Hl7XmlMapping({"initialQuantityCode"})
-    public QueryRequestLimit getQueryLimitType() {
-        return (QueryRequestLimit) this.queryLimitType.getValue();
-    }
-    public void setQueryLimitType(QueryRequestLimit queryLimitType) {
-        this.queryLimitType.setValue(queryLimitType);
     }
 
 
@@ -101,16 +64,39 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>SortControlDirection</p>
+     * <p>QueryLimit</p>
      * 
-     * <p>Sort Control Direction</p>
+     * <p>I:Query Limit</p>
      */
-    @Hl7XmlMapping({"sortControl/directionCode"})
-    public Sequencing getSortControlDirection() {
-        return (Sequencing) this.sortControlDirection.getValue();
+    @Hl7XmlMapping({"initialQuantity"})
+    public Integer getQueryLimit() {
+        return this.queryLimit.getValue();
     }
-    public void setSortControlDirection(Sequencing sortControlDirection) {
-        this.sortControlDirection.setValue(sortControlDirection);
+    public void setQueryLimit(Integer queryLimit) {
+        this.queryLimit.setValue(queryLimit);
+    }
+
+
+    /**
+     * <p>QueryLimitType</p>
+     * 
+     * <p>J:Query Limit Type</p>
+     */
+    @Hl7XmlMapping({"initialQuantityCode"})
+    public QueryRequestLimit getQueryLimitType() {
+        return (QueryRequestLimit) this.queryLimitType.getValue();
+    }
+    public void setQueryLimitType(QueryRequestLimit queryLimitType) {
+        this.queryLimitType.setValue(queryLimitType);
+    }
+
+
+    @Hl7XmlMapping({"parameterList"})
+    public PL getParameterList() {
+        return this.parameterList;
+    }
+    public void setParameterList(PL parameterList) {
+        this.parameterList = parameterList;
     }
 
 
@@ -139,6 +125,20 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
     public void setSortElementName(String sortElementName) {
         this.sortElementName.setValue(sortElementName);
+    }
+
+
+    /**
+     * <p>SortControlDirection</p>
+     * 
+     * <p>Sort Control Direction</p>
+     */
+    @Hl7XmlMapping({"sortControl/directionCode"})
+    public Sequencing getSortControlDirection() {
+        return (Sequencing) this.sortControlDirection.getValue();
+    }
+    public void setSortControlDirection(Sequencing sortControlDirection) {
+        this.sortControlDirection.setValue(sortControlDirection);
     }
 
 }

@@ -67,113 +67,46 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEvent"})
 public class ResultObservationBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private ANY<Object> resultObservationValue = new ANYImpl<Object>();
-    private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
-    private CV observationInterpretationCode = new CVImpl();
-    private List<ReferenceRangeBean> referenceRangeInterpretationRange = new ArrayList<ReferenceRangeBean>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private ResultSortKeyBean component1ResultSortKey;
-    private List<ResultObservationBean> derivedFromObservationEvent = new ArrayList<ResultObservationBean>();
+    private static final long serialVersionUID = 20110407L;
+    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
+    private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> resultObservationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private ST resultObservationText = new STImpl();
-    private CS resultObservationStatus = new CSImpl();
     private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
     private CD resultObservationType = new CDImpl();
+    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private RecipientChoice primaryInformationRecipientRecipientChoice;
+    private ST resultObservationText = new STImpl();
+    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
+    private CS resultObservationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> resultObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private ResultSortKeyBean component1ResultSortKey;
+    private ANY<Object> resultObservationValue = new ANYImpl<Object>();
+    private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
+    private CV observationInterpretationCode = new CVImpl();
+    private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
+    private CV resultObservationMethod = new CVImpl();
+    private List<ResultObservationBean> derivedFromObservationEvent = new ArrayList<ResultObservationBean>();
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private List<ReferenceRangeBean> referenceRangeInterpretationRange = new ArrayList<ReferenceRangeBean>();
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
     private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private CV resultObservationMethod = new CVImpl();
-    private Patient_1Bean recordTargetPatient;
-    private RecipientChoice primaryInformationRecipientRecipientChoice;
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private IVL<TS, Interval<Date>> resultObservationDateTime = new IVLImpl<TS, Interval<Date>>();
-    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
 
 
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
+    @Hl7XmlMapping({"specimen"})
+    public List<ReportSectionSpecimenBean> getSpecimen() {
+        return this.specimen;
     }
 
 
-    /**
-     * <p>Result Observation Value</p>
-     * 
-     * <p><p>The result value. If a coded value applies, the value 
-     * must be selected from the LaboratoryResultCodeValue Concept 
-     * Domain.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getResultObservationValue() {
-        return this.resultObservationValue.getValue();
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setResultObservationValue(Object resultObservationValue) {
-        this.resultObservationValue.setValue(resultObservationValue);
-    }
-
-
-    @Hl7XmlMapping({"component3/resultChoice"})
-    public List<ResultChoice> getComponent3ResultChoice() {
-        return this.component3ResultChoice;
-    }
-
-
-    /**
-     * <p>Observation Interpretation Code</p>
-     * 
-     * <p><p>Communicates the performer's interpretation of the 
-     * result based on some established baseline (normal, high, 
-     * low, panic, etc.).</p></p>
-     * 
-     * <p><p>In v2.x, this was the abnormal flag.</p></p>
-     */
-    @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretation getObservationInterpretationCode() {
-        return (ObservationInterpretation) this.observationInterpretationCode.getValue();
-    }
-    public void setObservationInterpretationCode(ObservationInterpretation observationInterpretationCode) {
-        this.observationInterpretationCode.setValue(observationInterpretationCode);
-    }
-
-
-    @Hl7XmlMapping({"referenceRange/interpretationRange"})
-    public List<ReferenceRangeBean> getReferenceRangeInterpretationRange() {
-        return this.referenceRangeInterpretationRange;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"component1/resultSortKey"})
-    public ResultSortKeyBean getComponent1ResultSortKey() {
-        return this.component1ResultSortKey;
-    }
-    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey) {
-        this.component1ResultSortKey = component1ResultSortKey;
-    }
-
-
-    @Hl7XmlMapping({"derivedFrom/observationEvent"})
-    public List<ResultObservationBean> getDerivedFromObservationEvent() {
-        return this.derivedFromObservationEvent;
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -188,73 +121,6 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getResultObservationIdentifier() {
         return this.resultObservationIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"component2/reportableTestIndicator"})
-    public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator() {
-        return this.component2ReportableTestIndicator;
-    }
-
-
-    /**
-     * <p>Result Masking Indicator</p>
-     * 
-     * <p><p>Any piece of information is potentially subject to 
-     * 'masking', restricting it's availability from providers who 
-     * have not been specifically authorized. Additionally, some 
-     * clinical data requires the ability to mark as &quot;not for 
-     * direct disclosure to patient&quot;. The values in this 
-     * attribute enable the above masking to be represented and 
-     * messaged.</p></p>
-     * 
-     * <p><p>This code allows for privacy control by patients as 
-     * well as flagged for 'not for disclosure to patient' by care 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>Result Observation Text</p>
-     * 
-     * <p><p>Contains any text-based descriptive text regarding or 
-     * in support of this observation.</p></p>
-     * 
-     * <p><p>Used to document any act information not covered by 
-     * the other attribution or value sets.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getResultObservationText() {
-        return this.resultObservationText.getValue();
-    }
-    public void setResultObservationText(String resultObservationText) {
-        this.resultObservationText.setValue(resultObservationText);
-    }
-
-
-    /**
-     * <p>Result Observation Status</p>
-     * 
-     * <p><p>The status or state of the result observation. The 
-     * statusCode is not as fine-grained as lab reporting statuses 
-     * such as preliminary. A &quot;preliminary&quot; result is a 
-     * result whose statusCode=active and ProcessStep (procedure 
-     * event) valued &quot;preliminary&quot;.</p></p>
-     * 
-     * <p><p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getResultObservationStatus() {
-        return (ActStatus) this.resultObservationStatus.getValue();
-    }
-    public void setResultObservationStatus(ActStatus resultObservationStatus) {
-        this.resultObservationStatus.setValue(resultObservationStatus);
     }
 
 
@@ -285,46 +151,9 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
 
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
-    }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
-    }
-
-
-    /**
-     * <p>Result Observation Method</p>
-     * 
-     * <p><p>The code attribute is bound to LOINC. Some LOINC codes 
-     * &quot;carry&quot; the method as part of the code. The 
-     * methodCode attribute is provided for those cases where LOINC 
-     * is not specific enough or the implementers want to break out 
-     * this data in addition to it's inclusion in the LOINC 
-     * code.</p></p>
-     */
-    @Hl7XmlMapping({"methodCode"})
-    public ObservationMethod getResultObservationMethod() {
-        return (ObservationMethod) this.resultObservationMethod.getValue();
-    }
-    public void setResultObservationMethod(ObservationMethod resultObservationMethod) {
-        this.resultObservationMethod.setValue(resultObservationMethod);
-    }
-
-
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+    @Hl7XmlMapping({"performer/roleChoice"})
+    public List<RoleChoice> getPerformerRoleChoice() {
+        return this.performerRoleChoice;
     }
 
 
@@ -351,18 +180,49 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+    /**
+     * <p>Result Observation Text</p>
+     * 
+     * <p><p>Contains any text-based descriptive text regarding or 
+     * in support of this observation.</p></p>
+     * 
+     * <p><p>Used to document any act information not covered by 
+     * the other attribution or value sets.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getResultObservationText() {
+        return this.resultObservationText.getValue();
     }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    public void setResultObservationText(String resultObservationText) {
+        this.resultObservationText.setValue(resultObservationText);
     }
 
 
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
+    }
+
+
+    /**
+     * <p>Result Observation Status</p>
+     * 
+     * <p><p>The status or state of the result observation. The 
+     * statusCode is not as fine-grained as lab reporting statuses 
+     * such as preliminary. A &quot;preliminary&quot; result is a 
+     * result whose statusCode=active and ProcessStep (procedure 
+     * event) valued &quot;preliminary&quot;.</p></p>
+     * 
+     * <p><p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getResultObservationStatus() {
+        return (ActStatus) this.resultObservationStatus.getValue();
+    }
+    public void setResultObservationStatus(ActStatus resultObservationStatus) {
+        this.resultObservationStatus.setValue(resultObservationStatus);
     }
 
 
@@ -381,9 +241,149 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
 
-    @Hl7XmlMapping({"specimen"})
-    public List<ReportSectionSpecimenBean> getSpecimen() {
-        return this.specimen;
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
+    }
+
+
+    /**
+     * <p>Result Masking Indicator</p>
+     * 
+     * <p><p>Any piece of information is potentially subject to 
+     * 'masking', restricting it's availability from providers who 
+     * have not been specifically authorized. Additionally, some 
+     * clinical data requires the ability to mark as &quot;not for 
+     * direct disclosure to patient&quot;. The values in this 
+     * attribute enable the above masking to be represented and 
+     * messaged.</p></p>
+     * 
+     * <p><p>This code allows for privacy control by patients as 
+     * well as flagged for 'not for disclosure to patient' by care 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
+        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component1/resultSortKey"})
+    public ResultSortKeyBean getComponent1ResultSortKey() {
+        return this.component1ResultSortKey;
+    }
+    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey) {
+        this.component1ResultSortKey = component1ResultSortKey;
+    }
+
+
+    /**
+     * <p>Result Observation Value</p>
+     * 
+     * <p><p>The result value. If a coded value applies, the value 
+     * must be selected from the LaboratoryResultCodeValue Concept 
+     * Domain.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Object getResultObservationValue() {
+        return this.resultObservationValue.getValue();
+    }
+    public void setResultObservationValue(Object resultObservationValue) {
+        this.resultObservationValue.setValue(resultObservationValue);
+    }
+
+
+    @Hl7XmlMapping({"component2/reportableTestIndicator"})
+    public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator() {
+        return this.component2ReportableTestIndicator;
+    }
+
+
+    /**
+     * <p>Observation Interpretation Code</p>
+     * 
+     * <p><p>Communicates the performer's interpretation of the 
+     * result based on some established baseline (normal, high, 
+     * low, panic, etc.).</p></p>
+     * 
+     * <p><p>In v2.x, this was the abnormal flag.</p></p>
+     */
+    @Hl7XmlMapping({"interpretationCode"})
+    public ObservationInterpretation getObservationInterpretationCode() {
+        return (ObservationInterpretation) this.observationInterpretationCode.getValue();
+    }
+    public void setObservationInterpretationCode(ObservationInterpretation observationInterpretationCode) {
+        this.observationInterpretationCode.setValue(observationInterpretationCode);
+    }
+
+
+    @Hl7XmlMapping({"component3/resultChoice"})
+    public List<ResultChoice> getComponent3ResultChoice() {
+        return this.component3ResultChoice;
+    }
+
+
+    /**
+     * <p>Result Observation Method</p>
+     * 
+     * <p><p>The code attribute is bound to LOINC. Some LOINC codes 
+     * &quot;carry&quot; the method as part of the code. The 
+     * methodCode attribute is provided for those cases where LOINC 
+     * is not specific enough or the implementers want to break out 
+     * this data in addition to it's inclusion in the LOINC 
+     * code.</p></p>
+     */
+    @Hl7XmlMapping({"methodCode"})
+    public ObservationMethod getResultObservationMethod() {
+        return (ObservationMethod) this.resultObservationMethod.getValue();
+    }
+    public void setResultObservationMethod(ObservationMethod resultObservationMethod) {
+        this.resultObservationMethod.setValue(resultObservationMethod);
+    }
+
+
+    @Hl7XmlMapping({"derivedFrom/observationEvent"})
+    public List<ResultObservationBean> getDerivedFromObservationEvent() {
+        return this.derivedFromObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"referenceRange/interpretationRange"})
+    public List<ReferenceRangeBean> getReferenceRangeInterpretationRange() {
+        return this.referenceRangeInterpretationRange;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

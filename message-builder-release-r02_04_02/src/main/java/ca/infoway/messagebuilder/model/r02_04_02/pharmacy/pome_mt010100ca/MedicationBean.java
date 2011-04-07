@@ -44,24 +44,18 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
+    private static final long serialVersionUID = 20110407L;
     private CV drugCode = new CVImpl();
-    private DispensedInBean administerableMedicineAsContent;
     private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST description = new STImpl();
-    private CS regulatoryStatusCode = new CSImpl();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private CV drugForm = new CVImpl();
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
+    private CS regulatoryStatusCode = new CSImpl();
+    private DispensedInBean administerableMedicineAsContent;
     private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
     private DrugCostBean subjectOf1PotentialCharge;
-
-
-    @Hl7XmlMapping({"subjectOf2/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
-        return this.subjectOf2Characteristic;
-    }
+    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
 
     /**
@@ -85,15 +79,6 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
-    }
-    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
@@ -137,34 +122,6 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Regulatory Status Code</p>
-     * 
-     * <p><p>Indicates whether the drug is approved for use in 
-     * Canada or not. (active = approved for use; pending or 
-     * terminated = not approved for use)</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
-    }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    /**
      * <p>D:Drug Form</p>
      * 
      * <p><p>Indicates the form in which the drug product must be, 
@@ -183,9 +140,40 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    }
+
+
+    /**
+     * <p>Regulatory Status Code</p>
+     * 
+     * <p><p>Indicates whether the drug is approved for use in 
+     * Canada or not. (active = approved for use; pending or 
+     * terminated = not approved for use)</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
+    public RoleStatusNormal getRegulatoryStatusCode() {
+        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    }
+    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
+        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
@@ -195,12 +183,24 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
+    }
+
+
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
     public DrugCostBean getSubjectOf1PotentialCharge() {
         return this.subjectOf1PotentialCharge;
     }
     public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
+        return this.subjectOf2Characteristic;
     }
 
 }

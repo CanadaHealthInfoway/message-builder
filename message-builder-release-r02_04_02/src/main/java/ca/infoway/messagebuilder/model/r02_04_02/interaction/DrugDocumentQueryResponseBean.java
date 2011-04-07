@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.MonographsBean;
 @Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<MonographsBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
 
 }

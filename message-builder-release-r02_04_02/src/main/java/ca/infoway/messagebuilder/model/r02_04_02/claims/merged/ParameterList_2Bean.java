@@ -38,17 +38,99 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterList_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private TS adjudicationDate = new TSImpl();
+    private II adjudicatedResultsGroupID = new IIImpl();
+    private II financialContractID = new IIImpl();
+    private II insuranceCarrierID = new IIImpl();
+    private II locationIDNumber = new IIImpl();
     private II payeeID = new IIImpl();
     private II payorID = new IIImpl();
     private II providerID = new IIImpl();
     private II sendingApplicationIDNumber = new IIImpl();
-    private II locationIDNumber = new IIImpl();
-    private II financialContractID = new IIImpl();
-    private II insuranceCarrierID = new IIImpl();
-    private II adjudicatedResultsGroupID = new IIImpl();
-    private TS adjudicationDate = new TSImpl();
     private CV invoiceElementGroupCode = new CVImpl();
+
+
+    /**
+     * <p>AdjudicationDate</p>
+     * 
+     * <p>Adjudication Date</p>
+     * 
+     * <p><p>Date of the Adjudication</p></p>
+     */
+    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
+    public Date getAdjudicationDate() {
+        return this.adjudicationDate.getValue();
+    }
+    public void setAdjudicationDate(Date adjudicationDate) {
+        this.adjudicationDate.setValue(adjudicationDate);
+    }
+
+
+    /**
+     * <p>AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Adjudicated Results Group ID</p>
+     * 
+     * <p><p>Unique Id assigned by Adjudicator to this Group of 
+     * results</p></p>
+     */
+    @Hl7XmlMapping({"adjudResultsGroupId/value"})
+    public Identifier getAdjudicatedResultsGroupID() {
+        return this.adjudicatedResultsGroupID.getValue();
+    }
+    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
+        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
+    }
+
+
+    /**
+     * <p>FinancialContractID</p>
+     * 
+     * <p>Financial Contract ID</p>
+     * 
+     * <p><p>ID number of payment arrangements for adjudicated 
+     * invoices.</p></p>
+     */
+    @Hl7XmlMapping({"financialContractId/value"})
+    public Identifier getFinancialContractID() {
+        return this.financialContractID.getValue();
+    }
+    public void setFinancialContractID(Identifier financialContractID) {
+        this.financialContractID.setValue(financialContractID);
+    }
+
+
+    /**
+     * <p>InsuranceCarrierID</p>
+     * 
+     * <p>Insurance Carrier ID</p>
+     * 
+     * <p><p>Business ID for Insurance Carrier</p></p>
+     */
+    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
+    public Identifier getInsuranceCarrierID() {
+        return this.insuranceCarrierID.getValue();
+    }
+    public void setInsuranceCarrierID(Identifier insuranceCarrierID) {
+        this.insuranceCarrierID.setValue(insuranceCarrierID);
+    }
+
+
+    /**
+     * <p>LocationIDNumber</p>
+     * 
+     * <p>Location ID Number</p>
+     * 
+     * <p><p>Unique ID for location (OID)</p></p>
+     */
+    @Hl7XmlMapping({"locationId/value"})
+    public Identifier getLocationIDNumber() {
+        return this.locationIDNumber.getValue();
+    }
+    public void setLocationIDNumber(Identifier locationIDNumber) {
+        this.locationIDNumber.setValue(locationIDNumber);
+    }
 
 
     /**
@@ -117,88 +199,6 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
     public void setSendingApplicationIDNumber(Identifier sendingApplicationIDNumber) {
         this.sendingApplicationIDNumber.setValue(sendingApplicationIDNumber);
-    }
-
-
-    /**
-     * <p>LocationIDNumber</p>
-     * 
-     * <p>Location ID Number</p>
-     * 
-     * <p><p>Unique ID for location (OID)</p></p>
-     */
-    @Hl7XmlMapping({"locationId/value"})
-    public Identifier getLocationIDNumber() {
-        return this.locationIDNumber.getValue();
-    }
-    public void setLocationIDNumber(Identifier locationIDNumber) {
-        this.locationIDNumber.setValue(locationIDNumber);
-    }
-
-
-    /**
-     * <p>FinancialContractID</p>
-     * 
-     * <p>Financial Contract ID</p>
-     * 
-     * <p><p>ID number of payment arrangements for adjudicated 
-     * invoices.</p></p>
-     */
-    @Hl7XmlMapping({"financialContractId/value"})
-    public Identifier getFinancialContractID() {
-        return this.financialContractID.getValue();
-    }
-    public void setFinancialContractID(Identifier financialContractID) {
-        this.financialContractID.setValue(financialContractID);
-    }
-
-
-    /**
-     * <p>InsuranceCarrierID</p>
-     * 
-     * <p>Insurance Carrier ID</p>
-     * 
-     * <p><p>Business ID for Insurance Carrier</p></p>
-     */
-    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
-    public Identifier getInsuranceCarrierID() {
-        return this.insuranceCarrierID.getValue();
-    }
-    public void setInsuranceCarrierID(Identifier insuranceCarrierID) {
-        this.insuranceCarrierID.setValue(insuranceCarrierID);
-    }
-
-
-    /**
-     * <p>AdjudicatedResultsGroupID</p>
-     * 
-     * <p>Adjudicated Results Group ID</p>
-     * 
-     * <p><p>Unique Id assigned by Adjudicator to this Group of 
-     * results</p></p>
-     */
-    @Hl7XmlMapping({"adjudResultsGroupId/value"})
-    public Identifier getAdjudicatedResultsGroupID() {
-        return this.adjudicatedResultsGroupID.getValue();
-    }
-    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
-        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
-    }
-
-
-    /**
-     * <p>AdjudicationDate</p>
-     * 
-     * <p>Adjudication Date</p>
-     * 
-     * <p><p>Date of the Adjudication</p></p>
-     */
-    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Date getAdjudicationDate() {
-        return this.adjudicationDate.getValue();
-    }
-    public void setAdjudicationDate(Date adjudicationDate) {
-        this.adjudicationDate.setValue(adjudicationDate);
     }
 
 

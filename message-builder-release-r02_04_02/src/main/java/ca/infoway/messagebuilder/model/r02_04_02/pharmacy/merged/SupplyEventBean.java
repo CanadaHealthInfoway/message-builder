@@ -24,46 +24,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private PQ dispensedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110407L;
     private CV dispenseType = new CVImpl();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private RelatedPersonBean receiverPersonalRelationship;
-    private DrugProductBean productMedication;
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     * 
-     * <p>F:Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
-    }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
-    }
+    private PQ dispensedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
+    private RelatedPersonBean receiverPersonalRelationship;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
@@ -95,86 +63,6 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setDispenseType(ActPharmacySupplyType dispenseType) {
         this.dispenseType.setValue(dispenseType);
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public RelatedPersonBean getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
-    }
-    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
-        this.receiverPersonalRelationship = receiverPersonalRelationship;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
-    /**
-     * <p>G:Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Thus the attribute is marked as 'populated'.</p></p>
-     * 
-     * <p>Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last. Cannot be mandatory as there are some 
-     * situations where 'as needed' cannot be used to determine 
-     * days supply.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p></p>
-     * 
-     * <p>Dispense Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p><p>Cannot be mandatory as there are 
-     * some situations where 'as needed' cannot be used to 
-     * determine days supply.</p></p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p><p>Cannot be mandatory as there are 
-     * some situations where 'as needed' cannot be used to 
-     * determine days supply.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getExpectedUseTime() {
-        return this.expectedUseTime.getValue();
-    }
-    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
-        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 
@@ -240,6 +128,118 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>DispensedQuantity</p>
+     * 
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
+     * 
+     * <p>F:Dispensed Quantity</p>
+     * 
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
+    }
+
+
+    /**
+     * <p>G:Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Thus the attribute is marked as 'populated'.</p></p>
+     * 
+     * <p>Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last. Cannot be mandatory as there are some 
+     * situations where 'as needed' cannot be used to determine 
+     * days supply.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p></p>
+     * 
+     * <p>Dispense Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p><p>Cannot be mandatory as there are 
+     * some situations where 'as needed' cannot be used to 
+     * determine days supply.</p></p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p><p>Cannot be mandatory as there are 
+     * some situations where 'as needed' cannot be used to 
+     * determine days supply.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
+    }
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public RelatedPersonBean getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
+    }
+    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
+        this.receiverPersonalRelationship = receiverPersonalRelationship;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

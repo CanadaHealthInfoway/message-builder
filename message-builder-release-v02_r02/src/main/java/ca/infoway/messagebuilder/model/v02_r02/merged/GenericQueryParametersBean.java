@@ -66,21 +66,102 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private BL includeNotesIndicator = new BLImpl();
-    private CV reactionTypeValue = new CVImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20110407L;
     private List<II> careCompositionIDs = new ArrayList<II>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private BL includeNotesIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL includePendingChangesIndicator = new BLImpl();
+    private CV reactionTypeValue = new CVImpl();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private BL includeEventHistoryIndicator = new BLImpl();
     private BL includeIssuesIndicator = new BLImpl();
+    private BL includePendingChangesIndicator = new BLImpl();
     private II prescriptionOrderNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CV allergyIntoleranceStatus = new CVImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV allergyIntoleranceStatus = new CVImpl();
     private II prescriptionDispenseNumber = new IIImpl();
+
+
+    /**
+     * <p>CareCompositionIDs</p>
+     * 
+     * <p>Care Composition IDs</p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     * 
+     * <p>Care Composition IDs</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    }
+
+
+    /**
+     * <p>CareCompositionTypes</p>
+     * 
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
 
 
     /**
@@ -168,6 +249,29 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>ReactionPeriod</p>
+     * 
+     * <p>F:Reaction Period</p>
+     * 
+     * <p><p>The period in which the recorded adverse reaction 
+     * occurred or was updated. I.e. Filters the result-set to 
+     * those reactions whose onset occurred within the time-range 
+     * specified by this parameter.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p></p>
+     */
+    @Hl7XmlMapping({"reactionPeriod/value"})
+    public Interval<Date> getReactionPeriod() {
+        return this.reactionPeriod.getValue();
+    }
+    public void setReactionPeriod(Interval<Date> reactionPeriod) {
+        this.reactionPeriod.setValue(reactionPeriod);
+    }
+
+
+    /**
      * <p>G:Reaction Type</p>
      * 
      * <p><p>Indicates that the result set be filtered to include 
@@ -204,137 +308,31 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
+     * <p>AmendedInTimeRange</p>
      * 
-     * <p>Care Composition Types</p>
+     * <p>Amended in Time Range</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to 'retrieve everything that has been 
+     * amended since xxx'.</p></p>
      * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
      */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
     }
-
-
-    /**
-     * <p>CareCompositionIDs</p>
-     * 
-     * <p>Care Composition IDs</p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     * 
-     * <p>Care Composition IDs</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
-    }
-
-
-    /**
-     * <p>ReactionPeriod</p>
-     * 
-     * <p>F:Reaction Period</p>
-     * 
-     * <p><p>The period in which the recorded adverse reaction 
-     * occurred or was updated. I.e. Filters the result-set to 
-     * those reactions whose onset occurred within the time-range 
-     * specified by this parameter.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"reactionPeriod/value"})
-    public Interval<Date> getReactionPeriod() {
-        return this.reactionPeriod.getValue();
-    }
-    public void setReactionPeriod(Interval<Date> reactionPeriod) {
-        this.reactionPeriod.setValue(reactionPeriod);
-    }
-
-
-    /**
-     * <p>IncludePendingChangesIndicator</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
-     * 
-     * <p><p>Indicates whether to include future changes (e.g. 
-     * status changes that aren't effective yet) associated with a 
-     * prescription order and/or prescription dispense are to be 
-     * returned along with the detailed information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
-    }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
     }
 
 
@@ -422,6 +420,37 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     * 
+     * <p><p>Indicates whether to include future changes (e.g. 
+     * status changes that aren't effective yet) associated with a 
+     * prescription order and/or prescription dispense are to be 
+     * returned along with the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    }
+
+
+    /**
      * <p>PrescriptionOrderNumber</p>
      * 
      * <p>Prescription order Number</p>
@@ -447,31 +476,25 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>AllergyIntoleranceStatus</p>
      * 
-     * <p>Amended in Time Range</p>
+     * <p>G:Allergy/Intolerance Status</p>
      * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to 'retrieve everything that has been 
-     * amended since xxx'.</p></p>
+     * <p><p>Indicates that the result set should be filtered to 
+     * include only those allergy/intolerance records for the 
+     * specified status. Valid statuses include: ACTIVE or 
+     * COMPLETE.</p></p>
      * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * <p><p>Allows for the selective retrieval of 
+     * allergy/intolerance records based on the status of the 
+     * record.</p></p>
      */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
+    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
     }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
     }
 
 
@@ -515,29 +538,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
         this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceStatus</p>
-     * 
-     * <p>G:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>Indicates that the result set should be filtered to 
-     * include only those allergy/intolerance records for the 
-     * specified status. Valid statuses include: ACTIVE or 
-     * COMPLETE.</p></p>
-     * 
-     * <p><p>Allows for the selective retrieval of 
-     * allergy/intolerance records based on the status of the 
-     * record.</p></p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
     }
 
 

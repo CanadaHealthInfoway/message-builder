@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000018CA.SubObservationEvent","REPC_MT100002CA.SubObservationEvent"})
 public class ComponentMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CD bloodPressureMeasurementType = new CDImpl();
     private PQ bloodPressureMeasurementValue = new PQImpl();
 

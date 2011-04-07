@@ -56,44 +56,16 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110407L;
     private II id = new IIImpl();
+    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private RelatedPersonBean receiverPersonalRelationship;
+    private TS supplyDate = new TSImpl();
     private PQ suppliedQuantity = new PQImpl();
-    private IncludesBean subjectOf;
+    private DispensedBean product;
     private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
-    private DispensedBean product;
-    private TS supplyDate = new TSImpl();
-
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>A:Prescription Order Number</p>
-     * 
-     * <p><p>This is an identifier assigned to a specific 
-     * medication order. The number remains constant across the 
-     * lifetime of the order, regardless of the number of providers 
-     * or pharmacies involved in fulfilling the order.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced. 
-     * Multiple identifiers are allowed to support assigning of 
-     * prescription ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced. 
-     * Multiple identifiers are allowed to support assigning of 
-     * prescription ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
-    }
+    private IncludesBean subjectOf;
 
 
     /**
@@ -132,69 +104,40 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>A:Prescription Order Number</p>
+     * 
+     * <p><p>This is an identifier assigned to a specific 
+     * medication order. The number remains constant across the 
+     * lifetime of the order, regardless of the number of providers 
+     * or pharmacies involved in fulfilling the order.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced. 
+     * Multiple identifiers are allowed to support assigning of 
+     * prescription ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced. 
+     * Multiple identifiers are allowed to support assigning of 
+     * prescription ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
+    public Set<Identifier> getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.rawSet();
+    }
+
+
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
     }
     public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
         this.receiverPersonalRelationship = receiverPersonalRelationship;
-    }
-
-
-    /**
-     * <p>SuppliedQuantity</p>
-     * 
-     * <p>B:Supplied Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Allows for auditing of medication dispensed to an 
-     * office. This is mandatory to allow reconciliation with the 
-     * amount used from the office.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
-    }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
-    }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
     }
 
 
@@ -220,6 +163,63 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
     public void setSupplyDate(Date supplyDate) {
         this.supplyDate.setValue(supplyDate);
+    }
+
+
+    /**
+     * <p>SuppliedQuantity</p>
+     * 
+     * <p>B:Supplied Quantity</p>
+     * 
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
+     * 
+     * <p><p>Allows for auditing of medication dispensed to an 
+     * office. This is mandatory to allow reconciliation with the 
+     * amount used from the office.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getSuppliedQuantity() {
+        return this.suppliedQuantity.getValue();
+    }
+    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
+        this.suppliedQuantity.setValue(suppliedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
+    }
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
 }

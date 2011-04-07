@@ -19,11 +19,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private II incidenceIdentifier = new IIImpl();
     private CV exposureMethod = new CVImpl();
     private CV exposedMaterialType = new CVImpl();
-    private II incidenceIdentifier = new IIImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
+
+
+    /**
+     * <p>IncidenceIdentifier</p>
+     * 
+     * <p>B:Incidence Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIncidenceIdentifier() {
+        return this.incidenceIdentifier.getValue();
+    }
+    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
+        this.incidenceIdentifier.setValue(incidenceIdentifier);
+    }
 
 
     /**
@@ -64,20 +78,6 @@ public class ExposuresBean extends MessagePartBean {
     }
     public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
         this.exposedMaterialType.setValue(exposedMaterialType);
-    }
-
-
-    /**
-     * <p>IncidenceIdentifier</p>
-     * 
-     * <p>B:Incidence Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIncidenceIdentifier() {
-        return this.incidenceIdentifier.getValue();
-    }
-    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
-        this.incidenceIdentifier.setValue(incidenceIdentifier);
     }
 
 

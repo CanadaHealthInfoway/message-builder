@@ -27,24 +27,15 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private SupplyOrderBean fulfillmentSupplyRequest;
+    private static final long serialVersionUID = 20110407L;
     private II localDispenseID = new IIImpl();
-    private II shipToFacilityId = new IIImpl();
     private CV dispenseType = new CVImpl();
     private TS supplyDate = new TSImpl();
     private PQ suppliedQuantity = new PQImpl();
-    private CommentBean subjectOfAnnotation;
     private DrugProductBean productMedication;
-
-
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
-    }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
-    }
+    private II shipToFacilityId = new IIImpl();
+    private SupplyOrderBean fulfillmentSupplyRequest;
+    private CommentBean subjectOfAnnotation;
 
 
     /**
@@ -56,18 +47,6 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
     public void setLocalDispenseID(Identifier localDispenseID) {
         this.localDispenseID.setValue(localDispenseID);
-    }
-
-
-    /**
-     * <p>C:Ship-to Facility Id</p>
-     */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
-    }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
     }
 
 
@@ -107,21 +86,42 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
+    }
+
+
+    /**
+     * <p>C:Ship-to Facility Id</p>
+     */
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
+    public Identifier getShipToFacilityId() {
+        return this.shipToFacilityId.getValue();
+    }
+    public void setShipToFacilityId(Identifier shipToFacilityId) {
+        this.shipToFacilityId.setValue(shipToFacilityId);
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
+    }
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

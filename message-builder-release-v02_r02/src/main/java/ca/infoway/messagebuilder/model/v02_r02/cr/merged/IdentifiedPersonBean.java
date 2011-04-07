@@ -78,225 +78,24 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV clientGender = new CVImpl();
-    private BL clientDeceasedIndicator = new BLImpl();
-    private List<LanguageCommunicationBean> identifiedPersonLanguageCommunication = new ArrayList<LanguageCommunicationBean>();
-    private INT clientMultipleBirthOrderNumber = new INTImpl();
-    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
-    private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private LIST<AD, PostalAddress> clientAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private TS clientDateOfBirth = new TSImpl();
-    private LIST<TEL, TelecommunicationAddress> clientTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
-    private BL clientMultipleBirthIndicator = new BLImpl();
-    private TS clientDeceasedDate = new TSImpl();
+    private static final long serialVersionUID = 20110407L;
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ConfidenceValueBean subjectOfObservationEvent;
     private CS clientStatusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV clientMaskedInformation = new CVImpl();
-
-
-    /**
-     * <p>ClientGender</p>
-     * 
-     * <p>Client Gender</p>
-     * 
-     * <p><p>Gender of the Client, this is not to be confused with 
-     * Clinical Gender of a client. Administrative Gender is 
-     * typically restricted to Male (M), Female (F) or 
-     * Undifferentiated (U)</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
-    }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
-    }
-
-
-    /**
-     * <p>ClientDeceasedIndicator</p>
-     * 
-     * <p>Client Deceased Indicator</p>
-     * 
-     * <p><p>An indication that the client is deceased.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
-    public Boolean getClientDeceasedIndicator() {
-        return this.clientDeceasedIndicator.getValue();
-    }
-    public void setClientDeceasedIndicator(Boolean clientDeceasedIndicator) {
-        this.clientDeceasedIndicator.setValue(clientDeceasedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
-    public List<LanguageCommunicationBean> getIdentifiedPersonLanguageCommunication() {
-        return this.identifiedPersonLanguageCommunication;
-    }
-
-
-    /**
-     * <p>ClientMultipleBirthOrderNumber</p>
-     * 
-     * <p>Client Multiple Birth Order Number</p>
-     * 
-     * <p><p>The order in which this client was born if part of a 
-     * multiple birth.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
-    public Integer getClientMultipleBirthOrderNumber() {
-        return this.clientMultipleBirthOrderNumber.getValue();
-    }
-    public void setClientMultipleBirthOrderNumber(Integer clientMultipleBirthOrderNumber) {
-        this.clientMultipleBirthOrderNumber.setValue(clientMultipleBirthOrderNumber);
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
-    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
-        return this.identifiedPersonAsOtherIDs;
-    }
-
-
-    /**
-     * <p>ClientName</p>
-     * 
-     * <p>Client Name</p>
-     * 
-     * <p><p>Name(s) for the Client</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/name"})
-    public List<PersonName> getClientName() {
-        return this.clientName.rawList();
-    }
-
-
-    /**
-     * <p>ClientAddress</p>
-     * 
-     * <p>Client Address</p>
-     * 
-     * <p><p>Address(es) of the Client</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/addr"})
-    public List<PostalAddress> getClientAddress() {
-        return this.clientAddress.rawList();
-    }
-
-
-    /**
-     * <p>ClientDateOfBirth</p>
-     * 
-     * <p>Client Date of Birth</p>
-     * 
-     * <p><p>Date of birth of the Client</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/birthTime"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
-    }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
-    }
-
-
-    /**
-     * <p>ClientTelecom</p>
-     * 
-     * <p>Client Telecom</p>
-     * 
-     * <p><p>Provides information about telecom</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     * 
-     * <p>Client Telecom</p>
-     * 
-     * <p><p>Provides information about telecom</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/telecom"})
-    public List<TelecommunicationAddress> getClientTelecom() {
-        return this.clientTelecom.rawList();
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
-    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
-        return this.identifiedPersonPersonalRelationship;
-    }
-
-
-    /**
-     * <p>ClientMultipleBirthIndicator</p>
-     * 
-     * <p>Client Multiple Birth Indicator</p>
-     * 
-     * <p><p>An indication as to whether the client is part of a 
-     * multiple birth.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/multipleBirthInd"})
-    public Boolean getClientMultipleBirthIndicator() {
-        return this.clientMultipleBirthIndicator.getValue();
-    }
-    public void setClientMultipleBirthIndicator(Boolean clientMultipleBirthIndicator) {
-        this.clientMultipleBirthIndicator.setValue(clientMultipleBirthIndicator);
-    }
-
-
-    /**
-     * <p>ClientDeceasedDate</p>
-     * 
-     * <p>Client Deceased Date</p>
-     * 
-     * <p><p>deceasedTime only present if deceasedInd is = TRUE</p></p>
-     * 
-     * <p><p>The date and time that a client's death occurred.</p></p>
-     * 
-     * <p><p>Required attribute supports verification of death from 
-     * official source such as Vital Statistics.</p></p>
-     * 
-     * <p>Client Deceased Date</p>
-     * 
-     * <p><p>The date and time that a client's death occurred.</p></p>
-     * 
-     * <p><p>Required attribute supports verification of death from 
-     * official source such as Vital Statistics.</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/deceasedTime"})
-    public Date getClientDeceasedDate() {
-        return this.clientDeceasedDate.getValue();
-    }
-    public void setClientDeceasedDate(Date clientDeceasedDate) {
-        this.clientDeceasedDate.setValue(clientDeceasedDate);
-    }
+    private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private LIST<TEL, TelecommunicationAddress> clientTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private CV clientGender = new CVImpl();
+    private TS clientDateOfBirth = new TSImpl();
+    private BL clientDeceasedIndicator = new BLImpl();
+    private TS clientDeceasedDate = new TSImpl();
+    private BL clientMultipleBirthIndicator = new BLImpl();
+    private INT clientMultipleBirthOrderNumber = new INTImpl();
+    private LIST<AD, PostalAddress> clientAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
+    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
+    private List<LanguageCommunicationBean> identifiedPersonLanguageCommunication = new ArrayList<LanguageCommunicationBean>();
+    private ConfidenceValueBean subjectOfObservationEvent;
 
 
     /**
@@ -332,34 +131,6 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientEffectiveTime</p>
-     * 
-     * <p>Client Effective Time</p>
-     * 
-     * <p><p>Indicates the effective time of the Client role</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClientEffectiveTime() {
-        return this.clientEffectiveTime.getValue();
-    }
-    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
-        this.clientEffectiveTime.setValue(clientEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/observationEvent"})
-    public ConfidenceValueBean getSubjectOfObservationEvent() {
-        return this.subjectOfObservationEvent;
-    }
-    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
-        this.subjectOfObservationEvent = subjectOfObservationEvent;
-    }
-
-
-    /**
      * <p>ClientStatusCode</p>
      * 
      * <p>Client Status Code</p>
@@ -376,6 +147,25 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setClientStatusCode(RoleStatus clientStatusCode) {
         this.clientStatusCode.setValue(clientStatusCode);
+    }
+
+
+    /**
+     * <p>ClientEffectiveTime</p>
+     * 
+     * <p>Client Effective Time</p>
+     * 
+     * <p><p>Indicates the effective time of the Client role</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getClientEffectiveTime() {
+        return this.clientEffectiveTime.getValue();
+    }
+    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
+        this.clientEffectiveTime.setValue(clientEffectiveTime);
     }
 
 
@@ -433,6 +223,216 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setClientMaskedInformation(x_NormalRestrictedTabooConfidentialityKind clientMaskedInformation) {
         this.clientMaskedInformation.setValue(clientMaskedInformation);
+    }
+
+
+    /**
+     * <p>ClientName</p>
+     * 
+     * <p>Client Name</p>
+     * 
+     * <p><p>Name(s) for the Client</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/name"})
+    public List<PersonName> getClientName() {
+        return this.clientName.rawList();
+    }
+
+
+    /**
+     * <p>ClientTelecom</p>
+     * 
+     * <p>Client Telecom</p>
+     * 
+     * <p><p>Provides information about telecom</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     * 
+     * <p>Client Telecom</p>
+     * 
+     * <p><p>Provides information about telecom</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/telecom"})
+    public List<TelecommunicationAddress> getClientTelecom() {
+        return this.clientTelecom.rawList();
+    }
+
+
+    /**
+     * <p>ClientGender</p>
+     * 
+     * <p>Client Gender</p>
+     * 
+     * <p><p>Gender of the Client, this is not to be confused with 
+     * Clinical Gender of a client. Administrative Gender is 
+     * typically restricted to Male (M), Female (F) or 
+     * Undifferentiated (U)</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
+    }
+
+
+    /**
+     * <p>ClientDateOfBirth</p>
+     * 
+     * <p>Client Date of Birth</p>
+     * 
+     * <p><p>Date of birth of the Client</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/birthTime"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
+    }
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    }
+
+
+    /**
+     * <p>ClientDeceasedIndicator</p>
+     * 
+     * <p>Client Deceased Indicator</p>
+     * 
+     * <p><p>An indication that the client is deceased.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
+    public Boolean getClientDeceasedIndicator() {
+        return this.clientDeceasedIndicator.getValue();
+    }
+    public void setClientDeceasedIndicator(Boolean clientDeceasedIndicator) {
+        this.clientDeceasedIndicator.setValue(clientDeceasedIndicator);
+    }
+
+
+    /**
+     * <p>ClientDeceasedDate</p>
+     * 
+     * <p>Client Deceased Date</p>
+     * 
+     * <p><p>deceasedTime only present if deceasedInd is = TRUE</p></p>
+     * 
+     * <p><p>The date and time that a client's death occurred.</p></p>
+     * 
+     * <p><p>Required attribute supports verification of death from 
+     * official source such as Vital Statistics.</p></p>
+     * 
+     * <p>Client Deceased Date</p>
+     * 
+     * <p><p>The date and time that a client's death occurred.</p></p>
+     * 
+     * <p><p>Required attribute supports verification of death from 
+     * official source such as Vital Statistics.</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/deceasedTime"})
+    public Date getClientDeceasedDate() {
+        return this.clientDeceasedDate.getValue();
+    }
+    public void setClientDeceasedDate(Date clientDeceasedDate) {
+        this.clientDeceasedDate.setValue(clientDeceasedDate);
+    }
+
+
+    /**
+     * <p>ClientMultipleBirthIndicator</p>
+     * 
+     * <p>Client Multiple Birth Indicator</p>
+     * 
+     * <p><p>An indication as to whether the client is part of a 
+     * multiple birth.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/multipleBirthInd"})
+    public Boolean getClientMultipleBirthIndicator() {
+        return this.clientMultipleBirthIndicator.getValue();
+    }
+    public void setClientMultipleBirthIndicator(Boolean clientMultipleBirthIndicator) {
+        this.clientMultipleBirthIndicator.setValue(clientMultipleBirthIndicator);
+    }
+
+
+    /**
+     * <p>ClientMultipleBirthOrderNumber</p>
+     * 
+     * <p>Client Multiple Birth Order Number</p>
+     * 
+     * <p><p>The order in which this client was born if part of a 
+     * multiple birth.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
+    public Integer getClientMultipleBirthOrderNumber() {
+        return this.clientMultipleBirthOrderNumber.getValue();
+    }
+    public void setClientMultipleBirthOrderNumber(Integer clientMultipleBirthOrderNumber) {
+        this.clientMultipleBirthOrderNumber.setValue(clientMultipleBirthOrderNumber);
+    }
+
+
+    /**
+     * <p>ClientAddress</p>
+     * 
+     * <p>Client Address</p>
+     * 
+     * <p><p>Address(es) of the Client</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/addr"})
+    public List<PostalAddress> getClientAddress() {
+        return this.clientAddress.rawList();
+    }
+
+
+    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
+    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
+        return this.identifiedPersonAsOtherIDs;
+    }
+
+
+    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
+    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
+        return this.identifiedPersonPersonalRelationship;
+    }
+
+
+    @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
+    public List<LanguageCommunicationBean> getIdentifiedPersonLanguageCommunication() {
+        return this.identifiedPersonLanguageCommunication;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/observationEvent"})
+    public ConfidenceValueBean getSubjectOfObservationEvent() {
+        return this.subjectOfObservationEvent;
+    }
+    public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
+        this.subjectOfObservationEvent = subjectOfObservationEvent;
     }
 
 }

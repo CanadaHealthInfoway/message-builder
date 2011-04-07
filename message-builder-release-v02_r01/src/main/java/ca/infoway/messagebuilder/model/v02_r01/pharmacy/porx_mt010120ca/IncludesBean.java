@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.PrescriptionPatie
 @Hl7PartTypeMapping({"PORX_MT010120CA.PertinentInformation"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private BL contextConductionInd = new BLImpl();
     private PrescriptionPatientMeasurementsBean quantityObservationEvent;
 

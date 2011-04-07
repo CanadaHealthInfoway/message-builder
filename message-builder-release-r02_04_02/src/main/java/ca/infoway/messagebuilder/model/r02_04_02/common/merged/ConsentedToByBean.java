@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.RelatedPersonBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author","COCT_MT470012CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private CV patientConsentMechanism = new CVImpl();
     private ST keyword = new STImpl();
     private RelatedPersonBean personalRelationship;

@@ -10,7 +10,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedResultOutcome"})
 public class AdjudicatedResultOutcomeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private ResultOfAdjudicationBean adjudicationResult;
 
 

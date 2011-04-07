@@ -34,12 +34,12 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II recordIdentifier = new IIImpl();
-    private RoleBean directTargetRole;
     private CV recordType = new CVImpl();
-    private DiagnosisBean reasonDiagnosis;
     private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private RoleBean directTargetRole;
+    private DiagnosisBean reasonDiagnosis;
 
 
     /**
@@ -66,15 +66,6 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
-    }
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
-    }
-
-
     /**
      * <p>B:Record Type</p>
      * 
@@ -94,15 +85,6 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
-    }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
-    }
-
-
     /**
      * <p>A:Masked Indicator</p>
      * 
@@ -117,6 +99,24 @@ public class MaskableRecordBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getMaskedIndicator() {
         return this.maskedIndicator.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
+    }
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
+    }
+
+
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
+    }
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 }

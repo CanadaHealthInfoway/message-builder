@@ -49,9 +49,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationEventCriterion","COCT_MT260020CA.ObservationEventCriterion","COCT_MT260030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20110407L;
     private CV dosagePreconditionType = new CVImpl();
+    private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
+
+
+    /**
+     * <p>DosagePreconditionType</p>
+     * 
+     * <p>A:Dosage Precondition Type</p>
+     * 
+     * <p><p>Indicates the type of characteristic against which the 
+     * patient is evaluated. This includes age, weight, height, 
+     * etc.</p></p>
+     * 
+     * <p><p>Allows the specification of multiple preconditions for 
+     * a dosage specification, such as Age Range, Weight Range, 
+     * etc. This is mandatory because the precondition range cannot 
+     * be evaluated without knowing the precondition type.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationDosageDefinitionPreconditionType getDosagePreconditionType() {
+        return (ObservationDosageDefinitionPreconditionType) this.dosagePreconditionType.getValue();
+    }
+    public void setDosagePreconditionType(ObservationDosageDefinitionPreconditionType dosagePreconditionType) {
+        this.dosagePreconditionType.setValue(dosagePreconditionType);
+    }
 
 
     /**
@@ -189,29 +212,6 @@ public class DosagePreconditionsBean extends MessagePartBean {
     }
     public void setDosagePreconditionValue(UncertainRange<PhysicalQuantity> dosagePreconditionValue) {
         this.dosagePreconditionValue.setValue(dosagePreconditionValue);
-    }
-
-
-    /**
-     * <p>DosagePreconditionType</p>
-     * 
-     * <p>A:Dosage Precondition Type</p>
-     * 
-     * <p><p>Indicates the type of characteristic against which the 
-     * patient is evaluated. This includes age, weight, height, 
-     * etc.</p></p>
-     * 
-     * <p><p>Allows the specification of multiple preconditions for 
-     * a dosage specification, such as Age Range, Weight Range, 
-     * etc. This is mandatory because the precondition range cannot 
-     * be evaluated without knowing the precondition type.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationDosageDefinitionPreconditionType getDosagePreconditionType() {
-        return (ObservationDosageDefinitionPreconditionType) this.dosagePreconditionType.getValue();
-    }
-    public void setDosagePreconditionType(ObservationDosageDefinitionPreconditionType dosagePreconditionType) {
-        this.dosagePreconditionType.setValue(dosagePreconditionType);
     }
 
 }

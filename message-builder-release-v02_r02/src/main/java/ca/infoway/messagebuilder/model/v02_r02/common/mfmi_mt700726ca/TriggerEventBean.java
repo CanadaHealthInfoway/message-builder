@@ -47,16 +47,16 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
     private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventType = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL cascadeResponsibilityIndicator = new BLImpl();
     private RegisteredItemBean<RR> subjectRegistrationEventSubject;
     private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
     private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -83,6 +83,23 @@ public class TriggerEventBean<RR> extends MessagePartBean {
 
 
     /**
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
      * <p>C:Event Effective Period</p>
      * 
      * <p><p>Indicates the time the event (e.g. query, change, 
@@ -100,23 +117,6 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
     }
 
 
@@ -141,12 +141,6 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
     }
 
 
@@ -236,6 +230,12 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
     public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
         return this.subjectRegistrationEventReplacementOf;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

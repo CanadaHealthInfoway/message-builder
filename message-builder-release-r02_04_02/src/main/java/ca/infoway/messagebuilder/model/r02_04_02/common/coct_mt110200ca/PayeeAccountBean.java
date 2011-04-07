@@ -29,45 +29,12 @@ import java.util.Date;
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private CV typeOfAccount = new CVImpl();
-    private PayeeRoleBean holderPayeeRole;
-    private ST nameOnCreditCard = new STImpl();
+    private static final long serialVersionUID = 20110407L;
     private II accountID = new IIImpl();
+    private CV typeOfAccount = new CVImpl();
+    private ST nameOnCreditCard = new STImpl();
     private TS expiryDateOnCreditCard = new TSImpl();
-
-
-    /**
-     * <p>Type of Account</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getTypeOfAccount() {
-        return (Code) this.typeOfAccount.getValue();
-    }
-    public void setTypeOfAccount(Code typeOfAccount) {
-        this.typeOfAccount.setValue(typeOfAccount);
-    }
-
-
-    @Hl7XmlMapping({"holder/payeeRole"})
-    public PayeeRoleBean getHolderPayeeRole() {
-        return this.holderPayeeRole;
-    }
-    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
-        this.holderPayeeRole = holderPayeeRole;
-    }
-
-
-    /**
-     * <p>name on credit card</p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getNameOnCreditCard() {
-        return this.nameOnCreditCard.getValue();
-    }
-    public void setNameOnCreditCard(String nameOnCreditCard) {
-        this.nameOnCreditCard.setValue(nameOnCreditCard);
-    }
+    private PayeeRoleBean holderPayeeRole;
 
 
     /**
@@ -89,6 +56,30 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
+     * <p>Type of Account</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getTypeOfAccount() {
+        return (Code) this.typeOfAccount.getValue();
+    }
+    public void setTypeOfAccount(Code typeOfAccount) {
+        this.typeOfAccount.setValue(typeOfAccount);
+    }
+
+
+    /**
+     * <p>name on credit card</p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getNameOnCreditCard() {
+        return this.nameOnCreditCard.getValue();
+    }
+    public void setNameOnCreditCard(String nameOnCreditCard) {
+        this.nameOnCreditCard.setValue(nameOnCreditCard);
+    }
+
+
+    /**
      * <p>expiry date on credit card</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -97,6 +88,15 @@ public class PayeeAccountBean extends MessagePartBean {
     }
     public void setExpiryDateOnCreditCard(Date expiryDateOnCreditCard) {
         this.expiryDateOnCreditCard.setValue(expiryDateOnCreditCard);
+    }
+
+
+    @Hl7XmlMapping({"holder/payeeRole"})
+    public PayeeRoleBean getHolderPayeeRole() {
+        return this.holderPayeeRole;
+    }
+    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
+        this.holderPayeeRole = holderPayeeRole;
     }
 
 }

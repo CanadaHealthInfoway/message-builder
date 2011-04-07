@@ -27,11 +27,32 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
+    private static final long serialVersionUID = 20110407L;
+    private CD code = new CDImpl();
+    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
     private MO summaryPeriodAmt = new MOImpl();
     private List<AdjudicationResultIdentifierBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicationResultIdentifierBean>();
-    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
-    private CD code = new CDImpl();
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Summary period date range</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSummaryPeriodDateRange() {
+        return this.summaryPeriodDateRange.getValue();
+    }
+    public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
+        this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
+    }
 
 
     /**
@@ -49,27 +70,6 @@ public class TypeOfSummaryBean extends MessagePartBean {
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
-    /**
-     * <p>Summary period date range</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSummaryPeriodDateRange() {
-        return this.summaryPeriodDateRange.getValue();
-    }
-    public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
-        this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
     }
 
 }

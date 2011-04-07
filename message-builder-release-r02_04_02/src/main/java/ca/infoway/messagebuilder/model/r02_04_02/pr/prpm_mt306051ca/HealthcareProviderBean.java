@@ -36,20 +36,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110318L;
-    private OrganizationBean issuingOrganization;
+    private static final long serialVersionUID = 20110407L;
+    private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
     private CV healthcareProviderRoleType = new CVImpl();
     private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPerson_2Bean healthCarePrincipalPerson;
-    private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private OrganizationBean issuingOrganization;
 
 
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
+    /**
+     * <p>Healthcare Provider Role Identification</p>
+     * 
+     * <p><p>A unique identifier for a provider in a specific 
+     * healthcare role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getHealthcareProviderRoleIdentification() {
+        return this.healthcareProviderRoleIdentification.rawSet();
     }
 
 
@@ -95,18 +101,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
-    /**
-     * <p>Healthcare Provider Role Identification</p>
-     * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.rawSet();
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

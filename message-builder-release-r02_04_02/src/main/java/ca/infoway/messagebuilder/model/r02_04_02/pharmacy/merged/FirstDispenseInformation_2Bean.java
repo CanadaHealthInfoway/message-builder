@@ -39,9 +39,43 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFirstSummary","PORX_MT060060CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110318L;
-    private INT firstQuantityDispensed = new INTImpl();
+    private static final long serialVersionUID = 20110407L;
     private IVL<TS, Interval<Date>> firstDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private INT firstQuantityDispensed = new INTImpl();
+
+
+    /**
+     * <p>FirstDispensePickupDate</p>
+     * 
+     * <p>A:First Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates when the first dispense against the 
+     * prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in establishing start of 
+     * therapy.</p><p>Important information for compliance.</p></p>
+     * 
+     * <p><p>Useful in establishing start of 
+     * therapy.</p><p>Important information for compliance.</p></p>
+     * 
+     * <p>First Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates when the first dispense against the 
+     * prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in establishing start of 
+     * therapy.</p><p>Important information for compliance.</p></p>
+     * 
+     * <p><p>Useful in establishing start of 
+     * therapy.</p><p>Important information for compliance.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getFirstDispensePickupDate() {
+        return this.firstDispensePickupDate.getValue();
+    }
+    public void setFirstDispensePickupDate(Interval<Date> firstDispensePickupDate) {
+        this.firstDispensePickupDate.setValue(firstDispensePickupDate);
+    }
 
 
     /**
@@ -77,40 +111,6 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     }
     public void setFirstQuantityDispensed(Integer firstQuantityDispensed) {
         this.firstQuantityDispensed.setValue(firstQuantityDispensed);
-    }
-
-
-    /**
-     * <p>FirstDispensePickupDate</p>
-     * 
-     * <p>A:First Dispense Pickup Date</p>
-     * 
-     * <p><p>Indicates when the first dispense against the 
-     * prescription was picked up.</p></p>
-     * 
-     * <p><p>Useful in establishing start of 
-     * therapy.</p><p>Important information for compliance.</p></p>
-     * 
-     * <p><p>Useful in establishing start of 
-     * therapy.</p><p>Important information for compliance.</p></p>
-     * 
-     * <p>First Dispense Pickup Date</p>
-     * 
-     * <p><p>Indicates when the first dispense against the 
-     * prescription was picked up.</p></p>
-     * 
-     * <p><p>Useful in establishing start of 
-     * therapy.</p><p>Important information for compliance.</p></p>
-     * 
-     * <p><p>Useful in establishing start of 
-     * therapy.</p><p>Important information for compliance.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getFirstDispensePickupDate() {
-        return this.firstDispensePickupDate.getValue();
-    }
-    public void setFirstDispensePickupDate(Interval<Date> firstDispensePickupDate) {
-        this.firstDispensePickupDate.setValue(firstDispensePickupDate);
     }
 
 }
