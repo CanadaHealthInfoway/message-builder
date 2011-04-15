@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.model;
 
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
+import ca.infoway.messagebuilder.model.newfoundland.LanguageCommunicationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class LanguageCommunicationBeanBuilder extends BaseBeanBuilder<LanguageCommunicationBean> {

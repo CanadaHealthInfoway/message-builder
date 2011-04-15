@@ -6,8 +6,8 @@ import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.DetectedIssueBean;
 import ca.infoway.messagebuilder.model.SeverityObservationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.DetectedIssueBean;
 
 public class DetectedIssueBeanBuilder extends BaseBeanBuilder<DetectedIssueBean> {
 

@@ -11,7 +11,8 @@ import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServiceRecord;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.PerformerBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServiceRecord;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ProfessionalServicesBeanBuilder extends BaseBeanBuilder<ProfessionalServiceRecord> {

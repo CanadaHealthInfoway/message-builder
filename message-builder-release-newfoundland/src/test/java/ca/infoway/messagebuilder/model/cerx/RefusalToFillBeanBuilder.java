@@ -7,6 +7,7 @@ import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.RefusalToFillBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class RefusalToFillBeanBuilder extends BaseBeanBuilder<RefusalToFillBean> {

@@ -15,13 +15,13 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.junit.XmlAssert;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
 import ca.infoway.messagebuilder.model.cerx.ProfessionalServicesBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServiceRecord;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServicesQueryCriteria;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServicesQueryResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServiceRecord;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServicesQueryCriteria;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServicesQueryResponseMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class ProfessionalServicesQueryResponseTransformationTest extends BaseTransformerTestCase {

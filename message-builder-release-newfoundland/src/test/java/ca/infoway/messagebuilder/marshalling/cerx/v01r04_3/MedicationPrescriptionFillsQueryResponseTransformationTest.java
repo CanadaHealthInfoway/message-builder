@@ -17,12 +17,12 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.MedicationDispenseBean;
 import ca.infoway.messagebuilder.model.cerx.MedicationDispenseBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.query.MedicationPrescriptionFillsQueryResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicationDispenseBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.query.MedicationPrescriptionFillsQueryResponseMessageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

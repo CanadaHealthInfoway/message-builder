@@ -16,6 +16,8 @@ import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
+import ca.infoway.messagebuilder.model.newfoundland.IndeterminatePersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.LanguageCommunicationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class IndeterminatePersonBeanBuilder extends BaseBeanBuilder<IndeterminatePersonBean>{

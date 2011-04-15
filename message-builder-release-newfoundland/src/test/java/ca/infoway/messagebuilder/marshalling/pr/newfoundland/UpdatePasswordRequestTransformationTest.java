@@ -13,16 +13,16 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTealMlTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.AssignedDeviceBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RegistrationEventBean;
-import ca.infoway.messagebuilder.model.RegistrationRequestBean;
-import ca.infoway.messagebuilder.model.pr.PasswordChangeBean;
-import ca.infoway.messagebuilder.model.pr.UpdatePasswordRequestAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.pr.UpdatePasswordRequestMessageBean;
-import ca.infoway.messagebuilder.model.pr.UpdatePasswordRequestRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedDeviceBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.PasswordChangeBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransformerTestCase {

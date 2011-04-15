@@ -5,10 +5,10 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
 import ca.infoway.messagebuilder.model.cerx.medicalprofile.CombinedMedicationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedication1Bean;
-import ca.infoway.messagebuilder.model.cerx.prescription.ActivatePrescriptionRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedication1Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.prescription.ActivatePrescriptionRequestMessageBean;
 
 public class ActivatePrescriptionRequestMessageBeanBuilder extends BaseBeanBuilder<ActivatePrescriptionRequestMessageBean> {
 

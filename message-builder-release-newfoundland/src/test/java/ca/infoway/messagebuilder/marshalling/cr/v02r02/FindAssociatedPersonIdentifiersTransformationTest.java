@@ -11,7 +11,7 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.junit.XmlAssert;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cr.FindAssociatedPersonIdentifiersQueryMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.FindAssociatedPersonIdentifiersQueryMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class FindAssociatedPersonIdentifiersTransformationTest extends BaseTransformerTestCase {

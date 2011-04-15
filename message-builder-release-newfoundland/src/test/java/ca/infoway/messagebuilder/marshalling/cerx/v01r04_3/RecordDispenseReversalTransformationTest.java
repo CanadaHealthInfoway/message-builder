@@ -15,19 +15,19 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
-import ca.infoway.messagebuilder.model.ActEventBean;
 import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.RecordControlActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.abort.RecordDispenseReversalAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.abort.RecordDispenseReversalMessageBean;
-import ca.infoway.messagebuilder.model.cerx.abort.RecordDispenseReversalRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.RecordDispenseReversalAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.RecordDispenseReversalMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.RecordDispenseReversalRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class RecordDispenseReversalTransformationTest extends BaseTransformerTestCase {

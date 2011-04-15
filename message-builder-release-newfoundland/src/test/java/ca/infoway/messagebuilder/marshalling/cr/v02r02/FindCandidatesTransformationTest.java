@@ -15,8 +15,8 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cr.FindCandidatesQueryMessageBean;
-import ca.infoway.messagebuilder.model.cr.FindCandidatesQueryResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.FindCandidatesQueryMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.FindCandidatesQueryResponseMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class FindCandidatesTransformationTest extends BaseTransformerTestCase {
@@ -26,7 +26,6 @@ public class FindCandidatesTransformationTest extends BaseTransformerTestCase {
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createFindCandidates());
-System.out.println(xml);		
 		assertNotNull("result", xml);
 		assertPassesMessageValidation(xml, VERSION);
 	}

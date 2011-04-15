@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.model.cerx;
 
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DosageLineWrapperBean;
 
 public class DosageLineWrapperBeanBuilder extends BaseBeanBuilder<DosageLineWrapperBean> {
 

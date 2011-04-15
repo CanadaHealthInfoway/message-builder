@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.model.cerx.deviceprescription;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDeviceEntity;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ClinicalDeviceBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ClinicalDeviceBeanBuilder extends BaseBeanBuilder<ClinicalDeviceBean> {

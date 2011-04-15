@@ -5,6 +5,7 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.PersonalRelationshipRoleType;
+import ca.infoway.messagebuilder.model.newfoundland.PersonalRelationshipBean;
 
 public class PersonalRelationshipBeanBuilder extends BaseBeanBuilder<PersonalRelationshipBean> {
 	

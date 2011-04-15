@@ -21,12 +21,12 @@ import ca.infoway.messagebuilder.model.cerx.QuantityObservationEventBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.RefusalToFillBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.SubstitutionPermissionBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.ReasonBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedication1Bean;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedication2Bean;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedication3Bean;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedicationBaseBean;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CombinedMedicationInnerBaseBean;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.DerivedFromBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedication1Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedication2Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedication3Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedicationBaseBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CombinedMedicationInnerBaseBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.DerivedFromBean;
 
 public class CombinedMedicationBeanBuilder extends BaseBeanBuilder<CombinedMedicationBaseBean> {
 	

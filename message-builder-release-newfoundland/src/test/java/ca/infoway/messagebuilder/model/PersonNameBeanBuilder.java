@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.model;
 
+import ca.infoway.messagebuilder.model.newfoundland.PersonNameBean;
+
 public class PersonNameBeanBuilder extends BaseBeanBuilder<PersonNameBean> {
 	
 	public PersonNameBeanBuilder() {

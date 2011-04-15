@@ -10,9 +10,9 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.cerx.AddIssueManagementRequestMessageBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.issuemanagement.AddIssueManagementRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.issuemanagement.AddIssueManagementRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class AddIssueManagementTransformationTest extends BaseTransformerTestCase {

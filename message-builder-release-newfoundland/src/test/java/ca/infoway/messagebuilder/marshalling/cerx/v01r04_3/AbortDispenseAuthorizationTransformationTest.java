@@ -20,16 +20,16 @@ import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.RecordControlActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.ActRequestBean;
 import ca.infoway.messagebuilder.model.cerx.ActRequestBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.abort.AbortDispenseAuthorizationAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.abort.AbortDispenseAuthorizationMessageBean;
-import ca.infoway.messagebuilder.model.cerx.abort.AbortDispenseAuthorizationRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ActRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.AbortDispenseAuthorizationAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.AbortDispenseAuthorizationMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.abort.AbortDispenseAuthorizationRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class AbortDispenseAuthorizationTransformationTest extends BaseTransformerTestCase {

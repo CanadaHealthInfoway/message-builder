@@ -5,12 +5,13 @@ import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.dispense.RecordDeviceDispenseProcessingRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest2Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.dispense.RecordDeviceDispenseProcessingRequestMessageBean;
 
 public class RecordDeviceDispenseProcessingRequestMessageBeanBuilder extends BaseBeanBuilder<RecordDeviceDispenseProcessingRequestMessageBean> {
 

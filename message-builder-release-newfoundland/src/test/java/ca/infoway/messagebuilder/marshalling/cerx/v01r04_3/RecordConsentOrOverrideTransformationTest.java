@@ -18,17 +18,17 @@ import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.ActEventBean;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.consent.RecordConsentOrOverrideRequestAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.consent.RecordConsentOrOverrideRequestMessageBean;
 import ca.infoway.messagebuilder.model.cerx.consent.RecordConsentOrOverrideRequestMessageBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.consent.RecordConsentOrOverrideRequestRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTestCase {

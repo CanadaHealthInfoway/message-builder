@@ -3,8 +3,8 @@ package ca.infoway.messagebuilder.model.cerx.deviceprescription;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.ObservationDiagnosisBean;
-import ca.infoway.messagebuilder.model.cerx.ReasonBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ObservationDiagnosisBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ReasonBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ReasonBeanBuilder extends BaseBeanBuilder<ReasonBean> {

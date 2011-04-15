@@ -17,6 +17,7 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DosageLineBean;
 
 public class DosageLineBeanBuilder extends BaseBeanBuilder<DosageLineBean> {
 

@@ -5,7 +5,7 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.DeviceDispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceDispenseInstructionsBean;
 
 public class DeviceDispenseInstructionsBeanBuilder extends BaseBeanBuilder<DeviceDispenseInstructionsBean> {
 

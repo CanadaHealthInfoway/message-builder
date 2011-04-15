@@ -3,10 +3,10 @@ package ca.infoway.messagebuilder.model.cerx;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.DetectedIssueBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.issuemanagement.AddIssueManagementRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.DetectedIssueBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.issuemanagement.AddIssueManagementRequestMessageBean;
 
 public class AddIssueManagementRequestMessageBeanBuilder extends BaseBeanBuilder<AddIssueManagementRequestMessageBean> {
 

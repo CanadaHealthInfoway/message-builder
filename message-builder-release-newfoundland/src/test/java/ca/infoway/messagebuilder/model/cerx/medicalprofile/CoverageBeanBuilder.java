@@ -4,7 +4,7 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodOrderEvent;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CoverageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CoverageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class CoverageBeanBuilder extends BaseBeanBuilder<CoverageBean> {

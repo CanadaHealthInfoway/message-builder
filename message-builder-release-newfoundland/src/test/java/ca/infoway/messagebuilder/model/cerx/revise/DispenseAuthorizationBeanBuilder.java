@@ -5,6 +5,7 @@ import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.SupplyRequestBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.DispenseAuthorizationBean;
 
 public class DispenseAuthorizationBeanBuilder extends BaseBeanBuilder<DispenseAuthorizationBean> {
 	

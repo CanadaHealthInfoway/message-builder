@@ -20,14 +20,14 @@ import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.MedicineBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.supply.NonPrescribedSupplyEventBean;
-import ca.infoway.messagebuilder.model.cerx.supply.RecordSupplyEventAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.supply.RecordSupplyEventMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.NonPrescribedSupplyEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase {

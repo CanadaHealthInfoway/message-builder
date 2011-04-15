@@ -21,7 +21,7 @@ import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.payload.SeverityObservation;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.CompositeCodeResolver;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;

@@ -20,15 +20,15 @@ import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.NoteBean;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.RecordControlActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.cerx.annotation.AddNoteToRecordAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.annotation.AddNoteToRecordMessageBean;
-import ca.infoway.messagebuilder.model.cerx.annotation.AddNoteToRecordRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.annotation.AddNoteToRecordAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.annotation.AddNoteToRecordMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.annotation.AddNoteToRecordRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class AddNoteToRecordTransformationTest extends BaseTransformerTestCase {

@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestResultCallback;
 import ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestRunner;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.InputStreamResource;

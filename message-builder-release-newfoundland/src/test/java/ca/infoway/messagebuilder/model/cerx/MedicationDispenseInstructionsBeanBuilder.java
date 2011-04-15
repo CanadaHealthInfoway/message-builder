@@ -7,6 +7,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicationDispenseInstructionsBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class MedicationDispenseInstructionsBeanBuilder extends

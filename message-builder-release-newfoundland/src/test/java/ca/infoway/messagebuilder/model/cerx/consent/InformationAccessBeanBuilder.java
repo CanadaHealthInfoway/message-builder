@@ -5,7 +5,8 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.InformationAccessTypeBean;
+import ca.infoway.messagebuilder.model.newfoundland.InformationAccessTypeBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.InformationAccessBean;
 
 public class InformationAccessBeanBuilder extends BaseBeanBuilder<InformationAccessBean> {
 	

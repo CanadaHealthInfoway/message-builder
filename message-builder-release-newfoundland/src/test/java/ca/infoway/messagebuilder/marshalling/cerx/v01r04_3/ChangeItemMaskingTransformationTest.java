@@ -28,14 +28,14 @@ import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.RecordControlActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.cerx.consent.ChangeItemMaskingAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.consent.ChangeItemMaskingMessageBean;
-import ca.infoway.messagebuilder.model.cerx.consent.ChangeItemMaskingRefusedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.consent.MaskableActTypeBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.ChangeItemMaskingAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.ChangeItemMaskingMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.ChangeItemMaskingRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.MaskableActTypeBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class ChangeItemMaskingTransformationTest extends BaseTransformerTestCase {

@@ -19,11 +19,11 @@ import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RegistrationEventRecordBean;
-import ca.infoway.messagebuilder.model.pr.HealthcareProvider;
-import ca.infoway.messagebuilder.model.pr.ProviderDetailsCriteria;
-import ca.infoway.messagebuilder.model.pr.ProviderDetailsResponseMessageBean;
-import ca.infoway.messagebuilder.model.pr.RoleChoice;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationEventRecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.HealthcareProvider;
+import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsCriteria;
+import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.RoleChoice;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

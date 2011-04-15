@@ -16,10 +16,10 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServicesQueryCriteria;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServicesQueryMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServicesQueryCriteria;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServicesQueryMessageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

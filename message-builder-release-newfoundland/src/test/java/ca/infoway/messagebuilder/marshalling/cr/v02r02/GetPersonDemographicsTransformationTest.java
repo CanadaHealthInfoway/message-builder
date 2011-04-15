@@ -17,14 +17,14 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RegistrationEventRecordBean;
-import ca.infoway.messagebuilder.model.cr.DemographicsQueryCriteria;
-import ca.infoway.messagebuilder.model.cr.GetPersonDemographicsQueryMessageBean;
-import ca.infoway.messagebuilder.model.cr.GetPersonDemographicsQueryResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationEventRecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.DemographicsQueryCriteria;
+import ca.infoway.messagebuilder.model.newfoundland.cr.GetPersonDemographicsQueryMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.GetPersonDemographicsQueryResponseMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class GetPersonDemographicsTransformationTest extends BaseTransformerTestCase {

@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.model.broadcast;
 
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.broadcast.BroadcastMessageBean;
 
 
 public class BroadcastMessageBeanBuilder extends BaseBeanBuilder<BroadcastMessageBean> {

@@ -4,14 +4,14 @@ import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCod
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_ALLERGY_INTOLERANCE_REQUEST_ACCEPTED;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_ALLERGY_INTOLERANCE_REQUEST_REFUSED;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.ResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AddAllergyIntoleranceAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AddAllergyIntoleranceMessageBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AddAllergyIntoleranceRefusedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AddAllergyIntoleranceAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AddAllergyIntoleranceMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AddAllergyIntoleranceRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyIntoleranceBean;
 
 public class AddAllergyIntoleranceTransformationTest extends BaseAllergyIntoleranceTransformationTest {
 	

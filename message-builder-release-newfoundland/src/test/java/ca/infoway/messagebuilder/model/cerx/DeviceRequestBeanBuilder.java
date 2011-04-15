@@ -11,6 +11,7 @@ import ca.infoway.messagebuilder.model.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.ClinicalDeviceBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.DeviceDispenseInstructionsBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.ReasonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceRequestBean;
 
 public class DeviceRequestBeanBuilder extends BaseBeanBuilder<DeviceRequestBean> {
 	

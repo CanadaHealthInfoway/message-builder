@@ -17,6 +17,7 @@ import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.ResponsiblePartyBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.ClinicalDeviceBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.SupplyEventBean;
 
 public class SupplyEventBeanBuilder extends BaseBeanBuilder<SupplyEventBean> {
 

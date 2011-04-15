@@ -13,8 +13,10 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
 import ca.infoway.messagebuilder.model.ResponsiblePartyBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.ConsentBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestMessageBean;
 
 public class RecordConsentOrOverrideRequestMessageBeanBuilder extends BaseBeanBuilder<RecordConsentOrOverrideRequestMessageBean> {
 	

@@ -19,13 +19,13 @@ import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
-import ca.infoway.messagebuilder.model.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBean;
-import ca.infoway.messagebuilder.model.NoteBean;
-import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBean;
-import ca.infoway.messagebuilder.model.cerx.observation.ObservationBean;
-import ca.infoway.messagebuilder.model.cerx.observation.ObservationValueBean;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.observation.ObservationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.observation.ObservationValueBean;
 
 public class ObservationTestBeanBuilder {
 

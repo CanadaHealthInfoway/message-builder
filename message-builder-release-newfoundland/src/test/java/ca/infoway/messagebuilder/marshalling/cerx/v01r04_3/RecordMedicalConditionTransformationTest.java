@@ -2,13 +2,13 @@ package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
 
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.condition.MedicalConditionBean;
-import ca.infoway.messagebuilder.model.cerx.condition.RecordMedicalConditionAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.condition.RecordMedicalConditionMessageBean;
-import ca.infoway.messagebuilder.model.cerx.condition.RecordMedicalConditionRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.MedicalConditionBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.RecordMedicalConditionAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.RecordMedicalConditionMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.RecordMedicalConditionRefusedMessageBean;
 
 public class RecordMedicalConditionTransformationTest extends BaseMedicalConditionTransformationTest {
 	

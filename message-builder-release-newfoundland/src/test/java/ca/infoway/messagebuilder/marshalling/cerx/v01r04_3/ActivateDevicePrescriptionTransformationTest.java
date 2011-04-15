@@ -13,14 +13,14 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.ActRequestBean;
 import ca.infoway.messagebuilder.model.cerx.ActRequestBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.deviceprescription.ActivateDevicePrescriptionRequestAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.deviceprescription.ActivateDevicePrescriptionRequestMessageBean;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.ActivateDevicePrescriptionRequestMessageBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ActRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ActivateDevicePrescriptionRequestAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ActivateDevicePrescriptionRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class ActivateDevicePrescriptionTransformationTest extends BaseTransformerTestCase {

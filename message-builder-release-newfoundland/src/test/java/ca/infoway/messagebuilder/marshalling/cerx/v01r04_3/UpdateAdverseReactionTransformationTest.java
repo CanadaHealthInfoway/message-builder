@@ -4,15 +4,15 @@ import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCod
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_ADVERSE_REACTION_REQUEST_ACCEPTED;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_ADVERSE_REACTION_REQUEST_REFUSED;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
 import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.AdverseReactionBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.UpdateAdverseReactionAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.UpdateAdverseReactionMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.UpdateAdverseReactionRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.AdverseReactionBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.UpdateAdverseReactionAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.UpdateAdverseReactionMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.UpdateAdverseReactionRefusedMessageBean;
 
 public class UpdateAdverseReactionTransformationTest extends BaseAdverseReactionTransformationTest {
 	

@@ -13,14 +13,14 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.Prescription;
 import ca.infoway.messagebuilder.model.cerx.medicalprofile.CombinedMedicationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.revise.DispenseAuthorizationBean;
 import ca.infoway.messagebuilder.model.cerx.revise.DispenseAuthorizationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.revise.ReviseAssignedDispenseResponsibilityRequestAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.revise.ReviseAssignedDispenseResponsibilityRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.Prescription;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.DispenseAuthorizationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.ReviseAssignedDispenseResponsibilityRequestAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.ReviseAssignedDispenseResponsibilityRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class ReviseAssignedDispenseResponsibilityRequestTransformationTest extends BaseTransformerTestCase {

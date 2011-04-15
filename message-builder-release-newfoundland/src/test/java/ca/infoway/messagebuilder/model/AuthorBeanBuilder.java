@@ -11,6 +11,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.ParticipationSignature;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBean;
 
 public class AuthorBeanBuilder extends BaseBeanBuilder<AuthorBean> {
 	

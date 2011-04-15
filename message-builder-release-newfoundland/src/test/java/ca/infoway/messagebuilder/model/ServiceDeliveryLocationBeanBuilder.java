@@ -9,6 +9,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ServiceDeliveryLocationBeanBuilder extends BaseBeanBuilder<ServiceDeliveryLocationBean> {

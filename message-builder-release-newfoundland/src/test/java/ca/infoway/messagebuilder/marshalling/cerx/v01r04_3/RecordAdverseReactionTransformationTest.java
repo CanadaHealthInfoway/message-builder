@@ -2,13 +2,13 @@ package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
 
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.AdverseReactionBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.RecordAdverseReactionAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.RecordAdverseReactionMessageBean;
-import ca.infoway.messagebuilder.model.cerx.adversereaction.RecordAdverseReactionRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.AdverseReactionBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.RecordAdverseReactionAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.RecordAdverseReactionMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.adversereaction.RecordAdverseReactionRefusedMessageBean;
 
 public class RecordAdverseReactionTransformationTest extends BaseAdverseReactionTransformationTest {
 	

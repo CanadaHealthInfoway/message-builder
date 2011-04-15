@@ -15,6 +15,7 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodOrderEvent;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstanceAdministrationBean;
 
 public class SubstanceAdministrationBeanBuilder extends BaseBeanBuilder<SubstanceAdministrationBean> {
 

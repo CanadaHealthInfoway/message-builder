@@ -26,16 +26,16 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.model.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.NoteBean;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.CausalityAssessmentBean;
 import ca.infoway.messagebuilder.model.cerx.HistoricalControlActEventBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.ObservationEventBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AllergyIntoleranceBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AllergyIntoleranceWithHistoryBean;
-import ca.infoway.messagebuilder.model.cerx.allergy.AllergyTestEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.CausalityAssessmentBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ObservationEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyIntoleranceWithHistoryBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyTestEventBean;
 
 public class AllergyIntoleranceTestBeanBuilder {
 

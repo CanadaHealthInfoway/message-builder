@@ -6,10 +6,11 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
-import ca.infoway.messagebuilder.model.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.othermedication.OtherMedicationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class OtherMedicationBeanBuilder extends BaseBeanBuilder<OtherMedicationBean> {

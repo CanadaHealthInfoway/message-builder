@@ -15,8 +15,8 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.pr.ProviderDetailsCriteria;
-import ca.infoway.messagebuilder.model.pr.ProviderDetailsQueryMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsCriteria;
+import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsQueryMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class ProviderDetailsQueryTransformationTest extends BaseTransformerTestCase {

@@ -22,7 +22,7 @@ import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.immunization.ImmunizationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.ImmunizationBean;
 
 public class ImmunizationBeanBuilder extends BaseBeanBuilder<ImmunizationBean> {
 

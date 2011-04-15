@@ -4,13 +4,13 @@ import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCod
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_IMMUNIZATION_REQUEST_ACCEPTED;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_IMMUNIZATION_REQUEST_REFUSED;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.ImmunizationBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.UpdateImmunizationAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.UpdateImmunizationMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.UpdateImmunizationRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.ImmunizationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.UpdateImmunizationAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.UpdateImmunizationMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.UpdateImmunizationRefusedMessageBean;
 
 public class UpdateImmunizationTransformationTest extends BaseImmunizationTransformationTest {
 	

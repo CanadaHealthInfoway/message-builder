@@ -10,10 +10,10 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.ControlActEventBean;
-import ca.infoway.messagebuilder.model.PatientIdentifierBean;
 import ca.infoway.messagebuilder.model.RecordTargetBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.ControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.PatientIdentifierBean;
 
 public class ControlActEventBeanBuilder extends BaseBeanBuilder<ControlActEventBean> {
 

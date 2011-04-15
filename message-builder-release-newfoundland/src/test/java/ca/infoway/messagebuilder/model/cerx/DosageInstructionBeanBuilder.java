@@ -10,6 +10,8 @@ import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DosageInstructionBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.Medication3Bean;
 
 public class DosageInstructionBeanBuilder extends BaseBeanBuilder<DosageInstructionBean> {
 

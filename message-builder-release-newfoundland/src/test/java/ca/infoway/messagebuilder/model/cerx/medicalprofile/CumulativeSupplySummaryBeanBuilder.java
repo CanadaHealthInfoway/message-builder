@@ -1,7 +1,7 @@
 package ca.infoway.messagebuilder.model.cerx.medicalprofile;
 
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.medicationprofile.CumulativeSupplySummaryBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.CumulativeSupplySummaryBean;
 
 
 public class CumulativeSupplySummaryBeanBuilder extends BaseBeanBuilder<CumulativeSupplySummaryBean> {

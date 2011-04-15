@@ -9,6 +9,7 @@ import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicationDispenseBean;
 
 public class MedicationDispenseBeanBuilder extends BaseBeanBuilder<MedicationDispenseBean> {
 

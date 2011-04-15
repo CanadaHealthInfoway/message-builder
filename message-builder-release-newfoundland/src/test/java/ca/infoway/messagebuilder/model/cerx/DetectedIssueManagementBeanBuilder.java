@@ -6,7 +6,7 @@ import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueManagementCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.DetectedIssueManagementBean;
+import ca.infoway.messagebuilder.model.newfoundland.DetectedIssueManagementBean;
 
 public class DetectedIssueManagementBeanBuilder extends BaseBeanBuilder<DetectedIssueManagementBean> {
 

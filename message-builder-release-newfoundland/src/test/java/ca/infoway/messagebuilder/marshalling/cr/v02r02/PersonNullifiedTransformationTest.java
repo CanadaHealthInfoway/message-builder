@@ -19,13 +19,13 @@ import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AssignedDeviceBean;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBean;
-import ca.infoway.messagebuilder.model.IndeterminatePersonBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RegistrationControlActEventBean;
-import ca.infoway.messagebuilder.model.RegistrationRequestBean;
-import ca.infoway.messagebuilder.model.cr.PersonNullifiedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedDeviceBean;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.IndeterminatePersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationControlActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.RegistrationRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cr.PersonNullifiedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class PersonNullifiedTransformationTest extends BaseTransformerTestCase {

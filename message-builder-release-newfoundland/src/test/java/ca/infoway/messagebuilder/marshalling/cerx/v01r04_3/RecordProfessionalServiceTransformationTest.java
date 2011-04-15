@@ -9,16 +9,16 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
-import ca.infoway.messagebuilder.model.ActEventBean;
 import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBean;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
 import ca.infoway.messagebuilder.model.cerx.ProfessionalServicesBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.ProfessionalServiceRecord;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.RecordProfessionalServiceRequestAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.RecordProfessionalServiceRequestMessageBean;
-import ca.infoway.messagebuilder.model.cerx.professionalservice.RecordProfessionalServiceRequestRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServiceRecord;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.RecordProfessionalServiceRequestAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.RecordProfessionalServiceRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.RecordProfessionalServiceRequestRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class RecordProfessionalServiceTransformationTest extends BaseTransformerTestCase {

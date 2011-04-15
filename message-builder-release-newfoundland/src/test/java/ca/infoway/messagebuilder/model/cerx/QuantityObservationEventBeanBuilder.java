@@ -10,6 +10,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_ActObservationHeightOrWeight;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.QuantityObservationEventBean;
 
 public class QuantityObservationEventBeanBuilder extends BaseBeanBuilder<QuantityObservationEventBean> {
 

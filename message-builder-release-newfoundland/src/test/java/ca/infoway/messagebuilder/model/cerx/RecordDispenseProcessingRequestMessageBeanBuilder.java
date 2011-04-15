@@ -7,8 +7,10 @@ import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.dispense.RecordDispenseProcessingRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest1Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstitutionMadeBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.dispense.RecordDispenseProcessingRequestMessageBean;
 
 public class RecordDispenseProcessingRequestMessageBeanBuilder extends BaseBeanBuilder<RecordDispenseProcessingRequestMessageBean> {
 

@@ -7,6 +7,9 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.NoteBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.BaseDispenseRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest1Bean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest2Bean;
 
 public class DispenseRequestBeanBuilder extends BaseBeanBuilder<BaseDispenseRequestBean> {
 	

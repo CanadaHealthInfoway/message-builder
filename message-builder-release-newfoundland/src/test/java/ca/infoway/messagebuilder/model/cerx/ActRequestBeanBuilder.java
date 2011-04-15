@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.model.cerx;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ActRequestBean;
 
 public class ActRequestBeanBuilder extends BaseBeanBuilder<ActRequestBean> {
 

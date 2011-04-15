@@ -4,9 +4,10 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.RecordBean;
-import ca.infoway.messagebuilder.model.cerx.DeviceRequestBean;
 import ca.infoway.messagebuilder.model.cerx.DeviceRequestBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ActivateDevicePrescriptionRequestMessageBean;
 
 public class ActivateDevicePrescriptionRequestMessageBeanBuilder extends BaseBeanBuilder<ActivateDevicePrescriptionRequestMessageBean> {
 

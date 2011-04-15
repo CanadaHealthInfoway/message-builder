@@ -5,6 +5,7 @@ import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.deviceprescription.DeviceDispenseInstructionsBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.SimpleDeviceRequestBean;
 
 public class SimpleDeviceRequestBeanBuilder extends BaseBeanBuilder<SimpleDeviceRequestBean> {
 	

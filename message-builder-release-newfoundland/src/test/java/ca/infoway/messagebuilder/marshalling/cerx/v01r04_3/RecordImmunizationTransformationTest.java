@@ -2,14 +2,14 @@ package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
 
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBean;
-import ca.infoway.messagebuilder.model.NewBaseMessageBean;
-import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
-import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.ImmunizationBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.RecordImmunizationAcceptedMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.RecordImmunizationMessageBean;
-import ca.infoway.messagebuilder.model.cerx.immunization.RecordImmunizationRefusedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.ImmunizationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.RecordImmunizationAcceptedMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.RecordImmunizationMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.immunization.RecordImmunizationRefusedMessageBean;
 
 public class RecordImmunizationTransformationTest extends BaseImmunizationTransformationTest {
 	
