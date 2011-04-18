@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.codeset;
+package ca.infoway.messagebuilder.codeset.newfoundland;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
