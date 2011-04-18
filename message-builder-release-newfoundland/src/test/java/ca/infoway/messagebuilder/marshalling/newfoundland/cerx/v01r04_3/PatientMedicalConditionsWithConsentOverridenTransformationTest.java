@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import static org.junit.Assert.assertNotNull;
@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.codeset.QueryRequestLimitEnum;
+import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
@@ -19,16 +19,16 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.MockActCodeEnum;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.ConsentEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.InformDefinitionBean;
 import ca.infoway.messagebuilder.model.newfoundland.InformationAccessTypeBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.PatientIdentifierBean;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.PatientMedicalConditionsQueryCriteriaBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.condition.PatientMedicalConditionsQueryMessageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;

@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
@@ -16,18 +16,18 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.consent.RecordConsentOrOverrideRequestMessageBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestMessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestMessageBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestRefusedMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

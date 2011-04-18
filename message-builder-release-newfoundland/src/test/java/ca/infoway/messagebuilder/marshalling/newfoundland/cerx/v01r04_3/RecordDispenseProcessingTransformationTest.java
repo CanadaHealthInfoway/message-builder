@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertEquals;
@@ -10,16 +10,16 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.DetectedIssueBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.RecordDispenseProcessingRequestMessageBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.DetectedIssueBean;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.DetectedIssueBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.ObservationCodedEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.ObservationMeasurableEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.RecordDispenseProcessingRequestMessageBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstanceAdministrationBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.SupplyEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.dispense.DispenseRecordedConfirmationBean;
