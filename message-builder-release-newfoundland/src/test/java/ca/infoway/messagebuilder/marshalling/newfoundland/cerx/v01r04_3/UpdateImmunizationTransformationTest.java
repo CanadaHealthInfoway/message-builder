@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_IMMUNIZATION_REQUEST;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.UPDATE_IMMUNIZATION_REQUEST_ACCEPTED;

@@ -1,8 +1,8 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordResponseMessageBean;
