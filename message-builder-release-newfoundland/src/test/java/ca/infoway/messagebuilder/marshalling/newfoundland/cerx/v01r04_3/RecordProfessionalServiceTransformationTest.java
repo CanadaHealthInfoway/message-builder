@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertNotNull;
@@ -8,13 +8,13 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
-import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.ProfessionalServicesBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ProfessionalServicesBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServiceRecord;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.RecordProfessionalServiceRequestAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.RecordProfessionalServiceRequestMessageBean;

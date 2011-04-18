@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
