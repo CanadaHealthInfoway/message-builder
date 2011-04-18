@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
@@ -19,8 +19,8 @@ import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBean;
