@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertEquals;
@@ -8,10 +8,10 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.cerx.AddIssueManagementRequestMessageBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.AddIssueManagementRequestMessageBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.issuemanagement.AddIssueManagementRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

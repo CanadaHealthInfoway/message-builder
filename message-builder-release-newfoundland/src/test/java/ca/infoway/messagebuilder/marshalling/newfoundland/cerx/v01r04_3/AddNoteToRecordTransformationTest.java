@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_NOTE_TO_RECORD_REQUEST;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_NOTE_TO_RECORD_REQUEST_ACCEPTED;
@@ -14,15 +14,15 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
-import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.NoteBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
+import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;

@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
@@ -26,12 +26,12 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.HistoricalControlActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.CausalityAssessmentBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.HistoricalControlActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.ObservationEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.allergy.AllergyIntoleranceWithHistoryBean;
