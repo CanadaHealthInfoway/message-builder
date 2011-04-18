@@ -1,7 +1,7 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
-import static ca.infoway.messagebuilder.model.cerx.medicalprofile.CombinedMedicationBeanBuilder.CombinedMedicationBeanType.PORX_MT060340CA;
+import static ca.infoway.messagebuilder.model.newfoundland.cerx.medicalprofile.CombinedMedicationBeanBuilder.CombinedMedicationBeanType.PORX_MT060340CA;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Ignore;
@@ -10,15 +10,15 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.medicalprofile.CombinedMedicationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.revise.DispenseAuthorizationBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.Prescription;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.medicalprofile.CombinedMedicationBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.DispenseAuthorizationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.DispenseAuthorizationBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.ReviseAssignedDispenseResponsibilityRequestAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.ReviseAssignedDispenseResponsibilityRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;

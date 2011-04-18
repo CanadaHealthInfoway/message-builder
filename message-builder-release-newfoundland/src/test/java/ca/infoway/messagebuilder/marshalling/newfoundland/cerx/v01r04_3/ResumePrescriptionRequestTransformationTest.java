@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
@@ -16,15 +16,15 @@ import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.cerx.ActRequestBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.ActRequestBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.ActRequestBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.resume.ResumePrescriptionRequestMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 

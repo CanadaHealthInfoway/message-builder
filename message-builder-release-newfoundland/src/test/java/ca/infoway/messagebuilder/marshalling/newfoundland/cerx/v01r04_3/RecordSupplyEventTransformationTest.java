@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
@@ -18,13 +18,13 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
-import ca.infoway.messagebuilder.model.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.cerx.MedicineBeanBuilder;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicineBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.NonPrescribedSupplyEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventMessageBean;
