@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
@@ -34,15 +34,15 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
-import ca.infoway.messagebuilder.model.ActEventBeanBuilder;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.IndeterminatePersonBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
+import ca.infoway.messagebuilder.model.newfoundland.ActEventBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.IndeterminatePersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;

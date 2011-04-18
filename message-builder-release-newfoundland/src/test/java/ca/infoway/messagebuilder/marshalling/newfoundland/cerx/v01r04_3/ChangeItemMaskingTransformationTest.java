@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.cerx.v01r04_3;
+package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.DEPRECATE_PATIENT_NOTE_REQUEST;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.DEPRECATE_PATIENT_NOTE_REQUEST_ACCEPTED;
@@ -21,13 +21,13 @@ import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.MaskableMaterialEntityType;
 import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.AcknowledgementBeanBuilder;
-import ca.infoway.messagebuilder.model.AssignedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.AuthorBeanBuilder;
-import ca.infoway.messagebuilder.model.IdentifiedPersonBeanBuilder;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordControlActEventBean;
