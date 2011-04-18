@@ -1,11 +1,11 @@
-package ca.infoway.messagebuilder.model.broadcast;
+package ca.infoway.messagebuilder.model.newfoundland.broadcast;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.SubscriptionStatus;
 import ca.infoway.messagebuilder.domainvalue.payload.TopicPriority;
-import ca.infoway.messagebuilder.model.BaseBeanBuilder;
+import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.broadcast.BroadcastTopicBean;
 
 
