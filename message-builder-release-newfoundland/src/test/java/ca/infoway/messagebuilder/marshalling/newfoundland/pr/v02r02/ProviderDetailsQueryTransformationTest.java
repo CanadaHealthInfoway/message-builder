@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.pr.v02r02;
+package ca.infoway.messagebuilder.marshalling.newfoundland.pr.v02r02;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,9 +12,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsCriteria;
 import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsQueryMessageBean;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;

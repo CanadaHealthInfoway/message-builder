@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.marshalling.pr.v02r02;
+package ca.infoway.messagebuilder.marshalling.newfoundland.pr.v02r02;
 
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertNotNull;
@@ -17,8 +17,8 @@ import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.payload.QueryResponse;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTransformerTestCase;
-import ca.infoway.messagebuilder.model.MessageBeanBuilderSupport;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RegistrationEventRecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.pr.HealthcareProvider;
 import ca.infoway.messagebuilder.model.newfoundland.pr.ProviderDetailsCriteria;
