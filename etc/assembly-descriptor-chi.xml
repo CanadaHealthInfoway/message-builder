@@ -5,332 +5,36 @@
     </formats>
     <includeSiteDirectory>false</includeSiteDirectory>
     <moduleSets>
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-core</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-              <outputDirectory>core/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>core</outputDirectory>
-        </binaries>
-      </moduleSet>
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-util</include>
-          <include>ca.infoway.messagebuilder:message-builder-xml</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-              <outputDirectory>core/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>core/lib</outputDirectory>
-        </binaries>
-      </moduleSet>
       
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-release-r02_04_02</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-	      <useTransitiveDependencies>false</useTransitiveDependencies>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-              </excludes>
-              <outputDirectory>releases/release-r02_04_02/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>releases/release-r02_04_02</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-release-v02_r02</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-	      <useTransitiveDependencies>false</useTransitiveDependencies>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-              </excludes>
-              <outputDirectory>releases/release-v02_r02/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>releases/release-v02_r02</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-release-v02_r01</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-	      <useTransitiveDependencies>false</useTransitiveDependencies>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-              </excludes>
-              <outputDirectory>releases/release-v02_r01/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>releases/release-v02_r01</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-release-v01_r04_3</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-	      <useTransitiveDependencies>false</useTransitiveDependencies>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-              </excludes>
-              <outputDirectory>releases/release-v01_r04_3/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>releases/release-v01_r04_3</outputDirectory>
-        </binaries>
-      </moduleSet>
-
       <moduleSet>
         <includes>
           <include>ca.infoway.messagebuilder:maven-chi-plugin</include>
         </includes>
         <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-terminology</exclude>
-              </excludes>
-              <outputDirectory>chi/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
+          <includeDependencies>false</includeDependencies>
           <unpack>false</unpack>
-          <outputDirectory>chi</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-example</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-	      	  <useTransitiveDependencies>false</useTransitiveDependencies>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-r02_04_02</exclude>
-              </excludes>
-              <outputDirectory>optional/example/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>optional/example</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-terminology</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-              </excludes>
-              <outputDirectory>optional/terminology/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>optional/terminology</outputDirectory>
-        </binaries>
-      </moduleSet>
-
-      <moduleSet>
-        <includes>
-          <include>ca.infoway.messagebuilder:message-builder-simple-xml</include>
-          <include>ca.infoway.messagebuilder:message-builder-simple-xml-process</include>
-          <include>ca.infoway.messagebuilder:message-builder-simple-xml-process-web</include>
-        </includes>
-        <binaries>
-          <includeDependencies>true</includeDependencies>
-          <dependencySets>
-            <dependencySet>
-              <unpack>false</unpack>
-              <includes />
-              <excludes>
-                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-simple-xml</exclude>
-                <exclude>ca.infoway.messagebuilder:message-builder-r02_04_02</exclude>
-	        <exclude>ca.infoway.messagebuilder:message-builder-simple-xml-process</exclude>
-              </excludes>
-              <outputDirectory>optional/simple-xml/lib</outputDirectory>
-            </dependencySet>
-          </dependencySets>
-          <unpack>false</unpack>
-          <outputDirectory>optional/simple-xml</outputDirectory>
         </binaries>
       </moduleSet>
     </moduleSets>
 
     <fileSets>
       <fileSet>
-        <directory>target</directory>
-        <includes>
-          <include>*-javadoc.jar</include>
-        </includes>
-        <outputDirectory>javadoc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-r02_04_02/target</directory>
+        <directory>maven-chi-plugin/target</directory>
         <includes><include>*-javadoc.jar</include></includes>
-        <outputDirectory>javadoc</outputDirectory>
+        <outputDirectory>./</outputDirectory>
       </fileSet>
+
       <fileSet>
-        <directory>message-builder-release-v01_r04_3/target</directory>
-        <includes><include>*-javadoc.jar</include></includes>
-        <outputDirectory>javadoc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r01/target</directory>
-        <includes><include>*-javadoc.jar</include></includes>
-        <outputDirectory>javadoc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r02/target</directory>
-        <includes><include>*-javadoc.jar</include></includes>
-        <outputDirectory>javadoc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-example/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>optional/example/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-r02_04_02/target</directory>
+        <directory>maven-chi-plugin/target</directory>
         <includes><include>*-sources.jar</include></includes>
-        <outputDirectory>releases/release-r02_04_02/src</outputDirectory>
+        <outputDirectory>./</outputDirectory>
       </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v01_r04_3/target</directory>
-        <includes><include>*-sources.jar</include></includes>
-        <outputDirectory>releases/release-v01_r04_3/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r01/target</directory>
-        <includes><include>*-sources.jar</include></includes>
-        <outputDirectory>releases/release-v02_r01/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r02/target</directory>
-        <includes><include>*-sources.jar</include></includes>
-        <outputDirectory>releases/release-v02_r02/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-r02_04_02/etc</directory>
-        <includes><include>**/*</include></includes>
-        <outputDirectory>releases/release-r02_04_02/etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v01_r04_3/etc</directory>
-        <includes><include>**/*</include></includes>
-        <outputDirectory>releases/release-v01_r04_3/etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r01/etc</directory>
-        <includes><include>**/*</include></includes>
-        <outputDirectory>releases/release-v02_r01/etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-release-v02_r02/etc</directory>
-        <includes><include>**/*</include></includes>
-        <outputDirectory>releases/release-v02_r02/etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>./</directory>
-        <includes>
-          <include>**/*-sources.jar</include>
-        </includes>
-        <outputDirectory>source</outputDirectory>
-      </fileSet>
+
       <fileSet>
         <directory>./</directory>
         <includes>
           <include>pom.xml</include>
         </includes>
-        <outputDirectory>etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>etc</directory>
-        <includes>
-          <include>**/*</include>
-        </includes>
-        <outputDirectory>etc</outputDirectory>
       </fileSet>
     </fileSets>
 </assembly>
