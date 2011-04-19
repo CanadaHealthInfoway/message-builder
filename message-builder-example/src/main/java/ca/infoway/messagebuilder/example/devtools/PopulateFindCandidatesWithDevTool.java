@@ -5,7 +5,7 @@ import ca.infoway.messagebuilder.devtools.DefaultValueHolder;
 import ca.infoway.messagebuilder.devtools.MessageBeanFactory;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.model.r02_04_02.interaction.FindCandidatesQueryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 public class PopulateFindCandidatesWithDevTool {

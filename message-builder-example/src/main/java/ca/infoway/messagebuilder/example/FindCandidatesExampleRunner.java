@@ -9,7 +9,7 @@ import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.r02_04_02.interaction.FindCandidatesQueryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
 import ca.infoway.messagebuilder.transport.Credentials;
 import ca.infoway.messagebuilder.transport.CredentialsProvider;
 import ca.infoway.messagebuilder.transport.SimpleRequestMessage;
