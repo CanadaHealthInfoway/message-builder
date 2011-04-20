@@ -38,12 +38,14 @@ public class DataTypeAnalyzer {
 					.append(this.category, o.category)
 					.toComparison();
 		}
+		@Override
 		public int hashCode() {
 			return new HashCodeBuilder()
 					.append(this.dataType)
 					.append(this.category)
 					.toHashCode();
 		}
+		@Override
 		public boolean equals(Object obj) {
 			if (obj == null) {
 				return false;
@@ -68,10 +70,10 @@ public class DataTypeAnalyzer {
 	public static void main(String[] args) throws Exception {
 		
 		DataTypeAnalyzer analyzer = new DataTypeAnalyzer();
-		analyzer.add(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01r04_3_hotfix3.xml"));
-		analyzer.add(new File("../message-builder-release-v02_r02/src/main/resources/messageSet_v02_r02.xml"));
-		analyzer.add(new File("../message-builder-release-v02_r01/src/main/resources/messageSet_v02_r01.xml"));
-		analyzer.add(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
+		analyzer.add(new File("../message-builder-hl7v3-release-pcs_cerx_v01_r04_3/src/main/resources/messageSet_v01r04_3_hotfix3.xml"));
+		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2007_v02_r02/src/main/resources/messageSet_v02_r02.xml"));
+		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2007_v02_r01/src/main/resources/messageSet_v02_r01.xml"));
+		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2009_r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
 		analyzer.writeOutput();
 		
 	}

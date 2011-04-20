@@ -45,10 +45,10 @@ public class JavadocProjectCheckTest {
 //			"message-builder-merge-comparator",
 //			"message-builder-generator-tools",
 //			"message-builder-release-newfoundland",
-//			"message-builder-release-r02_04_02",
-//			"message-builder-release-v01_r04_3",
-//			"message-builder-release-v02_r01",
-//			"message-builder-release-v02_r02",
+//			"message-builder-hl7v3-release-pcs_mr2009_r02_04_02",
+//			"message-builder-hl7v3-release-pcs_cerx_v01_r04_3",
+//			"message-builder-hl7v3-release-pcs_mr2007_v02_r01",
+//			"message-builder-hl7v3-release-pcs_mr2007_v02_r02",
 //			"message-builder-simple-xml-process",
 //			"message-builder-simple-xml",
 //			"message-builder-sample-messages",
@@ -64,10 +64,10 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-maven-executor");
 		this.projectExclusions.add("message-builder-acceptance");
 		this.projectExclusions.add("message-builder-release-newfoundland");
-		this.projectExclusions.add("message-builder-release-r02_04_02");
-		this.projectExclusions.add("message-builder-release-v01_r04_3");
-		this.projectExclusions.add("message-builder-release-v02_r01");
-		this.projectExclusions.add("message-builder-release-v02_r02");
+		this.projectExclusions.add("message-hl7v3-builder-release-pcs_mr2009_r02_04_02");
+		this.projectExclusions.add("message-hl7v3-builder-release-pcs_cerx_v01_r04_3");
+		this.projectExclusions.add("message-hl7v3-builder-release-pcs_mr2007_v02_r01");
+		this.projectExclusions.add("message-hl7v3-builder-release-pcs_mr2007_v02_r02");
 		this.projectExclusions.add("junitUtils");
 		this.projectExclusions.add("stylesheet");
 		this.projectExclusions.add("src");

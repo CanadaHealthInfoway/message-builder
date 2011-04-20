@@ -43,15 +43,15 @@ public class ReportAnalyzer {
 	private Map<String,HSSFCellStyle> styles = new HashMap<String,HSSFCellStyle>();
 	
 	public static void main(String[] args) throws Exception {
-		MessageSet messageSet1 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
-		MessageSet messageSet2 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_00.xml"));
-		MessageSet messageSet3 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v02_r02/src/main/resources/messageSet_v02_r02.xml"));
-		MessageSet messageSet4 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01_r04_3_hotfix3.xml"));
-		MessageSet messageSet5 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01_r04_2.xml"));
+		MessageSet messageSet1 = new MessageSetMarshaller().unmarshall(new File("../message-builder-hl7v3-release-pcs_mr2009_r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
+//		MessageSet messageSet2 = new MessageSetMarshaller().unmarshall(new File("../message-builder-hl7v3-release-pcs_mr2009_r02_04_02/src/main/resources/messageSet_r02_04_00.xml"));
+		MessageSet messageSet3 = new MessageSetMarshaller().unmarshall(new File("../message-builder-hl7v3-release-pcs_mr2007_v02_r02/src/main/resources/messageSet_v02_r02.xml"));
+		MessageSet messageSet4 = new MessageSetMarshaller().unmarshall(new File("../message-builder-hl7v3-release-pcs_cerx_v01_r04_3/src/main/resources/messageSet_v01_r04_3_hotfix3.xml"));
+//		MessageSet messageSet5 = new MessageSetMarshaller().unmarshall(new File("../message-builder-hl7v3-release-pcs_cerx_v01_r04_3/src/main/resources/messageSet_v01_r04_2.xml"));
 		HSSFWorkbook report = new ReportAnalyzer().createReport(messageSet1, 
-				messageSet2, 
+	//			messageSet2, 
 				messageSet3, messageSet4
-				, messageSet5
+	//			, messageSet5
 				);
 		
 		FileOutputStream output = new FileOutputStream(new File(new File(SystemUtils.USER_HOME), "report.xls"));

@@ -7,9 +7,9 @@
 		<version>1.1.2cr4-SNAPSHOT</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
-	<artifactId>message-builder-release-r02_04_02</artifactId>
+	<artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
 	<version>1.1.2cr4-SNAPSHOT</version>
-	<name>message-builder-release-r02_04_02</name>
+	<name>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>

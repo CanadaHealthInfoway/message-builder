@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-release-r02_04_02</artifactId>
+			<artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

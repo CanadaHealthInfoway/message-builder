@@ -21,17 +21,17 @@
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-release-r02_04_02</artifactId>
+			<artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
 			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-release-v01_r04_3</artifactId>
+			<artifactId>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</artifactId>
 			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-release-v02_r02</artifactId>
+			<artifactId>message-builder-hl7v3-release-pcs_mr2007_v02_r02</artifactId>
 			<version>${project.version}</version>		
 		</dependency>
 		<dependency>
