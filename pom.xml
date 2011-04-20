@@ -79,11 +79,11 @@
 		<module>message-builder-simple-xml</module>
 		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>
-		<module>message-builder-release-v01_r04_3</module>
-		<module>message-builder-release-v02_r01</module>
-		<module>message-builder-release-v02_r02</module>
+		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</module>
+		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r01</module>
+		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r02</module>
 		<module>message-builder-release-newfoundland</module>
-		<module>message-builder-release-r02_04_02</module>
+		<module>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</module>
     		<module>message-builder-simple-xml-process-web</module>
   </modules>
 	<dependencies>
