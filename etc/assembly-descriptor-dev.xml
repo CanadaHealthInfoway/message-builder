@@ -20,10 +20,10 @@
       
       <moduleSet>
         <includes>
-          <include>ca.infoway.messagebuilder:message-builder-release-r02_04_02</include>
-          <include>ca.infoway.messagebuilder:message-builder-release-v02_r02</include>
-          <include>ca.infoway.messagebuilder:message-builder-release-v02_r01</include>
-          <include>ca.infoway.messagebuilder:message-builder-release-v01_r04_3</include>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2009_r02_04_02</include>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2007_v02_r02</include>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2007_v02_r01</include>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_cerx_v01_r04_3</include>
         </includes>
         <binaries>
           <includeDependencies>false</includeDependencies>
