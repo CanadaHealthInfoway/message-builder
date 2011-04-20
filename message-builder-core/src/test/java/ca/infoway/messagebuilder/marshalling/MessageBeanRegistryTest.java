@@ -31,7 +31,7 @@ public class MessageBeanRegistryTest {
 					description.getMessageType(),
 					ClassUtils.getShortClassName(
 							MessageBeanRegistry.getInstance().getInteractionBeanType(
-									new MessageTypeKey(MockVersionNumber.MOCK.getVersionLiteral(), 
+									new MessageTypeKey(MockVersionNumber.MOCK_NEWFOUNDLAND.getVersionLiteral(), 
 											description.getInteractionId()))));
 		}
 	}

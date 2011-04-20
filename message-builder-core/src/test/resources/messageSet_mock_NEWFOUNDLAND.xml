@@ -1,4 +1,4 @@
-<messageSet version="MOCK" component="complete NL message set">
+<messageSet version="MOCK_NEWFOUNDLAND" component="complete NL message set">
    <packageEntry name="COCT_MT040205CA">
       <packageLocation name="COCT_MT040205CA" rootType="COCT_MT040205CA.ResponsibleParty">
          <entry name="COCT_MT040205CA.Person">

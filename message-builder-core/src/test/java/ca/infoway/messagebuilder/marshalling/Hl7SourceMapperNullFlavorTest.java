@@ -72,7 +72,7 @@ public class Hl7SourceMapperNullFlavorTest {
 	@Test
 	public void shouldMapAttributeWithNullFlavor() throws Exception {
 		Sender bean = (Sender) mapPartSourceToTeal(
-				MockVersionNumber.MOCK,
+				MockVersionNumber.MOCK_NEWFOUNDLAND,
 				XML_WITH_NULL_FLAVOR,
 				"MCCI_MT002100CA.Sender");
 
@@ -88,7 +88,7 @@ public class Hl7SourceMapperNullFlavorTest {
 	@Test
 	public void shouldMapCDAttributeWithNullFlavor() throws Exception {
 		QueryByParameterBean<FindCandidatesCriteria> bean = (QueryByParameterBean<FindCandidatesCriteria>) mapPartSourceToTeal(
-				MockVersionNumber.MOCK,
+				MockVersionNumber.MOCK_NEWFOUNDLAND,
 				XML_CODE_WITH_NULL_FLAVOR,
 				"MFMI_MT700751CA.QueryByParameter");
 		
@@ -135,7 +135,7 @@ public class Hl7SourceMapperNullFlavorTest {
 	@Test
 	public void shouldMapChoiceWithNullFlavor() throws Exception {
 		AuthorBean bean = (AuthorBean) mapPartSourceToTeal(
-				MockVersionNumber.MOCK,
+				MockVersionNumber.MOCK_NEWFOUNDLAND,
 				XML_CHOICE_WITH_NULL_FLAVOR,
 				"MFMI_MT700751CA.Author_V02R02");
 		

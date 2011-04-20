@@ -1,6 +1,6 @@
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK;
+import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_NEWFOUNDLAND;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -43,7 +43,7 @@ public class Hl7SourceMapperChoiceTest {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		this.service = new MockTestCaseMessageDefinitionService();
 		this.document = getSourceDocument();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MOCK.getVersionLiteral(), document, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MOCK_NEWFOUNDLAND.getVersionLiteral(), document, this.service);
 		this.element = document.getDocumentElement();
 		this.partSource = rootSource.createPartSource(createRelationship("MFMI_MT700711CA.Author"), element);
 	}

@@ -28,7 +28,7 @@ public class MockTestCaseMessageDefinitionService extends BaseMessageDefinitionS
 	 */
 	@Override
 	protected List<String> getNames() {
-		return Arrays.asList("/messageSet_mock_r02_04_02.xml", "/messageSet_NEWFOUNDLAND.xml");
+		return Arrays.asList("/messageSet_mock_r02_04_02.xml", "/messageSet_mock_NEWFOUNDLAND.xml");
 	}
 
 	public List<MessagePart> getUnusedMessageParts(String version,

@@ -12,7 +12,7 @@ import ca.infoway.messagebuilder.xml.service.BaseMessageDefinitionService;
  */
 public class MessageDefinitionServiceImpl extends BaseMessageDefinitionService {
 	
-	private final String[] NAMES = {"/messageSet_NEWFOUNDLAND.xml"};
+	private final String[] NAMES = {"/messageSet_mock_NEWFOUNDLAND.xml"};
 
 	@Override
 	protected List<String> getNames() {

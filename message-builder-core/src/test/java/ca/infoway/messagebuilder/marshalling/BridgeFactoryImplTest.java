@@ -23,7 +23,7 @@ import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionServic
 
 public class BridgeFactoryImplTest {
 	
-	private static final VersionNumber VERSION = MockVersionNumber.MOCK;
+	private static final VersionNumber VERSION = MockVersionNumber.MOCK_NEWFOUNDLAND;
 	
 	private MessageDefinitionService service;
 	private MockMessageDefinitionService mockService;

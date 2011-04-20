@@ -44,7 +44,7 @@ public class MessageBeanTransformerImplTest {
 	
 	@Test
 	public void shouldProduceRightResultForResponse() throws Exception {
-		XmlToModelResult result = this.transformer.transformFromHl7(MockVersionNumber.MOCK,
+		XmlToModelResult result = this.transformer.transformFromHl7(MockVersionNumber.MOCK_NEWFOUNDLAND,
 				this.factory.createFromResource(new ClasspathResource(this.getClass(), MESSAGE)));
 		
 		assertNotNull("result", result);
@@ -54,7 +54,7 @@ public class MessageBeanTransformerImplTest {
 	
 	@Test
 	public void shouldReportUnsupportedInteraction() throws Exception {
-		XmlToModelResult result = this.transformer.transformFromHl7(MockVersionNumber.MOCK, 
+		XmlToModelResult result = this.transformer.transformFromHl7(MockVersionNumber.MOCK_NEWFOUNDLAND, 
 				this.factory.createFromString(UNSUPPORTED_MESSAGE_XML));
 		assertNotNull("result", result);
 		assertFalse("bean", result.isValid());
@@ -64,7 +64,7 @@ public class MessageBeanTransformerImplTest {
 	public void shouldWriteValidXml() throws Exception {
 		FindCandidatesQueryMessageBean query = new FindCandidatesQueryMessageBean();
 		new MessageBeanFactory(new DefaultValueHolder()).populate(query);
-		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK, query);
+		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK_NEWFOUNDLAND, query);
 		
 		assertIsValidXml(xml);
 	}
@@ -81,7 +81,7 @@ public class MessageBeanTransformerImplTest {
 	public void shouldCreateDefaultVersionCode() throws Exception {
 		FindCandidatesQueryMessageBean query = new FindCandidatesQueryMessageBean();
 		new MessageBeanFactory(new DefaultValueHolder()).populate(query);
-		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK, query);
+		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK_NEWFOUNDLAND, query);
 		assertTrue("version code", xml.contains("<versionCode code=\"V3-2007-05\"/>"));
 	}
 	
@@ -89,7 +89,7 @@ public class MessageBeanTransformerImplTest {
 	public void shouldCreateDefaultInteractionId() throws Exception {
 		FindCandidatesQueryMessageBean query = new FindCandidatesQueryMessageBean();
 		new MessageBeanFactory(new DefaultValueHolder()).populate(query);
-		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK, query);
+		String xml = this.transformer.transformToHl7(MockVersionNumber.MOCK_NEWFOUNDLAND, query);
 		assertTrue("interaction id", xml.contains(" extension=\"PRPA_IN101103CA\" "));
 	}
 }
