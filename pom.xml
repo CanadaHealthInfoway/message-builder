@@ -305,13 +305,20 @@
 				  </descriptors>
 			        </configuration>
 		      </plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.1</version>
 			        <executions>
+				  <execution>
+					<id>attach-sources</id>
+					<goals>
+					  <goal>jar</goal>
+					</goals>
+				    	<phase>package</phase>
+				  </execution>
 			          <execution>
+				    <id>aggregate-sources</id>
 			            <goals>
 			              <goal>aggregate</goal>
 			            </goals>
@@ -319,10 +326,26 @@
 				    <configuration>
 					<excludeResources>true</excludeResources>
 					<excludes>
+						<!-- chi -->
 						<exclude>ca/infoway/messagebuilder/generator/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/comparator/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/maven/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/terminology/loader/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/junit/**/*.java</exclude>
+						<!-- releases -->
+						<exclude>ca/infoway/messagebuilder/model/pcs_cerx_v01_r04_3/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r01/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r02/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2009_r02_04_02/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/newfoundland/**/*.java</exclude>
+						<!-- example -->
+						<exclude>ca/infoway/messagebuilder/example/**/*.java</exclude>
+						<!-- simplified xml -->
+						<exclude>ca/infoway/messagebuilder/simple/**/*.java</exclude>
+						<!-- misc -->
+						<exclude>ca/infoway/messagebuilder/acceptance/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/codeset/newfoundland/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/marshalling/newfoundland/**/*.java</exclude>
 					</excludes>
 				    </configuration>
 				  </execution>
@@ -341,7 +364,6 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.5.1</version>
 			</plugin>
-<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -349,17 +371,17 @@
 				<inherited>false</inherited>
 			        <executions>
 			          <execution>
+				    <id>aggregate-javadocs</id>
 			            <goals>
 			              <goal>aggregate-jar</goal>
 			            </goals>
 			            <phase>package</phase>
 				    <configuration>
-				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland:ca.infoway.messagebuilder.model.newfoundland</excludePackageNames>
+				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3:ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01:ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02:ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.example:ca.infoway.messagebuilder.simple:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
 				    </configuration>
 				  </execution>
 				</executions>
  			</plugin>
--->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>

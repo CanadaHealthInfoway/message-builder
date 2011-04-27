@@ -12,6 +12,7 @@
         </includes>
         <binaries>
           <includeDependencies>false</includeDependencies>
+	  <outputDirectory>bin</outputDirectory>
           <unpack>false</unpack>
         </binaries>
       </moduleSet>
@@ -21,13 +22,13 @@
       <fileSet>
         <directory>maven-chi-plugin/target</directory>
         <includes><include>*-javadoc.jar</include></includes>
-        <outputDirectory>./</outputDirectory>
+        <outputDirectory>javadoc</outputDirectory>
       </fileSet>
 
       <fileSet>
         <directory>maven-chi-plugin/target</directory>
         <includes><include>*-sources.jar</include></includes>
-        <outputDirectory>./</outputDirectory>
+        <outputDirectory>src</outputDirectory>
       </fileSet>
 
       <fileSet>
