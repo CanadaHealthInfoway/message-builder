@@ -420,6 +420,7 @@
 				    <mappingml>XML_STYLE</mappingml>
 				</mapping>
 				<properties>
+				    <year>2011</year>
 				    <mb_author>$LastChangedBy$</mb_author>
 				    <mb_lastmodified>$LastChangedDate$</mb_lastmodified>
 				    <mb_revision>$LastChangedRevision$</mb_revision>
