@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><REPC_IN000015CA xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0" xsi:schemaLocation="urn:hl7-org:v3 ../Schemas/REPC_IN000015CA.xsd">
 <!--
 
     Copyright 2011 Canada Health Infoway, Inc.
@@ -20,13 +21,14 @@
 
 -->
 
-<?xml version="1.0" encoding="UTF-8"?><REPC_IN000015CA xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0" xsi:schemaLocation="urn:hl7-org:v3 ../Schemas/REPC_IN000015CA.xsd"><!--
+<!--
     - Note: This is an example instance.  In a real instance the following differences would apply
     -     1. There would be no schema declaration.  (Receivers will validate against their own schemas)
     -     2. Example OIDs would be replaced by real OIDs
     -     3. Processing mode would be Production, not Debug
     -     4. Data would be real values :>
-  --><realmCode code="CA"/>
+  -->
+   <realmCode code="CA"/>
    <id root="40ABB391-DC92-06C2-75F5-6C7B55A142DB"/>
    <creationTime value="20090915225028.281-0700"/>
    <responseModeCode code="I"/>
