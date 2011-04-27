@@ -332,20 +332,22 @@
 						<exclude>ca/infoway/messagebuilder/maven/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/terminology/loader/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/junit/**/*.java</exclude>
-						<!-- releases -->
-						<exclude>ca/infoway/messagebuilder/model/pcs_cerx_v01_r04_3/**/*.java</exclude>
-						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r01/**/*.java</exclude>
-						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r02/**/*.java</exclude>
-						<exclude>ca/infoway/messagebuilder/model/pcs_mr2009_r02_04_02/**/*.java</exclude>
-						<exclude>ca/infoway/messagebuilder/model/newfoundland/**/*.java</exclude>
-						<!-- example -->
-						<exclude>ca/infoway/messagebuilder/example/**/*.java</exclude>
-						<!-- simplified xml -->
-						<exclude>ca/infoway/messagebuilder/simple/**/*.java</exclude>
 						<!-- misc -->
 						<exclude>ca/infoway/messagebuilder/acceptance/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/codeset/newfoundland/**/*.java</exclude>
 						<exclude>ca/infoway/messagebuilder/marshalling/newfoundland/**/*.java</exclude>
+						<!-- releases -->
+						<!--
+						<exclude>ca/infoway/messagebuilder/model/pcs_cerx_v01_r04_3/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r01/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2007_v02_r02/**/*.java</exclude>
+						<exclude>ca/infoway/messagebuilder/model/pcs_mr2009_r02_04_02/**/*.java</exclude>
+						-->
+						<exclude>ca/infoway/messagebuilder/model/newfoundland/**/*.java</exclude>
+						<!-- example -->
+						<!--exclude>ca/infoway/messagebuilder/example/**/*.java</exclude-->
+						<!-- simplified xml -->
+						<!--exclude>ca/infoway/messagebuilder/simple/**/*.java</exclude-->
 					</excludes>
 				    </configuration>
 				  </execution>
@@ -377,7 +379,15 @@
 			            </goals>
 			            <phase>package</phase>
 				    <configuration>
-				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3:ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01:ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02:ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.example:ca.infoway.messagebuilder.simple:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
+				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
+						<!--
+						ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3:
+						ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01:
+						ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02:
+						ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02:
+						ca.infoway.messagebuilder.example:
+						ca.infoway.messagebuilder.simple:
+						-->
 				    </configuration>
 				  </execution>
 				</executions>
@@ -394,6 +404,33 @@
                     			<preparationGoals>clean install</preparationGoals>
 
 				</configuration>
+			</plugin>
+			<plugin>
+			    <inherited>false</inherited>
+			    <groupId>com.mycila.maven-license-plugin</groupId>
+			    <artifactId>maven-license-plugin</artifactId>
+			    <configuration>
+				<header>${basedir}/etc/license.txt</header>
+				<aggregate>true</aggregate>
+				<properties>
+				    <mb_author>$LastChangedBy$</mb_author>
+				    <mb_lastmodified>$LastChangedDate$</mb_lastmodified>
+				    <mb_revision>$LastChangedRevision$</mb_revision>
+				</properties>
+			        <excludes>
+			            <exclude>${basedir}/etc/license.txt</exclude>
+			            <exclude>${basedir}/pomCHI.xml</exclude>
+			        </excludes>
+				<!--skipExistingHeaders>true</skipExistingHeaders-->
+			    </configuration>
+			    <executions>
+				<execution>
+				    <phase>package</phase>
+				    <goals>
+				        <goal>check</goal>
+				    </goals>
+				</execution>
+			    </executions>
 			</plugin>
 		</plugins>
 		<pluginManagement>
