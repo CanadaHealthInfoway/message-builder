@@ -411,17 +411,29 @@
 			    <artifactId>maven-license-plugin</artifactId>
 			    <configuration>
 				<header>${basedir}/etc/license.txt</header>
+				<validHeaders>
+				    <validHeader>${basedir}/etc/other_valid_license.txt</validHeader>
+				</validHeaders>
 				<aggregate>true</aggregate>
+				<mapping>
+				    <xslt>XML_STYLE</xslt>
+				    <mappingml>XML_STYLE</mappingml>
+				</mapping>
 				<properties>
 				    <mb_author>$LastChangedBy$</mb_author>
 				    <mb_lastmodified>$LastChangedDate$</mb_lastmodified>
 				    <mb_revision>$LastChangedRevision$</mb_revision>
 				</properties>
 			        <excludes>
-			            <exclude>${basedir}/etc/license.txt</exclude>
-			            <exclude>${basedir}/pomCHI.xml</exclude>
+			            <exclude>etc/license.txt</exclude>
+			            <exclude>pomCHI.xml</exclude>
+			            <exclude>**/*.xls</exclude>
+			            <exclude>**/*.svg</exclude>
+			            <exclude>**/translation-*</exclude>
+			            <exclude>**/*.java1</exclude>
+			            <exclude>**/*.mif</exclude>
 			        </excludes>
-				<!--skipExistingHeaders>true</skipExistingHeaders-->
+				<skipExistingHeaders>true</skipExistingHeaders>
 			    </configuration>
 			    <executions>
 				<execution>
