@@ -381,14 +381,6 @@
 			            <phase>package</phase>
 				    <configuration>
 				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
-						<!--
-						ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3:
-						ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01:
-						ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02:
-						ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02:
-						ca.infoway.messagebuilder.example:
-						ca.infoway.messagebuilder.simple:
-						-->
 				    </configuration>
 				  </execution>
 				</executions>
