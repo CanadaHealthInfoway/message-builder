@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Author:        ${mb_author}
-Last modified: ${mb_lastmodified}
-Revision:      ${mb_revision}
+Author:        $LastChangedBy$
+Last modified: $LastChangedDate$
+Revision:      $LastChangedRevision$
 
