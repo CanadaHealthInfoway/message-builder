@@ -28,12 +28,22 @@
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
    <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+   <xs:complexType name="COCT_MT011001CA.Admitter">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT011001CA.Assignees"/>
+      </xs:sequence>
+   </xs:complexType>
    <xs:group name="COCT_MT011001CA.Assignees">
       <xs:choice>
          <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
          <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
       </xs:choice>
    </xs:group>
+   <xs:complexType name="COCT_MT011001CA.Attender">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT011001CA.Assignees"/>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="COCT_MT011001CA.PatientCareProvisionEvent">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="0" name="careCompositionIdentifier"
@@ -41,8 +51,10 @@
          <xs:element maxOccurs="1" minOccurs="1" name="careCompositionType" type="chi:CodedValue"/>
          <xs:element maxOccurs="1" minOccurs="0" name="careCompositionEffectiveDate"
                      type="chi:DateInterval"/>
-         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT011001CA.Assignees"/>
-         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT011001CA.Assignees"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="admitter"
+                     type="chi:COCT_MT011001CA.Admitter"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="attender"
+                     type="chi:COCT_MT011001CA.Attender"/>
          <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation"
                      type="chi:COCT_MT011001CA.ServiceDeliveryLocation"/>
       </xs:sequence>

@@ -89,39 +89,17 @@
       <xs:choice>
          <xs:element name="fillerOrder" type="chi:POLB_MT004200CA.ActPromise"/>
          <xs:element name="actRequest" type="chi:POLB_MT004200CA.ActRequest"/>
-         <xs:element name="requestChoice" type="chi:POLB_MT001001CA.RequestChoice"/>
+         <xs:group ref="chi:POLB_MT001001CA.RequestChoice"/>
       </xs:choice>
    </xs:group>
-   <xs:complexType name="POLB_MT004200CA.ObservationChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="10" minOccurs="0" name="specimen"
-                     type="chi:POLB_MT004200CA.Specimen"/>
-         <xs:group maxOccurs="20" minOccurs="0" ref="chi:POLB_MT004200CA.RoleChoice"/>
-         <xs:element maxOccurs="2" minOccurs="1" name="performer"
-                     type="chi:POLB_MT004200CA.Performer"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="primaryInformationRecipientAssignedEntity"
-                     type="chi:COCT_MT090502CA.AssignedEntity"/>
-         <xs:group maxOccurs="3" minOccurs="0" ref="chi:POLB_MT004200CA.FulfillmentChoice"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="pertinentInformation1OutbreakEvent"
-                     type="chi:POLB_MT004200CA.OutbreakEvent"/>
-         <xs:element maxOccurs="100" minOccurs="0"
-                     name="pertinentInformation2SupportingClinicalObservationEvent"
-                     type="chi:POLB_MT004200CA.SupportingClinicalObservationEvent1"/>
-         <xs:element maxOccurs="10" minOccurs="0" name="component1ReportableTestIndicator"
-                     type="chi:POLB_MT004200CA.ReportableTestIndicator"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="component2ResultSortKey"
-                     type="chi:POLB_MT004200CA.ResultSortKey"/>
-         <xs:element maxOccurs="100" minOccurs="0" name="component3ReportLevelObservationEvent"
-                     type="chi:POLB_MT004200CA.ReportLevelObservationEvent"/>
-         <xs:group maxOccurs="100" minOccurs="0" ref="chi:POLB_MT004200CA.ObservationChoice"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1ControlActEvent"
-                     type="chi:COCT_MT130001CA.ControlActEvent"/>
-         <xs:element maxOccurs="100" minOccurs="0" name="subjectOf2"
-                     type="chi:POLB_MT004200CA.Subject2"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf3ResultStatusProcessStep"
-                     type="chi:POLB_MT004200CA.ResultStatusProcessStep"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="POLB_MT004200CA.ObservationChoice">
+      <xs:choice>
+         <xs:element name="reportHeader" type="chi:POLB_MT004200CA.ObservationReport"/>
+         <xs:element name="diagnosisOrInterpretationObservation"
+                     type="chi:POLB_MT004200CA.SectionLevelObservationEvent"/>
+         <xs:element name="batteryEvent" type="chi:POLB_MT004200CA.BatteryEvent"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="POLB_MT004200CA.ObservationReport">
       <xs:sequence>
          <xs:element maxOccurs="10" minOccurs="0" name="specimen"

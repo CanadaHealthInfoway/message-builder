@@ -26,6 +26,7 @@
            elementFormDefault="qualified"
            targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
    <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911107CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="REPC_MT000014CA.ConditionEvent">
       <xs:sequence>

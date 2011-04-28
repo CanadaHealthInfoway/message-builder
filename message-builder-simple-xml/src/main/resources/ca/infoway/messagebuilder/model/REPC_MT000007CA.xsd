@@ -28,6 +28,8 @@
    <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
    <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911107CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="REPC_MT000007CA.Author">
       <xs:sequence>

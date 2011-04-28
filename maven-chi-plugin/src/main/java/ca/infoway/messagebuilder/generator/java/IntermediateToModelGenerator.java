@@ -134,8 +134,12 @@ public abstract class IntermediateToModelGenerator {
 		}
 	}
 
-	protected TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
-		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy()).convert();
+	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions) {
+		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy());
+	}
+	
+	private TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
+		return getDefinitionToResultConverter(definitions).convert();
 	}
 	
 	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {

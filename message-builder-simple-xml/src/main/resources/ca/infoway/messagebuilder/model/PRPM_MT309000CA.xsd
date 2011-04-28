@@ -146,13 +146,13 @@
                      type="chi:PRPM_MT309000CA.Organization"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="PRPM_MT309000CA.RoleChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="100" minOccurs="0" name="responsibleForPrivilege"
-                     type="chi:PRPM_MT309000CA.Privilege"/>
-         <xs:group maxOccurs="100" minOccurs="0" ref="chi:PRPM_MT309000CA.RoleChoice"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="PRPM_MT309000CA.RoleChoice">
+      <xs:choice>
+         <xs:element name="assignedEntity" type="chi:PRPM_MT309000CA.AssignedEntity"/>
+         <xs:element name="healthcareProvider" type="chi:PRPM_MT309000CA.HealthCareProvider"/>
+         <xs:element name="qualifiedEntity" type="chi:PRPM_MT309000CA.QualifiedEntity"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="PRPM_MT309000CA.ServiceDeliveryLocation">
       <xs:sequence>
          <xs:element maxOccurs="10" minOccurs="1" name="serviceDeliveryLocationIdentifier"

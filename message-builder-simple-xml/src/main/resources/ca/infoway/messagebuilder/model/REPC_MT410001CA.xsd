@@ -27,7 +27,10 @@
            targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
    <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
    <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911107CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="REPC_MT410001CA.ActDefinition">
       <xs:sequence>

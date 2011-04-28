@@ -25,12 +25,13 @@
            xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
            elementFormDefault="qualified"
            targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
-   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
    <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
    <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
    <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="REPC_MT210003CA.ActRequest2">
       <xs:sequence>
@@ -81,11 +82,11 @@
                      type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="REPC_MT210003CA.DocumentContent">
-      <xs:sequence>
-         <xs:group maxOccurs="5" minOccurs="0" ref="chi:COCT_MT120402CA.Indications"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="REPC_MT210003CA.DocumentContent">
+      <xs:choice>
+         <xs:element name="referral_2" type="chi:REPC_MT210003CA.PatientCareProvisionRequest"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="REPC_MT210003CA.NewClinicalDocumentEvent">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="replacedByRecordId"

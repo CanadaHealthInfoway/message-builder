@@ -45,7 +45,7 @@
    <xs:group name="COMT_MT111111CA.Lab">
       <xs:choice>
          <xs:group ref="chi:POLB_MT004999CA.ResultInstancePayloadChoice"/>
-         <xs:element name="requestChoice" type="chi:POLB_MT001999CA.RequestChoice"/>
+         <xs:group ref="chi:POLB_MT001999CA.RequestChoice"/>
       </xs:choice>
    </xs:group>
    <xs:group name="COMT_MT111111CA.Pharmacy">

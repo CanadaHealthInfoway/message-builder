@@ -48,4 +48,9 @@ public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 	protected ProgrammingLanguage getProgrammingLanguage() {
 		return null;
 	}
+	@Override
+	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions) {
+		return new XsdDefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy());
+	}
+
 }

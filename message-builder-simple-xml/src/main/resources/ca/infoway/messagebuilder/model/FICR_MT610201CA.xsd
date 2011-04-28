@@ -64,14 +64,14 @@
                      type="chi:FICR_MT610201CA.PolicyOrAccount"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="FICR_MT610201CA.AdjudicatedInvoiceElementChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="0" name="reference1Allowable"
-                     type="chi:FICR_MT610201CA.Allowable"/>
-         <xs:element maxOccurs="1" minOccurs="1" name="outcomeOf"
-                     type="chi:FICR_MT610201CA.AdjudicatedResultOutcome"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="FICR_MT610201CA.AdjudicatedInvoiceElementChoice">
+      <xs:choice>
+         <xs:element name="adjudicatedInvoiceElementDetail"
+                     type="chi:FICR_MT610201CA.AdjudicatedInvoiceElementDetail"/>
+         <xs:element name="adjudicatedInvoiceElementGroup"
+                     type="chi:FICR_MT610201CA.AdjudicatedInvoiceElementGroup"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="FICR_MT610201CA.AdjudicatedInvoiceElementComponent">
       <xs:sequence>
          <xs:group maxOccurs="1" minOccurs="1"

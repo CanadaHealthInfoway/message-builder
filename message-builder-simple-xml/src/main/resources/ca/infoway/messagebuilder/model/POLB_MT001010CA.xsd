@@ -197,41 +197,13 @@
                      type="chi:CodedType"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="POLB_MT001010CA.RequestChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="10" minOccurs="0" name="specimenSpecimen"
-                     type="chi:COCT_MT080100CA.Specimen"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="recordTargetPatient"
-                     type="chi:COCT_MT050007CA.Patient"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="performerAssignedEntity"
-                     type="chi:COCT_MT090508CA.AssignedEntity"/>
-         <xs:element maxOccurs="5" minOccurs="0" name="callBackContactAssignedEntity"
-                     type="chi:COCT_MT090108CA.AssignedEntity"/>
-         <xs:group maxOccurs="20" minOccurs="0" ref="chi:POLB_MT001010CA.RecipientChoice"/>
-         <xs:element maxOccurs="3" minOccurs="0" name="verifierAssignedEntity"
-                     type="chi:COCT_MT090102CA.AssignedEntity"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="occurrenceOfActParentPointer"
-                     type="chi:POLB_MT001010CA.ActParentPointer"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="pertinentInformation1OutbreakEvent"
-                     type="chi:POLB_MT001010CA.OutbreakEvent"/>
-         <xs:element maxOccurs="100" minOccurs="0"
-                     name="pertinentInformation2SupportingClinicalObservationEvent"
-                     type="chi:POLB_MT001010CA.SupportingClinicalObservationEvent"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="component1ReferralRedirectIndicator"
-                     type="chi:POLB_MT001010CA.ReferralRedirectIndicator"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="component2RequestSortKey"
-                     type="chi:POLB_MT001010CA.RequestSortKey"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="component3LabInitiatedOrderIndicator"
-                     type="chi:POLB_MT001010CA.LabInitiatedOrderIndicator"/>
-         <xs:group maxOccurs="100" minOccurs="0" ref="chi:POLB_MT001010CA.RequestChoice"/>
-         <xs:element maxOccurs="100" minOccurs="0" name="subjectOf1Annotation"
-                     type="chi:COCT_MT120600CA.Annotation"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf2ControlActEvent"
-                     type="chi:COCT_MT130001CA.ControlActEvent"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="componentOfPriorActRequest"
-                     type="chi:POLB_MT001010CA.PriorActRequest"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="POLB_MT001010CA.RequestChoice">
+      <xs:choice>
+         <xs:element name="placerGroup" type="chi:POLB_MT001010CA.PlacerGroup"/>
+         <xs:element name="batteryOrPanel" type="chi:POLB_MT001010CA.BatteryRequest"/>
+         <xs:element name="observationRequest" type="chi:POLB_MT001010CA.ObservationRequest"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="POLB_MT001010CA.RequestSortKey">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="sortKeyText" type="xs:string"/>

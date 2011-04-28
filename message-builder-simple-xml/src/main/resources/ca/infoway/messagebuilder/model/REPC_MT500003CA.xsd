@@ -26,10 +26,13 @@
            elementFormDefault="qualified"
            targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
    <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
    <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911107CA.xsd"/>
    <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="REPC_MT500003CA.ActRequest">
       <xs:sequence>
@@ -55,6 +58,11 @@
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="diagnosisType" type="chi:CodedType"/>
          <xs:element maxOccurs="1" minOccurs="1" name="diagnosisCode" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT500003CA.Discharger">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="REPC_MT500003CA.NewPatientCareProvisionEvent">
@@ -86,11 +94,14 @@
          <xs:element maxOccurs="100" minOccurs="1" name="subject2Patient"
                      type="chi:COCT_MT050202CA.Patient"/>
          <xs:element maxOccurs="1" minOccurs="1" name="numberOfPatients" type="xs:integer"/>
-         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
-         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="responsibleParty"
+                     type="chi:REPC_MT500003CA.ResponsibleParty"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="performer"
+                     type="chi:REPC_MT500003CA.Performer3"/>
          <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT500003CA.Author3"/>
          <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
-         <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="discharger"
+                     type="chi:REPC_MT500003CA.Discharger"/>
          <xs:element maxOccurs="1" minOccurs="1" name="custodian1AssignedDevice"
                      type="chi:COCT_MT090310CA.AssignedDevice"/>
          <xs:element maxOccurs="1" minOccurs="1" name="custodian2ServiceDeliveryLocation"
@@ -112,6 +123,16 @@
                      type="chi:REPC_MT500003CA.ControlActEvent"/>
          <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent"
                      type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT500003CA.Performer3">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT500003CA.ResponsibleParty">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="REPC_MT500003CA.Specimen">

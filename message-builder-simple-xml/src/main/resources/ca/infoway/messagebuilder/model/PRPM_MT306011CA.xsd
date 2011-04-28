@@ -204,14 +204,13 @@
          <xs:group maxOccurs="1" minOccurs="1" ref="chi:PRPM_MT306011CA.RoleChoice"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="PRPM_MT306011CA.RoleChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="100" minOccurs="0" name="responsibleForPrivilege"
-                     type="chi:PRPM_MT306011CA.Privilege"/>
-         <xs:element maxOccurs="100" minOccurs="0" name="relatedTo"
-                     type="chi:PRPM_MT306011CA.RelatedTo"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="PRPM_MT306011CA.RoleChoice">
+      <xs:choice>
+         <xs:element name="healthcareProvider" type="chi:PRPM_MT306011CA.HealthCareProvider"/>
+         <xs:element name="assignedEntity" type="chi:PRPM_MT306011CA.AssignedEntity"/>
+         <xs:element name="qualifiedEntity" type="chi:PRPM_MT306011CA.QualifiedEntity"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="PRPM_MT306011CA.SequelTo">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="0" name="orderOfInformRequests" type="xs:integer"/>

@@ -30,9 +30,9 @@
    <xs:include schemaLocation="POLB_MT004000CA.xsd"/>
    <xs:group name="POLB_MT004999CA.ResultInstancePayloadChoice">
       <xs:choice>
-         <xs:element name="resultChoice" type="chi:POLB_MT004000CA.ResultChoice"/>
+         <xs:group ref="chi:POLB_MT004000CA.ResultChoice"/>
          <xs:element name="reportHeader" type="chi:POLB_MT004100CA.ObservationReport"/>
-         <xs:element name="observationChoice" type="chi:POLB_MT004200CA.ObservationChoice"/>
+         <xs:group ref="chi:POLB_MT004200CA.ObservationChoice"/>
       </xs:choice>
    </xs:group>
 </xs:schema>

@@ -68,6 +68,9 @@ class SimplifiableRelationship implements Named, Fingerprintable {
 	public boolean isAssociation() {
 		return this.relationship.isAssociation();
 	}
+	public boolean isChoice() {
+		return this.relationship.isChoice();
+	}
 	public boolean isTemplateType() {
 		return this.relationship.isTemplateRelationship();
 	}

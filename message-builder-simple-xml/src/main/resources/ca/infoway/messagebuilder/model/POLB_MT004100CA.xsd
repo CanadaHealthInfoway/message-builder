@@ -114,7 +114,7 @@
    <xs:group name="POLB_MT004100CA.FulfillmentChoice">
       <xs:choice>
          <xs:element name="actRequest" type="chi:POLB_MT004100CA.ActRequest"/>
-         <xs:element name="requestChoice" type="chi:POLB_MT001001CA.RequestChoice"/>
+         <xs:group ref="chi:POLB_MT001001CA.RequestChoice"/>
          <xs:element name="fillerOrder" type="chi:POLB_MT004100CA.ActPromise"/>
       </xs:choice>
    </xs:group>

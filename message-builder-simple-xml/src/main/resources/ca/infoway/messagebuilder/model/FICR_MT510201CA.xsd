@@ -30,14 +30,14 @@
    <xs:include schemaLocation="COCT_MT260020CA.xsd"/>
    <xs:include schemaLocation="COCT_MT680000CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-   <xs:complexType name="FICR_MT510201CA.AdjudicatedInvoiceElementChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="0" name="reference1Allowable"
-                     type="chi:FICR_MT510201CA.Allowable"/>
-         <xs:element maxOccurs="1" minOccurs="0" name="outcomeOfAdjudicationResult"
-                     type="chi:FICR_MT510201CA.AdjudicationResult"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="FICR_MT510201CA.AdjudicatedInvoiceElementChoice">
+      <xs:choice>
+         <xs:element name="adjudicatedInvoiceElementGroup"
+                     type="chi:FICR_MT510201CA.AdjudicatedInvoiceElementGroup"/>
+         <xs:element name="adjudicatedInvoiceElementDetail"
+                     type="chi:FICR_MT510201CA.AdjudicatedInvoiceElementDetail"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="FICR_MT510201CA.AdjudicatedInvoiceElementDetail">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="0" name="reference1Allowable"
@@ -75,12 +75,14 @@
                      type="chi:FICR_MT510201CA.Component"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="FICR_MT510201CA.AdjudicationCodeChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="10" minOccurs="0" name="triggerAdjudicationResultRequiredAct"
-                     type="chi:FICR_MT510201CA.AdjudicationResultRequiredAct"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="FICR_MT510201CA.AdjudicationCodeChoice">
+      <xs:choice>
+         <xs:element name="adjudicationResultReason"
+                     type="chi:FICR_MT510201CA.AdjudicationResultReason"/>
+         <xs:element name="adjudicationResultInformation"
+                     type="chi:FICR_MT510201CA.AdjudicationResultInformation"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="FICR_MT510201CA.AdjudicationResult">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="adjudicationResultsAdjudicationCode"

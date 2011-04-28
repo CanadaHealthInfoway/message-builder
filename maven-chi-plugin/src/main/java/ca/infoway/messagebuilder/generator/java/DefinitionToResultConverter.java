@@ -78,7 +78,7 @@ class DefinitionToResultConverter {
 		return result;
 	}
 
-	private void reassessInlining(TypeAnalysisResult result) {
+	protected void reassessInlining(TypeAnalysisResult result) {
 		for (SimplifiableType parentType : this.definitions.getAllTypes()) {
 			if (parentType.isMerged()) {
 				for (SimplifiableRelationship relationship : parentType.getRelationships()) {
@@ -559,6 +559,14 @@ class DefinitionToResultConverter {
 			result.add(argumentType);
 		}
 		return result;
+	}
+	
+	protected SimplifiableDefinitions getDefinitions() {
+		return this.definitions;
+	}
+	
+	protected OutputUI getOutputUI() {
+		return this.outputUI;
 	}
 	
 }

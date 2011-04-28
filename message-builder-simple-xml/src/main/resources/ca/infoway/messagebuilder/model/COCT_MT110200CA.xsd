@@ -37,11 +37,12 @@
                      type="chi:COCT_MT110200CA.PayeeRole"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="COCT_MT110200CA.PayeeChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="1" name="asRole" type="chi:COCT_MT110200CA.Role"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="COCT_MT110200CA.PayeeChoice">
+      <xs:choice>
+         <xs:element name="payeeOrganisation" type="chi:COCT_MT110200CA.PayeeOrganization"/>
+         <xs:element name="payeePerson" type="chi:COCT_MT110200CA.PayeePerson"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="COCT_MT110200CA.PayeeOrganization">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="asRole" type="chi:COCT_MT110200CA.Role"/>

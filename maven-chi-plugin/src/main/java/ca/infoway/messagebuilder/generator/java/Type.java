@@ -148,11 +148,6 @@ public class Type implements RenderedType, NamedType {
 		this.isAbstract = isAbstract;
 	}
 
-	public boolean isInterface() {
-		// TODO - TM - hmmmm, but abtract types can have relationships
-		return this.isAbstract &&  this.relationships.isEmpty();
-	}
-
 	public Set<RenderedType> getInterfaceTypes() {
 		return this.interfaceTypes;
 	}

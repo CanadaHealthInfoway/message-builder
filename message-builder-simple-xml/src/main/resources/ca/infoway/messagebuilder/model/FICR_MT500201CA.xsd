@@ -28,6 +28,7 @@
    <xs:include schemaLocation="COCT_MT110101CA.xsd"/>
    <xs:include schemaLocation="COCT_MT110200CA.xsd"/>
    <xs:include schemaLocation="COCT_MT680000CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT280001CA.xsd"/>
    <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
    <xs:complexType name="FICR_MT500201CA.CarrierRole">
       <xs:sequence>
@@ -108,11 +109,12 @@
                      type="chi:EncapsulatedDocumentType"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="FICR_MT500201CA.InvoiceElementChoice">
-      <xs:sequence>
-         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT280001CA.A_BillableActChoice"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="FICR_MT500201CA.InvoiceElementChoice">
+      <xs:choice>
+         <xs:element name="invoiceElementDetail" type="chi:FICR_MT500201CA.InvoiceElementDetail"/>
+         <xs:element name="invoiceElementGroup" type="chi:FICR_MT500201CA.InvoiceElementGroup"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="FICR_MT500201CA.InvoiceElementComponent">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="0" name="invoiceElementSequenceNumber"

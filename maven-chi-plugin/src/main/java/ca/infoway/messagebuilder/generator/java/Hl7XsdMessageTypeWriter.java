@@ -63,9 +63,9 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	protected String getTypeName() {
 		return this.complexTypePackage.getName().getName();
 	}
-
+	
 	private void addTypeToSchema(Element schema, Type type) throws GeneratorException {
-		if (!type.isInterface()) {
+		if (!type.isAbstract()) {
 			writeRelationships(schema, type);
 		} else {
 			writeChoices(schema, type);
@@ -82,11 +82,10 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 		for (RenderedType childTypeName : type.getChildTypes()) {
 
 			Type childType = getType(childTypeName.getTypeName());
-			
 			if (childType == null) {
 				throw new IllegalStateException("Could not find childType '" + childTypeName.getTypeName()
 						+ "' in result types");
-			} else if (childType.isInterface()) {
+			} else if (childType.isAbstract()) {
 				Element propertyElement = document.createElement("xs:group");
 				choice.appendChild(propertyElement);
 				propertyElement.setAttribute("ref", "chi:" + childTypeName.getTypeName());
@@ -144,6 +143,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 			propertyElement.setAttribute("ref", "chi:" + typeName.getName());
 			propertyElement.setAttribute("minOccurs", "" + relationship.getCardinality().getMin());
 			propertyElement.setAttribute("maxOccurs", "" + relationship.getCardinality().getMax());
+			addInclude(schema, typeName.getParent().getName());
 			return propertyElement;
 		} else {
 			Element propertyElement =  document.createElement("xs:element");

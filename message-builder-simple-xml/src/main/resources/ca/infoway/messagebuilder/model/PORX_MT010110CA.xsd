@@ -25,6 +25,7 @@
            xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
            elementFormDefault="qualified"
            targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
    <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
    <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
    <xs:include schemaLocation="COCT_MT141007CA.xsd"/>

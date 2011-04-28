@@ -41,12 +41,14 @@
                      type="chi:COCT_MT680000CA.PolicyOrAccount"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="COCT_MT680000CA.AdjudicatedInvoiceElementChoice">
-      <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="1" name="outcomeOf"
-                     type="chi:COCT_MT680000CA.AdjudicatedResultOutcome"/>
-      </xs:sequence>
-   </xs:complexType>
+   <xs:group name="COCT_MT680000CA.AdjudicatedInvoiceElementChoice">
+      <xs:choice>
+         <xs:element name="invoiceElementDetail"
+                     type="chi:COCT_MT680000CA.AdjudicatedInvoiceElementDetail"/>
+         <xs:element name="adjudicatedInvoiceElementGroup"
+                     type="chi:COCT_MT680000CA.AdjudicatedInvoiceElementGroup"/>
+      </xs:choice>
+   </xs:group>
    <xs:complexType name="COCT_MT680000CA.AdjudicatedInvoiceElementDetail">
       <xs:sequence>
          <xs:element maxOccurs="1" minOccurs="1" name="outcomeOf"
