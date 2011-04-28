@@ -426,7 +426,8 @@
 				    <mb_revision>$LastChangedRevision$</mb_revision>
 				</properties>
 			        <excludes>
-			            <exclude>etc/license.txt</exclude>
+			            <exclude>**/LICENSE.txt</exclude>
+				    <exclude>**/other_valid_license.txt</exclude>
 			            <exclude>pomCHI.xml</exclude>
 			            <exclude>**/*.xls</exclude>
 			            <exclude>**/*.svg</exclude>
