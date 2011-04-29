@@ -403,9 +403,9 @@
 			    <groupId>com.mycila.maven-license-plugin</groupId>
 			    <artifactId>maven-license-plugin</artifactId>
 			    <configuration>
-				<header>${basedir}/etc/LICENSE.txt</header>
+				<header>${basedir}/etc/LICENSE_main.txt</header>
 				<validHeaders>
-				    <validHeader>${basedir}/etc/other_valid_license.txt</validHeader>
+				    <validHeader>${basedir}/etc/LICENSE.txt</validHeader>
 				</validHeaders>
 				<aggregate>true</aggregate>
 				<mapping>
@@ -416,8 +416,8 @@
 				    <year>2011</year>
 				</properties>
 			        <excludes>
+			            <exclude>**/LICENSE_main.txt</exclude>
 			            <exclude>**/LICENSE.txt</exclude>
-				    <exclude>**/other_valid_license.txt</exclude>
 			            <exclude>pomCHI.xml</exclude>
 			            <exclude>**/*.xls</exclude>
 			            <exclude>**/*.svg</exclude>
