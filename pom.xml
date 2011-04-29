@@ -365,7 +365,7 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.5.1</version>
 			</plugin>
-<!--
+<!-- uncomment this plugin when running the assembly descriptors to package the project
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -414,9 +414,6 @@
 				</mapping>
 				<properties>
 				    <year>2011</year>
-				    <mb_author>$LastChangedBy$</mb_author>
-				    <mb_lastmodified>$LastChangedDate$</mb_lastmodified>
-				    <mb_revision>$LastChangedRevision$</mb_revision>
 				</properties>
 			        <excludes>
 			            <exclude>**/LICENSE.txt</exclude>
