@@ -6,16 +6,19 @@
 	<packaging>pom</packaging>
 	<version>1.1.2cr4-SNAPSHOT</version>
 	<name>Message Builder Parent</name>
+<!--
 	<issueManagement>
 		<system>Bugzilla</system>
 		<url>http://bugs.intware.com/bugzilla/</url>
 	</issueManagement>
-
+-->
+<!--
 	<ciManagement>
 		<system>Hudson</system>
 		<url>http://ci.intelliware.ca:8085/hudson/job/message-builder/</url>
 	</ciManagement>
-
+-->
+<!--
 	<developers>
 		<developer>
 			<name>BC Holmes</name>
@@ -46,7 +49,8 @@
 			<timezone>-5</timezone>
 		</developer>
 	</developers>
-	<distributionManagement>
+-->
+<!--	<distributionManagement>
 		<repository>
 			<id>intelliwareReleases</id>
 			<name>Intelliware Releases</name>
@@ -59,12 +63,23 @@
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
+-->
+<!--
 	<scm>
 		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
 		</connection>
 		<developerConnection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
 		</developerConnection>
 		<url>http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		</url>
+	</scm>
+-->
+        <scm>
+		<connection>scm:svn:https://svn_mbt:svn_mbt_2011@svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		</connection>
+		<developerConnection>scm:svn:https://svn_mbt:svn_mbt_2011@svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		</developerConnection>
+		<url>https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</url>
 	</scm>
 	<modules>
