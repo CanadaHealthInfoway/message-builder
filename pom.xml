@@ -405,7 +405,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
-					<tagBase>http://subversion.intelliware.ca/rep/infoway/tags
+					<tagBase>https://svn_mbt:svn_mbt_2011@svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags
 					</tagBase>
 					<!-- See http://jira.codehaus.org/browse/SCM-406 -->
 					<remoteTagging>true</remoteTagging>
