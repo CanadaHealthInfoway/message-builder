@@ -3,14 +3,14 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.1.2cr4-SNAPSHOT</version>
+		<version>1.2</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>maven-chi-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>maven-chi-plugin</name>
-	<version>1.1.2cr4-SNAPSHOT</version>
+	<version>1.2</version>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
