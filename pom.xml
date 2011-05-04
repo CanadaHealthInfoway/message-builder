@@ -50,7 +50,7 @@
 		</developer>
 	</developers>
 -->
-<!--	<distributionManagement>
+	<distributionManagement>
 		<repository>
 			<id>intelliwareReleases</id>
 			<name>Intelliware Releases</name>
@@ -63,7 +63,6 @@
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
--->
 <!--
 	<scm>
 		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
