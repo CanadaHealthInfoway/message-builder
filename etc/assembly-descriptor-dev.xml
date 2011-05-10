@@ -111,13 +111,7 @@
     </moduleSets>
 
     <fileSets>
-      <fileSet>
-        <directory>target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>core/src</outputDirectory>
-      </fileSet>
+      <!-- Javadocs -->
       <fileSet>
         <directory>target</directory>
         <includes>
@@ -125,7 +119,6 @@
         </includes>
         <outputDirectory>core/javadoc</outputDirectory>
       </fileSet>
-
       <fileSet>
         <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
         <includes>
@@ -176,6 +169,14 @@
           <outputDirectory>simple-xml/javadoc</outputDirectory>
       </fileSet>
 
+      <!-- Sources -->
+      <fileSet>
+        <directory>target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+        <outputDirectory>core/src</outputDirectory>
+      </fileSet>
       <fileSet>
         <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
         <includes>
@@ -226,6 +227,53 @@
           <outputDirectory>simple-xml/sources</outputDirectory>
       </fileSet>
 
+      <!-- install files -->
+      <fileSet>
+        <directory>etc/install</directory>
+        <includes>
+          <include>*.bat</include>
+          <include>*.sh</include>
+        </includes>
+        <outputDirectory>core/bin</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>etc/install</directory>
+        <includes>
+          <include>*-pom.xml</include>
+        </includes>
+	<filtered>true</filtered>
+        <outputDirectory>core/bin/pom</outputDirectory>
+      </fileSet>
     </fileSets>
+
+    <files>
+      <!-- poms -->
+      <file>
+        <source>pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-core/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-core-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-util/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-util-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-xml/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-xml-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-terminology/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-terminology-pom.xml</destName>
+      </file>
+    </files>
+	
 </assembly>
 

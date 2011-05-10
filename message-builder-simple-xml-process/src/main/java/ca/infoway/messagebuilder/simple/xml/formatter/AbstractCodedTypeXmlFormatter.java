@@ -34,13 +34,11 @@ import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
 
-import com.google.common.base.Supplier;
-
 public abstract class AbstractCodedTypeXmlFormatter extends AbstractSimpleXmlFormatter {
 	
-	private final Supplier<CD> cdSupplier;
+	private final TypeSupplier<CD> cdSupplier;
 
-	protected AbstractCodedTypeXmlFormatter(FormatterConfiguration configuration, Supplier<CD> cdSupplier) {
+	protected AbstractCodedTypeXmlFormatter(FormatterConfiguration configuration, TypeSupplier<CD> cdSupplier) {
 		super(configuration);
 		this.cdSupplier = cdSupplier;
 	}

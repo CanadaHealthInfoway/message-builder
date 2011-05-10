@@ -20,28 +20,12 @@
 
 package ca.infoway.messagebuilder.simple.xml.formatter;
 
-import org.w3c.dom.Element;
+interface TypeSupplier<T> {
 
-import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.simple.xml.FormatContext;
-import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
-import ca.infoway.messagebuilder.simple.xml.FormatterException;
-
-public class CodedValueXmlFormatter extends AbstractCodedTypeXmlFormatter {
-	
-	public CodedValueXmlFormatter(FormatterConfiguration configuration) {
-		super(configuration, new TypeSupplier<CD>() {
-			public CD get() {
-				return new CVImpl();
-			}
-		});
-	}
-	
-	@Override
-	public CV format(FormatContext formatContext, Element value) throws FormatterException {
-		return (CV) super.format(formatContext, value);
-	}
-
+  /**
+   * Retrieves an instance (possibly new) of the appropriate type.
+   *
+   * @return an instance of the appropriate type
+   */
+	public T get();
 }
