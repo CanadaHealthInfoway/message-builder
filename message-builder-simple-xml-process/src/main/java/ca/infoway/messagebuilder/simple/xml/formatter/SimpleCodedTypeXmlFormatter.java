@@ -31,12 +31,10 @@ import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
 
-import com.google.common.base.Supplier;
-
 public class SimpleCodedTypeXmlFormatter extends AbstractCodedTypeXmlFormatter {
 	
 	protected SimpleCodedTypeXmlFormatter(FormatterConfiguration configuration) {
-		super(configuration, new Supplier<CD>() {
+		super(configuration, new TypeSupplier<CD>() {
 			public CD get() {
 				return new CSImpl();
 			}
