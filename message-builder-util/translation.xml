@@ -52,7 +52,7 @@
 			</args>
 		</sharpen>
 
-		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/util/Main" overwrite="true">
+		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-util/Main" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/main/java">
 		    <include name="**/*.cs" />
 		  </fileset>
