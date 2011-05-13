@@ -52,20 +52,20 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.1.3-SNAPSHOT.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.jar"/>				
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
 		</sharpen>
 		
-		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/xml/Main" overwrite="true">
+		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-xml/Main" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/main/java">
 		    <include name="**/*.cs" />
 		  </fileset>
 		</copy>
 
 
-		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/xml/Test" overwrite="true">
+		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-xml/Test" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/test/java">
 		    <include name="**/*.cs" />
 		  </fileset>
