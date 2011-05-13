@@ -68,9 +68,9 @@
 
 		<exec dir="${sharpen.workspace.dir}" executable="svn">
 		  <arg line="co"/>
-		  <arg line="--username svn"/>
-		  <arg line="--password svn"/>
-		  <arg line="http://subversion.intelliware.ca/rep/infoway/trunk/mbtdotnet"/>
+		  <arg line="--username tmcgrady"/>
+		  <arg line="--password 287uiQA"/>
+		  <arg line="https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk"/>
 		</exec>
 		
 		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Main" overwrite="true">
