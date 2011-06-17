@@ -39,7 +39,9 @@ import ca.infoway.messagebuilder.xml.Documentation;
 public class TypeDocumentation {
 	
 	public abstract class BaseWriter extends Indenter {
-	    public String renderText(int indentLevel, String... text) {
+	    private static final int MAX_DOC_SIZE = 10000;
+
+		public String renderText(int indentLevel, String... text) {
 	        StringBuilder buffer = new StringBuilder();
 	        if (!isEmpty(text)) {
 	            indent(indentLevel, buffer);
@@ -51,11 +53,15 @@ public class TypeDocumentation {
 	                    appendBlankDocLine(indentLevel, buffer);
 	                }
 	            }
+	            if (buffer.length() > MAX_DOC_SIZE) {
+	            	buffer.setLength(MAX_DOC_SIZE);
+	                appendBlankDocLine(indentLevel, buffer);
+	            	buffer.append("... [rest of documentation truncated due to excessive length]");
+	            }
 	            buffer.append(SystemUtils.LINE_SEPARATOR);
 	            indent(indentLevel, buffer);
 	            buffer.append(" */");
 	            buffer.append(SystemUtils.LINE_SEPARATOR);
-	            
 	        }
 	        return buffer.toString();
 	    }
