@@ -96,6 +96,7 @@
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</module>
 		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r01</module>
 		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r02</module>
+		<module>message-builder-hl7v3-release-sk_cerx_v01_r04_3</module>
 		<module>message-builder-release-newfoundland</module>
 		<module>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</module>
     		<module>message-builder-simple-xml-process-web</module>
@@ -474,6 +475,7 @@
 			</plugins>
 		</pluginManagement>
 		<resources>
+<!--
 		  <resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
@@ -482,6 +484,7 @@
 		      <include>RELEASE-NOTES.txt</include>
 		    </includes>
 		  </resource>
+-->
 		  <resource>
 		    <directory>${basedir}/src/main/resources</directory>
 		    <filtering>false</filtering>
