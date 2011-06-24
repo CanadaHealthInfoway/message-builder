@@ -27,6 +27,9 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
@@ -37,6 +40,40 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("rootString", "extensionString");
         Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
+        assertEquals("map size", 2, result.size());
+        
+        assertKeyValuePairInMap(result, "root", "rootString");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+    }
+
+	@Test
+    public void testGetAttributeNameValuePairsAllFilledInIncludingSpecializationType() throws Exception {
+        Identifier ii = new Identifier("rootString", "extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_BUS);
+        
+        FormatContextImpl context = new FormatContextImpl("name", "II.BUS_AND_VER", null, true, SpecificationVersion.R02_04_02);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 4, result.size());
+        
+        assertKeyValuePairInMap(result, "root", "rootString");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+        assertKeyValuePairInMap(result, "specializationType", "II.BUS");
+        assertKeyValuePairInMap(result, "use", "BUS");
+    }
+
+	@Test
+    public void testGetAttributeNameValuePairsAllFilledInExcludingSpecializationTypeForCeRx() throws Exception {
+        Identifier ii = new Identifier("rootString", "extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II);
+        
+        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V01R04_3);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");

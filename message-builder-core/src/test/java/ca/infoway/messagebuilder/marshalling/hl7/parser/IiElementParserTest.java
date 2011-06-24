@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -59,7 +60,11 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type) {
-		return ParserContextImpl.create(type, null, SpecificationVersion.V02R02.getVersionLiteral(), ConformanceLevel.OPTIONAL);
+		return createContext(type, SpecificationVersion.V02R02);
+	}
+
+	private ParseContext createContext(String type, SpecificationVersion version) {
+		return ParserContextImpl.create(type, null, version.getVersionLiteral(), ConformanceLevel.OPTIONAL);
 	}
 
 	@Test
@@ -110,6 +115,33 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something extra=\"extraValue\" root=\"rootValue\" extension=\"extensionValue\" />");
 		II ii = (II) new IiElementParser().parse(createContext("II.BUS"), node, this.result);
 		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");
+	}
+	
+	@Test
+	public void testParseInvalidMissingSpecializationType() throws Exception {
+		Node node = createNode("<something root=\"rootValue\" extension=\"extensionValue\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II"), node, this.result);
+		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");
+		assertFalse(this.result.isValid());
+		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, this.result.getHl7Errors().get(0).getHl7ErrorCode());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("specializationType"));
+	}
+	
+	@Test
+	public void testParseValidMissingSpecializationTypeForCeRx() throws Exception {
+		Node node = createNode("<something root=\"rootValue\" extension=\"extensionValue\" />");
+		ParseContext context = createContext("II", SpecificationVersion.V01R04_3);
+		II ii = (II) new IiElementParser().parse(context, node, this.result);
+		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");
+		assertTrue(this.result.isValid());
+	}
+	
+	@Test
+	public void testParseValidSpecializationType() throws Exception {
+		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" specializationType=\"II.BUS\" use=\"BUS\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II"), node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.2.3.4", "extensionValue");
+		assertTrue(this.result.isValid());
 	}
 	
 	private void assertResultAsExpected(Identifier result, String rootValue, String extensionValue) {

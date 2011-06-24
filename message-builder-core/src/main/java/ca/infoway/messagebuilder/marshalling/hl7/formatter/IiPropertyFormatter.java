@@ -88,11 +88,13 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     @Override
     Map<String,String> getAttributeNameValuePairs(FormatContext context, Identifier ii, BareANY bareAny) throws ModelToXmlTransformationException {
     	
-    	Map<String, String> result = new HashMap<String, String>();
+        VersionNumber version = context.getVersion();
+
+        Map<String, String> result = new HashMap<String, String>();
     	result.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
 
     	String type = context.getType();
-    	if (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type)) {
+    	if (!isCeRx(version) && (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type))) {
     		StandardDataType dataType = bareAny.getDataType();
     		if (!abstractIiTypes.contains(dataType)) {
     			// only set a specialization type if we have a concrete II type supplied
@@ -111,10 +113,9 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
             result.put("use", "VER");
         } else if (StringUtils.equals(II_PUBLIC.getType(), type)) {
             result.put("displayable", "true");
-            VersionNumber version = context.getVersion();
             if (version != null) {
 				String versionLiteral = version.getVersionLiteral();
-				if (!StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral()) &&
+				if (!isCeRx(version) &&
 						!StringUtils.equals(versionLiteral, "V02R01") &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.V02R02.getVersionLiteral()) &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral())) {
@@ -125,4 +126,8 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         
         return result;
     }
+
+	private boolean isCeRx(VersionNumber version) {
+		return version != null && StringUtils.equals(version.getVersionLiteral(), SpecificationVersion.V01R04_3.getVersionLiteral());
+	}
 }

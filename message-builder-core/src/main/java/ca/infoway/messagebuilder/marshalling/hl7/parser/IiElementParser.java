@@ -30,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -124,20 +125,25 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 
 	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		String type = context.getType();
-		
-		if (II_BUS_AND_VER.equals(type) || II.equals(type)) {
-			String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
-			if (specializationType == null) {
-				xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
-			} else if (II_BUS_AND_VER.equals(type) && !II_BUS.equals(specializationType) && !II_VER.equals(specializationType)) {
-			    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-			    		"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element)
-			    		+ ")"));
-			} else {
-				type = specializationType;
+		if (!isCeRx(context)) {
+			if (II_BUS_AND_VER.equals(type) || II.equals(type)) {
+				String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
+				if (specializationType == null) {
+					xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
+				} else if (II_BUS_AND_VER.equals(type) && !II_BUS.equals(specializationType) && !II_VER.equals(specializationType)) {
+				    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+				    		"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element)
+				    		+ ")"));
+				} else {
+					type = specializationType;
+				}
 			}
 		}
 		return type;
+	}
+
+	private boolean isCeRx(ParseContext context) {
+		return SpecificationVersion.V01R04_3.getVersionLiteral().equals(context.getVersion());
 	}
 
 	private void validateAttributeEquals(String type, Element element,
