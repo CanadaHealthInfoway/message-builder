@@ -90,9 +90,43 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 			extension.appendChild(sequence);
 			addConcreteFormOfTemplateRelationships(schema, sequence, typeName, argumentTypes);
 			schema.appendChild(complexType);
-		}		
+		} else {
+			if (top){
+				addDefForTypesWithZeroArgs(schema, parentName);
+			}
+		}
 	}
 
+	private void addDefForTypesWithZeroArgs(Element schema, String parentName) {
+		Document document = schema.getOwnerDocument();
+		Element complexType = document.createElement("xs:complexType");
+		complexType.setAttribute("name", getTypeName());
+		Element complexContent = document.createElement("xs:complexContent");
+		Element extension = document.createElement("xs:extension");
+		extension.setAttribute("base", "chi:" + parentName);
+		addInclude(schema, new TypeName(parentName).getParent().getName());
+		Element sequence = document.createElement("xs:sequence");
+		complexType.appendChild(complexContent);
+		complexContent.appendChild(extension);
+		extension.appendChild(sequence);
+		schema.appendChild(complexType);
+	}
+	
+	private void addArgumentChoices(Element schema, String parentName, ArgumentType argumentType, BaseRelationship relationship) {
+		Document document = schema.getOwnerDocument();
+		Element complexType = document.createElement("xs:complexType");
+		complexType.setAttribute("name", parentName);
+		addInclude(schema, new TypeName(parentName).getParent().getName());
+		Element sequence = document.createElement("xs:sequence");
+		complexType.appendChild(sequence);
+		addArgumentChoiceRef(schema, sequence, 
+			argumentType.getArgument().getTemplateParameterName(),
+			argumentType.getArgument().getName(),
+			argumentType.getArgumentTypes().isEmpty(), 
+			relationship);
+		schema.appendChild(complexType);
+	}
+	
 	private void addConcreteFormOfTemplateRelationships(Element schema, Element sequence, TypeName typeName, List<ArgumentType> argumentTypes) {
 		
 		Type type = getType(typeName);
@@ -111,7 +145,10 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 						argumentType.getArgument().getName(), 
 						argumentType.getArgumentTypes(), 
 						argumentType.getType(), 
-						false);				
+						false);
+				if (argumentType.getArgument().isChoice()) {
+					this.addArgumentChoices(schema, argumentType.getArgument().getName(), argumentType, relationship);
+				}
 			} else if (((Association) relationship).getAssociationType().isTemplateType()) {
 			// Complicated Case
 				Association association = (Association) relationship;
@@ -150,6 +187,22 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 			addInclude(schema, new TypeName(typeName).getParent().getName());
 		} else {
 			element.setAttribute("type", "chi:" + getTypeName() + "." + typeName);
+
 		}
+	}
+	
+	private void addArgumentChoiceRef(Element schema, Element sequence, String name, String typeName, boolean include, BaseRelationship relationship) {
+		Document document = sequence.getOwnerDocument();
+		Element element = document.createElement("xs:group");
+		element.setAttribute("maxOccurs", "" + relationship.getCardinality().getMax());
+		element.setAttribute("minOccurs", "" + relationship.getCardinality().getMin());
+		sequence.appendChild(element);
+		if (include) {
+			element.setAttribute("ref", "chi:" + typeName);
+			addInclude(schema, new TypeName(typeName).getParent().getName());
+		} else {
+			element.setAttribute("ref", "chi:" + getTypeName() + "." + typeName);
+		}
+
 	}
 }

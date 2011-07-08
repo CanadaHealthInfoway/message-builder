@@ -64,6 +64,14 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
     private File messageSet;
 	
     /**
+     * The location of the xsdSimpleDataTypes.xsd file
+     * 
+     * @parameter
+     * @required
+     */
+   //private File xsdSimpleDataTypeLocation;
+    
+    /**
      * <p>Perform the generation.  Read in the message set, and create
      * the corresponding Java classes.
      * 
@@ -73,11 +81,12 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
      *      - if the generator failed
      */
 	public void execute() throws MojoExecutionException, MojoFailureException {
-
 		if (this.messageSet == null || !this.messageSet.exists() || this.messageSet.isDirectory()) {
 			throw new MojoFailureException("Please specify a valid message set.");
 		} else if (this.xsdSourceFolder == null || !this.xsdSourceFolder.exists() || !this.xsdSourceFolder.isDirectory()) {
 			throw new MojoFailureException("Please specify a valid xsd source folder.");
+	//	} else if (this.xsdSimpleDataTypeLocation == null || !this.xsdSimpleDataTypeLocation.exists()) {
+			//throw new MojoFailureException("Please specify a valid file for the simple data types");
 		} else {
 			generate();
 		}
@@ -88,6 +97,7 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
 			IntermediateToXsdGenerator generator = new IntermediateToXsdGenerator(new OutputUIImpl(this), 
 					this.xsdSourceFolder, this.basePackageName);
+			//XsdMessageWriterUtil.setXsdSDFolder(this.xsdSimpleDataTypeLocation);
 			generator.generate(messages);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);

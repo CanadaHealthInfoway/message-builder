@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
+import java.io.File;
 import java.util.Collection;
 
 import org.apache.commons.lang.WordUtils;
@@ -39,12 +40,14 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	private final NameTranslator translator;
 	private XsdTypeConverter converter = new XsdTypeConverter();
 	private final NamingPolicy namingPolicy;
+	private final File simpleXsdDataTypeFolder;
 	
 	public Hl7XsdMessageTypeWriter(ComplexTypePackage complexTypePackage, NameTranslator translator, TypeAnalysisResult typeResults, NamingPolicy namingPolicy) {
 		super(typeResults);
 		this.translator = translator;
 		this.complexTypePackage = complexTypePackage;
 		this.namingPolicy = namingPolicy;
+		this.simpleXsdDataTypeFolder = XsdMessageWriterUtil.getXsdSDFolder();
 	}
 
 	@Override
@@ -56,7 +59,13 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	}
 
 	private void addSimpleDataTypesInclude(Document document, Element schema) {
-		addInclude(schema, "../../../../../../classes/simpleDataTypes");
+		String path = "";
+		if (this.simpleXsdDataTypeFolder == null) {
+			path = "../../../../../../classes/simpleDataTypes";
+		} else {
+			path = this.simpleXsdDataTypeFolder.getAbsolutePath();
+		}
+		addInclude(schema, path);
 	}
 	
 	@Override
@@ -70,6 +79,8 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 		} else {
 			writeChoices(schema, type);
 		}
+		XsdMessageWriterUtil seqReorderer = new XsdMessageWriterUtil();
+		seqReorderer.reorderSchema(schema);
 	}
 
 	private void writeChoices(Element schema, Type type) {
@@ -93,11 +104,11 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 				Element propertyElement = document.createElement("xs:element");
 				choice.appendChild(propertyElement);
 				String name = WordUtils.uncapitalize(this.translator.getClassNameWithoutPackage(childTypeName.getTypeName()));
-				propertyElement.setAttribute("name", name);
+				propertyElement.setAttribute("name", type.getTypeName().getParent().getName() + "." + childTypeName.getTypeName().getParent().getName() + "." + name);
 				propertyElement.setAttribute("type", "chi:" + childTypeName.getTypeName());
 			}
 			addInclude(schema, childTypeName.getTypeName().getParent().getName());
-		}
+		}	
 		schema.appendChild(choices);
 	}
 
@@ -154,7 +165,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 				addSimpleDataTypesInclude(document, schema);
 			} else {
 				TypeName typeName = new TypeName(relationship.getType());
-				propertyElement.setAttribute("type", "chi:" + typeName.getName());
+				propertyElement.setAttribute("type", "chi:" + typeName.getName());				
 				addInclude(schema, typeName.getParent().getName());
 			}
 			propertyElement.setAttribute("minOccurs", "" + relationship.getCardinality().getMin());
