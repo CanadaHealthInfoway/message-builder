@@ -3,9 +3,9 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.poiz_mt060140ca.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.poiz_mt060140ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.quqi_mt020000ca.TriggerEventBean;
 
 
 

@@ -3,13 +3,13 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
 
 
 
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
-public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pcs_cerx_v01_r04_3.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
+public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
     private static final long serialVersionUID = 20110714L;
 
