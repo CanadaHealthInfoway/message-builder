@@ -3,6 +3,6 @@ Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
 Built-By: administrator
 Build-Jdk: 1.6.0_24
-MBT-Model-Version-Numbers: sk_cerx_v01_r04_3
+MBT-Model-Version-Numbers: V01R04_3_SK
 MBT-Message-Set: /messageSet_sk_cerx_v01_r04_3.xml
 
