@@ -25,13 +25,13 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.repc_mt000002ca.ReportedReactionBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000002ca.ReportedReactionBean;
 
 
 
 @Hl7PartTypeMapping({"REPC_IN000004CA"})
 public class RecordAdverseReactionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
 
 }

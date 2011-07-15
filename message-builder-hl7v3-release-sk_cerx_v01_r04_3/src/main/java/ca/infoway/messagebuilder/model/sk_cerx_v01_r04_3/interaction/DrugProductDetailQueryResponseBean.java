@@ -23,16 +23,16 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.DrugQueryParametersBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.pome_mt010040ca.MedicationBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.DrugQueryParametersBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.pome_mt010040ca.MedicationBean;
 
 
 
 @Hl7PartTypeMapping({"POME_IN010060CA"})
 public class DrugProductDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
 
 }

@@ -29,57 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>RoutingInstructionLines</p>
- * 
- * <p>MCCI_MT000300CA.AttentionLine: Routing Instruction Lines</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Provides 
- * information on how the message should be routed within the 
- * receiving application.</p></p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
- * direction of messages within complex applications. This 
- * association is optional because not all applications will 
- * require this level of routing.</p></p>
- * 
- * <p>MCCI_MT102001CA.AttentionLine: Routing Instruction Lines</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Provides 
- * information on how the message should be routed within the 
- * receiving application.</p></p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
- * direction of messages within complex applications. This 
- * association is optional because not all applications will 
- * require this level of routing.</p></p>
- * 
- * <p>MCCI_MT000100CA.AttentionLine: Routing Instruction Lines</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Provides 
- * information on how the message should be routed within the 
- * receiving application.</p></p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
- * direction of messages within complex applications. This 
- * association is optional because not all applications will 
- * require this level of routing.</p></p>
- * 
- * <p>MCCI_MT000200CA.AttentionLine: Routing Instruction Lines</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Provides 
- * information on how the message should be routed within the 
- * receiving application.</p></p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
- * direction of messages within complex applications. This 
- * association is optional because not all applications will 
- * require this level of routing.</p></p>
- */
 @Hl7PartTypeMapping({"MCCI_MT000100CA.AttentionLine","MCCI_MT000200CA.AttentionLine","MCCI_MT000300CA.AttentionLine","MCCI_MT102001CA.AttentionLine"})
 public class RoutingInstructionLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
     private ST routingType = new STImpl();
     private ST routingName = new STImpl();
 
@@ -88,14 +41,6 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>RoutingType</p>
      * 
      * <p>A:Routing Type</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">A particular 
-     * type of guidance for routing the message.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
-     * categorization of routing types or support for multiple 
-     * route pieces. Mandatory to understand the routing 
-     * information.</p></p>
      */
     @Hl7XmlMapping({"keyWordText"})
     public String getRoutingType() {
@@ -110,12 +55,6 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>RoutingName</p>
      * 
      * <p>B:Routing Name</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Indicates 
-     * the specific value used to route the item.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
-     * internal routing within an application.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public String getRoutingName() {

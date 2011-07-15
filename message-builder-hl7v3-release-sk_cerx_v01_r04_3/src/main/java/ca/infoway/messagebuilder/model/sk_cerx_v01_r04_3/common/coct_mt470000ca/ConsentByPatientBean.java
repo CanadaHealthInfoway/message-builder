@@ -26,21 +26,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Consent By Patient</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Indicates 
- * that the consent or keyword has been provided by the patient 
- * themselves (rather than a representative.)</p></p>
- * 
- * <p><p 
- * xmlns:html="http://www.w3.org/1999/xhtml">Distinguishing 
- * whether consent is granted by the patient or a 
- * representative can be important for audit purposes.</p></p>
- */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Patient"})
-public class ConsentByPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.Consenter {
+public class ConsentByPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
 
 }

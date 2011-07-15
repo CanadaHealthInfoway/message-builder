@@ -35,26 +35,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Device Product</p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">A medical 
- * device product intended to be supplied and/or used by a 
- * patient. Encompasses supplies, aids, etc.</p></p>
- * 
- * <p><p 
- * xmlns:html="http://www.w3.org/1999/xhtml">A_BillablePharmacyDispense</p></p>
- * 
- * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
- * devices to be clearly described and referenced. Also allows 
- * searching for and examining information about devices that 
- * can be or are being used by a patient.</p></p>
- */
 @Hl7PartTypeMapping({"COCT_MT141007CA.ManufacturedProduct"})
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
     private CV deviceCode = new CVImpl();
     private ST deviceName = new STImpl();
     private ST deviceDescription = new STImpl();
@@ -63,15 +48,6 @@ public class DeviceProductBean extends MessagePartBean {
 
     /**
      * <p>A:Device Code</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">An 
-     * identifier for a type of device.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Used to 
-     * ensure clear communication by uniquely identifying a 
-     * particular device product when prescribing or dispensing. 
-     * This attribute is only marked as 'populated' because some 
-     * devices will not have codes associated with them.</p></p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
     public ClinicalDeviceEntity getDeviceCode() {
@@ -84,19 +60,6 @@ public class DeviceProductBean extends MessagePartBean {
 
     /**
      * <p>B:Device Name</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">The name 
-     * assigned to a type of device.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Names are 
-     * used for human reference communication, to allow selection 
-     * from dropdowns and for local searching. If a code is 
-     * available, the name acts as a cross-check. If the code is 
-     * not available the name acts as the primary identifier. The 
-     * attribute is therefore mandatory.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">First 
-     * occurrence is preferred for display.</p></p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/name"})
     public String getDeviceName() {
@@ -109,16 +72,6 @@ public class DeviceProductBean extends MessagePartBean {
 
     /**
      * <p>C:Device Description</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">A free form 
-     * textual description of a device and its characteristics 
-     * (e.g. size, shape, etc.). This is used when additional 
-     * information must be conveyed that is not apparent by just 
-     * specifying code and name.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Allows 
-     * description of characteristics of the device not necessarily 
-     * conveyed by the code or name.</p></p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
     public String getDeviceDescription() {
@@ -131,26 +84,6 @@ public class DeviceProductBean extends MessagePartBean {
 
     /**
      * <p>F:Device Package Quantity</p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">The quantity 
-     * of devices contained in the package given or to be given to 
-     * the patient.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Sometimes 
-     * ordering and dispensing is by package rather than individual 
-     * units, and package is important in calculating total amount 
-     * supplied.</p><p 
-     * xmlns:html="http://www.w3.org/1999/xhtml">Attribute is 
-     * marked as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p></p>
-     * 
-     * <p><p xmlns:html="http://www.w3.org/1999/xhtml">Sometimes 
-     * ordering and dispensing is by package rather than individual 
-     * units, and package is important in calculating total amount 
-     * supplied.</p><p 
-     * xmlns:html="http://www.w3.org/1999/xhtml">Attribute is 
-     * marked as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p></p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
     public Integer getDevicePackageQuantity() {

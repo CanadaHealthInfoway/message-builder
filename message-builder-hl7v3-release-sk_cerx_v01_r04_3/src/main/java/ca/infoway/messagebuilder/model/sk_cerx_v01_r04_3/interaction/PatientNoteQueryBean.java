@@ -23,15 +23,15 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.comt_mt300002ca.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.comt_mt300002ca.GenericQueryParametersBean;
 
 
 
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
 public class PatientNoteQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110714L;
+    private static final long serialVersionUID = 20110715L;
 
 }
