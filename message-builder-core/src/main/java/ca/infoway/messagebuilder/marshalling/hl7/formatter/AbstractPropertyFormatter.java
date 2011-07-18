@@ -85,6 +85,6 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 		String typeForXml = type.replaceAll("\\>", "");
 		typeForXml = typeForXml.replaceAll("\\<", "_");
 		return typeForXml;
-	}		
-	
+	}
+
 }

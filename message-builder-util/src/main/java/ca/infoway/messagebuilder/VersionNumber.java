@@ -31,4 +31,6 @@ public interface VersionNumber {
 	 * @return the version literal
 	 */
 	public String getVersionLiteral();
+	
+	public VersionNumber getBaseVersion();
 }

@@ -53,7 +53,7 @@ public class EnElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParserContextImpl.create("EN", EntityName.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("EN", EntityName.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

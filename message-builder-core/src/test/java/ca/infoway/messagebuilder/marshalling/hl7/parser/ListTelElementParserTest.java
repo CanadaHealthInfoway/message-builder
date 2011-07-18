@@ -41,7 +41,7 @@ public class ListTelElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><telecom value=\"tel:+1-519-555-2345;ext=12345\"/>" + 
 				                    "<telecom value=\"tel:+1-416-555-2345;ext=12345\"/></top>");
 
-		BareANY result = new ListElementParser().parse(ParserContextImpl.create("LIST<TEL>", null, SpecificationVersion.V02R02.getVersionLiteral(), null), 
+		BareANY result = new ListElementParser().parse(ParserContextImpl.create("LIST<TEL>", null, SpecificationVersion.V02R02, null), 
 				asList(node.getChildNodes()), null);
 		List<TelecommunicationAddress> list = ((LIST<TEL,TelecommunicationAddress>) result).rawList();
 		assertNotNull("null", list);

@@ -84,7 +84,7 @@ public class Hl7SourceMapperIndicatorTest {
 	public void shouldMapIndicatorAttributesWhenPresent() throws Exception {
 		this.document = getSourceDocument(XML_TRUE);
 		this.element = this.document.getDocumentElement();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009.getVersionLiteral(), this.document, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009, this.document, this.service);
 		this.partSource = rootSource.createPartSource(createRelationship("POIZ_MT030050CA.InFulfillmentOf"), element);
 
 		InFulfillmentOfBean teal = (InFulfillmentOfBean) new Hl7SourceMapper().mapPartSourceToTeal(this.partSource, null);
@@ -102,7 +102,7 @@ public class Hl7SourceMapperIndicatorTest {
 		
 		this.document = getSourceDocument(XML_FALSE);
 		this.element = this.document.getDocumentElement();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009.getVersionLiteral(), this.document, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009, this.document, this.service);
 		this.partSource = rootSource.createPartSource(createRelationship("POIZ_MT030050CA.InFulfillmentOf"), element);
 
 		InFulfillmentOfBean teal = (InFulfillmentOfBean) new Hl7SourceMapper().mapPartSourceToTeal(this.partSource, null);
@@ -119,7 +119,7 @@ public class Hl7SourceMapperIndicatorTest {
 	public void shouldHandleIndicatorAttributesWhenNullFlavor() throws Exception {
 		this.document = getSourceDocument(XML_NULL);
 		this.element = this.document.getDocumentElement();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009.getVersionLiteral(), this.document, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_MR2009, this.document, this.service);
 		this.partSource = rootSource.createPartSource(createRelationship("POIZ_MT030050CA.InFulfillmentOf"), element);
 
 		InFulfillmentOfBean teal = (InFulfillmentOfBean) new Hl7SourceMapper().mapPartSourceToTeal(this.partSource, null);

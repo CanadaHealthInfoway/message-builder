@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 @RunWith(JMock.class)
 public class PathBuilderTest {
 
-	private static final String VERSION = SpecificationVersion.R02_04_02.getVersionLiteral();
+	private static final SpecificationVersion VERSION = SpecificationVersion.R02_04_02;
 	
 	private Mockery jmock = new Mockery();
 	private MessageDefinitionService mockService;

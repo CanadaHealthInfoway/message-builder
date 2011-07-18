@@ -27,6 +27,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
@@ -64,7 +65,7 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, SpecificationVersion version) {
-		return ParserContextImpl.create(type, null, version.getVersionLiteral(), ConformanceLevel.OPTIONAL);
+		return ParserContextImpl.create(type, null, version, ConformanceLevel.OPTIONAL);
 	}
 
 	@Test
@@ -116,9 +117,11 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		II ii = (II) new IiElementParser().parse(createContext("II.BUS"), node, this.result);
 		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");
 	}
-	
+
+	@Ignore
 	@Test
 	public void testParseInvalidMissingSpecializationType() throws Exception {
+		// TM/BM - decided that validating for SpecializationType for the II case caused CHI and users more grief than benefit
 		Node node = createNode("<something root=\"rootValue\" extension=\"extensionValue\" />");
 		II ii = (II) new IiElementParser().parse(createContext("II"), node, this.result);
 		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");

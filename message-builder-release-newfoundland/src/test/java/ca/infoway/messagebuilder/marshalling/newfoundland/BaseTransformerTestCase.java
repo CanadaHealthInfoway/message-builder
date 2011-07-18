@@ -117,14 +117,14 @@ public abstract class BaseTransformerTestCase {
 
 	protected void assertPassesMessageValidation(String xml, SpecificationVersion version) throws Exception {
 		Document document = this.factory.createFromString(xml);
-		MessageValidatorResult result = validate(version.getVersionLiteral(), document);
+		MessageValidatorResult result = validate(version, document);
 
 		for (Hl7Error error : result.getHl7Errors()) {
 			Assert.fail(error.toString());
 		}
 	}
 
-	private MessageValidatorResult validate(String version, Document document) {
+	private MessageValidatorResult validate(VersionNumber version, Document document) {
 		return new MessageValidatorImpl().validate(document, version);
 	}
 

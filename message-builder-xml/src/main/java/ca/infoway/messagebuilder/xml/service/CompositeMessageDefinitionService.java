@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -56,7 +57,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	 * @param type - the type name
 	 * @return the interaction
 	 */
-	public Interaction getInteraction(String version, String type) {
+	public Interaction getInteraction(VersionNumber version, String type) {
 		Interaction result = null;
 		for (MessageDefinitionService service : this.services) {
 			Interaction temp = service.getInteraction(version, type);
@@ -74,7 +75,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	 * @param type - the type name
 	 * @return the message part
 	 */
-	public MessagePart getMessagePart(String version, String type) {
+	public MessagePart getMessagePart(VersionNumber version, String type) {
 		MessagePart result = null;
 		for (MessageDefinitionService service : this.services) {
 			MessagePart temp = service.getMessagePart(version, type);
@@ -112,7 +113,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	 * @param version - the version
 	 * @return the interactions
 	 */
-	public List<Interaction> getAllInteractions(String version) {
+	public List<Interaction> getAllInteractions(VersionNumber version) {
 		Map<String, Interaction> interactionsMap = new TreeMap<String, Interaction>(); // sort by key 
 		for (MessageDefinitionService service : this.services) {
 			List<Interaction> allInteractions = service.getAllInteractions(version);
@@ -155,7 +156,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	 * @param version - the version
 	 * @return - the message parts
 	 */
-	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, String version) {
+	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, VersionNumber version) {
 		if (interaction != null) {
 			for (MessageDefinitionService service : this.services) {
 				Interaction foundInteraction = service.getInteraction(version, interaction.getName());
@@ -172,7 +173,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	 * @param version - the version
 	 * @return - the message parts
 	 */			
-	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version) {
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -183,7 +184,7 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<MessagePart> getAllRootMessageParts(String version) {
+	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
 }

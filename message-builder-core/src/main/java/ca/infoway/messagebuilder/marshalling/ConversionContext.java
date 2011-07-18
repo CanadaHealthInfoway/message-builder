@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -32,11 +33,11 @@ import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
 class ConversionContext {
 	private final MessageDefinitionService service;
-	private final String version;
+	private final VersionNumber version;
 	private final Interaction interaction;
 	
 	ConversionContext(MessageDefinitionService service,
-			String version, String messageId) {
+			VersionNumber version, String messageId) {
 		this.service = service;
 		this.version = version;
 		this.interaction = service.getInteraction(version, messageId);
@@ -46,7 +47,7 @@ class ConversionContext {
 		return this.service;
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return this.version;
 	}
 

@@ -52,7 +52,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

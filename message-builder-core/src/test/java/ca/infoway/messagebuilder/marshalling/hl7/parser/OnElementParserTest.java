@@ -52,7 +52,7 @@ public class OnElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("ON", OrganizationName.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("ON", OrganizationName.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

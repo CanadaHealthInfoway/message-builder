@@ -35,4 +35,8 @@ public class MockVersionNumber implements VersionNumber {
 	public String getVersionLiteral() {
 		return this.literal;
 	}
+
+	public VersionNumber getBaseVersion() {
+		return this;
+	}
 }

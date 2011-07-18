@@ -22,15 +22,16 @@ package ca.infoway.messagebuilder.xml.validator;
 
 import org.w3c.dom.Document;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.visitor.MessageWalker;
 
 public class Validator {
 
 	private final MessageWalker messageWalker;
-	private final String version;
+	private final VersionNumber version;
 
-	public Validator(MessageDefinitionService service, Document message, String version) {
+	public Validator(MessageDefinitionService service, Document message, VersionNumber version) {
 		this.version = version;
 		this.messageWalker = new MessageWalker(service, message, version);
 	}

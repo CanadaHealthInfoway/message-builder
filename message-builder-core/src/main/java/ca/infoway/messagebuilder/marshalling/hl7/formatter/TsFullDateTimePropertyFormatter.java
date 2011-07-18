@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.util.Date;
 
-import org.apache.commons.lang.StringUtils;
-
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -54,10 +52,9 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     protected String getValue(Date date, VersionNumber version) {
     	String datePattern = DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
     	if (version != null) {
-			String versionLiteral = version.getVersionLiteral();
-			if (isV01R04_3(versionLiteral)) {
+			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
 				datePattern = DATE_FORMAT_YYYYMMDDHHMMSS;
-			} else if (StringUtils.equals(versionLiteral, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral())) {
+			} else if (SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, version)) {
 				// FIXME - TM - temp code to allow transformation tests to pass; 
 				//            - these tests should be modified to work with the default date format
 				datePattern = DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
@@ -69,7 +66,4 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		return DateFormatUtil.format(date, datePattern);
     }
 
-	private boolean isV01R04_3(String versionLiteral) {
-		return StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral());
-	}
 }

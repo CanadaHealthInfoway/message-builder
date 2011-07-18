@@ -23,11 +23,17 @@ package ca.infoway.messagebuilder.marshalling.hl7;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.VersionNumber;
+
 public class MessageTypeKey {
 	
 	private final String version;
 	private final String messageId;
 
+	public MessageTypeKey(VersionNumber version, String messageId) {
+		this(version.getVersionLiteral(), messageId);
+	}
+	
 	public MessageTypeKey(String version, String messageId) {
 		this.version = version;
 		this.messageId = messageId;

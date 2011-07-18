@@ -61,7 +61,7 @@ public class Hl7SourceMapperAssociationTest {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		this.service = new MockTestCaseMessageDefinitionService();
 		this.document = getSourceDocument();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND.getVersionLiteral(), document, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, document, this.service);
 		this.element = this.document.getDocumentElement();
 		this.partSource = rootSource.createPartSource(createRelationship("MCCI_MT002100CA.Sender"), element);
 	}

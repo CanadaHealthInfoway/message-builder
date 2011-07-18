@@ -37,6 +37,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Typed;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
@@ -63,9 +64,9 @@ public class ValidatingVisitor implements MessageVisitor {
 	private static final String ITS_VERSION = "ITSVersion";
 	private static final String HL7_NAMESPACE = "urn:hl7-org:v3";
 	private final XmlToModelResult result = new XmlToModelResult();
-	private final String version;
+	private final VersionNumber version;
 	
-	public ValidatingVisitor(String version) {
+	public ValidatingVisitor(VersionNumber version) {
 		this.version = version;
 	}
 	

@@ -27,6 +27,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.platform.ClassUtil;
 import ca.infoway.messagebuilder.platform.GenericClassUtil;
 import ca.infoway.messagebuilder.xml.Argument;
@@ -72,7 +73,7 @@ public class Instantiator {
 	 * @param type - the part type
 	 * @return an instance of a bean that represents the part type
 	 */
-	public Object instantiateMessagePartBean(String version, String type, Interaction interaction) {
+	public Object instantiateMessagePartBean(VersionNumber version, String type, Interaction interaction) {
 		try {
 			Class<?> partClass = MessageBeanRegistry.getInstance().getMessagePartClass(version, type);
 			if (partClass == null) {
@@ -91,7 +92,7 @@ public class Instantiator {
 		} 
 	}
 	
-	private Map<String,Class<?>> createParameterMap(Interaction interaction, String version) {
+	private Map<String,Class<?>> createParameterMap(Interaction interaction, VersionNumber version) {
 		Map<String,Class<?>> map = new HashMap<String,Class<?>>();
 		createParameterMap(version, map, interaction.getArguments());
 		
@@ -99,7 +100,7 @@ public class Instantiator {
 		return map;
 	}
 
-	private void createParameterMap(String version, Map<String, Class<?>> map,
+	private void createParameterMap(VersionNumber version, Map<String, Class<?>> map,
 			List<Argument> arguments) {
 		for (Argument argument : arguments) {
 			map.put(TemplateVariableNameUtil.transform(argument.getTemplateParameterName()), 
@@ -108,17 +109,17 @@ public class Instantiator {
 		}
 	}
 
-	private MarshallingException createMarshallingException(String errorPrefix, String version, String type){
+	private MarshallingException createMarshallingException(String errorPrefix, VersionNumber version, String type){
 		return createMarshallingException(errorPrefix, version, type, null);
 	}
 
-	private MarshallingException createMarshallingException(String errorPrefix, String version, String type, Exception e){
+	private MarshallingException createMarshallingException(String errorPrefix, VersionNumber version, String type, Exception e){
 		StringBuilder builder = new StringBuilder();
 		builder.append(errorPrefix);
 		builder.append(" Bean for Hl7 Part Type:");
 		builder.append(type);
 		builder.append(" for version ");
-		builder.append(version.toString());
+		builder.append(version == null ? null : version.getVersionLiteral());
 		log.debug(builder.toString());
 		if (e == null) {
 			return new MarshallingException(builder.toString());

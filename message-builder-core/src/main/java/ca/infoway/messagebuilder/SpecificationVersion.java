@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -53,17 +55,22 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public static final SpecificationVersion NEWFOUNDLAND = new SpecificationVersion("NEWFOUNDLAND", "Newfoundland and Labrador (mixed V01R04.3 / V02R02)");
 	
-	public static final SpecificationVersion NA = new SpecificationVersion("NA", "", true);
+	public static final SpecificationVersion NA = new SpecificationVersion("NA", "", null, true);
 	
 	private final String description;
 	private final boolean unknown;
+	private final VersionNumber baseVersion;
 	
 	private SpecificationVersion(String name, String description) {
-		this(name, description, false);
+		this(name, description, null);
 	}
-	private SpecificationVersion(String name, String description, boolean unknown) {
+	private SpecificationVersion(String name, String description, VersionNumber baseVersion) {
+		this(name, description, baseVersion, false);
+	}
+	private SpecificationVersion(String name, String description, VersionNumber baseVersion, boolean unknown) {
 		super(name);
 		this.description = description;
+		this.baseVersion = baseVersion;
 		this.unknown = unknown;
 	}
 
@@ -91,5 +98,23 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public String getDescription() {
 		return this.description;
 	}
+	
+	/**
+	 * <p>Gets the base version, if applicable. Since all versions in this
+	 * enum are base versions, this method just returns itself.
+	 *
+	 * @return the description
+	 */
+	public VersionNumber getBaseVersion() {
+		return this.baseVersion == null ? this : this.baseVersion;
+	}
 
+	public static boolean isVersion(VersionNumber desiredVersion, VersionNumber versionToCheck) {
+		String actualVersion = (versionToCheck == null ? null : versionToCheck.getVersionLiteral());
+		String baseVersion = (versionToCheck == null ? null : (versionToCheck.getBaseVersion() == null ? null : versionToCheck.getBaseVersion().getVersionLiteral()));
+		String desiredVersionLiteral = (desiredVersion == null ? null : desiredVersion.getVersionLiteral());
+		
+		return StringUtils.equals(actualVersion, desiredVersionLiteral) || StringUtils.equals(baseVersion, desiredVersionLiteral);
+	}
+	
 }

@@ -48,7 +48,7 @@ public class AdElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParserContextImpl.create("AD", PostalAddress.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("AD", PostalAddress.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

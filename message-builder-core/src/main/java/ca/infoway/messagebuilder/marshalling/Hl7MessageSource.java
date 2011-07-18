@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
@@ -40,7 +41,7 @@ class Hl7MessageSource implements Hl7Source {
 	private final XmlToModelResult result; 
 	private MessagePart messagePart;
 
-	public Hl7MessageSource(String version, Document document, MessageDefinitionService service) {
+	public Hl7MessageSource(VersionNumber version, Document document, MessageDefinitionService service) {
 		this.document = document;
 		this.context = new ConversionContext(service, version, getMessageIdFromDocument());
 		this.result = new XmlToModelResult();
@@ -69,7 +70,7 @@ class Hl7MessageSource implements Hl7Source {
 		return this.document.getDocumentElement();
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return this.context.getVersion();
 	}
 

@@ -31,6 +31,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -43,9 +44,9 @@ public class MessageWalker {
 	
 	private final MessageDefinitionService service;
 	private final Document message;
-	private final String version;
+	private final VersionNumber version;
 
-	public MessageWalker(MessageDefinitionService service, Document message, String version) {
+	public MessageWalker(MessageDefinitionService service, Document message, VersionNumber version) {
 		this.service = service;
 		this.message = message;
 		this.version = version;
@@ -183,7 +184,7 @@ public class MessageWalker {
 	}
 
 	private Interaction getInteraction(Document message) {
-		return this.service.getInteraction(version, getInteractionId(message));
+		return this.service.getInteraction(this.version, getInteractionId(message));
 	}
 
 	private String getInteractionId(Document message) {

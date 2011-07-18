@@ -55,7 +55,7 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("TEL", TelecommunicationAddress.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("TEL", TelecommunicationAddress.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

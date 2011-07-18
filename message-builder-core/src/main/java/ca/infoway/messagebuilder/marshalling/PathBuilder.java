@@ -27,6 +27,7 @@ import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
@@ -36,9 +37,9 @@ class PathBuilder {
 	private final Log log = LogFactory.getLog(PathBuilder.class);
 
 	private final MessageDefinitionService service;
-	private final String version;
+	private final VersionNumber version;
 
-	PathBuilder(MessageDefinitionService service, String version) {
+	PathBuilder(MessageDefinitionService service, VersionNumber version) {
 		this.service = service;
 		this.version = version;
 	}

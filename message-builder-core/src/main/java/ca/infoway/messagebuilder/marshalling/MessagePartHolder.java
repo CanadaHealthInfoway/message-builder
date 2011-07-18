@@ -27,6 +27,7 @@ import java.util.List;
 
 import org.apache.commons.lang.builder.CompareToBuilder;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -51,11 +52,11 @@ class MessagePartHolder {
 	private final List<Relationship> allRelationships;
 	private Comparator<Relationship> relationshipComparator = new RelationshipComparator();
 
-	MessagePartHolder(MessageDefinitionService service, String version, String superTypeName) {
+	MessagePartHolder(MessageDefinitionService service, VersionNumber version, String superTypeName) {
 		this(service, version, superTypeName, Arrays.asList(new TypeName(superTypeName)));
 	}
 	
-	MessagePartHolder(MessageDefinitionService service, String version, String typeName, List<TypeName> typeHierarchy) {
+	MessagePartHolder(MessageDefinitionService service, VersionNumber version, String typeName, List<TypeName> typeHierarchy) {
 		this.messagePart = service.getMessagePart(version, typeName);
 		this.allRelationships = mergeRelationships(service, version, typeHierarchy);
 		// FIXME - TM - relationships should be sorted in a particular order; hold off on this until discuss with Mario
@@ -70,7 +71,7 @@ class MessagePartHolder {
 	}
 
 	private List<Relationship> mergeRelationships(MessageDefinitionService service,
-			String version, List<TypeName> typeHierarchy) {
+			VersionNumber version, List<TypeName> typeHierarchy) {
 		List<Relationship> mergedRelationships = new ArrayList<Relationship>(); 
 		for (TypeName type : typeHierarchy) {
 			MessagePart part = service.getMessagePart(version, type.getName());

@@ -53,7 +53,7 @@ public class ValidatingVisitorTest {
 	}
 	
 	public void assertShouldHaveValidationErrorsFor(ConformanceLevel conformanceLevel) throws Exception {
-		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		Relationship relationship = new Relationship();
 		relationship.setName("value");
 		relationship.setConformance(conformanceLevel);
@@ -78,17 +78,17 @@ public class ValidatingVisitorTest {
 		relationship.setType("CS");
 		relationship.setStructural(false);
 		
-		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"completed\"/>")), relationship);
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertTrue(hl7Errors.isEmpty());
 
-		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"new\"/>")), relationship);
 		hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());
 
-		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"completedABC\"/>")), relationship);
 		hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());
@@ -107,7 +107,7 @@ public class ValidatingVisitorTest {
 		relationship.setStructural(false);
 		relationship.setType("BL");
 
-		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"true\"/>")), relationship);
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertTrue(hl7Errors.isEmpty());
@@ -126,7 +126,7 @@ public class ValidatingVisitorTest {
 		relationship.setStructural(false);
 		relationship.setType("INT.POS");
 
-		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"112233\"/>")), relationship);
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertTrue(hl7Errors.isEmpty());
@@ -145,7 +145,7 @@ public class ValidatingVisitorTest {
 		relationship.setStructural(false);
 		relationship.setType("INT.NONNEG");
 
-		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"123\"/>")), relationship);
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());

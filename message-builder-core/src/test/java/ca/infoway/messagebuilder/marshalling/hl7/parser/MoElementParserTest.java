@@ -61,7 +61,7 @@ public class MoElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParserContextImpl.create("MO", Money.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("MO", Money.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 	
 	@Test

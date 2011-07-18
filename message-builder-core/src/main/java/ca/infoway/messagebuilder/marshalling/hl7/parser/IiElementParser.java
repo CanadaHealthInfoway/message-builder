@@ -125,8 +125,8 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 
 	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		String type = context.getType();
-		if (!isCeRx(context)) {
-			if (II_BUS_AND_VER.equals(type) || II.equals(type)) {
+		if (!SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())) {
+			if (II_BUS_AND_VER.equals(type) || II.equals(type)) {   //   || II.equals(type)   ???? if plain II, then probably CeRx... (don't do extra validations)
 				String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
 				if (specializationType == null) {
 					xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
@@ -140,10 +140,6 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 			}
 		}
 		return type;
-	}
-
-	private boolean isCeRx(ParseContext context) {
-		return SpecificationVersion.V01R04_3.getVersionLiteral().equals(context.getVersion());
 	}
 
 	private void validateAttributeEquals(String type, Element element,

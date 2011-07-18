@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -49,7 +50,7 @@ class TrivialContext implements ParseContext {
 		return null;
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return null;
 	}
 

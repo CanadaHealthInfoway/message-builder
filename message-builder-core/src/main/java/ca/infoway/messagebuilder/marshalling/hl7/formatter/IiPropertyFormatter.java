@@ -94,7 +94,8 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     	result.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
 
     	String type = context.getType();
-    	if (!isCeRx(version) && (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type))) {
+    	if (!SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version) 
+    			&& (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type))) {
     		StandardDataType dataType = bareAny.getDataType();
     		if (!abstractIiTypes.contains(dataType)) {
     			// only set a specialization type if we have a concrete II type supplied
@@ -114,11 +115,10 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         } else if (StringUtils.equals(II_PUBLIC.getType(), type)) {
             result.put("displayable", "true");
             if (version != null) {
-				String versionLiteral = version.getVersionLiteral();
-				if (!isCeRx(version) &&
-						!StringUtils.equals(versionLiteral, "V02R01") &&
-						!StringUtils.equals(versionLiteral, SpecificationVersion.V02R02.getVersionLiteral()) &&
-						!StringUtils.equals(versionLiteral, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral())) {
+				if (!SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version) &&
+					!SpecificationVersion.isVersion(SpecificationVersion.V02R01, version) &&
+					!SpecificationVersion.isVersion(SpecificationVersion.V02R02, version) && 
+					!SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, version)) {
 					result.put("use", "BUS");
 	            }
             }
@@ -127,7 +127,4 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         return result;
     }
 
-	private boolean isCeRx(VersionNumber version) {
-		return version != null && StringUtils.equals(version.getVersionLiteral(), SpecificationVersion.V01R04_3.getVersionLiteral());
-	}
 }

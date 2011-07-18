@@ -46,7 +46,7 @@ public class MessageBeanTransformerImpl {
 	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
-		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version.getVersionLiteral(), hl7Message, this.service));
+		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, this.service));
 	}
 	
 	// FIXME - TM - should return JavaToXmlResult (every transformation test will require changing)

@@ -162,7 +162,7 @@ public class ValidatorTest {
 			resourceName = "/" + resourceName;
 		}
 		Document document = new DocumentFactory().createFromResource(new ClasspathResource(this.getClass(), resourceName));
-		return new Validator(new Service(), document, SpecificationVersion.V02R02.getVersionLiteral());
+		return new Validator(new Service(), document, SpecificationVersion.V02R02);
 	}
 	
 	// SPD: the sample xmls are not interactions defined in MR2009
@@ -189,6 +189,6 @@ public class ValidatorTest {
 	private Validator createNewValidator(String resourceName) throws IOException, SAXException {
 		Document document = new DocumentFactory().createFromResource(new ClasspathResource(this.getClass(), resourceName));
 		MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
-		return new Validator(messageDefinitionService, document, SpecificationVersion.R02_04_02.getVersionLiteral());
+		return new Validator(messageDefinitionService, document, SpecificationVersion.R02_04_02);
 	}
 }

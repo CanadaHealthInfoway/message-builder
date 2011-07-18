@@ -188,8 +188,7 @@ public class Hl7SourceMapperNullFlavorTest {
 		Document document1 = new DocumentFactory()
 				.createFromString(xml);
 
-		Hl7MessageSource rootPartSource1 = new Hl7MessageSource(version
-				.getVersionLiteral(), new DocumentFactory()
+		Hl7MessageSource rootPartSource1 = new Hl7MessageSource(version, new DocumentFactory()
 				.createFromString("<PRPA_IN101103CA xmlns=\"urn:hl7-org:v3\" />"), this.service);
 
 		Hl7PartSource partSource1 = rootPartSource1.createPartSource(

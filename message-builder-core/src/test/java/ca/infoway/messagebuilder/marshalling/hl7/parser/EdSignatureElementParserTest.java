@@ -45,7 +45,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createEdContext() {
-		return ParserContextImpl.create("ED.SIGNATURE", String.class, SpecificationVersion.V02R02.getVersionLiteral(), null);
+		return ParserContextImpl.create("ED.SIGNATURE", String.class, SpecificationVersion.V02R02, null);
 	}
 
 	@Test

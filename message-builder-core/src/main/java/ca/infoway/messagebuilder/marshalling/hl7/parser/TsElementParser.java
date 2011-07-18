@@ -36,6 +36,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
@@ -63,7 +64,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class TsElementParser extends AbstractSingleElementParser<Date> {
 	
 	private final Map<StandardDataType, List<String>> formats;
-	private final Map<String, Map<StandardDataType, List<String>>> versionFormatExceptions;
+	private final Map<VersionNumber, Map<StandardDataType, List<String>>> versionFormatExceptions;
 	
 	public TsElementParser() {
 		Map<StandardDataType, List<String>> map = new LinkedHashMap<StandardDataType,List<String>>();
@@ -120,9 +121,9 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				"yyyyMM", 
 				"yyyy"));
 		
-		Map<String, Map<StandardDataType, List<String>>> versionMap = new HashMap<String, Map<StandardDataType,List<String>>>();
-		versionMap.put(SpecificationVersion.V02R01.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV02R01));
-		versionMap.put(SpecificationVersion.V01R04_3.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV01R04_3));
+		Map<VersionNumber, Map<StandardDataType, List<String>>> versionMap = new HashMap<VersionNumber, Map<StandardDataType,List<String>>>();
+		versionMap.put(SpecificationVersion.V02R01, Collections.unmodifiableMap(exceptionMapV02R01));
+		versionMap.put(SpecificationVersion.V01R04_3, Collections.unmodifiableMap(exceptionMapV01R04_3));
 
 		this.versionFormatExceptions = Collections.unmodifiableMap(versionMap);
 	}
@@ -219,6 +220,9 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		StandardDataType standardDataType = StandardDataType.getByTypeName(context);		
 
 		Map<StandardDataType, List<String>> exceptionMap = this.versionFormatExceptions.get(context == null ? null : context.getVersion());
+		if (exceptionMap == null) {
+			exceptionMap = this.versionFormatExceptions.get(context == null ? null : context.getVersion() == null ? null : context.getVersion().getBaseVersion());
+		}
 
 		List<String> formats = (exceptionMap == null ? null : exceptionMap.get(standardDataType));
 		if (formats == null) {

@@ -70,7 +70,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	}
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
 		return (Interval<Date>) this.parser.parse(
-				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02.getVersionLiteral(), conformanceLevel), 
+				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, conformanceLevel), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}

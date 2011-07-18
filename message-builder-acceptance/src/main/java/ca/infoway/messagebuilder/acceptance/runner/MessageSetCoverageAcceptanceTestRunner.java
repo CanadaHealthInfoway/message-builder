@@ -73,11 +73,11 @@ public class MessageSetCoverageAcceptanceTestRunner implements AcceptanceTestRun
 
 			// collect all part types for a message set
 			Set<String> messagePartsInMessageSet = new HashSet<String>();
-			List<Interaction> allInteractions = this.messageDefinitionService.getAllInteractions(VERSION.getVersionLiteral());
+			List<Interaction> allInteractions = this.messageDefinitionService.getAllInteractions(VERSION);
 			for (Interaction interaction : allInteractions) {
 				// store interaction part
 				messagePartsInMessageSet.add(interaction.getName());
-				Map<String, MessagePart> allMessageParts = this.messageDefinitionService.getAllMessageParts(interaction, VERSION.getVersionLiteral());
+				Map<String, MessagePart> allMessageParts = this.messageDefinitionService.getAllMessageParts(interaction, VERSION);
 				// store all parts
 				messagePartsInMessageSet.addAll(allMessageParts.keySet());
 			}

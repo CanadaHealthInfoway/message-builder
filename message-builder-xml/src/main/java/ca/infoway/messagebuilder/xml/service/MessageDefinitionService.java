@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -42,14 +43,14 @@ public interface MessageDefinitionService {
 	 * @param type - the type name
 	 * @return the message part
 	 */
-	public MessagePart getMessagePart(String version, String type);
+	public MessagePart getMessagePart(VersionNumber version, String type);
 	/**
 	 * <p>Get an interaction by name and version.
 	 * @param version - the version
 	 * @param type - the type name
 	 * @return the interaction
 	 */
-	public Interaction getInteraction(String version, String type);
+	public Interaction getInteraction(VersionNumber version, String type);
 	/**
 	 * <p>Get all interactions across all versions.
 	 * @param includeDuplicateInteractionsWithChangedBusinessNames 
@@ -62,7 +63,7 @@ public interface MessageDefinitionService {
 	 * @param version - the version
 	 * @return the interactions
 	 */
-	public List<Interaction> getAllInteractions(String version);
+	public List<Interaction> getAllInteractions(VersionNumber version);
 	/**
 	 * <p>Get all the versions known by this service.
 	 * @return the versions
@@ -80,14 +81,14 @@ public interface MessageDefinitionService {
 	 * @param version - the version
 	 * @return - the message parts
 	 */
-	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, String version);
+	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, VersionNumber version);
 	/**
 	 * <p>Get all the message parts that a particular root message part references.
 	 * @param messagePart - the messagePart
 	 * @param version - the version
 	 * @return - the message parts
 	 */			
-	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version);
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, VersionNumber version);
 	/**
 	 * <p>Get all the root message parts for all message sets.
 	 * @return - the message parts
@@ -98,6 +99,6 @@ public interface MessageDefinitionService {
 	 * @param version
 	 * @return - the message parts
 	 */
-	List<MessagePart> getAllRootMessageParts(String version);
+	List<MessagePart> getAllRootMessageParts(VersionNumber version);
 	
 }

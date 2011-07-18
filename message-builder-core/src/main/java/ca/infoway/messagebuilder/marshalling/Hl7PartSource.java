@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -63,7 +64,7 @@ class Hl7PartSource implements Hl7Source {
 		return this.currentElement;
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return this.hl7InteractionSource.getVersion();
 	}
 

@@ -53,7 +53,7 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
 	}
 
 	@Test

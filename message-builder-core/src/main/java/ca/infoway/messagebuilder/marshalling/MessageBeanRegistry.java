@@ -177,7 +177,7 @@ public class MessageBeanRegistry {
 		return this.registry.get(key);
 	}
 
-	MessageTypeKey getType(String version, InteractionBean messageBean) {
+	MessageTypeKey getType(VersionNumber version, InteractionBean messageBean) {
 		if (messageBean != null && messageBean.getClass().isAnnotationPresent(Hl7PartTypeMapping.class)) {
 			return getTypeFromPartTypeMapping(version, messageBean);
 		} else {
@@ -185,7 +185,7 @@ public class MessageBeanRegistry {
 		}
 	}
 
-	private MessageTypeKey getTypeFromPartTypeMapping(String version, InteractionBean messageBean) {
+	private MessageTypeKey getTypeFromPartTypeMapping(VersionNumber version, InteractionBean messageBean) {
 		String[] values = messageBean.getClass().getAnnotation(Hl7PartTypeMapping.class).value();
 		if (values.length >= 1 && StringUtils.isNotBlank(values[0])) {
 			return new MessageTypeKey(version, values[0]);
@@ -194,7 +194,7 @@ public class MessageBeanRegistry {
 		}
 	}
 
-	Class<?> getMessagePartClass(String version, String type) {
+	Class<?> getMessagePartClass(VersionNumber version, String type) {
 		MessageTypeKey key = new MessageTypeKey(version, type);
 		Class<?> result = getMessagePartType(key);
 		if (result == null && type.contains(".")) {
@@ -211,7 +211,7 @@ public class MessageBeanRegistry {
 		return result;
 	}
 	
-	public boolean isMessagePartDefined(String version, String type) {
+	public boolean isMessagePartDefined(VersionNumber version, String type) {
 		return getMessagePartClass(version, type) != null;
 	}
 }

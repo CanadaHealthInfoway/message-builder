@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling;
 
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -35,7 +36,7 @@ interface Hl7Source {
 
 	public Element getCurrentElement();
 
-	public String getVersion();
+	public VersionNumber getVersion();
 
 	public String getType();
 

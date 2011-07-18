@@ -115,7 +115,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 
 	private void assertValidHl7Message(String xml) throws SAXException {
 		Document document = new DocumentFactory().createFromString(xml);
-		MessageValidatorResult result = new MessageValidatorImpl(new MockTestCaseMessageDefinitionService()).validate(document, MOCK_MR2009.getVersionLiteral());
+		MessageValidatorResult result = new MessageValidatorImpl(new MockTestCaseMessageDefinitionService()).validate(document, MOCK_MR2009);
 		for (Hl7Error error : result.getHl7Errors()) {
 			fail(error.toString());
 		}

@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
@@ -38,17 +39,17 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 			boolean includeDuplicateInteractionsWithChangedBusinessNames) {
 		return null;
 	}
-	public List<Interaction> getAllInteractions(String version) {
+	public List<Interaction> getAllInteractions(VersionNumber version) {
 		return null;
 	}
 	public Map<String, MessagePart> getAllMessageParts(
-			Interaction interaction, String version) {
+			Interaction interaction, VersionNumber version) {
 		return null;
 	}
-	public Interaction getInteraction(String version, String type) {
+	public Interaction getInteraction(VersionNumber version, String type) {
 		return this.interactions.get(type);
 	}
-	public MessagePart getMessagePart(String version, String type) {
+	public MessagePart getMessagePart(VersionNumber version, String type) {
 		return this.parts.get(type);
 	}
 	public Set<String> getSupportedVersions() {
@@ -64,13 +65,13 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 		this.interactions.put(type, interaction);
 	}
 	public Map<String, MessagePart> getAllRelatedMessageParts(
-			MessagePart messagePart, String version) {
+			MessagePart messagePart, VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
 	public List<MessagePart> getAllRootMessageParts() {
 		throw new UnsupportedOperationException();
 	}
-	public List<MessagePart> getAllRootMessageParts(String version) {
+	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
 }

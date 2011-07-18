@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.getRetu
 
 import java.lang.reflect.Type;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -32,14 +33,14 @@ import ca.infoway.messagebuilder.xml.Relationship;
 class ParseContextImpl implements ParseContext {
 
 	private final Relationship relationship;
-	private final String version;
+	private final VersionNumber version;
 
-	private ParseContextImpl(Relationship relationship, String version) {
+	private ParseContextImpl(Relationship relationship, VersionNumber version) {
 		this.relationship = relationship;
 		this.version = version;
 	}
 
-	public static ParseContext create(Relationship relationship, String version) {
+	public static ParseContext create(Relationship relationship, VersionNumber version) {
 		return new ParseContextImpl(relationship, version);
 	}
 
@@ -51,7 +52,7 @@ class ParseContextImpl implements ParseContext {
 		return this.relationship.getType();
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return this.version;
 	}
 	public Integer getLength() {

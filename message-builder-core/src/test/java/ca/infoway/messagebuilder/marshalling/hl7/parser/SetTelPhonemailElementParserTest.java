@@ -48,7 +48,7 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02.getVersionLiteral(), ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<TelecommunicationAddress> set = ((SET<TEL,TelecommunicationAddress>) result).rawSet();

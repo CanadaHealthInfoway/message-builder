@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -29,12 +30,12 @@ class ParserContextImpl implements ParseContext {
 
 	private final Type expectedReturnType;
 	private final String type;
-	private final String version;
+	private final VersionNumber version;
 	private final ConformanceLevel conformance;
 	private final CodingStrength strength;
 	private final Integer length;
 
-	private ParserContextImpl(String type, Type returnType, String version, 
+	private ParserContextImpl(String type, Type returnType, VersionNumber version, 
 			ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		this.type = type;
 		this.expectedReturnType = returnType;
@@ -52,7 +53,7 @@ class ParserContextImpl implements ParseContext {
 		return this.expectedReturnType;
 	}
 
-	public String getVersion() {
+	public VersionNumber getVersion() {
 		return this.version;
 	}
 
@@ -60,7 +61,7 @@ class ParserContextImpl implements ParseContext {
 		return this.conformance;
 	}
 
-	static ParseContext create(String type, Type returnType, String version, ConformanceLevel conformance) {
+	static ParseContext create(String type, Type returnType, VersionNumber version, ConformanceLevel conformance) {
 		return new ParserContextImpl(type, returnType, version, conformance, null, null);
 	}
 
@@ -72,7 +73,7 @@ class ParserContextImpl implements ParseContext {
 		return this.length;
 	}
 
-	public static ParseContext create(String type, Type returnType, String version,
+	public static ParseContext create(String type, Type returnType, VersionNumber version,
 			ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		return new ParserContextImpl(type, returnType, version, conformance, strength, length);
 	}

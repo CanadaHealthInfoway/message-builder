@@ -36,7 +36,7 @@ public class MessagePartResolverImpl implements MessagePartResolver {
 		if (fieldValue != null && MessagePartBean.class.isAssignableFrom(fieldValue.getClass())) {
 			return new MessagePartWrapper((MessagePartBean) fieldValue);
 		} else {
-			MessagePartBean part = (MessagePartBean) Instantiator.getInstance().instantiateMessagePartBean(versionNumber.getVersionLiteral(), partType, new Interaction());
+			MessagePartBean part = (MessagePartBean) Instantiator.getInstance().instantiateMessagePartBean(versionNumber, partType, new Interaction());
 			return new MessagePartWrapper(part);
 		}
 	}

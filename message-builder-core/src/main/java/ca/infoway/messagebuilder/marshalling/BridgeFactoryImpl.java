@@ -31,6 +31,7 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -51,12 +52,12 @@ import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 class BridgeFactoryImpl implements BridgeFactory {
 	
 	private final Log log = LogFactory.getLog(BridgeContext.class);
-	private final String version;
+	private final VersionNumber version;
 	private final MessageDefinitionService service;
 
 	public BridgeFactoryImpl(MessageDefinitionService service, VersionNumber version) {
 		this.service = service;
-		this.version = version.getVersionLiteral();
+		this.version = version;
 	}
 	
 	public PartBridge createInteractionBridge(InteractionBean tealBean) {
@@ -304,7 +305,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	}
 
 	private boolean requiresNewfoundlandHack(Relationship relationship) {
-		return this.version.equals(NEWFOUNDLAND.getVersionLiteral()) && relationship.isChoice() && relationship.getType() == null;
+		return SpecificationVersion.isVersion(NEWFOUNDLAND, this.version) && relationship.isChoice() && relationship.getType() == null;
 	}
 	
 	private String[] getTypes(Object value) {

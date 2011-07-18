@@ -60,10 +60,10 @@ public class BridgeFactoryImplTest {
 
 		FindCandidatesCriteria bean = new FindCandidatesCriteria();
 		bean.setBirthDate(new Date());
-		MessagePart part = this.service.getMessagePart(VERSION.getVersionLiteral(), "PRPA_MT101103CA.ParameterList");
+		MessagePart part = this.service.getMessagePart(VERSION, "PRPA_MT101103CA.ParameterList");
 		PartBridge bridge = new BridgeFactoryImpl(this.service, VERSION).createPartBridgeFromBean("", bean, 
-				this.service.getInteraction(VERSION.getVersionLiteral(), "PRPA_IN101103CA"), 
-				new MessagePartHolder(this.service, VERSION.getVersionLiteral(), "PRPA_MT101103CA.ParameterList"));
+				this.service.getInteraction(VERSION, "PRPA_IN101103CA"), 
+				new MessagePartHolder(this.service, VERSION, "PRPA_MT101103CA.ParameterList"));
 	
 		assertEquals("bridge", 6, bridge.getRelationshipBridges().size());
 		BaseRelationshipBridge relationshipBridge = bridge.getRelationshipBridges().get(0);

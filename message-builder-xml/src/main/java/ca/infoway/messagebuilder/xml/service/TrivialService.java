@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -32,34 +33,44 @@ import ca.infoway.messagebuilder.xml.MessagePart;
  */
 class TrivialService implements MessageDefinitionService {
 
-	public Interaction getInteraction(String version, String type) {
-		return null;
-	}
-	public MessagePart getMessagePart(String version, String type) {
-		return null;
-	}
 	public List<Interaction> getAllInteractions(boolean includeDuplicateInteractionsWithChangedBusinessNames) {
 		return null;
 	}
-	public List<Interaction> getAllInteractions(String version) {
+
+	public List<Interaction> getAllInteractions(VersionNumber version) {
 		return null;
 	}
-	public Set<String> getSupportedVersions() {
+
+	public Map<String, MessagePart> getAllMessageParts(Interaction interaction,	VersionNumber version) {
 		return null;
 	}
-	public Map<String, MessagePart> getAllMessageParts(Interaction interaction,	String v1) {
+
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, VersionNumber version) {
 		return null;
 	}
-	public Set<String> getSupportedVersionsForInteraction(String type) {
-		return null;
-	}
-	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version) {
-		return null;
-	}
+
 	public List<MessagePart> getAllRootMessageParts() {
 		return null;
 	}
-	public List<MessagePart> getAllRootMessageParts(String version) {
+
+	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
 		return null;
 	}
+
+	public Interaction getInteraction(VersionNumber version, String type) {
+		return null;
+	}
+
+	public MessagePart getMessagePart(VersionNumber version, String type) {
+		return null;
+	}
+
+	public Set<String> getSupportedVersions() {
+		return null;
+	}
+
+	public Set<String> getSupportedVersionsForInteraction(String type) {
+		return null;
+	}
+
 }
