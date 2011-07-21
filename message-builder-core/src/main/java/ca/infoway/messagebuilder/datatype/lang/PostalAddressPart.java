@@ -143,12 +143,22 @@ public class PostalAddressPart implements Serializable {
 	public String getValue() {
 		if (this.code != null && this.code instanceof Describable) {
 			return ((Describable) this.code).getDescription();
+		} else if (this.value != null) {
+			return this.value;
 		} else if (this.code != null) {
 			return this.code.getCodeValue();
-		} else {
-			return this.value;
-		}
+		} 
+		return null;
 	}
+//	public String getValue() {
+//		if (this.code != null && this.code instanceof Describable) {
+//			return ((Describable) this.code).getDescription();
+//		} else if (this.code != null) {
+//			return this.code.getCodeValue();
+//		} else {
+//			return this.value;
+//		}
+//	}
 	
 	/**
 	 * <p>Sets the part type value (as a string).

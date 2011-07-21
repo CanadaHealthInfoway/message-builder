@@ -23,9 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.DELIMITER;
 import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.HOUSE_NUMBER;
 import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.UNIT_ID;
+import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertContainsSame;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.toSet;
-import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -35,11 +35,13 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.Country;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.Iso3166Alpha2Country;
 import ca.infoway.messagebuilder.domainvalue.basic.State;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
@@ -184,13 +186,41 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	}
 
 	@Test
-	public void testFormatCountry() throws Exception {
+	public void testFormatCountryCode() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Country.CANADA));
 		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
-			+ "  <country>Canada</country>" + LINE_SEPARATOR 
+			+ "  <country code=\"Canada\">Canada</country>" + LINE_SEPARATOR 
+			+ "</address>" + LINE_SEPARATOR;
+
+		assertXmlEquals("country", expectedResult, result);
+		
+	}
+	
+	@Test
+	public void testFormatCountryIsoCode() throws Exception {
+		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Iso3166Alpha2Country.CANADA));
+		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		
+		String expectedResult = 
+			  "<address>" + LINE_SEPARATOR
+				+ "  <country code=\"CA\">CA</country>" + LINE_SEPARATOR 
+			+ "</address>" + LINE_SEPARATOR;
+
+		assertXmlEquals("country", expectedResult, result);
+	}
+	
+	@Test
+	public void testFormatCountryAsCodedString() throws Exception {
+		CodedString<Iso3166Alpha2Country> country = new CodedString<Iso3166Alpha2Country>("Canada", Iso3166Alpha2Country.CANADA);
+		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, country));
+		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		
+		String expectedResult = 
+			  "<address>" + LINE_SEPARATOR
+				+ "  <country code=\"CA\">Canada</country>" + LINE_SEPARATOR 
 			+ "</address>" + LINE_SEPARATOR;
 
 		assertXmlEquals("country", expectedResult, result);
@@ -216,9 +246,9 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 				"1 Bloor St.<delimiter></delimiter>" +
 				"1 Spadina Ave." +
 				"<city>Toronto</city>" +
-				"<state>ON</state>" +
+				"<state code=\"ON\">ON</state>" +
 				"<postalCode>postalCodeValue</postalCode>" +
-				"<country>Canada</country>" +
+				"<country code=\"Canada\">Canada</country>" +
 				"freeformLine1 freeformLine2" +
 				"</address>";
 		

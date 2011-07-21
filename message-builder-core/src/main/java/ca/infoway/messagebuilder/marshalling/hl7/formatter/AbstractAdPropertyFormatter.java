@@ -23,6 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
@@ -67,7 +70,7 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
         String closeTag = "";
 
         if (postalAddressPart.getType() != null) {
-            openTag = "<" + postalAddressPart.getType().getValue() + ">";
+            openTag = "<" + postalAddressPart.getType().getValue() + formatCode(postalAddressPart.getCode()) + ">";
             closeTag = "</" + postalAddressPart.getType().getValue() + ">";
         }
 
@@ -79,7 +82,15 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
         buffer.append(closeTag);
     }
 
-    private Map<String, String> getUseAttributeMap(PostalAddress value) {
+    private String formatCode(Code code) {
+		if (code == null || StringUtils.isEmpty(code.getCodeValue())) {
+			return StringUtils.EMPTY;
+		}
+		String codeValue = XmlStringEscape.escape(code.getCodeValue());
+		return " code=\"" + codeValue + "\"";
+	}
+
+	private Map<String, String> getUseAttributeMap(PostalAddress value) {
         String uses = "";
         for (PostalAddressUse postalAddressUse : value.getUses()) {
             uses += uses.length() == 0 ? "" : " ";
