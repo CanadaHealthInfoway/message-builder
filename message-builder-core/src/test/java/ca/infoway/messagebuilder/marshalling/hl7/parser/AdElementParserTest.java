@@ -64,7 +64,7 @@ public class AdElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something>text value</something>");
         AD ad = (AD) new AdElementParser().parse(null, node, null);
 		assertEquals("correct number of parts", 1, ad.getValue().getParts().size());
-        assertPostalAddressPartAsExpected("text node", ad.getValue().getParts().get(0), null, "text value");
+        assertPostalAddressPartAsExpected("text node", ad.getValue().getParts().get(0), null, "text value", null);
 	}
 	
 	@Test
@@ -72,13 +72,13 @@ public class AdElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\">text value</something>");
         AD ad = (AD) new AdElementParser().parse(null, node, null);
 		assertEquals("correct number of parts", 1, ad.getValue().getParts().size());
-        assertPostalAddressPartAsExpected("text node with attributes", ad.getValue().getParts().get(0), null, "text value");
+        assertPostalAddressPartAsExpected("text node with attributes", ad.getValue().getParts().get(0), null, "text value", null);
 	}
 
 	@Test
     public void testParseAll() throws Exception {
         Node node = createNode(
-                  "<something> <city>city name</city>freeform<delimiter>,</delimiter>\n<state>ON</state></something>");
+                  "<something> <city>city name</city>freeform<delimiter>,</delimiter>\n<state code=\"ON\">Ontario</state></something>");
         
         AD ad = (AD) new AdElementParser().parse(null, node, null);
         
@@ -87,10 +87,10 @@ public class AdElementParserTest extends MarshallingTestCase {
         assertEquals("number of name uses", 0, postalAddress.getUses().size());
         assertEquals("number of name parts", 4, postalAddress.getParts().size());
         
-        assertPostalAddressPartAsExpected("city", postalAddress.getParts().get(0), PostalAddressPartType.CITY, "city name");
-        assertPostalAddressPartAsExpected("free", postalAddress.getParts().get(1), null, "freeform");
-        assertPostalAddressPartAsExpected("delimiter comma", postalAddress.getParts().get(2), PostalAddressPartType.DELIMITER, ",");
-        assertPostalAddressPartAsExpected("state", postalAddress.getParts().get(3), PostalAddressPartType.STATE, "ON");
+        assertPostalAddressPartAsExpected("city", postalAddress.getParts().get(0), PostalAddressPartType.CITY, "city name", null);
+        assertPostalAddressPartAsExpected("free", postalAddress.getParts().get(1), null, "freeform", null);
+        assertPostalAddressPartAsExpected("delimiter comma", postalAddress.getParts().get(2), PostalAddressPartType.DELIMITER, ",", null);
+        assertPostalAddressPartAsExpected("state", postalAddress.getParts().get(3), PostalAddressPartType.STATE, "Ontario", "ON");
     }
 
 	@Test
@@ -106,9 +106,10 @@ public class AdElementParserTest extends MarshallingTestCase {
         }
     }
     
-    private void assertPostalAddressPartAsExpected(String message, PostalAddressPart postalAddressPart, PostalAddressPartType expectedType, String expectedValue) {
+    private void assertPostalAddressPartAsExpected(String message, PostalAddressPart postalAddressPart, PostalAddressPartType expectedType, String expectedValue, String expectedCode) {
         assertEquals(message + " type", expectedType, postalAddressPart.getType());
         assertEquals(message + " value", expectedValue, postalAddressPart.getValue());
+        assertEquals(message + " code", expectedCode, postalAddressPart.getCode() == null ? null : postalAddressPart.getCode().getCodeValue());
     }
     
 	@Test

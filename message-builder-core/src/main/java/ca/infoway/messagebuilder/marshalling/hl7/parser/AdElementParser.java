@@ -30,6 +30,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -40,6 +41,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 
 /**
@@ -106,11 +108,20 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
                 Element element = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(element);
                 String value = getTextValue(element);
-                result.addPostalAddressPart(new PostalAddressPart(getPostalAddressPartType(name), value));
+                String codeAsString = getAttributeValue(childNode, "code");
+                result.addPostalAddressPart(new PostalAddressPart(getPostalAddressPartType(name), (Code) convertToCode(codeAsString), value));
             }
         }
         return result;
     }
+
+	private Code convertToCode(String codeAsString) {
+		Code result = null; 
+		if (StringUtils.isNotBlank(codeAsString)) {
+			result = new TrivialCodeResolver().lookup(Code.class, codeAsString);
+		}
+		return result;
+	}
 
 	private boolean isNonBlankTextNode(Node childNode) {
 		return childNode.getNodeType() == Node.TEXT_NODE 
