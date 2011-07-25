@@ -130,11 +130,11 @@ public class ValidatingVisitor implements MessageVisitor {
 			// ignore
 		} else if (relationship ==  null) {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralAttributeError(base, attr));
-		} else if (attr != null && relationship.isFixed()) {
+		} else if (attr != null && relationship.hasFixedValue()) {
 			validateFixedValue(attr, relationship.getFixedValue());
 		} else if (attr != null) {
 			validateStructuralAttributeValue(base, attr, relationship);
-		} else if (relationship.isMandatory() && relationship.isFixed()) {
+		} else if (relationship.isFixed()) {  // also implies isMandatory()
 			// various people suggest that fixed values can be left out
 		} else if (relationship.isMandatory()) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
@@ -182,9 +182,10 @@ public class ValidatingVisitor implements MessageVisitor {
 	}
 
 	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value) {
-		if (relationship.isFixed()) {
-			boolean valid = (value != null && value.getBareValue() != null);
-			if (valid) {
+		if (relationship.hasFixedValue()) {
+			boolean valid = false;
+			boolean valueProvided = (value != null && value.getBareValue() != null);
+			if (valueProvided) {
 				if ("BL".equals(relationship.getType()) && value instanceof BL) {
 					String valueAsString = ((BL) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
@@ -197,6 +198,8 @@ public class ValidatingVisitor implements MessageVisitor {
 				} else {
 					this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'"));
 				}
+			} else {
+				valid = !relationship.isFixed();
 			}
 			if (!valid) {
 				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));

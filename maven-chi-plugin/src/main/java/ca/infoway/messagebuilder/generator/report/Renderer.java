@@ -38,7 +38,7 @@ public class Renderer {
 			builder.append("<").append(relationship.getTemplateParameterName()).append(">");
 		}
 		if (relationship.isAttribute()) {
-			if (StringUtils.isNotBlank(relationship.getFixedValue())) {
+			if (relationship.hasFixedValue()) {
 				builder.append(" \"").append(relationship.getFixedValue()).append("\"");
 			}
 			if (StringUtils.isNotBlank(relationship.getDomainType())) {

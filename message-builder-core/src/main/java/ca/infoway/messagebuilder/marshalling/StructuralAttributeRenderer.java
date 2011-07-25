@@ -38,14 +38,14 @@ abstract class StructuralAttributeRenderer {
 	}
 
 	public void render(StringBuilder builder) {
-		if (relationship.isFixed()) {
+		if (this.relationship.isFixed()) {
 			formatFixedValue(builder, relationship);
 		} else {
 			Object value = getValue();
 			if (value != null) {
 				formatValue(builder, relationship, value);
-			} else if (relationship.getConformance() == ConformanceLevel.MANDATORY) {
-				this.log.info("Relationship " + relationship.getName() 
+			} else if (this.relationship.getConformance() == ConformanceLevel.MANDATORY) {
+				this.log.info("Relationship " + this.relationship.getName() 
 						+ " is mandatory, but no value is specified");
 			}
 		}

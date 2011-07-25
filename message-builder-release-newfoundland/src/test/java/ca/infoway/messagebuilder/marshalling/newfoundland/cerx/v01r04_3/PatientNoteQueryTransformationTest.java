@@ -123,7 +123,6 @@ public class PatientNoteQueryTransformationTest extends BaseTransformerTestCase 
 	public void shouldMatchKnownResponse() throws Exception {
 		PatientNoteQueryResponseMessageBean model = createResponseBean();
 		String xml = this.transformer.transformToHl7(VERSION, model);
-System.out.println(xml);		
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE)), actual);
 	}

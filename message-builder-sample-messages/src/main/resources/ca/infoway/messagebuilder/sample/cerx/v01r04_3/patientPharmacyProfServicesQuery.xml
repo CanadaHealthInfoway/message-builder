@@ -71,7 +71,7 @@
     </location>
     <queryByParameter>
       <queryId extension="1" root="1.2.3.4.5"/>
-	  <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+<!--	  <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>-->
       <parameterList>
         <includeNotesIndicator>
           <value value="true"/>

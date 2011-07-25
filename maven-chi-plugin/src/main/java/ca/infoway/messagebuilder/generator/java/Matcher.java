@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.generator.java;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
-import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -34,7 +33,6 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Matcher {
 	
 	private final TypeNameSubstituter substituter;
-	private final TypeConverter converter = new TypeConverter();
 
 	public Matcher() {
 		this(null);
@@ -94,9 +92,11 @@ public class Matcher {
 			return DomainTypeHelper.isCompatibleDomainType(base, other) ?
 						MatchType.MINOR_DIFFERENCE
 						: MatchType.MAJOR_DIFFERENCE;
-		} else if (base.isFixed() != base.isFixed()) {
+		} else if (base.isFixed() != other.isFixed()) {
 			return MatchType.MINOR_DIFFERENCE;
-		} else if (base.isFixed() && !StringUtils.equals(base.getFixedValue(), other.getFixedValue())) {
+		} else if (base.hasFixedValue() != other.hasFixedValue()) {
+			return MatchType.MINOR_DIFFERENCE;
+		} else if (base.hasFixedValue() && !StringUtils.equals(base.getFixedValue(), other.getFixedValue())) {
 			return MatchType.MINOR_DIFFERENCE;
 		} else if (baseType.toString().equals(otherType.toString())) {
 			return MatchType.EXACT;

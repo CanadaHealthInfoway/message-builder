@@ -190,7 +190,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public ConformanceLevel getConformance() {
 		if (this.conformance != null) {
 			return EnumPattern.valueOf(ConformanceLevel.class, this.conformance);
-		} else if (isFixed()) {
+		} else if (hasFixedValue()) {
 			return ConformanceLevel.MANDATORY;
 		} else {
 			return ConformanceLevel.OPTIONAL;
@@ -258,6 +258,16 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 
 	/**
+	 * <p>Checks if has fixed value.  Only attributes can have fixed values.  Typically,
+	 * fixed values are either code values (e.g. classCode="SBJ") or booleans ("true" or
+	 * "false").
+	 * @return - whether this relationship has a fixed value
+	 */
+	public boolean hasFixedValue() {
+		return StringUtils.isNotBlank(this.fixedValue);
+	}
+
+	/**
 	 * <p>Set the fixed value.
 	 * @param fixedValue - the new value
 	 */
@@ -287,7 +297,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	// BCH/TM: TODO: This might not be the best algorithm...
 	public boolean isAttribute() {
-		if (isFixed()) {
+		if (hasFixedValue()) {
 			return true;
 		} else if (isCodedType()) {
 			return true;
@@ -309,11 +319,11 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		return !CollectionUtils.isEmpty(this.choices);
 	}
 	/**
-	 * <p>Get a flag indicating whether or not the relationship is a fixed value.
-	 * @return true if the relationship has a fixed value; false otherwise
+	 * <p>Get a flag indicating whether or not the relationship is a fixed value and is mandatory.
+	 * @return true if the relationship has a fixed value and is mandatory; false otherwise
 	 */
 	public boolean isFixed() {
-		return StringUtils.isNotBlank(this.fixedValue);
+		return hasFixedValue() && isMandatory();
 	}
 	
 	/**

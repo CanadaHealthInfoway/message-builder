@@ -231,7 +231,7 @@
     </queryAck>
     <queryByParameter>
       <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
-      <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+<!--      <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>-->
       <parameterList>
         <amendedInTimeRange>
           <value>

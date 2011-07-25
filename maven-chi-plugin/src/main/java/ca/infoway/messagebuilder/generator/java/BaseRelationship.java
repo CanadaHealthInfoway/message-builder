@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static org.apache.commons.lang.StringUtils.isNotBlank;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -95,7 +93,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
     }
 
     public boolean isFixed() {
-        return isNotBlank(getFixedValue());
+        return this.relationship.isFixed();
     }
 
     public int getSortKey() {

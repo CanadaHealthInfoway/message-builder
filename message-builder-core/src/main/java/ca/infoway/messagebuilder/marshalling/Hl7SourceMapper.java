@@ -302,9 +302,10 @@ class Hl7SourceMapper {
 		if (parser != null) {
 			try {
 				BareANY object = parser.parse(ParseContextImpl.create(relationship, source.getVersion()), nodes, source.getResult());
-				if (relationship.isFixed()) {
+				if (relationship.hasFixedValue()) {
 					validateNonstructuralFixedValue(relationship, object, source); // fixed means nothing to write to bean
-				} else {
+				}
+				if (!relationship.isFixed()) {
 					bean.write(relationship, object);
 				}
 			} catch (ClassCastException e){
@@ -321,7 +322,7 @@ class Hl7SourceMapper {
 	}
 
 	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source) {
-		if (relationship.isFixed()) {
+		if (relationship.hasFixedValue()) {
 			boolean valid = (value != null && value.getBareValue() != null);
 			if (valid) {
 				if ("BL".equals(relationship.getType()) && value instanceof BL) {
@@ -366,7 +367,7 @@ class Hl7SourceMapper {
     			} else if (attributeRelationship == null) {
     				this.log.info("Can't find NodeAttribute relationship named: " + attributeNode.getNodeName());
     			} else {
-    				if (attributeRelationship.isFixed()) {
+    				if (attributeRelationship.hasFixedValue()) {
     					validateFixedValue(source, currentElement, (Attr) attributeNode, attributeRelationship);
     				}
     				wrapper.writeNodeAttribute(attributeRelationship, attributeNode.getNodeValue());
