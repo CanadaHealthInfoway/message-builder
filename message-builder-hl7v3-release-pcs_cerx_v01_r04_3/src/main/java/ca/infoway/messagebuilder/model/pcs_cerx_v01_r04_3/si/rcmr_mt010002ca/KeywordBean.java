@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca.ResponsiblePersonBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Consenter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,18 +43,18 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
-    private ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean subject1Patient;
+    private static final long serialVersionUID = 20110729L;
+    private PatientBean subject1Patient;
     private ST keyword = new STImpl();
     private Consenter authorConsenter;
     private List<CV> consentInformationTypes = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"subject1/patient"})
-    public ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean getSubject1Patient() {
+    public PatientBean getSubject1Patient() {
         return this.subject1Patient;
     }
-    public void setSubject1Patient(ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean subject1Patient) {
+    public void setSubject1Patient(PatientBean subject1Patient) {
         this.subject1Patient = subject1Patient;
     }
 
@@ -79,11 +79,11 @@ public class KeywordBean extends MessagePartBean {
         this.authorConsenter = authorConsenter;
     }
 
-    public PatientBean getAuthorConsenterAsPatient() {
-        return this.authorConsenter instanceof PatientBean ? (PatientBean) this.authorConsenter : null;
+    public ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean getAuthorConsenterAsPatient() {
+        return this.authorConsenter instanceof ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean ? (ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean) this.authorConsenter : null;
     }
     public boolean hasAuthorConsenterAsPatient() {
-        return (this.authorConsenter instanceof PatientBean);
+        return (this.authorConsenter instanceof ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean);
     }
 
     public ResponsiblePersonBean getAuthorConsenterAsResponsibleParty() {

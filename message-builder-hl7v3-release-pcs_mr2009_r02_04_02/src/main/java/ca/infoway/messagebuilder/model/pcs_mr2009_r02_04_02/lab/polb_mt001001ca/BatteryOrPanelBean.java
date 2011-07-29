@@ -57,7 +57,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReferralR
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -75,7 +74,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private II batteryIdentifier = new IIImpl();

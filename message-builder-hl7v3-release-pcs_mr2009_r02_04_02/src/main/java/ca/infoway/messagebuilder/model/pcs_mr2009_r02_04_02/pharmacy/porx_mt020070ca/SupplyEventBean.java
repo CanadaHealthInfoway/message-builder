@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseShipToLocationBean;
-
 import java.util.Date;
 
 
@@ -47,7 +46,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
     private INT numberOfRemainingFills = new INTImpl();

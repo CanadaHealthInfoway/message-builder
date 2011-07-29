@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II accountID = new IIImpl();
     private CV typeOfCreditCard = new CVImpl();
     private ST nameOnCreditCard = new STImpl();

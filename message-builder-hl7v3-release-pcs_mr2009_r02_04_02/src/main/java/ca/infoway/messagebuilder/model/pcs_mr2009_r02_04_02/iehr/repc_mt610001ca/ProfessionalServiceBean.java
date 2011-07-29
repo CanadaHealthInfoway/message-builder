@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ActDefinitionBean;
@@ -54,7 +54,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -89,13 +88,13 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD serviceType = new CDImpl();
     private BL refutedIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> serviceTimeAndLength = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson>();
-    private ActingPerson informantActingPerson;
+    private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
     private OccurredAtBean location;
     private Request_3Bean inFulfillmentOfActRequest;
     private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
@@ -284,16 +283,16 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
+    public List<ActingPerson> getPerformerActingPerson() {
         return this.performerActingPerson;
     }
 
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 

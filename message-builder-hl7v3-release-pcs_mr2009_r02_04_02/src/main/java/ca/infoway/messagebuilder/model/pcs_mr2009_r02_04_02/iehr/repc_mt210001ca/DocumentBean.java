@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipien
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -55,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV documentCategory = new CVImpl();
     private ST documentTitle = new STImpl();
     private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);

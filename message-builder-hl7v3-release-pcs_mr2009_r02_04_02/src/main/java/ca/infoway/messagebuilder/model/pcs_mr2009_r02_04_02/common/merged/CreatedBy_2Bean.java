@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700711ca.NullAuthorRoleBean;
-
 import java.util.Date;
 
 
@@ -70,7 +69,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();

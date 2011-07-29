@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV serviceType = new CVImpl();
     private CS serviceAvailability = new CSImpl();
     private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);

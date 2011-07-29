@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodRequestEvent;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt220100ca.DrugProductBean;
-
 import java.util.Date;
 
 
@@ -54,7 +53,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS otherMedicationIndicator = new CSImpl();
     private II activeMedicationRecordNumber = new IIImpl();
     private CD administrationType = new CDImpl();

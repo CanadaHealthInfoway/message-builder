@@ -63,7 +63,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ChangedByBean
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -195,7 +194,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> careCompositionIds = new SETImpl<II, Identifier>(IIImpl.class);
     private CV careCompositionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();

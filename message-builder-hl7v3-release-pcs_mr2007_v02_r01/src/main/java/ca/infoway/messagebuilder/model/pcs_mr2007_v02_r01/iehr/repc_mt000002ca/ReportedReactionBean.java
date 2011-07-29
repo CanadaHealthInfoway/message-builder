@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120600ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.AllergyIntoleranceSeverityLevelBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();

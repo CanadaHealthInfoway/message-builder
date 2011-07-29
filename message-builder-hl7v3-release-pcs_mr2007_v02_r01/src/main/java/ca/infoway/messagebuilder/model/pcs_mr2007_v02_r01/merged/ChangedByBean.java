@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt911108ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.ChangedBy;
-
 import java.util.Date;
 
 
@@ -39,7 +38,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","REPC_MT000009CA.Author3"})
 public class ChangedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private HealthcareWorkerBean assignedEntity;

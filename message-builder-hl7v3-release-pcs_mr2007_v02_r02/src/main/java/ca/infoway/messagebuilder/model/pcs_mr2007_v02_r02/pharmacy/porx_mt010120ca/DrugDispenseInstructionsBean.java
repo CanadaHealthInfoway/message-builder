@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.FirstFillBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.SubsequentSupplyRequestBean;
-
 import java.util.Date;
 
 
@@ -53,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private PQ totalPrescribedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;

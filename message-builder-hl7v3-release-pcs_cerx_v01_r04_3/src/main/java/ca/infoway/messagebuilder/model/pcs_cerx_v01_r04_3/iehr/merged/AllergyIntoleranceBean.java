@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
     private CS allergyIntoleranceStatus = new CSImpl();

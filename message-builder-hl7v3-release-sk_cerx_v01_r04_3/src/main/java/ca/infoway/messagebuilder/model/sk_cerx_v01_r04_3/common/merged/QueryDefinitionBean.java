@@ -23,11 +23,14 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
@@ -35,9 +38,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II queryIdentifier = new IIImpl();
     private INT queryLimit = new INTImpl();
+    private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
 
 
@@ -66,6 +70,15 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
     public void setQueryLimit(Integer queryLimit) {
         this.queryLimit.setValue(queryLimit);
+    }
+
+
+    @Hl7XmlMapping({"initialQuantityCode"})
+    public QueryRequestLimit getInitialQuantityCode() {
+        return (QueryRequestLimit) this.initialQuantityCode.getValue();
+    }
+    public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
+        this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 

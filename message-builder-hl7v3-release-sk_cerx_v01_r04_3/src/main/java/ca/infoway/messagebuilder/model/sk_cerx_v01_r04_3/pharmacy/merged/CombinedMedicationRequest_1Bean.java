@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7RootType
 public class CombinedMedicationRequest_1Bean extends MessagePartBean implements Prescription_1 {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CS prescriptionStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

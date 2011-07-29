@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();
     private Patient subjectPatient1;

@@ -46,7 +46,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();

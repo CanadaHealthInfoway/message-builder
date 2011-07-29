@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private RelatedPersonBean receiverPersonalRelationship;

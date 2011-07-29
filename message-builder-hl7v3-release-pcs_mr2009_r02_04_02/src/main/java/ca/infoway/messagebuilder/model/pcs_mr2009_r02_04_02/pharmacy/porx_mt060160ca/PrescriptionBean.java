@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
@@ -63,7 +62,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Prot
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.RemainingDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.StatusChangesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -95,7 +93,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CD prescriptionType = new CDImpl();
     private CS prescriptionStatus = new CSImpl();
@@ -113,7 +111,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotEligibleForTrialBean component2;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean component3;
+    private IncludesBean component3;
     private List<MedicationDispenseBean> fulfillment1MedicationDispense = new ArrayList<MedicationDispenseBean>();
     private LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary;
     private FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary;
@@ -121,7 +119,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private PreviousDispenseInformation_1Bean fulfillment5SupplyEventPastSummary;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
-    private List<IncludesBean> subjectOf3 = new ArrayList<IncludesBean>();
+    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean> subjectOf3 = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean>();
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
     private AllowedSubstitutionBean subjectOf5SubstitutionPermission;
     private List<StatusChangesBean> subjectOf6ControlActEvent = new ArrayList<StatusChangesBean>();
@@ -416,10 +414,10 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"component3"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean getComponent3() {
+    public IncludesBean getComponent3() {
         return this.component3;
     }
-    public void setComponent3(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060160ca.IncludesBean component3) {
+    public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }
 
@@ -482,7 +480,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"subjectOf3"})
-    public List<IncludesBean> getSubjectOf3() {
+    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean> getSubjectOf3() {
         return this.subjectOf3;
     }
 

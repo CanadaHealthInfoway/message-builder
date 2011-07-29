@@ -60,7 +60,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.merged.LanguageCommunicationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.merged.OtherIDsNonHealthcareIdentifiersBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.merged.PersonalRelationshipBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedClientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CS clientStatusCode = new CSImpl();
     private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();

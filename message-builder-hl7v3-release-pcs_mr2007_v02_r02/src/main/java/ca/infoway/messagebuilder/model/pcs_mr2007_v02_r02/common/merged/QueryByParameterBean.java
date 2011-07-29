@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II queryIdentifier = new IIImpl();
     private CS expeditedQueryIndicator = new CSImpl();
     private INT queryLimit = new INTImpl();

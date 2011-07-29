@@ -51,7 +51,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patien
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +80,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV conditionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
     private CS conditionStatus = new CSImpl();

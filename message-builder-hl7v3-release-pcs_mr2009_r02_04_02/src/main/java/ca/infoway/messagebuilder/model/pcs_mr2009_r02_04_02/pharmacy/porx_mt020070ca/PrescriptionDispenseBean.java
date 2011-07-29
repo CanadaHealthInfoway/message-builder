@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PrescriptionReferenceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.SubstitutionBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -59,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II localDispenseId = new IIImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;

@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.PatientConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.PersonPatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II coveredPartyIdentifier = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;

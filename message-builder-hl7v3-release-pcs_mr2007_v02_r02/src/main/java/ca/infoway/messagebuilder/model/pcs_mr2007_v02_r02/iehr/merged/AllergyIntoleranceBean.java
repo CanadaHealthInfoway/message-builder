@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,7 +82,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
     private CS allergyIntoleranceStatus = new CSImpl();
@@ -542,37 +541,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * that it may not be free of errors and uncertainty may still 
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
-     * 
-     * <p><p>An indication of the level of confidence/surety placed 
-     * in the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
-     * 
-     * <p><p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either U or 
-     * N</p></p>
-     * 
-     * <p><p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either U or 
-     * N</p></p>
+     * record
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getConfirmedIndicator() {

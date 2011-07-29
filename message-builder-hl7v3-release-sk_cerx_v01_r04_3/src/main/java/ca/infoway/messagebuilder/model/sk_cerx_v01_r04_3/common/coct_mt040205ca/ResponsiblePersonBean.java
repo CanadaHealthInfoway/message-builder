@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II responsiblePersonID = new IIImpl();
     private CV responsiblePersonType = new CVImpl();
     private AD responsiblePersonAddress = new ADImpl();

@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
@@ -59,7 +59,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewCondi
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ChangedByBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -89,7 +88,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II conditionIdentifier = new IIImpl();
     private CV conditionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
@@ -97,9 +96,9 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CD condition = new CDImpl();
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private ActingPerson responsiblePartyActingPerson;
     private ChangedByBean author;
-    private ActingPerson informantActingPerson;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
@@ -323,10 +322,10 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
 
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
+    public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -362,10 +361,10 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
 
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 

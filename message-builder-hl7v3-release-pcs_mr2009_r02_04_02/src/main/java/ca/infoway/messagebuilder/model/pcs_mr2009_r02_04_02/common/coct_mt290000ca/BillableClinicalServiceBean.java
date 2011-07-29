@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Health
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ManufacturedProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.PatientEncounterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II serviceEventID = new IIImpl();
     private CV procedureCode = new CVImpl();
     private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();

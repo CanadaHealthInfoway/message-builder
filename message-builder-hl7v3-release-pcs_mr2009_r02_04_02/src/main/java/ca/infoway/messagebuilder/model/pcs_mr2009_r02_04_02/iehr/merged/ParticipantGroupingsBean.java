@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CreatedAtBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +96,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CreatedAtBean location;
     private List<HasBean> participant = new ArrayList<HasBean>();
 

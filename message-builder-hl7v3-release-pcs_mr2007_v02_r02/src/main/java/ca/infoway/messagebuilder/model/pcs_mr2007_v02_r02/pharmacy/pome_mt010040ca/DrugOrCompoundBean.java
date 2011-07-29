@@ -42,7 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugContainsBea
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ManufacturerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.DispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.GroupedWithinBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -64,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV drugCode = new CVImpl();
     private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST description = new STImpl();

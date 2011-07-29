@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Component3Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.DispenseShipToLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS prescriptionDispensableIndicator = new CSImpl();
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();

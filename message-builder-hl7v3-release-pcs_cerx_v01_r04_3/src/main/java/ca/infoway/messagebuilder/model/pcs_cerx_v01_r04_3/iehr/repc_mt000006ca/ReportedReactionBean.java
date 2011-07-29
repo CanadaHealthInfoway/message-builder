@@ -52,7 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.AllergyIntolera
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();

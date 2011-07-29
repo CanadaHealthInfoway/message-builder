@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-
 import java.util.Date;
 
 
@@ -46,7 +45,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS patientNoteDate = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
 

@@ -24,13 +24,13 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportableHealthIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultSortKeyBean;
@@ -42,7 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.RequestChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,12 +56,12 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
     public Patient_1Bean getRecordTargetPatient();
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
-    public List<RoleChoice> getReceiverRoleChoice();
+    public List<ElectronicResultReceiverBean> getReceiver();
 
     public List<RoleChoice> getPerformerRoleChoice();
 
-    public RecipientChoice getPrimaryInformationRecipientRecipientChoice();
-    public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice);
+    public PrimaryInformationRecipientBean getPrimaryInformationRecipient();
+    public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
 
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 

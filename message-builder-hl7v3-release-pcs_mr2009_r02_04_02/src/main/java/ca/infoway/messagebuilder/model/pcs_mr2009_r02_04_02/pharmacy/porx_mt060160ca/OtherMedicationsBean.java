@@ -55,7 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.StatusChangesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -95,7 +94,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> administrationRecordId = new SETImpl<II, Identifier>(IIImpl.class);
     private CD otherMedicationType = new CDImpl();
     private CS otherMedicationStatus = new CSImpl();

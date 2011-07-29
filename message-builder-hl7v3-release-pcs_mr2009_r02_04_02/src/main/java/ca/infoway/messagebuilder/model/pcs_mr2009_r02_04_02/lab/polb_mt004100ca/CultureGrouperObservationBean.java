@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
@@ -59,8 +59,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.PlacerGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.RequestChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -84,14 +82,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> cultureIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CD cultureType = new CDImpl();
     private CS cultureStatus = new CSImpl();
     private IVL<TS, Interval<Date>> cultureEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private ReportSectionSpecimenBean specimen;
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
@@ -191,9 +189,9 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
+    @Hl7XmlMapping({"receiver"})
+    public List<ElectronicResultReceiverBean> getReceiver() {
+        return this.receiver;
     }
 
 

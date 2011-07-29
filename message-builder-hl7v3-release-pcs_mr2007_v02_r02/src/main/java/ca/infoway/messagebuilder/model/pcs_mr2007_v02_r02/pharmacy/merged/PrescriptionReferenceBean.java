@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt141007ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010110ca.PriorDeviceRequestBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -112,7 +111,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CS prescriptionStatus = new CSImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);

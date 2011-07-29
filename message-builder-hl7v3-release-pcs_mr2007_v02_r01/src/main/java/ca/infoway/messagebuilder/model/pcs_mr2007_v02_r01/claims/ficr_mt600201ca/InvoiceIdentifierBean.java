@@ -33,9 +33,8 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.InvoiceTypeBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -46,13 +45,13 @@ import java.util.Set;
 @Hl7RootType
 public class InvoiceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private MO totalBilledAmount = new MOImpl();
     private AdministrativeContactsSBean primaryPerformerContactParty;
     private List<TaxAccountOfProviderBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<TaxAccountOfProviderBean>();
-    private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
-    private AccountBean debitAccount;
+    private AccountBean creditAccount;
+    private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean debitAccount;
     private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
 
 
@@ -93,19 +92,19 @@ public class InvoiceIdentifierBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"credit/account"})
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
+    public AccountBean getCreditAccount() {
         return this.creditAccount;
     }
-    public void setCreditAccount(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
+    public void setCreditAccount(AccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
     @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean getDebitAccount() {
         return this.debitAccount;
     }
-    public void setDebitAccount(AccountBean debitAccount) {
+    public void setDebitAccount(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
 

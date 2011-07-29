@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Previo
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ProcedureRequestBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.RemainingDispenseInformation_2Bean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Prescription_1 {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionOrderNumber = new IIImpl();
     private CS prescriptionStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

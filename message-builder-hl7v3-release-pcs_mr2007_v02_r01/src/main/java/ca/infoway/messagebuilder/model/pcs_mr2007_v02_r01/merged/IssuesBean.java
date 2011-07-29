@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.IssueDes
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.IssueManagementsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.PatientCodedObservationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.PatientMeasurableObservationsBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV issueType = new CVImpl();
     private ST text = new STImpl();
     private CV issuePriority = new CVImpl();

@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Subjec
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Subject5Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II specialAuthorityRequestID = new IIImpl();
     private CV specialAuthorizationRequestType = new CVImpl();
     private IVL<TS, Interval<Date>> specialAuthorizationRequestEffectiveDate = new IVLImpl<TS, Interval<Date>>();

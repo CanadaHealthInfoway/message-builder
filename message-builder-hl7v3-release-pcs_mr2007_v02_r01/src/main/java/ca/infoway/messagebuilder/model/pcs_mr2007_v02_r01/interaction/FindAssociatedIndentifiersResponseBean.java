@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.prpa_mt101101ca.Par
 @Hl7PartTypeMapping({"PRPA_IN101106CA"})
 public class FindAssociatedIndentifiersResponseBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
 
 }

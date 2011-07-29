@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.LanguageCommunicationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -74,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II principalPersonAggregateIdentifier = new IIImpl();
     private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV principalPersonGender = new CVImpl();

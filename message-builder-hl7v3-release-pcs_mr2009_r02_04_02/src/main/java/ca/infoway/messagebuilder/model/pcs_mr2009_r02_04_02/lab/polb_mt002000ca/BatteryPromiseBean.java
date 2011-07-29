@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
@@ -59,7 +60,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.RequestChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,14 +70,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.BatteryPromise"})
 public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II batteryPromiseIdentifier = new IIImpl();
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private CD typeOfBatteryPromise = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
+    private PrimaryInformationRecipientBean primaryInformationRecipient;
     private CS batteryPromiseStatus = new CSImpl();
     private IVL<TS, Interval<Date>> batteryPromiseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
@@ -120,9 +120,9 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
+    @Hl7XmlMapping({"receiver"})
+    public List<ElectronicResultReceiverBean> getReceiver() {
+        return this.receiver;
     }
 
 
@@ -146,12 +146,12 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
+    @Hl7XmlMapping({"primaryInformationRecipient"})
+    public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
+        return this.primaryInformationRecipient;
     }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
+    public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
+        this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 

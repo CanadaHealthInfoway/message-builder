@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.merged.ResponsiblePartyBean;
-
 import java.util.ArrayList;
 import java.util.List;
 

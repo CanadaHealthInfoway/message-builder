@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +80,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();

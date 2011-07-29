@@ -44,7 +44,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TEL sendingNetworkAddress = new TELImpl();
     private II sendingApplicationIdentifier = new IIImpl();
     private ST sendingApplicationName = new STImpl();

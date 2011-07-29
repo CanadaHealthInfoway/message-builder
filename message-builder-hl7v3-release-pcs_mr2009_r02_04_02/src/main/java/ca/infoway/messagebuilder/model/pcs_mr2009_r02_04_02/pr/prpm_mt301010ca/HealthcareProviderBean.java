@@ -51,7 +51,6 @@ import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,7 +69,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II healthcareProviderRoleIdentification = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();

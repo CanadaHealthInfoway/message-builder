@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt030050ca.LicensedEntityRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt030050ca.PatientRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt030050ca.PersonalRelationshipRoleBean;
-
 import java.util.Date;
 
 
@@ -56,7 +55,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private IVL<TS, Interval<Date>> dateOfInformation = new IVLImpl<TS, Interval<Date>>();
     private CV informationSourceForm = new CVImpl();
     private InformationSourceChoice informationSourceChoice;

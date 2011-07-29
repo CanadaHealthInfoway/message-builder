@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Assigne
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
     private AssignedEntity3Bean performerAssignedEntity;

@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();

@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II sectionIdentifier = new IIImpl();
     private CD reportSectionObservationType = new CDImpl();
     private ST noteType = new STImpl();

@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
@@ -52,7 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipien
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -77,14 +76,14 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> documentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV documentCategory = new CVImpl();
     private ST documentTitle = new STImpl();
     private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private ActingPerson responsiblePartyActingPerson;
     private RequestedByBean author;
-    private ActingPerson informantActingPerson;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
@@ -171,10 +170,10 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
+    public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -210,10 +209,10 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 

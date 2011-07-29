@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcai_mt700221ca.NullAuthorRoleBean;
-
 import java.util.Date;
 
 
@@ -270,108 +269,13 @@ import java.util.Date;
  * 
  * <p>MCAI_MT700231CA.Author: a:*created by</p>
  * 
- * <p><p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p></p>
- * 
- * <p><p>Indicates the person responsible for the event that 
- * caused this message.</p></p>
- * 
- * <p><p>Critical for auditing and for validating permissions 
- * and therefore mandatory.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p>MCAI_MT700222CA.Author: a:*created by</p>
- * 
- * <p><p>Indicates the person responsible for the event that 
- * caused this message.</p></p>
- * 
- * <p><p>Critical for auditing and for validating permissions 
- * and therefore mandatory.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p>MCAI_MT700221CA.Author: a:*created by</p>
- * 
- * <p><p>Indicates the person responsible for the event that 
- * caused this message.</p></p>
- * 
- * <p><p>Critical for auditing and for validating permissions 
- * and therefore mandatory.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
- * 
- * <p><p>Choice of Patient CMET is as follows:</p><p>1. 
- * 'identified' when supporting Patient Session 
- * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or similar 
- * processing.</p><p>3. 'identified-confirmable' otherwise.</p></p>
+ * <p><p>If AuthorizationToken is specified and c
+ * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedBy_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();

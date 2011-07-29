@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II recordIdentifier = new IIImpl();
     private CV recordType = new CVImpl();
     private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);

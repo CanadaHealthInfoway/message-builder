@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt
 @Hl7PartTypeMapping({"POIZ_IN070020CA"})
 public class PatientImmunizationProfileQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ImmunizationProfileBean,PatientForecastQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
 
 }

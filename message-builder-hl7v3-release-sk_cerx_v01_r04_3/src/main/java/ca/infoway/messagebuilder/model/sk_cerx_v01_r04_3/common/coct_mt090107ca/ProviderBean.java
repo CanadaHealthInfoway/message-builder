@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II providerId = new IIImpl();
     private CV providerType = new CVImpl();
     private PN providerName = new PNImpl();

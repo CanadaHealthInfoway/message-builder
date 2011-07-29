@@ -24,7 +24,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.ObservationChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +59,8 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public Patient_1Bean getRecordTargetPatient();
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
-    public HealthcareOrganizationBean getPerformerAssignedEntity();
-    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean getPerformerAssignedEntity();
+    public void setPerformerAssignedEntity(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean performerAssignedEntity);
 
     public List<HealthcareWorkerBean> getCallBackContactAssignedEntity();
 

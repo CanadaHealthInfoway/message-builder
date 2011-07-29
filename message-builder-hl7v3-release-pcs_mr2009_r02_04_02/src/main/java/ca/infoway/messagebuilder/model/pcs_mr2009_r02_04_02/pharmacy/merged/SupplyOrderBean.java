@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -62,7 +61,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CS prescriptionStatus = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;

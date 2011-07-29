@@ -42,7 +42,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.PatientEncounterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.ServiceLocationBean;
-
 import java.util.Date;
 
 
@@ -51,7 +50,7 @@ import java.util.Date;
 @Hl7RootType
 public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS moodCode = new CSImpl();
     private CV typeOfDispense = new CVImpl();
     private TS dispenseTime = new TSImpl();

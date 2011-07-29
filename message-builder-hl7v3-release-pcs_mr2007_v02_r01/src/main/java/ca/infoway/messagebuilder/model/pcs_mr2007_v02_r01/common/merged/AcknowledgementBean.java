@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.Acknowledgement","MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS acknowledgementCode = new CSImpl();
     private INT numberOfWaitingMessages = new INTImpl();
     private CV messageWaitingPriority = new CVImpl();

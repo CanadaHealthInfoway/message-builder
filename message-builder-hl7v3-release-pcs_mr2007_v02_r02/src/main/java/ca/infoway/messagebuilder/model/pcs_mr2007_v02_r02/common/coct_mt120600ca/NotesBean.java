@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910108ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-
 import java.util.Date;
 
 
@@ -68,7 +67,7 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ST noteText = new STImpl();
     private TS noteTimestamp = new TSImpl();
     private AssignedPerson authorAssignedPerson;

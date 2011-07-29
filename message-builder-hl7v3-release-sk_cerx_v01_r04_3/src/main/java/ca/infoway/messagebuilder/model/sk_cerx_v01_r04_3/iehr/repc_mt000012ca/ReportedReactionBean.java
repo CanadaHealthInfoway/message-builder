@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
@@ -66,7 +66,7 @@ public class ReportedReactionBean extends MessagePartBean {
     private PatientBean subjectPatient;
     private ReportedByBean informant;
     private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
-    private List<ReactionAssessmentsBean> subjectOf2CausalityAssessment = new ArrayList<ReactionAssessmentsBean>();
+    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
 
 
     /**
@@ -169,7 +169,7 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
-    public List<ReactionAssessmentsBean> getSubjectOf2CausalityAssessment() {
+    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
         return this.subjectOf2CausalityAssessment;
     }
 

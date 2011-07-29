@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private CS dosageUsageContext = new CSImpl();
     private CD dosageType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();

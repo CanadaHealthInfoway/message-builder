@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV antigenCode = new CVImpl();
     private ST antigenName = new STImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;

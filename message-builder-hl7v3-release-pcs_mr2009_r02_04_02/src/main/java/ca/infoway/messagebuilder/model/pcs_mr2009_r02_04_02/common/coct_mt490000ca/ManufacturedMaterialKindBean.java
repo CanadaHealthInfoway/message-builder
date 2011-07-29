@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV manufacturedMaterialCode = new CVImpl();
     private ST packageDescription = new STImpl();
     private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();

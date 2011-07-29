@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.DiagnosisBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -47,7 +46,7 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II recordIdentifier = new IIImpl();
     private CV recordType = new CVImpl();
     private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);

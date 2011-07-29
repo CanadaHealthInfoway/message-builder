@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRole"})
 public class PayeeRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> payeeIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private PayeeChoice payeeChoice;
 
@@ -230,35 +230,8 @@ public class PayeeRoleBean extends MessagePartBean {
      * specified</p><p>- Specify PayeeRelationshipRole (e.g. Policy 
      * Holder)</p><p>- Optionally specify name, addr, language, 
      * bank account info</p><p>- Account bank info is likely on 
-     * file with Payor and is NOT required for direct 
-     * deposit</p><p>- PayeePerson.addr is likely on file with 
-     * Payor and is NOT required for mailing of cheque</p><p>(3) 
-     * Payee is an individual not listed on the insurance (e.g. 
-     * guarantor) - PayeeRole.id must not be specified - Specify 
-     * PayeeRelationshipRole (e.g. Guarantor) - Optionally specify 
-     * name, addr, language, bank account info - Account bank info 
-     * is likely NOT on file with Payor and is required for direct 
-     * deposit - PayeePerson.addr is likely NOT on file with Payor 
-     * and is required for mailing of cheque</p></p>
-     * 
-     * <p><p>Payee:</p><p>(1) Provider or designate organization 
-     * with identifier plays the role of Payee</p><p>- PayeeRole.id 
-     * only (no Account, Person info)</p><p>(2) Payee is an 
-     * individual listed on the insurance (e.g. policy holder or 
-     * covered party)</p><p>- PayeeRole.id must not be 
-     * specified</p><p>- Specify PayeeRelationshipRole (e.g. Policy 
-     * Holder)</p><p>- Optionally specify name, addr, language, 
-     * bank account info</p><p>- Account bank info is likely on 
-     * file with Payor and is NOT required for direct 
-     * deposit</p><p>- PayeePerson.addr is likely on file with 
-     * Payor and is NOT required for mailing of cheque</p><p>(3) 
-     * Payee is an individual not listed on the insurance (e.g. 
-     * guarantor) - PayeeRole.id must not be specified - Specify 
-     * PayeeRelationshipRole (e.g. Guarantor) - Optionally specify 
-     * name, addr, language, bank account info - Account bank info 
-     * is likely NOT on file with Payor and is required for direct 
-     * deposit - PayeePerson.addr is likely NOT on file with Payor 
-     * and is required for mailing of cheque</p></p>
+     * file with Payor and is NOT required for d
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPayeeIdentifier() {

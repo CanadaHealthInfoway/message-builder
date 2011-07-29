@@ -47,7 +47,7 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II localDispenseID = new IIImpl();
     private CV dispenseType = new CVImpl();
     private TS supplyDate = new TSImpl();

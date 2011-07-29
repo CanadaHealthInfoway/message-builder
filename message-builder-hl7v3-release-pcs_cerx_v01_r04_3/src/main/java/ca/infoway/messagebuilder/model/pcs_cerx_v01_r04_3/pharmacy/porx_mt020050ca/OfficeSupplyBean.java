@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SupplyOrderBean;
-
 import java.util.Date;
 
 
@@ -48,7 +47,7 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II localDispenseID = new IIImpl();
     private CV dispenseType = new CVImpl();
     private TS supplyDate = new TSImpl();

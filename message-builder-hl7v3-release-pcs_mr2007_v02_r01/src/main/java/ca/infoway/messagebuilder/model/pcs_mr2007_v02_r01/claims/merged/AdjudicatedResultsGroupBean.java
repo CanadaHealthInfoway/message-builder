@@ -39,12 +39,11 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.qucr_mt810201ca.AdjudResultsCarrierRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.qucr_mt810201ca.AdjudResultsSendingAppRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.qucr_mt810201ca.ProviderIDBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.ServiceLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II adjudicatedResultsGroupID = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -66,8 +65,8 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     private ServiceLocationBean locationServiceDeliveryLocation;
     private BusinessArrangementBean referenceAdjudResultsFinancialContract;
     private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
-    private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
-    private AccountBean debitAccount;
+    private AccountBean creditAccount;
+    private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean debitAccount;
     private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
 
 
@@ -181,19 +180,19 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"credit/account"})
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean getCreditAccount() {
+    public AccountBean getCreditAccount() {
         return this.creditAccount;
     }
-    public void setCreditAccount(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110200ca.AccountBean creditAccount) {
+    public void setCreditAccount(AccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
     @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean getDebitAccount() {
         return this.debitAccount;
     }
-    public void setDebitAccount(AccountBean debitAccount) {
+    public void setDebitAccount(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
 

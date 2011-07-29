@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.PlaceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.ResponsibleOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.SubLocationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ContactPointsBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -81,7 +80,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> locationIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
     private CV locationType = new CVImpl();
     private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);

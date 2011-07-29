@@ -61,7 +61,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060190CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionOrderNumber = new IIImpl();
     private CD prescriptionType = new CDImpl();
     private CS prescriptionStatus = new CSImpl();

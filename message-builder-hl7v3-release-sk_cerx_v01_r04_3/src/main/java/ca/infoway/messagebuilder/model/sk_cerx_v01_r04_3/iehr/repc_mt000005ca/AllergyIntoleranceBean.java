@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.AllergyTestsBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Records;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();

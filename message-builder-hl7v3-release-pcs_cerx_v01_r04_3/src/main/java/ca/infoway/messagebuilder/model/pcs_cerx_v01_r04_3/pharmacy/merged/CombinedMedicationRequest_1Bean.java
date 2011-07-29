@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.PrescribedByBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class CombinedMedicationRequest_1Bean extends MessagePartBean implements Prescription_1 {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CD prescriptionType = new CDImpl();
     private CS prescriptionStatus = new CSImpl();

@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD symptomType = new CDImpl();
     private ST freeFormSymptomIndication = new STImpl();
     private CV symptomCode = new CVImpl();

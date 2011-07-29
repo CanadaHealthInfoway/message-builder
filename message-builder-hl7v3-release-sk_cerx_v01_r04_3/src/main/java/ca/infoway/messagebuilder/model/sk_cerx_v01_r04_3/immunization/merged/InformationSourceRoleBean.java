@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030060CA.InformationSourceRole","POIZ_MT060150CA.InformationSourceRole"})
 public class InformationSourceRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private CS informationSource = new CSImpl();
 
 

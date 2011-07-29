@@ -48,7 +48,7 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();

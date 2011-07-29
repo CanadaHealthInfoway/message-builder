@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS refusalToFillDate = new TSImpl();
     private CV refusalToFillReason = new CVImpl();
     private RefusedByBean author;

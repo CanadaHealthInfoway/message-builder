@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RegisteredItemBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.ReplacesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();

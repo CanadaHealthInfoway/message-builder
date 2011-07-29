@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.Party, Recipient, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.ActingPerson {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ST assignedOrganizationName = new STImpl();
     private II healthcareWorkerIdentifier = new IIImpl();
     private CV healthcareWorkerType = new CVImpl();

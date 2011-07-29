@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DischargeDiagnosisBean;
@@ -58,7 +58,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositi
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -127,7 +126,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV careCompositionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
     private CS careCompositionStatus = new CSImpl();
@@ -135,9 +134,9 @@ public class CareCompositionBean extends MessagePartBean {
     private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private SpecimenRoleBean subject1Specimen;
     private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
-    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson>();
-    private ActingPerson informantActingPerson;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson dischargerActingPerson;
+    private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
+    private ActingPerson dischargerActingPerson;
     private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
     private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
     private Request_1Bean inFulfillmentOfActRequest;
@@ -411,16 +410,16 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
+    public List<ActingPerson> getPerformerActingPerson() {
         return this.performerActingPerson;
     }
 
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
@@ -447,10 +446,10 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"discharger/actingPerson"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson getDischargerActingPerson() {
+    public ActingPerson getDischargerActingPerson() {
         return this.dischargerActingPerson;
     }
-    public void setDischargerActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson dischargerActingPerson) {
+    public void setDischargerActingPerson(ActingPerson dischargerActingPerson) {
         this.dischargerActingPerson = dischargerActingPerson;
     }
 

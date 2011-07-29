@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt010140ca.RemainingDispensesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,7 +98,7 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private INT totalPrescribedQuantity = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;

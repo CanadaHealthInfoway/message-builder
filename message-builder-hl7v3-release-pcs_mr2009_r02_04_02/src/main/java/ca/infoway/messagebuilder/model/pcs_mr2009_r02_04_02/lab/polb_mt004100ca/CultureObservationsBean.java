@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +62,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CD cultureObservationType = new CDImpl();
     private ST cultureObservationComment = new STImpl();
     private CS cultureObservationStatus = new CSImpl();

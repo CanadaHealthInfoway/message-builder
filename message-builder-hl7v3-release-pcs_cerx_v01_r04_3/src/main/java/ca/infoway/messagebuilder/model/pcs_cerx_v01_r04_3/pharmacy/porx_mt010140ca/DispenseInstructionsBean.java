@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ReferencedRecordBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private PatientBean subjectPatient;
     private RecordedAtBean location;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();

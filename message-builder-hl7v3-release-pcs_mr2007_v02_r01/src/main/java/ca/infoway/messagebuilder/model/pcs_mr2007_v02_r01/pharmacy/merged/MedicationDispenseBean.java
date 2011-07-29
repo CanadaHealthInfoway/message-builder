@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt270010ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.IssuesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -57,7 +56,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;

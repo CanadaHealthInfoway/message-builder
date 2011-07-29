@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.CoveredPartyAsPatientAnimalBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.CoveredPartyAsPatientPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -234,48 +233,13 @@ import java.util.List;
  * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
  * single covered party,</p><p>an organization, an 
  * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
- * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
- * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
- * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
- * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
- * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p></p>
+ 
+ * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatient","FICR_MT510201CA.CoveredPartyAsPatient","FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II coveredPartyIdentifier = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;

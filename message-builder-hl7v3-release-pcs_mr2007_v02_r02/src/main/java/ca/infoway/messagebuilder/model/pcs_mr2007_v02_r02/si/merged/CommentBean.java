@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt300003ca.AnnotatedByBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -82,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);

@@ -47,7 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt290000ca.BillableClinicalServiceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000ca.SupplyEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt490000ca.BillableClinicalProductBean;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +61,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private II submittedInvoiceLineIdentifier = new IIImpl();
     private CV submittedProductServiceCode = new CVImpl();

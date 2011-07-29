@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.SymptomValue;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.pome_mt010090ca.HasCharacteristicBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +48,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV drugCode = new CVImpl();
     private II medicationDocumentID = new IIImpl();
     private CV medicationDocumentType = new CVImpl();

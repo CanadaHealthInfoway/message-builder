@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveComplete;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -86,7 +85,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private II reportedOnCareCompositionLink = new IIImpl();
     private CD dischargeCareSummaryReportType = new CDImpl();

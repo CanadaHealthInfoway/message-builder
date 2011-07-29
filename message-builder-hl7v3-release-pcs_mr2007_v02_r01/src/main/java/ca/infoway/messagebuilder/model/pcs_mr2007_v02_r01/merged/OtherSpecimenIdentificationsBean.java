@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CV otherSpecimenIdentifierType = new CVImpl();
     private II organizationIdentifier = new IIImpl();

@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.domainvalue.ActMedicationDocumentCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RefusedByBean;
-
 import java.util.Date;
 
 
@@ -50,7 +49,7 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();

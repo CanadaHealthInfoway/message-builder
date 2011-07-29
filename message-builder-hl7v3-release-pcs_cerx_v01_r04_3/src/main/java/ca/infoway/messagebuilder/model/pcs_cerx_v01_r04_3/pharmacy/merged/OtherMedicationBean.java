@@ -47,7 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220100ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II otherMedicationId = new IIImpl();
     private CD otherMedicationType = new CDImpl();
     private CS statusCode = new CSImpl();

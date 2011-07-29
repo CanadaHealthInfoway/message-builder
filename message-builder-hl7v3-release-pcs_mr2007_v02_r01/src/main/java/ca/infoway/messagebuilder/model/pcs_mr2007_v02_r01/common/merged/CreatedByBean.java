@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.mcai_mt700231ca.NullAuthorRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBean;
-
 import java.util.Date;
 
 
@@ -42,7 +41,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","MFMI_MT700711CA.Author","MFMI_MT700751CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();

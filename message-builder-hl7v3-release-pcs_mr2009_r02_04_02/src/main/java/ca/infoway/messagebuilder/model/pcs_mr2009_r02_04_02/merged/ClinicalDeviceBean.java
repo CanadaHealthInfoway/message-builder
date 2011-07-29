@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ClinicalDevice","FICR_MT400003CA.ClinicalDevice","FICR_MT400004CA.ClinicalDevice","FICR_MT490101CA.ClinicalDevice","FICR_MT490102CA.ClinicalDevice"})
 public class ClinicalDeviceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV deviceCode = new CVImpl();
     private ST deviceName = new STImpl();
     private ST deviceDescription = new STImpl();

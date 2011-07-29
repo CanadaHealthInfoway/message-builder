@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120402ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120402ca.OtherIndicationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private PatientBean subjectPatient;
     private HealthcareWorkerBean authorAssignedEntity;
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();

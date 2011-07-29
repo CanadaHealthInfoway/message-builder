@@ -52,8 +52,7 @@ import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean;
-
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,7 +87,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS dosageUsageContext = new CSImpl();
     private CD dosageType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();
@@ -381,11 +380,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
         this.consumableMedication1 = consumableMedication1;
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean getConsumableMedication1AsMedication1() {
-        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean) this.consumableMedication1 : null;
+    public DrugProductBean getConsumableMedication1AsMedication1() {
+        return this.consumableMedication1 instanceof DrugProductBean ? (DrugProductBean) this.consumableMedication1 : null;
     }
     public boolean hasConsumableMedication1AsMedication1() {
-        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean);
+        return (this.consumableMedication1 instanceof DrugProductBean);
     }
 
     public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean getConsumableMedication1AsMedication2() {
@@ -395,11 +394,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
         return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean);
     }
 
-    public DrugProductBean getConsumableMedication1AsMedication3() {
-        return this.consumableMedication1 instanceof DrugProductBean ? (DrugProductBean) this.consumableMedication1 : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean getConsumableMedication1AsMedication3() {
+        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean) this.consumableMedication1 : null;
     }
     public boolean hasConsumableMedication1AsMedication3() {
-        return (this.consumableMedication1 instanceof DrugProductBean);
+        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean);
     }
 
     public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220210ca.DrugProductBean getConsumableMedication1AsMedication4() {

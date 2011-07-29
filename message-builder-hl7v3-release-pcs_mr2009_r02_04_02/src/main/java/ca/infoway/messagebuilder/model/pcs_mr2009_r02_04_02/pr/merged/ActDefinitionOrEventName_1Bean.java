@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CreatedAtBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -89,7 +88,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.ActDefinitionOrEvent","PRPM_MT303010CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private IVL<TS, Interval<Date>> actDefinitionOrEventNameEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<CreatedAtBean> location = new ArrayList<CreatedAtBean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();

@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AdjudicatorIdBean;
-
 import java.util.Date;
 
 
@@ -55,7 +54,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II adjudicationResultIdentifier = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO paidAmount = new MOImpl();

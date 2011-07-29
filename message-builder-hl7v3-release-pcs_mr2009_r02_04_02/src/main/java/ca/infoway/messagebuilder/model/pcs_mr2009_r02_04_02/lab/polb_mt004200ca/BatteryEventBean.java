@@ -44,9 +44,9 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ObservationOrderableLabType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
@@ -60,8 +60,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.PlacerGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.RequestChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,13 +70,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private CD typeOfBatteryEvent = new CDImpl();
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private CS batteryEventStatus = new CSImpl();
     private IVL<TS, Interval<Date>> batteryEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -100,9 +98,9 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
+    @Hl7XmlMapping({"receiver"})
+    public List<ElectronicResultReceiverBean> getReceiver() {
+        return this.receiver;
     }
 
 
@@ -134,10 +132,10 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
         return this.primaryInformationRecipientAssignedEntity;
     }
-    public void setPrimaryInformationRecipientAssignedEntity(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 

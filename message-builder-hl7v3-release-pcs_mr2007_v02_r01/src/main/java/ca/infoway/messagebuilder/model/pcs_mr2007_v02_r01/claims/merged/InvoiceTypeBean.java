@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.CrossReferenceIdentifierBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.InvoiceComponentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.InvoiceOverrideDetailsBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt600201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO invoiceSubTotal = new MOImpl();

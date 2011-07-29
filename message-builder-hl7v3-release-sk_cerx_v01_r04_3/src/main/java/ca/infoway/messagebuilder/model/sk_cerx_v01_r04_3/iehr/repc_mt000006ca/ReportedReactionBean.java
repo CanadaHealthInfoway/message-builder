@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
@@ -76,7 +76,7 @@ public class ReportedReactionBean extends MessagePartBean {
     private RecordedAtBean location;
     private List<CommentBean> subjectOf1Annotation = new ArrayList<CommentBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private List<ReactionAssessmentsBean> subjectOf3CausalityAssessment = new ArrayList<ReactionAssessmentsBean>();
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
 
 
@@ -213,7 +213,7 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReactionAssessmentsBean> getSubjectOf3CausalityAssessment() {
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
     }
 

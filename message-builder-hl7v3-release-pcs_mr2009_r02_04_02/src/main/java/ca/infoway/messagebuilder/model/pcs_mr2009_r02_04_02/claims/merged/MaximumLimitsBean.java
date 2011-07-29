@@ -41,7 +41,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT400003CA.MaximumLimits","FICR_MT400004CA.MaximumLimits","FICR_MT490102CA.MaximumLimits"})
 public class MaximumLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private INT maximumFillsPermitted = new INTImpl();
     private PQ maximumQuantitySupply = new PQImpl();
     private IVL<TS, Interval<Date>> maximumDaysSupply = new IVLImpl<TS, Interval<Date>>();

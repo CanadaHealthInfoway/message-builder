@@ -61,7 +61,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II medicalConditionRecordId = new IIImpl();
     private CD conditionType = new CDImpl();
     private CS conditionStatus = new CSImpl();

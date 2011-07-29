@@ -121,7 +121,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","FICR_MT400003CA.Ingredient","FICR_MT400004CA.Ingredient","FICR_MT490102CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private CV drugIngredientIdentifier = new CVImpl();
@@ -460,55 +460,8 @@ public class DrugContainsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p></p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p></p>
-     * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p></p>
-     * 
-     * <p>J:Drug Ingredient Identifier</p>
-     * 
-     * <p><p>The unique identifier for the drug or chemical.</p></p>
-     * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in vaccines.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient code should be 
-     * available in most cases.</p></p>
-     * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in vaccines.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient code should be 
-     * available in most cases.</p></p>
-     * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in vaccines.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient code should be 
-     * available in most cases.</p></p>
+     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p>
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"ingredient/code"})
     public ActiveIngredientDrugEntityType getDrugIngredientIdentifier() {

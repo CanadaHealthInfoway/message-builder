@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt290000ca.BillableClinicalServiceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt300000ca.PharmacyDispenseBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt490000ca.BillableClinicalProductBean;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -48,7 +48,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private CV drugCode = new CVImpl();
     private II medicationDocumentID = new IIImpl();
     private CV medicationDocumentType = new CVImpl();

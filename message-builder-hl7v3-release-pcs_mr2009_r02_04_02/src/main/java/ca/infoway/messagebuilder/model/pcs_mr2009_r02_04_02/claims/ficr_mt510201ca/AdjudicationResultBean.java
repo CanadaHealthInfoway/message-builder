@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Invoic
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.InvoiceElementGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV adjudicationResultsAdjudicationCode = new CVImpl();
     private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();

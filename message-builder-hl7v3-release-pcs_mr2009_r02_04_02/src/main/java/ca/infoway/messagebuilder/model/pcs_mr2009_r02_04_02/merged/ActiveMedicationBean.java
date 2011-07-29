@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt490102ca.MedicationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220100ca.DrugProductBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +74,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration","FICR_MT400001CA.SubstanceAdministration","FICR_MT400003CA.SubstanceAdministration","FICR_MT400004CA.SubstanceAdministration","FICR_MT490101CA.SubstanceAdministration","FICR_MT490102CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CausalActs, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SpecialAuthorizationChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private PQ doseQuantity = new PQImpl();
     private MedicationBean directTargetMedication;
     private MedicineBean directTargetMedicationAdministerableMedicine;

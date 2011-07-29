@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010110ca.PriorDeviceRequestBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class DeviceRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private CS prescriptionStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

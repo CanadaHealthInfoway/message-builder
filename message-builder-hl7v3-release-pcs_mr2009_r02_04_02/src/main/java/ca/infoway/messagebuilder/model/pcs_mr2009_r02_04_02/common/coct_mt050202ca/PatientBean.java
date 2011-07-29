@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -56,7 +55,7 @@ import java.util.Set;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean patientPerson;
 

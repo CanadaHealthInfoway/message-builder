@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV serviceCode = new CVImpl();
     private IVL<TS, Interval<Date>> consultationTimeAndLength = new IVLImpl<TS, Interval<Date>>();
     private CV professionalServiceMaskingIndicator = new CVImpl();

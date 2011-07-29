@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-
 import java.util.Date;
 
 
@@ -66,7 +65,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS prescriptionDispensableIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;

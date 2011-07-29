@@ -68,7 +68,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientImmunizationObservations","POIZ_MT030060CA.PatientImmunizationObservations","POIZ_MT060150CA.PatientImmunizationObservations"})
 public class PatientImmunizationObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV patientImmunizationObservationType = new CVImpl();
     private ANY<Object> patientImmunizationObservationValue = new ANYImpl<Object>();
 

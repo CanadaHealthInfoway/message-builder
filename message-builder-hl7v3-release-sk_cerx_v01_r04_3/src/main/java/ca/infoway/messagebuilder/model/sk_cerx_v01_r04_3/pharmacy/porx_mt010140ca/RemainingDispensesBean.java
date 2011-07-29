@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt220100ca.
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private PQ remainingQuantity = new PQImpl();
     private DrugProductBean productMedication;
 

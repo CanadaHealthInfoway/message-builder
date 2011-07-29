@@ -40,8 +40,8 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
@@ -64,7 +64,7 @@ public class ReportedReactionBean extends MessagePartBean {
     private ReportedByBean informant;
     private CommentBean subjectOf1Annotation;
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private List<ReactionAssessmentsBean> subjectOf3CausalityAssessment = new ArrayList<ReactionAssessmentsBean>();
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
 
 
     /**
@@ -164,7 +164,7 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReactionAssessmentsBean> getSubjectOf3CausalityAssessment() {
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
     }
 

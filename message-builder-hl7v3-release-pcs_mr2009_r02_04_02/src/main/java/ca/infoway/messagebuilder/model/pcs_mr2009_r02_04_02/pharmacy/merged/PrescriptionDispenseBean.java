@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050303
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -72,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionDispenseNumber = new IIImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
@@ -306,53 +305,8 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * default is 'normal' signifying 'Not Masked'.</p></p>
      * 
      * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>If a dispense is masked, it implicitly masks the 
-     * prescription being dispensed. (There's no point in masking a 
-     * dispense if the prescription is unmasked.)</p></p>
+     * present in a n
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {

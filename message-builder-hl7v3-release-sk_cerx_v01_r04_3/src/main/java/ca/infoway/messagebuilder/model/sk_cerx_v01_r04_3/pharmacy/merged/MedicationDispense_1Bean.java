@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationDispense_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;

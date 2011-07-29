@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.GenericQueryPara
 @Hl7PartTypeMapping({"REPC_IN000016CA"})
 public class PatientAllergyIntoleranceQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<AllergyIntoleranceBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
 
 }

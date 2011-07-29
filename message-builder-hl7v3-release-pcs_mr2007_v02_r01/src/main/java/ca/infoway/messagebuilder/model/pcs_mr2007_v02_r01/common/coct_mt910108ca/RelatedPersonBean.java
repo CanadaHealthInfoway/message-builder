@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II relatedPersonIdentifier = new IIImpl();
     private CV responsiblePersonType = new CVImpl();
     private PN relatedPersonName = new PNImpl();

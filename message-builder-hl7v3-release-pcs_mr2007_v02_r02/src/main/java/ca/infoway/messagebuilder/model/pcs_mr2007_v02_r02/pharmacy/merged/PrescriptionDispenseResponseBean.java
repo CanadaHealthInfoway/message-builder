@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RelatedPersonBean;
-
 import java.util.Date;
 
 
@@ -74,7 +73,7 @@ import java.util.Date;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private II prescriptionOrderNumber = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;

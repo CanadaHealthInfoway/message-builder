@@ -49,7 +49,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.ReferencesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -86,7 +85,7 @@ import java.util.Set;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private CV prescriptionType = new CVImpl();

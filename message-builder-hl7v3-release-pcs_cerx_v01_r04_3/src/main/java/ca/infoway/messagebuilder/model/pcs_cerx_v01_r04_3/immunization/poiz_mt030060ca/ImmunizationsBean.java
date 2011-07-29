@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.InformationSourceRoleBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.PartOfBean;
-
 import java.util.Date;
 
 
@@ -57,7 +56,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II immunizationRecordId = new IIImpl();
     private CD immunizationType = new CDImpl();
     private BL notImmunized = new BLImpl();

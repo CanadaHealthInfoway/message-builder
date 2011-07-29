@@ -48,7 +48,7 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Patient {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ST animalName = new STImpl();
     private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

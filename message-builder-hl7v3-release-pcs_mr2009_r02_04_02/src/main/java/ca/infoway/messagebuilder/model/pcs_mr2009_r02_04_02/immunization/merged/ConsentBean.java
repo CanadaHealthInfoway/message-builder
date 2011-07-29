@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ConsentGivenToBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Consenter;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
-
 import java.util.Date;
 
 
@@ -49,7 +48,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II consentID = new IIImpl();
     private BL consentWitheldIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();

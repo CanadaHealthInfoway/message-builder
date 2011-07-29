@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Patien
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SubstitutionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SupplyRequest_1Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +47,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II localDispenseId = new IIImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();
     private Patient subjectPatient1;

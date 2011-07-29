@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt050202ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice;
-
 import java.util.Date;
 
 
@@ -111,7 +110,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS time = new TSImpl();
     private Party party;
     private Choice choice;

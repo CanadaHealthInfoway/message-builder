@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV territorialAuthorityType = new CVImpl();
     private CV jurisdictionType = new CVImpl();
     private List<PartBean> part = new ArrayList<PartBean>();

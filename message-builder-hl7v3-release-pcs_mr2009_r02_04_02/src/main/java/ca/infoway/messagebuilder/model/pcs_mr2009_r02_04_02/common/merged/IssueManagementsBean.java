@@ -88,7 +88,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByB
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV managementType = new CVImpl();
     private ST managementDescription = new STImpl();
     private PrescribedByBean author;
@@ -244,54 +244,8 @@ public class IssueManagementsBean extends MessagePartBean {
      * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
      * 
      * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p></p>
-     * 
-     * <p><p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p></p>
+     * dealing with clinical indication overrides, other
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
     public ActDetectedIssueManagementCode getManagementType() {

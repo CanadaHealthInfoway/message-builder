@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.merged.Consenter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +42,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ST keyword = new STImpl();
     private Consenter authorConsenter;
     private List<CV> consentInformationTypes = new ArrayList<CV>();

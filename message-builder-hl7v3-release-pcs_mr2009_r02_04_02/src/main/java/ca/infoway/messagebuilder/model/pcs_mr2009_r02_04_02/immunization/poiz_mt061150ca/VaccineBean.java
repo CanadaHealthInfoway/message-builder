@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.domainvalue.AdministrableDrugForm;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ManufacturerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV vaccineCode = new CVImpl();
     private ST vaccineName = new STImpl();
     private ST vaccineDescription = new STImpl();

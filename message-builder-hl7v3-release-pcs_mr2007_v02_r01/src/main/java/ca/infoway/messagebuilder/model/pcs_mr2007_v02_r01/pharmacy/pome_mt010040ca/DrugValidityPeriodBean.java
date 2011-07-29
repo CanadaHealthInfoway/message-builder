@@ -36,7 +36,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.InitialDispense"})
 public class DrugValidityPeriodBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private IVL<TS, Interval<Date>> firstFillPeriod = new IVLImpl<TS, Interval<Date>>();
 
 

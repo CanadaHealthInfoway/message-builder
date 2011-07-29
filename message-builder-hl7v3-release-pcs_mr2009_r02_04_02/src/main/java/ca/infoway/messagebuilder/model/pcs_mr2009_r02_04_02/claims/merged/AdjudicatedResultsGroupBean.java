@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.qucr_mt810201
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt110200ca.PayeeAccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,7 +98,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II adjudicatedResultsGroupID = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

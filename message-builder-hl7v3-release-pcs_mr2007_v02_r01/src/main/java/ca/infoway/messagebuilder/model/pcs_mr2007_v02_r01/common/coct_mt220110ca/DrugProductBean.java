@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.DrugContainsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.ManufacturerBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV drugCode = new CVImpl();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();

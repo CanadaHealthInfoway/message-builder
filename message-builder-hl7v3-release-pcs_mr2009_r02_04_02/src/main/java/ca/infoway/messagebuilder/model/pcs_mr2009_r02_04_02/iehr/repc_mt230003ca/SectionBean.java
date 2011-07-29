@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Clinical
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DocumentContent_3;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DocumentSectionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReferenceBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
     private DocumentContent_3 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();

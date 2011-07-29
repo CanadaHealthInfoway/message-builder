@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceCoverageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceElementChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.InvoiceElementDetailBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +61,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private II adjudicationResultId = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();

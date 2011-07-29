@@ -41,7 +41,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
     private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();

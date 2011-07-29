@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.DispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.DrugContainsBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.ManufacturerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +51,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CE drugCode = new CEImpl();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();

@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AllowableBean;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private AllowableBean reference1Allowable;
     private AdjudicationResultBean outcomeOfAdjudicationResult;
     private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

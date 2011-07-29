@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110715L;
+    private static final long serialVersionUID = 20110729L;
     private II observationIdentifier = new IIImpl();
     private CD observationType = new CDImpl();
     private CV confidentialityCode = new CVImpl();

@@ -45,7 +45,7 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV drugCode = new CVImpl();
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();

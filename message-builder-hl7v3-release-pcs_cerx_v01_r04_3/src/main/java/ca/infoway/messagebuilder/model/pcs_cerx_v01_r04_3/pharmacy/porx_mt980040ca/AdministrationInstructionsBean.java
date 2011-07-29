@@ -53,7 +53,6 @@ import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CS dosageUsageContext = new CSImpl();
     private CD dosageType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();

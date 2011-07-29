@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
-
 import java.util.Date;
 
 
@@ -40,7 +39,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private TS prescribedDate = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
     private ED<String> signature = new EDImpl<String>();

@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
@@ -54,7 +54,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.ObservationChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -69,11 +68,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001999CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> placerGroupIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private HealthcareOrganizationBean performerAssignedEntity;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean performerAssignedEntity;
     private List<HealthcareWorkerBean> callBackContactAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
@@ -131,10 +130,10 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
 
     @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareOrganizationBean getPerformerAssignedEntity() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
-    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
+    public void setPerformerAssignedEntity(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 

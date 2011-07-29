@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT111111CA.RenderedContent"})
 public class RenderedRecordBean extends MessagePartBean implements Summary {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV renderedContentType = new CVImpl();
     private ED<EncapsulatedData> renderedContent = new EDImpl<EncapsulatedData>();
 

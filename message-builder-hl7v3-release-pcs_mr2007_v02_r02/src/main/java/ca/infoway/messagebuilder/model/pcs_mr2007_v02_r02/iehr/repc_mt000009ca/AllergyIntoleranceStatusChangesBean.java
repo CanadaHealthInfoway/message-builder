@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
-
 import java.util.Date;
 
 
@@ -54,7 +53,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV allergyIntoleranceStatusChangeType = new CVImpl();
     private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private CV allergyIntoleranceStatusChangeReason = new CVImpl();

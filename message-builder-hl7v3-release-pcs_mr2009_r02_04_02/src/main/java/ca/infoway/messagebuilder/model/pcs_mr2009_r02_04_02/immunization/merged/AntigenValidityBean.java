@@ -78,7 +78,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenValidity","POIZ_MT030060CA.AntigenValidity","POIZ_MT060150CA.AntigenValidity","POIZ_MT061150CA.AntigenValidity"})
 public class AntigenValidityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110407L;
+    private static final long serialVersionUID = 20110729L;
     private CV invalidAntigenReasonCode = new CVImpl();
     private BL antigenValidityIndicator = new BLImpl();
 
