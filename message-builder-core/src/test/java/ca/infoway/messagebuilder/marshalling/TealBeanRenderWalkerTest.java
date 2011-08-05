@@ -40,7 +40,7 @@ public class TealBeanRenderWalkerTest {
 		
 		this.bridgeFactory = new MockBridgeFactory();
 		this.message = new MockMessageBean();
-		this.walker = new TealBeanRenderWalker(this.message, null, this.bridgeFactory);
+		this.walker = new TealBeanRenderWalker(this.message, null, null, this.bridgeFactory);
 		this.visitor = new MockVisitor();
 		this.bridgeFactory.interaction = new Interaction();
 	}

@@ -24,7 +24,6 @@ import java.math.BigDecimal;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.RealCoordFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealFormat;
@@ -64,7 +63,7 @@ public class RealCoordPropertyFormatter extends AbstractValueNullFlavorPropertyF
 	}
 	
     @Override
-    protected String getValue(BigDecimal bigDecimal, VersionNumber version) {
+    protected String getValue(BigDecimal bigDecimal, FormatContext context) {
     	return this.formatter.format(bigDecimal, 
     			this.format.getMaxValueLength(), this.format.getMaxDecimalPartLength(), true);
     }

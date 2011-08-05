@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.TimeZone;
+
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.VersionNumber;
@@ -37,6 +39,8 @@ interface Hl7Source {
 	public Element getCurrentElement();
 
 	public VersionNumber getVersion();
+	
+	public TimeZone getTimeZone();
 
 	public String getType();
 

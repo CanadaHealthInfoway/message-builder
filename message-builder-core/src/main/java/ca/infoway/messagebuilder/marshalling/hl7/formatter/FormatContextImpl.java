@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -31,21 +33,23 @@ class FormatContextImpl implements FormatContext {
 	private final boolean isSpecializationType;
 	private final boolean isPassOnSpecializationType;
 	private final VersionNumber version;
+	private final TimeZone timeZone;
 
 	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel) {
-		this(elementName, type, conformanceLevel, false, null, true);
+		this(elementName, type, conformanceLevel, false, null, null, true);
 	}
 	
-	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version) {
-		this(elementName, type, conformanceLevel, isSpecializationType, version, true);
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone timeZone) {
+		this(elementName, type, conformanceLevel, isSpecializationType, version, timeZone, true);
 	}
 	
-	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, boolean isPassOnSpecializationType) {
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone timeZone, boolean isPassOnSpecializationType) {
 		this.elementName = elementName;
 		this.type = type;
 		this.conformanceLevel = conformanceLevel;
 		this.isSpecializationType = isSpecializationType;
 		this.version = version;
+		this.timeZone = timeZone;
 		this.isPassOnSpecializationType = isPassOnSpecializationType;
 	}
 	
@@ -67,6 +71,10 @@ class FormatContextImpl implements FormatContext {
 
 	public VersionNumber getVersion() {
 		return this.version;
+	}
+	
+	public TimeZone getTimeZone() {
+		return this.timeZone;
 	}
 	
 	public boolean isPassOnSpecializationType() {

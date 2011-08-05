@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
@@ -33,14 +34,16 @@ class ParseContextImpl implements ParseContext {
 
 	private final Relationship relationship;
 	private final VersionNumber version;
+	private final TimeZone timeZone;
 
-	private ParseContextImpl(Relationship relationship, VersionNumber version) {
+	private ParseContextImpl(Relationship relationship, VersionNumber version, TimeZone timeZone) {
 		this.relationship = relationship;
 		this.version = version;
+		this.timeZone = timeZone;
 	}
 
-	public static ParseContext create(Relationship relationship, VersionNumber version) {
-		return new ParseContextImpl(relationship, version);
+	public static ParseContext create(Relationship relationship, VersionNumber version, TimeZone timeZone) {
+		return new ParseContextImpl(relationship, version, timeZone);
 	}
 
 	public Type getExpectedReturnType() {
@@ -53,6 +56,9 @@ class ParseContextImpl implements ParseContext {
 
 	public VersionNumber getVersion() {
 		return this.version;
+	}
+	public TimeZone getTimeZone() {
+		return this.timeZone;
 	}
 	public Integer getLength() {
 		return this.relationship.getLength();

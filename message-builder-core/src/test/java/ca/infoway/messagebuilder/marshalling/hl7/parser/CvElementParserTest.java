@@ -193,7 +193,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 			final ConformanceLevel conformance, 
 			final CodingStrength strength) {
 		
-		return ParserContextImpl.create(typeName, c, version, conformance, strength, null);
+		return ParserContextImpl.create(typeName, c, version, null, conformance, strength, null);
 	}
 
 	@Test

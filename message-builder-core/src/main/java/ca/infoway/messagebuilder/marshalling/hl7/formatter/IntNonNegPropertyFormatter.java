@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -44,7 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class IntNonNegPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
 	@Override
-    protected String getValue(Integer integer, VersionNumber version) throws ModelToXmlTransformationException {
+    protected String getValue(Integer integer, FormatContext context) throws ModelToXmlTransformationException {
         if (integer==null || integer.intValue() < 0) {
         	return "0";
         } else {

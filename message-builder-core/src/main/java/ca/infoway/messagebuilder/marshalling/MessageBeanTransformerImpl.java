@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.TimeZone;
+
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
@@ -46,7 +48,10 @@ public class MessageBeanTransformerImpl {
 	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
-		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, this.service));
+		return transformFromHl7(version, hl7Message, null);
+	}
+	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message, TimeZone timeZone) {
+		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, timeZone, this.service));
 	}
 	
 	// FIXME - TM - should return JavaToXmlResult (every transformation test will require changing)
@@ -55,8 +60,11 @@ public class MessageBeanTransformerImpl {
 	}
 	
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
+		return transformToHl7AndReturnResult(version, messageBean, null);
+	}
+	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone timeZone) {
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
-		new TealBeanRenderWalker(messageBean, version, this.service).accept(visitor);
+		new TealBeanRenderWalker(messageBean, version, timeZone, this.service).accept(visitor);
 		ModelToXmlResult result = visitor.toXml();
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());

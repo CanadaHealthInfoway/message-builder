@@ -49,7 +49,7 @@ public class Hl7SourceMapperMessageBeanTest {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		this.document = getSourceDocument();
 		this.service = new MockTestCaseMessageDefinitionService();
-		this.messageSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, service);
+		this.messageSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, null, service);
 	}
 	
 	@Test

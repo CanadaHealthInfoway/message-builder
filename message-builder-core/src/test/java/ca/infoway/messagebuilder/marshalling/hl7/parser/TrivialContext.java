@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -51,6 +52,10 @@ class TrivialContext implements ParseContext {
 	}
 
 	public VersionNumber getVersion() {
+		return null;
+	}
+	
+	public TimeZone getTimeZone() {
 		return null;
 	}
 

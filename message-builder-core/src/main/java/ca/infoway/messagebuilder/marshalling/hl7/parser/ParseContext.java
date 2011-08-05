@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
@@ -30,6 +31,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 public interface ParseContext extends Typed {
 	public Type getExpectedReturnType();
 	public VersionNumber getVersion();
+	public TimeZone getTimeZone();
 	public Integer getLength();
 	public CodingStrength getCodingStrength();
 	public ConformanceLevel getConformance();

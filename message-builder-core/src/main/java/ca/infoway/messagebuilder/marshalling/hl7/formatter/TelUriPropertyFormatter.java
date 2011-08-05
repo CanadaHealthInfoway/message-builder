@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
@@ -57,7 +56,7 @@ public class TelUriPropertyFormatter extends AbstractValueNullFlavorPropertyForm
     }
 
     @Override
-    protected final String getValue(TelecommunicationAddress uri, VersionNumber version) throws ModelToXmlTransformationException {
+    protected final String getValue(TelecommunicationAddress uri, FormatContext context) throws ModelToXmlTransformationException {
         validateUrlScheme(uri);
         return uri.toString();
     }

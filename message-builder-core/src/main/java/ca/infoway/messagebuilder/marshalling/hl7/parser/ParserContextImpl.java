@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -34,12 +35,14 @@ class ParserContextImpl implements ParseContext {
 	private final ConformanceLevel conformance;
 	private final CodingStrength strength;
 	private final Integer length;
+	private final TimeZone timeZone;
 
 	private ParserContextImpl(String type, Type returnType, VersionNumber version, 
-			ConformanceLevel conformance, CodingStrength strength, Integer length) {
+			TimeZone timeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		this.type = type;
 		this.expectedReturnType = returnType;
 		this.version = version;
+		this.timeZone = timeZone;
 		this.conformance = conformance;
 		this.strength = strength;
 		this.length = length;
@@ -56,13 +59,17 @@ class ParserContextImpl implements ParseContext {
 	public VersionNumber getVersion() {
 		return this.version;
 	}
+	
+	public TimeZone getTimeZone() {
+		return this.timeZone;
+	}
 
 	public ConformanceLevel getConformance() {
 		return this.conformance;
 	}
 
 	static ParseContext create(String type, Type returnType, VersionNumber version, ConformanceLevel conformance) {
-		return new ParserContextImpl(type, returnType, version, conformance, null, null);
+		return new ParserContextImpl(type, returnType, version, null, conformance, null, null);
 	}
 
 	public CodingStrength getCodingStrength() {
@@ -74,7 +81,7 @@ class ParserContextImpl implements ParseContext {
 	}
 
 	public static ParseContext create(String type, Type returnType, VersionNumber version,
-			ConformanceLevel conformance, CodingStrength strength, Integer length) {
-		return new ParserContextImpl(type, returnType, version, conformance, strength, length);
+			TimeZone timeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
+		return new ParserContextImpl(type, returnType, version, timeZone, conformance, strength, length);
 	}
 }

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -30,4 +32,5 @@ public interface FormatContext {
 	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();
 	public VersionNumber getVersion();
+	public TimeZone getTimeZone();
 }

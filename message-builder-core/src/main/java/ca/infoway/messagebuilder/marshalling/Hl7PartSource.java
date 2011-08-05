@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.TimeZone;
+
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
@@ -68,6 +70,10 @@ class Hl7PartSource implements Hl7Source {
 		return this.hl7InteractionSource.getVersion();
 	}
 
+	public TimeZone getTimeZone() {
+		return this.hl7InteractionSource.getTimeZone();
+	}
+	
 	public String getType() {
 		return this.hl7Type;
 	}

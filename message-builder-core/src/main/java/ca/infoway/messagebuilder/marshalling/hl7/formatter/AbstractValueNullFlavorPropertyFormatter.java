@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.VersionNumber;
 
 /**
  * Formats some nullable object into element:
@@ -45,7 +44,7 @@ public abstract class AbstractValueNullFlavorPropertyFormatter<V> extends Abstra
 	Map<String, String> getAttributeNameValuePairs(FormatContext context, V t) throws ModelToXmlTransformationException {
         Map<String, String> result = new HashMap<String, String>();
         if (t != null) {
-            result.put("value", getValue(t, context.getVersion()));
+            result.put("value", getValue(t, context));
             addOtherAttributesIfNecessary(t, result);
         } else {
             result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
@@ -53,7 +52,7 @@ public abstract class AbstractValueNullFlavorPropertyFormatter<V> extends Abstra
         return result;
     }
 
-    protected abstract String getValue(V v, VersionNumber version) throws ModelToXmlTransformationException;
+    protected abstract String getValue(V v, FormatContext context) throws ModelToXmlTransformationException;
 
     protected void addOtherAttributesIfNecessary(V v, Map<String, String> attributes) throws ModelToXmlTransformationException {
         // no-op in superclass

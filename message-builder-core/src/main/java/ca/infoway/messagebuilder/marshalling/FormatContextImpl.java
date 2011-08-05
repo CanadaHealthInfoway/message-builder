@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -29,14 +31,16 @@ class FormatContextImpl implements FormatContext {
 
 	private final Relationship relationship;
 	private final VersionNumber version;
+	private final TimeZone timeZone;
 
-	private FormatContextImpl(Relationship relationship, VersionNumber version) {
+	private FormatContextImpl(Relationship relationship, VersionNumber version, TimeZone timeZone) {
 		this.relationship = relationship;
 		this.version = version;
+		this.timeZone = timeZone;
 	}
 
-	public static FormatContext create(Relationship relationship, VersionNumber version) {
-		return new FormatContextImpl(relationship, version);
+	public static FormatContext create(Relationship relationship, VersionNumber version, TimeZone timeZone) {
+		return new FormatContextImpl(relationship, version, timeZone);
 	}
 
 	public ConformanceLevel getConformanceLevel() {
@@ -61,6 +65,10 @@ class FormatContextImpl implements FormatContext {
 
 	public VersionNumber getVersion() {
 		return this.version;
+	}
+
+	public TimeZone getTimeZone() {
+		return timeZone;
 	}
 
 }

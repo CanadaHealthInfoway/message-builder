@@ -21,8 +21,8 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.util.Date;
+import java.util.TimeZone;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
@@ -46,7 +46,8 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
     private final static String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
 
     @Override
-    protected String getValue(Date date, VersionNumber version) {
-    	return DateFormatUtil.format(date, DATE_FORMAT_YYYYMMDD);
+    protected String getValue(Date date, FormatContext context) {
+    	TimeZone timeZone = context != null && context.getTimeZone() != null ? context.getTimeZone() : TimeZone.getDefault();
+    	return DateFormatUtil.format(date, DATE_FORMAT_YYYYMMDD, timeZone);
     }
 }

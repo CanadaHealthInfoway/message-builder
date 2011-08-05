@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.ClassUtils;
 
@@ -35,16 +36,18 @@ class TealBeanRenderWalker {
 	private final InteractionBean tealBean;
 	private final BridgeFactory factory;
 	private final VersionNumber version;
+	private final TimeZone timeZone;
 
 	public TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version) {
-		this(tealBean, version, new MessageDefinitionServiceFactory().create());
+		this(tealBean, version, null, new MessageDefinitionServiceFactory().create());
 	}
-	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, MessageDefinitionService service) {
-		this(tealBean, version, new BridgeFactoryImpl(service, version));
+	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone timeZone, MessageDefinitionService service) {
+		this(tealBean, version, timeZone, new BridgeFactoryImpl(service, version));
 	}
 
-	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, BridgeFactory factory) {
+	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone timeZone, BridgeFactory factory) {
 		this.tealBean = tealBean;
+		this.timeZone = timeZone;
 		this.factory = factory;
 		this.version = version;
 	}
@@ -87,7 +90,7 @@ class TealBeanRenderWalker {
 		if (relationship.isAssociation()) {
 			processAllRelationshipValues(interaction, (AssociationBridge) relationship, visitor);
 		} else {
-			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), this.version);
+			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), this.version, this.timeZone);
 		}
 	}
 

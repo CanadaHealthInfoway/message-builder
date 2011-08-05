@@ -24,6 +24,7 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * @sharpen.ignore platform
@@ -43,17 +44,20 @@ public class DateFormatUtil {
         }
 	}
 
-	public static Date parse(String dateString, String pattern) {
+	public static Date parse(String dateString, String pattern, TimeZone timeZone) {
 		ParsePosition pos = new ParsePosition(0);
         SimpleDateFormat parser = new SimpleDateFormat(pattern);
+        parser.setTimeZone(timeZone);
         parser.setLenient(false);
         pos.setIndex(0);
         
         return parser.parse(dateString, pos);
 	}
 
-	public static String format(Date date, String datePattern) {
-		return new SimpleDateFormat(datePattern, Locale.getDefault()).format(date);
+	public static String format(Date date, String datePattern, TimeZone timeZone) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, Locale.getDefault());
+		simpleDateFormat.setTimeZone(timeZone);
+		return simpleDateFormat.format(date);
 	}
 
 }

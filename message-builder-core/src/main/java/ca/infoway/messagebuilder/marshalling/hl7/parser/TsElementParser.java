@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -144,7 +145,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 			// xmlToJavaResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		} else if (isValidType(specializationType)) {
-			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getConformance());
+			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getTimeZone(), context.getConformance(), null, null);
 		} else {
 		    xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 		    		"Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement((Element) node)
@@ -171,7 +172,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
        				"Timestamp value must be non-blank.", element));
 		} else {
             try {
-                result = parseDate(unparsedDate, getAllDateFormats(context));
+                result = parseDate(unparsedDate, getAllDateFormats(context), context);
             } catch (IllegalArgumentException e) {
                 result = tryEveryFormat(context, unparsedDate, element, xmlToJavaResult);
                 if (result == null) {
@@ -188,7 +189,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		Date result = null;
 		for (StandardDataType type : this.formats.keySet()) {
 			try {
-				result = parseDate(unparsedDate, getDateFormatsForOtherType(type, context));
+				result = parseDate(unparsedDate, getDateFormatsForOtherType(type, context), context);
 				if (result != null) {
 	           		String message = 
 	           			"The timestamp element {0} appears to be formatted as type {1}, but should be {2}.";
@@ -207,7 +208,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private String[] getDateFormatsForOtherType(StandardDataType type, ParseContext context) {
 		ParseContext newContext;
 		if (context == null) {
-			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null);
+			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null);
 		} else {
 			newContext =  ParserContextImpl.create(type == null ? null : type.getType(), context.getExpectedReturnType(), context.getVersion(), context.getConformance());
 		}
@@ -235,14 +236,16 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
     /**
      * Adapted from org.apache.commons.lang.time.DateUtils, but leniency is turned off. 
+     * @param context TODO
      */
-    private Date parseDate(String str, String[] parsePatterns) {
+    private Date parseDate(String str, String[] parsePatterns, ParseContext context) {
 
     	String dateString = standardizeDate(str);
         for (int i = 0; i < parsePatterns.length; i++) {
         	String pattern = parsePatterns[i];
 			if (DateFormatUtil.isMatchingPattern(dateString, pattern)) {
-        		Date date = DateFormatUtil.parse(dateString, pattern);
+				TimeZone timeZone = context != null && context.getTimeZone() != null ? context.getTimeZone() : TimeZone.getDefault();
+        		Date date = DateFormatUtil.parse(dateString, pattern, timeZone);
         		// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
             	return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, pattern);
         	}

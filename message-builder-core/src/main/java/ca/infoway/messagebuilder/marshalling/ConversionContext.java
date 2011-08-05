@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -35,11 +36,13 @@ class ConversionContext {
 	private final MessageDefinitionService service;
 	private final VersionNumber version;
 	private final Interaction interaction;
+	private final TimeZone timeZone;
 	
 	ConversionContext(MessageDefinitionService service,
-			VersionNumber version, String messageId) {
+			VersionNumber version, TimeZone timeZone, String messageId) {
 		this.service = service;
 		this.version = version;
+		this.timeZone = timeZone;
 		this.interaction = service.getInteraction(version, messageId);
 	}
 
@@ -51,10 +54,14 @@ class ConversionContext {
 		return this.version;
 	}
 
+	public TimeZone getTimeZone() {
+		return timeZone;
+	}
+	
 	public MessagePart getMessagePart(String type) {
 		return this.service.getMessagePart(this.version, type);
 	} 
-	
+
 	public MessagePart getMessagePartOfRelationship(Relationship relationship) {
 		return this.service.getMessagePart(this.version, relationship.getType());
 	} 

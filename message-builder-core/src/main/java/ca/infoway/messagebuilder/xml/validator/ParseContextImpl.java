@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.xml.validator;
 import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.getReturnType;
 
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
@@ -55,6 +56,9 @@ class ParseContextImpl implements ParseContext {
 	public VersionNumber getVersion() {
 		return this.version;
 	}
+	public TimeZone getTimeZone() {
+		return null;
+	}	
 	public Integer getLength() {
 		return this.relationship.getLength();
 	}

@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredic
 
 import java.text.MessageFormat;
 import java.util.Stack;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
@@ -209,18 +210,18 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version) {
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone timeZone) {
 		this.propertyPathNames.push(tealBean.getPropertyName());
 		if (relationship.isStructural()) {
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
 		} else {
-			renderNonStructuralAttribute(tealBean, relationship, version);
+			renderNonStructuralAttribute(tealBean, relationship, version, timeZone);
 		}
 		this.propertyPathNames.pop();
 		// remove(this.propertyPathNames.size() - 1);
 	}
 
-	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version) {
+	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone timeZone) {
 		String type = relationship.getType();
 		PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 		if (formatter == null) {
@@ -237,7 +238,7 @@ class XmlRenderingVisitor implements Visitor {
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
-				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version), any, getIndent());
+				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, timeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				String propertyPath = StringUtils.join(this.propertyPathNames, ".");

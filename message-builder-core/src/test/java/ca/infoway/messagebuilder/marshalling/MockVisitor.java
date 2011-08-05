@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -48,7 +50,7 @@ class MockVisitor implements Visitor {
 	}
 
 	public void visitAttribute(AttributeBridge tealBean,
-			Relationship relationship, VersionNumber version) {
+			Relationship relationship, VersionNumber version, TimeZone timeZone) {
 		this.attributeVisited = true;
 	}
 

@@ -115,9 +115,9 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
     		buffer.append(formatter.format(
-    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, true, null), new INTImpl(repetitions), indentLevel));
+    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, true, null, null), new INTImpl(repetitions), indentLevel));
     		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity)), UNIT, getUnits(new DateDiff(quantity)));
-    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, true, null), attributes, indentLevel, true, true));
+    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, true, null, null), attributes, indentLevel, true, true));
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

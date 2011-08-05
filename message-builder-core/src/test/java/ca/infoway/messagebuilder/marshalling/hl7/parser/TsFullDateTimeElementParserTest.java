@@ -24,8 +24,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -123,5 +125,17 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
         Hl7Error hl7Error = this.xmlJavaResult.getHl7Errors().get(0);
         assertEquals("error message", "The timestamp 19990355101112 in element <something value=\"19990355101112\"/> cannot be parsed.", hl7Error.getMessage());
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
+	}
+	
+	@Test
+	public void timeInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
+		Node node = createNode("<something value=\"19990303101112\" />");
+		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-6")), node, this.xmlJavaResult).getBareValue());
+		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-5")), node, this.xmlJavaResult).getBareValue());
+		assertTrue(saskDate.compareTo(ontarioDate) > 0);
+	}
+	
+	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
+		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.NEWFOUNDLAND, timeZone, ConformanceLevel.POPULATED, null, null);
 	}
 }

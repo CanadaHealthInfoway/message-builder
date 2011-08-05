@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 
@@ -46,7 +45,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class IntPosPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
     @Override
-    protected String getValue(Integer integer, VersionNumber version) throws ModelToXmlTransformationException {
+    protected String getValue(Integer integer, FormatContext context) throws ModelToXmlTransformationException {
         if (integer==null || integer.intValue() <= 0) {
             // it would be nice to name the element that we're constructing here, but right now it's not worth passing
             // the name down through a three-method call stack.

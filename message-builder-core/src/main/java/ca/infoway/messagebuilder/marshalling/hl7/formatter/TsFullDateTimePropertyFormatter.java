@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
@@ -49,12 +50,12 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     public final static String DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ = "yyyyMMddHHmmssZZZZZ";
 
     @Override
-    protected String getValue(Date date, VersionNumber version) {
+    protected String getValue(Date date, FormatContext context) {
     	String datePattern = DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
-    	if (version != null) {
-			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
+		if (context != null && context.getVersion() != null) {
+			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())) {
 				datePattern = DATE_FORMAT_YYYYMMDDHHMMSS;
-			} else if (SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, version)) {
+			} else if (SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, context.getVersion())) {
 				// FIXME - TM - temp code to allow transformation tests to pass; 
 				//            - these tests should be modified to work with the default date format
 				datePattern = DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
@@ -63,7 +64,8 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     	if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
     		datePattern = ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
     	}
-		return DateFormatUtil.format(date, datePattern);
+		TimeZone timeZone = context != null && context.getTimeZone() != null ? context.getTimeZone() : TimeZone.getDefault();
+		return DateFormatUtil.format(date, datePattern, timeZone);
     }
 
 }
