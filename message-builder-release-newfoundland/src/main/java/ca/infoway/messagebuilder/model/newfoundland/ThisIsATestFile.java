@@ -21,5 +21,5 @@
 package ca.infoway.messagebuilder.model.newfoundland;
 
 public class ThisIsATestFile {
-
+	private String hello;
 }
