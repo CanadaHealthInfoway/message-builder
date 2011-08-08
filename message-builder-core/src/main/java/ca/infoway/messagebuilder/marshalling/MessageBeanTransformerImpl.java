@@ -58,6 +58,9 @@ public class MessageBeanTransformerImpl {
 	public String transformToHl7(VersionNumber version, InteractionBean messageBean) {
 		return transformToHl7AndReturnResult(version, messageBean).getXmlMessage();
 	}
+	public String transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone timeZone) {
+		return transformToHl7AndReturnResult(version, messageBean, timeZone).getXmlMessage();
+	}
 	
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
 		return transformToHl7AndReturnResult(version, messageBean, null);
