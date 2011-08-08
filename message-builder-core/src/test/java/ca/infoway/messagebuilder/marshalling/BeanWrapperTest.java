@@ -24,14 +24,22 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.domainvalue.IntoleranceValue;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 
 public class BeanWrapperTest {
+
+	private static final String ORIGINAL_TEXT = "Original Text";
 
 	@Test
 	public void shouldWriteSimpleAttribute() throws Exception {
@@ -65,6 +73,21 @@ public class BeanWrapperTest {
 		wrapper.writeNullFlavor(null, new Relationship("component2", "ABCD_IN123456CA.BeanB", Cardinality.create("0-1")), NullFlavor.NO_INFORMATION);
 		assertNull("bean", beanC.getBeanB());
 		//assertNull("bean", beanC.getBeanB().getText());
+	}
+	
+	@Test
+	public void shouldCopyOriginalTextFromCVImplObjectToBean() throws Exception {
+		BeanD beanD = new BeanD();
+		BeanWrapper wrapper = new BeanWrapper(beanD);
+		CVImpl cvImpl = new CVImpl(CodeResolverRegistry.lookup(IntoleranceValue.class, "CODE"));
+		cvImpl.setOriginalText(ORIGINAL_TEXT);
+		wrapper.write(new Relationship("value", "CV", Cardinality.create("0-1")), cvImpl);
+		assertEquals("originalText", ORIGINAL_TEXT, ((CV)beanD.getField("someCode")).getOriginalText());
+	}
+
+	@Before
+	public void setup() {
+		CodeResolverRegistry.register(new TrivialCodeResolver());
 	}
 	
 }

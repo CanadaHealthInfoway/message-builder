@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -117,12 +118,12 @@ class BeanWrapper {
 			value = this.adapterProvider.getAdapter(dataTypeName, field.getClass()).adapt(value);
 			if (value.hasNullFlavor()) {
 				new DataTypeFieldHelper(property.getBean(), property.getName()).setNullFlavor(value.getNullFlavor());
-				((BareANYImpl) field).setBareValue(value.getBareValue());
-				field.setDataType(value.getDataType());
-			} else {
-				((BareANYImpl) field).setBareValue(value.getBareValue());
-				field.setDataType(value.getDataType());
 			}
+			if (value instanceof CD) {
+				((CD)field).setOriginalText(((CD)value).getOriginalText());
+			}
+			((BareANYImpl) field).setBareValue(value.getBareValue());
+			field.setDataType(value.getDataType());
 		}
 	}
 
