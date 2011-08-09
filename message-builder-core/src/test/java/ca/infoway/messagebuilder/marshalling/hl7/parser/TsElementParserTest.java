@@ -26,6 +26,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -202,4 +203,26 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
         assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().equals("The timestamp element <something specializationType=\"TS.FULLDATE\" value=\"20080625141610-0400\"/> appears to be formatted as type TS.FULLDATETIME, but should be TS.FULLDATE."));
     }
+	
+	@Test
+	public void dateShouldBeUnaffectedByTimeZone() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 25);
+		String value = "20080625";
+        Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
+		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
+		Date date = (Date)new TsElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
+		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
+		System.out.println(date);
+	}
+	
+	@Test
+	public void shouldBeConvertedDueToTimeZone() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0);
+		String value = "20080625";
+		Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATEWITHTIME\" />");
+		ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
+		Date date = (Date)new TsElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
+		assertDateEquals("should have been converted due to time zone", FULL_DATE_TIME, expectedResult, date);
+		System.out.println(date);
+	}
 }

@@ -244,14 +244,27 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
         for (int i = 0; i < parsePatterns.length; i++) {
         	String pattern = parsePatterns[i];
 			if (DateFormatUtil.isMatchingPattern(dateString, pattern)) {
-				TimeZone timeZone = context != null && context.getTimeZone() != null ? context.getTimeZone() : TimeZone.getDefault();
-        		Date date = DateFormatUtil.parse(dateString, pattern, timeZone);
+				Date date = DateFormatUtil.parse(dateString, pattern, getTimeZone(context));
         		// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
             	return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, pattern);
         	}
         }
         throw new IllegalArgumentException("Unable to parse the date: " + str);
     }
+
+	private TimeZone getTimeZone(ParseContext context) {
+		TimeZone timeZone;
+		if (context == null ||
+				context.getTimeZone() == null ||
+				StandardDataType.TS_DATE.equals(StandardDataType.getByTypeName(context)) ||
+				StandardDataType.TS_FULLDATE.equals(StandardDataType.getByTypeName(context))) {
+			// use default time zone
+			timeZone = TimeZone.getDefault();
+		} else {
+			timeZone = context.getTimeZone();
+		}
+		return timeZone;
+	}
 
     /*
      * If an incoming date looks like 20080331155857.8620-0400, Java has problems. Since there isn't anything more

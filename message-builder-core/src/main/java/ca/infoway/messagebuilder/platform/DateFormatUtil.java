@@ -54,6 +54,10 @@ public class DateFormatUtil {
         return parser.parse(dateString, pos);
 	}
 
+	public static String format(Date date, String datePattern) {
+		return format(date, datePattern, TimeZone.getDefault());
+	}
+	
 	public static String format(Date date, String datePattern, TimeZone timeZone) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern, Locale.getDefault());
 		simpleDateFormat.setTimeZone(timeZone);
