@@ -89,4 +89,16 @@ public class SimpleXmlProcessingServletTest {
 		new SimpleXmlProcessingServlet();
 	}
 	
+	@Test (expected=java.lang.RuntimeException.class)
+	public void shouldFailCreatingServletWithIncorrectTransportClass() {
+		System.setProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS, "java.lang.String");
+		new SimpleXmlProcessingServlet();
+	}
+	
+	@Test
+	public void shouldCreateServletWithTransportClass() {
+		System.setProperty(SimpleXmlProcessingServlet.MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS, "ca.infoway.messagebuilder.transport.mohawk.MohawkTransportLayer");
+		new SimpleXmlProcessingServlet();
+	}
+	
 }

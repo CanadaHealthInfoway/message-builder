@@ -46,6 +46,8 @@ import ca.infoway.messagebuilder.transport.rest.RestTransportLayer;
 
 public class SimpleXmlProcessingServlet extends HttpServlet {
 
+	public static final String MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS = "messagebuilder.simplexml.transportclass";
+	
 	public static final String MESSAGEBUILDER_SIMPLEXML_RESTURL = "messagebuilder.simplexml.resturl";
 	private static final String MESSAGEBUILDER_SIMPLEXML_RESTURL_DEFAULT = "https://tl7.intelliware.ca/rest/nl";
 	
@@ -60,10 +62,24 @@ public class SimpleXmlProcessingServlet extends HttpServlet {
 
 	public SimpleXmlProcessingServlet() {
 		this(
-			SpecificationVersion.valueOf(SpecificationVersion.class, 
-					System.getProperty(MESSAGEBUILDER_SIMPLEXML_VERSION, MESSAGEBUILDER_SIMPLEXML_VERSION_DEFAULT)), 
-			new RestTransportLayer(
-					System.getProperty(MESSAGEBUILDER_SIMPLEXML_RESTURL, MESSAGEBUILDER_SIMPLEXML_RESTURL_DEFAULT)));
+			SpecificationVersion.valueOf(SpecificationVersion.class, System.getProperty(MESSAGEBUILDER_SIMPLEXML_VERSION, MESSAGEBUILDER_SIMPLEXML_VERSION_DEFAULT)), 
+			createTransportLayer()
+		);
+	}
+
+	private static TransportLayer createTransportLayer() {
+		TransportLayer transport = null;
+		String transportClass = System.getProperty(MESSAGEBUILDER_SIMPLEXML_TRANSPORTCLASS);
+		if (StringUtils.isBlank(transportClass)) {
+			transport = new RestTransportLayer(System.getProperty(MESSAGEBUILDER_SIMPLEXML_RESTURL, MESSAGEBUILDER_SIMPLEXML_RESTURL_DEFAULT));
+		} else {
+			try {
+				transport = (TransportLayer) Class.forName(transportClass).newInstance();
+			} catch (Exception e) {
+				throw new RuntimeException("Unable to create a TransportLayer instance of '" + transportClass + "' (" + e.getMessage() + ")", e);
+			}
+		}
+		return transport;
 	}
 
 	public SimpleXmlProcessingServlet(VersionNumber versionNumber, TransportLayer transportLayer) {
