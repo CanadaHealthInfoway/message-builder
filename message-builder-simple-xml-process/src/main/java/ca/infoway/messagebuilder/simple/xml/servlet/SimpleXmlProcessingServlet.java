@@ -46,13 +46,24 @@ import ca.infoway.messagebuilder.transport.rest.RestTransportLayer;
 
 public class SimpleXmlProcessingServlet extends HttpServlet {
 
+	public static final String MESSAGEBUILDER_SIMPLEXML_RESTURL = "messagebuilder.simplexml.resturl";
+	private static final String MESSAGEBUILDER_SIMPLEXML_RESTURL_DEFAULT = "https://tl7.intelliware.ca/rest/nl";
+	
+	public static final String MESSAGEBUILDER_SIMPLEXML_VERSION = "messagebuilder.simplexml.version";
+	private static final String MESSAGEBUILDER_SIMPLEXML_VERSION_DEFAULT = "R02_04_02";
+	
 	private static final long serialVersionUID = -7961751642861919438L;
+	
 	private final SimpleXmlProcessor requestProcessor;
 	private final SimpleXmlProcessor responseProcessor;
 	private final TransportLayer transportLayer;
 
 	public SimpleXmlProcessingServlet() {
-		this(SpecificationVersion.R02_04_02, new RestTransportLayer("https://tl7.intelliware.ca/rest/nl"));
+		this(
+			SpecificationVersion.valueOf(SpecificationVersion.class, 
+					System.getProperty(MESSAGEBUILDER_SIMPLEXML_VERSION, MESSAGEBUILDER_SIMPLEXML_VERSION_DEFAULT)), 
+			new RestTransportLayer(
+					System.getProperty(MESSAGEBUILDER_SIMPLEXML_RESTURL, MESSAGEBUILDER_SIMPLEXML_RESTURL_DEFAULT)));
 	}
 
 	public SimpleXmlProcessingServlet(VersionNumber versionNumber, TransportLayer transportLayer) {

@@ -83,4 +83,10 @@ public class SimpleXmlProcessingServletTest {
 		assertEquals("response content length", 20, response.getContentLength());
 		assertEquals("response content", "<mySimpleResponse />", response.getContentAsString());
 	}
+	
+	@Test
+	public void shouldCreateServletWithDefaultSettings() {
+		new SimpleXmlProcessingServlet();
+	}
+	
 }
