@@ -65,6 +65,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class TsElementParser extends AbstractSingleElementParser<Date> {
 	
 	private final Map<StandardDataType, List<String>> formats;
+	private final Map<String, String> expandedFormats;
 	private final Map<VersionNumber, Map<StandardDataType, List<String>>> versionFormatExceptions;
 	
 	public TsElementParser() {
@@ -106,6 +107,10 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		
 		this.formats = Collections.unmodifiableMap(map);
 
+		this.expandedFormats = new HashMap<String, String>();
+		this.expandedFormats.put("yyyyMMddHHmmss.SSSZZZZZ", "yyyyMMddHHmmss.SSS0ZZZZZ");
+		this.expandedFormats.put("yyyyMMddHHmmss.SSS", "yyyyMMddHHmmss.SSS0");
+		
 		// some older versions have slightly different rules for allowable time formats
 		
 		Map<StandardDataType, List<String>> exceptionMapV02R01 = new LinkedHashMap<StandardDataType,List<String>>();
@@ -246,11 +251,16 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			if (DateFormatUtil.isMatchingPattern(dateString, pattern)) {
 				Date date = DateFormatUtil.parse(dateString, pattern, getTimeZone(context));
         		// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
+				pattern = expandPatternIfNecessary(pattern);
             	return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, pattern);
         	}
         }
         throw new IllegalArgumentException("Unable to parse the date: " + str);
     }
+
+	private String expandPatternIfNecessary(String pattern) {
+		return this.expandedFormats.containsKey(pattern) ? this.expandedFormats.get(pattern) : pattern;
+	}
 
 	private TimeZone getTimeZone(ParseContext context) {
 		TimeZone timeZone;

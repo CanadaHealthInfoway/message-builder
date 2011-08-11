@@ -96,7 +96,7 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" />");
         Date parsedDate = (Date) (new TsElementParser()).parse(createContext(), node, this.xmlJavaResult).getBareValue();
         assertTrue("is messagebuilder date", parsedDate instanceof DateWithPattern);
-        assertEquals("correct date pattern", "yyyyMMddHHmmss.SSSZZZZZ", ((DateWithPattern)parsedDate).getDatePattern());		
+        assertEquals("correct date pattern", "yyyyMMddHHmmss.SSS0ZZZZZ", ((DateWithPattern)parsedDate).getDatePattern());		
 	}
     
     private void assertValidValueAttribute(Date expectedResult, String value) throws Exception {
