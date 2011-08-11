@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.devtools;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -93,6 +94,22 @@ public class DefaultValueHolder extends ValueHolder {
 		return populateRespondTo();
 	}
 	
+	@Override
+	public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
+		RoutingInstructionLinesValueHolder bean = new RoutingInstructionLinesValueHolder();
+		bean.setRoutingName("routing name");
+		bean.setRoutingType("routing type");
+		
+		RoutingInstructionLinesValueHolder bean2 = new RoutingInstructionLinesValueHolder();
+		bean2.setRoutingName("another routing name");
+		bean2.setRoutingType("another routing type");
+		
+		List<RoutingInstructionLinesValueHolder> result = new ArrayList<RoutingInstructionLinesValueHolder>();
+		result.add(bean);
+		result.add(bean2);
+		return result;
+	}
+
 	private ReceiverValueHolder populateReceiver() {
 		ReceiverValueHolder receiver = new ReceiverValueHolder();
 		receiver.setReceiverApplicationName("Receiver Application Name");

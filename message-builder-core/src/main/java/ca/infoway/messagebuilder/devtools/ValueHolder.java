@@ -44,6 +44,7 @@ public class ValueHolder {
     private ReceiverValueHolder receiver = new ReceiverValueHolder();
     private SenderValueHolder sender = new SenderValueHolder();
 	private ToBeRespondedToByValueHolder respondTo = new ToBeRespondedToByValueHolder();  
+    private List<RoutingInstructionLinesValueHolder> attentionLine = new ArrayList<RoutingInstructionLinesValueHolder>();
 
 	public Identifier getMessageIdentifier() {
         return this.messageIdentifier;
@@ -117,6 +118,14 @@ public class ValueHolder {
 	}
 	public void setRespondTo(ToBeRespondedToByValueHolder respondTo) {
 		this.respondTo = respondTo;
+	}
+	
+	// FIXME - TM - this currently does not work due to the nature of MessageBeanFactory handling collections
+    public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
+		return attentionLine;
+	}
+	public void setAttentionLine(List<RoutingInstructionLinesValueHolder> attentionLine) {
+		this.attentionLine = attentionLine;
 	}
 	
 }
