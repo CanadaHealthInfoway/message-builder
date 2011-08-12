@@ -77,7 +77,7 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 		return attributes;
 	}
 	
-	private boolean isNullFlavor(Map<String, String> attributes) {
+	protected boolean isNullFlavor(Map<String, String> attributes) {
 		return attributes != null && attributes.containsKey(NULL_FLAVOR_ATTRIBUTE_NAME);
 	}		
 	

@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
@@ -42,46 +43,122 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	@Override
 	String formatNonNullValue(FormatContext context, GeneralTimingSpecification value, int indentLevel) throws ModelToXmlTransformationException {
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(createElement(context, createTypeAttributes(), indentLevel, false, true));
-		appendValues(buffer, value, indentLevel);		
+		buffer.append(createElement(context, createTypeAttributes(context), indentLevel, false, true));
+		appendValues(buffer, value, indentLevel, context);		
 		buffer.append(createElementClosure(context, indentLevel, true));
 		return buffer.toString();
 	}
 
-	private Map<String, String> createTypeAttributes() {
+	private Map<String, String> createTypeAttributes(FormatContext context) {
 		Map<String, String> attributes = new HashMap<String, String>();
-		attributes.put("specializationType", GTS_BOUNDED_PIVL);
+		if (requiresSpecializationType(context)) {
+			attributes.put("specializationType", GTS_BOUNDED_PIVL);
+		}
 		attributes.put("xsi:type", "SXPR_TS");
 		return attributes;
 	}
 
-	private void appendValues(StringBuffer buffer, GeneralTimingSpecification value, int indentLevel) throws ModelToXmlTransformationException {
+	private void appendValues(StringBuffer buffer, GeneralTimingSpecification value, int indentLevel, FormatContext context) throws ModelToXmlTransformationException {
 		
 		Interval<Date> duration = value.getDuration();
 		IVL<TS,Interval<Date>> ivlDuration = new IVLImpl<TS,Interval<Date>>(duration);
 		
+		IvlTsPropertyFormatter formatter = new CustomIvlTsPropertyFormatter(requiresOperatorOnFirstRepetition(context), requiresSpecializationType(context));
+		
 		PeriodicIntervalTime frequency = value.getFrequency();
-		buffer.append(new IvlTsPropertyFormatter().format(
-				new FormatContextImpl("comp", "IVL<TS.FULLDATE>", ConformanceLevel.MANDATORY, true, null, null, false), 
+		buffer.append(formatter.format(
+				new FormatContextImpl(
+						"comp", 
+						"IVL<TS.FULLDATE>", 
+						ConformanceLevel.MANDATORY, 
+						requiresSpecializationType(context), 
+						context == null ? null : context.getVersion(), 
+						null, 
+						false), 
 				ivlDuration, 
 				indentLevel + 1)
 			);
-		buffer.append(createElement(new FormatContextImpl("comp", "PIVL<TS.DATETIME>", ConformanceLevel.MANDATORY, true, null, null), frequency, indentLevel + 1));
+		buffer.append(createElement(
+				new FormatContextImpl(
+						"comp", 
+						"PIVL<TS.DATETIME>", 
+						ConformanceLevel.MANDATORY, 
+						requiresSpecializationType(context), 
+						context == null ? null : context.getVersion(), 
+						null), 
+				frequency, 
+				indentLevel + 1));
 	}
 	
 	protected String createElement(FormatContext context, PeriodicIntervalTime value, int indentLevel) throws ModelToXmlTransformationException {
-		PivlTsPropertyFormatter formatter = new CustomPivlPropertyFormatter();
-    	if (formatter != null) {
-    		return formatter.format(context, new PIVLImpl(value), indentLevel);
-    	} else {
-    		throw new ModelToXmlTransformationException("No formatter found for " + context.getType());
-    	}
+		PivlTsPropertyFormatter formatter = new CustomPivlTsPropertyFormatter(!requiresOperatorOnFirstRepetition(context), requiresSpecializationType(context)); 
+   		return formatter.format(context, new PIVLImpl(value), indentLevel);
 	}
 	
-	private static class CustomPivlPropertyFormatter extends PivlTsPropertyFormatter {
+	private boolean requiresSpecializationType(FormatContext formatContext) {
+		boolean result = true;
+		if (formatContext != null && formatContext.getVersion() != null) {
+			result = !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion());
+		}
+		return result;
+	}
+	
+	private boolean requiresOperatorOnFirstRepetition(FormatContext formatContext) {
+		boolean result = false;
+		if (formatContext != null && formatContext.getVersion() != null) {
+			result = SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion())
+				  || SpecificationVersion.isVersion(SpecificationVersion.V02R01, formatContext.getVersion())
+				  || SpecificationVersion.isVersion(SpecificationVersion.V02R02, formatContext.getVersion());
+		}
+		return result;
+	}
+	
+	private static class CustomPivlTsPropertyFormatter extends PivlTsPropertyFormatter {
+		private final boolean requiresOperator;
+		private final boolean requiresSpecializationType;
+
+		public CustomPivlTsPropertyFormatter(boolean requiresOperator,	boolean requiresSpecializationType) {
+			this.requiresOperator = requiresOperator;
+			this.requiresSpecializationType = requiresSpecializationType;
+		}
+
 		@Override
 		protected Map<String, String> getAttributesMap() {
-			return toStringMap("operator", "I");
+			return this.requiresOperator ? toStringMap("operator", "I") : super.getAttributesMap();
+		}
+		
+		@Override
+		protected String createElement(String name,	Map<String, String> attributes, int indentLevel, boolean close,	boolean lineBreak) {
+			if ("comp".equals(name) && !this.requiresSpecializationType && attributes != null) {
+				attributes.put("xsi:type", "PIVL_TS");
+			}
+			return super.createElement(name, attributes, indentLevel, close, lineBreak);
+		}
+	}
+	
+	private static class CustomIvlTsPropertyFormatter extends IvlTsPropertyFormatter {
+		private final boolean requiresOperator;
+		private final boolean requiresSpecializationType;
+
+		public CustomIvlTsPropertyFormatter(boolean requiresOperator, boolean requiresSpecializationType) {
+			this.requiresOperator = requiresOperator;
+			this.requiresSpecializationType = requiresSpecializationType;
+		}
+
+		@Override
+		protected String createElement(String name,	Map<String, String> attributes, int indentLevel, boolean close,	boolean lineBreak) {
+			if ("comp".equals(name)) {
+				if (!isNullFlavor(attributes) && this.requiresOperator) {
+					if (attributes == null) {
+						attributes = new HashMap<String, String>();
+					}
+					attributes.put("operator", "I");
+				}
+				if (!this.requiresSpecializationType && attributes != null) {
+					attributes.put("xsi:type", "IVL_TS");
+				}
+			}
+			return super.createElement(name, attributes, indentLevel, close, lineBreak);
 		}
 	}	
 }

@@ -64,7 +64,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 			throws ModelToXmlTransformationException {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(createElement(context, getAttributesMap(), indentLevel, false, true));
-		appendIntervalBounds(value, buffer, indentLevel + 1);
+		appendIntervalBounds(value, buffer, indentLevel + 1, context);
 		buffer.append(createElementClosure(context, indentLevel, true));
 		return buffer.toString();
 	}
@@ -73,7 +73,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		return null;
 	}
 
-	private void appendIntervalBounds(PeriodicIntervalTime value, StringBuffer buffer, int indentLevel)
+	private void appendIntervalBounds(PeriodicIntervalTime value, StringBuffer buffer, int indentLevel, FormatContext context)
 			throws ModelToXmlTransformationException {
 		String period = createElement(PERIOD, value.getPeriod(), indentLevel);
 		String phase = createElement(PHASE, value.getPhase(), indentLevel);
@@ -90,34 +90,34 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 			buffer.append(phase);
 			break;
 		case FREQUENCY:
-			buffer.append(createElement(FREQUENCY, value.getRepetitions(), value.getQuantity(), indentLevel));
+			buffer.append(createElement(FREQUENCY, value.getRepetitions(), value.getQuantity(), indentLevel, context));
 			break;
 		default:
 			// removed "break" to correct c# translation
 		}
 	}
 
-	private String createElement(String name, Integer repetitions, PhysicalQuantity quantity, int indentLevel) 
+	private String createElement(String name, Integer repetitions, PhysicalQuantity quantity, int indentLevel, FormatContext context) 
 			throws ModelToXmlTransformationException {
 		if (repetitions != null && quantity != null) {
 			StringBuffer buffer = new StringBuffer();
 			buffer.append(createElement(name, null, indentLevel, false, true));
-			append(buffer, repetitions, quantity, indentLevel + 1);
+			append(buffer, repetitions, quantity, indentLevel + 1, context);
 			buffer.append(XmlRenderingUtils.createEndElement(name, indentLevel, true));
 			return buffer.toString();
 		}
 		return null;
 	}
 
-	private void append(StringBuffer buffer, Integer repetitions, PhysicalQuantity quantity, int indentLevel)
+	private void append(StringBuffer buffer, Integer repetitions, PhysicalQuantity quantity, int indentLevel, FormatContext context)
 			throws ModelToXmlTransformationException {
 		String type = "INT.NONNEG";
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
     		buffer.append(formatter.format(
-    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, true, null, null), new INTImpl(repetitions), indentLevel));
+    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), new INTImpl(repetitions), indentLevel));
     		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity)), UNIT, getUnits(new DateDiff(quantity)));
-    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, true, null, null), attributes, indentLevel, true, true));
+    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), attributes, indentLevel, true, true));
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}
