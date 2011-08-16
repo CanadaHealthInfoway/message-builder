@@ -54,11 +54,13 @@ public abstract class AbstractCerxPqPropertyFormatter extends AbstractPqProperty
     @Override
     protected String createWarningText(FormatContext context, PhysicalQuantity physicalQuantity) {
     	String warningText = "";
-        if (physicalQuantity.getQuantity().scale() > MAXIMUM_FRACTION_DIGITS) {
-        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_FRACTION_DIGITS + " decimal places. Decimal value has been rounded off. ";
+        int decimalDigits = physicalQuantity.getQuantity().scale();
+		if (decimalDigits > MAXIMUM_FRACTION_DIGITS) {
+        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_FRACTION_DIGITS + " decimal places. Value has " + decimalDigits + " decimal places.";
         } 
-        if ((physicalQuantity.getQuantity().precision() - physicalQuantity.getQuantity().scale()) > MAXIMUM_INTEGER_DIGITS) {
-        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_INTEGER_DIGITS + " integer places. Leading digits have been truncated.";
+        int intDigits = physicalQuantity.getQuantity().precision() - decimalDigits;
+		if (intDigits > MAXIMUM_INTEGER_DIGITS) {
+        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_INTEGER_DIGITS + " integer places. Value has " + intDigits + " integer places.";
         }
         return org.apache.commons.lang.StringUtils.isEmpty(warningText) ? super.createWarningText(context, physicalQuantity) : warningText;
     }
@@ -68,6 +70,8 @@ public abstract class AbstractCerxPqPropertyFormatter extends AbstractPqProperty
         // NumberFormat quietly rounds. This is unfortunate for us. Check before we get to the format step.
     	// UPDATE: we are allowing this behaviour to occur, and sending back a warning message rather than
     	//         aborting via exception.
-        return new NumberFormatter().format(quantity, MAXIMUM_LENGTH, MAXIMUM_FRACTION_DIGITS, false); 
+    	// Redmine 1570 - don't change value even if incorrect; just call toString on it
+        return quantity.toPlainString(); 
+        // return new NumberFormatter().format(quantity, MAXIMUM_LENGTH, MAXIMUM_FRACTION_DIGITS, false); 
     }
 }

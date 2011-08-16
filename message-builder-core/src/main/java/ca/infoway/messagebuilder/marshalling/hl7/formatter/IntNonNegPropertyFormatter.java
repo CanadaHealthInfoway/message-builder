@@ -44,11 +44,7 @@ class IntNonNegPropertyFormatter extends AbstractValueNullFlavorPropertyFormatte
 
 	@Override
     protected String getValue(Integer integer, FormatContext context) throws ModelToXmlTransformationException {
-        if (integer==null || integer.intValue() < 0) {
-        	return "0";
-        } else {
-        	return integer.toString();
-        }
+       	return integer.toString();
     }
     
     @Override

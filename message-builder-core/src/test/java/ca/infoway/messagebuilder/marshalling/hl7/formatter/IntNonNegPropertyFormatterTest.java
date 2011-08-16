@@ -90,9 +90,16 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerNegative() throws Exception {
 		String integerValue = "-1";
-		String string = new IntNonNegPropertyFormatter().format(
-				new FormatContextImpl("name", "INT.NONNEG", ConformanceLevel.REQUIRED),
-				new INTImpl(new Integer(integerValue)));
+		FormatContextImpl context = new FormatContextImpl("name", "INT.NONNEG", ConformanceLevel.REQUIRED);
+		Integer intActual = new Integer(integerValue);
+		INTImpl intImpl = new INTImpl(intActual);
+		
+		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(context, intActual);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", integerValue, result.get("value"));
+		
+		String string = new IntNonNegPropertyFormatter().format(context, intImpl);
 		assertTrue("warning: ", string.contains("<!-- WARNING:"));
 	}
 	

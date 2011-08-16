@@ -46,11 +46,16 @@ class IntPosPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<I
 
     @Override
     protected String getValue(Integer integer, FormatContext context) throws ModelToXmlTransformationException {
-        if (integer==null || integer.intValue() <= 0) {
-            // it would be nice to name the element that we're constructing here, but right now it's not worth passing
-            // the name down through a three-method call stack.
-            throw new ModelToXmlTransformationException("Integer value must be positive: " + integer.toString());
-        }
         return integer.toString();
+    }
+    
+    @Override
+    boolean isInvalidValue(FormatContext context, Integer integer) {
+    	return integer==null || integer.intValue() <= 0;
+    }
+
+    @Override
+    protected String createWarningText(FormatContext context, Integer value) {
+		return "Value " + value + " should be positive.";
     }
 }

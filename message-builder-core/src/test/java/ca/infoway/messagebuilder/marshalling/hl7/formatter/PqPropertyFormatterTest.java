@@ -115,14 +115,15 @@ public class PqPropertyFormatterTest {
 
 	private void assertExceptionAsExpected(String quantity, boolean decimalError, boolean integerError) {
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
-        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        BigDecimal bigDecimal = new BigDecimal(quantity);
+		physicalQuantity.setQuantity(bigDecimal);
         physicalQuantity.setUnit(CeRxDomainTestValues.FLUID_OUNCE);
         
         try {
         	String expectedErrorMessage = MessageFormat.format(
         			"<!-- WARNING: {0}{1} -->",
-        			decimalError ? "PhysicalQuantity can contain a maximum of 2 decimal places. Decimal value has been rounded off. " : "",
-        			integerError ? "PhysicalQuantity can contain a maximum of 11 integer places. Leading digits have been truncated." : ""
+        			decimalError ? "PhysicalQuantity can contain a maximum of 2 decimal places. Value has " + bigDecimal.scale() + " decimal places." : "",
+        			integerError ? "PhysicalQuantity can contain a maximum of 11 integer places. Value has " + (bigDecimal.precision() - bigDecimal.scale()) + " integer places." : ""
         			);
         	
 			String result = new TestablePqPropertyFormatter().format(new FormatContextImpl("name",
@@ -146,26 +147,26 @@ public class PqPropertyFormatterTest {
     @Test
     public void testFormatPhysicalQuantityFormatting() throws Exception {
         assertFormattingAsExpected("33.4", "33.4");
-        assertFormattingAsExpected("33.40", "33.4");
+        assertFormattingAsExpected("33.40", "33.40");
         assertFormattingAsExpected("33.41", "33.41");
-        assertFormattingAsExpected("033.40", "33.4");
-        assertFormattingAsExpected("0.40", "0.4");
-        assertFormattingAsExpected("0.0", "0");
+        assertFormattingAsExpected("033.40", "33.40");
+        assertFormattingAsExpected("0.40", "0.40");
+        assertFormattingAsExpected("0.0", "0.0");
         assertFormattingAsExpected("12345678.99", "12345678.99");
         assertFormattingAsExpected("12345678901.99", "12345678901.99");
 
         assertFormattingAsExpected("-33.4", "-33.4");
-        assertFormattingAsExpected("-33.40", "-33.4");
+        assertFormattingAsExpected("-33.40", "-33.40");
         assertFormattingAsExpected("-33.41", "-33.41");
-        assertFormattingAsExpected("-033.40", "-33.4");
-        assertFormattingAsExpected("-0.40", "-0.4");
-        assertFormattingAsExpected("-0.0", "0");
+        assertFormattingAsExpected("-033.40", "-33.40");
+        assertFormattingAsExpected("-0.40", "-0.40");
+        assertFormattingAsExpected("-0.0", "0.0");
         assertFormattingAsExpected("-12345678.99", "-12345678.99");
         
-        // now check values that will be truncated/rounded
-        assertFormattingAsExpected("-33.416", "-33.42");
-        assertFormattingAsExpected("-33.41223", "-33.41");
-        assertFormattingAsExpected("123456789012.99", "23456789012.99");
+        // now check values that will be truncated/rounded (UPDATE: not anymore due to Redmine 1570)
+        assertFormattingAsExpected("-33.416", "-33.416");
+        assertFormattingAsExpected("-33.41223", "-33.41223");
+        assertFormattingAsExpected("123456789012.99", "123456789012.99");
     }
     
     private void assertFormattingAsExpected(String quantity, String formattedQuantity) throws Exception {
