@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -59,7 +60,7 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 		
 		Node signatureNode = getNamedChildNode(node, "signature");
 		if (signatureNode == null || signatureNode.getNodeType() != Node.ELEMENT_NODE) {
-			xmlToJavaResult.addHl7Error(createHl7Error());
+			xmlToJavaResult.addHl7Error(createHl7Error((Element) node));
 		} else {
 			result = (String) this.stElementParser.parse(context, signatureNode, xmlToJavaResult).getBareValue();
 		}
@@ -67,8 +68,8 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 		return result;
 	}
 	
-    private Hl7Error createHl7Error() {
-    	return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Expected ED.SIGNATURE node to have a child element named signature");
+    private Hl7Error createHl7Error(Element element) {
+    	return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Expected ED.SIGNATURE node to have a child element named signature", element);
     }
 
 	@Override

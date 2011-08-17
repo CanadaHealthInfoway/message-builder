@@ -117,8 +117,13 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 			} else if (StringUtils.equals("comp", NodeUtil.getLocalOrTagName((Element) node))) {
 				result.add((Element) node);
 			} else {
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node), node)));
+				xmlToJavaResult.addHl7Error(
+						new Hl7Error(
+								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node)),
+								(Element) node
+						)
+				);
 			}
 		}
 		return result;

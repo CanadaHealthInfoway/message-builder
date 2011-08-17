@@ -53,7 +53,7 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 				try {
 					return UncertainRange.createLowHigh(createType(low), createType(high));
 				} catch (IllegalArgumentException e) {
-					xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage()));
+					xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (Element) node));
 					return null;
 				}
 			} else if (low != null && width != null) {

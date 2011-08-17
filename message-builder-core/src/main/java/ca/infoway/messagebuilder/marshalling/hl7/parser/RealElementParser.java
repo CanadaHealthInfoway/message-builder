@@ -24,6 +24,7 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -65,18 +66,18 @@ class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 		BigDecimal result = null;
 
 		String unparsedReal = getAttributeValue(node, "value");
-		validateDecimal(unparsedReal, context.getType(), xmlToJavaResult);
+		validateDecimal(unparsedReal, context.getType(), xmlToJavaResult, (Element) node);
 		if (unparsedReal != null) {
 			try {
 				result = new BigDecimal(unparsedReal);
 			} catch (NumberFormatException e) {
 				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value \"" 
-						+ unparsedReal + "\" of type " + context.getType() + " is not a valid number"));
+						+ unparsedReal + "\" of type " + context.getType() + " is not a valid number", (Element) node));
 			}
 		}
 		return result;
 	}
-	private void validateDecimal(String value, String type, XmlToModelResult result) {
+	private void validateDecimal(String value, String type, XmlToModelResult result, Element element) {
 		if (NumberUtil.isNumber(value)) {
 			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
 			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
@@ -84,23 +85,23 @@ class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 			RealFormat format = getFormat(type);
 			if (StandardDataType.REAL_CONF.getType().equals(type) && (!"0".equals(integerPart) && !"".equals(integerPart))) {
 				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
-						+ value + " of type " + type + " must be between 0 and 1."));
+						+ value + " of type " + type + " must be between 0 and 1.", element));
 			}
 			if (StringUtils.length(value) > format.getMaxValueLength()) {
 				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
-						+ value + " of type " + type + " exceeds maximum length of " + format.getMaxValueLength()));
+						+ value + " of type " + type + " exceeds maximum length of " + format.getMaxValueLength(), element));
 			}
 			if (StringUtils.length(integerPart) > format.getMaxIntegerPartLength()) {
 				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
 						+ value + " of type " + type 
 						+ " should have no more than " + format.getMaxIntegerPartLength() 
-						+ " digits before the decimal"));
+						+ " digits before the decimal", element));
 			}
 			if (StringUtils.length(decimalPart) > format.getMaxDecimalPartLength()) {
 				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
 						+ value + " of type " + type 
 						+ " should have no more than " + format.getMaxDecimalPartLength() 
-						+ " digits after the decimal"));
+						+ " digits after the decimal", element));
 			}
 			
 		}

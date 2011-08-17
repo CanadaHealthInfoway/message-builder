@@ -26,6 +26,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -290,11 +291,16 @@ class Hl7SourceMapper {
 			throws XmlToModelTransformationException {
 		
 		if (relationship.isStructural()) {
-			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, 
-					"Data found for relationship as an element but should have been an attribute. " +
-							(nodes.isEmpty() 
-									? ("(" + relationship.getName() + ")")
-									: XmlDescriber.describePath(nodes.get(0)))));
+			source.getResult().addHl7Error(
+					new Hl7Error(
+						Hl7ErrorCode.INTERNAL_ERROR, 
+						"Data found for relationship as an element but should have been an attribute. " +
+								(nodes.isEmpty() 
+										? ("(" + relationship.getName() + ")")
+										: XmlDescriber.describePath(nodes.get(0))),
+						CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+					)
+			);
 		}
 		
 		String type = relationship.getType();
@@ -303,7 +309,7 @@ class Hl7SourceMapper {
 			try {
 				BareANY object = parser.parse(ParseContextImpl.create(relationship, source.getVersion(), source.getTimeZone()), nodes, source.getResult());
 				if (relationship.hasFixedValue()) {
-					validateNonstructuralFixedValue(relationship, object, source); // fixed means nothing to write to bean
+					validateNonstructuralFixedValue(relationship, object, source, nodes); // fixed means nothing to write to bean
 				}
 				if (!relationship.isFixed()) {
 					bean.write(relationship, object);
@@ -313,15 +319,20 @@ class Hl7SourceMapper {
 						" [" +  e.getMessage() + "]");
 			}
 		} else {
-			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, 
-					"No parser for type \"" + type + "\". " +
+			source.getResult().addHl7Error(
+					new Hl7Error(
+						Hl7ErrorCode.INTERNAL_ERROR, 
+						"No parser for type \"" + type + "\". " +
 							(nodes.isEmpty() 
 									? ("(" + relationship.getName() + ")")
-									: XmlDescriber.describePath(nodes.get(0)))));
+									: XmlDescriber.describePath(nodes.get(0))),
+						CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+					)
+			);
 		}
 	}
 
-	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source) {
+	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source, List<Node> nodes) {
 		if (relationship.hasFixedValue()) {
 			boolean valid = (value != null && value.getBareValue() != null);
 			if (valid) {
@@ -335,11 +346,23 @@ class Hl7SourceMapper {
 					Code code = ((CD) value).getValue();
 					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
 				} else {
-					source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'"));
+					source.getResult().addHl7Error(
+						new Hl7Error(
+							Hl7ErrorCode.SYNTAX_ERROR, 
+							"Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'",
+							CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+						)
+					);
 				}
 			}
 			if (!valid) {
-				source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));
+				source.getResult().addHl7Error(
+					new Hl7Error(
+						Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
+						"Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'",
+						CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+					)
+				);
 			}
 		}
 		

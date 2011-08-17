@@ -167,11 +167,12 @@ public class Hl7Error {
 					describeSingleElement(base)), 
 				attr);
 	}
-	public static Hl7Error createInvalidTypeError(String specializationType, String parentType) {
+	public static Hl7Error createInvalidTypeError(String specializationType, String parentType, Element element) {
 		return new Hl7Error(DATA_TYPE_ERROR, 
 				MessageFormat.format(
 					"Cannot support properties of type \"{0}\" for \"{1}\"", 
-					specializationType, parentType));
+					specializationType, parentType),
+					element);
 	}
 	public static Hl7Error createEmptyCodeValueError(Element base, Attr attr) {
 		return new Hl7Error(DATA_TYPE_ERROR, 
@@ -214,9 +215,9 @@ public class Hl7Error {
 				MessageFormat.format("Unknown child element \"{0}\" will be ignored.", NodeUtil.getLocalOrTagName(element)), 
 				element);
 	}
-	public static Hl7Error createUnknownInteractionError(String interactionId) {
+	public static Hl7Error createUnknownInteractionError(String interactionId, Element element) {
 		return new Hl7Error(Hl7ErrorCode.UNSUPPORTED_INTERACTION,
-				MessageFormat.format("Unknown interaction \"{0}\".", interactionId));
+				MessageFormat.format("Unknown interaction \"{0}\".", interactionId), element);
 	}
 	public static Hl7Error createMandatoryAttributeIsNullError(String elementName, String nullFlavor, Element element) {
 		return new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED,

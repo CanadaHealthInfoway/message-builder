@@ -154,7 +154,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		} else {
 		    xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 		    		"Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement((Element) node)
-		    		+ ")"));
+		    		+ ")", (Element) node));
 		}
 		return context;
 	}

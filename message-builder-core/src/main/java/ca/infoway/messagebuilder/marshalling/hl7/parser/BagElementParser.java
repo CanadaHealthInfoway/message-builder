@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -43,7 +45,8 @@ class BagElementParser extends SetOrListElementParser {
 			XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 				"Data type \"" + context.getType() 
-				+ "\" is not part of the pan-Canadian standard"));
+				+ "\" is not part of the pan-Canadian standard",
+				CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)));
 		return super.parse(context, nodes, xmlToJavaResult);
 	}
 	

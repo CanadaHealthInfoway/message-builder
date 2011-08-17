@@ -128,9 +128,11 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
     		throws XmlToModelTransformationException {
         String result = getAttributeValue(node, attributeName);
         if (StringUtils.isBlank(result)) {
-        	parsingResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
-        			"Attribute " + attributeName + " is mandatory for node " + XmlDescriber.describePath(node)
-        			+ " (" + XmlDescriber.describeSingleElement((Element) node) + ")"));
+        	parsingResult.addHl7Error(
+        			new Hl7Error(DATA_TYPE_ERROR, 
+        						 "Attribute " + attributeName + " is mandatory for node " + XmlDescriber.describePath(node) + " (" + XmlDescriber.describeSingleElement((Element) node) + ")",
+        						 (Element) node)
+        	);
         }
         return result;
     }
@@ -148,8 +150,11 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 			XmlToModelResult result, String attribute) {
 		
 		if (StringUtils.isNotBlank(getAttributeValue(node, attribute))) {
-			result.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, type + " should not include the '" +
-					attribute + "' property. (" + XmlDescriber.describeSingleElement(node) + ")", node));
+			result.addHl7Error(
+					new Hl7Error(
+							DATA_TYPE_ERROR, 
+							type + " should not include the '" + attribute + "' property. (" + XmlDescriber.describeSingleElement(node) + ")", 
+							node));
 		}
 	}
 	

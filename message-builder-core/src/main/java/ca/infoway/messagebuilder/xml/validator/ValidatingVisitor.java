@@ -103,7 +103,8 @@ public class ValidatingVisitor implements MessageVisitor {
 			this.result.addHl7Error(createUnknownInteractionError(
 					documentElement == null 
 						? "unknown" 
-						: NodeUtil.getLocalOrTagName(documentElement)));
+						: NodeUtil.getLocalOrTagName(documentElement),
+					documentElement));
 		} else {
 			if (!documentElement.hasAttribute(ITS_VERSION)) {
 				this.result.addHl7Error(createMissingMandatoryAttributeError(ITS_VERSION, documentElement));
@@ -170,18 +171,28 @@ public class ValidatingVisitor implements MessageVisitor {
 					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
 					if (parser != null) {
 						BareANY value = parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
-						validateNonstructuralFixedValue(relationship, value);
+						validateNonstructuralFixedValue(relationship, value, elements);
 					} else {
-						this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Cannot find a parser for type " + relationship.getType()));
+						this.result.addHl7Error(
+							new Hl7Error(
+								Hl7ErrorCode.SYNTAX_ERROR, 
+								"Cannot find a parser for type " + relationship.getType(),
+								CollectionUtils.isEmpty(elements) ? null : elements.get(0)
+							));
 					}
 				} catch (XmlToModelTransformationException e) {
-					this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage()));
+					this.result.addHl7Error(
+						new Hl7Error(
+							Hl7ErrorCode.SYNTAX_ERROR, 
+							e.getMessage(),
+							CollectionUtils.isEmpty(elements) ? null : elements.get(0)
+						));
 				}
 			}
 		}
 	}
 
-	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value) {
+	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, List<Element> elements) {
 		if (relationship.hasFixedValue()) {
 			boolean valid = false;
 			boolean valueProvided = (value != null && value.getBareValue() != null);
@@ -196,13 +207,23 @@ public class ValidatingVisitor implements MessageVisitor {
 					Code code = ((CD) value).getValue();
 					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
 				} else {
-					this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'"));
+					this.result.addHl7Error(
+						new Hl7Error(
+							Hl7ErrorCode.SYNTAX_ERROR, 
+							"Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'",
+							CollectionUtils.isEmpty(elements) ? null : elements.get(0)
+						));
 				}
 			} else {
 				valid = !relationship.isFixed();
 			}
 			if (!valid) {
-				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));
+				this.result.addHl7Error(
+					new Hl7Error(
+						Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
+						"Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'",
+						CollectionUtils.isEmpty(elements) ? null : elements.get(0)
+					));
 			}
 		}
 	}

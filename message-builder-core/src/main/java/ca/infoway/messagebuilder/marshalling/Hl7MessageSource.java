@@ -48,8 +48,12 @@ class Hl7MessageSource implements Hl7Source {
 		this.context = new ConversionContext(service, version, timeZone, getMessageIdFromDocument());
 		this.result = new XmlToModelResult();
 		if (this.context.getInteraction() == null){
-			result.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_INTERACTION,
-					"The interaction " + getMessageTypeKey() + " is not supported"));
+			result.addHl7Error(
+					new Hl7Error(
+							Hl7ErrorCode.UNSUPPORTED_INTERACTION,
+							"The interaction " + getMessageTypeKey() + " is not supported",
+							document == null ? null : document.getDocumentElement()
+							));
 		} else {
 			this.messagePart = initMessagePart();
 		}

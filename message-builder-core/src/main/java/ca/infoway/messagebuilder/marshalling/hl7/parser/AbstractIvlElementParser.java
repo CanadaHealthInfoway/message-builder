@@ -97,15 +97,21 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 			} else {
 				Object type = createType(context, (Element) node, xmlToJavaResult).getBareValue();
 				if (type==null) {
-		        	xmlToJavaResult.addHl7Error(new Hl7Error(
-		        			Hl7ErrorCode.SYNTAX_ERROR, "\"Simple interval node: " + XmlDescriber.describePath(node) + " does not allow a null value\""));
+		        	xmlToJavaResult.addHl7Error(
+		        			new Hl7Error(
+		        					Hl7ErrorCode.SYNTAX_ERROR, 
+		        					"\"Simple interval node: " + XmlDescriber.describePath(node) + " does not allow a null value\"",
+		        					(Element) node));
 				} else {
 					result = IntervalFactory.<T>createSimple((T) type);
 				}
 			}
 		} catch (ParseException e) {
-        	xmlToJavaResult.addHl7Error(new Hl7Error(
-        			Hl7ErrorCode.DATA_TYPE_ERROR, "Unable to parse the interval date for element \"" + node.getNodeName() + "\""));
+        	xmlToJavaResult.addHl7Error(
+        			new Hl7Error(
+        					Hl7ErrorCode.DATA_TYPE_ERROR, 
+        					"Unable to parse the interval date for element \"" + node.getNodeName() + "\"",
+        					(Element) node));
 		}
 		
 		return result;

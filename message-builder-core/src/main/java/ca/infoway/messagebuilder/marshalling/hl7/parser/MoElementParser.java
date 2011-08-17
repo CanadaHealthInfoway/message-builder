@@ -67,9 +67,12 @@ class MoElementParser extends AbstractSingleElementParser<Money> {
 		Currency currency = CodeResolverRegistry.lookup(Currency.class, currencyCode);
         
         if (currency == null) {
-            xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-            		"Could not decode currency value " + currencyCode + " (" + XmlDescriber.describeSingleElement((Element) node)
-            		+ ")"));
+            xmlToJavaResult.addHl7Error(
+            		new Hl7Error(
+            				Hl7ErrorCode.DATA_TYPE_ERROR,
+            				"Could not decode currency value " + currencyCode + " (" + XmlDescriber.describeSingleElement((Element) node) + ")",
+            				(Element) node
+            				));
         }
 
 		return new Money(amount, currency);

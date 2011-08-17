@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.lang.reflect.Type;
 import java.util.StringTokenizer;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -74,14 +75,14 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 		URLScheme urlScheme = null;
 		if (colonIndex == -1) {
 			address = value;
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Expected TEL.URI node to have a URL scheme (e.g. 'http://')"));
+			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", (Element) node));
 		} else {
 			address = value.substring(colonIndex + 1);
 			String urlSchemeString = value.substring(0, colonIndex);
 			urlScheme = CodeResolverRegistry.lookup(URLScheme.class, urlSchemeString);
 			if (urlScheme == null) {
 				String message = "Unrecognized URL scheme '" + urlSchemeString + "' in element " +  XmlDescriber.describePath(node);
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message));
+				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, (Element) node));
 			}
 		}
 			

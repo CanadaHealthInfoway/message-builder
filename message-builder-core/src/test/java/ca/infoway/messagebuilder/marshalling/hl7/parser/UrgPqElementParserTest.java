@@ -28,6 +28,7 @@ import static org.junit.Assert.assertNull;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -65,7 +66,7 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertNull("null", range);
 		assertFalse("has error", xmlToJavaResult.getHl7Errors().isEmpty());
 		assertEquals("syntax error", 
-				new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Can't add two quantities of different units: m and HOUR"), 
+				new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Can't add two quantities of different units: m and HOUR", (Element) node),
 				xmlToJavaResult.getHl7Errors().get(0));
 	}
 	

@@ -131,9 +131,12 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 				if (specializationType == null) {
 					xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
 				} else if (II_BUS_AND_VER.equals(type) && !II_BUS.equals(specializationType) && !II_VER.equals(specializationType)) {
-				    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-				    		"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element)
-				    		+ ")"));
+				    xmlToModelResult.addHl7Error(
+				    		new Hl7Error(
+				    				Hl7ErrorCode.DATA_TYPE_ERROR,
+				    				"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element) + ")",
+				    				element)
+				    );
 				} else {
 					type = specializationType;
 				}
@@ -165,7 +168,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult) {
 		if (!isUuid(root)) {
 			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "root '" + root + "' should be a UUID. ("
-					+ XmlDescriber.describeSingleElement(element) +")"));
+					+ XmlDescriber.describeSingleElement(element) +")", element));
 		}
 	}
 

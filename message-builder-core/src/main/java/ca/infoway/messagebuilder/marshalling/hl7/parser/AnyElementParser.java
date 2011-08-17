@@ -68,7 +68,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		if (StringUtils.isNotBlank(specializationType)) {
 			ElementParser elementParser = ParserRegistry.getInstance().get(specializationType);
 			if (elementParser == null || !AnyHelper.isValidTypeForAny(parentType, specializationType)) {
-				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType));
+				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
 						ParserContextImpl.create(
