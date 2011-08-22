@@ -56,11 +56,11 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-collections-3.2.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.2.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2-tests.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.2.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.2-tests.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.2.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.2.2.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
@@ -70,7 +70,7 @@
 		  <arg line="co"/>
 		  <arg line="--username tmcgrady"/>
 		  <arg line="--password 287uiQA"/>
-		  <arg line="https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
+		  <arg line="https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
 		</exec>
 		
 		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Main" overwrite="true">
