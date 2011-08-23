@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.devtools;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Map;
 
@@ -31,6 +30,8 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.platform.ClassUtil;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 
 
 public class MessageBeanFactory {
@@ -70,11 +71,11 @@ public class MessageBeanFactory {
 			// do nothing
 		} else if (Collection.class.isAssignableFrom(value.getClass()) && property.isCollection()) {
 			for (Object o : ((Collection) value)) {
-				Class clazz = getCollectionContentsType(property);
+				Class clazz = GenericClassUtil.getCollectionContentsType(property);
 				if (clazz == null || clazz.isAssignableFrom(o.getClass())) {
 					((Collection) property.get()).add(o);
 				} else {
-					Object newInstance = createNewInstance(clazz);
+					Object newInstance = ClassUtil.newInstance(clazz);
 					assignAllDefaults(newInstance, o);
 					((Collection) property.get()).add(newInstance);
 				}
@@ -91,21 +92,6 @@ public class MessageBeanFactory {
 		} else if (property.isWritable()) {
 			property.set(value);
 		}
-	}
-
-	private Object createNewInstance(Class<?> clazz) {
-		Object newInstance = null;
-		try {
-			newInstance = clazz.newInstance();
-		} catch (Exception e) {
-			throw new RuntimeException("Could not create new instance of class in message bean factory", e);
-		}
-		return newInstance;
-	}
-
-	private Class<?> getCollectionContentsType(BeanProperty property) {
-		Type[] actualTypeArguments = ((java.lang.reflect.ParameterizedType) (property.getDescriptor().getReadMethod().getGenericReturnType())).getActualTypeArguments();
-		return actualTypeArguments != null && actualTypeArguments.length > 0 ? (Class<?>) actualTypeArguments[0] : null;
 	}
 
 	private void createBeanInstanceForProperty(BeanProperty property) {
@@ -137,3 +123,4 @@ public class MessageBeanFactory {
 		return BeanProperty.getProperty(defaultValues, propertyName) != null;
 	}
 }
+

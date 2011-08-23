@@ -20,7 +20,10 @@
 
 package ca.infoway.messagebuilder.platform;
 
+import java.lang.reflect.Type;
 import java.util.Map;
+
+import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 
 /**
  * @sharpen.ignore platform
@@ -32,4 +35,10 @@ public class GenericClassUtil {
 		return partClass.newInstance();
 	}
 
+	public static Class<?> getCollectionContentsType(BeanProperty property) {
+		Type[] actualTypeArguments = ((java.lang.reflect.ParameterizedType) (property.getDescriptor().getReadMethod().getGenericReturnType())).getActualTypeArguments();
+		return actualTypeArguments != null && actualTypeArguments.length > 0 ? (Class<?>) actualTypeArguments[0] : null;
+	}
+
 }
+
