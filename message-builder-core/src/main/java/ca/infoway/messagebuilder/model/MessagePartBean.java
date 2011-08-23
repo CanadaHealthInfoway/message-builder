@@ -151,6 +151,15 @@ public class MessagePartBean implements NullFlavorSupport, Serializable {
 		this.nullFlavor = nullFlavor;
 	}
 
+	public void setNullFlavor(String propertyName, NullFlavor nullFlavor) {
+		Object field = getField(propertyName);
+		if (field instanceof BareANY) {
+			((BareANY) field).setNullFlavor(nullFlavor);
+		} else {
+			throw new IllegalStateException("Could not find property " + propertyName + " in order to set nullFlavor");
+		}
+	}
+
 	public StandardDataType getSpecializationType(String propertyName) {
 		Object field = getField(propertyName);
 		if (field instanceof BareANY) {
