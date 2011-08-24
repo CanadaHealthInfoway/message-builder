@@ -125,10 +125,10 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("value as expected", expected, result.get("value"));
 	}
 	
-	/*
-	 * @sharpen.ignore
-	 */
 	@Test
+	/**
+	 * @sharpen.ignore platform
+	 */
 	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		String gmtSixValue = new TsFullDateTimePropertyFormatter().getValue(calendar, createFormatContextWithTimeZone(TimeZone.getTimeZone("GMT-6")));
