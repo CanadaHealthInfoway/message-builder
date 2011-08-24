@@ -34,6 +34,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.Country;
@@ -214,7 +215,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatCountryAsCodedString() throws Exception {
-		CodedString<Iso3166Alpha2Country> country = new CodedString<Iso3166Alpha2Country>("Canada", Iso3166Alpha2Country.CANADA);
+		CodedString<Code> country = new CodedString<Code>("Canada", Iso3166Alpha2Country.CANADA);
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, country));
 		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
 		
