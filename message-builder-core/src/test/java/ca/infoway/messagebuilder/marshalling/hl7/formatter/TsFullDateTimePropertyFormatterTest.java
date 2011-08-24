@@ -127,7 +127,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	
 	@Test
 	/**
-	 * @sharpen.ignore platform
+	 * @sharpen.remove
 	 */
 	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
