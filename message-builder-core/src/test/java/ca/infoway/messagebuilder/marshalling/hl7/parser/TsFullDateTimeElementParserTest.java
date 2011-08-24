@@ -127,6 +127,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
 	
+	/*
+	 * @sharpen.ignore
+	 */
 	@Test
 	public void timeInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
 		Node node = createNode("<something value=\"19990303101112\" />");
@@ -139,3 +142,4 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.NEWFOUNDLAND, timeZone, ConformanceLevel.POPULATED, null, null);
 	}
 }
+

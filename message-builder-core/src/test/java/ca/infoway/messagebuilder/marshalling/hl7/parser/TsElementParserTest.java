@@ -204,6 +204,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().equals("The timestamp element <something specializationType=\"TS.FULLDATE\" value=\"20080625141610-0400\"/> appears to be formatted as type TS.FULLDATETIME, but should be TS.FULLDATE."));
     }
 	
+	/*
+	 * @sharpen.ignore
+	 */
 	@Test
 	public void dateShouldBeUnaffectedByTimeZone() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25);
@@ -215,6 +218,9 @@ public class TsElementParserTest extends MarshallingTestCase {
 		System.out.println(date);
 	}
 	
+	/*
+	 * @sharpen.ignore
+	 */
 	@Test
 	public void shouldBeConvertedDueToTimeZone() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0);
@@ -226,3 +232,4 @@ public class TsElementParserTest extends MarshallingTestCase {
 		System.out.println(date);
 	}
 }
+

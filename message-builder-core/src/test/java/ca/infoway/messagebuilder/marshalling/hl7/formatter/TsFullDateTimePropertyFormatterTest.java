@@ -102,7 +102,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	
 	@Test
 	public void testVersionDefault() throws Exception  {
-		handleVersion(null, "19990423101112.0000-0400");
+		handleVersion((SpecificationVersion) null, "19990423101112.0000-0400");
 	}
 
 	@Test
@@ -115,16 +115,19 @@ public class TsFullDateTimePropertyFormatterTest {
 		handleVersion(SpecificationVersion.V01R04_3, "19990423101112");
 	}
 	
-	private void handleVersion(SpecificationVersion r020402, String expected)	throws ModelToXmlTransformationException {
+	private void handleVersion(SpecificationVersion version, String expected)	throws ModelToXmlTransformationException {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null, false, r020402, null), calendar);
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null, false, version, null), calendar);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", expected, result.get("value"));
 	}
 	
+	/*
+	 * @sharpen.ignore
+	 */
 	@Test
 	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
@@ -137,3 +140,4 @@ public class TsFullDateTimePropertyFormatterTest {
 		return new FormatContextImpl("name", null, null, false, null, timeZone, true);
 	}
 }
+
