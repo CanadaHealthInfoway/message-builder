@@ -151,7 +151,6 @@ public class PqPropertyFormatterTest {
         assertFormattingAsExpected("33.41", "33.41");
         assertFormattingAsExpected("033.40", "33.40");
         assertFormattingAsExpected("0.40", "0.40");
-        assertFormattingAsExpected("0.0", "0.0");
         assertFormattingAsExpected("12345678.99", "12345678.99");
         assertFormattingAsExpected("12345678901.99", "12345678901.99");
 
@@ -160,13 +159,22 @@ public class PqPropertyFormatterTest {
         assertFormattingAsExpected("-33.41", "-33.41");
         assertFormattingAsExpected("-033.40", "-33.40");
         assertFormattingAsExpected("-0.40", "-0.40");
-        assertFormattingAsExpected("-0.0", "0.0");
         assertFormattingAsExpected("-12345678.99", "-12345678.99");
         
         // now check values that will be truncated/rounded (UPDATE: not anymore due to Redmine 1570)
         assertFormattingAsExpected("-33.416", "-33.416");
         assertFormattingAsExpected("-33.41223", "-33.41223");
         assertFormattingAsExpected("123456789012.99", "123456789012.99");
+    }
+    
+    /**
+     * 
+     * @sharpen.remove
+     */
+    @Test
+    public void testEdgeCasesForFormatPhysicalQuantityFormattingThatCauseTroubleForDotNet() throws Exception {
+        assertFormattingAsExpected("0.0", "0.0");
+        assertFormattingAsExpected("-0.0", "0.0");
     }
     
     private void assertFormattingAsExpected(String quantity, String formattedQuantity) throws Exception {
