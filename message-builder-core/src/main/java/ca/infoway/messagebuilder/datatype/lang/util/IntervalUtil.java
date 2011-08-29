@@ -132,13 +132,13 @@ public class IntervalUtil {
 	 * @param to the high bound of the interval. May be null.
 	 * @return an interval corresponding to the given bounds.
 	 */
-	public static Interval<Date> createInterval(Date from, Date to) {
+	public static <T> Interval<T> createInterval(T from, T to) {
 		if (from != null && to != null) {
-			return IntervalFactory.<Date>createLowHigh(from, to);
+			return IntervalFactory.<T>createLowHigh(from, to);
 		} else if (from != null) {
-			return IntervalFactory.<Date>createLow(from);
+			return IntervalFactory.<T>createLow(from);
 		} else if (to != null) {
-			return IntervalFactory.<Date>createHigh(to);
+			return IntervalFactory.<T>createHigh(to);
 		} else {
 			return null;
 		}

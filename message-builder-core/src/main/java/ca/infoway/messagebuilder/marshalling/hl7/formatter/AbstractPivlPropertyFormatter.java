@@ -23,12 +23,15 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.Date;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
+import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -90,13 +93,54 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 			buffer.append(phase);
 			break;
 		case FREQUENCY:
-			buffer.append(createElement(FREQUENCY, value.getRepetitions(), value.getQuantity(), indentLevel, context));
+			// Change for Saskatchewan
+			boolean isSask = SpecificationVersion.isVersion(SpecificationVersion.V01R04_3_SK, context != null ? context.getVersion() : null);
+			if (isSask) {
+				if (value instanceof PeriodicIntervalTimeSk) {
+					buffer.append(createElementSk(FREQUENCY, value.getRepetitions(), ((PeriodicIntervalTimeSk) value).getQuantitySk(), indentLevel, context));
+				}
+			} else {
+				buffer.append(createElement(FREQUENCY, value.getRepetitions(), value.getQuantity(), indentLevel, context));
+			}
+
 			break;
 		default:
 			// removed "break" to correct c# translation
 		}
 	}
 
+	private String createElementSk(String name, Integer repetitions, Interval<PhysicalQuantity> quantity, int indentLevel, FormatContext context)
+			throws ModelToXmlTransformationException {
+		if (repetitions != null && quantity != null) {
+			StringBuffer buffer = new StringBuffer();
+			buffer.append(createElement(name, null, indentLevel, false, true));
+			appendSk(buffer, repetitions, quantity, indentLevel + 1, context);
+			buffer.append(XmlRenderingUtils.createEndElement(name, indentLevel, true));
+			return buffer.toString();
+		}
+		return null;
+	}
+
+	private void appendSk(StringBuffer buffer, Integer repetitions, Interval<PhysicalQuantity> quantity, int indentLevel, FormatContext context)
+			throws ModelToXmlTransformationException {
+		String type = "INT.NONNEG";
+		String ivlPqType = "IVL<PQ>";
+
+		PropertyFormatter intFormatter = FormatterRegistry.getInstance().get(type);
+		PropertyFormatter ivlPqFormatter = FormatterRegistry.getInstance().get(ivlPqType);
+		
+		if (intFormatter != null && ivlPqFormatter != null) {
+			buffer.append(intFormatter.format(
+					new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), new INTImpl(repetitions), indentLevel));
+			IVLImpl<PQ, Interval<PhysicalQuantity>> ivlImpl = new IVLImpl<PQ, Interval<PhysicalQuantity>>(quantity);
+			buffer.append(ivlPqFormatter.format(
+					new FormatContextImpl("denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), ivlImpl, indentLevel));
+		} else {
+			throw new ModelToXmlTransformationException("No formatter found for " + (type == null ? type : ivlPqType));
+		}
+}
+	
+	
 	private String createElement(String name, Integer repetitions, PhysicalQuantity quantity, int indentLevel, FormatContext context) 
 			throws ModelToXmlTransformationException {
 		if (repetitions != null && quantity != null) {

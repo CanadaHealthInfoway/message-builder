@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
+import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -139,6 +140,27 @@ public class GtsBoundedPivlPropertyFormatterTest extends FormatterTestCase {
 				"<comp xsi:type=\"PIVL_TS\">" +
 				"<frequency><numerator value=\"3\"/>" +
 				"<denominator unit=\"min\" value=\"3\"/>" +
+				"</frequency></comp></name>", result);
+	}
+	
+	@Test
+	public void testBasicFreqAsCeRxAndSask() throws Exception {
+		GeneralTimingSpecification gts = new GeneralTimingSpecification(
+				IntervalFactory.<Date>createLowWidth(DateUtil.getDate(1969, 11, 31), new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))), 
+				PeriodicIntervalTimeSk.createFrequencySk(3, createQuantity("3", DefaultTimeUnit.MINUTE), createQuantity("10", DefaultTimeUnit.MINUTE)));
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3_SK, null), 
+				new GTSImpl(gts));
+		System.out.println(result);
+		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
+				"<comp operator=\"I\" xsi:type=\"IVL_TS\">" +
+				"<low value=\"19691231\"/>" +
+				"<width unit=\"min\" value=\"3\"/></comp>" +
+				"<comp xsi:type=\"PIVL_TS\">" +
+				"<frequency><numerator value=\"3\"/>" +
+		        "<denominator>" +
+			    "<low unit=\"min\" value=\"3\"/>" +
+			    "<high unit=\"min\" value=\"10\"/>" +
+		        "</denominator>" +
 				"</frequency></comp></name>", result);
 	}
 	

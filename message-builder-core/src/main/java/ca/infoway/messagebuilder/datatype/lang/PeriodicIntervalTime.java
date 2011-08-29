@@ -50,7 +50,7 @@ public class PeriodicIntervalTime extends SetComponent<Date> {
 	private final Integer repetitions;
 	private final PhysicalQuantity quantity;
 
-	private PeriodicIntervalTime(DateDiff period, Interval<Date> phase, 
+	protected PeriodicIntervalTime(DateDiff period, Interval<Date> phase, 
 			Integer repetitions, PhysicalQuantity quantity, 
 			Representation representation) {
 		this.period = period;
