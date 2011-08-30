@@ -28,9 +28,12 @@ import java.util.Arrays;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.PIVLImpl;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
+import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -59,12 +62,12 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		if (frequency != null) {
 			return parseFrequency(context, frequency, expectedReturnType, xmlToJavaResult);
 		} else {
-			createManatoryChildElementHl7Error(element, "frequency", xmlToJavaResult);
+			createMandatoryChildElementHl7Error(element, "frequency", xmlToJavaResult);
 			return null;
 		}
 	}
 
-	private void createManatoryChildElementHl7Error(Element element, String name, 
+	private void createMandatoryChildElementHl7Error(Element element, String name, 
 			XmlToModelResult xmlToJavaResult) {
 		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 				"Missing mandatory element <" +
@@ -82,21 +85,28 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		
 		if (numerator != null && denominator != null) {
 			Integer repetitions = parseNumerator(context, numerator, xmlToJavaResult);
-			PhysicalQuantity quantity = parseDenominator(context, denominator, xmlToJavaResult);
 			
-			return PeriodicIntervalTime.createFrequency(repetitions, quantity);
+			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3_SK, context.getVersion())) {
+				Interval<PhysicalQuantity> quantityInterval = parseDenominatorSk(context, denominator, xmlToJavaResult);
+				return PeriodicIntervalTimeSk.createFrequencySk(
+						repetitions, 
+						quantityInterval == null ? null : quantityInterval.getLow(), 
+						quantityInterval == null ? null : quantityInterval.getHigh());
+			} else {
+				PhysicalQuantity quantity = parseDenominator(context, denominator, xmlToJavaResult);
+				return PeriodicIntervalTime.createFrequency(repetitions, quantity);
+			}
 		} else {
 			if (numerator == null) {
-				createManatoryChildElementHl7Error(element, "numerator", xmlToJavaResult);
+				createMandatoryChildElementHl7Error(element, "numerator", xmlToJavaResult);
 			}
 			if (denominator == null) {
-				createManatoryChildElementHl7Error(element, "denominator", xmlToJavaResult);
+				createMandatoryChildElementHl7Error(element, "denominator", xmlToJavaResult);
 			}
 			return null;
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	private Integer parseNumerator(ParseContext context, Element numerator,
 			XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		ElementParser parser = ParserRegistry.getInstance().get("INT.NONNEG");
@@ -104,12 +114,19 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToJavaResult).getBareValue();
 	}
 
-	@SuppressWarnings("unchecked")
 	private PhysicalQuantity parseDenominator(ParseContext context, Element numerator,
 			XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		ElementParser parser = ParserRegistry.getInstance().get("PQ.TIME");
 		ParseContext subContext = ParserContextImpl.create("PQ.TIME", PhysicalQuantity.class, context.getVersion(), MANDATORY);
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToJavaResult).getBareValue();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Interval<PhysicalQuantity> parseDenominatorSk(ParseContext context, Element numerator,
+			XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+		ElementParser parser = ParserRegistry.getInstance().get("IVL<PQ>");
+		ParseContext subContext = ParserContextImpl.create("IVL<PQ>", PhysicalQuantity.class, context.getVersion(), MANDATORY);
+		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToJavaResult).getBareValue();
 	}
 	
 	private void validateNonAllowedChildNode(Element element,

@@ -20,19 +20,23 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.V01R04_3_SK;
 import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.GTS;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
+import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -73,6 +77,39 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 		assertEquals("frequency times", new Integer(3), result.getFrequency().getRepetitions());
 		assertEquals("frequency period value", new BigDecimal("1"), result.getFrequency().getQuantity().getQuantity());
 		assertEquals("frequency period unit", "d", result.getFrequency().getQuantity().getUnit().getCodeValue());
+	}
+	
+	@Test
+	public void shouldParseValidInformationForSk() throws Exception {
+		Node node = createNode("<effectiveTime>" +
+				"  <comp operator=\"I\">" +
+				"    <low specializationType=\"TS.FULLDATE\" value=\"20050803\"/>" +
+				"    <width specializationType=\"TS.FULLDATE\" value=\"3\" unit=\"wk\"/>" +
+				"  </comp>" +
+				"  <comp>" +
+				"    <frequency>" +
+				"      <numerator specializationType=\"INT.NONNEG\" value=\"3\"/>" +
+			    "      <denominator>" +
+		        "        <low unit=\"d\" value=\"3\"/>" +
+		        "        <high unit=\"d\" value=\"10\"/>" +
+		        "      </denominator>" +
+		 		"    </frequency>" +
+				"  </comp>" +
+				"</effectiveTime>");
+		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V01R04_3_SK, ConformanceLevel.MANDATORY);
+		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
+		
+		assertNotNull("result", result);
+		
+		assertEquals("interval width value", new BigDecimal("3"), ((DateDiff) result.getDuration().getWidth()).getValueAsPhysicalQuantity().getQuantity());
+		assertEquals("interval width unit", "wk", ((DateDiff) result.getDuration().getWidth()).getUnit().getCodeValue());
+		
+		assertTrue("frequency is for SK", result.getFrequency() instanceof PeriodicIntervalTimeSk);
+		assertEquals("frequency times", new Integer(3), result.getFrequency().getRepetitions());
+		assertEquals("low frequency period value", new BigDecimal("3"), ((PeriodicIntervalTimeSk)result.getFrequency()).getQuantitySk().getLow().getQuantity());
+		assertEquals("low frequency period unit", "d", ((PeriodicIntervalTimeSk)result.getFrequency()).getQuantitySk().getLow().getUnit().getCodeValue());
+		assertEquals("high frequency period value", new BigDecimal("10"), ((PeriodicIntervalTimeSk)result.getFrequency()).getQuantitySk().getHigh().getQuantity());
+		assertEquals("high frequency period unit", "d", ((PeriodicIntervalTimeSk)result.getFrequency()).getQuantitySk().getHigh().getUnit().getCodeValue());
 	}
 	
 	@Test
