@@ -30,8 +30,6 @@ import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToLocationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.HealthcareProviderBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.RoleChoice;
 
 
 

@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.GTSImpl;
-import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;

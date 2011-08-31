@@ -88,17 +88,23 @@ public class Association extends BaseRelationship {
 	}
 	
 	@Override
-	public Set<Object> getImportTypes() {
-		Set<Object> result = super.getImportTypes();
+	public Set<Object> getImportTypes(boolean parentTypeIsMerged) {
+		Set<Object> result = super.getImportTypes(parentTypeIsMerged);
 		
 		Type type = getAssociationType();
 		if (type != null) {
 			result.add(type.getLanguageSpecificName().getFullyQualifiedName());
 		}
 		for (Choice choice : EmptyIterable.nullSafeIterable(getAllChoiceTypes())) {
-			if (choice != null) {
-				result.add(getImportClassName(choice));
-			}
+        	if (choice != null) {
+        		if (isCardinalityMultiple()) {
+        			// currently not straightforward to produce helper methods for multiple cardinality
+        		} else if (parentTypeIsMerged) {
+        			// currently not straightforward to produce helper methods for choices residing within merged types
+        		} else {
+    				result.add(getImportClassName(choice));
+        		}
+        	}
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());

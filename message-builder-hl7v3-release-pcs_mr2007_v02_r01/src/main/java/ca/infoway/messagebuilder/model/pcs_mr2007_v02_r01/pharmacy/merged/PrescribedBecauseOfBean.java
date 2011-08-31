@@ -26,9 +26,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120402ca.DiagnosisIndicationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120402ca.Indications;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120402ca.OtherIndicationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt270010ca.AdministrationInstructionsBean;
 
 

@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.merged.Consenter;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.rcmr_mt010001ca.PatientBean;
 
 
 

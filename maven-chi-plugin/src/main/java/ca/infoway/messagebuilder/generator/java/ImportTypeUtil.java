@@ -71,7 +71,7 @@ public class ImportTypeUtil {
 		// add imports for all relationships, even if type is abstract
 		for (BaseRelationship relationship : type.getRelationships()) {
 			if (!relationship.isFixed()) {
-				importTypes.addAll(relationship.getImportTypes());
+				importTypes.addAll(relationship.getImportTypes(type.getPartTypeMapping().length > 1));
 			}
 		}
 		

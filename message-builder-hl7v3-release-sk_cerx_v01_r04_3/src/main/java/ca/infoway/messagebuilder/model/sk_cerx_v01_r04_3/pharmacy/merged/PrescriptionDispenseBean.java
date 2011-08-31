@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt050303ca.AnimalPatientBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;

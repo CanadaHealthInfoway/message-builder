@@ -69,8 +69,8 @@ public class Attribute extends BaseRelationship {
     }
 	
 	@Override
-	public Set<Object> getImportTypes() {
-		Set<Object> result = super.getImportTypes();
+	public Set<Object> getImportTypes(boolean parentTypeIsMerged) {
+		Set<Object> result = super.getImportTypes(parentTypeIsMerged);
 		if (getDataType().isTypeCollection()) {
 			result.add(getDataType().getTypeName());
 			if (getDataType().getParameters()!=null && getDataType().getParameters().length > 0) {

@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
 import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
-import ca.infoway.messagebuilder.generator.java.MergedAssociation;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.xml.Documentation;

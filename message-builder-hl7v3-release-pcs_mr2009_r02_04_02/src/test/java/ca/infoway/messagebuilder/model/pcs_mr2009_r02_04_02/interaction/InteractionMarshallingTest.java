@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.PatientAllergyIntoleranceQueryBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
