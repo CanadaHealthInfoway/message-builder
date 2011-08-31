@@ -71,7 +71,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.Rol
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV informRequestCode = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private DispenseShipToLocationBean subjectServiceDeliveryLocation;
@@ -137,20 +137,6 @@ public class InformRequestBean extends MessagePartBean {
     }
     public void setIndirectTargetChoice(Choice indirectTargetChoice) {
         this.indirectTargetChoice = indirectTargetChoice;
-    }
-
-    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof RoleChoice);
-    }
-
-    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
-        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
-        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
     }
 
 }

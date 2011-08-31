@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS paymentIntentDateTime = new TSImpl();
     private MO amt = new MOImpl();
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();

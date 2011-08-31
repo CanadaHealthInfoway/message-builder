@@ -110,7 +110,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS time = new TSImpl();
     private Party party;
     private Choice choice;
@@ -170,27 +170,6 @@ public class ReportedByBean extends MessagePartBean {
         this.party = party;
     }
 
-    public PatientBean getPartyAsPatient() {
-        return this.party instanceof PatientBean ? (PatientBean) this.party : null;
-    }
-    public boolean hasPartyAsPatient() {
-        return (this.party instanceof PatientBean);
-    }
-
-    public RelatedPersonBean getPartyAsPersonalRelationship() {
-        return this.party instanceof RelatedPersonBean ? (RelatedPersonBean) this.party : null;
-    }
-    public boolean hasPartyAsPersonalRelationship() {
-        return (this.party instanceof RelatedPersonBean);
-    }
-
-    public HealthcareWorkerBean getPartyAsAssignedEntity() {
-        return this.party instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.party : null;
-    }
-    public boolean hasPartyAsAssignedEntity() {
-        return (this.party instanceof HealthcareWorkerBean);
-    }
-
 
     @Hl7XmlMapping({"choice"})
     public Choice getChoice() {
@@ -198,27 +177,6 @@ public class ReportedByBean extends MessagePartBean {
     }
     public void setChoice(Choice choice) {
         this.choice = choice;
-    }
-
-    public PatientBean getChoiceAsPatient() {
-        return this.choice instanceof PatientBean ? (PatientBean) this.choice : null;
-    }
-    public boolean hasChoiceAsPatient() {
-        return (this.choice instanceof PatientBean);
-    }
-
-    public RelatedPersonBean getChoiceAsPersonalRelationship() {
-        return this.choice instanceof RelatedPersonBean ? (RelatedPersonBean) this.choice : null;
-    }
-    public boolean hasChoiceAsPersonalRelationship() {
-        return (this.choice instanceof RelatedPersonBean);
-    }
-
-    public HealthcareWorkerBean getChoiceAsAssignedEntity() {
-        return this.choice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.choice : null;
-    }
-    public boolean hasChoiceAsAssignedEntity() {
-        return (this.choice instanceof HealthcareWorkerBean);
     }
 
 }

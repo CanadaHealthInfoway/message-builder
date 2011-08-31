@@ -83,7 +83,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001999CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> batteryIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010001ca.Pat
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV patientConsentMechanism = new CVImpl();
     private ST keyword = new STImpl();
     private Consenter consenter;
@@ -77,20 +77,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public void setConsenter(Consenter consenter) {
         this.consenter = consenter;
-    }
-
-    public PatientBean getConsenterAsPatient() {
-        return this.consenter instanceof PatientBean ? (PatientBean) this.consenter : null;
-    }
-    public boolean hasConsenterAsPatient() {
-        return (this.consenter instanceof PatientBean);
-    }
-
-    public ResponsiblePersonBean getConsenterAsResponsibleParty() {
-        return this.consenter instanceof ResponsiblePersonBean ? (ResponsiblePersonBean) this.consenter : null;
-    }
-    public boolean hasConsenterAsResponsibleParty() {
-        return (this.consenter instanceof ResponsiblePersonBean);
     }
 
 }

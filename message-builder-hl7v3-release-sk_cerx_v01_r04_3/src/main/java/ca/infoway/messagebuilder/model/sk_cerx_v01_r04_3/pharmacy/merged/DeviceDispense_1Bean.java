@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7RootType
 public class DeviceDispense_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenObservationEvent"})
 public class SpecimenObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV specimenObservationType = new CVImpl();
     private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
     private ANY<Object> specimenObservationValue = new ANYImpl<Object>();

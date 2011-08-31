@@ -73,7 +73,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> previousPrescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CV prescriptionType = new CVImpl();
 

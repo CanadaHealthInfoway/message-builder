@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PrescriberPerson"})
 public class PersonPrescribingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private PN prescriberName = new PNImpl();
     private LIST<TEL, TelecommunicationAddress> prescriberTelephoneNumber = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 

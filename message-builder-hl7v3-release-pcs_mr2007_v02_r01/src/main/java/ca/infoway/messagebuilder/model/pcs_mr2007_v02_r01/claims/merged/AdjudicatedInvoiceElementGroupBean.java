@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II adjudicationResultId = new IIImpl();
     private CV invoiceType = new CVImpl();
     private CS statusCode = new CSImpl();

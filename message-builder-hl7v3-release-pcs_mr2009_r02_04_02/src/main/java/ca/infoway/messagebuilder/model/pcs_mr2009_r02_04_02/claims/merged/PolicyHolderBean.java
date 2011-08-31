@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt400001
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyHolder","FICR_MT400003CA.PolicyHolder","FICR_MT400004CA.PolicyHolder","FICR_MT490102CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II policyHolderIdentifier = new IIImpl();
     private PolicyHolderChoice policyHolderChoice;
 
@@ -60,20 +60,6 @@ public class PolicyHolderBean extends MessagePartBean {
     }
     public void setPolicyHolderChoice(PolicyHolderChoice policyHolderChoice) {
         this.policyHolderChoice = policyHolderChoice;
-    }
-
-    public PolicyHolderPersonBean getPolicyHolderChoiceAsPolicyHolderPerson() {
-        return this.policyHolderChoice instanceof PolicyHolderPersonBean ? (PolicyHolderPersonBean) this.policyHolderChoice : null;
-    }
-    public boolean hasPolicyHolderChoiceAsPolicyHolderPerson() {
-        return (this.policyHolderChoice instanceof PolicyHolderPersonBean);
-    }
-
-    public PolicyHolderOrganizationBean getPolicyHolderChoiceAsPolicyHolderOrganization() {
-        return this.policyHolderChoice instanceof PolicyHolderOrganizationBean ? (PolicyHolderOrganizationBean) this.policyHolderChoice : null;
-    }
-    public boolean hasPolicyHolderChoiceAsPolicyHolderOrganization() {
-        return (this.policyHolderChoice instanceof PolicyHolderOrganizationBean);
     }
 
 }

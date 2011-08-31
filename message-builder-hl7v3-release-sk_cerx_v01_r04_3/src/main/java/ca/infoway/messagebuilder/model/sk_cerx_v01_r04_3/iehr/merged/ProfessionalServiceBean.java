@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV serviceCode = new CVImpl();
     private IVL<TS, Interval<Date>> consultationTimeAndLength = new IVLImpl<TS, Interval<Date>>();
     private CV professionalServiceMaskingIndicator = new CVImpl();

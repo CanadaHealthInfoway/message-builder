@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980050c
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private INT indicationPriority = new INTImpl();
     private Indications indications;
 
@@ -63,27 +63,6 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     }
     public void setIndications(Indications indications) {
         this.indications = indications;
-    }
-
-    public DiagnosisIndicationsBean getIndicationsAsObservationDiagnosis() {
-        return this.indications instanceof DiagnosisIndicationsBean ? (DiagnosisIndicationsBean) this.indications : null;
-    }
-    public boolean hasIndicationsAsObservationDiagnosis() {
-        return (this.indications instanceof DiagnosisIndicationsBean);
-    }
-
-    public SymptomIndicationsBean getIndicationsAsObservationSymptom() {
-        return this.indications instanceof SymptomIndicationsBean ? (SymptomIndicationsBean) this.indications : null;
-    }
-    public boolean hasIndicationsAsObservationSymptom() {
-        return (this.indications instanceof SymptomIndicationsBean);
-    }
-
-    public OtherIndicationsBean getIndicationsAsOtherIndication() {
-        return this.indications instanceof OtherIndicationsBean ? (OtherIndicationsBean) this.indications : null;
-    }
-    public boolean hasIndicationsAsOtherIndication() {
-        return (this.indications instanceof OtherIndicationsBean);
     }
 
 }

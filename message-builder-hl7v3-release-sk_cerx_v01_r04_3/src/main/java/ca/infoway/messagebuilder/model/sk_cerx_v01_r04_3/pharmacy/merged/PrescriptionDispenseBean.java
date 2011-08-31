@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();
     private Patient subjectPatient1;
@@ -102,20 +102,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setSubjectPatient1(Patient subjectPatient1) {
         this.subjectPatient1 = subjectPatient1;
-    }
-
-    public PatientBean getSubjectPatient1AsPatient1() {
-        return this.subjectPatient1 instanceof PatientBean ? (PatientBean) this.subjectPatient1 : null;
-    }
-    public boolean hasSubjectPatient1AsPatient1() {
-        return (this.subjectPatient1 instanceof PatientBean);
-    }
-
-    public AnimalPatientBean getSubjectPatient1AsPatient2() {
-        return this.subjectPatient1 instanceof AnimalPatientBean ? (AnimalPatientBean) this.subjectPatient1 : null;
-    }
-    public boolean hasSubjectPatient1AsPatient2() {
-        return (this.subjectPatient1 instanceof AnimalPatientBean);
     }
 
 

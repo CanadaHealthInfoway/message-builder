@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthCareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> providerIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PN nameOfProvider = new PNImpl();

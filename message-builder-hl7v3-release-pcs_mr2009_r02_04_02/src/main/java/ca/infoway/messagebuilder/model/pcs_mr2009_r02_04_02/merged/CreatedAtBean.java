@@ -79,7 +79,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","PRPM_MT301010CA.Location","PRPM_MT303010CA.Location","REPC_MT500001CA.Location2","REPC_MT500002CA.Location2","REPC_MT500004CA.Location2"})
 public class CreatedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
     private INT orderOfServiceDeliveryLocations = new INTImpl();
 

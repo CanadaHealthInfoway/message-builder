@@ -65,7 +65,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS prescriptionDispensableIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;

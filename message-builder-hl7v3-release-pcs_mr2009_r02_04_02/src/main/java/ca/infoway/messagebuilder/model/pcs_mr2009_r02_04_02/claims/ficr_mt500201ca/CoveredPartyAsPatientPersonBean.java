@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatientPerson"})
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private PN patientName = new PNImpl();
     private CV personGender = new CVImpl();
     private TS personDateOfBirth = new TSImpl();

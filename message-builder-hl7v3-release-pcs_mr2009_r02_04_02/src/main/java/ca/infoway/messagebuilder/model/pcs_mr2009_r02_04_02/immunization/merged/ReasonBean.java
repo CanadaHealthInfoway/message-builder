@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Reason","POIZ_MT030060CA.Reason","POIZ_MT060150CA.Reason"})
 public class ReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private Choice choice;
 
 
@@ -53,20 +53,6 @@ public class ReasonBean extends MessagePartBean {
     }
     public void setChoice(Choice choice) {
         this.choice = choice;
-    }
-
-    public ImmunizationReasonBean getChoiceAsImmunizationReason() {
-        return this.choice instanceof ImmunizationReasonBean ? (ImmunizationReasonBean) this.choice : null;
-    }
-    public boolean hasChoiceAsImmunizationReason() {
-        return (this.choice instanceof ImmunizationReasonBean);
-    }
-
-    public NoImmunizationReasonBean getChoiceAsNoImmunizationReason() {
-        return this.choice instanceof NoImmunizationReasonBean ? (NoImmunizationReasonBean) this.choice : null;
-    }
-    public boolean hasChoiceAsNoImmunizationReason() {
-        return (this.choice instanceof NoImmunizationReasonBean);
     }
 
 }

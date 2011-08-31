@@ -86,7 +86,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
@@ -237,20 +237,6 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
     public void setDataEntererEntererChoice(EntererChoice dataEntererEntererChoice) {
         this.dataEntererEntererChoice = dataEntererEntererChoice;
-    }
-
-    public HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity1() {
-        return this.dataEntererEntererChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererEntererChoice : null;
-    }
-    public boolean hasDataEntererEntererChoiceAsAssignedEntity1() {
-        return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getDataEntererEntererChoiceAsAssignedEntity2() {
-        return this.dataEntererEntererChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererEntererChoice : null;
-    }
-    public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
-        return (this.dataEntererEntererChoice instanceof HealthcareOrganizationBean);
     }
 
 

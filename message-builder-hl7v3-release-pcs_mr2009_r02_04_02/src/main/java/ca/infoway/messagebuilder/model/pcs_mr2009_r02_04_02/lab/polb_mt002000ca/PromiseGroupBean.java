@@ -61,7 +61,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.PromiseGroup"})
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II promiseGrouperIdentifier = new IIImpl();

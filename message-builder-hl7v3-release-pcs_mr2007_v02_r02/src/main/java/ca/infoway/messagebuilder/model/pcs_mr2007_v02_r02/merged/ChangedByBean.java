@@ -233,7 +233,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","REPC_MT000009CA.Author3"})
 public class ChangedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private HealthcareWorkerBean assignedEntity;
@@ -386,20 +386,6 @@ public class ChangedByBean extends MessagePartBean {
         this.changedBy = changedBy;
     }
 
-    public HealthcareWorkerBean getChangedByAsAssignedEntity() {
-        return this.changedBy instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.changedBy : null;
-    }
-    public boolean hasChangedByAsAssignedEntity() {
-        return (this.changedBy instanceof HealthcareWorkerBean);
-    }
-
-    public EHRRepositoryBean getChangedByAsAssignedDevice() {
-        return this.changedBy instanceof EHRRepositoryBean ? (EHRRepositoryBean) this.changedBy : null;
-    }
-    public boolean hasChangedByAsAssignedDevice() {
-        return (this.changedBy instanceof EHRRepositoryBean);
-    }
-
 
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
@@ -416,27 +402,6 @@ public class ChangedByBean extends MessagePartBean {
     }
     public void setActingPerson(ActingPerson actingPerson) {
         this.actingPerson = actingPerson;
-    }
-
-    public HealthcareWorkerBean getActingPersonAsAssignedEntity1() {
-        return this.actingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.actingPerson : null;
-    }
-    public boolean hasActingPersonAsAssignedEntity1() {
-        return (this.actingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getActingPersonAsAssignedEntity2() {
-        return this.actingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.actingPerson : null;
-    }
-    public boolean hasActingPersonAsAssignedEntity2() {
-        return (this.actingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getActingPersonAsPersonalRelationship() {
-        return this.actingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.actingPerson : null;
-    }
-    public boolean hasActingPersonAsPersonalRelationship() {
-        return (this.actingPerson instanceof RelatedPersonBean);
     }
 
 }

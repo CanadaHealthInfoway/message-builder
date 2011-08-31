@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS otherMedicationIndicator = new CSImpl();
     private II activeMedicationRecordNumber = new IIImpl();
     private CD administrationType = new CDImpl();

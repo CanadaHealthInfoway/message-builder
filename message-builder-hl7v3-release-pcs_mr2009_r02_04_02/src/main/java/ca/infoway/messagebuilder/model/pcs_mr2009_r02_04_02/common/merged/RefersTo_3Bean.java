@@ -77,7 +77,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700717CA.Subject2","MFMI_MT700726CA.Subject2"})
 public class RefersTo_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private BL cascadeResponsibilityIndicator = new BLImpl();
     private RegistrationEventBean<RR> registrationEvent;
 

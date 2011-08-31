@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610001CA.OldProcedureEvent","REPC_MT610002CA.OldProcedureEvent"})
 public class OldProcedureEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II replacesRecordIds = new IIImpl();
 
 

@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityObservationEvent"})
 public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CD sensitivityTestCode = new CDImpl();
     private ST sensitivityText = new STImpl();
     private CS sensitivityStatus = new CSImpl();

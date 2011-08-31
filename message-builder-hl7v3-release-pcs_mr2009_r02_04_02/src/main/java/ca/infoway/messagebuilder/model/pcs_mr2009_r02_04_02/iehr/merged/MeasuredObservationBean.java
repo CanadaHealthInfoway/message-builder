@@ -114,7 +114,7 @@ import java.util.Set;
 @Hl7RootType
 public class MeasuredObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II observationRecordId = new IIImpl();
     private CD observationType = new CDImpl();
     private BL refutedIndicator = new BLImpl();
@@ -407,27 +407,6 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
-    public HealthcareWorkerBean getResponsiblePartyActingPersonAsAssignedEntity1() {
-        return this.responsiblePartyActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsAssignedEntity1() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
-        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsAssignedEntity2() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getResponsiblePartyActingPersonAsPersonalRelationship() {
-        return this.responsiblePartyActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsPersonalRelationship() {
-        return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
-    }
-
 
     @Hl7XmlMapping({"performer/actingPerson"})
     public List<ActingPerson> getPerformerActingPerson() {
@@ -450,27 +429,6 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
     public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
-    }
-
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
     }
 
 

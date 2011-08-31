@@ -82,7 +82,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> cultureIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CD cultureType = new CDImpl();
     private CS cultureStatus = new CSImpl();

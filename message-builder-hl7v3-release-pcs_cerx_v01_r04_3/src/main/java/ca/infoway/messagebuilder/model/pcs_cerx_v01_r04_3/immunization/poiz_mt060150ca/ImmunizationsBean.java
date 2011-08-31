@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II immunizationRecordId = new IIImpl();
     private CD immunizationType = new CDImpl();
     private BL notImmunized = new BLImpl();

@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.HealthDocumentAttachment","FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV attachmentType = new CVImpl();
     private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();

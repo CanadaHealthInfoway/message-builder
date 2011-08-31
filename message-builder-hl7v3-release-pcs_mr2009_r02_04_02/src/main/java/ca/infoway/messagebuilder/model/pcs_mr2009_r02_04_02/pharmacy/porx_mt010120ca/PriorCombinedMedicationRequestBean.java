@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II previousPrescriptionOrderNumber = new IIImpl();
     private CV prescriptionType = new CVImpl();
 

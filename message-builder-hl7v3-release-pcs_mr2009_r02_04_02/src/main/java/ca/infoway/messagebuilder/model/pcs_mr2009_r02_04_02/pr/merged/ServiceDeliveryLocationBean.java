@@ -122,7 +122,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> serviceDeliveryLocationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV serviceDeliveryLocationType = new CVImpl();
     private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);

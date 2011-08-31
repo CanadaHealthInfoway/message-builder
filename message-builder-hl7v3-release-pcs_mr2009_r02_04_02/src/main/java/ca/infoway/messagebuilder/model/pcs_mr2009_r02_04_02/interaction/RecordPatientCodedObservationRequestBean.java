@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.CodedObs
 @Hl7PartTypeMapping({"REPC_IN000064CA"})
 public class RecordPatientCodedObservationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CodedObservationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
 
 }

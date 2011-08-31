@@ -86,7 +86,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportHeaderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca.ResultChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II observationReportIdentifier = new IIImpl();
     private CD labObservationReportType = new CDImpl();
     private ST observationReportTitle = new STImpl();

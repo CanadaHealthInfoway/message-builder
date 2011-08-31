@@ -39,7 +39,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS prescribedDate = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
     private ED<String> signature = new EDImpl<String>();

@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Healthca
 @Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private Recipient recipient;
 
 
@@ -82,20 +82,6 @@ public class ConsentGivenToBean extends MessagePartBean {
     }
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
-    }
-
-    public HealthcareWorkerBean getRecipientAsAssignedEntity() {
-        return this.recipient instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.recipient : null;
-    }
-    public boolean hasRecipientAsAssignedEntity() {
-        return (this.recipient instanceof HealthcareWorkerBean);
-    }
-
-    public ServiceLocationBean getRecipientAsServiceDeliveryLocation() {
-        return this.recipient instanceof ServiceLocationBean ? (ServiceLocationBean) this.recipient : null;
-    }
-    public boolean hasRecipientAsServiceDeliveryLocation() {
-        return (this.recipient instanceof ServiceLocationBean);
     }
 
 }

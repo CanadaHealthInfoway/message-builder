@@ -36,7 +36,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS time = new TSImpl();
     private Party party;
 
@@ -61,27 +61,6 @@ public class ReportedByBean extends MessagePartBean {
     }
     public void setParty(Party party) {
         this.party = party;
-    }
-
-    public PatientBean getPartyAsPatient() {
-        return this.party instanceof PatientBean ? (PatientBean) this.party : null;
-    }
-    public boolean hasPartyAsPatient() {
-        return (this.party instanceof PatientBean);
-    }
-
-    public RelatedPersonBean getPartyAsPersonalRelationship() {
-        return this.party instanceof RelatedPersonBean ? (RelatedPersonBean) this.party : null;
-    }
-    public boolean hasPartyAsPersonalRelationship() {
-        return (this.party instanceof RelatedPersonBean);
-    }
-
-    public HealthcareWorkerBean getPartyAsAssignedEntity() {
-        return this.party instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.party : null;
-    }
-    public boolean hasPartyAsAssignedEntity() {
-        return (this.party instanceof HealthcareWorkerBean);
     }
 
 }

@@ -84,7 +84,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InvestigationEvent","POIZ_MT030060CA.InvestigationEvent","POIZ_MT060150CA.InvestigationEvent","POIZ_MT061150CA.InvestigationEvent"})
 public class InvestigationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II adverseEventReportID = new IIImpl();
     private CV reportType = new CVImpl();
     private ST text = new STImpl();

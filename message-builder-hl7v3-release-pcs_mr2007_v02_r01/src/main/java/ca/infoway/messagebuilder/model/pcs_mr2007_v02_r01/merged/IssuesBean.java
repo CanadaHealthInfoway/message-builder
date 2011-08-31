@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV issueType = new CVImpl();
     private ST text = new STImpl();
     private CV issuePriority = new CVImpl();

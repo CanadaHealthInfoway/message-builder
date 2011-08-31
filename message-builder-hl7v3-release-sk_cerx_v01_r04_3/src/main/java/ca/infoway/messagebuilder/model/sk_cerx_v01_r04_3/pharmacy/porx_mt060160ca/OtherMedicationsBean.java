@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II administrationRecordId = new IIImpl();
     private CD otherMedicationType = new CDImpl();
     private CS otherMedicationStatus = new CSImpl();

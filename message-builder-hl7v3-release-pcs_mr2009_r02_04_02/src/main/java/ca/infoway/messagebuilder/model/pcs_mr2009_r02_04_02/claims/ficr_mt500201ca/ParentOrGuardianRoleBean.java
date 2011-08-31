@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ParentOrGuardianRole"})
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II idOfParent = new IIImpl();
     private CV parentOrGuardianRelationshipToPatient = new CVImpl();
     private PN nameOfParentOrGuardian = new PNImpl();

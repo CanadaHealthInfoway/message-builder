@@ -31,6 +31,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"RCMR_IN010005CA"})
 public class UpdateKeywordRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
 
 }

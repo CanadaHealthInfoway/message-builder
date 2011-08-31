@@ -71,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CS clientStatusCode = new CSImpl();
     private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();

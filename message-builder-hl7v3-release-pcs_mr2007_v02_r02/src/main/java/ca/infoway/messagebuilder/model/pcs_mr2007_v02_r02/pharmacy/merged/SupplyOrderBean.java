@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II prescriptionIdentifier = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;

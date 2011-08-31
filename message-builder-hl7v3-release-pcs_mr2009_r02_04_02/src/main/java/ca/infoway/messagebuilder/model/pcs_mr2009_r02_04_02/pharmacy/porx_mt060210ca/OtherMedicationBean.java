@@ -96,7 +96,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Pharmacy {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> administrationRecordId = new SETImpl<II, Identifier>(IIImpl.class);
     private CD otherMedicationType = new CDImpl();
     private CS otherMedicationStatus = new CSImpl();

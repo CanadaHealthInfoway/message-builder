@@ -95,7 +95,7 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II immunizationEventID = new IIImpl();
     private BL notImmunized = new BLImpl();
     private CS immunizationEventStatus = new CSImpl();

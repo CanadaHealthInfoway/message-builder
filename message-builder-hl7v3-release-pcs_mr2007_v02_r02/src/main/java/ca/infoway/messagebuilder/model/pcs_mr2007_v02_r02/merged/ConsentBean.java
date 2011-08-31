@@ -119,7 +119,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II consentFormNumber = new IIImpl();
     private CV consentType = new CVImpl();
     private BL consentRefusedIndicator = new BLImpl();
@@ -312,41 +312,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setSubject1SubjectChoice(SubjectChoice subject1SubjectChoice) {
         this.subject1SubjectChoice = subject1SubjectChoice;
-    }
-
-    public PatientBean getSubject1SubjectChoiceAsPatient1() {
-        return this.subject1SubjectChoice instanceof PatientBean ? (PatientBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsPatient1() {
-        return (this.subject1SubjectChoice instanceof PatientBean);
-    }
-
-    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getSubject1SubjectChoiceAsAssignedEntity2() {
-        return this.subject1SubjectChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsAssignedEntity2() {
-        return (this.subject1SubjectChoice instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getSubject1SubjectChoiceAsPersonalRelationship() {
-        return this.subject1SubjectChoice instanceof RelatedPersonBean ? (RelatedPersonBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsPersonalRelationship() {
-        return (this.subject1SubjectChoice instanceof RelatedPersonBean);
-    }
-
-    public ActingPerson getSubject1SubjectChoiceAsActingPerson() {
-        return this.subject1SubjectChoice instanceof ActingPerson ? (ActingPerson) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsActingPerson() {
-        return (this.subject1SubjectChoice instanceof ActingPerson);
     }
 
 

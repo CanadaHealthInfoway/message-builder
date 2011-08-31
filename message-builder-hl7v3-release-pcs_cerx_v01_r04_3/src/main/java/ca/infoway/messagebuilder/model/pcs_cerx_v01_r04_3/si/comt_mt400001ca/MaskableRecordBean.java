@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II recordIdentifier = new IIImpl();
     private CV recordType = new CVImpl();
     private CV maskedIndicator = new CVImpl();

@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV allergyIntoleranceStatus = new CVImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();

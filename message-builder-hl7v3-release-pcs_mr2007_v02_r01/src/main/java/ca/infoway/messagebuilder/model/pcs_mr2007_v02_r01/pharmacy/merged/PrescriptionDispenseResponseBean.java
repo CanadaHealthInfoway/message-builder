@@ -47,7 +47,7 @@ import java.util.Date;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II id = new IIImpl();
     private II prescriptionOrderNumber = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;

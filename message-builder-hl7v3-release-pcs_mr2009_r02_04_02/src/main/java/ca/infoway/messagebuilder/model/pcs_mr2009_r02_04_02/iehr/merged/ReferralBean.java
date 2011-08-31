@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210001ca.DocumentContent, DocumentContent_1 {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private CD referralType = new CDImpl();
     private CS referralStatus = new CSImpl();

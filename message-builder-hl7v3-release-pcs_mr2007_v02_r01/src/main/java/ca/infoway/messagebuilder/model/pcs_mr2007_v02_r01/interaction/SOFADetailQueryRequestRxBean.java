@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"QUCR_IN820102CA"})
 public class SOFADetailQueryRequestRxBean extends HL7Message_1Bean<TriggerEvent_4Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
 
 }

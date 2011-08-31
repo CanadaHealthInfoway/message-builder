@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV generalSupportingInformationType = new CVImpl();
     private ST generalSupportingInformationText = new STImpl();
     private ANY<Object> generalSupportingInformationValue = new ANYImpl<Object>();

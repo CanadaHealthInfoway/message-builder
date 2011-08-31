@@ -39,7 +39,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV managementType = new CVImpl();
     private ST managementDescription = new STImpl();
     private TS managementDate = new TSImpl();

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntentReason"})
 public class PaymentIntentReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private AdjudicatedInvoiceElementGroupBean adjudicatedInvoiceElementGroup;
 
 

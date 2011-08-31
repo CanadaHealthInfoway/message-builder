@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.SectionLevelObservationEvent"})
 public class DiagnosisOrInterpretationObservationBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> sectionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

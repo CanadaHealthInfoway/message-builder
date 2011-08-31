@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Isolate2"})
 public class IsolateBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II isolateIdentifier = new IIImpl();
     private CD microorganism = new CDImpl();
     private ST microorganismDescription = new STImpl();

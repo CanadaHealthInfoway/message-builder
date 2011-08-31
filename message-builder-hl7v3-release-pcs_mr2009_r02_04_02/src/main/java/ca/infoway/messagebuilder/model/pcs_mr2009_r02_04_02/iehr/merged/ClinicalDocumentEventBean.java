@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610001CA.ClinicalDocumentEvent","REPC_MT610002CA.ClinicalDocumentEvent"})
 public class ClinicalDocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II serviceReportReferenceId = new IIImpl();
 
 

@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.IntoleranceCondition","POIZ_MT030060CA.IntoleranceCondition","POIZ_MT060150CA.IntoleranceCondition"})
 public class IntoleranceConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II allergyIntoleranceRecordID = new IIImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();

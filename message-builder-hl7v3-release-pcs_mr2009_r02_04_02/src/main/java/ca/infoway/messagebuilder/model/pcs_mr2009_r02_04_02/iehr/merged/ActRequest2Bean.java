@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.ActRequest2","REPC_MT210002CA.ActRequest2","REPC_MT210003CA.ActRequest2"})
 public class ActRequest2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CD requestedService = new CDImpl();
 
 

@@ -40,7 +40,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II issueMonographId = new IIImpl();
     private ANY<Object> issueDescription = new ANYImpl<Object>();
     private TS issueMonographEffectiveDate = new TSImpl();

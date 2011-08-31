@@ -115,7 +115,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II serviceLocationIdentifier = new IIImpl();
     private CV serviceLocationType = new CVImpl();
     private AD serviceLocationAddress = new ADImpl();

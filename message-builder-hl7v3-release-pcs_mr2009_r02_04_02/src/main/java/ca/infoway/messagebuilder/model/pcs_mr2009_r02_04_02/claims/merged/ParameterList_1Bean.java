@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterList_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS coveredPartyBirthdate = new TSImpl();
     private CV coveredPartyGenderValue = new CVImpl();
     private PN coveredPartyNameValue = new PNImpl();

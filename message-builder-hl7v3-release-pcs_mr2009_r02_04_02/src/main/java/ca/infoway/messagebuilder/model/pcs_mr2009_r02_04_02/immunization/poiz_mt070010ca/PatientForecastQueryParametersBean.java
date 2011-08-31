@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7RootType
 public class PatientForecastQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
     private II patientIdentifier = new IIImpl();

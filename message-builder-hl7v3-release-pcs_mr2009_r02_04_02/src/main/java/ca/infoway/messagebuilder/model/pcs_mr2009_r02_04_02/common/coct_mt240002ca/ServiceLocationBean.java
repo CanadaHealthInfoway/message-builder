@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II serviceLocationIdentifier = new IIImpl();
     private ST serviceLocationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();

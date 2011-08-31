@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS moodCode = new CSImpl();
     private II serviceEventID = new IIImpl();
     private CV procedureCode = new CVImpl();

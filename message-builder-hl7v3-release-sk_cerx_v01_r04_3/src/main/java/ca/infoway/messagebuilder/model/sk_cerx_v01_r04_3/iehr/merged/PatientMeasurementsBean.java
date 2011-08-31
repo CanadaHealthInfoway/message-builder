@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II observationMeasurementId = new IIImpl();
     private CD measurementType = new CDImpl();
     private TS effectiveTime = new TSImpl();

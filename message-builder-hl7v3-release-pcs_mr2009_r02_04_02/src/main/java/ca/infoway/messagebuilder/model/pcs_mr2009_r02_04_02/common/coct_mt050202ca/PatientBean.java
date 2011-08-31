@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean patientPerson;
 

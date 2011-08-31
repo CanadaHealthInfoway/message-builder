@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailsBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private II submittedInvoiceLineIdentifier = new IIImpl();
     private CV submittedProductServiceCode = new CVImpl();

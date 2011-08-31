@@ -79,7 +79,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
@@ -223,27 +223,6 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     }
     public void setDataEntererActingPerson(ActingPerson dataEntererActingPerson) {
         this.dataEntererActingPerson = dataEntererActingPerson;
-    }
-
-    public HealthcareWorkerBean getDataEntererActingPersonAsAssignedEntity1() {
-        return this.dataEntererActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererActingPerson : null;
-    }
-    public boolean hasDataEntererActingPersonAsAssignedEntity1() {
-        return (this.dataEntererActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getDataEntererActingPersonAsAssignedEntity2() {
-        return this.dataEntererActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererActingPerson : null;
-    }
-    public boolean hasDataEntererActingPersonAsAssignedEntity2() {
-        return (this.dataEntererActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getDataEntererActingPersonAsPersonalRelationship() {
-        return this.dataEntererActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.dataEntererActingPerson : null;
-    }
-    public boolean hasDataEntererActingPersonAsPersonalRelationship() {
-        return (this.dataEntererActingPerson instanceof RelatedPersonBean);
     }
 
 

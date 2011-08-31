@@ -85,7 +85,7 @@ import java.util.Set;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private CV prescriptionType = new CVImpl();

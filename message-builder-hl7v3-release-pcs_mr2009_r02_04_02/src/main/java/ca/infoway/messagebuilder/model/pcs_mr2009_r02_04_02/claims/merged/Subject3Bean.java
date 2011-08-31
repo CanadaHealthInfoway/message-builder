@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActiveMedicat
 @Hl7PartTypeMapping({"FICR_MT400001CA.Subject3","FICR_MT400003CA.Subject","FICR_MT400003CA.Subject3","FICR_MT400004CA.Subject","FICR_MT400004CA.Subject3","FICR_MT490101CA.Subject3","FICR_MT490102CA.Subject3","FICR_MT490102CA.Subject4"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private BL includesExcludesProduct = new BLImpl();
     private SpecialAuthorizationChoice specialAuthorizationChoice;
 
@@ -59,20 +59,6 @@ public class Subject3Bean extends MessagePartBean {
     }
     public void setSpecialAuthorizationChoice(SpecialAuthorizationChoice specialAuthorizationChoice) {
         this.specialAuthorizationChoice = specialAuthorizationChoice;
-    }
-
-    public ActiveMedicationBean getSpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return this.specialAuthorizationChoice instanceof ActiveMedicationBean ? (ActiveMedicationBean) this.specialAuthorizationChoice : null;
-    }
-    public boolean hasSpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return (this.specialAuthorizationChoice instanceof ActiveMedicationBean);
-    }
-
-    public DevicePassThruBean getSpecialAuthorizationChoiceAsDevicePassThru() {
-        return this.specialAuthorizationChoice instanceof DevicePassThruBean ? (DevicePassThruBean) this.specialAuthorizationChoice : null;
-    }
-    public boolean hasSpecialAuthorizationChoiceAsDevicePassThru() {
-        return (this.specialAuthorizationChoice instanceof DevicePassThruBean);
     }
 
 }

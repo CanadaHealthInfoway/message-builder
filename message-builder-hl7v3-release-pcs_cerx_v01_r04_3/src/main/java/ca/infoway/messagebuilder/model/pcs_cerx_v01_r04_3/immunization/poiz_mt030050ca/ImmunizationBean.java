@@ -53,7 +53,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CD immunizationType = new CDImpl();
     private BL notImmunized = new BLImpl();
     private TS immunizationDate = new TSImpl();

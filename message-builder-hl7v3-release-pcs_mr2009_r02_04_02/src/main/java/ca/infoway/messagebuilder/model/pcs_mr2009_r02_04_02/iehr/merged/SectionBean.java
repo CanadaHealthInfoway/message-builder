@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.Section","REPC_MT220003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
     private DocumentContent_2 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -78,13 +78,6 @@ public class SectionBean extends MessagePartBean {
     }
     public void setComponent1DocumentContent(DocumentContent_2 component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
-    }
-
-    public DischargeCareSummaryReportBean getComponent1DocumentContentAsPatientCareProvisionEvent() {
-        return this.component1DocumentContent instanceof DischargeCareSummaryReportBean ? (DischargeCareSummaryReportBean) this.component1DocumentContent : null;
-    }
-    public boolean hasComponent1DocumentContentAsPatientCareProvisionEvent() {
-        return (this.component1DocumentContent instanceof DischargeCareSummaryReportBean);
     }
 
 

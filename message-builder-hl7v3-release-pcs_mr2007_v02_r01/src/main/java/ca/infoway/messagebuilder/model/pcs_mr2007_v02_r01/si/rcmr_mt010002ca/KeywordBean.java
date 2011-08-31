@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private ST keyword = new STImpl();
     private Consenter authorConsenter;
     private List<CV> consentInformationTypes = new ArrayList<CV>();

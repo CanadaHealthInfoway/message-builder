@@ -63,7 +63,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();
@@ -151,27 +151,6 @@ public class CreatedBy_2Bean extends MessagePartBean {
     }
     public void setAuthorPerson(AuthorPerson authorPerson) {
         this.authorPerson = authorPerson;
-    }
-
-    public NullAuthorRoleBean getAuthorPersonAsAuthorRole() {
-        return this.authorPerson instanceof NullAuthorRoleBean ? (NullAuthorRoleBean) this.authorPerson : null;
-    }
-    public boolean hasAuthorPersonAsAuthorRole() {
-        return (this.authorPerson instanceof NullAuthorRoleBean);
-    }
-
-    public HealthcareWorkerBean getAuthorPersonAsAssignedEntity1() {
-        return this.authorPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorPerson : null;
-    }
-    public boolean hasAuthorPersonAsAssignedEntity1() {
-        return (this.authorPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getAuthorPersonAsAssignedEntity2() {
-        return this.authorPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.authorPerson : null;
-    }
-    public boolean hasAuthorPersonAsAssignedEntity2() {
-        return (this.authorPerson instanceof HealthcareOrganizationBean);
     }
 
 }

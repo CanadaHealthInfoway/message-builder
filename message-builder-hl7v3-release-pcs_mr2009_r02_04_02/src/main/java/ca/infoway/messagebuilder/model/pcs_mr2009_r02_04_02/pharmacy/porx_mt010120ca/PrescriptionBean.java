@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II prescriptionNumber = new IIImpl();
     private CV prescriptionType = new CVImpl();
     private CS prescriptionStatus = new CSImpl();

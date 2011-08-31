@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegisteredRole","MFMI_MT700716CA.PriorRegisteredRole","MFMI_MT700726CA.PriorRegisteredRole","MFMI_MT700746CA.PriorRegisteredRole"})
 public class PriorRegistrationRoleIdsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS classCode = new CSImpl();
     private II priorRegisteredRoleIds = new IIImpl();
 

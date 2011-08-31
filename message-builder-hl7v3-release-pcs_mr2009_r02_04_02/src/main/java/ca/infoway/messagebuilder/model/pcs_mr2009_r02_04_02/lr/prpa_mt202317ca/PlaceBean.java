@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202317CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV locationPlaceType = new CVImpl();
     private BL locationMobileIndicator = new BLImpl();
 

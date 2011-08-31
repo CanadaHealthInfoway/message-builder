@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -128,20 +128,6 @@ public class StatusChangesBean extends MessagePartBean {
     }
     public void setAuthorChangedBy(ChangedBy authorChangedBy) {
         this.authorChangedBy = authorChangedBy;
-    }
-
-    public ProviderBean getAuthorChangedByAsAssignedPerson() {
-        return this.authorChangedBy instanceof ProviderBean ? (ProviderBean) this.authorChangedBy : null;
-    }
-    public boolean hasAuthorChangedByAsAssignedPerson() {
-        return (this.authorChangedBy instanceof ProviderBean);
-    }
-
-    public ApplicationBean getAuthorChangedByAsAssignedDevice() {
-        return this.authorChangedBy instanceof ApplicationBean ? (ApplicationBean) this.authorChangedBy : null;
-    }
-    public boolean hasAuthorChangedByAsAssignedDevice() {
-        return (this.authorChangedBy instanceof ApplicationBean);
     }
 
 }

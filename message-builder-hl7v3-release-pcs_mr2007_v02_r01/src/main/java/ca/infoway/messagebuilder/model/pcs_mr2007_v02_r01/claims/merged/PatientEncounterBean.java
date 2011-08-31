@@ -36,7 +36,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 

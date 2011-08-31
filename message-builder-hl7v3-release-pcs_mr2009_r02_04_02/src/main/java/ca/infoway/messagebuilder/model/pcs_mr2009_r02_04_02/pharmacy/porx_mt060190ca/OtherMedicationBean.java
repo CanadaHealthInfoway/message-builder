@@ -80,7 +80,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> otherMedicationRecordNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CD otherMedicationType = new CDImpl();
     private CS otherMedicationStatus = new CSImpl();

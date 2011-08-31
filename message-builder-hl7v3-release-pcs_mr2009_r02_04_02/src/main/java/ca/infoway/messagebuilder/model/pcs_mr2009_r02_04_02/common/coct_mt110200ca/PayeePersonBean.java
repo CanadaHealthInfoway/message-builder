@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private PayeeRelationshipRoleBean asRole;
     private PN payeeName = new PNImpl();
     private AD payeeAddress = new ADImpl();

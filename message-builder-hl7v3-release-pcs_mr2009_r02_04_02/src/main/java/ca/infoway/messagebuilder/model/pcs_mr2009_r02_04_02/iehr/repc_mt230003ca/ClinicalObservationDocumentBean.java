@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> documentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV documentCategory = new CVImpl();
     private ST documentTitle = new STImpl();

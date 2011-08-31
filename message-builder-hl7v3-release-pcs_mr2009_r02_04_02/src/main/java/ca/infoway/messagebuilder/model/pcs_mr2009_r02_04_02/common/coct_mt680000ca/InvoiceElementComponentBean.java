@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElemen
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private InvoiceElementChoice invoiceElementChoice;
 
 

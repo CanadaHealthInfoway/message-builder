@@ -61,7 +61,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CS prescriptionStatus = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;

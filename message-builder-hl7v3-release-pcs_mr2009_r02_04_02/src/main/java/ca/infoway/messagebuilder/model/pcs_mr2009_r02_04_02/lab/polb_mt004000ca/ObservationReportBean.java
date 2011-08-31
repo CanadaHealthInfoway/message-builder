@@ -82,7 +82,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationReport"})
 public class ObservationReportBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
     private II observationReportIdentifier = new IIImpl();

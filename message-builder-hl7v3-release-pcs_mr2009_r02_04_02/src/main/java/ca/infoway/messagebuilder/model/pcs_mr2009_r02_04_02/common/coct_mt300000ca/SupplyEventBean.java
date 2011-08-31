@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV typeOfDispense = new CVImpl();
     private TS dispenseTime = new TSImpl();
     private PQ totalDispensed = new PQImpl();

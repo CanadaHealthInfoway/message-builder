@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CD drugCode = new CDImpl();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();

@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CD organismIdentificationType = new CDImpl();
     private CS organsimIdentificationObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();

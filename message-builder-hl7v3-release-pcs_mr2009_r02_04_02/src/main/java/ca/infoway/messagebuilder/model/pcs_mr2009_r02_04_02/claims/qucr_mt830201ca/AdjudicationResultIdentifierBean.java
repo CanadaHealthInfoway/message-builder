@@ -54,7 +54,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II adjudicationResultIdentifier = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO paidAmount = new MOImpl();

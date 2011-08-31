@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.comt_mt301001ca.Anno
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;

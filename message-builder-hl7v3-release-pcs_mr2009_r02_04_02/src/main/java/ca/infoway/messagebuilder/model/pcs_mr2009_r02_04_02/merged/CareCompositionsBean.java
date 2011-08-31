@@ -65,7 +65,7 @@ import java.util.List;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II id = new IIImpl();
     private CV careCompositionType = new CVImpl();
     private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();

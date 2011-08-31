@@ -31,6 +31,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.TriggerEv
 @Hl7PartTypeMapping({"COMT_IN700003CA"})
 public class AddIssueManagementRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
 
 }

@@ -194,7 +194,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> careCompositionIds = new SETImpl<II, Identifier>(IIImpl.class);
     private CV careCompositionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
@@ -563,27 +563,6 @@ public class CareCompositionBean extends MessagePartBean {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
-    public HealthcareWorkerBean getResponsiblePartyActingPersonAsAssignedEntity1() {
-        return this.responsiblePartyActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsAssignedEntity1() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
-        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsAssignedEntity2() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getResponsiblePartyActingPersonAsPersonalRelationship() {
-        return this.responsiblePartyActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.responsiblePartyActingPerson : null;
-    }
-    public boolean hasResponsiblePartyActingPersonAsPersonalRelationship() {
-        return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
-    }
-
 
     @Hl7XmlMapping({"performer/actingPerson"})
     public List<ActingPerson> getPerformerActingPerson() {
@@ -608,27 +587,6 @@ public class CareCompositionBean extends MessagePartBean {
         this.informantActingPerson = informantActingPerson;
     }
 
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
-    }
-
 
     @Hl7XmlMapping({"discharger/actingPerson"})
     public ActingPerson getDischargerActingPerson() {
@@ -636,27 +594,6 @@ public class CareCompositionBean extends MessagePartBean {
     }
     public void setDischargerActingPerson(ActingPerson dischargerActingPerson) {
         this.dischargerActingPerson = dischargerActingPerson;
-    }
-
-    public HealthcareWorkerBean getDischargerActingPersonAsAssignedEntity1() {
-        return this.dischargerActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dischargerActingPerson : null;
-    }
-    public boolean hasDischargerActingPersonAsAssignedEntity1() {
-        return (this.dischargerActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getDischargerActingPersonAsAssignedEntity2() {
-        return this.dischargerActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dischargerActingPerson : null;
-    }
-    public boolean hasDischargerActingPersonAsAssignedEntity2() {
-        return (this.dischargerActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getDischargerActingPersonAsPersonalRelationship() {
-        return this.dischargerActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.dischargerActingPerson : null;
-    }
-    public boolean hasDischargerActingPersonAsPersonalRelationship() {
-        return (this.dischargerActingPerson instanceof RelatedPersonBean);
     }
 
 

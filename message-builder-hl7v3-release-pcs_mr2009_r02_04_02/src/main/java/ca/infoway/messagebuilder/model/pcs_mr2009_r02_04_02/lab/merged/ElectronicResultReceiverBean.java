@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
 @Hl7PartTypeMapping({"POLB_MT002000CA.Receiver","POLB_MT004000CA.Receiver","POLB_MT004100CA.Receiver","POLB_MT004200CA.Receiver"})
 public class ElectronicResultReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS contextControlCode = new CSImpl();
     private RoleChoice roleChoice;
 
@@ -77,27 +77,6 @@ public class ElectronicResultReceiverBean extends MessagePartBean {
     }
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
-    }
-
-    public HealthcareOrganizationBean getRoleChoiceAsAssignedEntity1() {
-        return this.roleChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsAssignedEntity1() {
-        return (this.roleChoice instanceof HealthcareOrganizationBean);
-    }
-
-    public HealthcareWorkerBean getRoleChoiceAsAssignedEntity2() {
-        return this.roleChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsAssignedEntity2() {
-        return (this.roleChoice instanceof HealthcareWorkerBean);
-    }
-
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean getRoleChoiceAsAssignedEntity3() {
-        return this.roleChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsAssignedEntity3() {
-        return (this.roleChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean);
     }
 
 }

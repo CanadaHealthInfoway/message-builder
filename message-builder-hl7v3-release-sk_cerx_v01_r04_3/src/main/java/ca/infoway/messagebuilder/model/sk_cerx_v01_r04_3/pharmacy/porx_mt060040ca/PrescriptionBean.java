@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Prescription_1 {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II prescriptionOrderNumber = new IIImpl();
     private CS prescriptionStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

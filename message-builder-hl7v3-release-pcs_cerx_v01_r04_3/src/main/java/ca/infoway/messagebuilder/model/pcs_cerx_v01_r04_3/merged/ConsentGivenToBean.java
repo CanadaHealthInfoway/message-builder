@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca
 @Hl7PartTypeMapping({"COCT_MT470000CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private Recipient recipient;
 
 
@@ -42,20 +42,6 @@ public class ConsentGivenToBean extends MessagePartBean {
     }
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
-    }
-
-    public ProviderBean getRecipientAsAssignedPerson() {
-        return this.recipient instanceof ProviderBean ? (ProviderBean) this.recipient : null;
-    }
-    public boolean hasRecipientAsAssignedPerson() {
-        return (this.recipient instanceof ProviderBean);
-    }
-
-    public ServiceLocationBean getRecipientAsServiceDeliveryLocation() {
-        return this.recipient instanceof ServiceLocationBean ? (ServiceLocationBean) this.recipient : null;
-    }
-    public boolean hasRecipientAsServiceDeliveryLocation() {
-        return (this.recipient instanceof ServiceLocationBean);
     }
 
 }

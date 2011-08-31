@@ -65,7 +65,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Invoic
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReference","FICR_MT610201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private InvoiceElementChoice invoiceElementChoice;
 
 
@@ -75,20 +75,6 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
     }
     public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
-    }
-
-    public InvoiceTypeBean getInvoiceElementChoiceAsInvoiceElementGroup() {
-        return this.invoiceElementChoice instanceof InvoiceTypeBean ? (InvoiceTypeBean) this.invoiceElementChoice : null;
-    }
-    public boolean hasInvoiceElementChoiceAsInvoiceElementGroup() {
-        return (this.invoiceElementChoice instanceof InvoiceTypeBean);
-    }
-
-    public InvoiceElementDetailBean getInvoiceElementChoiceAsInvoiceElementDetail() {
-        return this.invoiceElementChoice instanceof InvoiceElementDetailBean ? (InvoiceElementDetailBean) this.invoiceElementChoice : null;
-    }
-    public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
-        return (this.invoiceElementChoice instanceof InvoiceElementDetailBean);
     }
 
 }

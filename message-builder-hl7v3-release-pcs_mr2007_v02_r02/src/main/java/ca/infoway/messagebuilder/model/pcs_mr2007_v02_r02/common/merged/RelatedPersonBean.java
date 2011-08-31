@@ -99,7 +99,7 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.merged.Consenter, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.AssignedPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.Party, ActingPerson {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II relatedPersonIdentifier = new IIImpl();
     private CV code = new CVImpl();
     private PN relatedPersonName = new PNImpl();

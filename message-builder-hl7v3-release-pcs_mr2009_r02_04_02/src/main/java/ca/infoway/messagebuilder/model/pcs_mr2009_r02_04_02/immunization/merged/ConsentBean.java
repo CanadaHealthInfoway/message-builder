@@ -48,7 +48,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private II consentID = new IIImpl();
     private BL consentWitheldIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
@@ -135,20 +135,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setResponsiblePartyConsenter(Consenter responsiblePartyConsenter) {
         this.responsiblePartyConsenter = responsiblePartyConsenter;
-    }
-
-    public PatientBean getResponsiblePartyConsenterAsPatient() {
-        return this.responsiblePartyConsenter instanceof PatientBean ? (PatientBean) this.responsiblePartyConsenter : null;
-    }
-    public boolean hasResponsiblePartyConsenterAsPatient() {
-        return (this.responsiblePartyConsenter instanceof PatientBean);
-    }
-
-    public RelatedPersonBean getResponsiblePartyConsenterAsPersonalRelationship() {
-        return this.responsiblePartyConsenter instanceof RelatedPersonBean ? (RelatedPersonBean) this.responsiblePartyConsenter : null;
-    }
-    public boolean hasResponsiblePartyConsenterAsPersonalRelationship() {
-        return (this.responsiblePartyConsenter instanceof RelatedPersonBean);
     }
 
 }

@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV territorialAuthorityType = new CVImpl();
     private CV jurisdictionType = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;

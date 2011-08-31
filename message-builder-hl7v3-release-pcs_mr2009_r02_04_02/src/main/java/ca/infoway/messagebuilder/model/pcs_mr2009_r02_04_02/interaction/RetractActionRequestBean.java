@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActEventBean;
 @Hl7PartTypeMapping({"COMT_IN600001CA"})
 public class RetractActionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActEventBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
 
 }

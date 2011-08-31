@@ -80,7 +80,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CV contactType = new CVImpl();
     private AD contactAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

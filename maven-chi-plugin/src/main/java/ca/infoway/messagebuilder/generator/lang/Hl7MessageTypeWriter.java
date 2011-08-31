@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
 import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
+import ca.infoway.messagebuilder.generator.java.MergedAssociation;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -83,9 +84,15 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
             if (!relationship.isFixed()) {
             	writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
             	createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
-            	if (relationship.isChoice() && !relationship.isCardinalityMultiple()) {
-            		List<Choice> childTypes = ((Association) relationship).getAllChoiceTypes();
-            		createChoiceProperties(relationship, childTypes, indentLevel, writer);
+            	if (relationship.isChoice()) {
+            		if (relationship.isCardinalityMultiple()) {
+            			// currently not straightforward to produce helper methods for multiple cardinality
+            		} else if (this.type.getPartTypeMapping().length > 1) {
+            			// currently not straightforward to produce helper methods for choices residing within merged types
+            		} else {
+	            		List<Choice> childTypes = ((Association) relationship).getAllChoiceTypes();
+	            		createChoiceProperties(relationship, childTypes, indentLevel, writer);
+            		}
             	}
             	writer.write(LINE_SEPARATOR);
             }

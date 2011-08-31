@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Component","MCAI_MT700211CA.Component","MCAI_MT700212CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS typeCode = new CSImpl();
     private BL contextConductionInd = new BLImpl();
     private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;

@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private IVL<TS, Interval<Date>> dateOfInformation = new IVLImpl<TS, Interval<Date>>();
     private CV informationSourceForm = new CVImpl();
     private InformationSourceChoice informationSourceChoice;
@@ -118,27 +118,6 @@ public class InformantBean extends MessagePartBean {
     }
     public void setInformationSourceChoice(InformationSourceChoice informationSourceChoice) {
         this.informationSourceChoice = informationSourceChoice;
-    }
-
-    public PersonalRelationshipRoleBean getInformationSourceChoiceAsPersonalRelationshipRole() {
-        return this.informationSourceChoice instanceof PersonalRelationshipRoleBean ? (PersonalRelationshipRoleBean) this.informationSourceChoice : null;
-    }
-    public boolean hasInformationSourceChoiceAsPersonalRelationshipRole() {
-        return (this.informationSourceChoice instanceof PersonalRelationshipRoleBean);
-    }
-
-    public LicensedEntityRoleBean getInformationSourceChoiceAsLicensedEntityRole() {
-        return this.informationSourceChoice instanceof LicensedEntityRoleBean ? (LicensedEntityRoleBean) this.informationSourceChoice : null;
-    }
-    public boolean hasInformationSourceChoiceAsLicensedEntityRole() {
-        return (this.informationSourceChoice instanceof LicensedEntityRoleBean);
-    }
-
-    public PatientRoleBean getInformationSourceChoiceAsPatientRole() {
-        return this.informationSourceChoice instanceof PatientRoleBean ? (PatientRoleBean) this.informationSourceChoice : null;
-    }
-    public boolean hasInformationSourceChoiceAsPatientRole() {
-        return (this.informationSourceChoice instanceof PatientRoleBean);
     }
 
 }

@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt050201ca
 @Hl7PartTypeMapping({"MCAI_MT700210CA.RecordTarget","MCAI_MT700211CA.RecordTarget","MCAI_MT700216CA.RecordTarget","MCAI_MT700217CA.RecordTarget","MCAI_MT700220CA.RecordTarget","MCAI_MT700221CA.RecordTarget","MCAI_MT700226CA.RecordTarget","MCAI_MT700227CA.RecordTarget","MCAI_MT700230CA.RecordTarget","MCAI_MT700231CA.RecordTarget","MCAI_MT700236CA.RecordTarget","MCAI_MT700237CA.RecordTarget","QUQI_MT020000CA.RecordTarget","QUQI_MT120006CA.RecordTarget"})
 public class RecordTargetBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private CS typeCode = new CSImpl();
     private Patient_2 patient1;
 
@@ -54,27 +54,6 @@ public class RecordTargetBean extends MessagePartBean {
     }
     public void setPatient1(Patient_2 patient1) {
         this.patient1 = patient1;
-    }
-
-    public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt050202ca.PatientBean getPatient1AsPatient1() {
-        return this.patient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt050202ca.PatientBean ? (ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt050202ca.PatientBean) this.patient1 : null;
-    }
-    public boolean hasPatient1AsPatient1() {
-        return (this.patient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt050202ca.PatientBean);
-    }
-
-    public Patient_1Bean getPatient1AsPatient2() {
-        return this.patient1 instanceof Patient_1Bean ? (Patient_1Bean) this.patient1 : null;
-    }
-    public boolean hasPatient1AsPatient2() {
-        return (this.patient1 instanceof Patient_1Bean);
-    }
-
-    public PatientBean getPatient1AsPatient3() {
-        return this.patient1 instanceof PatientBean ? (PatientBean) this.patient1 : null;
-    }
-    public boolean hasPatient1AsPatient3() {
-        return (this.patient1 instanceof PatientBean);
     }
 
 }

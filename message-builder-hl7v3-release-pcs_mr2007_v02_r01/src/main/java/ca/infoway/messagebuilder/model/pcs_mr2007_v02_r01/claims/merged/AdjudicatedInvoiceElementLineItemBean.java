@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail","FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private CV adjudicatedProductServiceCode = new CVImpl();
     private PQ adjudicatedUnitQuantity = new PQImpl();

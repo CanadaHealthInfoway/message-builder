@@ -38,7 +38,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000007CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private TS time = new TSImpl();
     private Party party;
     private Consenter consenter;
@@ -69,27 +69,6 @@ public class ReportedByBean extends MessagePartBean {
         this.party = party;
     }
 
-    public PatientBean getPartyAsPatient() {
-        return this.party instanceof PatientBean ? (PatientBean) this.party : null;
-    }
-    public boolean hasPartyAsPatient() {
-        return (this.party instanceof PatientBean);
-    }
-
-    public ResponsiblePersonBean getPartyAsResponsibleParty() {
-        return this.party instanceof ResponsiblePersonBean ? (ResponsiblePersonBean) this.party : null;
-    }
-    public boolean hasPartyAsResponsibleParty() {
-        return (this.party instanceof ResponsiblePersonBean);
-    }
-
-    public ProviderBean getPartyAsAssignedPerson() {
-        return this.party instanceof ProviderBean ? (ProviderBean) this.party : null;
-    }
-    public boolean hasPartyAsAssignedPerson() {
-        return (this.party instanceof ProviderBean);
-    }
-
 
     @Hl7XmlMapping({"consenter"})
     public Consenter getConsenter() {
@@ -99,27 +78,6 @@ public class ReportedByBean extends MessagePartBean {
         this.consenter = consenter;
     }
 
-    public PatientBean getConsenterAsPatient() {
-        return this.consenter instanceof PatientBean ? (PatientBean) this.consenter : null;
-    }
-    public boolean hasConsenterAsPatient() {
-        return (this.consenter instanceof PatientBean);
-    }
-
-    public ResponsiblePersonBean getConsenterAsResponsibleParty() {
-        return this.consenter instanceof ResponsiblePersonBean ? (ResponsiblePersonBean) this.consenter : null;
-    }
-    public boolean hasConsenterAsResponsibleParty() {
-        return (this.consenter instanceof ResponsiblePersonBean);
-    }
-
-    public ProviderBean getConsenterAsAssignedPerson() {
-        return this.consenter instanceof ProviderBean ? (ProviderBean) this.consenter : null;
-    }
-    public boolean hasConsenterAsAssignedPerson() {
-        return (this.consenter instanceof ProviderBean);
-    }
-
 
     @Hl7XmlMapping({"choice"})
     public Choice getChoice() {
@@ -127,27 +85,6 @@ public class ReportedByBean extends MessagePartBean {
     }
     public void setChoice(Choice choice) {
         this.choice = choice;
-    }
-
-    public PatientBean getChoiceAsPatient() {
-        return this.choice instanceof PatientBean ? (PatientBean) this.choice : null;
-    }
-    public boolean hasChoiceAsPatient() {
-        return (this.choice instanceof PatientBean);
-    }
-
-    public ResponsiblePersonBean getChoiceAsResponsibleParty() {
-        return this.choice instanceof ResponsiblePersonBean ? (ResponsiblePersonBean) this.choice : null;
-    }
-    public boolean hasChoiceAsResponsibleParty() {
-        return (this.choice instanceof ResponsiblePersonBean);
-    }
-
-    public ProviderBean getChoiceAsAssignedPerson() {
-        return this.choice instanceof ProviderBean ? (ProviderBean) this.choice : null;
-    }
-    public boolean hasChoiceAsAssignedPerson() {
-        return (this.choice instanceof ProviderBean);
     }
 
 }

@@ -41,7 +41,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PharmacistRole"})
 public class PharmacistRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110729L;
+    private static final long serialVersionUID = 20110831L;
     private SET<II, Identifier> pharmacistID = new SETImpl<II, Identifier>(IIImpl.class);
 
 
