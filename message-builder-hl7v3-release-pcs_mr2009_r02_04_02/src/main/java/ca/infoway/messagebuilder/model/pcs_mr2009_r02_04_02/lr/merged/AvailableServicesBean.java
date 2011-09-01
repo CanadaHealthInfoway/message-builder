@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PIVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.domainvalue.ActServiceDeliveryLocationService;
 import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveSuspended;

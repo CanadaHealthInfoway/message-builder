@@ -121,20 +121,38 @@ public class DataType {
 			"List".equals(getUnparameterizedShortName(ProgrammingLanguage.JAVA)) ||
 			"Collection".equals(getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}
+
+	private boolean isTypeNotRequiringUnparameterizedImplTypeImports() {
+		String rootType = this.type.getRootType();
+		return "IVL".equals(rootType) || "URG".equals(rootType) || "RTO".equals(rootType) || "PIVL".equals(rootType);
+	}
 	
 	public Set<String> getImportTypes() {
+		return getImportTypes(true);
+	}
+	
+	private Set<String> getImportTypes(boolean addUnparameterizedImplType) {
 		Set<String> result = new HashSet<String>();
+System.out.println(">>>>>>>>>>>>>>>> adding qualifier: " + this.qualifier);			
 		result.add(this.qualifier);
-		addWrappedTypeIfNecessary(result);
+		addWrappedTypeIfNecessary(result, addUnparameterizedImplType);
 		for (DataType dataType : this.parameters) {
-			result.addAll(dataType.getImportTypes());
+			result.addAll(dataType.getImportTypes(!isTypeNotRequiringUnparameterizedImplTypeImports()));
+			for (String string : dataType.getImportTypes()) {
+System.out.println(">>>>>>>>>>>>>>>> adding params: " + string);			
+			}
 		}
 		return result;
 	}
-	private void addWrappedTypeIfNecessary(Set<String> result) {
+	private void addWrappedTypeIfNecessary(Set<String> result, boolean addUnparameterizedImplType) {
 		if (getHl7ClassName() != null) {
 			result.add(getHl7ClassName());
-			result.add(getUnparameterizedImplementationType());
+			System.out.println(">>>>>>>>>>>>>>>> adding hl7class: " + getHl7ClassName());			
+			if (addUnparameterizedImplType) {
+				result.add(getUnparameterizedImplementationType());
+				System.out.println(">>>>>>>>>>>>>>>> adding unparm: " + getUnparameterizedImplementationType());			
+			}
+			
 		}
 	}
 
