@@ -36,8 +36,6 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DiagnosisBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

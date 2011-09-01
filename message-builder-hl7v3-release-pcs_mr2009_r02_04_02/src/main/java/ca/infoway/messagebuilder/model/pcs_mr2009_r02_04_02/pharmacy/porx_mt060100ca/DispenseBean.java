@@ -44,8 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBea
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PrescribedAdminidtrationInstructionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.SubstanceAdministrationRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.SupplyEventBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

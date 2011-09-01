@@ -34,8 +34,6 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

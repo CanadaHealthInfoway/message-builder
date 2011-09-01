@@ -99,7 +99,18 @@ public class DataType {
 			isListOrSet = StandardDataType.isSetOrList(typeName!=null ? typeName.getRootName() : null) ;
 		}
 		return isListOrSet;
-
+	}
+	
+	/**
+	 * @return <b>true</b> if the underlying HL7 type is a LIST or a SET. 
+	 */
+	public boolean isWrappedTypeSet() {
+		boolean isSet = false;
+		if (getShortWrappedName()!=null) {
+			Hl7TypeName typeName = Hl7TypeName.parse(getShortWrappedName());
+			isSet = StandardDataType.isSet(typeName!=null ? typeName.getRootName() : null) ;
+		}
+		return isSet;
 	}
 	
 	/**

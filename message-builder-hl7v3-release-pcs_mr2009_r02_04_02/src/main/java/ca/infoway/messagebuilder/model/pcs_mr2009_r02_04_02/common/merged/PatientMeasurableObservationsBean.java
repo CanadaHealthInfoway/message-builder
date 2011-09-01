@@ -39,8 +39,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.SimpleMeasurableClinicalObservationType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

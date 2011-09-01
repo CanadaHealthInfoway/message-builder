@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -89,9 +88,9 @@ public class Attribute extends BaseRelationship {
 			result.add(RawListWrapper.class.getName());
 		}
 		
-		if (isCardinalityMultiple()) {
+		if (isCardinalityMultiple() && !getDataType().isWrappedTypeSet()) {
 			result.add(List.class.getName());
-			if (!parentTypeIsAbstract) {
+			if (!parentTypeIsAbstract && !getDataType().isWrappedTypeListOrSet()) {
 				result.add(ArrayList.class.getName());
 			}
 		}
@@ -130,4 +129,5 @@ public class Attribute extends BaseRelationship {
 	public Fingerprint getFingerprint() {
 		return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
 	}
+	
 }

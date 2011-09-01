@@ -163,6 +163,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 
 	final Set<NameAndType> getMapByPartTypeMappings() {
 		return getXmlMappingHelper().getMapByPartTypeMappings();
-	}	
+	}
+	
 	public abstract Fingerprint getFingerprint();
 }

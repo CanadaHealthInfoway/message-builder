@@ -36,8 +36,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.IssueTriggerObservationValue;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

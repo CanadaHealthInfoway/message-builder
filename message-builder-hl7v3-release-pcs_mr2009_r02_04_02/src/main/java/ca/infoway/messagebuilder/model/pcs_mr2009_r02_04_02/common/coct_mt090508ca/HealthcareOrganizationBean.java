@@ -38,8 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

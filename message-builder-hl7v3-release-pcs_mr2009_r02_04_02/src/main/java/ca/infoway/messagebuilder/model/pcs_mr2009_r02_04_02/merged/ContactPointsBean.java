@@ -35,8 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeContactRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 

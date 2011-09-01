@@ -40,8 +40,6 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt300003ca.AnnotatedByBean;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 
