@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.SupplyE
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20110901L;
     private II id = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private CV prescriptionMaskingIndicator = new CVImpl();

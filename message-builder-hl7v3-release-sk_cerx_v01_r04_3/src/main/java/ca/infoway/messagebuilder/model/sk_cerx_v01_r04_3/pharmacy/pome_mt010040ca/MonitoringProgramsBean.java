@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Assigne
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20110901L;
     private CV programType = new CVImpl();
     private ST programName = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
