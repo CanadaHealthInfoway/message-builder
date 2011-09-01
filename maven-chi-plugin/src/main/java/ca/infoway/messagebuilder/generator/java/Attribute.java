@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -69,8 +70,8 @@ public class Attribute extends BaseRelationship {
     }
 	
 	@Override
-	public Set<Object> getImportTypes(boolean parentTypeIsMerged) {
-		Set<Object> result = super.getImportTypes(parentTypeIsMerged);
+	public Set<Object> getImportTypes(boolean parentTypeIsMerged, boolean parentTypeIsAbstract) {
+		Set<Object> result = super.getImportTypes(parentTypeIsMerged, parentTypeIsAbstract);
 		if (getDataType().isTypeCollection()) {
 			result.add(getDataType().getTypeName());
 			if (getDataType().getParameters()!=null && getDataType().getParameters().length > 0) {
@@ -90,11 +91,13 @@ public class Attribute extends BaseRelationship {
 		
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
-			result.add(ArrayList.class.getName());
+			if (!parentTypeIsAbstract) {
+				result.add(ArrayList.class.getName());
+			}
 		}
 		return result;
 	}
-	
+
 	public DataType getDataType() {
 		return this.dataType;
 	}

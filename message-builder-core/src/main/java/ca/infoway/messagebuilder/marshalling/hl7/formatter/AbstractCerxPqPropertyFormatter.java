@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.math.BigDecimal;
 
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.platform.NumberFormatter;
 
 /**
  * CeRx specifies that the quantity is formatted as 99999999.99 with no leading or
@@ -33,7 +32,6 @@ public abstract class AbstractCerxPqPropertyFormatter extends AbstractPqProperty
 
     private static final int MAXIMUM_INTEGER_DIGITS = 11;
     private static final int MAXIMUM_FRACTION_DIGITS = 2;
-    private static final int MAXIMUM_LENGTH = MAXIMUM_FRACTION_DIGITS + MAXIMUM_INTEGER_DIGITS + 1;
 
     @Override
     protected boolean isValidPhysicalQuantity(PhysicalQuantity physicalQuantity) throws ModelToXmlTransformationException {

@@ -71,7 +71,8 @@ public class ImportTypeUtil {
 		// add imports for all relationships, even if type is abstract
 		for (BaseRelationship relationship : type.getRelationships()) {
 			if (!relationship.isFixed()) {
-				importTypes.addAll(relationship.getImportTypes(type.getPartTypeMapping().length > 1));
+				boolean parentTypeIsMerged = type.getPartTypeMapping().length > 1;
+				importTypes.addAll(relationship.getImportTypes(parentTypeIsMerged, type.isAbstract()));
 			}
 		}
 		

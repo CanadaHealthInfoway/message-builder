@@ -125,9 +125,11 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 		this.relationship.setConformance(conformanceLevel);
 	}
 	
-	public Set<Object> getImportTypes(boolean parentTypeIsMerged) {
+	public Set<Object> getImportTypes(boolean parentTypeIsMerged, boolean parentTypeIsAbstract) {
 		Set<Object> result = new HashSet<Object>();
-		result.add("ca.infoway.messagebuilder.annotation.Hl7XmlMapping");
+		if (!parentTypeIsAbstract) {
+			result.add("ca.infoway.messagebuilder.annotation.Hl7XmlMapping");
+		}
 		if (requiresMapByPartTypeAnnotation()) {
 			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes");
 			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartType");

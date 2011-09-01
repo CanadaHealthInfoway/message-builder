@@ -32,7 +32,6 @@ import java.math.BigDecimal;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.GTS;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;

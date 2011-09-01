@@ -112,7 +112,6 @@ public class DataTypeTest {
 		DataType dataType = new TypeConverter().convertToType("LIST<II.OID>", null);
 		Set<String> types = dataType.getImportTypes();
 		
-		System.out.println(types);
 		assertThat("II", types, hasItem("ca.infoway.messagebuilder.datatype.II"));
 		assertThat("Identifier", types, hasItem("ca.infoway.messagebuilder.datatype.lang.Identifier"));
 		assertThat("IIImpl", types, hasItem("ca.infoway.messagebuilder.datatype.impl.IIImpl"));

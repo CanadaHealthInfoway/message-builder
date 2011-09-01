@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 

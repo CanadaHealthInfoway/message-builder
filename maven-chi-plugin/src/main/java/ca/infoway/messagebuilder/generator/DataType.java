@@ -90,7 +90,7 @@ public class DataType {
 	}
 
 	/**
-	 * @return <b>true</b> if the underlaying HL7 type is a LIST or a SET. 
+	 * @return <b>true</b> if the underlying HL7 type is a LIST or a SET. 
 	 */
 	public boolean isWrappedTypeListOrSet() {
 		boolean isListOrSet = false;

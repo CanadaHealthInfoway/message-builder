@@ -88,8 +88,8 @@ public class Association extends BaseRelationship {
 	}
 	
 	@Override
-	public Set<Object> getImportTypes(boolean parentTypeIsMerged) {
-		Set<Object> result = super.getImportTypes(parentTypeIsMerged);
+	public Set<Object> getImportTypes(boolean parentTypeIsMerged, boolean parentTypeIsAbstract) {
+		Set<Object> result = super.getImportTypes(parentTypeIsMerged, parentTypeIsAbstract);
 		
 		Type type = getAssociationType();
 		if (type != null) {
@@ -108,7 +108,9 @@ public class Association extends BaseRelationship {
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
-			result.add(ArrayList.class.getName());
+			if (!parentTypeIsAbstract) {
+				result.add(ArrayList.class.getName());
+			}
 		}
 		return result;
 	}
