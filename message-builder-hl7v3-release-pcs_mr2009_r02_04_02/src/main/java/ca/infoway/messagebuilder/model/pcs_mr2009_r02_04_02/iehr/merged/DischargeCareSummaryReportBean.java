@@ -84,7 +84,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private II reportedOnCareCompositionLink = new IIImpl();
     private CD dischargeCareSummaryReportType = new CDImpl();

@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;

@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II id = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO invoiceSubTotal = new MOImpl();

@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN500102CA"})
 public class PreDeterminationRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<PaymentRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
 
 }

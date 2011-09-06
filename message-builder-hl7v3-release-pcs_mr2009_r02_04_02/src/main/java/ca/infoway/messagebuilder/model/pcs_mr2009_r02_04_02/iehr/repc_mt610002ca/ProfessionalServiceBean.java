@@ -97,7 +97,7 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II serviceRecordId = new IIImpl();
     private CD serviceType = new CDImpl();
     private BL refutedIndicator = new BLImpl();

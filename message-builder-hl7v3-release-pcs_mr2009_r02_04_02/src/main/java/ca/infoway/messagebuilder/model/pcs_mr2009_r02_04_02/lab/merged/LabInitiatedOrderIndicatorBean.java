@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.LabInitiatedOrderIndicator","POLB_MT001001CA.LabInitiatedOrderIndicator","POLB_MT001010CA.LabInitiatedOrderIndicator","POLB_MT001999CA.LabInitiatedOrderIndicator"})
 public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private BL labInitiatedOrderIndicator = new BLImpl();
 
 

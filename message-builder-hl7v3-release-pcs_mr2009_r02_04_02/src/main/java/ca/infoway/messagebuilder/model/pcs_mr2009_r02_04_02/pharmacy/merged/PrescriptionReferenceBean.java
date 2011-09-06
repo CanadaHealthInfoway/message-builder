@@ -94,7 +94,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CV prescriptionType = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;

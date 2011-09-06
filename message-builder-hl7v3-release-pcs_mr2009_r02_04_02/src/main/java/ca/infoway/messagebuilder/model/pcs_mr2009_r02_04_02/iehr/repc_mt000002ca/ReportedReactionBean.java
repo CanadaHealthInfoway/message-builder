@@ -68,7 +68,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();

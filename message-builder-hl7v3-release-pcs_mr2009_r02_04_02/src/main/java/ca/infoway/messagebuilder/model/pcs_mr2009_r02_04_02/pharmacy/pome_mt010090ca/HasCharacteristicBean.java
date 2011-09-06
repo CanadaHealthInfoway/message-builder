@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ST drugCharacteristic = new STImpl();
     private CV drugCharacteristicTypeCode = new CVImpl();
 

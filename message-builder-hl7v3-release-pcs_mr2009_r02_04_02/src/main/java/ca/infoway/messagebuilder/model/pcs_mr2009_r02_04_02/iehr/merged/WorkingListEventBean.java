@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.WorkingListEvent","REPC_MT420003CA.WorkingListEvent","REPC_MT610002CA.WorkingListEvent"})
 public class WorkingListEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV code = new CVImpl();
 
 

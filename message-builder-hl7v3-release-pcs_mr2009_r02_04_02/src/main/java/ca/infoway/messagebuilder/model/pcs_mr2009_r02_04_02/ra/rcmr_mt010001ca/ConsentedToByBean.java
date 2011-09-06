@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Consenter;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.ra.merged.PatientBean;
 
 
 
@@ -45,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPerson
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV patientConsentMechanism = new CVImpl();
     private Consenter consenter;
 

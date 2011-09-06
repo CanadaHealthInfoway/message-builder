@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.AdministrationInstructions","PORX_MT060100CA.AdministrationInstructions"})
 public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV prescriptionType = new CVImpl();
     private ST renderedDosageInstruction = new STImpl();
 

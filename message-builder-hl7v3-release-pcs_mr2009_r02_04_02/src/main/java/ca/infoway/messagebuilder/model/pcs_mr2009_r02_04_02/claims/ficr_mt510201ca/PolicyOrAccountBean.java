@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Covere
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II policyIdentifier = new IIImpl();
     private CV policyType = new CVImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;

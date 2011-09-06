@@ -53,7 +53,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
     private INT numberOfFills = new INTImpl();
     private PQ fillQuantity = new PQImpl();

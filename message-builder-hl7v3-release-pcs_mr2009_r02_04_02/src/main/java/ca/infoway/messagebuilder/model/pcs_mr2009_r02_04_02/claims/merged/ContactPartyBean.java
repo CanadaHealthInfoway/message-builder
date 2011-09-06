@@ -46,7 +46,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ContactParty","FICR_MT500201CA.ContactParty","FICR_MT600201CA.ContactParty"})
 public class ContactPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II administrativeContactID = new IIImpl();
     private CV code = new CVImpl();
     private ContactPersonBean contactPerson;

@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patien
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Subject10","POIZ_MT030060CA.Subject10","POIZ_MT060150CA.Subject10","POIZ_MT061150CA.Subject10","POIZ_MT070020CA.Subject"})
 public class AdministeredToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private Patient_2Bean patient;
 
 

@@ -131,7 +131,7 @@ import java.util.Set;
 @Hl7RootType
 public class CodedObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II observationRecordId = new IIImpl();
     private CD observationType = new CDImpl();
     private BL refutedIndicator = new BLImpl();

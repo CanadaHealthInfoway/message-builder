@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrincipalPerson","PRPM_MT306051CA.PrincipalPerson"})
 public class PrinicpalPerson_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> principalPersonAggregateIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV principalPersonGender = new CVImpl();

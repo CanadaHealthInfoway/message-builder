@@ -102,7 +102,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II restrictionsToPracticeIdentifier = new IIImpl();
     private CV restrictionsToPracticeType = new CVImpl();
     private BL restrictionsToPracticeNegationIndicator = new BLImpl();

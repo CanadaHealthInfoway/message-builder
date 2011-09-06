@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Coverage"})
 public class CoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT cOBSequenceAsAdjudicated = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
 

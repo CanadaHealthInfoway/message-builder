@@ -85,7 +85,7 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private AD address = new ADImpl();
     private TS updatedSinceDateTime = new TSImpl();
     private II eHRRepositoryId = new IIImpl();

@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedRe
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private CV productServiceCode = new CVImpl();
     private PQ quantityPerUnit = new PQImpl();

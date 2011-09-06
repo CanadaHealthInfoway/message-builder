@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.Component17"})
 public class ConsistsOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT dosageLineOrder = new INTImpl();
     private StructuredDosageLinesBean dosageLine;
 

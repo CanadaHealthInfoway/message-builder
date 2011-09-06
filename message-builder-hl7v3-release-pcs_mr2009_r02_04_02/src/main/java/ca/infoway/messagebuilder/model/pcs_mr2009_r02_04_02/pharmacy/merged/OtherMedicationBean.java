@@ -102,7 +102,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> otherMedicationId = new SETImpl<II, Identifier>(IIImpl.class);
     private CD otherMedicationType = new CDImpl();
     private CS statusCode = new CSImpl();

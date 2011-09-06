@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CS specialAuthorizationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;

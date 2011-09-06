@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II additionalInformationResponseID = new IIImpl();
     private ST additionalInformationAnswer = new STImpl();
     private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;

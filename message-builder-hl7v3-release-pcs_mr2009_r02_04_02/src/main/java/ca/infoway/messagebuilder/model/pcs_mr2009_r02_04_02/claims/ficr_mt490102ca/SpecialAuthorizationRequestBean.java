@@ -56,7 +56,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II specialAuthorityRequestID = new IIImpl();
     private CV specialAuthorizationRequestType = new CVImpl();
     private IVL<TS, Interval<Date>> specialAuthorizationRequestEffectiveDate = new IVLImpl<TS, Interval<Date>>();

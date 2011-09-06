@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class QueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();

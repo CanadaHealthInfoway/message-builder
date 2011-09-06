@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CD typeOfSummary = new CDImpl();
     private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
     private MO summaryPeriodAmt = new MOImpl();

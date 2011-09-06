@@ -58,7 +58,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
     private INT lastQuantityDispensed = new INTImpl();
 

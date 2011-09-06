@@ -62,7 +62,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();

@@ -61,7 +61,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CD cultureObservationType = new CDImpl();
     private ST cultureObservationComment = new STImpl();
     private CS cultureObservationStatus = new CSImpl();

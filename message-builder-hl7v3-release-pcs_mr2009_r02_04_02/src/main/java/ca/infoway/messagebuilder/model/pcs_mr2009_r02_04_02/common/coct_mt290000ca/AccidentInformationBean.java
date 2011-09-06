@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT injuryCodingPriority = new INTImpl();
     private AccidentInjuryCodingBean accidentInjuryCoding;
 

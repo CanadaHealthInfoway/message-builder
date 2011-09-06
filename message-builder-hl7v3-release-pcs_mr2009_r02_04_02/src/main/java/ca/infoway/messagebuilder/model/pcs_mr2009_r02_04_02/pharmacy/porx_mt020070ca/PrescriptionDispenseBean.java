@@ -58,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II localDispenseId = new IIImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;

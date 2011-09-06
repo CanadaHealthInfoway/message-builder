@@ -39,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
     private DocumentContent_3 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();

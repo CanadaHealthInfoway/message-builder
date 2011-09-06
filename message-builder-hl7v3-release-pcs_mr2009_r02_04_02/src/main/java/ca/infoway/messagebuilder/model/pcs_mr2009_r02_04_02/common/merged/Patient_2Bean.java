@@ -74,7 +74,7 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private AD patientContactAddress = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);

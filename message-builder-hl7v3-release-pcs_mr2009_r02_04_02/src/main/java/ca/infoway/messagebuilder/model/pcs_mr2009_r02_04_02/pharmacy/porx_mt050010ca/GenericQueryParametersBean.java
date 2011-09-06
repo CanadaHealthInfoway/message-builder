@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<CV> drugCodes = new ArrayList<CV>();
 
 

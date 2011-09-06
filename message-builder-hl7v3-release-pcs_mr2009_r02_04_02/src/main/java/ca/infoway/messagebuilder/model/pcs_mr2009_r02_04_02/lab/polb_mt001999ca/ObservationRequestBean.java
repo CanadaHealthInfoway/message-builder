@@ -71,7 +71,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001999CA.ObservationRequest"})
 public class ObservationRequestBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> testIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

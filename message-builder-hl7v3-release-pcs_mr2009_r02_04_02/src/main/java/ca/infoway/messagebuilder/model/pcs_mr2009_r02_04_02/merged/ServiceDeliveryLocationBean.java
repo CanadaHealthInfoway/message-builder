@@ -134,7 +134,7 @@ import java.util.Date;
 @Hl7RootType
 public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice, Recipient {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II id = new IIImpl();
     private CV serviceDeliveryLocationType = new CVImpl();
     private AD serviceDeliveryLocationAddress = new ADImpl();

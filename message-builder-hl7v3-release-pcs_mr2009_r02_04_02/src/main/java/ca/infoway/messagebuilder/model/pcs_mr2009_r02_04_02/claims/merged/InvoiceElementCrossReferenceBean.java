@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementCrossReference","FICR_MT600201CA.InvoiceElementCrossReference"})
 public class InvoiceElementCrossReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II crossReferenceIdentifier = new IIImpl();
 
 

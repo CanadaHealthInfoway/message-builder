@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CS messageType = new CSImpl();
     private CV responseCode = new CVImpl();
     private ST messageDescription = new STImpl();

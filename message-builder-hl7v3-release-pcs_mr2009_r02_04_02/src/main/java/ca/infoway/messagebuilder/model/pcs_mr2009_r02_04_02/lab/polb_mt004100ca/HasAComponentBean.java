@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Component2"})
 public class HasAComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private BL contextConductionInd = new BLImpl();
     private SpecimenObservationClusterBean specimenObservationCluster;
 

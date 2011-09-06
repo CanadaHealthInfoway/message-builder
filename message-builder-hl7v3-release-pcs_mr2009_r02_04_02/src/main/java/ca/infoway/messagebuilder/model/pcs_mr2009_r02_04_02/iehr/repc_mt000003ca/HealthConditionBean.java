@@ -79,7 +79,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV conditionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
     private CS conditionStatus = new CSImpl();

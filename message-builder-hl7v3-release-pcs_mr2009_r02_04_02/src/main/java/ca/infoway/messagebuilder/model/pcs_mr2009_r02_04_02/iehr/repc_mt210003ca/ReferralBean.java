@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReferralBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> documentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV referralDocumentCategory = new CVImpl();
     private ST documentTitle = new STImpl();

@@ -40,7 +40,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT remainingFillsPermitted = new INTImpl();
     private PQ remainingQuantitySupply = new PQImpl();
     private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();

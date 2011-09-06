@@ -45,7 +45,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II consentID = new IIImpl();
     private BL consentWitheldIndicator = new BLImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();

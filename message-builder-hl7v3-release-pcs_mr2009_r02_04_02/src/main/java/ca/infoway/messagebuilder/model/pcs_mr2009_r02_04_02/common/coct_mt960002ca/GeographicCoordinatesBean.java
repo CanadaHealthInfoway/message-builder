@@ -48,7 +48,7 @@ import java.util.List;
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV coordinateSystem = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 

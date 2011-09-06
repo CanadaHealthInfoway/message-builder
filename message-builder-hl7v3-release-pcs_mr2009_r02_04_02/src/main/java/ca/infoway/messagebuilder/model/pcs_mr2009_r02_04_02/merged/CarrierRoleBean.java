@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CarrierRole","FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole","PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II id = new IIImpl();
     private ST payorName = new STImpl();
     private ST underwritingOrganizationName = new STImpl();

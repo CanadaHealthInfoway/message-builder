@@ -96,7 +96,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CreatedAtBean location;
     private List<HasBean> participant = new ArrayList<HasBean>();
 

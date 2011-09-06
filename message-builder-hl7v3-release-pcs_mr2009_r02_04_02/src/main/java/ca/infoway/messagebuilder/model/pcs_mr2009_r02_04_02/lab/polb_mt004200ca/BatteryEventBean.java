@@ -65,7 +65,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

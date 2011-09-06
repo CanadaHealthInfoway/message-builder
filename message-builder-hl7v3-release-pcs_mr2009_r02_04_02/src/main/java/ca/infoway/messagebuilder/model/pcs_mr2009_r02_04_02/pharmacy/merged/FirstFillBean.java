@@ -68,7 +68,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
     private PQ firstFillQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();

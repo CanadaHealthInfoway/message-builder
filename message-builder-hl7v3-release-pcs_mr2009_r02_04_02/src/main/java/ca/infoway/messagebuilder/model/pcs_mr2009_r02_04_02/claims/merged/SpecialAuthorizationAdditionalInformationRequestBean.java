@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II additionalInformationRequestID = new IIImpl();
     private ST additionalInformationQuestion = new STImpl();
     private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;

@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV vaccineCode = new CVImpl();
     private ST vaccineName = new STImpl();
     private ST vaccineDescription = new STImpl();

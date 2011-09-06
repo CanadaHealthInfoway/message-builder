@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.ServiceDel
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CD informRequestCode = new CDImpl();
     private CE serviceDeliveryLocationParticipationMode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;

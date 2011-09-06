@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();

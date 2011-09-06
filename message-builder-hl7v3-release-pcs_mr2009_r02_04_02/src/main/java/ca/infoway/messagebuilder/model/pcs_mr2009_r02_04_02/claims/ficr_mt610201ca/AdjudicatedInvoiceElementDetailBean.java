@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private AllowableBean reference1Allowable;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private II adjudicatedInvoiceElementIdentifier = new IIImpl();

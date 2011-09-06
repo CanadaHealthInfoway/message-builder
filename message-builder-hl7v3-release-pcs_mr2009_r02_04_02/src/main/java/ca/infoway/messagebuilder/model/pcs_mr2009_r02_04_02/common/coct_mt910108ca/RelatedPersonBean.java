@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonB
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II relatedPersonIdentifier = new IIImpl();
     private CV responsiblePersonType = new CVImpl();
     private ActingPersonBean relationshipHolder;

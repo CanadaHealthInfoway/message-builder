@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component6Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private DispenseInstructionsBean supplyRequest;
 
 

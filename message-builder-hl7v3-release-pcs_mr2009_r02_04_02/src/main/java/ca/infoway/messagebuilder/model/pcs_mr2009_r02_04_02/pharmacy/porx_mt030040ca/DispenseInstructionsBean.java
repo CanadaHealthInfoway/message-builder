@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBea
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CS prescriptionDispenseIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;

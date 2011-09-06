@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);

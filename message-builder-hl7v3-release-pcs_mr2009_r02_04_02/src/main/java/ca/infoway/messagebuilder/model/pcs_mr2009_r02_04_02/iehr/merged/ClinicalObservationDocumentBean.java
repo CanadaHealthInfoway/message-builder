@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
 public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt230001ca.DocumentContent {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private CD clinicalObservationDocumentType = new CDImpl();
     private IVL<TS, Interval<Date>> clinicalObservationDocumentTimeRange = new IVLImpl<TS, Interval<Date>>();

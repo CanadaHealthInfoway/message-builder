@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.SubLocation","PRPA_MT202302CA.SubLocation","PRPA_MT202303CA.SubLocation"})
 public class SubLocationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II subLocationIdentifier = new IIImpl();
     private CV subLocationType = new CVImpl();
     private ST locationName = new STImpl();

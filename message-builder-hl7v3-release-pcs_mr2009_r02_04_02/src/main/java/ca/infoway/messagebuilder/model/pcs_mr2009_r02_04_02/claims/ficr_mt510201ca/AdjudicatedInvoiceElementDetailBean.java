@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private AllowableBean reference1Allowable;
     private AdjudicationResultBean outcomeOfAdjudicationResult;
     private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);

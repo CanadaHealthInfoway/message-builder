@@ -125,7 +125,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV careCompositionType = new CVImpl();
     private BL refutedIndicator = new BLImpl();
     private CS careCompositionStatus = new CSImpl();

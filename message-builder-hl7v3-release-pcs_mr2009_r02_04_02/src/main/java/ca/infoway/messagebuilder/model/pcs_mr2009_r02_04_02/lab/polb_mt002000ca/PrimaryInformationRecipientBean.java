@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502
 @Hl7PartTypeMapping({"POLB_MT002000CA.PrimaryInformationRecipient"})
 public class PrimaryInformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CS contextControlCode = new CSImpl();
     private HealthcareOrganizationBean assignedEntity;
 

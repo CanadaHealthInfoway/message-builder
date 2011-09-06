@@ -96,7 +96,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CD prescriptionType = new CDImpl();
     private CS prescriptionStatus = new CSImpl();

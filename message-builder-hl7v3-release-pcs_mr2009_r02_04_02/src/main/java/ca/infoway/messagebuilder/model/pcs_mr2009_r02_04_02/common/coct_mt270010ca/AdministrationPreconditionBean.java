@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ST dosageCondition = new STImpl();
 
 

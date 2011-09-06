@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II invoiceGroupID = new IIImpl();
     private CV invoiceType = new CVImpl();
     private MO invoiceSubTotal = new MOImpl();

@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
     private CV patientGender = new CVImpl();

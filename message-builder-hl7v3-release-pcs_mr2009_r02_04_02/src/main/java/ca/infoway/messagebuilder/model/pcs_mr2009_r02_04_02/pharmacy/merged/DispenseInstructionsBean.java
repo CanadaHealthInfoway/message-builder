@@ -97,7 +97,7 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT totalPrescribedQuantity = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;

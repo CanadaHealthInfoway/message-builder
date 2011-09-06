@@ -67,7 +67,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private TS timeOfCreation = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
     private ED<String> digitalSignature = new EDImpl<String>();

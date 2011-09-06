@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II paymentIntentIdentifier = new IIImpl();
     private CS paymentIntentStatus = new CSImpl();
     private TS paymentIntentDateTime = new TSImpl();

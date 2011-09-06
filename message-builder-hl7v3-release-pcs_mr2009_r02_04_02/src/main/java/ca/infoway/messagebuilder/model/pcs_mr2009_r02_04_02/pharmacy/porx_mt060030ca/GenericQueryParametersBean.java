@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDeviceIndicator = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthOrderNumber"})
 public class MultipleBirthOrderNumberBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private INT clientMultipleBirthOrderNumber = new INTImpl();
 
 

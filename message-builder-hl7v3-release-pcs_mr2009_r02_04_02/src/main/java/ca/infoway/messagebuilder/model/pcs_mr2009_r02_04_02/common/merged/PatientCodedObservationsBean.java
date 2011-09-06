@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II observationIdentifier = new IIImpl();
     private CD observationType = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

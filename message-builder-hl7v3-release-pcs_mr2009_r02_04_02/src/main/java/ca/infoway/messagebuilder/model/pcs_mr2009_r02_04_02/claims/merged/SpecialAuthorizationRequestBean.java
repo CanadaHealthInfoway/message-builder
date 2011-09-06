@@ -58,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II specialAuthorizationRequestID = new IIImpl();
     private CV specialAuthorizationRequestType = new CVImpl();
     private CS requestStatus = new CSImpl();

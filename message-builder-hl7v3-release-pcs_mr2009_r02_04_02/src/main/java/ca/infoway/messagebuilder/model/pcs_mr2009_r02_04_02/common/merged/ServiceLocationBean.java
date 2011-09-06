@@ -93,7 +93,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipients, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II serviceLocationIdentifier = new IIImpl();
     private CV serviceLocationType = new CVImpl();
     private AD serviceLocationAddress = new ADImpl();

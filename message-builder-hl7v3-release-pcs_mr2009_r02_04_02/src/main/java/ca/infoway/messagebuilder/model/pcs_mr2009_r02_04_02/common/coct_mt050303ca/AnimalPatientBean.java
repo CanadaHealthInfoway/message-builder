@@ -56,7 +56,7 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ST animalName = new STImpl();
     private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

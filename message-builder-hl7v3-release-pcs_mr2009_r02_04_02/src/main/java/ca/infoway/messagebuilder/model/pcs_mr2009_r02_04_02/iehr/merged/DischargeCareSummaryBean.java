@@ -82,7 +82,7 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV documentCategory = new CVImpl();
     private ST documentTitle = new STImpl();
     private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);

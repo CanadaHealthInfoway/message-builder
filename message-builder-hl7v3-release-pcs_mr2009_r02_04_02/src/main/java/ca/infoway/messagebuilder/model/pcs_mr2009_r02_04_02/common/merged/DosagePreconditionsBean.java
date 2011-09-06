@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationEventCriterion","COCT_MT260020CA.ObservationEventCriterion","COCT_MT260030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV dosagePreconditionType = new CVImpl();
     private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
 

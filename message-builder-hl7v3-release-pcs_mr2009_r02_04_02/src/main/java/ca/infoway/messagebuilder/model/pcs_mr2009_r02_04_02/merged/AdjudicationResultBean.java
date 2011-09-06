@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult","FICR_MT610201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private CV code = new CVImpl();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();

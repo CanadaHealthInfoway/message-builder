@@ -65,7 +65,7 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private II prescriberProviderID = new IIImpl();
     private List<CV> prescriptionStatuses = new ArrayList<CV>();

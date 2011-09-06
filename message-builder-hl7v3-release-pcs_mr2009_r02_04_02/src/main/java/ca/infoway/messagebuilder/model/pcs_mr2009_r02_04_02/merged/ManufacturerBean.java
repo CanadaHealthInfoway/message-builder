@@ -102,7 +102,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POIZ_MT030050CA.Manufacturer","POIZ_MT030060CA.Manufacturer","POIZ_MT060150CA.Manufacturer","POIZ_MT061150CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II id = new IIImpl();
     private ST manufacturerName = new STImpl();
 

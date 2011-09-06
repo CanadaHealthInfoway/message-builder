@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.BatteryPromise"})
 public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II batteryPromiseIdentifier = new IIImpl();

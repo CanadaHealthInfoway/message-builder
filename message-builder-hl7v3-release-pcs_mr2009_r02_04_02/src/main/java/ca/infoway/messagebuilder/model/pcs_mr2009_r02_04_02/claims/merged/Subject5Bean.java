@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001
 @Hl7PartTypeMapping({"FICR_MT490101CA.Subject","FICR_MT490102CA.Subject5"})
 public class Subject5Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private BL contextConductionInd = new BLImpl();
     private VersionInformationBean controlActEvent;
 

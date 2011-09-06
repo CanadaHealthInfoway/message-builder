@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II allergyIntoleranceRecordId = new IIImpl();
     private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();

@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004000CA.InterpretationRange"})
 public class ReferenceRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ANY<Object> referenceRangeValue = new ANYImpl<Object>();
     private CV referenceRangeInterpretationType = new CVImpl();
     private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();

@@ -83,7 +83,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_5Bean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private II eventIdentifier = new IIImpl();
     private CV eventType = new CVImpl();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();

@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV functionalRoleType = new CVImpl();
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);

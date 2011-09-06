@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private ST broadcastMessage = new STImpl();
 
 

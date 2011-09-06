@@ -40,7 +40,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private TS authoredDatetime = new TSImpl();
     private CE attestedIndicator = new CEImpl();
     private ActingPerson actingPerson;

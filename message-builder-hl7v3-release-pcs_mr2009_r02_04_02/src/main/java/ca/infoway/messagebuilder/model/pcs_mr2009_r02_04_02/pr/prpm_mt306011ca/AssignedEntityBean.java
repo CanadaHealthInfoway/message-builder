@@ -80,7 +80,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20110906L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
