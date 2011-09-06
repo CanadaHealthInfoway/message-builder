@@ -133,26 +133,19 @@ public class DataType {
 	
 	private Set<String> getImportTypes(boolean addUnparameterizedImplType) {
 		Set<String> result = new HashSet<String>();
-System.out.println(">>>>>>>>>>>>>>>> adding qualifier: " + this.qualifier);			
 		result.add(this.qualifier);
 		addWrappedTypeIfNecessary(result, addUnparameterizedImplType);
 		for (DataType dataType : this.parameters) {
 			result.addAll(dataType.getImportTypes(!isTypeNotRequiringUnparameterizedImplTypeImports()));
-			for (String string : dataType.getImportTypes()) {
-System.out.println(">>>>>>>>>>>>>>>> adding params: " + string);			
-			}
 		}
 		return result;
 	}
 	private void addWrappedTypeIfNecessary(Set<String> result, boolean addUnparameterizedImplType) {
 		if (getHl7ClassName() != null) {
 			result.add(getHl7ClassName());
-			System.out.println(">>>>>>>>>>>>>>>> adding hl7class: " + getHl7ClassName());			
 			if (addUnparameterizedImplType) {
 				result.add(getUnparameterizedImplementationType());
-				System.out.println(">>>>>>>>>>>>>>>> adding unparm: " + getUnparameterizedImplementationType());			
 			}
-			
 		}
 	}
 
