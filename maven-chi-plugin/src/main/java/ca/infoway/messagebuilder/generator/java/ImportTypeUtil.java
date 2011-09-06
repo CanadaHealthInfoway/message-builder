@@ -84,7 +84,6 @@ public class ImportTypeUtil {
 		if (type instanceof InteractionType) {
 			return getImports((InteractionType) type, language);
 		} else if (type instanceof Type) {
-System.out.println(">>>>>>>>>>> adding imports for type: " + type.getTypeName().getName());			
 			return getImports((Type) type, language);
 		} else {
 			throw new IllegalArgumentException("RenderedType is not supported");
