@@ -38,6 +38,8 @@ public class Case0Simplifier extends InlineableSimplifier {
 			result = false;
 		} else if (inlineableType.isAbstract()) {
 			result = false;
+		} else if (!inlineableType.getInterfaceTypes().isEmpty()) {
+			result = false;
 		}
 
 		return result;
