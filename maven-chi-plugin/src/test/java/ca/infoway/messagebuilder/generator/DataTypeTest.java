@@ -114,7 +114,7 @@ public class DataTypeTest {
 		
 		assertThat("II", types, hasItem("ca.infoway.messagebuilder.datatype.II"));
 		assertThat("Identifier", types, hasItem("ca.infoway.messagebuilder.datatype.lang.Identifier"));
-//		assertThat("IIImpl", types, hasItem("ca.infoway.messagebuilder.datatype.impl.IIImpl"));
+		assertThat("IIImpl", types, hasItem("ca.infoway.messagebuilder.datatype.impl.IIImpl"));
 	}
 	
 	@Test
