@@ -114,7 +114,7 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	}
 
 	String getBusinessName(Element element) {
-		return getAttribute(element, "./mif2:businessName/@name");
+		return removeNonAsciiCharacters(getAttribute(element, "./mif2:businessName/@name"));
 	}
 	
 	List<Annotation> getDocumentation(Element classElement) {

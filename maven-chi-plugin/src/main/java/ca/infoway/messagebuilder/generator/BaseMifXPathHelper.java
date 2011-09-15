@@ -107,7 +107,7 @@ abstract class BaseMifXPathHelper {
 					for (Element paragraph : elements) {
 						recurisvelyClearMifPrefix(paragraph);
 						try {
-							String text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
+							String text = StringUtils.trim(removeNonAsciiCharacters(DOMWriter.renderAsString(paragraph)));
 							if (StringUtils.isNotBlank(text)) {
 								annotation.setText((annotation.getText()!=null)?annotation.getText()+text:text);
 							}
@@ -142,6 +142,14 @@ abstract class BaseMifXPathHelper {
 				recurisvelyClearMifPrefix((Element)child);
 			}
 		}
+	}
+
+	protected String removeNonAsciiCharacters(String string) {
+		String result = string;
+		if (string != null && !StringUtils.isAsciiPrintable(string)) {
+			result = string.replaceAll("[^\\p{ASCII}]", "");
+		}
+		return result;
 	}
 	
 	abstract String getOwnedEntryPoint(Document document);

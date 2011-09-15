@@ -90,10 +90,11 @@ class DmifProcessor {
 	private Interaction extractInteraction(MessageSet messageSet, String name, Element element)
 			throws XPathExpressionException {
 		Interaction interaction = new Interaction();
-		Element packageLocation = (Element) new XPathHelper().getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
-		Element parameterTypeModel = (Element) new XPathHelper().getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
+		Element packageLocation = (Element) this.xpath.getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
+		Element parameterTypeModel = (Element) this.xpath.getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
 		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
-		String businessName = new XPathHelper().getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
+		String businessName = this.xpath.getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
+		businessName = new MifXPathHelper().removeNonAsciiCharacters(businessName);
 
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
