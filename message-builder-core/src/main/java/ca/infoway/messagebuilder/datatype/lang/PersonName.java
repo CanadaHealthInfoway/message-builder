@@ -86,7 +86,7 @@ public class PersonName extends EntityName {
 		return parts.isEmpty() ? null : parts.get(0).getValue();
 	}
 	
-	private List<EntityNamePart> getPartsOfType(PersonNamePartType type) {
+	public List<EntityNamePart> getPartsOfType(PersonNamePartType type) {
 		List<EntityNamePart> result = new ArrayList<EntityNamePart>();
 		for (EntityNamePart part : this.parts) {
 			if (type == part.getType()) {
