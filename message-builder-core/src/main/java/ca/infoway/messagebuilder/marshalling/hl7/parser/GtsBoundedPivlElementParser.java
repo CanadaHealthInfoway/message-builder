@@ -52,39 +52,39 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 
 	@Override
 	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
-			Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
+			Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlResult)
 			throws XmlToModelTransformationException {
-		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToJavaResult);
+		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlResult);
 	}
 	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
-			Element element, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
+			Element element, Type expectedReturnType, XmlToModelResult xmlResult)
 			throws XmlToModelTransformationException {
 		
 		GeneralTimingSpecification result = null;
-		List<Element> components = findComponents(element, xmlToJavaResult);
+		List<Element> components = findComponents(element, xmlResult);
 		
 		if (components.size() == 2) {
-			Interval<Date> duration = parseDuration(context, xmlToJavaResult, components.get(0));
-			PeriodicIntervalTime frequency = parseFrequency(context, xmlToJavaResult, components.get(1));
+			Interval<Date> duration = parseDuration(context, xmlResult, components.get(0));
+			PeriodicIntervalTime frequency = parseFrequency(context, xmlResult, components.get(1));
 			
 			if (duration != null && frequency != null) {
 				result = new GeneralTimingSpecification(duration, frequency);
 			} else {
 				if (duration == null) {
-					xmlToJavaResult.addHl7Error(new Hl7Error(
+					xmlResult.addHl7Error(new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR,
 							"Could not parse the duration portion of the GTS.BOUNDEDPIVL",
 							components.get(0)));
 				}
 				if (frequency == null) {
-					xmlToJavaResult.addHl7Error(new Hl7Error(
+					xmlResult.addHl7Error(new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR,
 							"Could not parse the frequency portion of the GTS.BOUNDEDPIVL",
 							components.get(1)));
 				}
 			}
 		} else {
-			xmlToJavaResult.addHl7Error(new Hl7Error(
+			xmlResult.addHl7Error(new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR,
 					MessageFormat.format("Expected to find 2 <comp> sub-elements, but found {0}", components.size()),
 					element));
@@ -92,21 +92,21 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 		return result;
 	}
 	@SuppressWarnings("unchecked")
-	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlToJavaResult,
+	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlResult,
 			Element durationElement) throws XmlToModelTransformationException {
 		ParseContext subContext = ParserContextImpl.create("IVL<TS.FULLDATE>", Interval.class, context.getVersion(), MANDATORY);
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
-				subContext, Arrays.asList((Node) durationElement), xmlToJavaResult).getBareValue();
+				subContext, Arrays.asList((Node) durationElement), xmlResult).getBareValue();
 	}
 	
-	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToJavaResult,
+	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToModelResult,
 			Element durationElement) throws XmlToModelTransformationException {
 		ParseContext subContext = ParserContextImpl.create("PIVL<TS.DATETIME>", PeriodicIntervalTime.class, context.getVersion(), MANDATORY);
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
-				subContext, Arrays.asList((Node) durationElement), xmlToJavaResult).getBareValue();
+				subContext, Arrays.asList((Node) durationElement), xmlToModelResult).getBareValue();
 	}
 	
-	private List<Element> findComponents(Element element, XmlToModelResult xmlToJavaResult) {
+	private List<Element> findComponents(Element element, XmlToModelResult xmlToModelResult) {
 		List<Element> result = new ArrayList<Element>();
 		NodeList list = element.getChildNodes();
 		int length = list == null ? 0 : list.getLength();
@@ -117,7 +117,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 			} else if (StringUtils.equals("comp", NodeUtil.getLocalOrTagName((Element) node))) {
 				result.add((Element) node);
 			} else {
-				xmlToJavaResult.addHl7Error(
+				xmlToModelResult.addHl7Error(
 						new Hl7Error(
 								Hl7ErrorCode.DATA_TYPE_ERROR, 
 								MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node)),

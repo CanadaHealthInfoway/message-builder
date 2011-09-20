@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleElementParser<UncertainRange<V>> {
 
 	@Override
-	protected UncertainRange<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) 
+	protected UncertainRange<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) 
 			throws XmlToModelTransformationException {
 
 		try {
@@ -53,7 +53,7 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 				try {
 					return UncertainRange.createLowHigh(createType(low), createType(high));
 				} catch (IllegalArgumentException e) {
-					xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (Element) node));
+					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (Element) node));
 					return null;
 				}
 			} else if (low != null && width != null) {

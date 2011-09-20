@@ -72,25 +72,25 @@ class PnElementParser extends AbstractEntityNameElementParser {
 	}
 
     @Override
-	protected EntityName parseNode(Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         PersonName result = new PersonName();
         NodeList childNodes = node.getChildNodes();
         if (childNodes.getLength() == 1 && childNodes.item(0) instanceof Text) {
         	// TODO - TM - this is most likely a PN.SIMPLE - need type passed in to be able to check
             handleSimpleName(node, result);
         } else {
-	        handlePersonName(xmlToJavaResult, result, childNodes);
+	        handlePersonName(xmlToModelResult, result, childNodes);
         }
         return result;
     }
 
-	private void handlePersonName(XmlToModelResult xmlToJavaResult, PersonName result, NodeList childNodes) throws XmlToModelTransformationException {
+	private void handlePersonName(XmlToModelResult xmlToModelResult, PersonName result, NodeList childNodes) throws XmlToModelTransformationException {
 		for (int i = 0; i < childNodes.getLength(); i++) {
 		    Node childNode = childNodes.item(i);
 		    if (childNode instanceof Element) {
 		        Element element = (Element) childNode;
 		        String name = NodeUtil.getLocalOrTagName(element);
-		        String value = getTextValue(element, xmlToJavaResult);
+		        String value = getTextValue(element, xmlToModelResult);
 		        String qualifier = getAttributeValue(element, NAME_PART_TYPE_QUALIFIER);
 		        if (StringUtils.isNotBlank(value)) {
 		        	result.addNamePart(new EntityNamePart(value, getPersonalNamePartType(name), qualifier));
@@ -106,10 +106,10 @@ class PnElementParser extends AbstractEntityNameElementParser {
 		}
 	}
     
-    private String getTextValue(Element element, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+    private String getTextValue(Element element, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	String result = NodeUtil.getTextValue(element, true);
         if (StringUtils.isBlank(result)) {
-        	xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+        	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
         			"Expected PN child node \"" + element.getNodeName() + "\" to have a text node", element));
         }
         return result;

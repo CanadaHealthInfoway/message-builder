@@ -135,24 +135,24 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 	
 	@Override
-	protected Date parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Date parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		if (isAbstractFullDateWithTime(context)) {
-			context = handleSpecializationType(context, node, xmlToJavaResult);
+			context = handleSpecializationType(context, node, xmlToModelResult);
 		}
-		return parseNonNullNode(context, (Element) node, xmlToJavaResult);
+		return parseNonNullNode(context, (Element) node, xmlToModelResult);
 	}
 
-	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToJavaResult) {
+	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
 		if (specializationType == null) {
 			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS types
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
 			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
-			// xmlToJavaResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
+			// xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		} else if (isValidType(specializationType)) {
 			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getTimeZone(), context.getConformance(), null, null);
 		} else {
-		    xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+		    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 		    		"Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement((Element) node)
 		    		+ ")", (Element) node));
 		}
@@ -169,28 +169,28 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 
 	// FIXME - TM - for V02R01, "width" property is allowed (PQ.TIME) - need to add support?
-	private Date parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToJavaResult) {
+	private Date parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		Date result = null;
 		String unparsedDate = getAttributeValue(element, "value");
 		if (StringUtils.isBlank(unparsedDate)) {
-       		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+       		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
        				"Timestamp value must be non-blank.", element));
 		} else {
             try {
                 result = parseDate(unparsedDate, getAllDateFormats(context), context);
             } catch (IllegalArgumentException e) {
-                result = tryEveryFormat(context, unparsedDate, element, xmlToJavaResult);
+                result = tryEveryFormat(context, unparsedDate, element, xmlToModelResult);
                 if (result == null) {
 	           		String message = 
 	           			"The timestamp " + unparsedDate + " in element " +  XmlDescriber.describeSingleElement(element) + " cannot be parsed.";
-	            	xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
+	            	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
                 }
             }
 		}
 		return result;
 	}
     
-	private Date tryEveryFormat(ParseContext context, String unparsedDate, Element element, XmlToModelResult xmlToJavaResult) {
+	private Date tryEveryFormat(ParseContext context, String unparsedDate, Element element, XmlToModelResult xmlToModelResult) {
 		Date result = null;
 		for (StandardDataType type : this.formats.keySet()) {
 			try {
@@ -198,7 +198,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				if (result != null) {
 	           		String message = 
 	           			"The timestamp element {0} appears to be formatted as type {1}, but should be {2}.";
-	            	xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+	            	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 	            			MessageFormat.format(message, XmlDescriber.describeSingleElement(element), type.getType(), context.getType()), 
 	            			element));
 	            	break;
@@ -277,7 +277,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 
     /*
-     * If an incoming date looks like 20080331155857.8620-0400, Java has problems. Since there isn't anything more
+     * If an incoming date looks like 20080331155857.8620-0400, we have problems. Since there isn't anything more
      * precise than milliseconds, the parse utilities can't handle parsing a date that looks like this. So we
      * look for this pattern and remove the 4th digit from the input string.
      */

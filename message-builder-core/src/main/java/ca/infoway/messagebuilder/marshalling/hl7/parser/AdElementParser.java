@@ -73,7 +73,7 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
 	}
     
     @Override
-    protected PostalAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+    protected PostalAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         PostalAddress result = parseNode(node);
         result.setUses(getNameUses(getAttributeValue(node, "use")));
         return result;

@@ -41,7 +41,7 @@ public class IiTokenElementParserTest extends CeRxDomainValueTestCase {
 	private static final String ROOT_UUID = "1ee83ff1-08ab-4fe7-b573-ea777e9bad51";
 	
 	private AbstractSingleElementParser<Identifier> parser;
-	private XmlToModelResult xmlToJavaResult;
+	private XmlToModelResult xmlResult;
 
 	private ParseContext context;
 
@@ -50,14 +50,14 @@ public class IiTokenElementParserTest extends CeRxDomainValueTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 		this.parser = new IiElementParser();
-		this.xmlToJavaResult = new XmlToModelResult();
+		this.xmlResult = new XmlToModelResult();
 		this.context = ParserContextImpl.create("II.TOKEN", Identifier.class, V02R02, null);
 	}
 	
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		BareANY ii = this.parser.parse(this.context, node, this.xmlToJavaResult);
+		BareANY ii = this.parser.parse(this.context, node, this.xmlResult);
 		assertNull("null result", ii.getBareValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ii.getNullFlavor());
 	}
@@ -65,25 +65,25 @@ public class IiTokenElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		this.parser.parse(this.context, node, this.xmlToJavaResult);
-		assertFalse("result", this.xmlToJavaResult.isValid());
+		this.parser.parse(this.context, node, this.xmlResult);
+		assertFalse("result", this.xmlResult.isValid());
 	}
 
 	@Test
 	public void testParseValid() throws Exception {
 		Node node = createNode("<something root=\"" + ROOT_UUID + "\" />");
-		Identifier result = (Identifier) this.parser.parse(this.context, node, this.xmlToJavaResult).getBareValue();
+		Identifier result = (Identifier) this.parser.parse(this.context, node, this.xmlResult).getBareValue();
 		assertEquals("result", new Identifier(ROOT_UUID), result);
-		assertTrue("error", this.xmlToJavaResult.isValid());;
+		assertTrue("error", this.xmlResult.isValid());;
 	}
 
 	@Test
 	public void testParseDetectExtraAttribute() throws Exception {
 		Node node = createNode(
 				"<something root=\"" + ROOT_UUID + "\" extension=\"lsdfjlsdjkf\" />");
-		Identifier result = (Identifier) this.parser.parse(this.context, node, this.xmlToJavaResult).getBareValue();
+		Identifier result = (Identifier) this.parser.parse(this.context, node, this.xmlResult).getBareValue();
 		assertEquals("result", new Identifier(ROOT_UUID, "lsdfjlsdjkf"), result);
-		assertFalse("error", this.xmlToJavaResult.isValid());;
+		assertFalse("error", this.xmlResult.isValid());;
 	}
 	
 }

@@ -40,20 +40,20 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 abstract class SetOrListElementParser extends AbstractElementParser {
 
 	@Override
-	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
  		String subType = getSubType(context);
 		Collection<BareANY> list = getCollectionType(context);
 		for (Node node : nodes) {
 			ElementParser parser = ParserRegistry.getInstance().get(subType);
 			if (parser != null) {
 				BareANY result = parser.parse(ParserContextImpl.create(
-						subType, getSubTypeAsJavaType(context), context.getVersion(), context.getConformance()), 
-						toList(node), xmlToJavaResult);
+						subType, getSubTypeAsModelType(context), context.getVersion(), context.getConformance()), 
+						toList(node), xmlToModelResult);
 				if (result != null) {
 					list.add(result);
 				}
 			} else {
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, 
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, 
 						"No parser type found for " + subType, (Element) node));
 				break;
 			}
@@ -65,7 +65,7 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 
 	protected abstract Collection<BareANY> getCollectionType(ParseContext context);
 	
-	private Type getSubTypeAsJavaType(ParseContext context) {
+	private Type getSubTypeAsModelType(ParseContext context) {
 		Type returnType = getReturnType(context);
 		try {
 			return Generics.getParameterType(returnType);

@@ -44,7 +44,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlJavaResult);
+		TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlResult);
 		assertNull("null returned", ts.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
 	}
@@ -55,13 +55,13 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -70,7 +70,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something value=\"19990303\" />");
 		assertDateEquals("correct value returned", FULL_DATE, 
 				calendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something extra=\"extra\" value=\"19990303\" />");
 		assertDateEquals("correct value returned", FULL_DATE,  
 				calendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test

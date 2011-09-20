@@ -48,30 +48,30 @@ public class NullFlavorHelperTest {
 
 	private void assertConformance(Object[] arguments) throws SAXException {
 		Node node = createNode("<effectiveTime><low nullFlavor=\"NI\"/></effectiveTime>");
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		new NullFlavorHelper((ConformanceLevel)arguments[0], node, xmlToJavaResult, false).
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		new NullFlavorHelper((ConformanceLevel)arguments[0], node, xmlResult, false).
 			parseNullNode();
-		assertEquals(arguments[1], xmlToJavaResult.getHl7Errors().isEmpty());
+		assertEquals(arguments[1], xmlResult.getHl7Errors().isEmpty());
 	}
 	
 	@Test
 	public void shouldHandleXsiNilAttributeForAssociation() throws SAXException {
 		Node node = createNode("<patient nullFlavor=\"NI\" xsi:nil=\"true\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		new NullFlavorHelper(ConformanceLevel.POPULATED, node, xmlToJavaResult, true).
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		new NullFlavorHelper(ConformanceLevel.POPULATED, node, xmlResult, true).
 			parseNullNode();
-		assertTrue(xmlToJavaResult.getHl7Errors().isEmpty());
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
 	}
 	
 	@Test
 	public void shouldCatchXsiNilAttributeErrorForAssociation() throws SAXException {
 		Node node = createNode("<patient nullFlavor=\"NI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		new NullFlavorHelper(ConformanceLevel.POPULATED, node, xmlToJavaResult, true).
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		new NullFlavorHelper(ConformanceLevel.POPULATED, node, xmlResult, true).
 			parseNullNode();
-		assertFalse(xmlToJavaResult.getHl7Errors().isEmpty());
-		assertEquals(1, xmlToJavaResult.getHl7Errors().size());
-		assertTrue(xmlToJavaResult.getHl7Errors().get(0).getMessage().contains("does not specify xsi:nil=\"true\""));
+		assertFalse(xmlResult.getHl7Errors().isEmpty());
+		assertEquals(1, xmlResult.getHl7Errors().size());
+		assertTrue(xmlResult.getHl7Errors().get(0).getMessage().contains("does not specify xsi:nil=\"true\""));
 	}
 	
 	private Node createNode(String xml) throws SAXException {

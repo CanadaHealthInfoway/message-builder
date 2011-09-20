@@ -47,7 +47,7 @@ public class EnElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		EN<? extends EntityName> en = (EN<? extends EntityName>) new EnElementParser().parse(createContext(), node, this.xmlJavaResult);
+		EN<? extends EntityName> en = (EN<? extends EntityName>) new EnElementParser().parse(createContext(), node, this.xmlResult);
 		assertNull("entity name", en.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, en.getNullFlavor());
 	}
@@ -59,7 +59,7 @@ public class EnElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue();
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("entity name", entityName);
 		assertEquals("number of name parts", 0, entityName.getParts().size());
 		assertEquals("number of name uses", 0, entityName.getUses().size());
@@ -71,7 +71,7 @@ public class EnElementParserTest extends MarshallingTestCase {
         Node node = createNode(
                   "<something>trivial name</something>");
         
-        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue();
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 1, entityName.getParts().size());
         assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
@@ -83,7 +83,7 @@ public class EnElementParserTest extends MarshallingTestCase {
         Node node = createNode(
                   "<something>trivial name<suffix>Inc</suffix></something>");
         
-        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue();
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 2, entityName.getParts().size());
         assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
@@ -96,7 +96,7 @@ public class EnElementParserTest extends MarshallingTestCase {
         Node node = createNode(
                   "<something><given>Steve</given><family>Shaw</family><suffix>Inc</suffix></something>");
         
-        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue();
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 3, entityName.getParts().size());
         assertNamePartAsExpected("given", entityName.getParts().get(0), PersonNamePartType.GIVEN, "Steve");

@@ -76,30 +76,30 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	private static final int MAXIMUM_FRACTION_DIGITS = 2;
 
 	@Override
-	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		return parseNonNullElement(context, (Element) node, xmlToJavaResult);
+	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		return parseNonNullElement(context, (Element) node, xmlToModelResult);
 	}
 
-	private PhysicalQuantity parseNonNullElement(ParseContext context, Element element, XmlToModelResult xmlToJavaResult) {
-		BigDecimal value = parseValue(context, element.getAttribute("value"), element, xmlToJavaResult);
-		UnitsOfMeasureCaseSensitive unit = parseUnit(context, element.getAttribute("unit"), element, xmlToJavaResult);
+	private PhysicalQuantity parseNonNullElement(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
+		BigDecimal value = parseValue(context, element.getAttribute("value"), element, xmlToModelResult);
+		UnitsOfMeasureCaseSensitive unit = parseUnit(context, element.getAttribute("unit"), element, xmlToModelResult);
 		
 		return (value != null) ? new PhysicalQuantity(value, unit) : null;
 	}
 	
 	private BigDecimal parseValue(ParseContext context, String valueAsString, Element element,
-			XmlToModelResult xmlToJavaResult) {
+			XmlToModelResult xmlToModelResult) {
 		BigDecimal result = null;
 		if (StringUtils.isBlank(valueAsString)) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 					MessageFormat.format("No value provided for physical quantity ({0})",
 							XmlDescriber.describeSingleElement(element)), element));
 		} else {
 			try {
 				result = new BigDecimal(valueAsString);
-				checkResultIsValidValue(result, element, xmlToJavaResult);
+				checkResultIsValidValue(result, element, xmlToModelResult);
 			} catch (NumberFormatException e) {
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 						MessageFormat.format("value \"{0}\" is not a valid decimal value ({1})",
 								valueAsString, XmlDescriber.describeSingleElement(element)), element));
 			}
@@ -108,25 +108,25 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	}
 
 
-    protected void checkResultIsValidValue(BigDecimal value, Element element, XmlToModelResult xmlToJavaResult) {
+    protected void checkResultIsValidValue(BigDecimal value, Element element, XmlToModelResult xmlToModelResult) {
         if (value.scale() > MAXIMUM_FRACTION_DIGITS) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 					MessageFormat.format("PhysicalQuantity ({0}) can contain a maximum of {1} decimal places",
 							XmlDescriber.describeSingleElement(element), MAXIMUM_FRACTION_DIGITS), element));
             
         } else if ((value.precision() - value.scale()) > MAXIMUM_INTEGER_DIGITS) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 					MessageFormat.format("PhysicalQuantity ({0}) can contain a maximum of {1} integer places",
 							XmlDescriber.describeSingleElement(element), MAXIMUM_INTEGER_DIGITS), element));
         }
     }
 
 	private UnitsOfMeasureCaseSensitive parseUnit(ParseContext context, String unitAsString, Element element,
-			XmlToModelResult xmlToJavaResult) {
+			XmlToModelResult xmlToModelResult) {
 		if (StringUtils.isNotBlank(unitAsString)) {
 			UnitsOfMeasureCaseSensitive unit = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(getUnitTypeByHl7Type(context), unitAsString);
 			if (unit == null) {
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 						MessageFormat.format("Unit \"{0}\" is not valid ({1})",
 								unitAsString, XmlDescriber.describeSingleElement(element)), element));
 			}

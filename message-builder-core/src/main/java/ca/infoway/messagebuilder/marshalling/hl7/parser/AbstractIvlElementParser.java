@@ -63,7 +63,7 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 
 		Interval<T> result = null;
 		
@@ -73,10 +73,10 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 			Element center = (Element) getNamedChildNode(node, "center");
 			Element width = (Element) getNamedChildNode(node, "width");
 			
-			Object lowType = low==null ? null : createType(context, low, xmlToJavaResult).getBareValue();
-			Object highType = high==null ? null : createType(context, high, xmlToJavaResult).getBareValue();
-			Object centerType = center==null ? null : createType(context, center, xmlToJavaResult).getBareValue();
-			Object widthType = width==null ? null : createDiffType(context, width, xmlToJavaResult);
+			Object lowType = low==null ? null : createType(context, low, xmlToModelResult).getBareValue();
+			Object highType = high==null ? null : createType(context, high, xmlToModelResult).getBareValue();
+			Object centerType = center==null ? null : createType(context, center, xmlToModelResult).getBareValue();
+			Object widthType = width==null ? null : createDiffType(context, width, xmlToModelResult);
 			
 			if (lowType != null && highType != null) {
 				result = IntervalFactory.<T>createLowHigh((T) lowType, (T)highType);
@@ -95,9 +95,9 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 			} else if (widthType != null) {
 				result = IntervalFactory.<T>createWidth((Diff<T>)widthType);
 			} else {
-				Object type = createType(context, (Element) node, xmlToJavaResult).getBareValue();
+				Object type = createType(context, (Element) node, xmlToModelResult).getBareValue();
 				if (type==null) {
-		        	xmlToJavaResult.addHl7Error(
+		        	xmlToModelResult.addHl7Error(
 		        			new Hl7Error(
 		        					Hl7ErrorCode.SYNTAX_ERROR, 
 		        					"\"Simple interval node: " + XmlDescriber.describePath(node) + " does not allow a null value\"",
@@ -107,7 +107,7 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 				}
 			}
 		} catch (ParseException e) {
-        	xmlToJavaResult.addHl7Error(
+        	xmlToModelResult.addHl7Error(
         			new Hl7Error(
         					Hl7ErrorCode.DATA_TYPE_ERROR, 
         					"Unable to parse the interval date for element \"" + node.getNodeName() + "\"",
@@ -117,9 +117,9 @@ abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<I
 		return result;
 	}
 	
-	BareDiff createDiffType(ParseContext context, Element width, XmlToModelResult xmlToJavaResult) throws ParseException, XmlToModelTransformationException {
-		return new Diff<T>((T) createType(context, width, xmlToJavaResult).getBareValue());
+	BareDiff createDiffType(ParseContext context, Element width, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
+		return new Diff<T>((T) createType(context, width, xmlToModelResult).getBareValue());
 	}
 
-	protected abstract BareANY createType(ParseContext context, Element high, XmlToModelResult xmlToJavaResult) throws ParseException, XmlToModelTransformationException;
+	protected abstract BareANY createType(ParseContext context, Element high, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
 }

@@ -41,29 +41,29 @@ public class FormatterRegistryTest {
         List<File> files = getAllClasses();
         
         for (File file : files) {
-            String javaClassName = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
+            String className = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
             try {
-	            Class<?> javaClass = Class.forName(javaClassName);
-	            if (isFormatter(javaClass)) {
-	                assertFormatterIsRegistered((Class<? extends PropertyFormatter>) javaClass);
+	            Class<?> classObj = Class.forName(className);
+	            if (isFormatter(classObj)) {
+	                assertFormatterIsRegistered((Class<? extends PropertyFormatter>) classObj);
 	            }
             } catch (ClassNotFoundException e) {
-            	// this case shouldn't happen in Java, but is useful when the code is 
-            	// converted to .Net
+            	// this case shouldn't happen, but is useful when the code is 
+            	// translated
             }
         }
     }
 
-    private void assertFormatterIsRegistered(Class<? extends PropertyFormatter> javaClass) throws Exception {
-        List<String> keys = FormatterRegistry.getInstance().getRegistrationKey(javaClass);
+    private void assertFormatterIsRegistered(Class<? extends PropertyFormatter> classObj) throws Exception {
+        List<String> keys = FormatterRegistry.getInstance().getRegistrationKey(classObj);
         for (String string : keys) {
-            assertNotNull("register " + javaClass.getName() + " (" + string + ")", 
+            assertNotNull("register " + classObj.getName() + " (" + string + ")", 
                     FormatterRegistry.getInstance().get(string));
         }
     }
 
-    private boolean isFormatter(Class<?> javaClass) {
-        return PropertyFormatter.class.isAssignableFrom(javaClass) && !ClassUtil.isAbstract(javaClass);
+    private boolean isFormatter(Class<?> classObj) {
+        return PropertyFormatter.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj);
     }
 
     private List<File> getAllClasses() {

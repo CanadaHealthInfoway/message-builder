@@ -41,7 +41,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
-		REAL real = (REAL) new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult);
+		REAL real = (REAL) new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
 		assertNull("null returned", real.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, real.getNullFlavor());
 	}
@@ -53,13 +53,13 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		assertNull("null returned", new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		assertNull("null returned", new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -67,7 +67,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\"0.2345\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("0.2345"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -75,7 +75,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\"78.2345\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("78.2345"), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlJavaResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -83,7 +83,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\"0\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal(0), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\"-1\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("-1"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 
 	@Test
@@ -99,7 +99,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something extra=\"value\" value=\"1345\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("1345"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult);
+			new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
@@ -121,27 +121,27 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
 		Node node = createNode("<something value=\"monkey\" />");
-		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult);
-		assertEquals("errors", 1, this.xmlJavaResult.getHl7Errors().size());
+		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		assertEquals("errors", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("error message", 
 				"Value \"monkey\" of type REAL.CONF is not a valid number", 
-				this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+				this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 
 	@Test
 	public void testParseInvalidValueAttribute1() throws Exception {
 		Node node = createNode("<something value=\"1.11\" />");
-		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult);
-		assertEquals("errors", 1, this.xmlJavaResult.getHl7Errors().size());
+		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		assertEquals("errors", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("error message", 
 				"Value 1.11 of type REAL.CONF must be between 0 and 1.", 
-				this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+				this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 
 	@Test
 	public void testParseInvalidValueAttribute2() throws Exception {
 		Node node = createNode("<something value=\".11\" />");
-		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlJavaResult);
-		assertEquals("errors", 0, this.xmlJavaResult.getHl7Errors().size());
+		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		assertEquals("errors", 0, this.xmlResult.getHl7Errors().size());
 	}
 }

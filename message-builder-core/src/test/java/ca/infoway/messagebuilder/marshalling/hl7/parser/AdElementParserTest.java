@@ -43,7 +43,7 @@ public class AdElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		AD ad = (AD) (new AdElementParser()).parse(createContext(), node, this.xmlJavaResult);
+		AD ad = (AD) (new AdElementParser()).parse(createContext(), node, this.xmlResult);
 		assertEquals("null returned", null, ad.getValue());
 	}
 

@@ -42,12 +42,12 @@ class BagElementParser extends SetOrListElementParser {
 
 	@Override
 	public BareANY parse(ParseContext context, List<Node> nodes,
-			XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 				"Data type \"" + context.getType() 
 				+ "\" is not part of the pan-Canadian standard",
 				CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)));
-		return super.parse(context, nodes, xmlToJavaResult);
+		return super.parse(context, nodes, xmlToModelResult);
 	}
 	
 	@Override

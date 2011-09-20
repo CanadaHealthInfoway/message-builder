@@ -47,7 +47,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 		BareANY result = new BagElementParser().parse(
 				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
-				this.xmlJavaResult);
+				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
 		
 		assertNotNull("null", list);
@@ -67,7 +67,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 		BareANY result = new BagElementParser().parse(
 				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
-				this.xmlJavaResult);
+				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
 		
 		assertNotNull("null", list);
@@ -81,7 +81,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 		BareANY result = new BagElementParser().parse(
 				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
-				this.xmlJavaResult);
+				this.xmlResult);
 		
 		LIST<PN,PersonName> hl7List = (LIST<PN,PersonName>) result;
 		List<PersonName> list = hl7List.rawList();

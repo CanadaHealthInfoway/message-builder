@@ -56,29 +56,29 @@ public class ParserRegistryTest {
         List<File> files = getAllClasses();
         
         for (File file : files) {
-            String javaClassName = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
+            String className = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
             try {
-	            Class<?> javaClass = Class.forName(javaClassName);
-	            if (isParser(javaClass)) {
-	                assertParserIsRegistered((Class<? extends ElementParser>) javaClass);
+	            Class<?> otherClassName = Class.forName(className);
+	            if (isParser(otherClassName)) {
+	                assertParserIsRegistered((Class<? extends ElementParser>) otherClassName);
 	            }
             } catch (ClassNotFoundException e) {
-            	// this case shouldn't happen in Java, but is useful when the code is 
-            	// converted to .Net
+            	// this case shouldn't happen, but is useful when the code is 
+            	// translated
             }
         }
     }
 
-	private void assertParserIsRegistered(Class<? extends ElementParser> javaClass) throws Exception {
-        List<String> keys = ParserRegistry.getInstance().getRegistrationKey(javaClass);
+	private void assertParserIsRegistered(Class<? extends ElementParser> classObj) throws Exception {
+        List<String> keys = ParserRegistry.getInstance().getRegistrationKey(classObj);
         for (String string : keys) {
-            assertNotNull("register " + javaClass.getName() + " (" + string + ")", 
+            assertNotNull("register " + classObj.getName() + " (" + string + ")", 
                     ParserRegistry.getInstance().get(string));
         }
     }
 
-    private boolean isParser(Class<?> javaClass) {
-        return ElementParser.class.isAssignableFrom(javaClass) && !ClassUtil.isAbstract(javaClass);
+    private boolean isParser(Class<?> classObj) {
+        return ElementParser.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj);
     }
 
     private List<File> getAllClasses() {

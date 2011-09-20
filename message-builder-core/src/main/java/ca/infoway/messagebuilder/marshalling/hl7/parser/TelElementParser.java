@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
 	@Override
-	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 
 		String value = getAttributeValue(node, "value");
@@ -75,14 +75,14 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 		URLScheme urlScheme = null;
 		if (colonIndex == -1) {
 			address = value;
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", (Element) node));
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", (Element) node));
 		} else {
 			address = value.substring(colonIndex + 1);
 			String urlSchemeString = value.substring(0, colonIndex);
 			urlScheme = CodeResolverRegistry.lookup(URLScheme.class, urlSchemeString);
 			if (urlScheme == null) {
 				String message = "Unrecognized URL scheme '" + urlSchemeString + "' in element " +  XmlDescriber.describePath(node);
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, (Element) node));
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, (Element) node));
 			}
 		}
 			

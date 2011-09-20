@@ -41,7 +41,7 @@ public class StElementParserTest extends MarshallingTestCase {
 	public void shouldParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
 		
-		ST st = (ST) new StElementParser().parse(createStContext("ST"), node, this.xmlJavaResult);
+		ST st = (ST) new StElementParser().parse(createStContext("ST"), node, this.xmlResult);
 		
 		assertNull("null returned", st.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, st.getNullFlavor());
@@ -56,7 +56,7 @@ public class StElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something/>");
 		assertEquals("null returned", 
 				"", 
-				new StElementParser().parse(createStContext("ST"), node, this.xmlJavaResult).getBareValue());
+				new StElementParser().parse(createStContext("ST"), node, this.xmlResult).getBareValue());
 	}
 
 	@Test
@@ -67,13 +67,13 @@ public class StElementParserTest extends MarshallingTestCase {
 				"This is a fairly long val", 
 				new StElementParser().parse(
 						context, 
-						node, this.xmlJavaResult).getBareValue());
-		assertFalse("valid", this.xmlJavaResult.isValid());
+						node, this.xmlResult).getBareValue());
+		assertFalse("valid", this.xmlResult.isValid());
 		
-		System.out.println(this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
 		assertEquals("message", 
 				"The specified string (\"This is a fairly long value; too long, in fact,...\") exceeds the maximum length of 25.  The string has been truncated.",
-				this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+				this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -81,13 +81,13 @@ public class StElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something>text value</something>");
 		assertEquals("proper text returned", 
 				"text value", 
-				new StElementParser().parse(createStContext("ST"), node, this.xmlJavaResult).getBareValue());
+				new StElementParser().parse(createStContext("ST"), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
 	public void shouldParseTextNodeWithAttributes() throws Exception {
 		Node node = createNode("<something language=\"fr-CA\" representation=\"TXT\" mediaType=\"text/plain\">text value</something>");
-		ST result = (ST) new StElementParser().parse(createStContext("ST.LANG"), node, this.xmlJavaResult);
+		ST result = (ST) new StElementParser().parse(createStContext("ST.LANG"), node, this.xmlResult);
 		assertEquals("proper text returned", "text value", result.getValue());
 		assertEquals("proper language returned", "fr-CA", result.getLanguage());
 	}
@@ -100,7 +100,7 @@ public class StElementParserTest extends MarshallingTestCase {
 				"<shines/>" +
 				"</something>");
 		try {
-			new StElementParser().parse(createStContext("ST"), node, this.xmlJavaResult);
+			new StElementParser().parse(createStContext("ST"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
@@ -116,7 +116,7 @@ public class StElementParserTest extends MarshallingTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new StElementParser().parse(createStContext("ST"), node, this.xmlJavaResult);
+			new StElementParser().parse(createStContext("ST"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {

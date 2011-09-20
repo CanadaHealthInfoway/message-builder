@@ -59,22 +59,22 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 class StElementParser extends AbstractSingleElementParser<String> {
 
 	@Override
-	protected String parseNonNullNode(ParseContext context, Node node, BareANY dataType, Type returnType, XmlToModelResult xmlToJavaResult)	throws XmlToModelTransformationException {
+	protected String parseNonNullNode(ParseContext context, Node node, BareANY dataType, Type returnType, XmlToModelResult xmlToModelResult)	throws XmlToModelTransformationException {
 
     	Element element = (Element) node;
     	
     	if (ST.getType().equals(context.getType()) && hasLanguageAttribute(element)) {
-    		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
     				MessageFormat.format(
     						"The language attribute is not allow for ST element types ({0})",
     						XmlDescriber.describeSingleElement(element)), element));
     	} else if (ST_LANG.getType().equals(context.getType()) && !hasLanguageAttribute(element)) {
-    		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
     				MessageFormat.format(
     						"The language attribute is required for ST.LANG element types ({0})",
     						XmlDescriber.describeSingleElement(element)), element));
     	} else if (ST_LANG.getType().equals(context.getType()) && hasLanguageAttribute(element) && !languageSupported(element)) {
-    		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
     				MessageFormat.format(
     						"The language attribute is not one of the supported types ({0})",
     						XmlDescriber.describeSingleElement(element)), element));
@@ -85,7 +85,7 @@ class StElementParser extends AbstractSingleElementParser<String> {
 
         if (childNodeCount == 0) {
         	if (context.getConformance() == ConformanceLevel.MANDATORY) {
-        		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+        		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
         				MessageFormat.format("The string value should not be empty ({0})", XmlDescriber.describeSingleElement(element)), 
         				element));
         	}
@@ -105,7 +105,7 @@ class StElementParser extends AbstractSingleElementParser<String> {
         }
         
         if (context.getLength() != null && result.length() > context.getLength()) {
-    		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
     				MessageFormat.format(
     						"The specified string (\"{0}\") exceeds the maximum length of {1}.  The string has been truncated.",
     						truncate(result, 50), context.getLength()), 

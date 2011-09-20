@@ -79,17 +79,17 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 
 	@Override
 	BareDiff createDiffType(ParseContext context, Element width,
-			XmlToModelResult xmlToJavaResult) throws ParseException,
+			XmlToModelResult xmlToModelResult) throws ParseException,
 			XmlToModelTransformationException {
 		
 		if (isTimestampType(context)) {
-			return createDateDiff(context, width, xmlToJavaResult);
+			return createDateDiff(context, width, xmlToModelResult);
 		} else {
-			return super.createDiffType(context, width, xmlToJavaResult);
+			return super.createDiffType(context, width, xmlToModelResult);
 		}
 	}
 
-	private Diff<Date> createDateDiff(ParseContext context, Element width, XmlToModelResult xmlToJavaResult) {
+	private Diff<Date> createDateDiff(ParseContext context, Element width, XmlToModelResult xmlToModelResult) {
 
 		Diff<Date> result = null;
         if (getAttributeValue(width, NullFlavorHelper.NULL_FLAVOR_ATTRIBUTE_NAME) != null) {
@@ -106,18 +106,18 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 							diffType.getType(), PhysicalQuantity.class, 
 							context.getVersion(), POPULATED);
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
-							subContext, Arrays.asList((Node) width), xmlToJavaResult).getBareValue();
+							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 					
 					if (quantity != null && quantity.getQuantity() != null && quantity.getUnit() != null) {
 						result = new DateDiff(quantity);
 					}
 				} else {
-					xmlToJavaResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+					xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
 							"Cannot find a parser for " + diffType.getType(), width));
 				}
 				
 			} catch (XmlToModelTransformationException e) {
-				xmlToJavaResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, e.getMessage(), width));
+				xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, e.getMessage(), width));
 			}
         }
         return result;

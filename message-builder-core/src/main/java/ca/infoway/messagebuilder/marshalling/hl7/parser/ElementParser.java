@@ -29,5 +29,5 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
 public interface ElementParser {
-	public BareANY parse(ParseContext context, List<Node> node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException;
+	public BareANY parse(ParseContext context, List<Node> node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
 }

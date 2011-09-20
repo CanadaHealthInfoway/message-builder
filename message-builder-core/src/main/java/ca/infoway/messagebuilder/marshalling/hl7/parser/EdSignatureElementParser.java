@@ -54,15 +54,15 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 	private final StElementParser stElementParser = new StElementParser();
 	
 	@Override
-	protected String parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected String parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		String result = null;
 		
 		Node signatureNode = getNamedChildNode(node, "signature");
 		if (signatureNode == null || signatureNode.getNodeType() != Node.ELEMENT_NODE) {
-			xmlToJavaResult.addHl7Error(createHl7Error((Element) node));
+			xmlToModelResult.addHl7Error(createHl7Error((Element) node));
 		} else {
-			result = (String) this.stElementParser.parse(context, signatureNode, xmlToJavaResult).getBareValue();
+			result = (String) this.stElementParser.parse(context, signatureNode, xmlToModelResult).getBareValue();
 		}
 		
 		return result;

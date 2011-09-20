@@ -63,20 +63,20 @@ public class CsElementParser extends AbstractCodeTypeElementParser {
 	
     @SuppressWarnings("unchecked")
 	@Override
-    protected Code parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+    protected Code parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	
     	Element element = (Element) node;
         
-    	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "codeSystem");
-    	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "codeSystemName");
-    	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "codeSystemVersion");
-    	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "displayName");
-    	validateUnallowedChildNode(context.getType(), element, xmlToJavaResult, "originalText");
-    	validateUnallowedChildNode(context.getType(), element, xmlToJavaResult, "translation");
-    	validateUnallowedChildNode(context.getType(), element, xmlToJavaResult, "qualifier");
+    	validateUnallowedAttributes(context.getType(), element, xmlToModelResult, "codeSystem");
+    	validateUnallowedAttributes(context.getType(), element, xmlToModelResult, "codeSystemName");
+    	validateUnallowedAttributes(context.getType(), element, xmlToModelResult, "codeSystemVersion");
+    	validateUnallowedAttributes(context.getType(), element, xmlToModelResult, "displayName");
+    	validateUnallowedChildNode(context.getType(), element, xmlToModelResult, "originalText");
+    	validateUnallowedChildNode(context.getType(), element, xmlToModelResult, "translation");
+    	validateUnallowedChildNode(context.getType(), element, xmlToModelResult, "qualifier");
     	
         Class<? extends Code> returnType = getReturnTypeAsCodeType(expectedReturnType);
-        Code result = (Code) parseCodedSimpleValue(getAttributeValue(element, "code"), returnType, element, xmlToJavaResult, null);
+        Code result = (Code) parseCodedSimpleValue(getAttributeValue(element, "code"), returnType, element, xmlToModelResult, null);
         
         return result;
     }
@@ -84,16 +84,16 @@ public class CsElementParser extends AbstractCodeTypeElementParser {
 	public Code parseCodedSimpleValue(String code,
 			Class<? extends Code> returnType, 
 			Element base,
-			XmlToModelResult xmlToJavaResult, 
+			XmlToModelResult xmlToModelResult, 
 			Attr attr) {
 		
 		if (StringUtils.isBlank(code)) {
-			xmlToJavaResult.addHl7Error(Hl7Error.createEmptyCodeValueError(base, attr));
+			xmlToModelResult.addHl7Error(Hl7Error.createEmptyCodeValueError(base, attr));
 			return null;
 		} else {
 			Code result = CodeResolverRegistry.lookup(returnType, code);
 	        if (result == null) {
-	        	xmlToJavaResult.addHl7Error(createHl7Error(base, returnType, code));
+	        	xmlToModelResult.addHl7Error(createHl7Error(base, returnType, code));
 	        }
 			return result;
 		}

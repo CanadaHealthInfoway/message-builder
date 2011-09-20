@@ -54,8 +54,8 @@ public class Hl7SourceMapperMessageBeanTest {
 	
 	@Test
 	public void shouldMapPatientReferralSummariesQueryResponseMessageBean() throws Exception {
-		XmlToModelResult xmlToJavaResult = new Hl7SourceMapper().mapToTeal(this.messageSource);
-		FindCandidatesQueryMessageBean teal = (FindCandidatesQueryMessageBean) xmlToJavaResult.getMessageObject(); 
+		XmlToModelResult xmlResult = new Hl7SourceMapper().mapToTeal(this.messageSource);
+		FindCandidatesQueryMessageBean teal = (FindCandidatesQueryMessageBean) xmlResult.getMessageObject(); 
 		assertNotNull("message Bean", teal);
 		assertEquals("id", "1ee83ff1-08ab-4fe7-b573-ea777e9bad51", teal.getMessageIdentifier().getRoot());
 		assertEquals("processingId", "P", teal.getProcessingCode().getCodeValue());

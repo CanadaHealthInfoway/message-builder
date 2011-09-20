@@ -35,7 +35,7 @@ public abstract class AbstractElementParser implements ElementParser {
 
 	protected static final String SPECIALIZATION_TYPE = "specializationType";
 
-	public abstract BareANY parse(ParseContext context, List<Node> node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException;
+	public abstract BareANY parse(ParseContext context, List<Node> node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
 	
 	protected String getAttributeValue(Node node, String attributeName) {
 		return node != null && node instanceof Element ? getAttributeValue((Element) node, attributeName) : null;

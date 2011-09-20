@@ -25,10 +25,10 @@ import java.util.List;
 
 /**
  * <p>An object that represents the result of transforming an object from HL7 XML format
- * to a Java representation.  The result tends to contain two key items:
+ * to an object representation.  The result tends to contain two key items:
  * 
  * <ol>
- * <li>A Java representation of the HL7 message that contains all of the populated 
+ * <li>An object representation of the HL7 message that contains all of the populated 
  * data.
  * <li>A set of errors that were encountered during parsing of the message.
  * </ol>
@@ -41,9 +41,9 @@ public class XmlToModelResult {
 	private final List<Hl7Error> hl7Errors = new ArrayList<Hl7Error>();
 	
 	/**
-	 * <p>The Java representation of the HL7 message.
+	 * <p>The object representation of the HL7 message.
 	 * 
-	 * @return - the populated Java classes that contain the message data.
+	 * @return - the populated classes that contain the message data.
 	 */
 	public Object getMessageObject() {
 		return messageObject;

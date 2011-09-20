@@ -57,19 +57,19 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class IntElementParser extends AbstractSingleElementParser<Integer> {
 
 	@Override
-	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
-		return parseNonNullNode((Element) node, expectedReturnType, xmlToJavaResult);
+		return parseNonNullNode((Element) node, expectedReturnType, xmlToModelResult);
 	}
 
-	protected Integer parseNonNullNode(Element element, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Integer parseNonNullNode(Element element, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		Integer result = null;
 		
 		String unparsedInteger = getAttributeValue(element, "value");
 		if (StringUtils.isNotBlank(unparsedInteger)) {
 			if (!NumberUtil.isNumber(unparsedInteger)) {
-				xmlToJavaResult.addHl7Error(
+				xmlToModelResult.addHl7Error(
 						new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 								"The attribute \"value\" does not contain a valid number (" 
 								+ XmlDescriber.describeSingleElement(element)
@@ -77,7 +77,7 @@ class IntElementParser extends AbstractSingleElementParser<Integer> {
 			} else {
 				result = NumberUtil.parseAsInteger(unparsedInteger);
 				if (!NumberUtil.isInteger(unparsedInteger)) {
-					xmlToJavaResult.addHl7Error(
+					xmlToModelResult.addHl7Error(
 							new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 									"The attribute \"value\" is not a valid integer, it will be truncated to "
 									+ result
@@ -87,7 +87,7 @@ class IntElementParser extends AbstractSingleElementParser<Integer> {
 				}
 			}
 		} else if (element.hasAttribute("value")) {
-			xmlToJavaResult.addHl7Error(
+			xmlToModelResult.addHl7Error(
 					new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 							"The attribute \"value\" is specified, but empty. (" 
 							+ XmlDescriber.describeSingleElement(element)

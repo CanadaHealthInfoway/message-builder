@@ -45,7 +45,7 @@ public class ListEnElementParserTest extends ParserTestCase {
 		BareANY result = new ListElementParser().parse(
 				ParserContextImpl.create("LIST<PN>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
-				this.xmlJavaResult);
+				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
 		
 		assertNotNull("null", list);

@@ -47,7 +47,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
 		
-		TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlJavaResult);
+		TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlResult);
 		
 		assertNull("null returned", ts.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
@@ -60,13 +60,13 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+		assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -75,15 +75,15 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something value=\"19990303101112\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				calendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
 	public void testParseValueInWrongFormat() throws Exception {
 		Node node = createNode("<something value=\"19990303\" />");
-		assertNotNull("correct value returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
-		assertEquals("error", 1, this.xmlJavaResult.getHl7Errors().size());
-		System.out.println(this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+		assertNotNull("correct value returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
+		assertEquals("error", 1, this.xmlResult.getHl7Errors().size());
+		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -92,7 +92,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something extra=\"extra\" value=\"19990303101112\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				calendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something extra=\"extra\" value=\"20080331155857.8620-0400\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				calendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
 	@Test
@@ -110,19 +110,19 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something extra=\"extra\" value=\"20080331155857.8620+0100\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				expectedCalendar, 
-				(Date) new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
 		Node node = createNode("<something value=\"19990355101112\" />");
 		
-        new TsElementParser().parse(createContext(), node, this.xmlJavaResult);
+        new TsElementParser().parse(createContext(), node, this.xmlResult);
 
-        assertFalse("valid date", this.xmlJavaResult.isValid());
-        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
+        assertFalse("valid date", this.xmlResult.isValid());
+        assertEquals("one error", 1, this.xmlResult.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.xmlJavaResult.getHl7Errors().get(0);
+        Hl7Error hl7Error = this.xmlResult.getHl7Errors().get(0);
         assertEquals("error message", "The timestamp 19990355101112 in element <something value=\"19990355101112\"/> cannot be parsed.", hl7Error.getMessage());
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
@@ -133,8 +133,8 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	@Test
 	public void timeInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
 		Node node = createNode("<something value=\"19990303101112\" />");
-		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-6")), node, this.xmlJavaResult).getBareValue());
-		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-5")), node, this.xmlJavaResult).getBareValue());
+		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-6")), node, this.xmlResult).getBareValue());
+		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-5")), node, this.xmlResult).getBareValue());
 		assertTrue(saskDate.compareTo(ontarioDate) > 0);
 	}
 	

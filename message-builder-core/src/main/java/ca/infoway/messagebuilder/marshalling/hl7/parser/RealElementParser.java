@@ -61,17 +61,17 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 
 	@Override
-	protected BigDecimal parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected BigDecimal parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 		BigDecimal result = null;
 
 		String unparsedReal = getAttributeValue(node, "value");
-		validateDecimal(unparsedReal, context.getType(), xmlToJavaResult, (Element) node);
+		validateDecimal(unparsedReal, context.getType(), xmlToModelResult, (Element) node);
 		if (unparsedReal != null) {
 			try {
 				result = new BigDecimal(unparsedReal);
 			} catch (NumberFormatException e) {
-				xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value \"" 
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value \"" 
 						+ unparsedReal + "\" of type " + context.getType() + " is not a valid number", (Element) node));
 			}
 		}

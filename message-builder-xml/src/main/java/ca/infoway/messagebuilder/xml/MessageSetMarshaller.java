@@ -28,7 +28,7 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 /**
- * <p>A utility to read and write the Java representation of a message set.
+ * <p>A utility to read and write the object representation of a message set.
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 public class MessageSetMarshaller {

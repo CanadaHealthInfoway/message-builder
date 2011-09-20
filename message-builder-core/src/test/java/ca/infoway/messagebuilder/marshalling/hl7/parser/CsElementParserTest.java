@@ -57,7 +57,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
 		CS acknowledgementCondition = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertTrue(acknowledgementCondition.hasNullFlavor());
 		assertEquals(NullFlavor.NO_INFORMATION, acknowledgementCondition.getNullFlavor());
 	}
@@ -67,11 +67,11 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\" codeSystem=\"1.2.3.4\" />");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		
 		assertNotNull("cs", cs);
 		assertNotNull("code", cs.getValue());
-		assertFalse("valid", this.xmlJavaResult.isValid());
+		assertFalse("valid", this.xmlResult.isValid());
 	}
 	
 	@Test
@@ -79,10 +79,10 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\" displayName=\"Error\" />");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertNotNull("cs", cs);
 		assertNotNull("code", cs.getValue());
-		assertFalse("valid", this.xmlJavaResult.isValid());
+		assertFalse("valid", this.xmlResult.isValid());
 	}
 	
 	@Test
@@ -90,10 +90,10 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\" codeSystemName=\"My code system\" />");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertNotNull("cs", cs);
 		assertNotNull("code", cs.getValue());
-		assertFalse("valid", this.xmlJavaResult.isValid());
+		assertFalse("valid", this.xmlResult.isValid());
 	}
 	
 	@Test
@@ -101,11 +101,11 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\"><originalText>My original text</originalText></something>");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		
 		assertNotNull("cs", cs);
 		assertNotNull("code", cs.getValue());
-		assertFalse("valid", this.xmlJavaResult.isValid());
+		assertFalse("valid", this.xmlResult.isValid());
 	}
 
 	@Test
@@ -113,7 +113,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something/>");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertNull("empty node returns null", cs.getValue());
 	}
 
@@ -122,7 +122,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something notvalue=\"\" />");
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, ConformanceLevel.OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertNull("node with no code attribute returns null", cs.getValue());
 	}
 	
@@ -153,15 +153,15 @@ public class CsElementParserTest extends MarshallingTestCase {
 		
 		CS cs = (CS) new CsElementParser().parse(
 				ParserContextImpl.create("CS", MockEnum.class, V02R02, OPTIONAL), 
-				node, this.xmlJavaResult);
+				node, this.xmlResult);
 		assertNull("bogus enum not found", cs.getValue());
-		assertEquals("error message count", 1, this.xmlJavaResult.getHl7Errors().size());
+		assertEquals("error message count", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("error message", 
 				"The code, \"ER\", in element <something> is not a valid value for domain type \"MockEnum\"", 
-				this.xmlJavaResult.getHl7Errors().get(0).getMessage());
+				this.xmlResult.getHl7Errors().get(0).getMessage());
 		assertEquals("error type", 
 				Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, 
-				this.xmlJavaResult.getHl7Errors().get(0).getHl7ErrorCode());
+				this.xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 	
 	@Test
@@ -173,7 +173,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 
         CS cs = (CS) new CsElementParser().parse(
         		ParserContextImpl.create("CS", MockCode.class, V02R02, OPTIONAL), 
-        		node, this.xmlJavaResult);
+        		node, this.xmlResult);
         assertNull("empty node with children returns null", cs.getValue());
 	}
 }

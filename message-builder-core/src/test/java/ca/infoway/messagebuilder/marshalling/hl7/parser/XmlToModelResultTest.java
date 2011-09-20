@@ -33,10 +33,10 @@ public class XmlToModelResultTest {
 	
 	@Test
 	public void testIsValid() throws Exception {
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		assertTrue("is valid", xmlToJavaResult.isValid());
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		assertTrue("is valid", xmlResult.isValid());
 		
-		xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "monkey"));
-		assertFalse("is not valid", xmlToJavaResult.isValid());
+		xmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "monkey"));
+		assertFalse("is not valid", xmlResult.isValid());
 	}
 }

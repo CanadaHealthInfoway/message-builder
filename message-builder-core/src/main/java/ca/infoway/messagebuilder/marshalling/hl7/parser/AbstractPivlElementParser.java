@@ -55,18 +55,18 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 public abstract class AbstractPivlElementParser extends AbstractSingleElementParser<PeriodicIntervalTime> {
 
 	@Override
-	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 
 		try {
 			Element period = (Element) getNamedChildNode(node, "period");
 			Element phase = (Element) getNamedChildNode(node, "phase");
 
 			if (period != null && phase != null) {
-				return PeriodicIntervalTime.createPeriodPhase(createPeriodType(period, xmlToJavaResult), createPhaseType(phase, xmlToJavaResult));
+				return PeriodicIntervalTime.createPeriodPhase(createPeriodType(period, xmlToModelResult), createPhaseType(phase, xmlToModelResult));
 			} else if (period != null) {
-				return PeriodicIntervalTime.createPeriod(createPeriodType(period, xmlToJavaResult));
+				return PeriodicIntervalTime.createPeriod(createPeriodType(period, xmlToModelResult));
 			} else if (phase != null) {
-				return PeriodicIntervalTime.createPhase(createPhaseType(phase, xmlToJavaResult));
+				return PeriodicIntervalTime.createPhase(createPhaseType(phase, xmlToModelResult));
 			} else {
 				return null;
 			}
@@ -75,7 +75,7 @@ public abstract class AbstractPivlElementParser extends AbstractSingleElementPar
 		}
 	}
 
-	protected abstract DateDiff createPeriodType(Element element, XmlToModelResult xmlToJavaResult) throws ParseException, XmlToModelTransformationException;
+	protected abstract DateDiff createPeriodType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
 
-	protected abstract Interval<Date> createPhaseType(Element element, XmlToModelResult xmlToJavaResult) throws ParseException, XmlToModelTransformationException;
+	protected abstract Interval<Date> createPhaseType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
 }

@@ -48,7 +48,7 @@ class TnElementParser extends AbstractEntityNameElementParser {
 	}
 
     @Override
-	protected EntityName parseNode(Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         String name = null;
         int childNodeCount = node.getChildNodes().getLength();
         

@@ -145,12 +145,12 @@ public class PnElementParserTest extends MarshallingTestCase {
 				+ "  <prefix></prefix>" 
 				+ "</something>");
 		
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, xmlToJavaResult).getBareValue();
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		PersonName personName = (PersonName) new PnElementParser().parse(null, node, xmlResult).getBareValue();
         assertEquals("number of name parts", 0, personName.getParts().size());
-        assertEquals("number of warnings", 1, xmlToJavaResult.getHl7Errors().size());
-        assertEquals("warnings", "Expected PN child node \"prefix\" to have a text node", xmlToJavaResult.getHl7Errors().get(0).getMessage());
-        assertEquals("warnings", "/something/prefix", xmlToJavaResult.getHl7Errors().get(0).getPath());
+        assertEquals("number of warnings", 1, xmlResult.getHl7Errors().size());
+        assertEquals("warnings", "Expected PN child node \"prefix\" to have a text node", xmlResult.getHl7Errors().get(0).getMessage());
+        assertEquals("warnings", "/something/prefix", xmlResult.getHl7Errors().get(0).getPath());
 	}
 
     private void assertNamePartAsExpected(String message, EntityNamePart namePart, NamePartType expectedType, String expectedValue, String expectedQualifier) {

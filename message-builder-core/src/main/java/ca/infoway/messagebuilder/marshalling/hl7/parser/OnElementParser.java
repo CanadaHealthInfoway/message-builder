@@ -54,7 +54,7 @@ class OnElementParser extends AbstractEntityNameElementParser {
 	}
     
     @Override
-	protected EntityName parseNode(Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         OrganizationName result = new OrganizationName();
         NodeList childNodes = node.getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {

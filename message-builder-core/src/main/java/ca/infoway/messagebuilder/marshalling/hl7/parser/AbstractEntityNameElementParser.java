@@ -37,8 +37,8 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 abstract class AbstractEntityNameElementParser extends AbstractSingleElementParser<EntityName> {
 
 	@Override
-	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		EntityName result = parseNode(node, xmlToJavaResult);
+	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		EntityName result = parseNode(node, xmlToModelResult);
         result.setUses(getNameUses(getAttributeValue(node, "use")));
 		return result;
 	}
@@ -58,7 +58,7 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
         return uses;
     }
 	
-    protected abstract EntityName parseNode(Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException;
+    protected abstract EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
    
     public boolean isParseable(Node node) {
         boolean result = false;

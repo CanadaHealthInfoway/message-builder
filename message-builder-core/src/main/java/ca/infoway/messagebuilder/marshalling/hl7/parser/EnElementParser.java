@@ -51,17 +51,17 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
     private final TnElementParser tnElementParser = new TnElementParser();
 
     @Override
-	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	EntityName result;
         
         if (tnElementParser.isParseable(node)) {
-            result = (EntityName) tnElementParser.parse(null, node, xmlToJavaResult).getBareValue();
+            result = (EntityName) tnElementParser.parse(null, node, xmlToModelResult).getBareValue();
             
         } else if (onElementParser.isParseable(node)) {
-            result = (EntityName) onElementParser.parse(null, node, xmlToJavaResult).getBareValue();
+            result = (EntityName) onElementParser.parse(null, node, xmlToModelResult).getBareValue();
             
         } else if (pnElementParser.isParseable(node)) {
-            result = (EntityName) pnElementParser.parse(null, node, xmlToJavaResult).getBareValue();
+            result = (EntityName) pnElementParser.parse(null, node, xmlToModelResult).getBareValue();
             
         } else {
             throw new XmlToModelTransformationException("Cannot figure out how to parse node " + node.toString());

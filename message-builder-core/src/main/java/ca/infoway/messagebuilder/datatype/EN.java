@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.lang.EntityName;
  * @param <V> the underlying javav entity name type
  * 
  * @sharpen.ignore - datatype - translated manually
- * @sharpen.ignore - datatype - translated manually 
  */
 public interface EN<V extends EntityName> extends ANY<V> {
 

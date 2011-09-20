@@ -76,7 +76,7 @@ class Hl7SourceMapper {
 	}
 
 	private void createBeanPathOnErrorMessages(XmlToModelResult result, Object messageBean) {
-		// would be nice to push this entire method into XmlToJavaResult, but BeanUtil not visible from XmlToJavaResult
+		// would be nice to push this entire method into XmlToModelResult, but BeanUtil not visible from XmlToModelResult
 		// (and moving classes or adding a dependency causes all sorts of problems)
 		for (Hl7Error hl7Error : result.getHl7Errors()) {
 			String beanPath = BeanUtil.describeBeanPath(messageBean, hl7Error.getPath());

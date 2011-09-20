@@ -57,17 +57,17 @@ class MoElementParser extends AbstractSingleElementParser<Money> {
 	}
 	
 	@Override
-	protected Money parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Money parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		validateNoChildren(context, node);
 
-		String value = getMandatoryAttributeValue(node, "value", xmlToJavaResult);
+		String value = getMandatoryAttributeValue(node, "value", xmlToModelResult);
 		BigDecimal amount = StringUtils.isBlank(value) ? null : new BigDecimal(value);
-        String currencyCode = getMandatoryAttributeValue(node, "currency", xmlToJavaResult);
+        String currencyCode = getMandatoryAttributeValue(node, "currency", xmlToModelResult);
 		Currency currency = CodeResolverRegistry.lookup(Currency.class, currencyCode);
         
         if (currency == null) {
-            xmlToJavaResult.addHl7Error(
+            xmlToModelResult.addHl7Error(
             		new Hl7Error(
             				Hl7ErrorCode.DATA_TYPE_ERROR,
             				"Could not decode currency value " + currencyCode + " (" + XmlDescriber.describeSingleElement((Element) node) + ")",

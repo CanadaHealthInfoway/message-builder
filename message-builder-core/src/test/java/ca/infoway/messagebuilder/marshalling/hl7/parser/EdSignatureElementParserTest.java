@@ -67,13 +67,13 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	public void testInvalidNode(Node invalidNode) throws Exception {
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		String parseResult = (String) new EdSignatureElementParser().parse(createEdContext(), invalidNode, xmlToJavaResult).getBareValue();
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		String parseResult = (String) new EdSignatureElementParser().parse(createEdContext(), invalidNode, xmlResult).getBareValue();
 		
 		assertNull("parse result", parseResult);
-		assertEquals("HL7 error count", 1, xmlToJavaResult.getHl7Errors().size());
+		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
 		
-		Hl7Error hl7Error = xmlToJavaResult.getHl7Errors().get(0);
+		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
 		assertEquals("error message", "Expected ED.SIGNATURE node to have a child element named signature", hl7Error.getMessage());
 		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}

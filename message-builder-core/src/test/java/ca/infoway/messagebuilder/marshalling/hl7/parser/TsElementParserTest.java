@@ -48,7 +48,7 @@ public class TsElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\" />");
         
-        TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlJavaResult);
+        TS ts = (TS) new TsElementParser().parse(createContext(), node, this.xmlResult);
         
         assertNull("null returned", ts.getValue());
         assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
@@ -61,13 +61,13 @@ public class TsElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
-        assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+        assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
 
 	@Test
     public void testParseNoValueAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
-        assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlJavaResult).getBareValue());
+        assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
 	@Test
@@ -94,14 +94,14 @@ public class TsElementParserTest extends MarshallingTestCase {
 		String value = "20080331155857.8620+0100";
 		assertValidValueAttribute(calendar, value);
         Node node = createNode("<something value=\"" + value + "\" />");
-        Date parsedDate = (Date) (new TsElementParser()).parse(createContext(), node, this.xmlJavaResult).getBareValue();
+        Date parsedDate = (Date) (new TsElementParser()).parse(createContext(), node, this.xmlResult).getBareValue();
         assertTrue("is messagebuilder date", parsedDate instanceof DateWithPattern);
         assertEquals("correct date pattern", "yyyyMMddHHmmss.SSS0ZZZZZ", ((DateWithPattern)parsedDate).getDatePattern());		
 	}
     
     private void assertValidValueAttribute(Date expectedResult, String value) throws Exception {
         Node node = createNode("<something value=\"" + value + "\" />");
-        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(createContext(), node, this.xmlJavaResult).getBareValue());
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
 	@Test
@@ -124,12 +124,12 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertEquals("no error", 0, this.xmlJavaResult.getHl7Errors().size());
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("no error", 0, this.xmlResult.getHl7Errors().size());
         
 		context = ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V01R04_3, ConformanceLevel.POPULATED);
-		assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-		assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
+		assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+		assertEquals("one error", 1, this.xmlResult.getHl7Errors().size());
     }
 	
 	@Test
@@ -139,10 +139,8 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertTrue("no errors after relaxing validation", this.xmlJavaResult.getHl7Errors().isEmpty());
-//        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-//        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
 	@Test
@@ -152,10 +150,8 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertTrue("no errors after relaxing validation", this.xmlJavaResult.getHl7Errors().isEmpty());
-//        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-//        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
+        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
 	@Test
@@ -165,9 +161,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.DATETIME\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Invalid specialization type TS.DATETIME"));
+        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("one error", 1, this.xmlResult.getHl7Errors().size());
+        assertTrue("specialization type error", this.xmlResult.getHl7Errors().get(0).getMessage().startsWith("Invalid specialization type TS.DATETIME"));
     }
 	
 	@Test
@@ -177,8 +173,8 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertTrue("no errors", this.xmlJavaResult.getHl7Errors().isEmpty());
+        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
 	@Test
@@ -188,8 +184,8 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATETIME\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertTrue("no errors", this.xmlJavaResult.getHl7Errors().isEmpty());
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
 	@Test
@@ -199,9 +195,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, ConformanceLevel.POPULATED);
-        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().equals("The timestamp element <something specializationType=\"TS.FULLDATE\" value=\"20080625141610-0400\"/> appears to be formatted as type TS.FULLDATETIME, but should be TS.FULLDATE."));
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("one error", 1, this.xmlResult.getHl7Errors().size());
+        assertTrue("specialization type error", this.xmlResult.getHl7Errors().get(0).getMessage().equals("The timestamp element <something specializationType=\"TS.FULLDATE\" value=\"20080625141610-0400\"/> appears to be formatted as type TS.FULLDATETIME, but should be TS.FULLDATE."));
     }
 	
 	/**
@@ -213,7 +209,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 		String value = "20080625";
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
 		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
-		Date date = (Date)new TsElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
+		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 		System.out.println(date);
 	}
@@ -227,7 +223,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 		String value = "20080625";
 		Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATEWITHTIME\" />");
 		ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
-		Date date = (Date)new TsElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
+		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should have been converted due to time zone", FULL_DATE_TIME, expectedResult, date);
 		System.out.println(date);
 	}

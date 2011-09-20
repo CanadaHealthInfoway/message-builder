@@ -25,8 +25,8 @@ import java.util.List;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
- * <p>A part bridge maps between a Message Part and the Java class that represents it.
- * In the most simple case, one part maps to one Java class, but in some cases (such
+ * <p>A part bridge maps between a Message Part and the object that represents it.
+ * In the most simple case, one part maps to one class, but in some cases (such
  * as with inlining) the part really maps to a subset of properties on the class in
  * which it was inlined.
  * 

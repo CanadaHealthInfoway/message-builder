@@ -43,29 +43,29 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 public abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
 
     @Override
-	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	BareANY cd = doCreateDataTypeInstance(context.getType());
         
-        populateNullFlavor(cd, context, node, xmlToJavaResult); 
-        populateValue(cd, context, node, xmlToJavaResult);
-        populateOriginalText(cd, context, (Element) node, getReturnType(context), xmlToJavaResult);
+        populateNullFlavor(cd, context, node, xmlToModelResult); 
+        populateValue(cd, context, node, xmlToModelResult);
+        populateOriginalText(cd, context, (Element) node, getReturnType(context), xmlToModelResult);
         
         return cd;
     }
 
-	private void populateNullFlavor(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		if (hasValidNullFlavorAttribute(context, node, xmlToJavaResult)) {
-            NullFlavor nullFlavor = parseNullNode(context, node, xmlToJavaResult);
+	private void populateNullFlavor(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		if (hasValidNullFlavorAttribute(context, node, xmlToModelResult)) {
+            NullFlavor nullFlavor = parseNullNode(context, node, xmlToModelResult);
             dataType.setNullFlavor(nullFlavor);
         }
 	}
 
-	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		Code value = parseNonNullNode(context, node, dataType, getReturnType(context), xmlToJavaResult);
+	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		Code value = parseNonNullNode(context, node, dataType, getReturnType(context), xmlToModelResult);
         ((BareANYImpl) dataType).setBareValue(value);
 	}
 	
-	private void populateOriginalText(BareANY dataType, ParseContext context, Element element, Type returnType, XmlToModelResult xmlToJavaResult) {
+	private void populateOriginalText(BareANY dataType, ParseContext context, Element element, Type returnType, XmlToModelResult xmlToModelResult) {
 		if (hasOriginalText(element)) {
         	((CD) dataType).setOriginalText(getOriginalText(element));
         }

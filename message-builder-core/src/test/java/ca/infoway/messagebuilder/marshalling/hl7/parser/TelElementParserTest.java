@@ -85,12 +85,12 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseInvalidValueAttributeNode() throws Exception {
 		Node node = createNode("<something value=\"1234\" />");
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		new TelElementParser().parse(null, node, xmlToJavaResult);
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		new TelElementParser().parse(null, node, xmlResult);
 		
-		assertEquals("HL7 error count", 1, xmlToJavaResult.getHl7Errors().size());
+		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
 		
-		Hl7Error hl7Error = xmlToJavaResult.getHl7Errors().get(0);
+		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
 		assertEquals("error message", "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", hl7Error.getMessage());
 		assertEquals("error message code", Hl7ErrorCode.SYNTAX_ERROR, hl7Error.getHl7ErrorCode());
 	}
@@ -99,11 +99,11 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseInvalidValueUrlScheme() throws Exception {
 		resolver.addDomainValue(null, URLScheme.class);
 		Node node = createNode("<something value=\"mailfrom://monkey\" />");
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
-		new TelElementParser().parse(null, node, xmlToJavaResult);
-		assertEquals("HL7 error count", 1, xmlToJavaResult.getHl7Errors().size());
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		new TelElementParser().parse(null, node, xmlResult);
+		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
 		
-		Hl7Error hl7Error = xmlToJavaResult.getHl7Errors().get(0);
+		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
 		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());		
 		assertEquals("error message", "Unrecognized URL scheme 'mailfrom' in element /something", hl7Error.getMessage());
 	}

@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 
 	@Override
-	protected EncapsulatedData parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
+	protected EncapsulatedData parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
 		validateMaxChildCount(context, node, 1);
 		try {

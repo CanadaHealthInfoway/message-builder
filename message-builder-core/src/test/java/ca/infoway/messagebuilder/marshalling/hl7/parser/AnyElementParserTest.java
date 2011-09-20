@@ -126,17 +126,17 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testReportErrorForMissingSpecializationType() throws Exception {
-		XmlToModelResult xmlToJavaResult = new XmlToModelResult();
+		XmlToModelResult xmlResult = new XmlToModelResult();
 		
 		Node node = createNode(
 		"<range><low value=\"123\" unit=\"m\" /><high value=\"567\" unit=\"HOUR\" /></range>");
-		Object range = new AnyElementParser().parse(null, node, xmlToJavaResult).getBareValue();
+		Object range = new AnyElementParser().parse(null, node, xmlResult).getBareValue();
 		
 		assertNull("null", range);
-		assertFalse("has error", xmlToJavaResult.getHl7Errors().isEmpty());
+		assertFalse("has error", xmlResult.getHl7Errors().isEmpty());
 		assertEquals("error", 
 				Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
-				xmlToJavaResult.getHl7Errors().get(0).getHl7ErrorCode());
+				xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 	
 	@Test
