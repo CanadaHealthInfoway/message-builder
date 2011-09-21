@@ -35,7 +35,7 @@ import org.apache.commons.io.DirectoryWalker;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.j5goodies.JavaFileUtil;
+import ca.infoway.messagebuilder.j5goodies.ClassFileUtil;
 import ca.infoway.messagebuilder.junit.ModelClassFinder;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
 
@@ -54,7 +54,7 @@ public class ModelTest {
 			if (".svn".equals(directory.getName())) {
 				return false;
 			} else {
-				String name = JavaFileUtil.convertFileNameToJavaClassName(ModelClassFinder.srcDirectory, directory);
+				String name = ClassFileUtil.convertFileNameToClassName(ModelClassFinder.srcDirectory, directory);
 				results.add(name);
 				return true;
 			}
@@ -84,7 +84,7 @@ public class ModelTest {
 		List<String> packageNames = new PackageFinder().getPackageNames("ca.infoway.messagebuilder.model");
 		List<File> allModelFiles = ModelClassFinder.getAllModelFiles(packageNames.toArray(new String[packageNames.size()]));
 		for (File file : allModelFiles) {
-			String javaClassName = JavaFileUtil.convertFileNameToJavaClassName(ModelClassFinder.srcDirectory, file);
+			String javaClassName = ClassFileUtil.convertFileNameToClassName(ModelClassFinder.srcDirectory, file);
 			Class<?> c = Class.forName(javaClassName);
 			assertion.perform(c);
 		}

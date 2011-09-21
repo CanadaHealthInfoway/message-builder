@@ -76,7 +76,7 @@ class DirectoryFinderStrategy extends DirectoryWalker implements FinderStrategy 
 	@Override
 	protected void handleFile(File file, int depth, Collection results) throws IOException {
 		if (isJavaClass(file)) {
-			String className = JavaFileUtil.convertFileNameToJavaClassName(this.startDirectory, file);
+			String className = ClassFileUtil.convertFileNameToClassName(this.startDirectory, file);
 			if (isSelected(className)) {
 				try {
 					Class<?> c = Class.forName(className);

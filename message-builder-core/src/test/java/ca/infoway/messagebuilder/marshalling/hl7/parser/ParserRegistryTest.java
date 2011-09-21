@@ -29,7 +29,7 @@ import java.util.List;
 import org.apache.commons.lang.ClassUtils;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.j5goodies.JavaFileUtil;
+import ca.infoway.messagebuilder.j5goodies.ClassFileUtil;
 import ca.infoway.messagebuilder.platform.ClassUtil;
 import ca.infoway.messagebuilder.platform.SourceCodeLocationUtil;
 
@@ -56,7 +56,7 @@ public class ParserRegistryTest {
         List<File> files = getAllClasses();
         
         for (File file : files) {
-            String className = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
+            String className = ClassFileUtil.convertFileNameToClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
             try {
 	            Class<?> otherClassName = Class.forName(className);
 	            if (isParser(otherClassName)) {

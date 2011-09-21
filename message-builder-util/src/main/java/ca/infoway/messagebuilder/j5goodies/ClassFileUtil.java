@@ -33,7 +33,7 @@ import org.apache.commons.lang.StringUtils;
  * 
  * @sharpen.ignore j5goodies - Translated manually
  */
-public class JavaFileUtil {
+public class ClassFileUtil {
 
 	/**
 	 * <p>Convert the file name into its corresponding Java class name.
@@ -41,7 +41,7 @@ public class JavaFileUtil {
 	 * @param file - the file that represents the Java source file.
 	 * @return - the name of the Java class
 	 */
-	public static String convertFileNameToJavaClassName(String root, File file) {
+	public static String convertFileNameToClassName(String root, File file) {
 		String rootName = root + File.separator;
 		if (file.getAbsolutePath().startsWith(rootName)) {
 			String fileName = StringUtils.substringAfter(file.getAbsolutePath(), rootName);
@@ -52,7 +52,7 @@ public class JavaFileUtil {
 		}
 	}
 	
-	public static String convertFileNameToJavaClassName(File root, File file) {
-		return convertFileNameToJavaClassName(root.getAbsolutePath(), file);
+	public static String convertFileNameToClassName(File root, File file) {
+		return convertFileNameToClassName(root.getAbsolutePath(), file);
 	}
 }
