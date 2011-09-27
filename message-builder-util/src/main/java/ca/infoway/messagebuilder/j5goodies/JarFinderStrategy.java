@@ -40,10 +40,17 @@ import org.apache.commons.lang.StringUtils;
  */
 class JarFinderStrategy implements FinderStrategy {
 
+	private static String[] JAR_URL_PREFIXES = {"jar:", "zip:"};
+	
 	private String jarLocation;
 
 	JarFinderStrategy(String root) {
-		this.jarLocation = StringUtils.substringAfter(root, "jar:");
+		String trimmedRoot = StringUtils.trim(root);
+		for (int i = 0; i < JAR_URL_PREFIXES.length; i++) {
+			if (StringUtils.startsWith(trimmedRoot, JAR_URL_PREFIXES[i])) {
+				this.jarLocation = StringUtils.substringAfter(trimmedRoot, JAR_URL_PREFIXES[i]);
+			}
+		}
 	}
 
 	public List<Class<?>> find(ClassPredicate predicate) {
