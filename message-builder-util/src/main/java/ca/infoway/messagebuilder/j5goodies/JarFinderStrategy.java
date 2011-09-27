@@ -47,12 +47,16 @@ class JarFinderStrategy implements FinderStrategy {
 	JarFinderStrategy(String root) {
 		String trimmedRoot = StringUtils.trim(root);
 		for (int i = 0; i < JAR_URL_PREFIXES.length; i++) {
-			if (StringUtils.startsWith(trimmedRoot, JAR_URL_PREFIXES[i])) {
+			if (startsWith(trimmedRoot, JAR_URL_PREFIXES[i])) {
 				this.jarLocation = StringUtils.substringAfter(trimmedRoot, JAR_URL_PREFIXES[i]);
 			}
 		}
 	}
 
+	private boolean startsWith(String str, String prefix) {
+		return str != null && str.startsWith(prefix);
+	}
+	
 	public List<Class<?>> find(ClassPredicate predicate) {
 		List<Class<?>> list = new ArrayList<Class<?>>();
 		try {
