@@ -6716,7 +6716,7 @@
                   <businessName>bc:prescribed by</businessName>
                </documentation>
                <relationship name="typeCode" type="CS" structural="true" domainType="ParticipationType" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="AUT" codingStrength="CNE"/>
-               <relationship name="time" type="TS.FULLDATE" structural="false" conformance="POPULATED" cardinality="1" sortOrder="1">
+               <relationship name="time" type="TS.FULLDATETIME" structural="false" conformance="POPULATED" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>Prescription Order Date</businessName>
                   </documentation>
