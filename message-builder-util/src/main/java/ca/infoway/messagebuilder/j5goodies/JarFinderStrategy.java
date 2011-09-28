@@ -51,6 +51,11 @@ class JarFinderStrategy implements FinderStrategy {
 				this.jarLocation = StringUtils.substringAfter(trimmedRoot, JAR_URL_PREFIXES[i]);
 			}
 		}
+		try {
+			createUrl();
+		} catch (MalformedURLException e) {
+			this.jarLocation = "file:///" + this.jarLocation;
+		}
 	}
 
 	private boolean startsWith(String str, String prefix) {
@@ -60,7 +65,7 @@ class JarFinderStrategy implements FinderStrategy {
 	public List<Class<?>> find(ClassPredicate predicate) {
 		List<Class<?>> list = new ArrayList<Class<?>>();
 		try {
-			JarInputStream input = new JarInputStream(new URL(this.jarLocation).openStream());
+			JarInputStream input = new JarInputStream(createUrl().openStream());
 			try {
 				for (JarEntry entry = input.getNextJarEntry(); entry != null; entry = input.getNextJarEntry()) {
 					process(entry, predicate, list);
@@ -72,6 +77,10 @@ class JarFinderStrategy implements FinderStrategy {
 		} catch (IOException e) {
 		}
 		return list;
+	}
+
+	protected URL createUrl() throws MalformedURLException {
+		return new URL(this.jarLocation);
 	}
 
 	private void process(JarEntry entry, ClassPredicate predicate, List<Class<?>> list) {
