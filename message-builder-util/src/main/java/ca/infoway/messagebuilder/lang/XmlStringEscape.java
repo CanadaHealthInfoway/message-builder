@@ -61,8 +61,9 @@ public class XmlStringEscape {
 		case '"':
 			return "quot";
 		default:
-			return null;
+//			return null; // moved outside of switch for c# translation
 		}
+		return null;
 	}
 	
 	

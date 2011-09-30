@@ -180,8 +180,9 @@ public class TelephoneParser {
 			return telephone;
 		
 		default:
-			return null;
+//			return null;  // moved for c# translation
 		}
+		return null;
 	}
 
 	private boolean isOnlyNumbers(String telephoneNumber) {
