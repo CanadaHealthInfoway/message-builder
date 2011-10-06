@@ -107,7 +107,21 @@ public class Hl7Error {
     
     @Override
     public String toString() {
-    	return this.hl7ErrorCode + " > " + this.message;
+    	StringBuilder sb = new StringBuilder();
+    	sb.append(this.hl7ErrorCode);
+    	sb.append(" > ");
+    	sb.append(this.message);
+    	if (this.path != null) {
+    		sb.append(" (");
+    		sb.append(this.path);
+    		sb.append(")");
+    	}
+    	if (this.beanPath != null) {
+    		sb.append(" (");
+    		sb.append(this.beanPath);
+    		sb.append(")");
+    	}
+    	return sb.toString();
     }
 
     /**
