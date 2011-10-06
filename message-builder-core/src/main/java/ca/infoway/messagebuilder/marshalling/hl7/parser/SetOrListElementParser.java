@@ -46,9 +46,14 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 		for (Node node : nodes) {
 			ElementParser parser = ParserRegistry.getInstance().get(subType);
 			if (parser != null) {
-				BareANY result = parser.parse(ParserContextImpl.create(
-						subType, getSubTypeAsModelType(context), context.getVersion(), context.getConformance()), 
-						toList(node), xmlToModelResult);
+				BareANY result = parser.parse(
+						ParserContextImpl.create(
+								subType, 
+								getSubTypeAsModelType(context), 
+								context.getVersion(), 
+								context.getConformance()), 
+						toList(node), 
+						xmlToModelResult);
 				if (result != null) {
 					list.add(result);
 				}

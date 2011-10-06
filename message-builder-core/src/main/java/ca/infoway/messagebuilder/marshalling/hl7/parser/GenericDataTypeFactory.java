@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.util.Date;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -32,6 +34,8 @@ import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.PIVL;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.RTO;
+import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -46,6 +50,7 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.ONImpl;
 import ca.infoway.messagebuilder.datatype.impl.PIVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
+import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
 import ca.infoway.messagebuilder.datatype.impl.SCImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -59,6 +64,7 @@ import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
+import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.MarshallingException;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -72,7 +78,7 @@ class GenericDataTypeFactory {
 
 	public static BareANY create(String dataType) {
 		Hl7DataTypeName type = Hl7DataTypeName.create(dataType);
-		String typeName = type.getUnqualifiedVersion().toString();
+		String typeName = StringUtils.deleteWhitespace(type.getUnqualifiedVersion().toString());
 		if ("ANY".equals(typeName)) {
 			return new ANYImpl<Object>();
 		} else if ("AD".equals(typeName)) {
@@ -103,8 +109,8 @@ class GenericDataTypeFactory {
 			return new SETImpl<PIVL,PeriodicIntervalTime>(PIVLImpl.class);
 		} else if ("SET<PN>".equals(typeName)) {
 			return new SETImpl<PIVL,PeriodicIntervalTime>(PIVLImpl.class);
-//		} else if ("SET<RTO>".equals(typeName)) {
-//			return new SETImpl<RTO<PQ,PQ>,Ratio<PhysicalQuantity,PhysicalQuantity>>(RTOImpl.class);
+		} else if ("SET<RTO<PQ,PQ>>".equals(typeName)) {
+			return new SETImpl<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>>(RTOImpl.class);
 		} else if ("SET<ST>".equals(typeName)) {
 			return new SETImpl<ST,String>(STImpl.class);
 		} else if ("SET<TEL>".equals(typeName)) {

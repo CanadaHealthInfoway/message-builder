@@ -50,6 +50,12 @@ public class ParserRegistryTest {
 		assertTrue("CE", ParserRegistry.getInstance().get("CE") instanceof CvElementParser);
 	}
 	
+	@Test
+	public void testShouldFindSetParser() throws Exception {
+		ElementParser elementParser = ParserRegistry.getInstance().get("SET<RTO<PQ.DRUG,PQ.TIME>>");
+		assertTrue("SET", elementParser instanceof SetElementParser);
+	}
+	
     @Test
     @SuppressWarnings("unchecked")
     public void testAllParsersAreRegistered() throws Exception {
