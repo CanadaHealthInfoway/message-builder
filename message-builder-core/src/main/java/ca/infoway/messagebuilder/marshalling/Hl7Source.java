@@ -40,7 +40,9 @@ interface Hl7Source {
 
 	public VersionNumber getVersion();
 	
-	public TimeZone getTimeZone();
+	public TimeZone getDateTimeZone();
+	
+	public TimeZone getDateTimeTimeZone();
 
 	public String getType();
 

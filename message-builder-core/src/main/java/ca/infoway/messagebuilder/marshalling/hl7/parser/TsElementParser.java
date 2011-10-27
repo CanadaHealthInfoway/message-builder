@@ -150,7 +150,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 			// xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		} else if (isValidType(specializationType)) {
-			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getTimeZone(), context.getConformance(), null, null);
+			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), null, null);
 		} else {
 		    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 		    		"Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement((Element) node)
@@ -213,7 +213,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private String[] getDateFormatsForOtherType(StandardDataType type, ParseContext context) {
 		ParseContext newContext;
 		if (context == null) {
-			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null);
+			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null, null);
 		} else {
 			newContext =  ParserContextImpl.create(type == null ? null : type.getType(), context.getExpectedReturnType(), context.getVersion(), context.getConformance());
 		}
@@ -263,17 +263,35 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 
 	private TimeZone getTimeZone(ParseContext context) {
-		TimeZone timeZone;
-		if (context == null ||
-				context.getTimeZone() == null ||
-				StandardDataType.TS_DATE.equals(StandardDataType.getByTypeName(context)) ||
-				StandardDataType.TS_FULLDATE.equals(StandardDataType.getByTypeName(context))) {
-			// use default time zone
+		TimeZone timeZone = null;
+		if (noTimeZonesProvided(context)) {
 			timeZone = TimeZone.getDefault();
-		} else {
-			timeZone = context.getTimeZone();
+		} else if (isDate(context)) {
+			timeZone = getNonNullTimeZone(context.getDateTimeZone());
+		} else if (isDateTime(context)) {
+			timeZone = getNonNullTimeZone(context.getDateTimeTimeZone());
 		}
 		return timeZone;
+	}
+
+	private boolean noTimeZonesProvided(ParseContext context) {
+		return context == null || 
+				(context.getDateTimeZone() == null && context.getDateTimeTimeZone() == null);
+	}
+
+	private TimeZone getNonNullTimeZone(TimeZone timeZone) {
+		return timeZone == null ? TimeZone.getDefault() : timeZone;
+	}
+
+	private boolean isDateTime(ParseContext context) {
+		return StandardDataType.TS_DATETIME.equals(StandardDataType.getByTypeName(context)) || 
+				StandardDataType.TS_FULLDATETIME.equals(StandardDataType.getByTypeName(context)) || 
+				StandardDataType.TS_FULLDATEWITHTIME.equals(StandardDataType.getByTypeName(context));
+	}
+
+	private boolean isDate(ParseContext context) {
+		return StandardDataType.TS_DATE.equals(StandardDataType.getByTypeName(context)) || 
+				StandardDataType.TS_FULLDATE.equals(StandardDataType.getByTypeName(context));
 	}
 
     /*

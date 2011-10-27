@@ -34,16 +34,18 @@ class ParseContextImpl implements ParseContext {
 
 	private final Relationship relationship;
 	private final VersionNumber version;
-	private final TimeZone timeZone;
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
 
-	private ParseContextImpl(Relationship relationship, VersionNumber version, TimeZone timeZone) {
+	private ParseContextImpl(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.relationship = relationship;
 		this.version = version;
-		this.timeZone = timeZone;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
 	}
 
-	public static ParseContext create(Relationship relationship, VersionNumber version, TimeZone timeZone) {
-		return new ParseContextImpl(relationship, version, timeZone);
+	public static ParseContext create(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return new ParseContextImpl(relationship, version, dateTimeZone, dateTimeTimeZone);
 	}
 
 	public Type getExpectedReturnType() {
@@ -57,9 +59,15 @@ class ParseContextImpl implements ParseContext {
 	public VersionNumber getVersion() {
 		return this.version;
 	}
-	public TimeZone getTimeZone() {
-		return this.timeZone;
+	
+	public TimeZone getDateTimeZone() {
+		return this.dateTimeZone;
 	}
+	
+	public TimeZone getDateTimeTimeZone() {
+		return this.dateTimeTimeZone;
+	}
+	
 	public Integer getLength() {
 		return this.relationship.getLength();
 	}

@@ -35,14 +35,16 @@ class ParserContextImpl implements ParseContext {
 	private final ConformanceLevel conformance;
 	private final CodingStrength strength;
 	private final Integer length;
-	private final TimeZone timeZone;
-
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
+	
 	private ParserContextImpl(String type, Type returnType, VersionNumber version, 
-			TimeZone timeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
+			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		this.type = type;
 		this.expectedReturnType = returnType;
 		this.version = version;
-		this.timeZone = timeZone;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.conformance = conformance;
 		this.strength = strength;
 		this.length = length;
@@ -60,16 +62,20 @@ class ParserContextImpl implements ParseContext {
 		return this.version;
 	}
 	
-	public TimeZone getTimeZone() {
-		return this.timeZone;
+	public TimeZone getDateTimeZone() {
+		return this.dateTimeZone;
 	}
 
+	public TimeZone getDateTimeTimeZone() {
+		return this.dateTimeTimeZone;
+	} 
+	
 	public ConformanceLevel getConformance() {
 		return this.conformance;
 	}
 
 	static ParseContext create(String type, Type returnType, VersionNumber version, ConformanceLevel conformance) {
-		return new ParserContextImpl(type, returnType, version, null, conformance, null, null);
+		return new ParserContextImpl(type, returnType, version, null, null, conformance, null, null);
 	}
 
 	public CodingStrength getCodingStrength() {
@@ -81,7 +87,7 @@ class ParserContextImpl implements ParseContext {
 	}
 
 	public static ParseContext create(String type, Type returnType, VersionNumber version,
-			TimeZone timeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
-		return new ParserContextImpl(type, returnType, version, timeZone, conformance, strength, length);
+			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
+		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, strength, length);
 	}
 }

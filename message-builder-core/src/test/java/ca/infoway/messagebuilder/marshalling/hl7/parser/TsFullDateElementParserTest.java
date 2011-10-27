@@ -23,8 +23,10 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -95,5 +97,17 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
         Hl7Error hl7Error = result.getHl7Errors().get(0);
         assertEquals("error message", "The timestamp 19990355 in element <something value=\"19990355\"/> cannot be parsed.", hl7Error.getMessage());
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
+	}
+	
+	@Test
+	public void dateInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
+		Node node = createNode("<something value=\"19990303000000\" />");
+		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")), node, this.xmlResult).getBareValue());
+		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")), node, this.xmlResult).getBareValue());
+		assertTrue(saskDate.compareTo(ontarioDate) > 0);
+	}
+	
+	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
+		return ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.NEWFOUNDLAND, timeZone, null, ConformanceLevel.POPULATED, null, null);
 	}
 }

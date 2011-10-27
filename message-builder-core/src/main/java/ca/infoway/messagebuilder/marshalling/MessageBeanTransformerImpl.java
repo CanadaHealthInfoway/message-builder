@@ -48,26 +48,26 @@ public class MessageBeanTransformerImpl {
 	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
-		return transformFromHl7(version, hl7Message, null);
+		return transformFromHl7(version, hl7Message, null, null);
 	}
-	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message, TimeZone timeZone) {
-		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, timeZone, this.service));
+	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
 	}
-	
+
 	// FIXME - TM - should return ModelToXmlResult (every transformation test will require changing)
 	public String transformToHl7(VersionNumber version, InteractionBean messageBean) {
 		return transformToHl7AndReturnResult(version, messageBean).getXmlMessage();
 	}
-	public String transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone timeZone) {
-		return transformToHl7AndReturnResult(version, messageBean, timeZone).getXmlMessage();
+	public String transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return transformToHl7AndReturnResult(version, messageBean, dateTimeZone, dateTimeTimeZone).getXmlMessage();
 	}
-	
+
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
-		return transformToHl7AndReturnResult(version, messageBean, null);
+		return transformToHl7AndReturnResult(version, messageBean, null, null);
 	}
-	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone timeZone) {
+	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
-		new TealBeanRenderWalker(messageBean, version, timeZone, this.service).accept(visitor);
+		new TealBeanRenderWalker(messageBean, version, dateTimeZone, dateTimeTimeZone, this.service).accept(visitor);
 		ModelToXmlResult result = visitor.toXml();
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());

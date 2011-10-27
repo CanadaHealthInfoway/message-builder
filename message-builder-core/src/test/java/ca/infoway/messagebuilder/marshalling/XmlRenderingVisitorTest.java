@@ -90,7 +90,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setHl7Value(new IIImpl(NullFlavor.MASKED));
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -105,7 +105,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setHl7Value(new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51")));
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -124,7 +124,7 @@ public class XmlRenderingVisitorTest {
 		Relationship relationship = new Relationship();
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
-		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null);
 		
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
@@ -144,7 +144,7 @@ public class XmlRenderingVisitorTest {
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
 
-		this.visitor.visitAttribute(attributeBridge, relationship, null, null);
+		this.visitor.visitAttribute(attributeBridge, relationship, null, null, null);
 		
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
@@ -162,7 +162,7 @@ public class XmlRenderingVisitorTest {
 	@Test
 	public void shouldRenderFixedValueNonStructuralAttribute() throws Exception {
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -193,7 +193,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setValue(Boolean.FALSE);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -206,7 +206,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setValue(Boolean.FALSE);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createFixedValueStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createFixedValueStructuralRelationship(), null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -325,8 +325,8 @@ public class XmlRenderingVisitorTest {
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
 		this.visitor.visitAssociationStart(this.partBridge, relationship);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null);
-		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null);
 		this.visitor.visitAssociationEnd(this.partBridge, relationship);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		

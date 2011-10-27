@@ -63,7 +63,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     	if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
     		datePattern = ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
     	}
-		TimeZone timeZone = context != null && context.getTimeZone() != null ? context.getTimeZone() : TimeZone.getDefault();
+		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
     }
 

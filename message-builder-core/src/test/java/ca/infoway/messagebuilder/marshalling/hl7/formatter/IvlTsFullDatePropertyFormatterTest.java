@@ -114,7 +114,7 @@ public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.TS_FULLDATEWITHTIME);
 		
-		String result = this.formatter.format(new FormatContextImpl("name", "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED, true, null, null), 
+		String result = this.formatter.format(new FormatContextImpl("name", "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED, true, null, null, null), 
 				hl7DataType);
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATE\" value=\"20061225\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATE\" value=\"20070102\" xsi:type=\"TS\"/></name>", result);
 	}

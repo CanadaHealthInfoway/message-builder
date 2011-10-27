@@ -31,16 +31,18 @@ class FormatContextImpl implements FormatContext {
 
 	private final Relationship relationship;
 	private final VersionNumber version;
-	private final TimeZone timeZone;
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
 
-	private FormatContextImpl(Relationship relationship, VersionNumber version, TimeZone timeZone) {
+	private FormatContextImpl(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.relationship = relationship;
 		this.version = version;
-		this.timeZone = timeZone;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
 	}
 
-	public static FormatContext create(Relationship relationship, VersionNumber version, TimeZone timeZone) {
-		return new FormatContextImpl(relationship, version, timeZone);
+	public static FormatContext create(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return new FormatContextImpl(relationship, version, dateTimeZone, dateTimeTimeZone);
 	}
 
 	public ConformanceLevel getConformanceLevel() {
@@ -67,8 +69,11 @@ class FormatContextImpl implements FormatContext {
 		return this.version;
 	}
 
-	public TimeZone getTimeZone() {
-		return timeZone;
+	public TimeZone getDateTimeZone() {
+		return dateTimeZone;
 	}
 
+	public TimeZone getDateTimeTimeZone() {
+		return dateTimeTimeZone;
+	}
 }

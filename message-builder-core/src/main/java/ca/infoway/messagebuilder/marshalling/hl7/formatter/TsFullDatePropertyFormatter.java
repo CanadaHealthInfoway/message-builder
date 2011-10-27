@@ -47,6 +47,7 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
 
     @Override
     protected String getValue(Date date, FormatContext context) {
-    	return DateFormatUtil.format(date, DATE_FORMAT_YYYYMMDD);
+		TimeZone timeZone = context != null && context.getDateTimeZone() != null ? context.getDateTimeZone() : TimeZone.getDefault();
+		return DateFormatUtil.format(date, DATE_FORMAT_YYYYMMDD, timeZone);
     }
 }

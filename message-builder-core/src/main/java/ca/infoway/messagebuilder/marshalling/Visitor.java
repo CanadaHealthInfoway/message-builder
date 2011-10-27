@@ -31,7 +31,7 @@ interface Visitor {
 	public void visitRootStart(PartBridge tealBean, Interaction interaction);
 	public void visitRootEnd(PartBridge tealBean, Interaction interaction);
 	
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone timeZone);
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone);
 	
 	public void visitAssociationStart(PartBridge tealBean, Relationship relationship);
 	public void visitAssociationEnd(PartBridge tealBean, Relationship relationship);

@@ -53,7 +53,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II_BUS);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II.BUS_AND_VER", null, true, SpecificationVersion.R02_04_02, null);
+        FormatContextImpl context = new FormatContextImpl("name", "II.BUS_AND_VER", null, true, SpecificationVersion.R02_04_02, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 4, result.size());
@@ -71,7 +71,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V01R04_3, null);
+        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V01R04_3, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());

@@ -31,7 +31,8 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 public interface ParseContext extends Typed {
 	public Type getExpectedReturnType();
 	public VersionNumber getVersion();
-	public TimeZone getTimeZone();
+	public TimeZone getDateTimeZone();
+	public TimeZone getDateTimeTimeZone();
 	public Integer getLength();
 	public CodingStrength getCodingStrength();
 	public ConformanceLevel getConformance();

@@ -32,5 +32,6 @@ public interface FormatContext {
 	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();
 	public VersionNumber getVersion();
-	public TimeZone getTimeZone();
+	public TimeZone getDateTimeZone();
+	public TimeZone getDateTimeTimeZone();
 }

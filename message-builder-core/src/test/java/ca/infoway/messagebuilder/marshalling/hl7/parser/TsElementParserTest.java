@@ -204,11 +204,11 @@ public class TsElementParserTest extends MarshallingTestCase {
 	 * @sharpen.remove
 	 */
 	@Test
-	public void dateShouldBeUnaffectedByTimeZone() throws Exception {
+	public void dateShouldBeUnaffectedByDateTimeTimeZone() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25);
 		String value = "20080625";
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
-		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
+		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 		System.out.println(date);
@@ -222,9 +222,23 @@ public class TsElementParserTest extends MarshallingTestCase {
 		Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0);
 		String value = "20080625";
 		Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATEWITHTIME\" />");
-		ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
+		ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should have been converted due to time zone", FULL_DATE_TIME, expectedResult, date);
+		System.out.println(date);
+	}
+	
+	/**
+	 * @sharpen.remove
+	 */
+	@Test
+	public void dateShouldBeAffectedByDateTimeZone() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 24);
+		String value = "20080625";
+        Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
+		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), null, ConformanceLevel.POPULATED, null, null);
+		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
+		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 		System.out.println(date);
 	}
 }

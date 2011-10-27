@@ -36,13 +36,15 @@ class ConversionContext {
 	private final MessageDefinitionService service;
 	private final VersionNumber version;
 	private final Interaction interaction;
-	private final TimeZone timeZone;
+	private final TimeZone dateTimeTimeZone;
+	private final TimeZone dateTimeZone;
 	
 	ConversionContext(MessageDefinitionService service,
-			VersionNumber version, TimeZone timeZone, String messageId) {
+			VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, String messageId) {
 		this.service = service;
 		this.version = version;
-		this.timeZone = timeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
+		this.dateTimeZone = dateTimeZone;
 		this.interaction = service.getInteraction(version, messageId);
 	}
 
@@ -54,10 +56,14 @@ class ConversionContext {
 		return this.version;
 	}
 
-	public TimeZone getTimeZone() {
-		return timeZone;
+	public TimeZone getDateTimeTimeZone() {
+		return dateTimeTimeZone;
 	}
 	
+	public TimeZone getDateTimeZone() {
+		return dateTimeZone;
+	}
+
 	public MessagePart getMessagePart(String type) {
 		return this.service.getMessagePart(this.version, type);
 	} 

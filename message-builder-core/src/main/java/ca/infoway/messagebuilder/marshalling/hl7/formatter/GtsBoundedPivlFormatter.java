@@ -73,6 +73,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 						ConformanceLevel.MANDATORY, 
 						requiresSpecializationType(context), 
 						context == null ? null : context.getVersion(), 
+						context == null ? null : context.getDateTimeZone(), 
 						null, 
 						false), 
 				ivlDuration, 
@@ -85,7 +86,8 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 						ConformanceLevel.MANDATORY, 
 						requiresSpecializationType(context), 
 						context == null ? null : context.getVersion(), 
-						null), 
+						null, 
+						context == null ? null : context.getDateTimeTimeZone()), 
 				frequency, 
 				indentLevel + 1));
 	}

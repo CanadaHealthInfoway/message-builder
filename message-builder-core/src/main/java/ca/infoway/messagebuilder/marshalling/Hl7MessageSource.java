@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.Properties;
 import java.util.TimeZone;
 
 import org.w3c.dom.Document;
@@ -43,9 +44,9 @@ class Hl7MessageSource implements Hl7Source {
 	private final XmlToModelResult result; 
 	private MessagePart messagePart;
 
-	public Hl7MessageSource(VersionNumber version, Document document, TimeZone timeZone, MessageDefinitionService service) {
+	public Hl7MessageSource(VersionNumber version, Document document, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, MessageDefinitionService service) {
 		this.document = document;
-		this.context = new ConversionContext(service, version, timeZone, getMessageIdFromDocument());
+		this.context = new ConversionContext(service, version, dateTimeZone, dateTimeTimeZone, getMessageIdFromDocument());
 		this.result = new XmlToModelResult();
 		if (this.context.getInteraction() == null){
 			result.addHl7Error(
@@ -80,10 +81,14 @@ class Hl7MessageSource implements Hl7Source {
 		return this.context.getVersion();
 	}
 	
-	public TimeZone getTimeZone() {
-		return this.context.getTimeZone();
+	public TimeZone getDateTimeZone() {
+		return this.context.getDateTimeZone();
 	}
 
+	public TimeZone getDateTimeTimeZone() {
+		return this.context.getDateTimeTimeZone();
+	}
+	
 	public String getType() {
 		return this.context.getInteraction().getSuperTypeName();
 	}

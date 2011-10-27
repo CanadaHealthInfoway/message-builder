@@ -56,9 +56,12 @@ class ParseContextImpl implements ParseContext {
 	public VersionNumber getVersion() {
 		return this.version;
 	}
-	public TimeZone getTimeZone() {
+	public TimeZone getDateTimeZone() {
 		return null;
 	}	
+	public TimeZone getDateTimeTimeZone() {
+		return null;
+	}
 	public Integer getLength() {
 		return this.relationship.getLength();
 	}

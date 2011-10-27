@@ -88,7 +88,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractIvlPropertyFormatter<T> {
 	    	if (formatter != null) {
 	    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
 				return formatter.format(
-	    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getTimeZone()),
+	    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone()),
 	    				wrapWithHl7DataType(type, diff),
 	    				indentLevel);
 	    	} else {
@@ -124,7 +124,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractIvlPropertyFormatter<T> {
     	if (formatter != null) {
     		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
     		return formatter.format(
-    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getTimeZone()), value, indentLevel);
+    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone()), value, indentLevel);
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

@@ -131,10 +131,10 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		
 		if (intFormatter != null && ivlPqFormatter != null) {
 			buffer.append(intFormatter.format(
-					new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), new INTImpl(repetitions), indentLevel));
+					new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
 			IVLImpl<PQ, Interval<PhysicalQuantity>> ivlImpl = new IVLImpl<PQ, Interval<PhysicalQuantity>>(quantity);
 			buffer.append(ivlPqFormatter.format(
-					new FormatContextImpl("denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), ivlImpl, indentLevel));
+					new FormatContextImpl("denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), ivlImpl, indentLevel));
 		} else {
 			throw new ModelToXmlTransformationException("No formatter found for " + (type == null ? type : ivlPqType));
 		}
@@ -159,9 +159,9 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
     		buffer.append(formatter.format(
-    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), new INTImpl(repetitions), indentLevel));
+    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
     		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity)), UNIT, getUnits(new DateDiff(quantity)));
-    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null), attributes, indentLevel, true, true));
+    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), attributes, indentLevel, true, true));
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

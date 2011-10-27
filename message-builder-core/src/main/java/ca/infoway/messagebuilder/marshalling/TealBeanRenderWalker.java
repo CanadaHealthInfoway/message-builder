@@ -36,18 +36,20 @@ class TealBeanRenderWalker {
 	private final InteractionBean tealBean;
 	private final BridgeFactory factory;
 	private final VersionNumber version;
-	private final TimeZone timeZone;
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
 
 	public TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version) {
-		this(tealBean, version, null, new MessageDefinitionServiceFactory().create());
+		this(tealBean, version, null, null, new MessageDefinitionServiceFactory().create());
 	}
-	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone timeZone, MessageDefinitionService service) {
-		this(tealBean, version, timeZone, new BridgeFactoryImpl(service, version));
+	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, MessageDefinitionService service) {
+		this(tealBean, version, dateTimeZone, dateTimeTimeZone, new BridgeFactoryImpl(service, version));
 	}
 
-	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone timeZone, BridgeFactory factory) {
+	TealBeanRenderWalker(InteractionBean tealBean, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, BridgeFactory factory) {
 		this.tealBean = tealBean;
-		this.timeZone = timeZone;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.factory = factory;
 		this.version = version;
 	}
@@ -90,7 +92,7 @@ class TealBeanRenderWalker {
 		if (relationship.isAssociation()) {
 			processAllRelationshipValues(interaction, (AssociationBridge) relationship, visitor);
 		} else {
-			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), this.version, this.timeZone);
+			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), this.version, this.dateTimeZone, this.dateTimeTimeZone);
 		}
 	}
 

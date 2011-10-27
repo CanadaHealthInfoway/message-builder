@@ -33,23 +33,25 @@ class FormatContextImpl implements FormatContext {
 	private final boolean isSpecializationType;
 	private final boolean isPassOnSpecializationType;
 	private final VersionNumber version;
-	private final TimeZone timeZone;
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
 
 	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel) {
-		this(elementName, type, conformanceLevel, false, null, null, true);
+		this(elementName, type, conformanceLevel, false, null, null, null, true);
 	}
 	
-	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone timeZone) {
-		this(elementName, type, conformanceLevel, isSpecializationType, version, timeZone, true);
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		this(elementName, type, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true);
 	}
 	
-	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone timeZone, boolean isPassOnSpecializationType) {
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType) {
 		this.elementName = elementName;
 		this.type = type;
 		this.conformanceLevel = conformanceLevel;
 		this.isSpecializationType = isSpecializationType;
 		this.version = version;
-		this.timeZone = timeZone;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.isPassOnSpecializationType = isPassOnSpecializationType;
 	}
 	
@@ -73,8 +75,12 @@ class FormatContextImpl implements FormatContext {
 		return this.version;
 	}
 	
-	public TimeZone getTimeZone() {
-		return this.timeZone;
+	public TimeZone getDateTimeZone() {
+		return this.dateTimeZone;
+	}
+
+	public TimeZone getDateTimeTimeZone() {
+		return this.dateTimeTimeZone;
 	}
 	
 	public boolean isPassOnSpecializationType() {

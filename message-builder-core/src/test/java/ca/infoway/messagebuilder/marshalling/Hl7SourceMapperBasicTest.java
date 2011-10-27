@@ -71,7 +71,7 @@ public class Hl7SourceMapperBasicTest {
 		this.service = new MockTestCaseMessageDefinitionService();
 		this.document = getSourceDocument(XML);
 		this.element = this.document.getDocumentElement();
-		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, null, this.service);
+		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, null, null, this.service);
 		this.partSource = rootSource.createPartSource(createRelationship("MCCI_MT002100CA.Sender"), element);
 	}
 
@@ -105,7 +105,7 @@ public class Hl7SourceMapperBasicTest {
 	public void shouldMapObservationAttributes() throws Exception {
 		Document document2 = getSourceDocument(XML2);
 		Element element2 = document2.getDocumentElement();
-		Hl7MessageSource rootSource2 = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, document2, null, this.service);
+		Hl7MessageSource rootSource2 = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, document2, null, null, this.service);
 		Hl7PartSource partSource2 = rootSource2.createPartSource(createRelationship("PORX_MT010120CA.QuantityObservationEvent"), element2);
 		QuantityObservationEventBean teal = (QuantityObservationEventBean) new Hl7SourceMapper().mapPartSourceToTeal(partSource2, null);
 		

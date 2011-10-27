@@ -55,10 +55,14 @@ class TrivialContext implements ParseContext {
 		return null;
 	}
 	
-	public TimeZone getTimeZone() {
+	public TimeZone getDateTimeZone() {
 		return null;
 	}
 
+	public TimeZone getDateTimeTimeZone() {
+		return null;
+	}
+	
 	public String getType() {
 		return this.type;
 	}

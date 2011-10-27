@@ -21,11 +21,14 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -52,5 +55,20 @@ public class TsFullDatePropertyFormatterTest {
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "19990423", result.get("value"));
+	}
+	
+	/**
+	 * @sharpen.remove
+	 */
+	@Test
+	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
+		Date calendar = DateUtil.getDate(1999, 3, 23);
+		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(calendar, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")));
+		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(calendar, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")));
+		assertFalse(StringUtils.equals(gmtSixValue, gmtFiveValue));
+	}
+
+	private FormatContextImpl createFormatContextWithTimeZone(TimeZone timeZone) {
+		return new FormatContextImpl("name", null, null, false, null, timeZone, null, true);
 	}
 }

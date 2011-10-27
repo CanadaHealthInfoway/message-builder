@@ -50,7 +50,7 @@ class MockVisitor implements Visitor {
 	}
 
 	public void visitAttribute(AttributeBridge tealBean,
-			Relationship relationship, VersionNumber version, TimeZone timeZone) {
+			Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.attributeVisited = true;
 	}
 

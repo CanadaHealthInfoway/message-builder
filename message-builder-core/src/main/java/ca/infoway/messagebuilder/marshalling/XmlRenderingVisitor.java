@@ -210,18 +210,18 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone timeZone) {
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.propertyPathNames.push(tealBean.getPropertyName());
 		if (relationship.isStructural()) {
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
 		} else {
-			renderNonStructuralAttribute(tealBean, relationship, version, timeZone);
+			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
 		}
 		this.propertyPathNames.pop();
 		// remove(this.propertyPathNames.size() - 1);
 	}
 
-	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone timeZone) {
+	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		String type = relationship.getType();
 		PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 		if (formatter == null) {
@@ -238,7 +238,7 @@ class XmlRenderingVisitor implements Visitor {
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
-				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, timeZone), any, getIndent());
+				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				String propertyPath = StringUtils.join(this.propertyPathNames, ".");

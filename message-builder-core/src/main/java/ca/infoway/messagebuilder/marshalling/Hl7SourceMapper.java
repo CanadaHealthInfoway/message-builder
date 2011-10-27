@@ -307,7 +307,7 @@ class Hl7SourceMapper {
 		ElementParser parser = ParserRegistry.getInstance().get(type);
 		if (parser != null) {
 			try {
-				BareANY object = parser.parse(ParseContextImpl.create(relationship, source.getVersion(), source.getTimeZone()), nodes, source.getResult());
+				BareANY object = parser.parse(ParseContextImpl.create(relationship, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone()), nodes, source.getResult());
 				if (relationship.hasFixedValue()) {
 					validateNonstructuralFixedValue(relationship, object, source, nodes); // fixed means nothing to write to bean
 				}

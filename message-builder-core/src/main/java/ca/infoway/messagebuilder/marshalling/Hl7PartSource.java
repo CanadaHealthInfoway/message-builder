@@ -70,8 +70,12 @@ class Hl7PartSource implements Hl7Source {
 		return this.hl7InteractionSource.getVersion();
 	}
 
-	public TimeZone getTimeZone() {
-		return this.hl7InteractionSource.getTimeZone();
+	public TimeZone getDateTimeZone() {
+		return this.hl7InteractionSource.getDateTimeZone();
+	}
+	
+	public TimeZone getDateTimeTimeZone() {
+		return this.hl7InteractionSource.getDateTimeTimeZone();
 	}
 	
 	public String getType() {

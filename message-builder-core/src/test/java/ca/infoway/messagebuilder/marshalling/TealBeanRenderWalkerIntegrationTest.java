@@ -75,7 +75,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
 		
-		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, null, new MockTestCaseMessageDefinitionService());
+		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, null, null, new MockTestCaseMessageDefinitionService());
 		this.walker.accept(visitor);
 
 		String xml = visitor.toXml().getXmlMessage();
@@ -91,7 +91,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		MessageBeanBuilderSupport.populateMoreBetterStandardValues(tealBean);
 		tealBean.getControlActEventBean().setCode(HL7TriggerEventCode.FIND_CANDIDATES_QUERY);
 		
-		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, null, new MockTestCaseMessageDefinitionService());
+		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, null, null, new MockTestCaseMessageDefinitionService());
 		
 		AuthorBean author = new AuthorBean();
 		author.setTime(new Date());
