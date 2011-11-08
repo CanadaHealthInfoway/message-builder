@@ -86,17 +86,27 @@ class PnElementParser extends AbstractEntityNameElementParser {
 
 	private void handlePersonName(XmlToModelResult xmlToModelResult, PersonName result, NodeList childNodes) throws XmlToModelTransformationException {
 		for (int i = 0; i < childNodes.getLength(); i++) {
-		    Node childNode = childNodes.item(i);
-		    if (childNode instanceof Element) {
-		        Element element = (Element) childNode;
-		        String name = NodeUtil.getLocalOrTagName(element);
-		        String value = getTextValue(element, xmlToModelResult);
-		        String qualifier = getAttributeValue(element, NAME_PART_TYPE_QUALIFIER);
-		        if (StringUtils.isNotBlank(value)) {
-		        	result.addNamePart(new EntityNamePart(value, getPersonalNamePartType(name), qualifier));
-		        }
-		    }
+			Node childNode = childNodes.item(i);
+			if (childNode instanceof Element) {
+				Element element = (Element) childNode;
+				String name = NodeUtil.getLocalOrTagName(element);
+				String value = getTextValue(element, xmlToModelResult);
+				String qualifier = getAttributeValue(element, NAME_PART_TYPE_QUALIFIER);
+				if (StringUtils.isNotBlank(value)) {
+					result.addNamePart(new EntityNamePart(value, getPersonalNamePartType(name), qualifier));
+				}
+			//GN: Added in fix similar to what was done for AD.BASIC.  Issue with XML containing mixture of elements and untyped text nodes.
+			} else if (isNonBlankTextNode(childNode)) {	
+				String value = childNode.getNodeValue().trim();
+				result.addNamePart(new EntityNamePart(value, null, null));
+			}
 		}
+	}
+
+	private boolean isNonBlankTextNode(Node childNode) {
+		return childNode.getNodeValue() != null 
+				&& childNode.getNodeType() == Node.TEXT_NODE 
+				&& !StringUtils.isBlank(childNode.getNodeValue());
 	}
 
 	private void handleSimpleName(Node node, PersonName result) {

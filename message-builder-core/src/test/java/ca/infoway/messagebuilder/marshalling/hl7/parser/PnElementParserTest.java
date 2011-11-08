@@ -124,6 +124,31 @@ public class PnElementParserTest extends MarshallingTestCase {
         assertNamePartAsExpected("family Jones", personName.getParts().get(3), PersonNamePartType.FAMILY, "Jones", "IN");
         assertNamePartAsExpected("suffix ESQ", personName.getParts().get(4), PersonNamePartType.SUFFIX, "ESQ", null);
 	}
+	
+	@Test
+    public void testParseAllPlusUntypedValue() throws Exception {
+		Node node = createNode(
+				"<name use=\"L\">Prime Minister of Canada" +
+				"  <family>Landry</family>" +
+				"  <prefix>MR.</prefix>" +
+				"  <suffix>III</suffix>" +
+				"  <given>Chris</given>" +
+				"  <given>William</given>" +
+				"  <given qualifier=\"IN\">A.</given>" +
+				"</name>");
+		
+		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+        assertEquals("number of name uses", 1, personName.getUses().size());
+        assertEquals("number of name parts", 7, personName.getParts().size());
+
+        assertNamePartAsExpected("Untyped Prime Minister of Canada", personName.getParts().get(0), null, "Prime Minister of Canada", null);
+        assertNamePartAsExpected("family Landry", personName.getParts().get(1), PersonNamePartType.FAMILY, "Landry", null);
+        assertNamePartAsExpected("prefix MR.", personName.getParts().get(2), PersonNamePartType.PREFIX, "MR.", null);
+        assertNamePartAsExpected("suffix III", personName.getParts().get(3), PersonNamePartType.SUFFIX, "III", null);
+        assertNamePartAsExpected("given Chris", personName.getParts().get(4), PersonNamePartType.GIVEN, "Chris", null);
+        assertNamePartAsExpected("given William", personName.getParts().get(5), PersonNamePartType.GIVEN, "William", null);
+        assertNamePartAsExpected("given A.", personName.getParts().get(6), PersonNamePartType.GIVEN, "A.", "IN");
+	}	
     
 	@Test
     public void testParseFailure() throws Exception {
