@@ -45,7 +45,7 @@
 	<controlActEvent classCode="CACT" moodCode="EVN">
         <!-- event id -->
 		<id extension="1" root="2.16.124.113620.1.1.1.1.1.1" use="BUS" />
-		<code code="PRPA_TE101101CA" codeSystem="2.16.840.1.113883.5.4" />
+		<code code="PRPA_TE101101CA" codeSystem="2.16.840.1.113883.1.18" />
 		<statusCode code="completed" />
 		<queryByParameter>
             <!-- query id -->
