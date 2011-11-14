@@ -45,14 +45,51 @@ public class NameResolverTest {
 	}
 	
 	@Test
-	public void shouldUseRelationshipNameIfNoBusinessNames() throws Exception {
+	public void shouldUseRelationshipNameIfNoBusinessNamesForBusinessName() throws Exception {
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.BUSINESS_NAMES);
+		assertEquals("Id", resolver.getName(this.relationships.get(0)));
+		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
+	}
+
+	@Test
+	public void shouldUseBusinessNamesForBusinessName() throws Exception {
+		Documentation documentation0 = new Documentation();
+		documentation0.setBusinessName("*o: drug product identifier");
+		this.relationships.get(0).getRelationship().setDocumentation(documentation0);
+
+		Documentation documentation1 = new Documentation();
+		documentation1.setBusinessName("*o: person identifier");
+		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
+		
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.BUSINESS_NAMES);
+		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
+		assertEquals("PersonIdentifier", resolver.getName(this.relationships.get(1)));
+	}
+
+	@Test
+	public void shouldUseRelationshipNameIfBusinessNameUsedForBusinessName() throws Exception {
+		Documentation documentation0 = new Documentation();
+		documentation0.setBusinessName("*o: drug product identifier");
+		this.relationships.get(0).getRelationship().setDocumentation(documentation0);
+		
+		Documentation documentation1 = new Documentation();
+		documentation1.setBusinessName("*o: drug product identifier");
+		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
+		
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.BUSINESS_NAMES);
+		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
+		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
+	}
+
+	@Test
+	public void shouldUseRelationshipNameIfNoBusinessNamesForDefault() throws Exception {
 		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
 		assertEquals("Id", resolver.getName(this.relationships.get(0)));
 		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
 	}
 
 	@Test
-	public void shouldUseBusinessNames() throws Exception {
+	public void shouldUseModelNamesForDefault() throws Exception {
 		Documentation documentation0 = new Documentation();
 		documentation0.setBusinessName("*o: drug product identifier");
 		this.relationships.get(0).getRelationship().setDocumentation(documentation0);
@@ -62,12 +99,12 @@ public class NameResolverTest {
 		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
-		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
-		assertEquals("PersonIdentifier", resolver.getName(this.relationships.get(1)));
+		assertEquals("Id", resolver.getName(this.relationships.get(0)));
+		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
 	}
 
 	@Test
-	public void shouldUseRelationshipNameIfBusinessNameUsed() throws Exception {
+	public void shouldUseModelNameIfBusinessNameUsedForDefault() throws Exception {
 		Documentation documentation0 = new Documentation();
 		documentation0.setBusinessName("*o: drug product identifier");
 		this.relationships.get(0).getRelationship().setDocumentation(documentation0);
@@ -77,7 +114,7 @@ public class NameResolverTest {
 		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
-		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
+		assertEquals("Id", resolver.getName(this.relationships.get(0)));
 		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
 	}
 }

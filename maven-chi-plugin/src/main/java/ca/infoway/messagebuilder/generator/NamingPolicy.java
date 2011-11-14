@@ -43,7 +43,7 @@ public enum NamingPolicy {
 	STANDARD_NAMES, BUSINESS_NAMES, MIXED_NAMES;
 
 	public static NamingPolicy getDefaultPolicy() {
-		return BUSINESS_NAMES;
+		return MIXED_NAMES;
 	}
 
 	public static NamingPolicy from(String namingPolicy) {
