@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.lang;
 import java.util.List;
 
 /**
- * 
+ *
  * A class that implements an Enum Pattern. While Java 1.5 has enums, enums that implement
  * an interface and/or contain behaviour do not have a direct counterpart in .Net. In order
  * to keep the two codebases as consistent as possible our code makes use of this Enum
  * Pattern where applicable.
- * 
+ *
  * Code should not call Class.isEnum(), instead they should use EnumPattern.isEnum(Class).
- * 
+ *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
  * @sharpen.ignore platform enum
@@ -74,7 +74,15 @@ public class EnumPattern extends Enum {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> values(Class<T> enumClass) {
+		forciblyLoadClassIfPossible(enumClass);
 		return EnumUtils.getEnumList(enumClass);
+	}
+
+	private static <T> void forciblyLoadClassIfPossible(Class<T> enumClass) {
+		try {
+            Class.forName(enumClass.getName(), true, enumClass.getClassLoader());
+		} catch (Exception e) { // broaden catch for NullPointerException or anything
+		}
 	}
 
 	/**
@@ -108,5 +116,5 @@ public class EnumPattern extends Enum {
 	public String toString() {
 		return getName();
 	}
-	
+
 }
