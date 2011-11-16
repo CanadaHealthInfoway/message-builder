@@ -36,12 +36,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 
 /**
  * PIVL - Periodic Interval of Time
- * 
+ *
  * An interval of time that recurs periodically. Periodic intervals have two
  * properties, phase and period. The phase specifies the "interval prototype"
  * that is repeated every period.
- * 
- *   
+ *
+ *
  * <effectiveTime xsi:type='PIVL_TS'>
  *   <phase>
  *      <low value='198709'/>
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  *   </phase>
  *   <period value='1' unit='a'/>
  * </effectiveTime>
- * 
+ *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-PIVL
  */
 public abstract class AbstractPivlElementParser extends AbstractSingleElementParser<PeriodicIntervalTime> {
@@ -62,11 +62,11 @@ public abstract class AbstractPivlElementParser extends AbstractSingleElementPar
 			Element phase = (Element) getNamedChildNode(node, "phase");
 
 			if (period != null && phase != null) {
-				return PeriodicIntervalTime.createPeriodPhase(createPeriodType(period, xmlToModelResult), createPhaseType(phase, xmlToModelResult));
+				return PeriodicIntervalTime.createPeriodPhase(createPeriodType(context, period, xmlToModelResult), createPhaseType(context, phase, xmlToModelResult));
 			} else if (period != null) {
-				return PeriodicIntervalTime.createPeriod(createPeriodType(period, xmlToModelResult));
+				return PeriodicIntervalTime.createPeriod(createPeriodType(context, period, xmlToModelResult));
 			} else if (phase != null) {
-				return PeriodicIntervalTime.createPhase(createPhaseType(phase, xmlToModelResult));
+				return PeriodicIntervalTime.createPhase(createPhaseType(context, phase, xmlToModelResult));
 			} else {
 				return null;
 			}
@@ -75,7 +75,7 @@ public abstract class AbstractPivlElementParser extends AbstractSingleElementPar
 		}
 	}
 
-	protected abstract DateDiff createPeriodType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
+	protected abstract DateDiff createPeriodType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
 
-	protected abstract Interval<Date> createPhaseType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
+	protected abstract Interval<Date> createPhaseType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException;
 }

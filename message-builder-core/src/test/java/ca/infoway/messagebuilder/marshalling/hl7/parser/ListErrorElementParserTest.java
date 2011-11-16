@@ -37,7 +37,7 @@ public class ListErrorElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><name>Fred</name>" + 
 				                    "<name>Flinstone</name></top>");
 		new ListElementParser().parse(
-				ParserContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null), 
+				ParserContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null, null, null), 
 				asList(node.getChildNodes()), result);
 		
 		assertFalse("valid", result.isValid());

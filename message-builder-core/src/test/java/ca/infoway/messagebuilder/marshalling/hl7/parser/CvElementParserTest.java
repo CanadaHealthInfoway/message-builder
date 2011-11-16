@@ -70,7 +70,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("value", cv.getValue());
         assertEquals("null flavor", NullFlavor.NO_INFORMATION, cv.getNullFlavor());
@@ -80,7 +80,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("value", cv.getValue());
         assertEquals("null flavor", NullFlavor.OTHER, cv.getNullFlavor());
@@ -90,7 +90,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNodeWithWrongCodeSystem() throws Exception {
     	Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"1.2.3.4.wrong.code.system\" />");
     	CV cv = (CV) this.parser.parse(
-    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
     			node, this.xmlResult);
     	
     	assertEquals("code system", "1.2.3.4.wrong.code.system", cv.getValue().getCodeSystem());
@@ -101,7 +101,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNodeWithCodeSystem() throws Exception {
     	Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"1.2.3.4.5\" originalText=\"ahhh\"><originalText>ahhh</originalText></something>");
     	CV cv = (CV) this.parser.parse(
-    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
     			node, this.xmlResult);
     	
     	assertEquals("code system", "1.2.3.4.5", cv.getValue().getCodeSystem());
@@ -113,7 +113,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("empty node returns null", cv.getValue());
     }
@@ -200,7 +200,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("node with no code attribute returns null", cv.getValue());
     }
@@ -209,7 +209,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("node with no code attribute returns null", cv.getValue());
     }
@@ -218,7 +218,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertEquals("node with no code attribute returns null", "BARNEY", cv.getValue().getCodeValue());
     }
@@ -228,7 +228,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), node, this.xmlResult);
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), node, this.xmlResult);
         
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size());
     }
@@ -237,7 +237,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertEquals("node with no code attribute returns null", "BARNEY", cv.getValue().getCodeValue());
     }
@@ -246,7 +246,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 	public void testParseContainsOriginalTextAndNullFlavor() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"><originalText>My original text</originalText></something>");
 		CV cs = (CV) this.parser.parse(
-				ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, this.xmlResult);
 		
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, cs.getNullFlavor());
@@ -258,7 +258,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseValidWithOriginalText() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" ><originalText>Errr....</originalText></something>");
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertEquals("node with no code attribute returns null", "BARNEY", cv.getValue().getCodeValue());
         assertEquals("original text", "Errr....", cv.getOriginalText());
@@ -269,7 +269,7 @@ public class CvElementParserTest extends MarshallingTestCase {
         Node node = createNode("<something><originalText>Errr....</originalText></something>");
         // Adding to set used to fail on hashCode() call in OriginalTextWrapper
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         
         Set<Code> set = new LinkedHashSet<Code>();
@@ -281,7 +281,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyOriginalText() throws Exception {
     	Node node = createNode("<something><originalText /></something>");
     	CV cv = (CV) this.parser.parse(
-    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+    			ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
     			node, this.xmlResult);
     	assertNull("no original text",  cv.getOriginalText());
     }
@@ -294,7 +294,7 @@ public class CvElementParserTest extends MarshallingTestCase {
                 "</something>");
 
         CV cv = (CV) this.parser.parse(
-        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+        		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
         		node, this.xmlResult);
         assertNull("empty node with children returns null", cv.getValue());
     }
@@ -304,7 +304,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"FRED\" />");
 		
 		CV cv = (CV) this.parser.parse(
-				ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, this.xmlResult);
 		assertEquals("enum found properly", MockEnum.FRED, cv.getValue());
 		assertFalse("valid", this.xmlResult.isValid());
@@ -316,7 +316,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		XmlToModelResult result = new XmlToModelResult();
 		CV cv = (CV) this.parser.parse(
-				ParserContextImpl.create("CV", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
 				result);
 		
@@ -336,7 +336,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
 				result);
 		
@@ -361,7 +361,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
 				result);
 		
@@ -396,7 +396,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
 				result);
 		
@@ -426,7 +426,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, OPTIONAL), 
+				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
 				result);
 		

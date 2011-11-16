@@ -49,16 +49,16 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 			ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToModelResult);
 	}
-	
+
 	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Element element,
 			Type expectedReturnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
 
 		validateNonAllowedChildNode(element, xmlToModelResult, "period");
 		validateNonAllowedChildNode(element, xmlToModelResult, "phase");
-		
+
 		Element frequency = (Element) getNamedChildNode(element, "frequency");
-		
+
 		if (frequency != null) {
 			return parseFrequency(context, frequency, expectedReturnType, xmlToModelResult);
 		} else {
@@ -67,7 +67,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		}
 	}
 
-	private void createMandatoryChildElementHl7Error(Element element, String name, 
+	private void createMandatoryChildElementHl7Error(Element element, String name,
 			XmlToModelResult xmlToModelResult) {
 		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 				"Missing mandatory element <" +
@@ -75,22 +75,22 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				">",
 				element));
 	}
-	
+
 	protected PeriodicIntervalTime parseFrequency(ParseContext context, Element element,
 			Type expectedReturnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
 
 		Element numerator = (Element) getNamedChildNode(element, "numerator");
 		Element denominator = (Element) getNamedChildNode(element, "denominator");
-		
+
 		if (numerator != null && denominator != null) {
 			Integer repetitions = parseNumerator(context, numerator, xmlToModelResult);
-			
+
 			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3_SK, context.getVersion())) {
 				Interval<PhysicalQuantity> quantityInterval = parseDenominatorSk(context, denominator, xmlToModelResult);
 				return PeriodicIntervalTimeSk.createFrequencySk(
-						repetitions, 
-						quantityInterval == null ? null : quantityInterval.getLow(), 
+						repetitions,
+						quantityInterval == null ? null : quantityInterval.getLow(),
 						quantityInterval == null ? null : quantityInterval.getHigh());
 			} else {
 				PhysicalQuantity quantity = parseDenominator(context, denominator, xmlToModelResult);
@@ -106,29 +106,47 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 			return null;
 		}
 	}
-	
+
 	private Integer parseNumerator(ParseContext context, Element numerator,
 			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		ElementParser parser = ParserRegistry.getInstance().get("INT.NONNEG");
-		ParseContext subContext = ParserContextImpl.create("INT.NONNEG", Integer.class, context.getVersion(), MANDATORY);
+		ParseContext subContext = ParserContextImpl.create(
+				"INT.NONNEG",
+				Integer.class,
+				context.getVersion(),
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone(),
+				MANDATORY);
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
 	private PhysicalQuantity parseDenominator(ParseContext context, Element numerator,
 			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		ElementParser parser = ParserRegistry.getInstance().get("PQ.TIME");
-		ParseContext subContext = ParserContextImpl.create("PQ.TIME", PhysicalQuantity.class, context.getVersion(), MANDATORY);
+		ParseContext subContext = ParserContextImpl.create(
+				"PQ.TIME",
+				PhysicalQuantity.class,
+				context.getVersion(),
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone(),
+				MANDATORY);
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private Interval<PhysicalQuantity> parseDenominatorSk(ParseContext context, Element numerator,
 			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		ElementParser parser = ParserRegistry.getInstance().get("IVL<PQ>");
-		ParseContext subContext = ParserContextImpl.create("IVL<PQ>", PhysicalQuantity.class, context.getVersion(), MANDATORY);
+		ParseContext subContext = ParserContextImpl.create(
+				"IVL<PQ>",
+				PhysicalQuantity.class,
+				context.getVersion(),
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone(),
+				MANDATORY);
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
-	
+
 	private void validateNonAllowedChildNode(Element element,
 			XmlToModelResult xmlToModelResult, String elementName) {
 		if (getNamedChildNode(element, elementName) != null) {

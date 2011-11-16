@@ -65,7 +65,7 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, SpecificationVersion version) {
-		return ParserContextImpl.create(type, null, version, ConformanceLevel.OPTIONAL);
+		return ParserContextImpl.create(type, null, version, null, null, ConformanceLevel.OPTIONAL);
 	}
 
 	@Test

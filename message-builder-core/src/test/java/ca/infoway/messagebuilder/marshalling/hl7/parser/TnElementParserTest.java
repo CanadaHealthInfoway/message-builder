@@ -51,7 +51,7 @@ public class TnElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("TN", TrivialName.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("TN", TrivialName.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

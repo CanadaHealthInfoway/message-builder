@@ -54,7 +54,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"</range>");
 		UncertainRange<PhysicalQuantity> range = 
 			(UncertainRange<PhysicalQuantity>)new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 				node, null).getBareValue();
 		assertNotNull("null", range);
 	
@@ -75,7 +75,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY parseResult = new AnyElementParser().parse(
-			ParserContextImpl.create("ANY.LAB", Object.class, null, ConformanceLevel.MANDATORY), 
+			ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 			node, xmlToModelResult);
 		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>)parseResult.getBareValue();
 		
@@ -96,7 +96,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 				node, null);
 		
 		assertNotNull("null", result);
@@ -116,7 +116,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 				node, xmlToModelResult);
 
 		
@@ -149,7 +149,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				);
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 				node, null);
 		
 		assertNotNull("null", result);

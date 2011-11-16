@@ -40,15 +40,15 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 
 /**
  * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH
- * 
+ *
  * Each value sent over the wire must correspond to one of the
  * following non-abstract data type flavor specifications defined below:
- * 
+ *
  * ANY:       all types allowed
  * ANY.LAB:   CD.LAB, ST, PQ.LAB, IVL<PQ.x>, INT.NONNEG, INT.POS, TS.FULLDATETIME, URG<PQ,x>
  * ANY.CA.IZ: ST, PN.BASIC, INT.POS, BL
  * ANY.PATH:  ST, PQ, ED.DOCORREF or CD.LAB
- * 
+ *
  */
 @DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH"})
 public class AnyElementParser extends AbstractSingleElementParser<Object> {
@@ -72,11 +72,16 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 			} else {
 				BareANY parsedValue = elementParser.parse(
 						ParserContextImpl.create(
-							specializationType, getReturnType(context), context.getVersion(), context.getConformance()), 
+							specializationType,
+							getReturnType(context),
+							context.getVersion(),
+							context.getDateTimeZone(),
+							context.getDateTimeTimeZone(),
+							context.getConformance()),
 						Arrays.asList(node), xmlToModelResult);
 				result = parsedValue.getBareValue();
-				
-				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost. 
+
+				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost.
 				hl7Result.setDataType(parsedValue.getDataType());
 			}
 		} else {
@@ -89,7 +94,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	 * The specialization type attribute is used to check against valid ANY types. This has a bit of "magic"
 	 * involved, as the CHI specializationType notation (eg. URG_PQ) just happens to match up to our
 	 * StandardDataType enum names.
-	 * 
+	 *
 	 * @param parentType
 	 * @param node
 	 * @param xmlToModelResult
@@ -102,9 +107,9 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 			// e.g. URG_PQ, ST
 			rawSpecializationType = getXsiType(node);
 		}
-		
+
 		String result = rawSpecializationType;
-		
+
 		if (StringUtils.isNotBlank(rawSpecializationType) && !AnyHelper.isValidTypeForAny(parentType, rawSpecializationType)) {
 			String unqualify = Hl7DataTypeName.unqualify(rawSpecializationType);
 			String validType = getValidType(unqualify, parentType);
@@ -125,5 +130,5 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		}
 		return result;
 	}
-	
+
 }

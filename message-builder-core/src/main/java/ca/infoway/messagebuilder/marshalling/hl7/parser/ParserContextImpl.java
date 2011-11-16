@@ -37,8 +37,8 @@ class ParserContextImpl implements ParseContext {
 	private final Integer length;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
-	
-	private ParserContextImpl(String type, Type returnType, VersionNumber version, 
+
+	private ParserContextImpl(String type, Type returnType, VersionNumber version,
 			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		this.type = type;
 		this.expectedReturnType = returnType;
@@ -53,7 +53,7 @@ class ParserContextImpl implements ParseContext {
 	public String getType() {
 		return this.type;
 	}
-	
+
 	public Type getExpectedReturnType() {
 		return this.expectedReturnType;
 	}
@@ -61,21 +61,21 @@ class ParserContextImpl implements ParseContext {
 	public VersionNumber getVersion() {
 		return this.version;
 	}
-	
+
 	public TimeZone getDateTimeZone() {
 		return this.dateTimeZone;
 	}
 
 	public TimeZone getDateTimeTimeZone() {
 		return this.dateTimeTimeZone;
-	} 
-	
+	}
+
 	public ConformanceLevel getConformance() {
 		return this.conformance;
 	}
 
-	static ParseContext create(String type, Type returnType, VersionNumber version, ConformanceLevel conformance) {
-		return new ParserContextImpl(type, returnType, version, null, null, conformance, null, null);
+	static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance) {
+		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, null, null);
 	}
 
 	public CodingStrength getCodingStrength() {

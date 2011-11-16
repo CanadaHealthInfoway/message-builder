@@ -51,7 +51,7 @@ public class IiTokenElementParserTest extends CeRxDomainValueTestCase {
 		super.setUp();
 		this.parser = new IiElementParser();
 		this.xmlResult = new XmlToModelResult();
-		this.context = ParserContextImpl.create("II.TOKEN", Identifier.class, V02R02, null);
+		this.context = ParserContextImpl.create("II.TOKEN", Identifier.class, V02R02, null, null, null);
 	}
 	
 	@Test

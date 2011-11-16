@@ -51,7 +51,7 @@ public class IvlIntElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private Interval<Integer> parse(Node node) throws XmlToModelTransformationException {
-		BareANY ivl = this.parser.parse(ParserContextImpl.create("IVL<INT>", Interval.class, SpecificationVersion.V02R02, null), 
+		BareANY ivl = this.parser.parse(ParserContextImpl.create("IVL<INT>", Interval.class, SpecificationVersion.V02R02, null, null, null), 
 				Arrays.asList(node), 
 				this.result);
 		return (Interval<Integer>) (ivl.getBareValue());

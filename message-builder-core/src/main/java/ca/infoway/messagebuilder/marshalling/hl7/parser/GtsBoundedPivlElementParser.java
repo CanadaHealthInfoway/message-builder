@@ -59,14 +59,14 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
 			Element element, Type expectedReturnType, XmlToModelResult xmlResult)
 			throws XmlToModelTransformationException {
-		
+
 		GeneralTimingSpecification result = null;
 		List<Element> components = findComponents(element, xmlResult);
-		
+
 		if (components.size() == 2) {
 			Interval<Date> duration = parseDuration(context, xmlResult, components.get(0));
 			PeriodicIntervalTime frequency = parseFrequency(context, xmlResult, components.get(1));
-			
+
 			if (duration != null && frequency != null) {
 				result = new GeneralTimingSpecification(duration, frequency);
 			} else {
@@ -94,18 +94,30 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlResult,
 			Element durationElement) throws XmlToModelTransformationException {
-		ParseContext subContext = ParserContextImpl.create("IVL<TS.FULLDATE>", Interval.class, context.getVersion(), MANDATORY);
+		ParseContext subContext = ParserContextImpl.create(
+				"IVL<TS.FULLDATE>",
+				Interval.class,
+				context.getVersion(),
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone(),
+				MANDATORY);
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
 				subContext, Arrays.asList((Node) durationElement), xmlResult).getBareValue();
 	}
-	
+
 	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToModelResult,
 			Element durationElement) throws XmlToModelTransformationException {
-		ParseContext subContext = ParserContextImpl.create("PIVL<TS.DATETIME>", PeriodicIntervalTime.class, context.getVersion(), MANDATORY);
+		ParseContext subContext = ParserContextImpl.create(
+				"PIVL<TS.DATETIME>",
+				PeriodicIntervalTime.class,
+				context.getVersion(),
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone(),
+				MANDATORY);
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
 				subContext, Arrays.asList((Node) durationElement), xmlToModelResult).getBareValue();
 	}
-	
+
 	private List<Element> findComponents(Element element, XmlToModelResult xmlToModelResult) {
 		List<Element> result = new ArrayList<Element>();
 		NodeList list = element.getChildNodes();
@@ -119,7 +131,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 			} else {
 				xmlToModelResult.addHl7Error(
 						new Hl7Error(
-								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								Hl7ErrorCode.DATA_TYPE_ERROR,
 								MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node)),
 								(Element) node
 						)
@@ -128,7 +140,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 		}
 		return result;
 	}
-	
+
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new GTSImpl();

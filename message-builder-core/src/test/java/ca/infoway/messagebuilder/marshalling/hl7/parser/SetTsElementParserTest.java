@@ -47,7 +47,7 @@ public class SetTsElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<Date> set = ((SET<TS,Date>) result).rawSet();

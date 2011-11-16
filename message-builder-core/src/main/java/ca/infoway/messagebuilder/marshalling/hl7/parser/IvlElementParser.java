@@ -54,19 +54,25 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return GenericDataTypeFactory.create(typeName);
 	}
-	
+
 	@Override
-	protected BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult) 
+	protected BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult)
 			throws ParseException, XmlToModelTransformationException {
 		String type = getParameterizedType(context);
 		ElementParser parser = ParserRegistry.getInstance().get(type);
-		
+
 		if (parser != null) {
-			return parser.parse(ParserContextImpl.create(type, null, context.getVersion(), MANDATORY), 
+			return parser.parse(ParserContextImpl.create(
+					type,
+					null,
+					context.getVersion(),
+					context.getDateTimeZone(),
+					context.getDateTimeTimeZone(),
+					MANDATORY),
 					Arrays.asList((Node) element), parseResult);
 		} else {
 			parseResult.addHl7Error(new Hl7Error(
-					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					Hl7ErrorCode.DATA_TYPE_ERROR,
 					MessageFormat.format("Cannot find a parser for type {0}", type),
 					element));
 			return null;
@@ -81,7 +87,7 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 	BareDiff createDiffType(ParseContext context, Element width,
 			XmlToModelResult xmlToModelResult) throws ParseException,
 			XmlToModelTransformationException {
-		
+
 		if (isTimestampType(context)) {
 			return createDateDiff(context, width, xmlToModelResult);
 		} else {
@@ -95,27 +101,31 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
         if (getAttributeValue(width, NullFlavorHelper.NULL_FLAVOR_ATTRIBUTE_NAME) != null) {
             result = parseNullWidthNode(width);
         } else {
-		
+
 			StandardDataType type = StandardDataType.getByTypeName(context);
 			try {
 				StandardDataType diffType = getWidthType(type);
 				ElementParser parser = ParserRegistry.getInstance().get(diffType);
-	
+
 				if (parser != null) {
 					ParseContext subContext = ParserContextImpl.create(
-							diffType.getType(), PhysicalQuantity.class, 
-							context.getVersion(), POPULATED);
+							diffType.getType(),
+							PhysicalQuantity.class,
+							context.getVersion(),
+							context.getDateTimeZone(),
+							context.getDateTimeTimeZone(),
+							POPULATED);
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
-					
+
 					if (quantity != null && quantity.getQuantity() != null && quantity.getUnit() != null) {
 						result = new DateDiff(quantity);
 					}
 				} else {
-					xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+					xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR,
 							"Cannot find a parser for " + diffType.getType(), width));
 				}
-				
+
 			} catch (XmlToModelTransformationException e) {
 				xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, e.getMessage(), width));
 			}
@@ -130,7 +140,7 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 			return StandardDataType.PQ_TIME;
 		}
 	}
-    
+
     private Diff<Date> parseNullWidthNode(Element width) {
         String nullFlavor = width.getAttribute(NullFlavorHelper.NULL_FLAVOR_ATTRIBUTE_NAME);
         return new DateDiff(CodeResolverRegistry.lookup(NullFlavor.class, nullFlavor));

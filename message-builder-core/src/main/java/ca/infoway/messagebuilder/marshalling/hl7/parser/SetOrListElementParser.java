@@ -48,17 +48,19 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 			if (parser != null) {
 				BareANY result = parser.parse(
 						ParserContextImpl.create(
-								subType, 
-								getSubTypeAsModelType(context), 
-								context.getVersion(), 
-								context.getConformance()), 
-						toList(node), 
+								subType,
+								getSubTypeAsModelType(context),
+								context.getVersion(),
+								context.getDateTimeZone(),
+								context.getDateTimeTimeZone(),
+								context.getConformance()),
+						toList(node),
 						xmlToModelResult);
 				if (result != null) {
 					list.add(result);
 				}
 			} else {
-				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, 
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR,
 						"No parser type found for " + subType, (Element) node));
 				break;
 			}
@@ -69,7 +71,7 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 	protected abstract BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection);
 
 	protected abstract Collection<BareANY> getCollectionType(ParseContext context);
-	
+
 	private Type getSubTypeAsModelType(ParseContext context) {
 		Type returnType = getReturnType(context);
 		try {

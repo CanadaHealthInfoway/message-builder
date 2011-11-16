@@ -54,7 +54,7 @@ public class IvlPqElementParserTest extends CeRxDomainValueTestCase {
 	
 	private Interval<PhysicalQuantity> parse(Node node) throws XmlToModelTransformationException {
 		return (Interval<PhysicalQuantity>) this.parser.parse(
-				ParserContextImpl.create("IVL<PQ>", Interval.class, V02R02, null), 
+				ParserContextImpl.create("IVL<PQ>", Interval.class, V02R02, null, null, null), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}

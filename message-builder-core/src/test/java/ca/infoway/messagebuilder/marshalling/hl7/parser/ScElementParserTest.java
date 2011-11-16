@@ -52,7 +52,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	}
     
 	private ParseContext createContext() {
-		return ParserContextImpl.create("SC", CodedString.class, SpecificationVersion.NEWFOUNDLAND, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("SC", CodedString.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
     public void testParseTextNodeWithCodeAttributes() throws Exception {
         Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\" code=\"AB\">text value</something>");
         CodedString<Code> result = (CodedString<Code>) new ScElementParser<Code>().parse(
-        		ParserContextImpl.create("SC", new CodedString<State>(null ,null).getClass(), SpecificationVersion.V02R02, null), 
+        		ParserContextImpl.create("SC", new CodedString<State>(null ,null).getClass(), SpecificationVersion.V02R02, null, null, null), 
         		node, 
         		null).getBareValue();
         assertEquals("proper text returned", "text value", result.getValue());

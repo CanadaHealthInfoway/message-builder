@@ -51,7 +51,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), new XmlToModelResult());
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
 		
@@ -69,7 +69,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
 				asList(node.getChildNodes()), null);
 		Set<Identifier> rawSet = ((SET) result).rawSet();
 		

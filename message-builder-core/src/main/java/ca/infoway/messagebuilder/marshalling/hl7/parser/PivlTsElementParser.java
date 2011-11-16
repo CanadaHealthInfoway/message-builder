@@ -40,16 +40,28 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 class PivlTsElementParser extends AbstractPivlElementParser {
 
     @Override
-	protected DateDiff createPeriodType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
+	protected DateDiff createPeriodType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
     	return (DateDiff) new IvlTsElementParser().createDiffType(
-    			ParserContextImpl.create("IVL<TS>", null, null, ConformanceLevel.OPTIONAL),
+    			ParserContextImpl.create(
+    					"IVL<TS>",
+    					null,
+    					context.getVersion(),
+    					context.getDateTimeZone(),
+    					context.getDateTimeTimeZone(),
+    					ConformanceLevel.OPTIONAL),
     			element, xmlToModelResult);
 	}
 
 	@Override
-	protected Interval<Date> createPhaseType(Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
+	protected Interval<Date> createPhaseType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
 		return (Interval<Date>) new IvlTsElementParser().parse(
-    			ParserContextImpl.create("IVL<TS>", null, null, ConformanceLevel.OPTIONAL),
+    			ParserContextImpl.create(
+    					"IVL<TS>",
+    					null,
+    					context.getVersion(),
+    					context.getDateTimeZone(),
+    					context.getDateTimeTimeZone(),
+    					ConformanceLevel.OPTIONAL),
     			Arrays.asList((Node) element), xmlToModelResult).getBareValue();
 	}
 
