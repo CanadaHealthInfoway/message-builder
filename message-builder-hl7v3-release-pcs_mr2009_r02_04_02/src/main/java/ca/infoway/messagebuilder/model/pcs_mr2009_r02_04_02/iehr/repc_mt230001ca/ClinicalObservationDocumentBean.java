@@ -66,10 +66,10 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV documentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AuthorBean author;
     private ActingPerson informantActingPerson;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
@@ -89,11 +89,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalReportDocumentType getDocumentCategory() {
-        return (ClinicalReportDocumentType) this.documentCategory.getValue();
+    public ClinicalReportDocumentType getCode() {
+        return (ClinicalReportDocumentType) this.code.getValue();
     }
-    public void setDocumentCategory(ClinicalReportDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
+    public void setCode(ClinicalReportDocumentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -115,11 +115,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * title. &quot;Surgery Report&quot; would not.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -135,8 +135,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

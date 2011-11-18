@@ -102,15 +102,15 @@ public class QueryLabTestResultsExample {
 		messageBean.setControlActEvent(new TriggerEvent_5Bean<ParameterListBean>());
 		messageBean.getControlActEvent().setQueryByParameter(new QueryByParameterBean<ParameterListBean>());
 		messageBean.getControlActEvent().getQueryByParameter().setParameterList(new ParameterListBean());
-		messageBean.getControlActEvent().setEventType(HL7TriggerEventCode.LAB_TEST_RESULTS_QUERY);
+		messageBean.getControlActEvent().setCode(HL7TriggerEventCode.LAB_TEST_RESULTS_QUERY);
 		populateMessageAttributesStandardValues(messageBean);
 		populateQueryControlActStandardValues(messageBean.getControlActEvent());
 		
 		messageBean.getControlActEvent().setRecordTargetPatient1(createIdentifiedPersonBean());
 		
 		// payload
-		messageBean.getControlActEvent().getQueryByParameter().getParameterList().setPatientName(createFirstNameLastName("Joel", "Houston"));
-		messageBean.getControlActEvent().getQueryByParameter().getParameterList().setPatientId(new Identifier("11.22.33", "55.66.77"));
+		messageBean.getControlActEvent().getQueryByParameter().getParameterList().setPatientNameValue(createFirstNameLastName("Joel", "Houston"));
+		messageBean.getControlActEvent().getQueryByParameter().getParameterList().setPatientIDValue(new Identifier("11.22.33", "55.66.77"));
 		
 		// add additional query filters here
 		// messageBean.getControlActEvent().getQueryByParameter().getParameterList().setXXX...
@@ -118,38 +118,38 @@ public class QueryLabTestResultsExample {
 	}
 	
 	private static void populateMessageAttributesStandardValues(HL7Message_1Bean<?> message) {
-		message.setMessageIdentifier(new Identifier(UUID.randomUUID().toString()));
-		message.setMessageTimestamp(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
-		message.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
+		message.setId(new Identifier(UUID.randomUUID().toString()));
+		message.setCreationTime(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
+		message.getProfileId().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		message.setProcessingCode(PRODUCTION);
-		message.setProcessingMode(ProcessingMode.CURRENT_PROCESSING);
-		message.setDesiredAcknowledgmentType(ALWAYS);
+		message.setProcessingModeCode(ProcessingMode.CURRENT_PROCESSING);
+		message.setAcceptAckCode(ALWAYS);
 		message.setReceiver(new ReceiverBean());
-		message.getReceiver().setReceiverApplicationIdentifier(new Identifier("2.16.124.113620.1.2.100", "222"));
-		message.getReceiver().setReceiverNetworkAddress(new TelecommunicationAddress(
+		message.getReceiver().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "222"));
+		message.getReceiver().setTelecom(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		message.setSender(new SenderBean());
-		message.getSender().setSendingApplicationIdentifier(new Identifier("2.16.124.113620.1.2.100", "111"));
-		message.getSender().setSendingSoftwareVersionNumber(new Configuration().getVersion());
-		message.getSender().setSendingApplicationName(new Configuration().getName());
-		message.getSender().setSendingNetworkAddress(new TelecommunicationAddress());
-		message.getSender().getSendingNetworkAddress().setAddress("987.654.321.0");
-		message.getSender().getSendingNetworkAddress().setUrlScheme(
+		message.getSender().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "111"));
+		message.getSender().setDeviceManufacturerModelName(new Configuration().getVersion());
+		message.getSender().setDeviceName(new Configuration().getName());
+		message.getSender().setTelecom(new TelecommunicationAddress());
+		message.getSender().getTelecom().setAddress("987.654.321.0");
+		message.getSender().getTelecom().setUrlScheme(
 				lookup(URLScheme.class, "http"));
-		message.setResponseType(IMMEDIATE);
+		message.setResponseModeCode(IMMEDIATE);
 //		message.getReceiver().setDeviceAgentAgentOrganization(null);
 //		message.getSender().setDeviceAgentAgentOrganization(null);
 	}
 	
 	private static Patient_1Bean createIdentifiedPersonBean() {
 		Patient_1Bean identifiedPersonBean = new Patient_1Bean();
-		identifiedPersonBean.getPatientIdentifier().add(new Identifier("3.14", "159"));
-		identifiedPersonBean.setPatientAddress(createPostalAddress());
-		identifiedPersonBean.getPatientContactPhoneAndEMails().add(new TelecommunicationAddress(
+		identifiedPersonBean.getId().add(new Identifier("3.14", "159"));
+		identifiedPersonBean.setAddr(createPostalAddress());
+		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		ActingPersonBean patientPerson = new ActingPersonBean();
 		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		patientPerson.setPatientGender(
+		patientPerson.setAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
 		identifiedPersonBean.setPatientPerson(patientPerson);
@@ -168,17 +168,17 @@ public class QueryLabTestResultsExample {
 	}
 
 	private static void populateQueryControlActStandardValues(TriggerEvent_5Bean<ParameterListBean> triggerEventBean) {
-		triggerEventBean.setEventIdentifier(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		triggerEventBean.setEventEffectivePeriod(IntervalFactory.<Date>createLow(new Date()));
+		triggerEventBean.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
+		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLow(new Date()));
 		triggerEventBean.setAuthor(createAuthorBean());
 		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
-		triggerEventBean.getQueryByParameter().setQueryIdentifier(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
+		triggerEventBean.getQueryByParameter().setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 	}
 	
 	private static ServiceLocationBean createServiceDeliveryLocationBean() {
 		ServiceLocationBean result = new ServiceLocationBean();
-		result.setServiceLocationIdentifier(new Identifier("2.16.124.113620.1.1.11111", "1"));
-		result.setServiceLocationName("Intelliware's Pharmacy");
+		result.setId(new Identifier("2.16.124.113620.1.1.11111", "1"));
+		result.setLocationName("Intelliware's Pharmacy");
 		return result;
 	}
 
@@ -192,14 +192,14 @@ public class QueryLabTestResultsExample {
 	
 	private static CreatedBy_1Bean createAuthorBean() {
 		CreatedBy_1Bean authorBean = new CreatedBy_1Bean();
-		authorBean.setTimeOfCreation(new Date());
+		authorBean.setTime(new Date());
 		authorBean.setAuthorPerson(createHealthcareWorkerBean());
 		return authorBean;
 	}
 
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
-		person.getHealthcareWorkerIdentifier().add(new Identifier("1.1.1", "1"));
+		person.getId().add(new Identifier("1.1.1", "1"));
 		ActingPersonBean assignedPerson = new ActingPersonBean();
 		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
 		person.setAssignedPerson(assignedPerson);

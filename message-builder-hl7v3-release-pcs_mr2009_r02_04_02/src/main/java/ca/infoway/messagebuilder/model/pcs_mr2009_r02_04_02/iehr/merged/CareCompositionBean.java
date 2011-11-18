@@ -189,16 +189,16 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> careCompositionIds = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV careCompositionType = new CVImpl();
-    private BL refutedIndicator = new BLImpl();
-    private CS careCompositionStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> careCompositionPeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private SpecimenRoleBean subject1Specimen;
     private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
-    private INT numberOfPatients = new INTImpl();
+    private INT subject3PatientPatientEntityQuantifiedKindQuantity = new INTImpl();
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
     private ChangedByBean author;
@@ -232,8 +232,8 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getCareCompositionIds() {
-        return this.careCompositionIds.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -352,11 +352,11 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
+    public ActCareEventType getCode() {
+        return (ActCareEventType) this.code.getValue();
     }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
+    public void setCode(ActCareEventType code) {
+        this.code.setValue(code);
     }
 
 
@@ -376,11 +376,11 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -406,11 +406,11 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCareCompositionStatus() {
-        return (ActStatus) this.careCompositionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setCareCompositionStatus(ActStatus careCompositionStatus) {
-        this.careCompositionStatus.setValue(careCompositionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -452,11 +452,11 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCareCompositionPeriod() {
-        return this.careCompositionPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setCareCompositionPeriod(Interval<Date> careCompositionPeriod) {
-        this.careCompositionPeriod.setValue(careCompositionPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -498,8 +498,8 @@ public class CareCompositionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getCareCompositionMaskingIndicators() {
-        return this.careCompositionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -542,11 +542,11 @@ public class CareCompositionBean extends MessagePartBean {
      * making this element mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject3/patient/patientEntityQuantifiedKind/quantity"})
-    public Integer getNumberOfPatients() {
-        return this.numberOfPatients.getValue();
+    public Integer getSubject3PatientPatientEntityQuantifiedKindQuantity() {
+        return this.subject3PatientPatientEntityQuantifiedKindQuantity.getValue();
     }
-    public void setNumberOfPatients(Integer numberOfPatients) {
-        this.numberOfPatients.setValue(numberOfPatients);
+    public void setSubject3PatientPatientEntityQuantifiedKindQuantity(Integer subject3PatientPatientEntityQuantifiedKindQuantity) {
+        this.subject3PatientPatientEntityQuantifiedKindQuantity.setValue(subject3PatientPatientEntityQuantifiedKindQuantity);
     }
 
 

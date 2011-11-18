@@ -84,13 +84,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private II reportedOnCareCompositionLink = new IIImpl();
-    private CD dischargeCareSummaryReportType = new CDImpl();
-    private CS preliminaryFinalIndicator = new CSImpl();
-    private IVL<TS, Interval<Date>> dischargeCareSummaryReportPeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV dischargeDisposition = new CVImpl();
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV dischargeDispositionCode = new CVImpl();
     private OccurredAtBean location;
     private List<DischargeDiagnosesBean> outcomeConditionEvent = new ArrayList<DischargeDiagnosesBean>();
     private Request_1Bean inFulfillmentOfActRequest;
@@ -114,11 +114,11 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * between the report and the discrete record.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getReportedOnCareCompositionLink() {
-        return this.reportedOnCareCompositionLink.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setReportedOnCareCompositionLink(Identifier reportedOnCareCompositionLink) {
-        this.reportedOnCareCompositionLink.setValue(reportedOnCareCompositionLink);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -161,11 +161,11 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCareEventType getDischargeCareSummaryReportType() {
-        return (ActCareEventType) this.dischargeCareSummaryReportType.getValue();
+    public ActCareEventType getCode() {
+        return (ActCareEventType) this.code.getValue();
     }
-    public void setDischargeCareSummaryReportType(ActCareEventType dischargeCareSummaryReportType) {
-        this.dischargeCareSummaryReportType.setValue(dischargeCareSummaryReportType);
+    public void setCode(ActCareEventType code) {
+        this.code.setValue(code);
     }
 
 
@@ -189,28 +189,16 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p></p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public x_ActStatusActiveComplete getPreliminaryFinalIndicator() {
-        return (x_ActStatusActiveComplete) this.preliminaryFinalIndicator.getValue();
+    public x_ActStatusActiveComplete getStatusCode() {
+        return (x_ActStatusActiveComplete) this.statusCode.getValue();
     }
-    public void setPreliminaryFinalIndicator(x_ActStatusActiveComplete preliminaryFinalIndicator) {
-        this.preliminaryFinalIndicator.setValue(preliminaryFinalIndicator);
+    public void setStatusCode(x_ActStatusActiveComplete statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
     /**
      * <p>DischargeCareSummaryReportPeriod</p>
-     * 
-     * <p>F: Discharge/Care Summary Report Period</p>
-     * 
-     * <p><p>Indicates the period of care to which the discharge or 
-     * care report applies. For an encounter discharge assessment, 
-     * this would be the admit and discharge date.</p></p>
-     * 
-     * <p><p>Identifies the time-period of relevance to the record 
-     * which is useful in filtering and organizing 
-     * &quot;time-view&quot; presentations of data. Because the 
-     * period covered by a discharge or care summary should always 
-     * be known, this attribute is mandatory.</p></p>
      * 
      * <p>F: Discharge/Care Summary Report Period</p>
      * 
@@ -223,13 +211,25 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * &quot;time-view&quot; presentations of data. Because the 
      * period covered by a discharge or care summary should always 
      * be known, this attribute is mandatory.</p></p>
+     * 
+     * <p>F: Discharge/Care Summary Report Period</p>
+     * 
+     * <p><p>Indicates the period of care to which the discharge or 
+     * care report applies. For an encounter discharge assessment, 
+     * this would be the admit and discharge date.</p></p>
+     * 
+     * <p><p>Identifies the time-period of relevance to the record 
+     * which is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * period covered by a discharge or care summary should always 
+     * be known, this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDischargeCareSummaryReportPeriod() {
-        return this.dischargeCareSummaryReportPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDischargeCareSummaryReportPeriod(Interval<Date> dischargeCareSummaryReportPeriod) {
-        this.dischargeCareSummaryReportPeriod.setValue(dischargeCareSummaryReportPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -248,11 +248,11 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * the attribute is treated as 'populated'.</p></p>
      */
     @Hl7XmlMapping({"dischargeDispositionCode"})
-    public EncounterDischargeDisposition getDischargeDisposition() {
-        return (EncounterDischargeDisposition) this.dischargeDisposition.getValue();
+    public EncounterDischargeDisposition getDischargeDispositionCode() {
+        return (EncounterDischargeDisposition) this.dischargeDispositionCode.getValue();
     }
-    public void setDischargeDisposition(EncounterDischargeDisposition dischargeDisposition) {
-        this.dischargeDisposition.setValue(dischargeDisposition);
+    public void setDischargeDispositionCode(EncounterDischargeDisposition dischargeDispositionCode) {
+        this.dischargeDispositionCode.setValue(dischargeDispositionCode);
     }
 
 

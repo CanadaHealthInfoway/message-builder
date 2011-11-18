@@ -93,10 +93,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.SubSection","REPC_MT210003CA.SubSection","REPC_MT220001CA.SubSection","REPC_MT220003CA.SubSection","REPC_MT230001CA.SubSection","REPC_MT230003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV sectionType = new CVImpl();
-    private ST sectionTitle = new STImpl();
-    private ED<EncapsulatedData> sectionContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private List<ReferenceBean> componentReference = new ArrayList<ReferenceBean>();
 
 
@@ -148,11 +148,11 @@ public class DocumentSectionsBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public DocumentSectionType getSectionType() {
-        return (DocumentSectionType) this.sectionType.getValue();
+    public DocumentSectionType getCode() {
+        return (DocumentSectionType) this.code.getValue();
     }
-    public void setSectionType(DocumentSectionType sectionType) {
-        this.sectionType.setValue(sectionType);
+    public void setCode(DocumentSectionType code) {
+        this.code.setValue(code);
     }
 
 
@@ -173,8 +173,6 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>B: Section Title</p>
      * 
-     * <p>B: Section Title</p>
-     * 
      * <p><p>Represents the label associated with this particular 
      * portion of the document. These are human-readable 
      * equivalents to the Section Type code. E.g. 
@@ -184,13 +182,15 @@ public class DocumentSectionsBean extends MessagePartBean {
      * <p><p>Provides a human readable label for the section. 
      * Because it is used as part of the document rendering, the 
      * attribute is mandatory.</p></p>
+     * 
+     * <p>B: Section Title</p>
      */
     @Hl7XmlMapping({"title"})
-    public String getSectionTitle() {
-        return this.sectionTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setSectionTitle(String sectionTitle) {
-        this.sectionTitle.setValue(sectionTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -212,11 +212,11 @@ public class DocumentSectionsBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getSectionContent() {
-        return this.sectionContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setSectionContent(EncapsulatedData sectionContent) {
-        this.sectionContent.setValue(sectionContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 

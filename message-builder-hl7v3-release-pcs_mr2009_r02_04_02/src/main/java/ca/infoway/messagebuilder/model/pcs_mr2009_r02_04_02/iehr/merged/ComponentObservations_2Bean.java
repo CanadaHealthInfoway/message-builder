@@ -54,9 +54,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT420001CA.SubObservationEvent","REPC_MT420003CA.SubObservationEvent"})
 public class ComponentObservations_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD componentObservationType = new CDImpl();
-    private CD componentObservationValue = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private CD value = new CDImpl();
 
 
     /**
@@ -109,51 +109,16 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * UNIDENTIFIED AGGREGATE COUNT</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getComponentObservationType() {
-        return (Code) this.componentObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setComponentObservationType(Code componentObservationType) {
-        this.componentObservationType.setValue(componentObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>ComponentObservationValue</p>
-     * 
-     * <p>R: Component Observation Value</p>
-     * 
-     * <p><p>Depending on CommonCodedClinicalObservationSubType, 
-     * one of CommonClinicalObservationResultValue or 
-     * CommonClinicalObservationAssertionValue must be implemented 
-     * in place of CommonClinicalObservationSubValue</p></p>
-     * 
-     * <p><p>Indicates what was actually observed when the 
-     * sub-observation was made.</p><p>E.g. score for skin color in 
-     * an APGAR</p></p>
-     * 
-     * <p><p>Indicates what was actually observed when the 
-     * sub-observation was made.</p><p>E.g. score for skin color in 
-     * an APGAR</p></p>
-     * 
-     * <p><p>PHS 07-feb-02. Some appropriate vocab concept is 
-     * needed for observation.code, to pair with EPHS mappings.</p></p>
-     * 
-     * <p><p>Conveys the clinical information resulting from the 
-     * sub-observation in a standardized 
-     * representation.</p><p>There's no point sending a 
-     * sub-observation if no value is known. Therefore, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p><p>Conveys the clinical information resulting from the 
-     * sub-observation in a standardized 
-     * representation.</p><p>There's no point sending a 
-     * sub-observation if no value is known. Therefore, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p><p>EPHS: datatype needs to be constrained at runtime to 
-     * CV, PQ or ST depending upon type of observation being 
-     * reported. EPHS: vocab domains needed for CAUSE OF 
-     * DEATH;VACCINE</p></p>
      * 
      * <p>R: Component Observation Value</p>
      * 
@@ -189,13 +154,48 @@ public class ComponentObservations_2Bean extends MessagePartBean {
      * CV, PQ or ST depending upon type of observation being 
      * reported. EPHS: vocab domains needed for CAUSE OF 
      * DEATH;VACCINE</p></p>
+     * 
+     * <p>R: Component Observation Value</p>
+     * 
+     * <p><p>Depending on CommonCodedClinicalObservationSubType, 
+     * one of CommonClinicalObservationResultValue or 
+     * CommonClinicalObservationAssertionValue must be implemented 
+     * in place of CommonClinicalObservationSubValue</p></p>
+     * 
+     * <p><p>Indicates what was actually observed when the 
+     * sub-observation was made.</p><p>E.g. score for skin color in 
+     * an APGAR</p></p>
+     * 
+     * <p><p>Indicates what was actually observed when the 
+     * sub-observation was made.</p><p>E.g. score for skin color in 
+     * an APGAR</p></p>
+     * 
+     * <p><p>PHS 07-feb-02. Some appropriate vocab concept is 
+     * needed for observation.code, to pair with EPHS mappings.</p></p>
+     * 
+     * <p><p>Conveys the clinical information resulting from the 
+     * sub-observation in a standardized 
+     * representation.</p><p>There's no point sending a 
+     * sub-observation if no value is known. Therefore, the 
+     * attribute is mandatory.</p></p>
+     * 
+     * <p><p>Conveys the clinical information resulting from the 
+     * sub-observation in a standardized 
+     * representation.</p><p>There's no point sending a 
+     * sub-observation if no value is known. Therefore, the 
+     * attribute is mandatory.</p></p>
+     * 
+     * <p><p>EPHS: datatype needs to be constrained at runtime to 
+     * CV, PQ or ST depending upon type of observation being 
+     * reported. EPHS: vocab domains needed for CAUSE OF 
+     * DEATH;VACCINE</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Code getComponentObservationValue() {
-        return (Code) this.componentObservationValue.getValue();
+    public Code getValue() {
+        return (Code) this.value.getValue();
     }
-    public void setComponentObservationValue(Code componentObservationValue) {
-        this.componentObservationValue.setValue(componentObservationValue);
+    public void setValue(Code value) {
+        this.value.setValue(value);
     }
 
 }

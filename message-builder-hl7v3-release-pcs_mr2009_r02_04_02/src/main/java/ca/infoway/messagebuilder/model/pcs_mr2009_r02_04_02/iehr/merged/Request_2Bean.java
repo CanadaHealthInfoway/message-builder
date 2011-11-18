@@ -75,9 +75,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT230001CA.ActRequest","REPC_MT230002CA.ActRequest","REPC_MT230003CA.ActRequest","REPC_MT410001CA.ActRequest","REPC_MT410003CA.ActRequest","REPC_MT420001CA.ActRequest","REPC_MT420003CA.ActRequest"})
 public class Request_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS requestType = new CSImpl();
-    private II requestId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS classCode = new CSImpl();
+    private II id = new IIImpl();
     private RequestedByBean author;
 
 
@@ -105,11 +105,11 @@ public class Request_2Bean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"classCode"})
-    public x_ActClassCareProvisionObservation getRequestType() {
-        return (x_ActClassCareProvisionObservation) this.requestType.getValue();
+    public x_ActClassCareProvisionObservation getClassCode() {
+        return (x_ActClassCareProvisionObservation) this.classCode.getValue();
     }
-    public void setRequestType(x_ActClassCareProvisionObservation requestType) {
-        this.requestType.setValue(requestType);
+    public void setClassCode(x_ActClassCareProvisionObservation classCode) {
+        this.classCode.setValue(classCode);
     }
 
 
@@ -117,6 +117,14 @@ public class Request_2Bean extends MessagePartBean {
      * <p>RequestId</p>
      * 
      * <p>Request Id</p>
+     * 
+     * <p>Request Id</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
      * 
      * <p>A: Request Id</p>
      * 
@@ -133,21 +141,13 @@ public class Request_2Bean extends MessagePartBean {
      * <p></p></p>
      * 
      * <p></p></p>
-     * 
-     * <p>Request Id</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRequestId() {
-        return this.requestId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRequestId(Identifier requestId) {
-        this.requestId.setValue(requestId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

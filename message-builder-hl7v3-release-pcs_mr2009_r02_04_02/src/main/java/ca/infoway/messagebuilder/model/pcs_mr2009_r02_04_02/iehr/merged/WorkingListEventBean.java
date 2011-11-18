@@ -33,43 +33,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.WorkingListEvent","REPC_MT420003CA.WorkingListEvent","REPC_MT610002CA.WorkingListEvent"})
 public class WorkingListEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>J:Observation Categories</p>
-     * 
-     * <p>J:Observation Categories</p>
-     * 
-     * <p><p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p></p>
-     * 
-     * <p><p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p></p>
-     * 
-     * <p><p>Allows categorizing of observations for presentation. 
-     * A given person may have had numerous observations related to 
-     * a particular area. By associating categories, a person 
-     * viewing the EHR information can first look at a list of 
-     * categories and then drill down to the specific 
-     * observation.</p><p>The presence of this field is essential 
-     * to prevent users from being overwhelmed, however not all 
-     * observations will necessarily be categorizable. Therefore 
-     * this element is marked as 'populated'.</p></p>
-     * 
-     * <p><p>Allows categorizing of observations for presentation. 
-     * A given person may have had numerous observations related to 
-     * a particular area. By associating categories, a person 
-     * viewing the EHR information can first look at a list of 
-     * categories and then drill down to the specific 
-     * observation.</p><p>The presence of this field is essential 
-     * to prevent users from being overwhelmed, however not all 
-     * observations will necessarily be categorizable. Therefore 
-     * this element is marked as 'populated'.</p></p>
-     * 
      * <p>K:Service Categories</p>
      * 
      * <p><p>Describes the categorization of the service. E.g. 
@@ -101,6 +69,38 @@ public class WorkingListEventBean extends MessagePartBean {
      * <p><p>Categories are inferred from the terminology hierarchy 
      * and thus aren't specified as part of the 'record' 
      * message.</p></p>
+     * 
+     * <p>J:Observation Categories</p>
+     * 
+     * <p><p>Describes the categorization of the 
+     * observation.</p><p>E.g. signs and symptoms, history 
+     * observations, etc.</p></p>
+     * 
+     * <p><p>Describes the categorization of the 
+     * observation.</p><p>E.g. signs and symptoms, history 
+     * observations, etc.</p></p>
+     * 
+     * <p><p>Allows categorizing of observations for presentation. 
+     * A given person may have had numerous observations related to 
+     * a particular area. By associating categories, a person 
+     * viewing the EHR information can first look at a list of 
+     * categories and then drill down to the specific 
+     * observation.</p><p>The presence of this field is essential 
+     * to prevent users from being overwhelmed, however not all 
+     * observations will necessarily be categorizable. Therefore 
+     * this element is marked as 'populated'.</p></p>
+     * 
+     * <p><p>Allows categorizing of observations for presentation. 
+     * A given person may have had numerous observations related to 
+     * a particular area. By associating categories, a person 
+     * viewing the EHR information can first look at a list of 
+     * categories and then drill down to the specific 
+     * observation.</p><p>The presence of this field is essential 
+     * to prevent users from being overwhelmed, however not all 
+     * observations will necessarily be categorizable. Therefore 
+     * this element is marked as 'populated'.</p></p>
+     * 
+     * <p>J:Observation Categories</p>
      */
     @Hl7XmlMapping({"code"})
     public Code getCode() {

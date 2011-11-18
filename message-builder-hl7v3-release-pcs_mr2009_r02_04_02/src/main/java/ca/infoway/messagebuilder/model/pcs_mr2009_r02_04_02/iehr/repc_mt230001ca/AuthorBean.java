@@ -40,9 +40,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS authoredDatetime = new TSImpl();
-    private CE attestedIndicator = new CEImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS time = new TSImpl();
+    private CE signatureCode = new CEImpl();
     private ActingPerson actingPerson;
 
 
@@ -50,11 +50,11 @@ public class AuthorBean extends MessagePartBean {
      * <p>X: Authored Datetime</p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getAuthoredDatetime() {
-        return this.authoredDatetime.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setAuthoredDatetime(Date authoredDatetime) {
-        this.authoredDatetime.setValue(authoredDatetime);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 
@@ -62,11 +62,11 @@ public class AuthorBean extends MessagePartBean {
      * <p>K: Attested Indicator</p>
      */
     @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
+    public ParticipationSignature getSignatureCode() {
+        return (ParticipationSignature) this.signatureCode.getValue();
     }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
+    public void setSignatureCode(ParticipationSignature signatureCode) {
+        this.signatureCode.setValue(signatureCode);
     }
 
 

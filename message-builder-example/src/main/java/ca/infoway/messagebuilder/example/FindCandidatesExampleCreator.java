@@ -56,7 +56,7 @@ public class FindCandidatesExampleCreator {
 
 		// populate values standard for all messages
 		populateMessageAttributesStandardValues(messageBean);
-		messageBean.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
+		messageBean.getProfileId().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		
 		// standard control act initialization for this specific message 
 		initializeQueryControlAct(messageBean);
@@ -79,15 +79,15 @@ public class FindCandidatesExampleCreator {
 		messageBean.setControlActEvent(new TriggerEventBean<ParameterListBean>());
 		messageBean.getControlActEvent().setQueryByParameter(new QueryByParameterBean<ParameterListBean>());
 		messageBean.getControlActEvent().getQueryByParameter().setParameterList(new ParameterListBean());
-		messageBean.getControlActEvent().setEventType(HL7TriggerEventCode.FIND_CANDIDATES_QUERY);
+		messageBean.getControlActEvent().setCode(HL7TriggerEventCode.FIND_CANDIDATES_QUERY);
 	}
 	
 	private void populateQueryControlActStandardValues(TriggerEventBean<ParameterListBean> triggerEventBean) {
-		triggerEventBean.setEventIdentifier(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		triggerEventBean.setEventEffectivePeriod(IntervalFactory.<Date>createLow(new Date()));
+		triggerEventBean.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
+		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLow(new Date()));
 		triggerEventBean.setAuthor(createAuthorBean());
 		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
-		triggerEventBean.getQueryByParameter().setQueryIdentifier(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
+		triggerEventBean.getQueryByParameter().setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 	}
 	
 	private ServiceDeliveryLocationBean createServiceDeliveryLocationBean() {
@@ -106,8 +106,8 @@ public class FindCandidatesExampleCreator {
 	private HealthcareWorkerBean createHealthcareWorkerBean(
 			CreatedBy_2Bean authorBean) {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
-		person.getHealthcareWorkerIdentifier().add(new Identifier("1.1.1", "1"));
-		authorBean.setTimeOfCreation(new Date());
+		person.getId().add(new Identifier("1.1.1", "1"));
+		authorBean.setTime(new Date());
 		ActingPersonBean assignedPerson = new ActingPersonBean();
 		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
 		person.setAssignedPerson(assignedPerson);
@@ -118,9 +118,9 @@ public class FindCandidatesExampleCreator {
 		
 		ParameterListBean parameterList = messageBean.getControlActEvent().getQueryByParameter().getParameterList();
 		
-		parameterList.getClientName().add(createFirstNameLastName("Rober", "Smith"));
-		parameterList.setClientGender(AdministrativeGender.MALE);
-		parameterList.setClientDateOfBirth(DateUtil.getDate(1974, 7, 20));
+		parameterList.getPersonNameValue().add(createFirstNameLastName("Rober", "Smith"));
+		parameterList.setAdministrativeGenderValue(AdministrativeGender.MALE);
+		parameterList.setPersonBirthtimeValue(DateUtil.getDate(1974, 7, 20));
 		
 	}
 

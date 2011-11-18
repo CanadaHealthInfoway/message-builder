@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.NewCommonObservationEvent","REPC_MT420003CA.NewCommonObservationEvent"})
 public class NewCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II replaceByRecordId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -49,11 +49,11 @@ public class NewCommonObservationEventBean extends MessagePartBean {
      * <p>G:Replace by Record Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getReplaceByRecordId() {
-        return this.replaceByRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setReplaceByRecordId(Identifier replaceByRecordId) {
-        this.replaceByRecordId.setValue(replaceByRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

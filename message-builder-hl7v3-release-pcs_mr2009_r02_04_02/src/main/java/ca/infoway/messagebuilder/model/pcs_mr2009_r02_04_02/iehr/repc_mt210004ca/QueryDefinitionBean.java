@@ -70,27 +70,27 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS updatedSinceDateTime = new TSImpl();
-    private BL attestedIndicator = new BLImpl();
-    private List<II> careCompositionIds = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private II eHRRepositoryId = new IIImpl();
-    private IVL<TS, Interval<Date>> effectiveDateRange = new IVLImpl<TS, Interval<Date>>();
-    private List<CV> eventCategories = new ArrayList<CV>();
-    private II eventLocationId = new IIImpl();
-    private CV eventLocationType = new CVImpl();
-    private List<CD> healthConditions = new ArrayList<CD>();
-    private CD indication = new CDImpl();
-    private BL mostRecentByTypeIndicator = new BLImpl();
-    private List<II> protocolIds = new ArrayList<II>();
-    private II recipientLocationId = new IIImpl();
-    private II recipientProviderId = new IIImpl();
-    private List<CS> recordStatuses = new ArrayList<CS>();
-    private List<CD> recordTypes = new ArrayList<CD>();
-    private II requestingProviderId = new IIImpl();
-    private II responsibleProviderId = new IIImpl();
-    private CV responsibleProviderType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS amendedSinceDateTimeValue = new TSImpl();
+    private BL attestedIndicatorValue = new BLImpl();
+    private List<II> careCompositionIdValue = new ArrayList<II>();
+    private List<CV> careCompositionTypeValue = new ArrayList<CV>();
+    private II eHRRepositoryIdValue = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private List<CV> eventCategoryValue = new ArrayList<CV>();
+    private II eventLocationIdValue = new IIImpl();
+    private CV eventLocationTypeValue = new CVImpl();
+    private List<CD> healthConditionValue = new ArrayList<CD>();
+    private CD indicationValue = new CDImpl();
+    private BL mostRecentByTypeIndicatorValue = new BLImpl();
+    private List<II> protocolIdValue = new ArrayList<II>();
+    private II recipientLocationIdValue = new IIImpl();
+    private II recipientProviderIdValue = new IIImpl();
+    private List<CS> recordStatusValue = new ArrayList<CS>();
+    private List<CD> recordTypeValue = new ArrayList<CD>();
+    private II requestingProviderIdValue = new IIImpl();
+    private II responsibleProviderIdValue = new IIImpl();
+    private CV responsibleProviderTypeValue = new CVImpl();
 
 
     /**
@@ -104,11 +104,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * checked&quot;.</p></p>
      */
     @Hl7XmlMapping({"amendedSinceDateTime/value"})
-    public Date getUpdatedSinceDateTime() {
-        return this.updatedSinceDateTime.getValue();
+    public Date getAmendedSinceDateTimeValue() {
+        return this.amendedSinceDateTimeValue.getValue();
     }
-    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
-        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
+    public void setAmendedSinceDateTimeValue(Date amendedSinceDateTimeValue) {
+        this.amendedSinceDateTimeValue.setValue(amendedSinceDateTimeValue);
     }
 
 
@@ -130,11 +130,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * unauthenticated.</p></p>
      */
     @Hl7XmlMapping({"attestedIndicator/value"})
-    public Boolean getAttestedIndicator() {
-        return this.attestedIndicator.getValue();
+    public Boolean getAttestedIndicatorValue() {
+        return this.attestedIndicatorValue.getValue();
     }
-    public void setAttestedIndicator(Boolean attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
+    public void setAttestedIndicatorValue(Boolean attestedIndicatorValue) {
+        this.attestedIndicatorValue.setValue(attestedIndicatorValue);
     }
 
 
@@ -165,8 +165,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionId/value"})
-    public List<Identifier> getCareCompositionIds() {
-        return new RawListWrapper<II, Identifier>(careCompositionIds, IIImpl.class);
+    public List<Identifier> getCareCompositionIdValue() {
+        return new RawListWrapper<II, Identifier>(careCompositionIdValue, IIImpl.class);
     }
 
 
@@ -183,8 +183,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    public List<ActCareEventType> getCareCompositionTypeValue() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypeValue, CVImpl.class);
     }
 
 
@@ -200,11 +200,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reasons.</p></p>
      */
     @Hl7XmlMapping({"eHRRepositoryId/value"})
-    public Identifier getEHRRepositoryId() {
-        return this.eHRRepositoryId.getValue();
+    public Identifier getEHRRepositoryIdValue() {
+        return this.eHRRepositoryIdValue.getValue();
     }
-    public void setEHRRepositoryId(Identifier eHRRepositoryId) {
-        this.eHRRepositoryId.setValue(eHRRepositoryId);
+    public void setEHRRepositoryIdValue(Identifier eHRRepositoryIdValue) {
+        this.eHRRepositoryIdValue.setValue(eHRRepositoryIdValue);
     }
 
 
@@ -226,11 +226,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * date in the past.</p></p>
      */
     @Hl7XmlMapping({"effectiveTimeRange/value"})
-    public Interval<Date> getEffectiveDateRange() {
-        return this.effectiveDateRange.getValue();
+    public Interval<Date> getEffectiveTimeRangeValue() {
+        return this.effectiveTimeRangeValue.getValue();
     }
-    public void setEffectiveDateRange(Interval<Date> effectiveDateRange) {
-        this.effectiveDateRange.setValue(effectiveDateRange);
+    public void setEffectiveTimeRangeValue(Interval<Date> effectiveTimeRangeValue) {
+        this.effectiveTimeRangeValue.setValue(effectiveTimeRangeValue);
     }
 
 
@@ -251,8 +251,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * for multiple categories to be returned.</p></p>
      */
     @Hl7XmlMapping({"eventCategory/value"})
-    public List<ReferralDocumentType> getEventCategories() {
-        return new RawListWrapper<CV, ReferralDocumentType>(eventCategories, CVImpl.class);
+    public List<ReferralDocumentType> getEventCategoryValue() {
+        return new RawListWrapper<CV, ReferralDocumentType>(eventCategoryValue, CVImpl.class);
     }
 
 
@@ -272,11 +272,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * particular facility.</p></p>
      */
     @Hl7XmlMapping({"eventLocationId/value"})
-    public Identifier getEventLocationId() {
-        return this.eventLocationId.getValue();
+    public Identifier getEventLocationIdValue() {
+        return this.eventLocationIdValue.getValue();
     }
-    public void setEventLocationId(Identifier eventLocationId) {
-        this.eventLocationId.setValue(eventLocationId);
+    public void setEventLocationIdValue(Identifier eventLocationIdValue) {
+        this.eventLocationIdValue.setValue(eventLocationIdValue);
     }
 
 
@@ -292,11 +292,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * pharmacy, patient residence, etc.</p></p>
      */
     @Hl7XmlMapping({"eventLocationType/value"})
-    public ServiceDeliveryLocationRoleType getEventLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.eventLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getEventLocationTypeValue() {
+        return (ServiceDeliveryLocationRoleType) this.eventLocationTypeValue.getValue();
     }
-    public void setEventLocationType(ServiceDeliveryLocationRoleType eventLocationType) {
-        this.eventLocationType.setValue(eventLocationType);
+    public void setEventLocationTypeValue(ServiceDeliveryLocationRoleType eventLocationTypeValue) {
+        this.eventLocationTypeValue.setValue(eventLocationTypeValue);
     }
 
 
@@ -312,8 +312,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"healthCondition/value"})
-    public List<ActHealthConditionType> getHealthConditions() {
-        return new RawListWrapper<CD, ActHealthConditionType>(healthConditions, CDImpl.class);
+    public List<ActHealthConditionType> getHealthConditionValue() {
+        return new RawListWrapper<CD, ActHealthConditionType>(healthConditionValue, CDImpl.class);
     }
 
 
@@ -343,11 +343,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"indication/value"})
-    public ActIndicationType getIndication() {
-        return (ActIndicationType) this.indication.getValue();
+    public ActIndicationType getIndicationValue() {
+        return (ActIndicationType) this.indicationValue.getValue();
     }
-    public void setIndication(ActIndicationType indication) {
-        this.indication.setValue(indication);
+    public void setIndicationValue(ActIndicationType indicationValue) {
+        this.indicationValue.setValue(indicationValue);
     }
 
 
@@ -367,11 +367,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * records.</p></p>
      */
     @Hl7XmlMapping({"mostRecentByTypeIndicator/value"})
-    public Boolean getMostRecentByTypeIndicator() {
-        return this.mostRecentByTypeIndicator.getValue();
+    public Boolean getMostRecentByTypeIndicatorValue() {
+        return this.mostRecentByTypeIndicatorValue.getValue();
     }
-    public void setMostRecentByTypeIndicator(Boolean mostRecentByTypeIndicator) {
-        this.mostRecentByTypeIndicator.setValue(mostRecentByTypeIndicator);
+    public void setMostRecentByTypeIndicatorValue(Boolean mostRecentByTypeIndicatorValue) {
+        this.mostRecentByTypeIndicatorValue.setValue(mostRecentByTypeIndicatorValue);
     }
 
 
@@ -395,8 +395,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"protocolId/value"})
-    public List<Identifier> getProtocolIds() {
-        return new RawListWrapper<II, Identifier>(protocolIds, IIImpl.class);
+    public List<Identifier> getProtocolIdValue() {
+        return new RawListWrapper<II, Identifier>(protocolIdValue, IIImpl.class);
     }
 
 
@@ -412,11 +412,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * location&quot;</p></p>
      */
     @Hl7XmlMapping({"recipientLocationId/value"})
-    public Identifier getRecipientLocationId() {
-        return this.recipientLocationId.getValue();
+    public Identifier getRecipientLocationIdValue() {
+        return this.recipientLocationIdValue.getValue();
     }
-    public void setRecipientLocationId(Identifier recipientLocationId) {
-        this.recipientLocationId.setValue(recipientLocationId);
+    public void setRecipientLocationIdValue(Identifier recipientLocationIdValue) {
+        this.recipientLocationIdValue.setValue(recipientLocationIdValue);
     }
 
 
@@ -432,11 +432,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * me&quot;</p></p>
      */
     @Hl7XmlMapping({"recipientProviderId/value"})
-    public Identifier getRecipientProviderId() {
-        return this.recipientProviderId.getValue();
+    public Identifier getRecipientProviderIdValue() {
+        return this.recipientProviderIdValue.getValue();
     }
-    public void setRecipientProviderId(Identifier recipientProviderId) {
-        this.recipientProviderId.setValue(recipientProviderId);
+    public void setRecipientProviderIdValue(Identifier recipientProviderIdValue) {
+        this.recipientProviderIdValue.setValue(recipientProviderIdValue);
     }
 
 
@@ -452,8 +452,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * selection of multiple statuses with a single query.</p></p>
      */
     @Hl7XmlMapping({"recordStatus/value"})
-    public List<ActStatus> getRecordStatuses() {
-        return new RawListWrapper<CS, ActStatus>(recordStatuses, CSImpl.class);
+    public List<ActStatus> getRecordStatusValue() {
+        return new RawListWrapper<CS, ActStatus>(recordStatusValue, CSImpl.class);
     }
 
 
@@ -469,8 +469,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"recordType/value"})
-    public List<ActCareProvisionRequestType> getRecordTypes() {
-        return new RawListWrapper<CD, ActCareProvisionRequestType>(recordTypes, CDImpl.class);
+    public List<ActCareProvisionRequestType> getRecordTypeValue() {
+        return new RawListWrapper<CD, ActCareProvisionRequestType>(recordTypeValue, CDImpl.class);
     }
 
 
@@ -485,11 +485,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * they may have made.</p></p>
      */
     @Hl7XmlMapping({"requestingProviderId/value"})
-    public Identifier getRequestingProviderId() {
-        return this.requestingProviderId.getValue();
+    public Identifier getRequestingProviderIdValue() {
+        return this.requestingProviderIdValue.getValue();
     }
-    public void setRequestingProviderId(Identifier requestingProviderId) {
-        this.requestingProviderId.setValue(requestingProviderId);
+    public void setRequestingProviderIdValue(Identifier requestingProviderIdValue) {
+        this.requestingProviderIdValue.setValue(requestingProviderIdValue);
     }
 
 
@@ -504,11 +504,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * provider has a vested interest.</p></p>
      */
     @Hl7XmlMapping({"responsibleProviderId/value"})
-    public Identifier getResponsibleProviderId() {
-        return this.responsibleProviderId.getValue();
+    public Identifier getResponsibleProviderIdValue() {
+        return this.responsibleProviderIdValue.getValue();
     }
-    public void setResponsibleProviderId(Identifier responsibleProviderId) {
-        this.responsibleProviderId.setValue(responsibleProviderId);
+    public void setResponsibleProviderIdValue(Identifier responsibleProviderIdValue) {
+        this.responsibleProviderIdValue.setValue(responsibleProviderIdValue);
     }
 
 
@@ -523,11 +523,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * kind of provider has a vested interest.</p></p>
      */
     @Hl7XmlMapping({"responsibleProviderType/value"})
-    public HealthcareProviderRoleType getResponsibleProviderType() {
-        return (HealthcareProviderRoleType) this.responsibleProviderType.getValue();
+    public HealthcareProviderRoleType getResponsibleProviderTypeValue() {
+        return (HealthcareProviderRoleType) this.responsibleProviderTypeValue.getValue();
     }
-    public void setResponsibleProviderType(HealthcareProviderRoleType responsibleProviderType) {
-        this.responsibleProviderType.setValue(responsibleProviderType);
+    public void setResponsibleProviderTypeValue(HealthcareProviderRoleType responsibleProviderTypeValue) {
+        this.responsibleProviderTypeValue.setValue(responsibleProviderTypeValue);
     }
 
 }

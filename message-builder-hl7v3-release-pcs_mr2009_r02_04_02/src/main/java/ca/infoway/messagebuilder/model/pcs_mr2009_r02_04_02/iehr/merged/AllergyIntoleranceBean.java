@@ -92,15 +92,15 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110906L;
-    private II allergyIntoleranceRecordId = new IIImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
-    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CV confirmedIndicator = new CVImpl();
-    private CV agent = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private CV uncertaintyCode = new CVImpl();
+    private CV value = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private ReportedByBean informant;
@@ -133,11 +133,11 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * updated and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordId() {
-        return this.allergyIntoleranceRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
-        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -156,16 +156,27 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * CD to allow for SNOMED post-coordination.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    public ObservationIntoleranceType getCode() {
+        return (ObservationIntoleranceType) this.code.getValue();
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setCode(ObservationIntoleranceType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>AllergyIntoleranceRefuted</p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p></p>
      * 
      * <p>G:Allergy/Intolerance Refuted</p>
      * 
@@ -187,44 +198,21 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * intolerance.</p></p>
      * 
      * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
      * suspected allergy. Because it is essential to know whether 
      * the allergy or intolerance is being refuted or affirmed, 
      * this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
     /**
      * <p>AllergyIntoleranceStatus</p>
-     * 
-     * <p>E:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'active' or 'completed' (indicating 
-     * no longer active).</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'active' and is therefore mandatory.</p></p>
-     * 
-     * <p><p>System must default the status to 'active'.</p></p>
      * 
      * <p>E:Allergy/Intolerance Status</p>
      * 
@@ -237,13 +225,25 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * of 'ACTIVE' and is therefore mandatory.</p></p>
      * 
      * <p><p>System must default the status to 'ACTIVE'.</p></p>
+     * 
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'active' or 'completed' (indicating 
+     * no longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'active' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'active'.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -259,11 +259,11 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * for the allergy/intolerance record.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -283,45 +283,53 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exposed to the patient (at least without the guidance of the 
      * authoring or other responsible healthcare provider). Valid 
      * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
+     * (denotes 'Masked'); very restricted (denotes Masked by 
+     * Regulation); and 'taboo' (denotes 'patient restricted'). The 
+     * default is 'normal' signifying 'Not Masked'. Either or both 
+     * of the other codes can be asserted to indicate masking by 
+     * the patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
      * 
      * <p>H:Allergy/Intolerance Masking Indicators</p>
      * 
@@ -336,57 +344,49 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exposed to the patient (at least without the guidance of the 
      * authoring or other responsible healthcare provider). Valid 
      * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
+     * (denotes 'Masked'); very restricted (denotes Masked by 
+     * Regulation); and 'taboo' (denotes 'patient restricted'). The 
+     * default is 'normal' signifying 'Not Masked'. Either or both 
+     * of the other codes can be asserted to indicate masking by 
+     * the patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
-        return this.allergyIntoleranceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -410,7 +410,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
+     * whether the record is U or N</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -427,7 +427,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
+     * whether the record is U or N</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -444,7 +444,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
+     * whether the record is U or N</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -461,7 +461,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
+     * whether the record is U or N</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -478,7 +478,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p></p>
+     * whether the record is U or N</p></p>
      * 
      * <p><p>Helps other providers to make appropriate decisions in 
      * their management of allergy or intolerance 
@@ -509,7 +509,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
+     * whether the record is U or N.</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -526,7 +526,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
+     * whether the record is U or N.</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -543,7 +543,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
      * record is always used in drug contraindication checking 
-     * whether the record is U or N</p></p>
+     * whether the record is U or N.</p></p>
      * 
      * <p><p>An indication of the level of confidence/surety placed 
      * in the recorded information.</p><p>The two valid codes 
@@ -556,18 +556,15 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * (stated with no assertion of uncertainty) - Specifies that 
      * the act statement is made without any explicit expression of 
      * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is
+     * that it may not be free of errors and uncert
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getConfirmedIndicator() {
-        return (ActUncertainty) this.confirmedIndicator.getValue();
+    public ActUncertainty getUncertaintyCode() {
+        return (ActUncertainty) this.uncertaintyCode.getValue();
     }
-    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
-        this.confirmedIndicator.setValue(confirmedIndicator);
+    public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
+        this.uncertaintyCode.setValue(uncertaintyCode);
     }
 
 
@@ -597,11 +594,11 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * optional.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
+    public IntoleranceValue getValue() {
+        return (IntoleranceValue) this.value.getValue();
     }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
+    public void setValue(IntoleranceValue value) {
+        this.value.setValue(value);
     }
 
 

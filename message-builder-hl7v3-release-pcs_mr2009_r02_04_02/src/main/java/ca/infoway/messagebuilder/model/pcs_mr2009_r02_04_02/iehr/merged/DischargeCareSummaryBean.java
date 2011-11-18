@@ -82,17 +82,17 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV documentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private RequestedByBean author;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private SectionBean componentStructuredBodyComponentSection;
     private IncludesBean subjectOf1;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private SET<II, Identifier> documentIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
@@ -112,11 +112,11 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public CareSummaryDocumentType getDocumentCategory() {
-        return (CareSummaryDocumentType) this.documentCategory.getValue();
+    public CareSummaryDocumentType getCode() {
+        return (CareSummaryDocumentType) this.code.getValue();
     }
-    public void setDocumentCategory(CareSummaryDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
+    public void setCode(CareSummaryDocumentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -140,11 +140,11 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * title. &quot;Surgery Report&quot; would not.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -162,8 +162,8 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -225,8 +225,8 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getDocumentIdentifiers() {
-        return this.documentIdentifiers.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 

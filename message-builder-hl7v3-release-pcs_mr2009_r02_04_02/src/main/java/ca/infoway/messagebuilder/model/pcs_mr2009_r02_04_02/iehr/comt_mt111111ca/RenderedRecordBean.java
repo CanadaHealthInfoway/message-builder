@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT111111CA.RenderedContent"})
 public class RenderedRecordBean extends MessagePartBean implements Summary {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV renderedContentType = new CVImpl();
-    private ED<EncapsulatedData> renderedContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -62,11 +62,11 @@ public class RenderedRecordBean extends MessagePartBean implements Summary {
      * known for presentation and consumption.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getRenderedContentType() {
-        return (Code) this.renderedContentType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setRenderedContentType(Code renderedContentType) {
-        this.renderedContentType.setValue(renderedContentType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -83,11 +83,11 @@ public class RenderedRecordBean extends MessagePartBean implements Summary {
      * because the rendered content must be known.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getRenderedContent() {
-        return this.renderedContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setRenderedContent(EncapsulatedData renderedContent) {
-        this.renderedContent.setValue(renderedContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 }

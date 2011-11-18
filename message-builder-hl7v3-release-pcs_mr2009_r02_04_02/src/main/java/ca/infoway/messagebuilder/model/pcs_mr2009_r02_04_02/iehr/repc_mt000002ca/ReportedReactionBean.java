@@ -68,12 +68,12 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD diagnosisType = new CDImpl();
-    private ST description = new STImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CV reaction = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private CV value = new CVImpl();
     private ReportedByBean informant;
     private IncludesBean subjectOf1;
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
@@ -95,11 +95,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * Otherwise it will be a fixed value of 'DX'.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getDiagnosisType() {
-        return (Code) this.diagnosisType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setDiagnosisType(Code diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -143,11 +143,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * of the reaction.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -161,11 +161,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * the reaction.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -183,18 +183,18 @@ public class ReportedReactionBean extends MessagePartBean {
      * exposed to the patient (at least without the guidance of the 
      * authoring or other responsible healthcare provider). Valid 
      * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
+     * (denotes 'Masked'); very restricted (denotes Masked by 
+     * Regulation); and 'taboo' (denotes 'patient restricted'). The 
+     * default is 'normal' signifying 'Not Masked'. Either or both 
+     * of the other codes can be asserted to indicate masking by 
+     * the patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their adverse reaction data.</p><p>Taboo allows 
      * the provider to request restricted access to patient or 
-     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * their care giver.</p><p>Constraint: Cant have both normal 
      * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
@@ -202,7 +202,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their adverse reaction data.</p><p>Taboo allows 
      * the provider to request restricted access to patient or 
-     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * their care giver.</p><p>Constraint: Cant have both normal 
      * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
@@ -210,7 +210,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their adverse reaction data.</p><p>Taboo allows 
      * the provider to request restricted access to patient or 
-     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * their care giver.</p><p>Constraint: Cant have both normal 
      * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
@@ -218,14 +218,14 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their adverse reaction data.</p><p>Taboo allows 
      * the provider to request restricted access to patient or 
-     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * their care giver.</p><p>Constraint: Cant have both normal 
      * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getAdverseReactionMaskingIndicators() {
-        return this.adverseReactionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -247,11 +247,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * values.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    public SubjectReaction getValue() {
+        return (SubjectReaction) this.value.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
+    public void setValue(SubjectReaction value) {
+        this.value.setValue(value);
     }
 
 

@@ -113,14 +113,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT220001CA.ActRequest","REPC_MT220002CA.ActRequest","REPC_MT220003CA.ActRequest","REPC_MT500001CA.ActRequest","REPC_MT500002CA.ActRequest","REPC_MT500003CA.ActRequest","REPC_MT500004CA.ActRequest"})
 public class Request_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS requestType = new CSImpl();
-    private II requestId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS classCode = new CSImpl();
+    private II id = new IIImpl();
     private RequestedByBean author;
 
 
     /**
      * <p>RequestType</p>
+     * 
+     * <p>B: Request Type</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
      * 
      * <p>Request Type</p>
      * 
@@ -132,19 +138,13 @@ public class Request_1Bean extends MessagePartBean {
      * care is via a referral (PCPR). However, in the future, 
      * specific encounter scheduling messages may be defined. 
      * References to those new types of records would use ENC.</p></p>
-     * 
-     * <p>B: Request Type</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
      */
     @Hl7XmlMapping({"classCode"})
-    public x_ActClassCareProvisionEncounter getRequestType() {
-        return (x_ActClassCareProvisionEncounter) this.requestType.getValue();
+    public x_ActClassCareProvisionEncounter getClassCode() {
+        return (x_ActClassCareProvisionEncounter) this.classCode.getValue();
     }
-    public void setRequestType(x_ActClassCareProvisionEncounter requestType) {
-        this.requestType.setValue(requestType);
+    public void setClassCode(x_ActClassCareProvisionEncounter classCode) {
+        this.classCode.setValue(classCode);
     }
 
 
@@ -168,11 +168,11 @@ public class Request_1Bean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRequestId() {
-        return this.requestId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRequestId(Identifier requestId) {
-        this.requestId.setValue(requestId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

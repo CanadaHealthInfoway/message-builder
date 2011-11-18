@@ -63,23 +63,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000007CA.ControlActEvent","REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private CV reasonCode = new CVImpl();
     private ChangedByBean author;
-    private CV allergyIntoleranceStatusChangeType = new CVImpl();
-    private TS allergyIntoleranceStatusChangeEffectiveDate = new TSImpl();
+    private CV code = new CVImpl();
+    private TS effectiveTime = new TSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
     /**
-     * <p>B:Amend Reason</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
      * <p>C:Allergy/Intolerance Status Change Reason</p>
      * 
      * <p><p>Denotes the reason the allergy/intolerance was 
@@ -88,6 +80,14 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * <p><p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p></p>
+     * 
+     * <p>B:Amend Reason</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -120,11 +120,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * types are distinguishable.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
-        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
     }
-    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
-        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -141,11 +141,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * and thus is mandatory.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceStatusChangeEffectiveDate() {
-        return this.allergyIntoleranceStatusChangeEffectiveDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAllergyIntoleranceStatusChangeEffectiveDate(Date allergyIntoleranceStatusChangeEffectiveDate) {
-        this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

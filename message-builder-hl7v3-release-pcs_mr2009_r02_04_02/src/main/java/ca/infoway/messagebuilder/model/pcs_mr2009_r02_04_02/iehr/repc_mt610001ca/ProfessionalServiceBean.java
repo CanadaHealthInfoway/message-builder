@@ -86,11 +86,11 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD serviceType = new CDImpl();
-    private BL refutedIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> serviceTimeAndLength = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
     private OccurredAtBean location;
@@ -191,11 +191,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActProfessionalServiceCode getServiceType() {
-        return (ActProfessionalServiceCode) this.serviceType.getValue();
+    public ActProfessionalServiceCode getCode() {
+        return (ActProfessionalServiceCode) this.code.getValue();
     }
-    public void setServiceType(ActProfessionalServiceCode serviceType) {
-        this.serviceType.setValue(serviceType);
+    public void setCode(ActProfessionalServiceCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -209,11 +209,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -255,11 +255,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceTimeAndLength() {
-        return this.serviceTimeAndLength.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setServiceTimeAndLength(Interval<Date> serviceTimeAndLength) {
-        this.serviceTimeAndLength.setValue(serviceTimeAndLength);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -275,8 +275,8 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getServiceMaskingIndicators() {
-        return this.serviceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

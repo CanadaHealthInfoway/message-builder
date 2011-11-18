@@ -190,9 +190,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Author","REPC_MT210002CA.Author","REPC_MT210003CA.Author","REPC_MT220001CA.Author","REPC_MT220001CA.Author3","REPC_MT220002CA.Author","REPC_MT220002CA.Author3","REPC_MT220003CA.Author","REPC_MT220003CA.Author3","REPC_MT230001CA.Author2","REPC_MT230002CA.Author","REPC_MT230002CA.Author2","REPC_MT230003CA.Author","REPC_MT230003CA.Author2","REPC_MT410001CA.Author","REPC_MT410003CA.Author2","REPC_MT410003CA.Author3","REPC_MT420001CA.Author2","REPC_MT420003CA.Author2","REPC_MT500001CA.Author2","REPC_MT500002CA.Author2","REPC_MT500003CA.Author","REPC_MT500003CA.Author2","REPC_MT500004CA.Author","REPC_MT500004CA.Author2","REPC_MT610001CA.Author","REPC_MT610002CA.Author"})
 public class RequestedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private TS time = new TSImpl();
-    private CV attestedIndicator = new CVImpl();
+    private CV signatureCode = new CVImpl();
     private ActingPerson actingPerson;
 
 
@@ -252,11 +252,11 @@ public class RequestedByBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
+    public ParticipationSignature getSignatureCode() {
+        return (ParticipationSignature) this.signatureCode.getValue();
     }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
+    public void setSignatureCode(ParticipationSignature signatureCode) {
+        this.signatureCode.setValue(signatureCode);
     }
 
 

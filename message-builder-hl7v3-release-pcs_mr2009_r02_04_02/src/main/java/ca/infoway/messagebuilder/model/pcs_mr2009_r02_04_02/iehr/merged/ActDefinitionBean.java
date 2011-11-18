@@ -33,12 +33,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410001CA.ActDefinition","REPC_MT410003CA.ActDefinition","REPC_MT420001CA.ActDefinition","REPC_MT420003CA.ActDefinition","REPC_MT610001CA.ActDefinition","REPC_MT610002CA.ActDefinition"})
 public class ActDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II protocolIds = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>ProtocolIds</p>
+     * 
+     * <p>E:Protocol Ids</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
      * 
      * <p>G:Protocol Ids</p>
      * 
@@ -57,21 +65,13 @@ public class ActDefinitionBean extends MessagePartBean {
      * <p></p></p>
      * 
      * <p>E:Protocol Ids</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p>E:Protocol Ids</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getProtocolIds() {
-        return this.protocolIds.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setProtocolIds(Identifier protocolIds) {
-        this.protocolIds.setValue(protocolIds);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

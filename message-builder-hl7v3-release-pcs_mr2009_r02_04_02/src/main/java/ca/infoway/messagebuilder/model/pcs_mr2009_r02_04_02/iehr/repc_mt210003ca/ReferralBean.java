@@ -75,11 +75,11 @@ import java.util.Set;
 @Hl7RootType
 public class ReferralBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> documentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV referralDocumentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private RequestedByBean author;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
@@ -101,8 +101,8 @@ public class ReferralBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getDocumentIdentifier() {
-        return this.documentIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -116,11 +116,11 @@ public class ReferralBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ReferralDocumentType getReferralDocumentCategory() {
-        return (ReferralDocumentType) this.referralDocumentCategory.getValue();
+    public ReferralDocumentType getCode() {
+        return (ReferralDocumentType) this.code.getValue();
     }
-    public void setReferralDocumentCategory(ReferralDocumentType referralDocumentCategory) {
-        this.referralDocumentCategory.setValue(referralDocumentCategory);
+    public void setCode(ReferralDocumentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -142,11 +142,11 @@ public class ReferralBean extends MessagePartBean {
      * title. &quot;Surgery Report&quot; would not.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -162,8 +162,8 @@ public class ReferralBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

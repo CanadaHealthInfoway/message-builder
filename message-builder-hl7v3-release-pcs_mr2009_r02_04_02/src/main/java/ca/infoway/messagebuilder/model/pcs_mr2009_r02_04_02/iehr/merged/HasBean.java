@@ -83,10 +83,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT500001CA.Participant","REPC_MT500002CA.Participant","REPC_MT500004CA.Participant"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV participationMechanism = new CVImpl();
-    private II participantIdReference = new IIImpl();
-    private SET<CV, Code> participantConfidentialities = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV modeCode = new CVImpl();
+    private II roleId = new IIImpl();
+    private SET<CV, Code> roleConfidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
 
 
     /**
@@ -103,11 +103,11 @@ public class HasBean extends MessagePartBean {
      * telehealth.</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getParticipationMechanism() {
-        return (ParticipationMode) this.participationMechanism.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setParticipationMechanism(ParticipationMode participationMechanism) {
-        this.participationMechanism.setValue(participationMechanism);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -127,11 +127,11 @@ public class HasBean extends MessagePartBean {
      * explicitly identified.</p></p>
      */
     @Hl7XmlMapping({"role/id"})
-    public Identifier getParticipantIdReference() {
-        return this.participantIdReference.getValue();
+    public Identifier getRoleId() {
+        return this.roleId.getValue();
     }
-    public void setParticipantIdReference(Identifier participantIdReference) {
-        this.participantIdReference.setValue(participantIdReference);
+    public void setRoleId(Identifier roleId) {
+        this.roleId.setValue(roleId);
     }
 
 
@@ -166,8 +166,8 @@ public class HasBean extends MessagePartBean {
      * level.</p></p>
      */
     @Hl7XmlMapping({"role/confidentialityCode"})
-    public Set<x_VeryBasicConfidentialityKind> getParticipantConfidentialities() {
-        return this.participantConfidentialities.rawSet(x_VeryBasicConfidentialityKind.class);
+    public Set<x_VeryBasicConfidentialityKind> getRoleConfidentialityCode() {
+        return this.roleConfidentialityCode.rawSet(x_VeryBasicConfidentialityKind.class);
     }
 
 }

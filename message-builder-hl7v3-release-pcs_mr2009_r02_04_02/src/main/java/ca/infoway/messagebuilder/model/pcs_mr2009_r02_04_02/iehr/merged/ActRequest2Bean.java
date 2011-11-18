@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.ActRequest2","REPC_MT210002CA.ActRequest2","REPC_MT210003CA.ActRequest2"})
 public class ActRequest2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD requestedService = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
 
 
     /**
@@ -54,11 +54,11 @@ public class ActRequest2Bean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActProfessionalServiceCode getRequestedService() {
-        return (ActProfessionalServiceCode) this.requestedService.getValue();
+    public ActProfessionalServiceCode getCode() {
+        return (ActProfessionalServiceCode) this.code.getValue();
     }
-    public void setRequestedService(ActProfessionalServiceCode requestedService) {
-        this.requestedService.setValue(requestedService);
+    public void setCode(ActProfessionalServiceCode code) {
+        this.code.setValue(code);
     }
 
 }

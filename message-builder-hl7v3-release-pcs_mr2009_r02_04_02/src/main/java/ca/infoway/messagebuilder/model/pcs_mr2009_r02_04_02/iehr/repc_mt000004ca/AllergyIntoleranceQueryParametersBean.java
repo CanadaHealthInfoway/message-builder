@@ -61,14 +61,14 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV allergyIntoleranceStatus = new CVImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private BL includeNotesIndicator = new BLImpl();
-    private CV reaction = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV allergyIntoleranceStatusValue = new CVImpl();
+    private CD allergyIntoleranceTypeValue = new CDImpl();
+    private IVL<TS, Interval<Date>> alllergyIntoleranceChangePeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDValue = new ArrayList<II>();
+    private List<CV> careCompositionTypeValue = new ArrayList<CV>();
+    private BL includeNotesIndicatorValue = new BLImpl();
+    private CV reactionTypeValue = new CVImpl();
 
 
     /**
@@ -84,11 +84,11 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * record.</p></p>
      */
     @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    public ActStatus getAllergyIntoleranceStatusValue() {
+        return (ActStatus) this.allergyIntoleranceStatusValue.getValue();
     }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    public void setAllergyIntoleranceStatusValue(ActStatus allergyIntoleranceStatusValue) {
+        this.allergyIntoleranceStatusValue.setValue(allergyIntoleranceStatusValue);
     }
 
 
@@ -104,11 +104,11 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * searched and retrieved.</p></p>
      */
     @Hl7XmlMapping({"allergyIntoleranceType/value"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    public ObservationIntoleranceType getAllergyIntoleranceTypeValue() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceTypeValue.getValue();
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setAllergyIntoleranceTypeValue(ObservationIntoleranceType allergyIntoleranceTypeValue) {
+        this.allergyIntoleranceTypeValue.setValue(allergyIntoleranceTypeValue);
     }
 
 
@@ -123,11 +123,11 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * patient's record.</p></p>
      */
     @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
-    public Interval<Date> getAllergyIntoleranceChangePeriod() {
-        return this.allergyIntoleranceChangePeriod.getValue();
+    public Interval<Date> getAlllergyIntoleranceChangePeriodValue() {
+        return this.alllergyIntoleranceChangePeriodValue.getValue();
     }
-    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
-        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
+    public void setAlllergyIntoleranceChangePeriodValue(Interval<Date> alllergyIntoleranceChangePeriodValue) {
+        this.alllergyIntoleranceChangePeriodValue.setValue(alllergyIntoleranceChangePeriodValue);
     }
 
 
@@ -158,8 +158,8 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    public List<Identifier> getCareCompositionIDValue() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDValue, IIImpl.class);
     }
 
 
@@ -176,8 +176,8 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    public List<ActCareEventType> getCareCompositionTypeValue() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypeValue, CVImpl.class);
     }
 
 
@@ -201,11 +201,11 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
+    public Boolean getIncludeNotesIndicatorValue() {
+        return this.includeNotesIndicatorValue.getValue();
     }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
+        this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
     }
 
 
@@ -221,11 +221,11 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
      * searched and retrieved.</p></p>
      */
     @Hl7XmlMapping({"reactionType/value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    public SubjectReaction getReactionTypeValue() {
+        return (SubjectReaction) this.reactionTypeValue.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
+    public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
+        this.reactionTypeValue.setValue(reactionTypeValue);
     }
 
 }

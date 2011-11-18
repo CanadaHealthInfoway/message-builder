@@ -83,11 +83,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110906L;
-    private II allergyTestRecordId = new IIImpl();
-    private CD allergyTestType = new CDImpl();
-    private TS allergyTestDate = new TSImpl();
-    private CV allergyTestResult = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private TS effectiveTime = new TSImpl();
+    private CV value = new CVImpl();
 
 
     /**
@@ -102,11 +102,11 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * directly referenced.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAllergyTestRecordId() {
-        return this.allergyTestRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
-        this.allergyTestRecordId.setValue(allergyTestRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -134,11 +134,11 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * CD type to support SNOMED post-coordination.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationAllergyTestType getAllergyTestType() {
-        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    public ObservationAllergyTestType getCode() {
+        return (ObservationAllergyTestType) this.code.getValue();
     }
-    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
-        this.allergyTestType.setValue(allergyTestType);
+    public void setCode(ObservationAllergyTestType code) {
+        this.code.setValue(code);
     }
 
 
@@ -153,11 +153,11 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * test.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyTestDate() {
-        return this.allergyTestDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAllergyTestDate(Date allergyTestDate) {
-        this.allergyTestDate.setValue(allergyTestDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -189,11 +189,11 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * the 'code' attribute using SNOMED.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public AllergyTestValue getAllergyTestResult() {
-        return (AllergyTestValue) this.allergyTestResult.getValue();
+    public AllergyTestValue getValue() {
+        return (AllergyTestValue) this.value.getValue();
     }
-    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
-        this.allergyTestResult.setValue(allergyTestResult);
+    public void setValue(AllergyTestValue value) {
+        this.value.setValue(value);
     }
 
 }

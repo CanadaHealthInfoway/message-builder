@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.OldClinicalDocumentEvent","REPC_MT210002CA.OldClinicalDocumentEvent","REPC_MT210003CA.OldClinicalDocumentEvent","REPC_MT220001CA.OldClinicalDocumentEvent","REPC_MT220002CA.OldClinicalDocumentEvent","REPC_MT220003CA.OldClinicalDocumentEvent","REPC_MT230001CA.OldClinicalDocumentEvent","REPC_MT230002CA.OldClinicalDocumentEvent","REPC_MT230003CA.OldClinicalDocumentEvent"})
 public class OldClinicalDocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II replacesRecordIds = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -61,11 +61,11 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getReplacesRecordIds() {
-        return this.replacesRecordIds.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setReplacesRecordIds(Identifier replacesRecordIds) {
-        this.replacesRecordIds.setValue(replacesRecordIds);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

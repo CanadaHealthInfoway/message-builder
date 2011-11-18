@@ -48,8 +48,8 @@ public class MessagePartWrapperTest {
 	public void shouldWriteSimpleCase() throws Exception {
 		AcknowledgementBean bean = new AcknowledgementBean();
 		MessagePartWrapper wrapper = new MessagePartWrapper(bean);
-		wrapper.setField("acknowledgedMessageId", toList(new IIImpl(new Identifier("1.2.3"))));
-		assertEquals("target message id", new Identifier("1.2.3"), bean.getAcknowledgedMessageId());
+		wrapper.setField("targetMessageId", toList(new IIImpl(new Identifier("1.2.3"))));
+		assertEquals("target message id", new Identifier("1.2.3"), bean.getTargetMessageId());
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class MessagePartWrapperTest {
 		MessagePartWrapper wrapper = new MessagePartWrapper(bean);
 		List<String> fieldNames = wrapper.getFieldNames();
 		System.out.println(fieldNames);
-		assertTrue("names", fieldNames.contains("messageIdentifier"));
+		assertTrue("names", fieldNames.contains("id"));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class MessagePartWrapperTest {
 		MessagePartWrapper wrapper = new MessagePartWrapper(bean);
 		List<String> fieldNames = wrapper.getFieldNames();
 		System.out.println(fieldNames);
-		assertTrue("names", fieldNames.contains("sendingNetworkAddress"));
+		assertTrue("names", fieldNames.contains("telecom"));
 	}
 	
 	@Test
@@ -84,10 +84,10 @@ public class MessagePartWrapperTest {
 	public void shouldWriteSimpleList() throws Exception {
 		ErrorsOrWarningsBean bean = new ErrorsOrWarningsBean();
 		MessagePartWrapper wrapper = new MessagePartWrapper(bean);
-		wrapper.setField("referencedMessageLocations", toList(new STImpl("location1"), new STImpl("location2")));
-		assertEquals("location", 2, bean.getReferencedMessageLocations().size());
+		wrapper.setField("location", toList(new STImpl("location1"), new STImpl("location2")));
+		assertEquals("location", 2, bean.getLocation().size());
 		
-		assertEquals("location 1", "location1", bean.getReferencedMessageLocations().iterator().next());
+		assertEquals("location 1", "location1", bean.getLocation().iterator().next());
 	}
 	
 	@Test
@@ -103,9 +103,9 @@ public class MessagePartWrapperTest {
 	
 	private ErrorsOrWarningsBean createErrorsOrWarningsBean(AcknowledgementDetailType error, AcknowledgementDetailCode internalSystemError, String text) {
 		ErrorsOrWarningsBean bean = new ErrorsOrWarningsBean();
-		bean.setMessageDescription(text);
-		bean.setMessageType(error);
-		bean.setResponseCode(internalSystemError);
+		bean.setText(text);
+		bean.setTypeCode(error);
+		bean.setCode(internalSystemError);
 		return bean;
 	}
 

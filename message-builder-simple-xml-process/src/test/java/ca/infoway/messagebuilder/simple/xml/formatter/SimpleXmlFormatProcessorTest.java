@@ -104,7 +104,7 @@ public class SimpleXmlFormatProcessorTest {
 	@Test
 	public void shouldDetermineCodeType() throws Exception {
 		ErrorsOrWarningsBean detail = new ErrorsOrWarningsBean();
-		Class<?> type = this.processor.getTypeIfApplicable(detail.getClass().getDeclaredField("responseCode"));
+		Class<?> type = this.processor.getTypeIfApplicable(detail.getClass().getDeclaredField("code"));
 		assertEquals("type", AcknowledgementDetailCode.class, type);
 	}
 	

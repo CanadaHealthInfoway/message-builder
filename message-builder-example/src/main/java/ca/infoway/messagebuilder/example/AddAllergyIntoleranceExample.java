@@ -146,9 +146,9 @@ public class AddAllergyIntoleranceExample {
 		TriggerEvent_1Bean<AllergyIntoleranceBean> controlActEvent = new TriggerEvent_1Bean<AllergyIntoleranceBean>();
 		messageBean.setControlActEvent(controlActEvent);
 
-		controlActEvent.setEventType(ADD_ALLERGY_INTOLERANCE_REQUEST);
+		controlActEvent.setCode(ADD_ALLERGY_INTOLERANCE_REQUEST);
 		populateMessageAttributesStandardValues(messageBean);
-		messageBean.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
+		messageBean.getProfileId().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		populateRecordControlActStandardValues(controlActEvent);
 
 		// payload
@@ -161,28 +161,28 @@ public class AddAllergyIntoleranceExample {
 
 	private static AllergyIntoleranceBean createAllergyIntoleranceBean() {
 		AllergyIntoleranceBean allergyIntoleranceBean = new AllergyIntoleranceBean();
-		allergyIntoleranceBean.setAllergyIntoleranceStatus(lookup(
+		allergyIntoleranceBean.setStatusCode(lookup(
 				ActStatus.class, "active", VOCABULARY_ACT_STATUS.getRoot()));
-		allergyIntoleranceBean.setAllergyIntoleranceType(lookup(
+		allergyIntoleranceBean.setCode(lookup(
 				ObservationIntoleranceType.class, "OINT", VOCABULARY_ACT_CODE
 						.getRoot()));
-		allergyIntoleranceBean.getAllergyIntoleranceMaskingIndicators().add(
+		allergyIntoleranceBean.getConfidentialityCode().add(
 				lookup(x_BasicConfidentialityKind.class, "N",
 						VOCABULARY_CONFIDENTIALITY.getRoot()));
 
 		AllergyIntoleranceSeverityLevelBean severityLevelBean = new AllergyIntoleranceSeverityLevelBean();
-		severityLevelBean.setSeverityLevel(lookup(SeverityObservation.class,
+		severityLevelBean.setValue(lookup(SeverityObservation.class,
 				"H", VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
 		allergyIntoleranceBean
 				.setSubjectOfSeverityObservation(severityLevelBean);
 
-		allergyIntoleranceBean.setAllergyIntoleranceDate(new GregorianCalendar(
+		allergyIntoleranceBean.setEffectiveTime(new GregorianCalendar(
 				2009, 3, 22).getTime());
-		allergyIntoleranceBean.setAllergyIntoleranceRefuted(Boolean.TRUE);
+		allergyIntoleranceBean.setNegationInd(Boolean.TRUE);
 		allergyIntoleranceBean
-				.setConfirmedIndicator(lookup(ActUncertainty.class, "N",
+				.setUncertaintyCode(lookup(ActUncertainty.class, "N",
 						VOCABULARY_ACT_UNCERTAINTY.getRoot()));
-		allergyIntoleranceBean.setAgent(lookup(IntoleranceValue.class, "NDA02",
+		allergyIntoleranceBean.setValue(lookup(IntoleranceValue.class, "NDA02",
 				VOCABULARY_ENTITY_CODE.getRoot()));
 		allergyIntoleranceBean
 				.setSubjectOfSeverityObservation(severityLevelBean);
@@ -197,7 +197,7 @@ public class AddAllergyIntoleranceExample {
 
 	private static IncludesBean createNote() {
 		NotesBean annotation = new NotesBean();
-		annotation.setNoteText("some allergy/intolerance note text");
+		annotation.setText("some allergy/intolerance note text");
 		// annotation.setNoteTimestamp(new GregorianCalendar(2007, 6,
 		// 21).getTime());
 		annotation.setAuthorAssignedPerson(createHealthcareWorkerBean());
@@ -209,7 +209,7 @@ public class AddAllergyIntoleranceExample {
 
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean noteAuthor = new HealthcareWorkerBean();
-		noteAuthor.getHealthcareWorkerIdentifier().add(
+		noteAuthor.getId().add(
 				new Identifier("12.34.56", "1"));
 		noteAuthor.setAssignedPerson(createAssignedPersonBean());
 		return noteAuthor;
@@ -224,10 +224,10 @@ public class AddAllergyIntoleranceExample {
 
 	private static HealthcareWorkerBean createParty() {
 		HealthcareWorkerBean assignedPersonBean = new HealthcareWorkerBean();
-		assignedPersonBean.getHealthcareWorkerIdentifier().add(
+		assignedPersonBean.getId().add(
 				new Identifier("12.34.56", "1"));
 		assignedPersonBean.setAssignedPerson(createAssignedPersonBean());
-		assignedPersonBean.setHealthcareWorkerType(lookup(
+		assignedPersonBean.setCode(lookup(
 				HealthcareProviderRoleType.class, "ACP", VOCABULARY_ROLE_CODE
 						.getRoot()));
 		return assignedPersonBean;
@@ -235,44 +235,44 @@ public class AddAllergyIntoleranceExample {
 
 	private static void populateMessageAttributesStandardValues(
 			HL7Message_1Bean<?> message) {
-		message.setMessageIdentifier(new Identifier(UUID.randomUUID()
+		message.setId(new Identifier(UUID.randomUUID()
 				.toString()));
-		message.setMessageTimestamp(new GregorianCalendar(2008, JUNE, 25, 14,
+		message.setCreationTime(new GregorianCalendar(2008, JUNE, 25, 14,
 				16, 10).getTime());
-		message.getConformanceProfileIdentifiers().add(
+		message.getProfileId().add(
 				new Identifier("1.2.3.4.5", "profileIdExtension"));
 		message.setProcessingCode(PRODUCTION);
-		message.setProcessingMode(ProcessingMode.CURRENT_PROCESSING);
-		message.setDesiredAcknowledgmentType(ALWAYS);
+		message.setProcessingModeCode(ProcessingMode.CURRENT_PROCESSING);
+		message.setAcceptAckCode(ALWAYS);
 		message.setReceiver(new ReceiverBean());
-		message.getReceiver().setReceiverApplicationIdentifier(
+		message.getReceiver().setDeviceId(
 				new Identifier("2.16.124.113620.1.2.100", "222"));
-		message.getReceiver().setReceiverNetworkAddress(
+		message.getReceiver().setTelecom(
 				new TelecommunicationAddress(lookup(URLScheme.class, "http"),
 						"123.456.789.10"));
 		message.setSender(new SenderBean());
-		message.getSender().setSendingApplicationIdentifier(
+		message.getSender().setDeviceId(
 				new Identifier("2.16.124.113620.1.2.100", "111"));
-		message.getSender().setSendingSoftwareVersionNumber(
+		message.getSender().setDeviceManufacturerModelName(
 				new Configuration().getVersion());
-		message.getSender().setSendingApplicationName(
+		message.getSender().setDeviceName(
 				new Configuration().getName());
-		message.getSender().setSendingNetworkAddress(
+		message.getSender().setTelecom(
 				new TelecommunicationAddress());
-		message.getSender().getSendingNetworkAddress().setAddress(
+		message.getSender().getTelecom().setAddress(
 				"987.654.321.0");
-		message.getSender().getSendingNetworkAddress().setUrlScheme(
+		message.getSender().getTelecom().setUrlScheme(
 				lookup(URLScheme.class, "http"));
-		message.setResponseType(IMMEDIATE);
+		message.setResponseModeCode(IMMEDIATE);
 		// message.getReceiver().setDeviceAgentAgentOrganization(null);
 		// message.getSender().setDeviceAgentAgentOrganization(null);
 	}
 
 	private static void populateRecordControlActStandardValues(
 			TriggerEvent_1Bean<AllergyIntoleranceBean> controlActEvent) {
-		controlActEvent.setEventIdentifier(new Identifier(
+		controlActEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.6", "8141234"));
-		controlActEvent.setEventEffectivePeriod(IntervalUtil.createInterval(
+		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(
 				new Date(0), null));
 		controlActEvent.setAuthor(createAuthorBean());
 		controlActEvent
@@ -285,9 +285,9 @@ public class AddAllergyIntoleranceExample {
 
 	private static ServiceLocationBean createServiceDeliveryLocationBean() {
 		ServiceLocationBean result = new ServiceLocationBean();
-		result.setServiceLocationIdentifier(new Identifier(
+		result.setId(new Identifier(
 				"2.16.124.113620.1.1.11111", "1"));
-		result.setServiceLocationName("Intelliware's Pharmacy");
+		result.setLocationName("Intelliware's Pharmacy");
 		return result;
 	}
 
@@ -299,20 +299,20 @@ public class AddAllergyIntoleranceExample {
 
 	private static CreatedBy_1Bean createAuthorBean() {
 		CreatedBy_1Bean authorBean = new CreatedBy_1Bean();
-		authorBean.setTimeOfCreation(new Date(0));
+		authorBean.setTime(new Date(0));
 		authorBean.setAuthorPerson(createHealthcareWorkerBean());
 		return authorBean;
 	}
 
 	private static Patient_1Bean createIdentifiedPersonBean() {
 		Patient_1Bean identifiedPersonBean = new Patient_1Bean();
-		identifiedPersonBean.getPatientIdentifier().add(new Identifier("3.14", "159"));
-		identifiedPersonBean.setPatientAddress(createPostalAddress());
-		identifiedPersonBean.getPatientContactPhoneAndEMails().add(new TelecommunicationAddress(
+		identifiedPersonBean.getId().add(new Identifier("3.14", "159"));
+		identifiedPersonBean.setAddr(createPostalAddress());
+		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		ActingPersonBean patientPerson = new ActingPersonBean();
 		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		patientPerson.setPatientGender(
+		patientPerson.setAdministrativeGenderCode(
 			lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
 		identifiedPersonBean.setPatientPerson(patientPerson);
@@ -333,13 +333,13 @@ public class AddAllergyIntoleranceExample {
 
 	private static AllergyTestsBean createAllergyTestEvent() {
 		AllergyTestsBean allergyTestEvent = new AllergyTestsBean();
-		allergyTestEvent.setAllergyTestRecordId(new Identifier(
+		allergyTestEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.13", "995"));
-		allergyTestEvent.setAllergyTestType(lookup(
+		allergyTestEvent.setCode(lookup(
 				ObservationAllergyTestType.class, "10921-5", LOINC.getRoot()));
-		allergyTestEvent.setAllergyTestResult(lookup(AllergyTestValue.class,
+		allergyTestEvent.setValue(lookup(AllergyTestValue.class,
 				"A3", VOCABULARY_ALLERGY_TEST_VALUE.getRoot()));
-		allergyTestEvent.setAllergyTestDate(new GregorianCalendar(2009, 3, 10)
+		allergyTestEvent.setEffectiveTime(new GregorianCalendar(2009, 3, 10)
 				.getTime());
 		return allergyTestEvent;
 	}
@@ -347,31 +347,31 @@ public class AddAllergyIntoleranceExample {
 	private static ReportedReactionsBean createAssessment() {
 
 		AgentCategoryBean kindBean = new AgentCategoryBean();
-		kindBean.setExposedMaterialName("material name");
-		kindBean.setExposedMaterialType(lookup(ExposureAgentEntityType.class,
+		kindBean.setName("material name");
+		kindBean.setCode(lookup(ExposureAgentEntityType.class,
 				"NDA05", VOCABULARY_ENTITY_CODE.getRoot()));
 
 		ExposuresBean exposureEvent = new ExposuresBean();
-		exposureEvent.setIncidenceIdentifier(new Identifier(
+		exposureEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.133", "12"));
 		exposureEvent
 				.setConsumableAdministrableMaterialAdministerableMaterialKind(kindBean);
-		exposureEvent.setExposureMethod(lookup(RouteOfAdministration.class,
+		exposureEvent.setRouteCode(lookup(RouteOfAdministration.class,
 				"CHEW", VOCABULARY_ROUTE_OF_ADMINISTRATION.getRoot()));
 
 		AllergyIntoleranceSeverityLevelBean severityLevelBean = new AllergyIntoleranceSeverityLevelBean();
-		severityLevelBean.setSeverityLevel(lookup(SeverityObservation.class,
+		severityLevelBean.setValue(lookup(SeverityObservation.class,
 				"H", VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
 
 		ReportedReactionsBean subjectObservationEvent = new ReportedReactionsBean();
-		subjectObservationEvent.setReactionRecordId(new Identifier(
+		subjectObservationEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.133", "15"));
 		subjectObservationEvent.setCode(lookup(ActCode.class, "371627004",
 				SNOMED.getRoot()));
-		subjectObservationEvent.setNoReactionOccurred(Boolean.FALSE);
-		subjectObservationEvent.setDescription("description of assessment");
+		subjectObservationEvent.setNegationInd(Boolean.FALSE);
+		subjectObservationEvent.setText("description of assessment");
 		subjectObservationEvent
-				.setReactionOnsetDate(IntervalFactory
+				.setEffectiveTime(IntervalFactory
 						.<Date> createLow(new GregorianCalendar(2008, 3, 17)
 								.getTime()));
 		subjectObservationEvent.setValue(lookup(SubjectReaction.class, "Y45.1",

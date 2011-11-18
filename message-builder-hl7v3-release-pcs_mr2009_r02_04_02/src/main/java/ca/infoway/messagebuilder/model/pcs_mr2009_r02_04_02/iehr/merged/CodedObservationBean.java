@@ -131,14 +131,14 @@ import java.util.Set;
 @Hl7RootType
 public class CodedObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110906L;
-    private II observationRecordId = new IIImpl();
-    private CD observationType = new CDImpl();
-    private BL refutedIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> observationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> observationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CD observationValue = new CDImpl();
-    private CE observationNormalityInterpretation = new CEImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private CD value = new CDImpl();
+    private CE interpretationCode = new CEImpl();
     private ServiceLocationBean indirectTargetServiceDeliveryLocation;
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
@@ -169,11 +169,11 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationRecordId() {
-        return this.observationRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationRecordId(Identifier observationRecordId) {
-        this.observationRecordId.setValue(observationRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -255,11 +255,11 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * OBSERVED DOSES TAKEN&quot; at runtime</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getObservationType() {
-        return (Code) this.observationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setObservationType(Code observationType) {
-        this.observationType.setValue(observationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -275,11 +275,11 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p></p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -318,11 +318,11 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * of time interval, recovery date to end of interval</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getObservationPeriod() {
-        return this.observationPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setObservationPeriod(Interval<Date> observationPeriod) {
-        this.observationPeriod.setValue(observationPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -340,8 +340,8 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getObservationMaskingIndicators() {
-        return this.observationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -350,21 +350,21 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>L:Observation Value</p>
      * 
-     * <p><p>Depending on CommonCodedClinicalObservationType, one 
-     * of CommonClinicalObservationResultValue or 
+     * <p><p>Observation Value must be specified and may only be 
+     * specified when no sub-observations are 
+     * present.</p><p>Depending on 
+     * CommonCodedClinicalObservationType, One of 
+     * CommonClinicalObservationResultValue or 
      * CommonClinicalObservationAssertionValue must be implemented 
-     * in place of 
-     * CommonClinicalCodedObservationValue</p><p>Observation Value 
-     * must be specified and may only be specified when no 
-     * sub-observations are present.</p></p>
+     * in place of CommonClinicalbservationValue</p></p>
      * 
-     * <p><p>Depending on CommonCodedClinicalObservationType, one 
-     * of CommonClinicalObservationResultValue or 
+     * <p><p>Observation Value must be specified and may only be 
+     * specified when no sub-observations are 
+     * present.</p><p>Depending on 
+     * CommonCodedClinicalObservationType, One of 
+     * CommonClinicalObservationResultValue or 
      * CommonClinicalObservationAssertionValue must be implemented 
-     * in place of 
-     * CommonClinicalCodedObservationValue</p><p>Observation Value 
-     * must be specified and may only be specified when no 
-     * sub-observations are present.</p></p>
+     * in place of CommonClinicalbservationValue</p></p>
      * 
      * <p><p>Indicates what was actually observed when the 
      * observation was made.</p><p>E.g. code for pregnancy, code 
@@ -379,21 +379,21 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>L:Observation Value</p>
      * 
-     * <p><p>Observation Value must be specified and may only be 
-     * specified when no sub-observations are 
-     * present.</p><p>Depending on 
-     * CommonCodedClinicalObservationType, One of 
-     * CommonClinicalObservationResultValue or 
+     * <p><p>Depending on CommonCodedClinicalObservationType, one 
+     * of CommonClinicalObservationResultValue or 
      * CommonClinicalObservationAssertionValue must be implemented 
-     * in place of CommonClinicalbservationValue</p></p>
+     * in place of 
+     * CommonClinicalCodedObservationValue</p><p>Observation Value 
+     * must be specified and may only be specified when no 
+     * sub-observations are present.</p></p>
      * 
-     * <p><p>Observation Value must be specified and may only be 
-     * specified when no sub-observations are 
-     * present.</p><p>Depending on 
-     * CommonCodedClinicalObservationType, One of 
-     * CommonClinicalObservationResultValue or 
+     * <p><p>Depending on CommonCodedClinicalObservationType, one 
+     * of CommonClinicalObservationResultValue or 
      * CommonClinicalObservationAssertionValue must be implemented 
-     * in place of CommonClinicalbservationValue</p></p>
+     * in place of 
+     * CommonClinicalCodedObservationValue</p><p>Observation Value 
+     * must be specified and may only be specified when no 
+     * sub-observations are present.</p></p>
      * 
      * <p><p>Indicates what was actually observed when the 
      * observation was made.</p><p>E.g. code for pregnancy, code 
@@ -407,11 +407,11 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * observation in a standardized representation.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public CommonClinicalObservationValue getObservationValue() {
-        return (CommonClinicalObservationValue) this.observationValue.getValue();
+    public CommonClinicalObservationValue getValue() {
+        return (CommonClinicalObservationValue) this.value.getValue();
     }
-    public void setObservationValue(CommonClinicalObservationValue observationValue) {
-        this.observationValue.setValue(observationValue);
+    public void setValue(CommonClinicalObservationValue value) {
+        this.value.setValue(value);
     }
 
 
@@ -423,7 +423,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p><p>Identifies the level of variation of the observed 
      * state from what would be considered normal for a patient of 
      * similar age and gender. E.g. &quot;Normal&quot;, 
-     * &quot;High&quot;, &quot;Critically High&quot;, etc.</p></p>
+     * &quot;High&quot;, etc.</p></p>
      * 
      * <p><p>Provides an ability to quickly flag observations that 
      * are outside the norm. These are generally the records which 
@@ -434,18 +434,18 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p><p>Identifies the level of variation of the observed 
      * state from what would be considered normal for a patient of 
      * similar age and gender. E.g. &quot;Normal&quot;, 
-     * &quot;High&quot;, etc.</p></p>
+     * &quot;High&quot;, &quot;Critically High&quot;, etc.</p></p>
      * 
      * <p><p>Provides an ability to quickly flag observations that 
      * are outside the norm. These are generally the records which 
      * are of most interest from a clinical perspective.</p></p>
      */
     @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretationNormality getObservationNormalityInterpretation() {
-        return (ObservationInterpretationNormality) this.observationNormalityInterpretation.getValue();
+    public ObservationInterpretationNormality getInterpretationCode() {
+        return (ObservationInterpretationNormality) this.interpretationCode.getValue();
     }
-    public void setObservationNormalityInterpretation(ObservationInterpretationNormality observationNormalityInterpretation) {
-        this.observationNormalityInterpretation.setValue(observationNormalityInterpretation);
+    public void setInterpretationCode(ObservationInterpretationNormality interpretationCode) {
+        this.interpretationCode.setValue(interpretationCode);
     }
 
 

@@ -79,8 +79,8 @@ public class InteractionMarshallingTest {
 		assertTrue("type", message instanceof PatientAllergyIntoleranceQueryBean);
 		PatientAllergyIntoleranceQueryBean query = (PatientAllergyIntoleranceQueryBean) message;
 		
-		assertNotNull("human language", query.getControlActEvent().getMessageLanguage());
-		assertEquals("language", "en", query.getControlActEvent().getMessageLanguage().getCodeValue());
+		assertNotNull("human language", query.getControlActEvent().getLanguageCode());
+		assertEquals("language", "en", query.getControlActEvent().getLanguageCode().getCodeValue());
 		
 		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, query);
 		System.out.println(xml);

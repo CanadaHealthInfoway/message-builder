@@ -53,10 +53,10 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV documentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private RequestedByBean author;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
@@ -70,11 +70,11 @@ public class DocumentBean extends MessagePartBean {
      * <p>B: Document Category</p>
      */
     @Hl7XmlMapping({"code"})
-    public ReferralDocumentType getDocumentCategory() {
-        return (ReferralDocumentType) this.documentCategory.getValue();
+    public ReferralDocumentType getCode() {
+        return (ReferralDocumentType) this.code.getValue();
     }
-    public void setDocumentCategory(ReferralDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
+    public void setCode(ReferralDocumentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -82,11 +82,11 @@ public class DocumentBean extends MessagePartBean {
      * <p>J: Document Title</p>
      */
     @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -94,8 +94,8 @@ public class DocumentBean extends MessagePartBean {
      * <p>E: Document Masking Indicators</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

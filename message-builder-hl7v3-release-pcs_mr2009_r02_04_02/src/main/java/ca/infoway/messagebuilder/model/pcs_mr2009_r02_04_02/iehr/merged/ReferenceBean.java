@@ -33,12 +33,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Reference","REPC_MT210003CA.Reference","REPC_MT220001CA.Reference","REPC_MT220003CA.Reference","REPC_MT230001CA.Reference","REPC_MT230003CA.Reference"})
 public class ReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II referenceRecordLinks = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>ReferenceRecordLinks</p>
+     * 
+     * <p>L:Reference Record Links</p>
      * 
      * <p>L:Reference Record Links</p>
      * 
@@ -52,15 +54,13 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p><p>For sections, the links may refer specifically to 
      * records which have been rendered as part of the section.</p></p>
-     * 
-     * <p>L:Reference Record Links</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getReferenceRecordLinks() {
-        return this.referenceRecordLinks.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setReferenceRecordLinks(Identifier referenceRecordLinks) {
-        this.referenceRecordLinks.setValue(referenceRecordLinks);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

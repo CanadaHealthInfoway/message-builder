@@ -51,9 +51,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610001CA.ActRequest","REPC_MT610002CA.ActRequest"})
 public class Request_3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS requestType = new CSImpl();
-    private II requestId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS classCode = new CSImpl();
+    private II id = new IIImpl();
     private RequestedByBean author;
 
 
@@ -67,11 +67,11 @@ public class Request_3Bean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"classCode"})
-    public x_ActClassCareProvisionProcedure getRequestType() {
-        return (x_ActClassCareProvisionProcedure) this.requestType.getValue();
+    public x_ActClassCareProvisionProcedure getClassCode() {
+        return (x_ActClassCareProvisionProcedure) this.classCode.getValue();
     }
-    public void setRequestType(x_ActClassCareProvisionProcedure requestType) {
-        this.requestType.setValue(requestType);
+    public void setClassCode(x_ActClassCareProvisionProcedure classCode) {
+        this.classCode.setValue(classCode);
     }
 
 
@@ -87,11 +87,11 @@ public class Request_3Bean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRequestId() {
-        return this.requestId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRequestId(Identifier requestId) {
-        this.requestId.setValue(requestId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

@@ -87,14 +87,14 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110906L;
-    private II conditionIdentifier = new IIImpl();
-    private CV conditionType = new CVImpl();
-    private BL refutedIndicator = new BLImpl();
-    private CS conditionStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CD condition = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private CD value = new CDImpl();
     private ActingPerson responsiblePartyActingPerson;
     private ChangedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson;
@@ -123,11 +123,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getConditionIdentifier() {
-        return this.conditionIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setConditionIdentifier(Identifier conditionIdentifier) {
-        this.conditionIdentifier.setValue(conditionIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -149,11 +149,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * a single field, this domain is a fixed value</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getConditionType() {
-        return (Code) this.conditionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setConditionType(Code conditionType) {
-        this.conditionType.setValue(conditionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -167,11 +167,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -239,11 +239,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getConditionStatus() {
-        return (ActStatus) this.conditionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setConditionStatus(ActStatus conditionStatus) {
-        this.conditionStatus.setValue(conditionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -274,11 +274,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConditionTimePeriod() {
-        return this.conditionTimePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
-        this.conditionTimePeriod.setValue(conditionTimePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -294,8 +294,8 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
-        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -312,11 +312,11 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p></p></p>
      */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 

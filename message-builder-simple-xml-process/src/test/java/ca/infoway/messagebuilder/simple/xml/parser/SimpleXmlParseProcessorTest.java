@@ -77,7 +77,7 @@ public class SimpleXmlParseProcessorTest {
 	
 	private SenderBean createSender() {
 		SenderBean sender = new SenderBean();
-		sender.setSendingApplicationIdentifier(new Identifier("1.2.3.4", "senderId"));
+		sender.setDeviceId(new Identifier("1.2.3.4", "senderId"));
 		return sender;
 	}
 	

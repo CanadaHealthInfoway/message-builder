@@ -39,8 +39,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent_1 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
@@ -66,11 +66,11 @@ public class SectionBean extends MessagePartBean {
      * groups or others.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 

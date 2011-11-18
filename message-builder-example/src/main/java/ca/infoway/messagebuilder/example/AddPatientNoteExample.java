@@ -106,7 +106,7 @@ public class AddPatientNoteExample {
 		TriggerEvent_1Bean<CommentBean> controlActEvent = new TriggerEvent_1Bean<CommentBean>();
 		messageBean.setControlActEvent(controlActEvent);
 		
-		controlActEvent.setEventType(ADD_PATIENT_NOTE_REQUEST);
+		controlActEvent.setCode(ADD_PATIENT_NOTE_REQUEST);
 		
 		populateMessageAttributesStandardValues(messageBean);
 		populateRecordControlActStandardValues(controlActEvent);
@@ -120,40 +120,40 @@ public class AddPatientNoteExample {
 	
 	private static CommentBean createCommentBean() {
 		CommentBean noteBean = new CommentBean();
-		noteBean.setPatientNoteCategory(
+		noteBean.setCode(
 				lookup(ActPatientAnnotationCode.class, "MED", VOCABULARY_ACT_CODE.getRoot()));
 		noteBean.setText("note text");
-		noteBean.getRestrictedPatientAccess().add(Confidentiality.NORMAL);
+		noteBean.getConfidentialityCode().add(Confidentiality.NORMAL);
 		return noteBean;
 	}
 	
 	private static void populateMessageAttributesStandardValues(HL7Message_1Bean<?> message) {
-		message.setMessageIdentifier(new Identifier(UUID.randomUUID().toString()));
-		message.setMessageTimestamp(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
-		message.getConformanceProfileIdentifiers().add(new Identifier("1.2.3.4.5", "profileIdExtension"));
+		message.setId(new Identifier(UUID.randomUUID().toString()));
+		message.setCreationTime(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
+		message.getProfileId().add(new Identifier("1.2.3.4.5", "profileIdExtension"));
 		message.setProcessingCode(PRODUCTION);
-		message.setProcessingMode(ProcessingMode.CURRENT_PROCESSING);
-		message.setDesiredAcknowledgmentType(ALWAYS);
+		message.setProcessingModeCode(ProcessingMode.CURRENT_PROCESSING);
+		message.setAcceptAckCode(ALWAYS);
 		message.setReceiver(new ReceiverBean());
-		message.getReceiver().setReceiverApplicationIdentifier(new Identifier("2.16.124.113620.1.2.100", "222"));
-		message.getReceiver().setReceiverNetworkAddress(new TelecommunicationAddress(
+		message.getReceiver().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "222"));
+		message.getReceiver().setTelecom(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		message.setSender(new SenderBean());
-		message.getSender().setSendingApplicationIdentifier(new Identifier("2.16.124.113620.1.2.100", "111"));
-		message.getSender().setSendingSoftwareVersionNumber(new Configuration().getVersion());
-		message.getSender().setSendingApplicationName(new Configuration().getName());
-		message.getSender().setSendingNetworkAddress(new TelecommunicationAddress());
-		message.getSender().getSendingNetworkAddress().setAddress("987.654.321.0");
-		message.getSender().getSendingNetworkAddress().setUrlScheme(
+		message.getSender().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "111"));
+		message.getSender().setDeviceManufacturerModelName(new Configuration().getVersion());
+		message.getSender().setDeviceName(new Configuration().getName());
+		message.getSender().setTelecom(new TelecommunicationAddress());
+		message.getSender().getTelecom().setAddress("987.654.321.0");
+		message.getSender().getTelecom().setUrlScheme(
 				lookup(URLScheme.class, "http"));
-		message.setResponseType(IMMEDIATE);
+		message.setResponseModeCode(IMMEDIATE);
 //		message.getReceiver().setDeviceAgentAgentOrganization(null);
 //		message.getSender().setDeviceAgentAgentOrganization(null);
 	}	
 
 	private static void populateRecordControlActStandardValues(TriggerEvent_1Bean<CommentBean> controlActEvent) {
-		controlActEvent.setEventIdentifier(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		controlActEvent.setEventEffectivePeriod(IntervalUtil.createInterval(new Date(0), null));
+		controlActEvent.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
+		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(new Date(0), null));
 		controlActEvent.setAuthor(createAuthorBean());
 		controlActEvent.setLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
 		controlActEvent.setResponsiblePartyAssignedEntity(createHealthcareWorkerBean());
@@ -162,8 +162,8 @@ public class AddPatientNoteExample {
 
 	private static ServiceLocationBean createServiceDeliveryLocationBean() {
 		ServiceLocationBean result = new ServiceLocationBean();
-		result.setServiceLocationIdentifier(new Identifier("2.16.124.113620.1.1.11111", "1"));
-		result.setServiceLocationName("Intelliware's Pharmacy");
+		result.setId(new Identifier("2.16.124.113620.1.1.11111", "1"));
+		result.setLocationName("Intelliware's Pharmacy");
 		return result;
 	}
 
@@ -175,27 +175,27 @@ public class AddPatientNoteExample {
 
 	private static CreatedBy_1Bean createAuthorBean() {
 		CreatedBy_1Bean authorBean = new CreatedBy_1Bean();
-		authorBean.setTimeOfCreation(new Date(0));
+		authorBean.setTime(new Date(0));
 		authorBean.setAuthorPerson(createHealthcareWorkerBean());
 		return authorBean;
 	}
 
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean healthcareWorkerBean = new HealthcareWorkerBean();
-		healthcareWorkerBean.getHealthcareWorkerIdentifier().add(new Identifier("1.1.1", "1"));
+		healthcareWorkerBean.getId().add(new Identifier("1.1.1", "1"));
 		healthcareWorkerBean.setAssignedPerson(createAssignedPersonBean());
 		return healthcareWorkerBean;
 	}
 
 	private static Patient_1Bean createIdentifiedPersonBean() {
 		Patient_1Bean identifiedPersonBean = new Patient_1Bean();
-		identifiedPersonBean.getPatientIdentifier().add(new Identifier("3.14", "159"));
-		identifiedPersonBean.setPatientAddress(createPostalAddress());
-		identifiedPersonBean.getPatientContactPhoneAndEMails().add(new TelecommunicationAddress(
+		identifiedPersonBean.getId().add(new Identifier("3.14", "159"));
+		identifiedPersonBean.setAddr(createPostalAddress());
+		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		ActingPersonBean patientPerson = new ActingPersonBean();
 		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		patientPerson.setPatientGender(
+		patientPerson.setAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
 		identifiedPersonBean.setPatientPerson(patientPerson);

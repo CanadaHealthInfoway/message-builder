@@ -48,8 +48,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT500003CA.ControlActEvent","REPC_MT500004CA.ControlActEvent"})
 public class ControlActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV amendReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV reasonCode = new CVImpl();
     private RequestedByBean author;
 
 
@@ -65,11 +65,11 @@ public class ControlActEventBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getAmendReason() {
-        return (ControlActReason) this.amendReason.getValue();
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
     }
-    public void setAmendReason(ControlActReason amendReason) {
-        this.amendReason.setValue(amendReason);
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

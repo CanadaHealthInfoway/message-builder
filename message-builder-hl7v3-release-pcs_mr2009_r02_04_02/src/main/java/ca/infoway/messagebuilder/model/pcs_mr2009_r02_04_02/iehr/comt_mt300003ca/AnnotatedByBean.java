@@ -45,8 +45,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS patientNoteDate = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS time = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
 
 
@@ -66,11 +66,11 @@ public class AnnotatedByBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getPatientNoteDate() {
-        return this.patientNoteDate.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setPatientNoteDate(Date patientNoteDate) {
-        this.patientNoteDate.setValue(patientNoteDate);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 

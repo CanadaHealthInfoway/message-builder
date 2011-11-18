@@ -66,11 +66,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210001ca.DocumentContent, DocumentContent_1 {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private CD referralType = new CDImpl();
-    private CS referralStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> referralRequestedByTime = new IVLImpl<TS, Interval<Date>>();
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private AdministeredByBean performer;
     private OccurredAtBean location;
     private ActRequest2Bean componentActRequest;
@@ -103,11 +103,11 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCareProvisionRequestType getReferralType() {
-        return (ActCareProvisionRequestType) this.referralType.getValue();
+    public ActCareProvisionRequestType getCode() {
+        return (ActCareProvisionRequestType) this.code.getValue();
     }
-    public void setReferralType(ActCareProvisionRequestType referralType) {
-        this.referralType.setValue(referralType);
+    public void setCode(ActCareProvisionRequestType code) {
+        this.code.setValue(code);
     }
 
 
@@ -148,11 +148,11 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * <p>D: Referral Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public x_ActStatusActiveComplete getReferralStatus() {
-        return (x_ActStatusActiveComplete) this.referralStatus.getValue();
+    public x_ActStatusActiveComplete getStatusCode() {
+        return (x_ActStatusActiveComplete) this.statusCode.getValue();
     }
-    public void setReferralStatus(x_ActStatusActiveComplete referralStatus) {
-        this.referralStatus.setValue(referralStatus);
+    public void setStatusCode(x_ActStatusActiveComplete statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -176,11 +176,11 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * &quot;time-view&quot; presentations of data.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReferralRequestedByTime() {
-        return this.referralRequestedByTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReferralRequestedByTime(Interval<Date> referralRequestedByTime) {
-        this.referralRequestedByTime.setValue(referralRequestedByTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

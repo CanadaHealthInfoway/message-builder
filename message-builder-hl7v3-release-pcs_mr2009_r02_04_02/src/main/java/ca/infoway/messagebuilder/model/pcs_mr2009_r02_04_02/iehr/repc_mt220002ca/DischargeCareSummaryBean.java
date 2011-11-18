@@ -77,11 +77,11 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110906L;
-    private II documentIdentifier = new IIImpl();
-    private CV documentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private RequestedByBean author;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
@@ -103,11 +103,11 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getDocumentIdentifier() {
-        return this.documentIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setDocumentIdentifier(Identifier documentIdentifier) {
-        this.documentIdentifier.setValue(documentIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -121,11 +121,11 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public CareSummaryDocumentType getDocumentCategory() {
-        return (CareSummaryDocumentType) this.documentCategory.getValue();
+    public CareSummaryDocumentType getCode() {
+        return (CareSummaryDocumentType) this.code.getValue();
     }
-    public void setDocumentCategory(CareSummaryDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
+    public void setCode(CareSummaryDocumentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -147,11 +147,11 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
      * title. &quot;Surgery Report&quot; would not.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -167,8 +167,8 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
      * <p></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
