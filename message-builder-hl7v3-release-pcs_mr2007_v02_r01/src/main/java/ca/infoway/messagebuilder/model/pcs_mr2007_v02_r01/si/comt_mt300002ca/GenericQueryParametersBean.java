@@ -35,19 +35,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV patientNoteCategoryCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV patientNoteCategoryCodeValue = new CVImpl();
 
 
     /**
      * <p>Patient Note Category Code</p>
      */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
-    public ActPatientAnnotationCode getPatientNoteCategoryCode() {
-        return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();
+    public ActPatientAnnotationCode getPatientNoteCategoryCodeValue() {
+        return (ActPatientAnnotationCode) this.patientNoteCategoryCodeValue.getValue();
     }
-    public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
-        this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
+    public void setPatientNoteCategoryCodeValue(ActPatientAnnotationCode patientNoteCategoryCodeValue) {
+        this.patientNoteCategoryCodeValue.setValue(patientNoteCategoryCodeValue);
     }
 
 }

@@ -37,9 +37,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.CarrierRoleBean
 @Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CS extensionGrantedIndicator = new CSImpl();
-    private II coverageExtensionId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS moodCode = new CSImpl();
+    private II id = new IIImpl();
     private CarrierRoleBean authorCarrierRole;
 
 
@@ -49,11 +49,11 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>Extension Granted Indicator</p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
+    public x_ActMoodOrderEvent getMoodCode() {
+        return (x_ActMoodOrderEvent) this.moodCode.getValue();
     }
-    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    public void setMoodCode(x_ActMoodOrderEvent moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -63,11 +63,11 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>A:Coverage Extension Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getCoverageExtensionId() {
-        return this.coverageExtensionId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCoverageExtensionId(Identifier coverageExtensionId) {
-        this.coverageExtensionId.setValue(coverageExtensionId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

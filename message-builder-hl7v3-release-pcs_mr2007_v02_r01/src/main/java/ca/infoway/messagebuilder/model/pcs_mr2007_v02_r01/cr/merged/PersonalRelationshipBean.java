@@ -39,10 +39,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.PersonalRelationship","PRPA_MT101002CA.PersonalRelationship","PRPA_MT101102CA.PersonalRelationship","PRPA_MT101104CA.PersonalRelationship"})
 public class PersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV clientNextOfKin = new CVImpl();
-    private II nextOfKinIdentifier = new IIImpl();
-    private PN nextOfKinName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private II relationshipHolderId = new IIImpl();
+    private PN relationshipHolderName = new PNImpl();
 
 
     /**
@@ -51,11 +51,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>Client Next of Kin</p>
      */
     @Hl7XmlMapping({"code"})
-    public PersonalRelationshipRoleType getClientNextOfKin() {
-        return (PersonalRelationshipRoleType) this.clientNextOfKin.getValue();
+    public PersonalRelationshipRoleType getCode() {
+        return (PersonalRelationshipRoleType) this.code.getValue();
     }
-    public void setClientNextOfKin(PersonalRelationshipRoleType clientNextOfKin) {
-        this.clientNextOfKin.setValue(clientNextOfKin);
+    public void setCode(PersonalRelationshipRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -65,11 +65,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>Next of Kin Identifier</p>
      */
     @Hl7XmlMapping({"relationshipHolder/id"})
-    public Identifier getNextOfKinIdentifier() {
-        return this.nextOfKinIdentifier.getValue();
+    public Identifier getRelationshipHolderId() {
+        return this.relationshipHolderId.getValue();
     }
-    public void setNextOfKinIdentifier(Identifier nextOfKinIdentifier) {
-        this.nextOfKinIdentifier.setValue(nextOfKinIdentifier);
+    public void setRelationshipHolderId(Identifier relationshipHolderId) {
+        this.relationshipHolderId.setValue(relationshipHolderId);
     }
 
 
@@ -79,11 +79,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>Next of Kin Name</p>
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getNextOfKinName() {
-        return this.nextOfKinName.getValue();
+    public PersonName getRelationshipHolderName() {
+        return this.relationshipHolderName.getValue();
     }
-    public void setNextOfKinName(PersonName nextOfKinName) {
-        this.nextOfKinName.setValue(nextOfKinName);
+    public void setRelationshipHolderName(PersonName relationshipHolderName) {
+        this.relationshipHolderName.setValue(relationshipHolderName);
     }
 
 }

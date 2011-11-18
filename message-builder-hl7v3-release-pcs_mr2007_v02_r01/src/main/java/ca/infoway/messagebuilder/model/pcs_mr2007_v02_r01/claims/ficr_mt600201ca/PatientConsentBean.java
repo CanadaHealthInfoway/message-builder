@@ -34,8 +34,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.Subject"})
 public class PatientConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private ST patientKeyword = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 
 
@@ -43,11 +43,11 @@ public class PatientConsentBean extends MessagePartBean {
      * <p>Patient Keyword</p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getPatientKeyword() {
-        return this.patientKeyword.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setPatientKeyword(String patientKeyword) {
-        this.patientKeyword.setValue(patientKeyword);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

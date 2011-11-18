@@ -38,9 +38,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationEventCriterion","COCT_MT260020CA.ObservationEventCriterion","COCT_MT260030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV dosagePreconditionType = new CVImpl();
-    private URG<PQ, PhysicalQuantity> dosagePreconditionValue = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private URG<PQ, PhysicalQuantity> value = new URGImpl<PQ, PhysicalQuantity>();
 
 
     /**
@@ -49,11 +49,11 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>A:Dosage Precondition Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationDosageDefinitionPreconditionType getDosagePreconditionType() {
-        return (ObservationDosageDefinitionPreconditionType) this.dosagePreconditionType.getValue();
+    public ObservationDosageDefinitionPreconditionType getCode() {
+        return (ObservationDosageDefinitionPreconditionType) this.code.getValue();
     }
-    public void setDosagePreconditionType(ObservationDosageDefinitionPreconditionType dosagePreconditionType) {
-        this.dosagePreconditionType.setValue(dosagePreconditionType);
+    public void setCode(ObservationDosageDefinitionPreconditionType code) {
+        this.code.setValue(code);
     }
 
 
@@ -63,11 +63,11 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>B:Dosage Precondition Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public UncertainRange<PhysicalQuantity> getDosagePreconditionValue() {
-        return this.dosagePreconditionValue.getValue();
+    public UncertainRange<PhysicalQuantity> getValue() {
+        return this.value.getValue();
     }
-    public void setDosagePreconditionValue(UncertainRange<PhysicalQuantity> dosagePreconditionValue) {
-        this.dosagePreconditionValue.setValue(dosagePreconditionValue);
+    public void setValue(UncertainRange<PhysicalQuantity> value) {
+        this.value.setValue(value);
     }
 
 }

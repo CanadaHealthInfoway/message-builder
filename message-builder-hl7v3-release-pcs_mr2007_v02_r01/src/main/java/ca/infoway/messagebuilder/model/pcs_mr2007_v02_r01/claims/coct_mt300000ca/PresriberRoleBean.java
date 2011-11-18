@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PresriberRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II prescriberID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private PersonPrescribingBean playingPrescriberPerson;
 
 
@@ -42,11 +42,11 @@ public class PresriberRoleBean extends MessagePartBean {
      * <p>Prescriber ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriberID() {
-        return this.prescriberID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriberID(Identifier prescriberID) {
-        this.prescriberID.setValue(prescriberID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

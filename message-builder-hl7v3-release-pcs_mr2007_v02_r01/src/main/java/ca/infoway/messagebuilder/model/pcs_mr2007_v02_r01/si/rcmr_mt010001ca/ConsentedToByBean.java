@@ -29,14 +29,15 @@ import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.merged.Consenter;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.merged.PatientBean;
 
 
 
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV patientConsentMechanism = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV modeCode = new CVImpl();
     private Consenter consenter;
 
 
@@ -44,11 +45,11 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Patient Consent Mechanism</p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    public x_PhysicalVerbalParticipationMode getModeCode() {
+        return (x_PhysicalVerbalParticipationMode) this.modeCode.getValue();
     }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 

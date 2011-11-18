@@ -36,20 +36,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactPerson"})
 public class AdministrativeContactPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private PN contactPersonName = new PNImpl();
-    private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PN name = new PNImpl();
+    private TEL telecom = new TELImpl();
 
 
     /**
      * <p>Contact Person Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public PersonName getContactPersonName() {
-        return this.contactPersonName.getValue();
+    public PersonName getName() {
+        return this.name.getValue();
     }
-    public void setContactPersonName(PersonName contactPersonName) {
-        this.contactPersonName.setValue(contactPersonName);
+    public void setName(PersonName name) {
+        this.name.setValue(name);
     }
 
 
@@ -57,11 +57,11 @@ public class AdministrativeContactPersonBean extends MessagePartBean {
      * <p>contact person telephone or email details</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getContactPersonTelephoneOrEmailDetails() {
-        return this.contactPersonTelephoneOrEmailDetails.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
-        this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 }

@@ -49,15 +49,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail","FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private AdjudicatedResultOutcomeBean outcomeOf;
-    private CV adjudicatedProductServiceCode = new CVImpl();
-    private PQ adjudicatedUnitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private MO adjudicatedInvoiceLineAmount = new MOImpl();
-    private INT percentageOfTaxAppliedToUnitPriceAmt = new INTImpl();
+    private CV code = new CVImpl();
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
+    private MO netAmt = new MOImpl();
+    private INT factorNumber = new INTImpl();
     private AllowableBean reference1Allowable;
-    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
+    private II id = new IIImpl();
 
 
     @Hl7XmlMapping({"outcomeOf"})
@@ -75,11 +75,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Adjudicated Product/Service Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getAdjudicatedProductServiceCode() {
-        return (Code) this.adjudicatedProductServiceCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
-        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -89,11 +89,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Adjudicated Unit Quantity</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getAdjudicatedUnitQuantity() {
-        return this.adjudicatedUnitQuantity.getValue();
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
     }
-    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
-        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
     }
 
 
@@ -103,11 +103,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Adjudicated Unit Price</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
-        return this.adjudicatedUnitPrice.getValue();
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
-        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 
@@ -117,11 +117,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Adjudicated Invoice Line Amount</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getAdjudicatedInvoiceLineAmount() {
-        return this.adjudicatedInvoiceLineAmount.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
-        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -131,11 +131,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Percentage of Tax applied to unitPriceAmt</p>
      */
     @Hl7XmlMapping({"factorNumber"})
-    public Integer getPercentageOfTaxAppliedToUnitPriceAmt() {
-        return this.percentageOfTaxAppliedToUnitPriceAmt.getValue();
+    public Integer getFactorNumber() {
+        return this.factorNumber.getValue();
     }
-    public void setPercentageOfTaxAppliedToUnitPriceAmt(Integer percentageOfTaxAppliedToUnitPriceAmt) {
-        this.percentageOfTaxAppliedToUnitPriceAmt.setValue(percentageOfTaxAppliedToUnitPriceAmt);
+    public void setFactorNumber(Integer factorNumber) {
+        this.factorNumber.setValue(factorNumber);
     }
 
 
@@ -154,11 +154,11 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>Adjudicated Invoice Element Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedInvoiceElementIdentifier() {
-        return this.adjudicatedInvoiceElementIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
-        this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

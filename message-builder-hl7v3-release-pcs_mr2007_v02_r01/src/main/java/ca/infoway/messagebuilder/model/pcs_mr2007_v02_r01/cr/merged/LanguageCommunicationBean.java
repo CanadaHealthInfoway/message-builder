@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV languageOfCommunicationCode = new CVImpl();
-    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV languageCode = new CVImpl();
+    private BL preferenceInd = new BLImpl();
 
 
     /**
@@ -46,11 +46,11 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Language of Communication Code</p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 
@@ -60,11 +60,11 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * <p>Language of Communication Preference Indicator</p>
      */
     @Hl7XmlMapping({"preferenceInd"})
-    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
-        return this.languageOfCommunicationPreferenceIndicator.getValue();
+    public Boolean getPreferenceInd() {
+        return this.preferenceInd.getValue();
     }
-    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
-        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
+    public void setPreferenceInd(Boolean preferenceInd) {
+        this.preferenceInd.setValue(preferenceInd);
     }
 
 }

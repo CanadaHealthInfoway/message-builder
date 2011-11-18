@@ -44,15 +44,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II queryIdentifier = new IIImpl();
-    private CS expeditedQueryIndicator = new CSImpl();
-    private INT queryLimit = new INTImpl();
-    private CV queryLimitType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II queryId = new IIImpl();
+    private CS responseModalityCode = new CSImpl();
+    private INT initialQuantity = new INTImpl();
+    private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
-    private INT sequenceNumber = new INTImpl();
-    private ST sortElementName = new STImpl();
-    private CS sortControlDirection = new CSImpl();
+    private INT sortControlSequenceNumber = new INTImpl();
+    private ST sortControlElementName = new STImpl();
+    private CS sortControlDirectionCode = new CSImpl();
 
 
     /**
@@ -61,11 +61,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>H:Query Identifier</p>
      */
     @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    public Identifier getQueryId() {
+        return this.queryId.getValue();
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setQueryId(Identifier queryId) {
+        this.queryId.setValue(queryId);
     }
 
 
@@ -75,11 +75,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>K: Expedited Query Indicator</p>
      */
     @Hl7XmlMapping({"responseModalityCode"})
-    public ResponseModality getExpeditedQueryIndicator() {
-        return (ResponseModality) this.expeditedQueryIndicator.getValue();
+    public ResponseModality getResponseModalityCode() {
+        return (ResponseModality) this.responseModalityCode.getValue();
     }
-    public void setExpeditedQueryIndicator(ResponseModality expeditedQueryIndicator) {
-        this.expeditedQueryIndicator.setValue(expeditedQueryIndicator);
+    public void setResponseModalityCode(ResponseModality responseModalityCode) {
+        this.responseModalityCode.setValue(responseModalityCode);
     }
 
 
@@ -89,11 +89,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>I:Query Limit</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
-    public Integer getQueryLimit() {
-        return this.queryLimit.getValue();
+    public Integer getInitialQuantity() {
+        return this.initialQuantity.getValue();
     }
-    public void setQueryLimit(Integer queryLimit) {
-        this.queryLimit.setValue(queryLimit);
+    public void setInitialQuantity(Integer initialQuantity) {
+        this.initialQuantity.setValue(initialQuantity);
     }
 
 
@@ -103,11 +103,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>J:Query Limit Type</p>
      */
     @Hl7XmlMapping({"initialQuantityCode"})
-    public QueryRequestLimit getQueryLimitType() {
-        return (QueryRequestLimit) this.queryLimitType.getValue();
+    public QueryRequestLimit getInitialQuantityCode() {
+        return (QueryRequestLimit) this.initialQuantityCode.getValue();
     }
-    public void setQueryLimitType(QueryRequestLimit queryLimitType) {
-        this.queryLimitType.setValue(queryLimitType);
+    public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
+        this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 
@@ -126,11 +126,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Sequence Number</p>
      */
     @Hl7XmlMapping({"sortControl/sequenceNumber"})
-    public Integer getSequenceNumber() {
-        return this.sequenceNumber.getValue();
+    public Integer getSortControlSequenceNumber() {
+        return this.sortControlSequenceNumber.getValue();
     }
-    public void setSequenceNumber(Integer sequenceNumber) {
-        this.sequenceNumber.setValue(sequenceNumber);
+    public void setSortControlSequenceNumber(Integer sortControlSequenceNumber) {
+        this.sortControlSequenceNumber.setValue(sortControlSequenceNumber);
     }
 
 
@@ -140,11 +140,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Sort Element Name</p>
      */
     @Hl7XmlMapping({"sortControl/elementName"})
-    public String getSortElementName() {
-        return this.sortElementName.getValue();
+    public String getSortControlElementName() {
+        return this.sortControlElementName.getValue();
     }
-    public void setSortElementName(String sortElementName) {
-        this.sortElementName.setValue(sortElementName);
+    public void setSortControlElementName(String sortControlElementName) {
+        this.sortControlElementName.setValue(sortControlElementName);
     }
 
 
@@ -154,11 +154,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Sort Control Direction</p>
      */
     @Hl7XmlMapping({"sortControl/directionCode"})
-    public Sequencing getSortControlDirection() {
-        return (Sequencing) this.sortControlDirection.getValue();
+    public Sequencing getSortControlDirectionCode() {
+        return (Sequencing) this.sortControlDirectionCode.getValue();
     }
-    public void setSortControlDirection(Sequencing sortControlDirection) {
-        this.sortControlDirection.setValue(sortControlDirection);
+    public void setSortControlDirectionCode(Sequencing sortControlDirectionCode) {
+        this.sortControlDirectionCode.setValue(sortControlDirectionCode);
     }
 
 }

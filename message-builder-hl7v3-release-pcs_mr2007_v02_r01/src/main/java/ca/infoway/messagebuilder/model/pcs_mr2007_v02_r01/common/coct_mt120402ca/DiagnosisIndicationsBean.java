@@ -36,20 +36,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationCondition"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV diagnosisType = new CVImpl();
-    private CD diagnosisCode = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CD value = new CDImpl();
 
 
     /**
      * <p>Diagnosis Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -57,11 +57,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
      * <p>A:Diagnosis Code</p>
      */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosisCode() {
-        return (DiagnosisValue) this.diagnosisCode.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
-        this.diagnosisCode.setValue(diagnosisCode);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 }

@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.RespondTo","MCCI_MT002200CA.RespondTo","MCCI_MT002300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private TEL respondToNetworkAddress = new TELImpl();
-    private II respondToApplicationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
 
 
     /**
@@ -47,11 +47,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KB:Respond to Network Address</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getRespondToNetworkAddress() {
-        return this.respondToNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -61,11 +61,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KA:Respond to Application Identifier</p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getRespondToApplicationIdentifier() {
-        return this.respondToApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 }

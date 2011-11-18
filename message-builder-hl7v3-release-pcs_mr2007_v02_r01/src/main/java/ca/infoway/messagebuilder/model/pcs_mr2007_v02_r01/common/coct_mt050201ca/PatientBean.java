@@ -35,19 +35,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20110831L;
-    private II patientIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>A:Patient Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

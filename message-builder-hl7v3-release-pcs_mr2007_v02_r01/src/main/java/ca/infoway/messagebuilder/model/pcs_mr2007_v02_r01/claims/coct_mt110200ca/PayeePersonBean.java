@@ -42,12 +42,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private PayeeRelationshipRoleBean asPayeeRelationshipRole;
-    private PN payeeName = new PNImpl();
-    private AD payeeAddress = new ADImpl();
+    private PN name = new PNImpl();
+    private AD addr = new ADImpl();
     private CV payeeLanguageLanguageCode = new CVImpl();
-    private CV receivedWritten = new CVImpl();
+    private CV payeeLanguageModeCode = new CVImpl();
     private BL payeeLanguagePreferenceInd = new BLImpl();
 
 
@@ -64,11 +64,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>payee name</p>
      */
     @Hl7XmlMapping({"name"})
-    public PersonName getPayeeName() {
-        return this.payeeName.getValue();
+    public PersonName getName() {
+        return this.name.getValue();
     }
-    public void setPayeeName(PersonName payeeName) {
-        this.payeeName.setValue(payeeName);
+    public void setName(PersonName name) {
+        this.name.setValue(name);
     }
 
 
@@ -76,11 +76,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>payee address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPayeeAddress() {
-        return this.payeeAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPayeeAddress(PostalAddress payeeAddress) {
-        this.payeeAddress.setValue(payeeAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -97,11 +97,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>Received Written</p>
      */
     @Hl7XmlMapping({"payeeLanguage/modeCode"})
-    public LanguageAbilityMode getReceivedWritten() {
-        return (LanguageAbilityMode) this.receivedWritten.getValue();
+    public LanguageAbilityMode getPayeeLanguageModeCode() {
+        return (LanguageAbilityMode) this.payeeLanguageModeCode.getValue();
     }
-    public void setReceivedWritten(LanguageAbilityMode receivedWritten) {
-        this.receivedWritten.setValue(receivedWritten);
+    public void setPayeeLanguageModeCode(LanguageAbilityMode payeeLanguageModeCode) {
+        this.payeeLanguageModeCode.setValue(payeeLanguageModeCode);
     }
 
 

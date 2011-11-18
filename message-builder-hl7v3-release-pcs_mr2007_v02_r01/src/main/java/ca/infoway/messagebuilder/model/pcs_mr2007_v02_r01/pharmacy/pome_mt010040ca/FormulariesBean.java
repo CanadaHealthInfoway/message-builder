@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorke
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II formularyId = new IIImpl();
-    private ST formularyName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST title = new STImpl();
     private HealthcareWorkerBean performerAssignedEntity;
 
 
@@ -46,11 +46,11 @@ public class FormulariesBean extends MessagePartBean {
      * <p>Formulary Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getFormularyId() {
-        return this.formularyId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setFormularyId(Identifier formularyId) {
-        this.formularyId.setValue(formularyId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -58,11 +58,11 @@ public class FormulariesBean extends MessagePartBean {
      * <p>Formulary Name</p>
      */
     @Hl7XmlMapping({"title"})
-    public String getFormularyName() {
-        return this.formularyName.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setFormularyName(String formularyName) {
-        this.formularyName.setValue(formularyName);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 

@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceOverrideDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV invoiceOverrideCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
 
 
     /**
      * <p>Invoice override code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceOverrideCode() {
-        return (Code) this.invoiceOverrideCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceOverrideCode(Code invoiceOverrideCode) {
-        this.invoiceOverrideCode.setValue(invoiceOverrideCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

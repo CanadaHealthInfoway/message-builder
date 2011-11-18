@@ -35,10 +35,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeOrganization"})
 public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private PayeeRelationshipRoleBean asPayeeRelationshipRole;
-    private ST payeeOrganisationName = new STImpl();
-    private AD payeeOrganisationAddress = new ADImpl();
+    private ST name = new STImpl();
+    private AD addr = new ADImpl();
 
 
     @Hl7XmlMapping({"asPayeeRelationshipRole"})
@@ -54,11 +54,11 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
      * <p>Payee Organisation name</p>
      */
     @Hl7XmlMapping({"name"})
-    public String getPayeeOrganisationName() {
-        return this.payeeOrganisationName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setPayeeOrganisationName(String payeeOrganisationName) {
-        this.payeeOrganisationName.setValue(payeeOrganisationName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -66,11 +66,11 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
      * <p>Payee Organisation address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPayeeOrganisationAddress() {
-        return this.payeeOrganisationAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPayeeOrganisationAddress(PostalAddress payeeOrganisationAddress) {
-        this.payeeOrganisationAddress.setValue(payeeOrganisationAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 }

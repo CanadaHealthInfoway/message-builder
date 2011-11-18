@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.FinancialContract","QUCR_MT810201CA.AdjudResultsFinancialContract"})
 public class BusinessArrangementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private CV billingArrangementType = new CVImpl();
+    private CV code = new CVImpl();
 
 
     /**
@@ -61,11 +61,11 @@ public class BusinessArrangementBean extends MessagePartBean {
      * <p>Billing Arrangement Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getBillingArrangementType() {
-        return (Code) this.billingArrangementType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setBillingArrangementType(Code billingArrangementType) {
-        this.billingArrangementType.setValue(billingArrangementType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

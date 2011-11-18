@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II clientHealthcareIdentificationNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II clientIDBusValue = new IIImpl();
     private II clientIDPubValue = new IIImpl();
 
 
@@ -44,11 +44,11 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Healthcare Identification Number</p>
      */
     @Hl7XmlMapping({"clientIDBus/value"})
-    public Identifier getClientHealthcareIdentificationNumber() {
-        return this.clientHealthcareIdentificationNumber.getValue();
+    public Identifier getClientIDBusValue() {
+        return this.clientIDBusValue.getValue();
     }
-    public void setClientHealthcareIdentificationNumber(Identifier clientHealthcareIdentificationNumber) {
-        this.clientHealthcareIdentificationNumber.setValue(clientHealthcareIdentificationNumber);
+    public void setClientIDBusValue(Identifier clientIDBusValue) {
+        this.clientIDBusValue.setValue(clientIDBusValue);
     }
 
 

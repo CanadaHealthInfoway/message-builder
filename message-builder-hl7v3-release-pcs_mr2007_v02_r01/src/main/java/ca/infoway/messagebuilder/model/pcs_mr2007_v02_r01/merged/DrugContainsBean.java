@@ -40,10 +40,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
-    private CV drugIngredientIdentifier = new CVImpl();
+    private CV ingredientCode = new CVImpl();
     private ST ingredientName = new STImpl();
 
 
@@ -89,11 +89,11 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>J:Drug Ingredient Identifier</p>
      */
     @Hl7XmlMapping({"ingredient/code"})
-    public ActiveIngredientDrugEntityType getDrugIngredientIdentifier() {
-        return (ActiveIngredientDrugEntityType) this.drugIngredientIdentifier.getValue();
+    public ActiveIngredientDrugEntityType getIngredientCode() {
+        return (ActiveIngredientDrugEntityType) this.ingredientCode.getValue();
     }
-    public void setDrugIngredientIdentifier(ActiveIngredientDrugEntityType drugIngredientIdentifier) {
-        this.drugIngredientIdentifier.setValue(drugIngredientIdentifier);
+    public void setIngredientCode(ActiveIngredientDrugEntityType ingredientCode) {
+        this.ingredientCode.setValue(ingredientCode);
     }
 
 

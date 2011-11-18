@@ -37,9 +37,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt300000ca
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content"})
 public class DrugDispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private PQ drugPackageQuantity = new PQImpl();
-    private CV drugContainerType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PQ quantity = new PQImpl();
+    private CV containerPackagedMedicineFormCode = new CVImpl();
     private DrugFormBean containedManufacturedMaterialKind;
 
 
@@ -51,11 +51,11 @@ public class DrugDispensedInBean extends MessagePartBean {
      * <p>F:Drug Package Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDrugPackageQuantity() {
-        return this.drugPackageQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
-        this.drugPackageQuantity.setValue(drugPackageQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -69,11 +69,11 @@ public class DrugDispensedInBean extends MessagePartBean {
      * <p>A:Drug Container Type</p>
      */
     @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
-    public CompliancePackageEntityType getDrugContainerType() {
-        return (CompliancePackageEntityType) this.drugContainerType.getValue();
+    public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {
+        return (CompliancePackageEntityType) this.containerPackagedMedicineFormCode.getValue();
     }
-    public void setDrugContainerType(CompliancePackageEntityType drugContainerType) {
-        this.drugContainerType.setValue(drugContainerType);
+    public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
+        this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
     }
 
 

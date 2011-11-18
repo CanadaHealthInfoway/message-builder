@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.ChangedByBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV managementType = new CVImpl();
-    private ST managementDescription = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
     private ChangedByBean author;
 
 
@@ -48,11 +48,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>A:Management Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActDetectedIssueManagementCode getManagementType() {
-        return (ActDetectedIssueManagementCode) this.managementType.getValue();
+    public ActDetectedIssueManagementCode getCode() {
+        return (ActDetectedIssueManagementCode) this.code.getValue();
     }
-    public void setManagementType(ActDetectedIssueManagementCode managementType) {
-        this.managementType.setValue(managementType);
+    public void setCode(ActDetectedIssueManagementCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -62,11 +62,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>C:Management Description</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getManagementDescription() {
-        return this.managementDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setManagementDescription(String managementDescription) {
-        this.managementDescription.setValue(managementDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 

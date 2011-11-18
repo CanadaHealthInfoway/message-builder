@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.PersonalRelationshipCode"})
 public class PersonalRelationshipCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV clientNextOfKin = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV value = new CVImpl();
 
 
     /**
      * <p>Client Next of Kin</p>
      */
     @Hl7XmlMapping({"value"})
-    public QueryParameterValue getClientNextOfKin() {
-        return (QueryParameterValue) this.clientNextOfKin.getValue();
+    public QueryParameterValue getValue() {
+        return (QueryParameterValue) this.value.getValue();
     }
-    public void setClientNextOfKin(QueryParameterValue clientNextOfKin) {
-        this.clientNextOfKin.setValue(clientNextOfKin);
+    public void setValue(QueryParameterValue value) {
+        this.value.setValue(value);
     }
 
 }

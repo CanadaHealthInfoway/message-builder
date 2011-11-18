@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Role"})
 public class RoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV maskableMaterial = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV playingEntityKindCode = new CVImpl();
 
 
     /**
      * <p>Maskable Material</p>
      */
     @Hl7XmlMapping({"playingEntityKind/code"})
-    public MaskableMaterialEntityType getMaskableMaterial() {
-        return (MaskableMaterialEntityType) this.maskableMaterial.getValue();
+    public MaskableMaterialEntityType getPlayingEntityKindCode() {
+        return (MaskableMaterialEntityType) this.playingEntityKindCode.getValue();
     }
-    public void setMaskableMaterial(MaskableMaterialEntityType maskableMaterial) {
-        this.maskableMaterial.setValue(maskableMaterial);
+    public void setPlayingEntityKindCode(MaskableMaterialEntityType playingEntityKindCode) {
+        this.playingEntityKindCode.setValue(playingEntityKindCode);
     }
 
 }
