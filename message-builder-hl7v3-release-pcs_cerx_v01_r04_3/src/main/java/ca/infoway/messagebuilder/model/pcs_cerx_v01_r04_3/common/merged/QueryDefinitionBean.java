@@ -38,9 +38,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II queryIdentifier = new IIImpl();
-    private INT queryLimit = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II queryId = new IIImpl();
+    private INT initialQuantity = new INTImpl();
     private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
 
@@ -51,11 +51,11 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>H:Query Identifier</p>
      */
     @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    public Identifier getQueryId() {
+        return this.queryId.getValue();
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setQueryId(Identifier queryId) {
+        this.queryId.setValue(queryId);
     }
 
 
@@ -65,11 +65,11 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>I:Query Limit</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
-    public Integer getQueryLimit() {
-        return this.queryLimit.getValue();
+    public Integer getInitialQuantity() {
+        return this.initialQuantity.getValue();
     }
-    public void setQueryLimit(Integer queryLimit) {
-        this.queryLimit.setValue(queryLimit);
+    public void setInitialQuantity(Integer initialQuantity) {
+        this.initialQuantity.setValue(initialQuantity);
     }
 
 

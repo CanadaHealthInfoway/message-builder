@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000002CA.MaterialKind","REPC_MT000006CA.MaterialKind","REPC_MT000012CA.MaterialKind"})
 public class AgentCategoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV exposedMaterialType = new CVImpl();
-    private ST exposedMaterialName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
 
 
     /**
@@ -46,11 +46,11 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>A:Exposed Material Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ExposureAgentEntityType getExposedMaterialType() {
-        return (ExposureAgentEntityType) this.exposedMaterialType.getValue();
+    public ExposureAgentEntityType getCode() {
+        return (ExposureAgentEntityType) this.code.getValue();
     }
-    public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
-        this.exposedMaterialType.setValue(exposedMaterialType);
+    public void setCode(ExposureAgentEntityType code) {
+        this.code.setValue(code);
     }
 
 
@@ -60,11 +60,11 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>Exposed Material Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public String getExposedMaterialName() {
-        return this.exposedMaterialName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setExposedMaterialName(String exposedMaterialName) {
-        this.exposedMaterialName.setValue(exposedMaterialName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 }

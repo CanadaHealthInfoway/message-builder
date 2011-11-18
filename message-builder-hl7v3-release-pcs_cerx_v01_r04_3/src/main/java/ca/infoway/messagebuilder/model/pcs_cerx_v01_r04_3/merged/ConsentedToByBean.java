@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV patientConsentMechanism = new CVImpl();
-    private ST keyword = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV modeCode = new CVImpl();
+    private ST signatureText = new STImpl();
     private Consenter consenter;
 
 
@@ -47,11 +47,11 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Patient Consent Mechanism</p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    public x_PhysicalVerbalParticipationMode getModeCode() {
+        return (x_PhysicalVerbalParticipationMode) this.modeCode.getValue();
     }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -61,11 +61,11 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Keyword</p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

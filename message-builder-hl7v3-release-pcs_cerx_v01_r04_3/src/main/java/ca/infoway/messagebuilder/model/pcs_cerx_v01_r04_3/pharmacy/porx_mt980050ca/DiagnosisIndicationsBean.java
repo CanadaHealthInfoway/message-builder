@@ -38,21 +38,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationDiagnosis"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110831L;
-    private CD diagnosisType = new CDImpl();
-    private ST freeFormDiagnosisIndication = new STImpl();
-    private CV diagnosisCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private CV value = new CVImpl();
 
 
     /**
      * <p>Diagnosis Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -60,11 +60,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
      * <p>Free Form Diagnosis Indication</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getFreeFormDiagnosisIndication() {
-        return this.freeFormDiagnosisIndication.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setFreeFormDiagnosisIndication(String freeFormDiagnosisIndication) {
-        this.freeFormDiagnosisIndication.setValue(freeFormDiagnosisIndication);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -72,11 +72,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
      * <p>A:Diagnosis Code</p>
      */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosisCode() {
-        return (DiagnosisValue) this.diagnosisCode.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
-        this.diagnosisCode.setValue(diagnosisCode);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 }

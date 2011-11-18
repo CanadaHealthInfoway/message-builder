@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstanceAdministrationDefinition","PORX_MT060160CA.SubstanceAdministrationDefinition","PORX_MT060340CA.SubstanceAdministrationDefinition"})
 public class ProtocolsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II protocolIdentifiers = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -45,11 +45,11 @@ public class ProtocolsBean extends MessagePartBean {
      * <p>H:Protocol Identifiers</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getProtocolIdentifiers() {
-        return this.protocolIdentifiers.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setProtocolIdentifiers(Identifier protocolIdentifiers) {
-        this.protocolIdentifiers.setValue(protocolIdentifiers);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

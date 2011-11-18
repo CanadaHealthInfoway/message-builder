@@ -44,15 +44,15 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt301001ca.Ann
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV patientNoteCategory = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
-    private II patientNoteId = new IIImpl();
+    private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private RecordedAtBean location;
-    private CV writtenIn = new CVImpl();
+    private CV languageCode = new CVImpl();
     private AnnotatedActBean subjectAnnotatedAct;
 
 
@@ -64,11 +64,11 @@ public class CommentBean extends MessagePartBean {
      * <p>Patient Note Category</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPatientAnnotationCode getPatientNoteCategory() {
-        return (ActPatientAnnotationCode) this.patientNoteCategory.getValue();
+    public ActPatientAnnotationCode getCode() {
+        return (ActPatientAnnotationCode) this.code.getValue();
     }
-    public void setPatientNoteCategory(ActPatientAnnotationCode patientNoteCategory) {
-        this.patientNoteCategory.setValue(patientNoteCategory);
+    public void setCode(ActPatientAnnotationCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -103,11 +103,11 @@ public class CommentBean extends MessagePartBean {
      * <p>B:Patient Note Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPatientNoteId() {
-        return this.patientNoteId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPatientNoteId(Identifier patientNoteId) {
-        this.patientNoteId.setValue(patientNoteId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -146,11 +146,11 @@ public class CommentBean extends MessagePartBean {
      * <p>D:Written in</p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 

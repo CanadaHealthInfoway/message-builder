@@ -32,19 +32,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private ST dosageCondition = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
 
 
     /**
      * <p>A:Dosage Condition</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getDosageCondition() {
-        return this.dosageCondition.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setDosageCondition(String dosageCondition) {
-        this.dosageCondition.setValue(dosageCondition);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

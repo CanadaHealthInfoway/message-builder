@@ -35,20 +35,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II dispenseIdentifier = new IIImpl();
-    private II prescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private II inFulfillmentOfActRequestId = new IIImpl();
 
 
     /**
      * <p>Dispense Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getDispenseIdentifier() {
-        return this.dispenseIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setDispenseIdentifier(Identifier dispenseIdentifier) {
-        this.dispenseIdentifier.setValue(dispenseIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -56,11 +56,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>A:Prescription Order Number</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
+    public Identifier getInFulfillmentOfActRequestId() {
+        return this.inFulfillmentOfActRequestId.getValue();
     }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    public void setInFulfillmentOfActRequestId(Identifier inFulfillmentOfActRequestId) {
+        this.inFulfillmentOfActRequestId.setValue(inFulfillmentOfActRequestId);
     }
 
 }

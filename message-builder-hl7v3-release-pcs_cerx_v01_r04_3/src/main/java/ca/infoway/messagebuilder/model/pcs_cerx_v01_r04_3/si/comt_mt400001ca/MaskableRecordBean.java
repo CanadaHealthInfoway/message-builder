@@ -40,10 +40,10 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II recordIdentifier = new IIImpl();
-    private CV recordType = new CVImpl();
-    private CV maskedIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private CV confidentialityCode = new CVImpl();
     private RoleBean directTargetRole;
     private PatientBean recordTargetPatient;
     private DiagnosisBean reasonDiagnosis;
@@ -53,11 +53,11 @@ public class MaskableRecordBean extends MessagePartBean {
      * <p>C:Record Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -65,11 +65,11 @@ public class MaskableRecordBean extends MessagePartBean {
      * <p>B:Record Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
+    public ActInformationCategoryCode getCode() {
+        return (ActInformationCategoryCode) this.code.getValue();
     }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
+    public void setCode(ActInformationCategoryCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -77,11 +77,11 @@ public class MaskableRecordBean extends MessagePartBean {
      * <p>A:Masked Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getMaskedIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.maskedIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setMaskedIndicator(x_VeryBasicConfidentialityKind maskedIndicator) {
-        this.maskedIndicator.setValue(maskedIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 

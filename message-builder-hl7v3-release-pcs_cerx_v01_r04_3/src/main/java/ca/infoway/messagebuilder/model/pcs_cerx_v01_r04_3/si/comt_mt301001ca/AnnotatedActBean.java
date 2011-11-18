@@ -34,8 +34,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7PartTypeMapping({"COMT_MT301001CA.AnnotatedAct"})
 public class AnnotatedActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II recordId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private PatientBean subjectPatient;
 
 
@@ -43,11 +43,11 @@ public class AnnotatedActBean extends MessagePartBean {
      * <p>A:Record Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRecordId() {
-        return this.recordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRecordId(Identifier recordId) {
-        this.recordId.setValue(recordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

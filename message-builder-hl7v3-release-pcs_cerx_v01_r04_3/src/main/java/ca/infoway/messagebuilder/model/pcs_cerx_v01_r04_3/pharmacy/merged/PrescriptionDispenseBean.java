@@ -49,16 +49,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
     private PatientBean recordTargetPatient;
     private DeviceRequest_1Bean inFulfillmentOfDeviceRequest;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean componentSupplyEvent;
     private CommentBean subjectOfAnnotation;
-    private CS dispenseStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
     private RecordedAtBean location;
@@ -73,11 +73,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>A:Prescription Dispense Number</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -87,11 +87,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>E:Prescription Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -160,11 +160,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>C:Dispense Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 

@@ -37,8 +37,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II dispenseId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
 
@@ -47,11 +47,11 @@ public class DispensePickupBean extends MessagePartBean {
      * <p>Dispense Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getDispenseId() {
-        return this.dispenseId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setDispenseId(Identifier dispenseId) {
-        this.dispenseId.setValue(dispenseId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

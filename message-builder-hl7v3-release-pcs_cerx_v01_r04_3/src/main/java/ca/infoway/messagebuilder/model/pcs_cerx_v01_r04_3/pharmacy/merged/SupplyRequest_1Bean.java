@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class SupplyRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II prescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private Component2_2Bean component;
@@ -50,11 +50,11 @@ public class SupplyRequest_1Bean extends MessagePartBean {
      * <p>D:Prescription Order Number</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
