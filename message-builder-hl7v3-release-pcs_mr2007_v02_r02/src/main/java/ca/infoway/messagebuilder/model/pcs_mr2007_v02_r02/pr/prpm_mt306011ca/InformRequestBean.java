@@ -57,10 +57,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.merged.ServiceDeliv
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
-    private CD informRequestCode = new CDImpl();
+    private CD code = new CDImpl();
     private CE subjectModeCode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private CS indirectTargetTypeCode = new CSImpl();
@@ -97,11 +97,11 @@ public class InformRequestBean extends MessagePartBean {
      * described</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getInformRequestCode() {
-        return (ActCode) this.informRequestCode.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setInformRequestCode(ActCode informRequestCode) {
-        this.informRequestCode.setValue(informRequestCode);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 

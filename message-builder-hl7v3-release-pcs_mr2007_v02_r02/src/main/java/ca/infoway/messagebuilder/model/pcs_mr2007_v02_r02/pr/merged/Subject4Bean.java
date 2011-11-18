@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Subject4","PRPM_MT303010CA.Subject4","PRPM_MT306011CA.Subject4","PRPM_MT309000CA.Subject4"})
 public class Subject4Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private PrivilegeCategorizationBean privilegeCategorization;
     private CS typeCode = new CSImpl();
 

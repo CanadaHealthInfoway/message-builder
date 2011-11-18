@@ -76,11 +76,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110831L;
-    private II observationIdentifier = new IIImpl();
-    private CD observationType = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();
-    private PQ observationValue = new PQImpl();
+    private PQ value = new PQImpl();
 
 
     /**
@@ -97,11 +97,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * evaluating appropriateness of issue management.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -137,11 +137,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * class.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -157,12 +157,12 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p></p>
      * 
-     * <p><p>Conveys the patient'''s wishes relating to the 
+     * <p><p>Conveys the patient's wishes relating to the 
      * sensitivity of the observation information.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      * 
-     * <p><p>Conveys the patient'''s wishes relating to the 
+     * <p><p>Conveys the patient's wishes relating to the 
      * sensitivity of the observation information.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
@@ -237,11 +237,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * measurable observation.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationValue() {
-        return this.observationValue.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setObservationValue(PhysicalQuantity observationValue) {
-        this.observationValue.setValue(observationValue);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 }

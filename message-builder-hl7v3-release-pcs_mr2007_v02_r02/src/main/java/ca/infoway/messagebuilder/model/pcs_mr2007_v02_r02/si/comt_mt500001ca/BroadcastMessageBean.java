@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private ST broadcastMessage = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
 
 
     /**
@@ -58,11 +58,11 @@ public class BroadcastMessageBean extends MessagePartBean {
      * etc.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getBroadcastMessage() {
-        return this.broadcastMessage.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setBroadcastMessage(String broadcastMessage) {
-        this.broadcastMessage.setValue(broadcastMessage);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

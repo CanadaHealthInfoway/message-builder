@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrimaryPerformer3","PRPM_MT309000CA.PrimaryPerformer3"})
 public class PrimaryPerformer3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private CS typeCode = new CSImpl();
     private ActDefinitionOrEventName_2Bean actDefinitionOrEvent;
 

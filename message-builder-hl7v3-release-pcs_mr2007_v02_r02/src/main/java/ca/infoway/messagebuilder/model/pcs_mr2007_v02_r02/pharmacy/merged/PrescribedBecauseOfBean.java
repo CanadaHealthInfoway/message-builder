@@ -211,17 +211,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca
  * instructions for the device, and may influence education or 
  * literature provided to the patient on the use of the 
  * device.</p><p>Provided at the discretion of the prescriber 
- * to enhance patient care. E.g., take 1 tab bid for migraine. 
- * Also needed for drug-disease interaction checking software 
- * to work properly.</p><p>This field is marked as populated 
- * because of its high clinical 
+ * to enhance patient care. E.g., take 1 
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private INT indicationPriority = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT priorityNumber = new INTImpl();
     private Indications indications;
     private AdministrationInstructionsBean dosageInstruction;
 
@@ -254,11 +251,11 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * as secondary or vice-versa.</p></p>
      */
     @Hl7XmlMapping({"priorityNumber"})
-    public Integer getIndicationPriority() {
-        return this.indicationPriority.getValue();
+    public Integer getPriorityNumber() {
+        return this.priorityNumber.getValue();
     }
-    public void setIndicationPriority(Integer indicationPriority) {
-        this.indicationPriority.setValue(indicationPriority);
+    public void setPriorityNumber(Integer priorityNumber) {
+        this.priorityNumber.setValue(priorityNumber);
     }
 
 

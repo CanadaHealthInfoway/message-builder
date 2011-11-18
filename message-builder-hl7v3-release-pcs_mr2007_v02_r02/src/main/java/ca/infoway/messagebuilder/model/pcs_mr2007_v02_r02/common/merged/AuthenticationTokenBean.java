@@ -248,19 +248,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * must not be specified (i.e. at least one participation of 
  * author, dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
- * 
- * <p><p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsiblePar
+ * Id or
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II authorizationTokenAsId = new IIImpl();
-    private ST authorizationToken = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST text = new STImpl();
 
 
     /**
@@ -282,11 +278,11 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * authentication token</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAuthorizationTokenAsId() {
-        return this.authorizationTokenAsId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAuthorizationTokenAsId(Identifier authorizationTokenAsId) {
-        this.authorizationTokenAsId.setValue(authorizationTokenAsId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -309,11 +305,11 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * approach to token construction.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getAuthorizationToken() {
-        return this.authorizationToken.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setAuthorizationToken(String authorizationToken) {
-        this.authorizationToken.setValue(authorizationToken);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

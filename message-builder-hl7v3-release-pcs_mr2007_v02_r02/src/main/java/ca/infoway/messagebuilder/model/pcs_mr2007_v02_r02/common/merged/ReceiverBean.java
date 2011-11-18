@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private TEL receiverNetworkAddress = new TELImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
-    private II receiverOrganizationIdentifier = new IIImpl();
+    private II deviceAgentAgentOrganizationId = new IIImpl();
 
 
     /**
@@ -60,11 +60,11 @@ public class ReceiverBean extends MessagePartBean {
      * SOAP.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getReceiverNetworkAddress() {
-        return this.receiverNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -84,11 +84,11 @@ public class ReceiverBean extends MessagePartBean {
      * application.</p></p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 
@@ -163,11 +163,11 @@ public class ReceiverBean extends MessagePartBean {
      * receiver device to agent is optional.</p></p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id"})
-    public Identifier getReceiverOrganizationIdentifier() {
-        return this.receiverOrganizationIdentifier.getValue();
+    public Identifier getDeviceAgentAgentOrganizationId() {
+        return this.deviceAgentAgentOrganizationId.getValue();
     }
-    public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
-        this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
+    public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
+        this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);
     }
 
 }

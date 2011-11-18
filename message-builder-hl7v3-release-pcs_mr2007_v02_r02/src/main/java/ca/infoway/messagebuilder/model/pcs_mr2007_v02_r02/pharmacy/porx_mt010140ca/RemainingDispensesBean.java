@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220100ca
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private PQ remainingQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
 
@@ -64,11 +64,11 @@ public class RemainingDispensesBean extends MessagePartBean {
      * will be left unchanged.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getRemainingQuantity() {
-        return this.remainingQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setRemainingQuantity(PhysicalQuantity remainingQuantity) {
-        this.remainingQuantity.setValue(remainingQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 

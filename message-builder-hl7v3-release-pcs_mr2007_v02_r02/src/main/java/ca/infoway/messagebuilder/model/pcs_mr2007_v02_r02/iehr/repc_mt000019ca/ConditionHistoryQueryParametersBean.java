@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II allergyIntoleranceIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II allergyIntoleranceIDValue = new IIImpl();
 
 
     /**
@@ -57,11 +57,11 @@ public class ConditionHistoryQueryParametersBean extends MessagePartBean {
      * retrieve and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"allergyIntoleranceID/value"})
-    public Identifier getAllergyIntoleranceIdentifier() {
-        return this.allergyIntoleranceIdentifier.getValue();
+    public Identifier getAllergyIntoleranceIDValue() {
+        return this.allergyIntoleranceIDValue.getValue();
     }
-    public void setAllergyIntoleranceIdentifier(Identifier allergyIntoleranceIdentifier) {
-        this.allergyIntoleranceIdentifier.setValue(allergyIntoleranceIdentifier);
+    public void setAllergyIntoleranceIDValue(Identifier allergyIntoleranceIDValue) {
+        this.allergyIntoleranceIDValue.setValue(allergyIntoleranceIDValue);
     }
 
 }

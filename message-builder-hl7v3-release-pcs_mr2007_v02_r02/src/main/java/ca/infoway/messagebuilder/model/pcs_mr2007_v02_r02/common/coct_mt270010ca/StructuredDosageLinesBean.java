@@ -68,12 +68,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CS dosageUsageContext = new CSImpl();
-    private ST adHocDosageInstruction = new STImpl();
-    private GTS dosageTimingFrequency = new GTSImpl();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20111117L;
+    private CS moodCode = new CSImpl();
+    private ST text = new STImpl();
+    private GTS effectiveTime = new GTSImpl();
+    private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
+    private URG<PQ, PhysicalQuantity> rateQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private AdministrationPreconditionBean triggerActEventCriterion;
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
 
@@ -113,11 +113,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    public x_ActMoodDefEvnRqo getMoodCode() {
+        return (x_ActMoodDefEvnRqo) this.moodCode.getValue();
     }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
+    public void setMoodCode(x_ActMoodDefEvnRqo moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -154,11 +154,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * Timing).</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getAdHocDosageInstruction() {
-        return this.adHocDosageInstruction.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
-        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -275,11 +275,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * quantity of drug.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public GeneralTimingSpecification getDosageTimingFrequency() {
-        return this.dosageTimingFrequency.getValue();
+    public GeneralTimingSpecification getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
-        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
+    public void setEffectiveTime(GeneralTimingSpecification effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -304,11 +304,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * specified as the center, with a width of 0.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRange() {
-        return this.dosageRange.getValue();
+    public UncertainRange<PhysicalQuantity> getDoseQuantity() {
+        return this.doseQuantity.getValue();
     }
-    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
-        this.dosageRange.setValue(dosageRange);
+    public void setDoseQuantity(UncertainRange<PhysicalQuantity> doseQuantity) {
+        this.doseQuantity.setValue(doseQuantity);
     }
 
 
@@ -323,11 +323,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p><p>Required for intravenous administration</p></p>
      */
     @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
+    public UncertainRange<PhysicalQuantity> getRateQuantity() {
+        return this.rateQuantity.getValue();
     }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
+    public void setRateQuantity(UncertainRange<PhysicalQuantity> rateQuantity) {
+        this.rateQuantity.setValue(rateQuantity);
     }
 
 

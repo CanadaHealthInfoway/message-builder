@@ -229,17 +229,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt470002ca
  * May also be used to override access restriction to the 
  * information ('break the glass') on a message by message 
  * basis.</p><p>May be required on a Prescription Request to 
- * indicate a keyword for drug utilization processing.</p></p>
- * 
- * <p><p>Provides authorization to record and/or view patient 
- * information.</p><p>Indicates the consent or keyword used to 
- * authorize access or update, including a reason
+ * indicate a keyword for drug utilization pr
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject3","MCAI_MT700211CA.Subject3","MCAI_MT700212CA.Subject3","MFMI_MT700751CA.Subject1","QUQI_MT020000CA.Subject3","QUQI_MT020002CA.Subject3","QUQI_MT120006CA.Subject3","QUQI_MT120008CA.Subject3"})
 public class AuthorizedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private ConsentBean consentEvent;
     private CS contextControlCode = new CSImpl();
 

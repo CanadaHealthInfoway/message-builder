@@ -81,9 +81,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV restrictionsCategorizationType = new CVImpl();
-    private CV restrictionsCategorizationValue = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV value = new CVImpl();
 
 
     /**
@@ -123,11 +123,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * privileges</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPrivilegeCategorization getRestrictionsCategorizationType() {
-        return (ActPrivilegeCategorization) this.restrictionsCategorizationType.getValue();
+    public ActPrivilegeCategorization getCode() {
+        return (ActPrivilegeCategorization) this.code.getValue();
     }
-    public void setRestrictionsCategorizationType(ActPrivilegeCategorization restrictionsCategorizationType) {
-        this.restrictionsCategorizationType.setValue(restrictionsCategorizationType);
+    public void setCode(ActPrivilegeCategorization code) {
+        this.code.setValue(code);
     }
 
 
@@ -153,11 +153,11 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * privileges</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public ObservationValue getRestrictionsCategorizationValue() {
-        return (ObservationValue) this.restrictionsCategorizationValue.getValue();
+    public ObservationValue getValue() {
+        return (ObservationValue) this.value.getValue();
     }
-    public void setRestrictionsCategorizationValue(ObservationValue restrictionsCategorizationValue) {
-        this.restrictionsCategorizationValue.setValue(restrictionsCategorizationValue);
+    public void setValue(ObservationValue value) {
+        this.value.setValue(value);
     }
 
 }

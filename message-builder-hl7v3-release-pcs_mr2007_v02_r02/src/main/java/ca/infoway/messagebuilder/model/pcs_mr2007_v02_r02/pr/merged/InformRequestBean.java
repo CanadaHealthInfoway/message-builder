@@ -69,8 +69,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToL
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV informRequestCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private DispenseShipToLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
@@ -98,11 +98,11 @@ public class InformRequestBean extends MessagePartBean {
      * <p><p>Populated</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getInformRequestCode() {
-        return (ActCode) this.informRequestCode.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setInformRequestCode(ActCode informRequestCode) {
-        this.informRequestCode.setValue(informRequestCode);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 

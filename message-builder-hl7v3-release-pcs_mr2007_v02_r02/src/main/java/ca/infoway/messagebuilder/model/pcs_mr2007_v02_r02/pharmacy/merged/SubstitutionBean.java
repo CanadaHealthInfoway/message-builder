@@ -69,8 +69,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV substitutionCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
 
@@ -88,11 +88,11 @@ public class SubstitutionBean extends MessagePartBean {
      * understanding the substitution.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActSubstanceAdminSubstitutionCode getSubstitutionCode() {
-        return (ActSubstanceAdminSubstitutionCode) this.substitutionCode.getValue();
+    public ActSubstanceAdminSubstitutionCode getCode() {
+        return (ActSubstanceAdminSubstitutionCode) this.code.getValue();
     }
-    public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
-        this.substitutionCode.setValue(substitutionCode);
+    public void setCode(ActSubstanceAdminSubstitutionCode code) {
+        this.code.setValue(code);
     }
 
 

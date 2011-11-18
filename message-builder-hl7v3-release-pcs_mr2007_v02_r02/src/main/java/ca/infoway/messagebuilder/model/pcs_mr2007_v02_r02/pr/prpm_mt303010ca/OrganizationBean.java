@@ -48,10 +48,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II organizationId = new IIImpl();
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
-    private AD issuingRepresentingQualificationGrantingOrganizationAddressEs = new ADImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST name = new STImpl();
+    private AD addr = new ADImpl();
     private TerritorialAuthorityBean territorialAuthority;
 
 
@@ -65,7 +65,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Unique identifier for the organization that assigned 
@@ -75,7 +75,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Unique identifier for the organization that assigned 
@@ -85,7 +85,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Unique identifier for the organization that assigned 
@@ -95,7 +95,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Unique identifier for the organization that assigned 
@@ -105,7 +105,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Unique identifier for the organization that assigned 
@@ -115,7 +115,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
+     * with a provider's functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Mandatory attribute supports the validation and 
@@ -123,11 +123,11 @@ public class OrganizationBean extends MessagePartBean {
      * to the specified roleClass</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -137,19 +137,19 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a provider's 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a provider's 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a provider's 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
@@ -157,11 +157,11 @@ public class OrganizationBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getIssuingRepresentingQualificationGrantingOrganizationNameS() {
-        return this.issuingRepresentingQualificationGrantingOrganizationNameS.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
-        this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -191,11 +191,11 @@ public class OrganizationBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
-        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setIssuingRepresentingQualificationGrantingOrganizationAddressEs(PostalAddress issuingRepresentingQualificationGrantingOrganizationAddressEs) {
-        this.issuingRepresentingQualificationGrantingOrganizationAddressEs.setValue(issuingRepresentingQualificationGrantingOrganizationAddressEs);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 

@@ -40,16 +40,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 20mg tablets and 50 x 10mg tablets. The association is 
  * marked as Populated because the authorization to dispense is 
  * a critical portion of a prescription. However the 
- * association is allowed to be '''null''' when the order is 
- * for a medication which requires no dispense authorization 
- * (e.g. over-the-counter medications), or when the patient 
- * already has sufficient supply of the medication on hand to 
- * complete the therapy.</p></p>
+ * association is allowed to be 'null' when the order is for a 
+ * medication which requires no dispense authorization (e.g. 
+ * over-the-counter medications), or when the patient already 
+ * has sufficient supply of the medication on hand to complete 
+ * the therapy.</p></p>
  */
 @Hl7PartTypeMapping({"PORX_MT060340CA.Component6"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private DispenseInstructionsBean supplyRequest;
 
 

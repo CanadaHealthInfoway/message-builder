@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.LanguageCode"})
 public class LanguageCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV languageOfCommunicationCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV value = new CVImpl();
 
 
     /**
@@ -46,11 +46,11 @@ public class LanguageCodeBean extends MessagePartBean {
      * message elements are to be transmitted in</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public QueryParameterValue getLanguageOfCommunicationCode() {
-        return (QueryParameterValue) this.languageOfCommunicationCode.getValue();
+    public QueryParameterValue getValue() {
+        return (QueryParameterValue) this.value.getValue();
     }
-    public void setLanguageOfCommunicationCode(QueryParameterValue languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    public void setValue(QueryParameterValue value) {
+        this.value.setValue(value);
     }
 
 }

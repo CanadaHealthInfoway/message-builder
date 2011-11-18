@@ -55,8 +55,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.Agent","PORX_MT060090CA.Agent","PORX_MT060160CA.Agent","PORX_MT060340CA.Agent"})
 public class AgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II substitutingPersonIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -84,11 +84,11 @@ public class AgentBean extends MessagePartBean {
      * substitution.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSubstitutingPersonIdentifier() {
-        return this.substitutingPersonIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSubstitutingPersonIdentifier(Identifier substitutingPersonIdentifier) {
-        this.substitutingPersonIdentifier.setValue(substitutingPersonIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

@@ -215,16 +215,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p><p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient
+ * inclusion of patient identity simplifies logging,
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.RecordTarget","MCAI_MT700211CA.RecordTarget","MCAI_MT700216CA.RecordTarget","MCAI_MT700217CA.RecordTarget","MCAI_MT700220CA.RecordTarget","MCAI_MT700221CA.RecordTarget","MCAI_MT700226CA.RecordTarget","MCAI_MT700227CA.RecordTarget","MCAI_MT700230CA.RecordTarget","MCAI_MT700231CA.RecordTarget","MCAI_MT700236CA.RecordTarget","MCAI_MT700237CA.RecordTarget","QUQI_MT020000CA.RecordTarget","QUQI_MT120006CA.RecordTarget"})
 public class StoredInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
     private CS typeCode = new CSImpl();
     private Patient_2 patient1;
 

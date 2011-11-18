@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101103ca.Par
 @Hl7PartTypeMapping({"PRPA_IN101103CA"})
 public class FindCandidatesQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110831L;
+    private static final long serialVersionUID = 20111117L;
 
 }

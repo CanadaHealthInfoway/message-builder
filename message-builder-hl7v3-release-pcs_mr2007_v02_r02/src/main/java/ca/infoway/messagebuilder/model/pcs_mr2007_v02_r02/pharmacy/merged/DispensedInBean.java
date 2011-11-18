@@ -24,6 +24,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.RTO;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
@@ -58,9 +59,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private RTO<PhysicalQuantity, PhysicalQuantity> packageQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
-    private CV containerType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private RTO<PhysicalQuantity, PhysicalQuantity> quantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
+    private CV containerPackagedMedicineFormCode = new CVImpl();
 
 
     /**
@@ -81,11 +82,11 @@ public class DispensedInBean extends MessagePartBean {
      * '1'.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
-        return this.packageQuantity.getValue();
+    public Ratio<PhysicalQuantity, PhysicalQuantity> getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
-        this.packageQuantity.setValue(packageQuantity);
+    public void setQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -113,11 +114,11 @@ public class DispensedInBean extends MessagePartBean {
      * before it will be covered by the plan.</p></p>
      */
     @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
-    public CompliancePackageEntityType getContainerType() {
-        return (CompliancePackageEntityType) this.containerType.getValue();
+    public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {
+        return (CompliancePackageEntityType) this.containerPackagedMedicineFormCode.getValue();
     }
-    public void setContainerType(CompliancePackageEntityType containerType) {
-        this.containerType.setValue(containerType);
+    public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
+        this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
     }
 
 }

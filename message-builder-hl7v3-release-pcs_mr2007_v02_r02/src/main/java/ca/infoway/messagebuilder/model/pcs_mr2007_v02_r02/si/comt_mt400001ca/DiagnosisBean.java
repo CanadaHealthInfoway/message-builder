@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Diagnosis</p>
  * 
  * <p><p>If code is SNOMED, value must not be specified. 
- * Otherwise value is mandatory and code must be '''DX'''</p></p>
+ * Otherwise value is mandatory and code must be 'DX'</p></p>
  * 
  * <p><p>Conveys information about a diagnosis to be masked</p></p>
  * 
@@ -45,9 +45,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV diagnosisType = new CVImpl();
-    private CV diagnosis = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV value = new CVImpl();
 
 
     /**
@@ -61,11 +61,11 @@ public class DiagnosisBean extends MessagePartBean {
      * masked, and attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -81,11 +81,11 @@ public class DiagnosisBean extends MessagePartBean {
      * not used for SNOMED.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosis() {
-        return (DiagnosisValue) this.diagnosis.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setDiagnosis(DiagnosisValue diagnosis) {
-        this.diagnosis.setValue(diagnosis);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 }

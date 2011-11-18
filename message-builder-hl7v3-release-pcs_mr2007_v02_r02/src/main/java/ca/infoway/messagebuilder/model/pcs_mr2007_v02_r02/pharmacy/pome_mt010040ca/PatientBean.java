@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
@@ -55,11 +55,11 @@ public class PatientBean extends MessagePartBean {
      * <p><p>Some dosage specifications are gender-specific.</p></p>
      */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientLivingSubjectKindAdministrativeGenderCode() {
+        return (AdministrativeGender) this.patientLivingSubjectKindAdministrativeGenderCode.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender patientLivingSubjectKindAdministrativeGenderCode) {
+        this.patientLivingSubjectKindAdministrativeGenderCode.setValue(patientLivingSubjectKindAdministrativeGenderCode);
     }
 
 }

@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.Component17"})
 public class ConsistsOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private INT dosageLineOrder = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private StructuredDosageLinesBean dosageLine;
 
 
@@ -73,11 +73,11 @@ public class ConsistsOfBean extends MessagePartBean {
      * 'ANDs' and 'THENs'.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getDosageLineOrder() {
-        return this.dosageLineOrder.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setDosageLineOrder(Integer dosageLineOrder) {
-        this.dosageLineOrder.setValue(dosageLineOrder);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

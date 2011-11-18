@@ -156,10 +156,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II incidenceIdentifier = new IIImpl();
-    private CV exposureMethod = new CVImpl();
-    private CV exposedMaterialType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV routeCode = new CVImpl();
+    private CV consumableAdministrableMaterialAdministerableMaterialKindCode = new CVImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
 
 
@@ -186,11 +186,11 @@ public class ExposuresBean extends MessagePartBean {
      * information about the exposure</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIncidenceIdentifier() {
-        return this.incidenceIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
-        this.incidenceIdentifier.setValue(incidenceIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -205,11 +205,11 @@ public class ExposuresBean extends MessagePartBean {
      * <p><p>Helps evaluate the cause of the reaction.</p></p>
      */
     @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getExposureMethod() {
-        return (RouteOfAdministration) this.exposureMethod.getValue();
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setExposureMethod(RouteOfAdministration exposureMethod) {
-        this.exposureMethod.setValue(exposureMethod);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 
@@ -259,11 +259,11 @@ public class ExposuresBean extends MessagePartBean {
         @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000001CA.MaterialKind"),
         @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000005CA.MaterialKind"),
         @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000013CA.MaterialKind")})
-    public ExposureAgentEntityType getExposedMaterialType() {
-        return (ExposureAgentEntityType) this.exposedMaterialType.getValue();
+    public ExposureAgentEntityType getConsumableAdministrableMaterialAdministerableMaterialKindCode() {
+        return (ExposureAgentEntityType) this.consumableAdministrableMaterialAdministerableMaterialKindCode.getValue();
     }
-    public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
-        this.exposedMaterialType.setValue(exposedMaterialType);
+    public void setConsumableAdministrableMaterialAdministerableMaterialKindCode(ExposureAgentEntityType consumableAdministrableMaterialAdministerableMaterialKindCode) {
+        this.consumableAdministrableMaterialAdministerableMaterialKindCode.setValue(consumableAdministrableMaterialAdministerableMaterialKindCode);
     }
 
 

@@ -65,8 +65,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest","PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private II previousPrescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -88,11 +88,11 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * renewal prescriptions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPreviousPrescriptionOrderNumber() {
-        return this.previousPrescriptionOrderNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPreviousPrescriptionOrderNumber(Identifier previousPrescriptionOrderNumber) {
-        this.previousPrescriptionOrderNumber.setValue(previousPrescriptionOrderNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

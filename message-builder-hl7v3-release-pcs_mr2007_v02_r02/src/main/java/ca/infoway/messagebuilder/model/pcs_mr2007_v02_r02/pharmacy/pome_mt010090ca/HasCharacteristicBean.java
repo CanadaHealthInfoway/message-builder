@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110831L;
-    private ST drugCharacteristic = new STImpl();
-    private CV drugCharacteristicTypeCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST drugCharacteristicValue = new STImpl();
+    private CV drugCharacteristicTypeValue = new CVImpl();
 
 
     /**
@@ -98,11 +98,11 @@ public class HasCharacteristicBean extends MessagePartBean {
      * for a characteristic without specifying a value.</p></p>
      */
     @Hl7XmlMapping({"drugCharacteristic/value"})
-    public String getDrugCharacteristic() {
-        return this.drugCharacteristic.getValue();
+    public String getDrugCharacteristicValue() {
+        return this.drugCharacteristicValue.getValue();
     }
-    public void setDrugCharacteristic(String drugCharacteristic) {
-        this.drugCharacteristic.setValue(drugCharacteristic);
+    public void setDrugCharacteristicValue(String drugCharacteristicValue) {
+        this.drugCharacteristicValue.setValue(drugCharacteristicValue);
     }
 
 
@@ -119,11 +119,11 @@ public class HasCharacteristicBean extends MessagePartBean {
      * of characteristic is being searched by.</p></p>
      */
     @Hl7XmlMapping({"drugCharacteristicType/value"})
-    public MedicationObservationType getDrugCharacteristicTypeCode() {
-        return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();
+    public MedicationObservationType getDrugCharacteristicTypeValue() {
+        return (MedicationObservationType) this.drugCharacteristicTypeValue.getValue();
     }
-    public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
-        this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
+    public void setDrugCharacteristicTypeValue(MedicationObservationType drugCharacteristicTypeValue) {
+        this.drugCharacteristicTypeValue.setValue(drugCharacteristicTypeValue);
     }
 
 }
