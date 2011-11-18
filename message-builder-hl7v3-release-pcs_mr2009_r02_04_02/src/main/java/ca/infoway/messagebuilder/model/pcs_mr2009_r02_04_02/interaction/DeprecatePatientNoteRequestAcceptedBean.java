@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"COMT_IN300102CA"})
 public class DeprecatePatientNoteRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
 
 }
