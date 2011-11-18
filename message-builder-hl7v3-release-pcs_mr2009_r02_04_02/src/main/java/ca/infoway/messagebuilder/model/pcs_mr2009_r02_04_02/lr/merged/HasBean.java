@@ -68,10 +68,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II identifier = new IIImpl();
-    private CV identifierType = new CVImpl();
-    private ST identifyingOrganization = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ST assigningIdentifierOrganizationName = new STImpl();
 
 
     /**
@@ -88,11 +88,11 @@ public class HasBean extends MessagePartBean {
      * identifier.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIdentifier() {
-        return this.identifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIdentifier(Identifier identifier) {
-        this.identifier.setValue(identifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -109,11 +109,11 @@ public class HasBean extends MessagePartBean {
      * identifier and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public LocationIdentifiedEntityRoleType getIdentifierType() {
-        return (LocationIdentifiedEntityRoleType) this.identifierType.getValue();
+    public LocationIdentifiedEntityRoleType getCode() {
+        return (LocationIdentifiedEntityRoleType) this.code.getValue();
     }
-    public void setIdentifierType(LocationIdentifiedEntityRoleType identifierType) {
-        this.identifierType.setValue(identifierType);
+    public void setCode(LocationIdentifiedEntityRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -132,11 +132,11 @@ public class HasBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"assigningIdentifierOrganization/name"})
-    public String getIdentifyingOrganization() {
-        return this.identifyingOrganization.getValue();
+    public String getAssigningIdentifierOrganizationName() {
+        return this.assigningIdentifierOrganizationName.getValue();
     }
-    public void setIdentifyingOrganization(String identifyingOrganization) {
-        this.identifyingOrganization.setValue(identifyingOrganization);
+    public void setAssigningIdentifierOrganizationName(String assigningIdentifierOrganizationName) {
+        this.assigningIdentifierOrganizationName.setValue(assigningIdentifierOrganizationName);
     }
 
 }

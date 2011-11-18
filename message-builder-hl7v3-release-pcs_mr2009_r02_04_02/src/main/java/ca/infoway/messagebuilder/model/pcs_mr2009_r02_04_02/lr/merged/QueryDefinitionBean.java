@@ -85,22 +85,22 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private AD address = new ADImpl();
-    private TS updatedSinceDateTime = new TSImpl();
-    private II eHRRepositoryId = new IIImpl();
-    private BL locationMobileIndicator = new BLImpl();
-    private CV locationPlaceType = new CVImpl();
-    private List<CV> locationServiceTypes = new ArrayList<CV>();
-    private ST nameContains = new STImpl();
-    private AD nearAddress = new ADImpl();
-    private List<II> protocolIds = new ArrayList<II>();
-    private List<CS> recordStatuses = new ArrayList<CS>();
-    private List<CD> recordTypes = new ArrayList<CD>();
-    private List<II> regionIds = new ArrayList<II>();
-    private II responsibleOrganizationId = new IIImpl();
-    private PQ searchRadius = new PQImpl();
-    private List<II> recordIds = new ArrayList<II>();
+    private static final long serialVersionUID = 20111117L;
+    private AD addressValue = new ADImpl();
+    private TS amendedSinceDateTimeValue = new TSImpl();
+    private II eHRRepositoryIdValue = new IIImpl();
+    private BL locationMobileIndicatorValue = new BLImpl();
+    private CV locationPlaceTypeValue = new CVImpl();
+    private List<CV> locationServiceTypeValue = new ArrayList<CV>();
+    private ST nameContainsValue = new STImpl();
+    private AD nearAddressValue = new ADImpl();
+    private List<II> protocolIdValue = new ArrayList<II>();
+    private List<CS> recordStatusValue = new ArrayList<CS>();
+    private List<CD> recordTypeValue = new ArrayList<CD>();
+    private List<II> regionIdValue = new ArrayList<II>();
+    private II responsibleOrganizationIdValue = new IIImpl();
+    private PQ searchRadiusValue = new PQImpl();
+    private List<II> recordIdValue = new ArrayList<II>();
 
 
     /**
@@ -116,11 +116,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * facility.</p></p>
      */
     @Hl7XmlMapping({"address/value"})
-    public PostalAddress getAddress() {
-        return this.address.getValue();
+    public PostalAddress getAddressValue() {
+        return this.addressValue.getValue();
     }
-    public void setAddress(PostalAddress address) {
-        this.address.setValue(address);
+    public void setAddressValue(PostalAddress addressValue) {
+        this.addressValue.setValue(addressValue);
     }
 
 
@@ -137,11 +137,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * checked&quot;.</p></p>
      */
     @Hl7XmlMapping({"amendedSinceDateTime/value"})
-    public Date getUpdatedSinceDateTime() {
-        return this.updatedSinceDateTime.getValue();
+    public Date getAmendedSinceDateTimeValue() {
+        return this.amendedSinceDateTimeValue.getValue();
     }
-    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
-        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
+    public void setAmendedSinceDateTimeValue(Date amendedSinceDateTimeValue) {
+        this.amendedSinceDateTimeValue.setValue(amendedSinceDateTimeValue);
     }
 
 
@@ -159,11 +159,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reasons.</p></p>
      */
     @Hl7XmlMapping({"eHRRepositoryId/value"})
-    public Identifier getEHRRepositoryId() {
-        return this.eHRRepositoryId.getValue();
+    public Identifier getEHRRepositoryIdValue() {
+        return this.eHRRepositoryIdValue.getValue();
     }
-    public void setEHRRepositoryId(Identifier eHRRepositoryId) {
-        this.eHRRepositoryId.setValue(eHRRepositoryId);
+    public void setEHRRepositoryIdValue(Identifier eHRRepositoryIdValue) {
+        this.eHRRepositoryIdValue.setValue(eHRRepositoryIdValue);
     }
 
 
@@ -180,11 +180,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * locations.</p></p>
      */
     @Hl7XmlMapping({"locationMobileIndicator/value"})
-    public Boolean getLocationMobileIndicator() {
-        return this.locationMobileIndicator.getValue();
+    public Boolean getLocationMobileIndicatorValue() {
+        return this.locationMobileIndicatorValue.getValue();
     }
-    public void setLocationMobileIndicator(Boolean locationMobileIndicator) {
-        this.locationMobileIndicator.setValue(locationMobileIndicator);
+    public void setLocationMobileIndicatorValue(Boolean locationMobileIndicatorValue) {
+        this.locationMobileIndicatorValue.setValue(locationMobileIndicatorValue);
     }
 
 
@@ -202,11 +202,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * type to be included.</p></p>
      */
     @Hl7XmlMapping({"locationPlaceType/value"})
-    public ServiceDeliveryLocationPlaceType getLocationPlaceType() {
-        return (ServiceDeliveryLocationPlaceType) this.locationPlaceType.getValue();
+    public ServiceDeliveryLocationPlaceType getLocationPlaceTypeValue() {
+        return (ServiceDeliveryLocationPlaceType) this.locationPlaceTypeValue.getValue();
     }
-    public void setLocationPlaceType(ServiceDeliveryLocationPlaceType locationPlaceType) {
-        this.locationPlaceType.setValue(locationPlaceType);
+    public void setLocationPlaceTypeValue(ServiceDeliveryLocationPlaceType locationPlaceTypeValue) {
+        this.locationPlaceTypeValue.setValue(locationPlaceTypeValue);
     }
 
 
@@ -223,8 +223,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * certain services or groups of services.</p></p>
      */
     @Hl7XmlMapping({"locationServiceType/value"})
-    public List<ActServiceDeliveryLocationService> getLocationServiceTypes() {
-        return new RawListWrapper<CV, ActServiceDeliveryLocationService>(locationServiceTypes, CVImpl.class);
+    public List<ActServiceDeliveryLocationService> getLocationServiceTypeValue() {
+        return new RawListWrapper<CV, ActServiceDeliveryLocationService>(locationServiceTypeValue, CVImpl.class);
     }
 
 
@@ -248,11 +248,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * &quot;sounds-like&quot; searches.</p></p>
      */
     @Hl7XmlMapping({"nameContains/value"})
-    public String getNameContains() {
-        return this.nameContains.getValue();
+    public String getNameContainsValue() {
+        return this.nameContainsValue.getValue();
     }
-    public void setNameContains(String nameContains) {
-        this.nameContains.setValue(nameContains);
+    public void setNameContainsValue(String nameContainsValue) {
+        this.nameContainsValue.setValue(nameContainsValue);
     }
 
 
@@ -269,11 +269,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * location.</p></p>
      */
     @Hl7XmlMapping({"nearAddress/value"})
-    public PostalAddress getNearAddress() {
-        return this.nearAddress.getValue();
+    public PostalAddress getNearAddressValue() {
+        return this.nearAddressValue.getValue();
     }
-    public void setNearAddress(PostalAddress nearAddress) {
-        this.nearAddress.setValue(nearAddress);
+    public void setNearAddressValue(PostalAddress nearAddressValue) {
+        this.nearAddressValue.setValue(nearAddressValue);
     }
 
 
@@ -299,8 +299,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"protocolId/value"})
-    public List<Identifier> getProtocolIds() {
-        return new RawListWrapper<II, Identifier>(protocolIds, IIImpl.class);
+    public List<Identifier> getProtocolIdValue() {
+        return new RawListWrapper<II, Identifier>(protocolIdValue, IIImpl.class);
     }
 
 
@@ -318,8 +318,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * selection of multiple statuses with a single query.</p></p>
      */
     @Hl7XmlMapping({"recordStatus/value"})
-    public List<ServiceDeliveryRoleStatus> getRecordStatuses() {
-        return new RawListWrapper<CS, ServiceDeliveryRoleStatus>(recordStatuses, CSImpl.class);
+    public List<ServiceDeliveryRoleStatus> getRecordStatusValue() {
+        return new RawListWrapper<CS, ServiceDeliveryRoleStatus>(recordStatusValue, CSImpl.class);
     }
 
 
@@ -337,8 +337,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"recordType/value"})
-    public List<ServiceDeliveryLocationRoleType> getRecordTypes() {
-        return new RawListWrapper<CD, ServiceDeliveryLocationRoleType>(recordTypes, CDImpl.class);
+    public List<ServiceDeliveryLocationRoleType> getRecordTypeValue() {
+        return new RawListWrapper<CD, ServiceDeliveryLocationRoleType>(recordTypeValue, CDImpl.class);
     }
 
 
@@ -354,8 +354,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * associated with a particular health region.</p></p>
      */
     @Hl7XmlMapping({"regionId/value"})
-    public List<Identifier> getRegionIds() {
-        return new RawListWrapper<II, Identifier>(regionIds, IIImpl.class);
+    public List<Identifier> getRegionIdValue() {
+        return new RawListWrapper<II, Identifier>(regionIdValue, IIImpl.class);
     }
 
 
@@ -372,11 +372,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * particular organization.</p></p>
      */
     @Hl7XmlMapping({"responsibleOrganizationId/value"})
-    public Identifier getResponsibleOrganizationId() {
-        return this.responsibleOrganizationId.getValue();
+    public Identifier getResponsibleOrganizationIdValue() {
+        return this.responsibleOrganizationIdValue.getValue();
     }
-    public void setResponsibleOrganizationId(Identifier responsibleOrganizationId) {
-        this.responsibleOrganizationId.setValue(responsibleOrganizationId);
+    public void setResponsibleOrganizationIdValue(Identifier responsibleOrganizationIdValue) {
+        this.responsibleOrganizationIdValue.setValue(responsibleOrganizationIdValue);
     }
 
 
@@ -393,11 +393,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * location.</p></p>
      */
     @Hl7XmlMapping({"searchRadius/value"})
-    public PhysicalQuantity getSearchRadius() {
-        return this.searchRadius.getValue();
+    public PhysicalQuantity getSearchRadiusValue() {
+        return this.searchRadiusValue.getValue();
     }
-    public void setSearchRadius(PhysicalQuantity searchRadius) {
-        this.searchRadius.setValue(searchRadius);
+    public void setSearchRadiusValue(PhysicalQuantity searchRadiusValue) {
+        this.searchRadiusValue.setValue(searchRadiusValue);
     }
 
 
@@ -431,8 +431,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reasons.</p></p>
      */
     @Hl7XmlMapping({"recordId/value"})
-    public List<Identifier> getRecordIds() {
-        return new RawListWrapper<II, Identifier>(recordIds, IIImpl.class);
+    public List<Identifier> getRecordIdValue() {
+        return new RawListWrapper<II, Identifier>(recordIdValue, IIImpl.class);
     }
 
 }

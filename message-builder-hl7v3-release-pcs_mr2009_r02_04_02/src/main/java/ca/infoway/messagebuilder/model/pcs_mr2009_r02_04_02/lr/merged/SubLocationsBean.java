@@ -72,11 +72,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.SubLocation","PRPA_MT202302CA.SubLocation","PRPA_MT202303CA.SubLocation"})
 public class SubLocationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II subLocationIdentifier = new IIImpl();
-    private CV subLocationType = new CVImpl();
-    private ST locationName = new STImpl();
-    private CV subLocationPlaceType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
+    private CV locationCode = new CVImpl();
 
 
     /**
@@ -92,11 +92,11 @@ public class SubLocationsBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSubLocationIdentifier() {
-        return this.subLocationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSubLocationIdentifier(Identifier subLocationIdentifier) {
-        this.subLocationIdentifier.setValue(subLocationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -115,11 +115,11 @@ public class SubLocationsBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getSubLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.subLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getCode() {
+        return (ServiceDeliveryLocationRoleType) this.code.getValue();
     }
-    public void setSubLocationType(ServiceDeliveryLocationRoleType subLocationType) {
-        this.subLocationType.setValue(subLocationType);
+    public void setCode(ServiceDeliveryLocationRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -135,11 +135,11 @@ public class SubLocationsBean extends MessagePartBean {
      * will be unique within their containing location.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getLocationName() {
-        return this.locationName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setLocationName(String locationName) {
-        this.locationName.setValue(locationName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -163,11 +163,11 @@ public class SubLocationsBean extends MessagePartBean {
      * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"location/code"})
-    public ServiceDeliveryLocationPlaceType getSubLocationPlaceType() {
-        return (ServiceDeliveryLocationPlaceType) this.subLocationPlaceType.getValue();
+    public ServiceDeliveryLocationPlaceType getLocationCode() {
+        return (ServiceDeliveryLocationPlaceType) this.locationCode.getValue();
     }
-    public void setSubLocationPlaceType(ServiceDeliveryLocationPlaceType subLocationPlaceType) {
-        this.subLocationPlaceType.setValue(subLocationPlaceType);
+    public void setLocationCode(ServiceDeliveryLocationPlaceType locationCode) {
+        this.locationCode.setValue(locationCode);
     }
 
 }

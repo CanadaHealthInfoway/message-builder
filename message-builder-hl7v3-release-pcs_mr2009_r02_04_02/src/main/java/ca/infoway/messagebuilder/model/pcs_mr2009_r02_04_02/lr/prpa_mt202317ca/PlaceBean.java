@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202317CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV locationPlaceType = new CVImpl();
-    private BL locationMobileIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private BL mobileInd = new BLImpl();
 
 
     /**
@@ -52,11 +52,11 @@ public class PlaceBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationPlaceType getLocationPlaceType() {
-        return (ServiceDeliveryLocationPlaceType) this.locationPlaceType.getValue();
+    public ServiceDeliveryLocationPlaceType getCode() {
+        return (ServiceDeliveryLocationPlaceType) this.code.getValue();
     }
-    public void setLocationPlaceType(ServiceDeliveryLocationPlaceType locationPlaceType) {
-        this.locationPlaceType.setValue(locationPlaceType);
+    public void setCode(ServiceDeliveryLocationPlaceType code) {
+        this.code.setValue(code);
     }
 
 
@@ -76,11 +76,11 @@ public class PlaceBean extends MessagePartBean {
      * known and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"mobileInd"})
-    public Boolean getLocationMobileIndicator() {
-        return this.locationMobileIndicator.getValue();
+    public Boolean getMobileInd() {
+        return this.mobileInd.getValue();
     }
-    public void setLocationMobileIndicator(Boolean locationMobileIndicator) {
-        this.locationMobileIndicator.setValue(locationMobileIndicator);
+    public void setMobileInd(Boolean mobileInd) {
+        this.mobileInd.setValue(mobileInd);
     }
 
 }

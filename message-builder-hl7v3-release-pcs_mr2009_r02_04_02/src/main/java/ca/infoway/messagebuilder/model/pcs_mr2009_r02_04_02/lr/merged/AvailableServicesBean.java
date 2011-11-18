@@ -74,10 +74,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV serviceType = new CVImpl();
-    private CS serviceAvailability = new CSImpl();
-    private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private SET<PIVL, PeriodicIntervalTime> activityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
 
 
     /**
@@ -92,11 +92,11 @@ public class AvailableServicesBean extends MessagePartBean {
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActServiceDeliveryLocationService getServiceType() {
-        return (ActServiceDeliveryLocationService) this.serviceType.getValue();
+    public ActServiceDeliveryLocationService getCode() {
+        return (ActServiceDeliveryLocationService) this.code.getValue();
     }
-    public void setServiceType(ActServiceDeliveryLocationService serviceType) {
-        this.serviceType.setValue(serviceType);
+    public void setCode(ActServiceDeliveryLocationService code) {
+        this.code.setValue(code);
     }
 
 
@@ -124,11 +124,11 @@ public class AvailableServicesBean extends MessagePartBean {
      * this element is being made optional.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public x_ActStatusActiveSuspended getServiceAvailability() {
-        return (x_ActStatusActiveSuspended) this.serviceAvailability.getValue();
+    public x_ActStatusActiveSuspended getStatusCode() {
+        return (x_ActStatusActiveSuspended) this.statusCode.getValue();
     }
-    public void setServiceAvailability(x_ActStatusActiveSuspended serviceAvailability) {
-        this.serviceAvailability.setValue(serviceAvailability);
+    public void setStatusCode(x_ActStatusActiveSuspended statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -149,8 +149,8 @@ public class AvailableServicesBean extends MessagePartBean {
      * at this location.</p></p>
      */
     @Hl7XmlMapping({"activityTime"})
-    public Set<PeriodicIntervalTime> getServiceAvailabilityTime() {
-        return this.serviceAvailabilityTime.rawSet();
+    public Set<PeriodicIntervalTime> getActivityTime() {
+        return this.activityTime.rawSet();
     }
 
 }

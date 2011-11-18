@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.TerritorialAuthority","PRPA_MT202302CA.TerritorialAuthority","PRPA_MT202303CA.TerritorialAuthority","PRPA_MT202317CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II locationRegionId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -62,11 +62,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 'populated' to allow null flavors such as 'NA'.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getLocationRegionId() {
-        return this.locationRegionId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setLocationRegionId(Identifier locationRegionId) {
-        this.locationRegionId.setValue(locationRegionId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

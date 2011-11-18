@@ -65,9 +65,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Organization","PRPA_MT202302CA.Organization","PRPA_MT202303CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II responsibleOrganizationIdentifier = new IIImpl();
-    private ST responsibleOrganizationName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST name = new STImpl();
 
 
     /**
@@ -88,11 +88,11 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * used (e.g. identifiers issued by health regions).</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getResponsibleOrganizationIdentifier() {
-        return this.responsibleOrganizationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setResponsibleOrganizationIdentifier(Identifier responsibleOrganizationIdentifier) {
-        this.responsibleOrganizationIdentifier.setValue(responsibleOrganizationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -109,11 +109,11 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getResponsibleOrganizationName() {
-        return this.responsibleOrganizationName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setResponsibleOrganizationName(String responsibleOrganizationName) {
-        this.responsibleOrganizationName.setValue(responsibleOrganizationName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 }

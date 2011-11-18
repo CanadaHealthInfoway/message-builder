@@ -80,12 +80,12 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> locationIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV locationType = new CVImpl();
-    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
-    private AD locationAddress = new ADImpl();
-    private CS locationStatus = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
+    private AD addr = new ADImpl();
+    private CS statusCode = new CSImpl();
     private PlaceBean location;
     private ResponsibleOrganizationBean serviceProviderOrganization;
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
@@ -104,8 +104,8 @@ public class LocationBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getLocationIdentifiers() {
-        return this.locationIdentifiers.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -137,11 +137,11 @@ public class LocationBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.locationType.getValue();
+    public ServiceDeliveryLocationRoleType getCode() {
+        return (ServiceDeliveryLocationRoleType) this.code.getValue();
     }
-    public void setLocationType(ServiceDeliveryLocationRoleType locationType) {
-        this.locationType.setValue(locationType);
+    public void setCode(ServiceDeliveryLocationRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -166,8 +166,8 @@ public class LocationBean extends MessagePartBean {
      * repetitions are allowed to capture historical names</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public Set<String> getLocationNames() {
-        return this.locationNames.rawSet();
+    public Set<String> getName() {
+        return this.name.rawSet();
     }
 
 
@@ -203,11 +203,11 @@ public class LocationBean extends MessagePartBean {
      * mobile unit or can be set to a null flavor of N/A.</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getLocationAddress() {
-        return this.locationAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setLocationAddress(PostalAddress locationAddress) {
-        this.locationAddress.setValue(locationAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -233,11 +233,11 @@ public class LocationBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ServiceDeliveryRoleStatus getLocationStatus() {
-        return (ServiceDeliveryRoleStatus) this.locationStatus.getValue();
+    public ServiceDeliveryRoleStatus getStatusCode() {
+        return (ServiceDeliveryRoleStatus) this.statusCode.getValue();
     }
-    public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
-        this.locationStatus.setValue(locationStatus);
+    public void setStatusCode(ServiceDeliveryRoleStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
