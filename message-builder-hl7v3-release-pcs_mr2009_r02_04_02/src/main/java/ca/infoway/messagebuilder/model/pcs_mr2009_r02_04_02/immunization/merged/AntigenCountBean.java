@@ -56,8 +56,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenCount","POIZ_MT030060CA.AntigenCount","POIZ_MT060150CA.AntigenCount"})
 public class AntigenCountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT antigenCountValue = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT value = new INTImpl();
 
 
     /**
@@ -71,11 +71,11 @@ public class AntigenCountBean extends MessagePartBean {
      * current antigen count value.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Integer getAntigenCountValue() {
-        return this.antigenCountValue.getValue();
+    public Integer getValue() {
+        return this.value.getValue();
     }
-    public void setAntigenCountValue(Integer antigenCountValue) {
-        this.antigenCountValue.setValue(antigenCountValue);
+    public void setValue(Integer value) {
+        this.value.setValue(value);
     }
 
 }

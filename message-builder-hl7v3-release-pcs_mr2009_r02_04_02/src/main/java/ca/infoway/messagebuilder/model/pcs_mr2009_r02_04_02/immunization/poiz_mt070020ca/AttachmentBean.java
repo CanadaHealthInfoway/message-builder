@@ -36,20 +36,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.Attachment"})
 public class AttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II attachmentIdentifier = new IIImpl();
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
      * <p>Attachment Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAttachmentIdentifier() {
-        return this.attachmentIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAttachmentIdentifier(Identifier attachmentIdentifier) {
-        this.attachmentIdentifier.setValue(attachmentIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -57,11 +57,11 @@ public class AttachmentBean extends MessagePartBean {
      * <p>Attachment Content</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 }

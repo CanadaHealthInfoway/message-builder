@@ -40,19 +40,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030060CA.LicensedEntityRole"})
 public class LicensedEntityRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV licensedEntityType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
 
 
     /**
      * <p>Licensed Entity Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getLicensedEntityType() {
-        return (HealthcareProviderRoleType) this.licensedEntityType.getValue();
+    public HealthcareProviderRoleType getCode() {
+        return (HealthcareProviderRoleType) this.code.getValue();
     }
-    public void setLicensedEntityType(HealthcareProviderRoleType licensedEntityType) {
-        this.licensedEntityType.setValue(licensedEntityType);
+    public void setCode(HealthcareProviderRoleType code) {
+        this.code.setValue(code);
     }
 
 }

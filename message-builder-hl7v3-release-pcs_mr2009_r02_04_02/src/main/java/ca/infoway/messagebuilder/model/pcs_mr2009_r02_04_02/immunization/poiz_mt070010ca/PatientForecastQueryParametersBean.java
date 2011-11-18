@@ -52,11 +52,11 @@ import java.util.Date;
 @Hl7RootType
 public class PatientForecastQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS patientBirthDate = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private II patientIdentifier = new IIImpl();
-    private PN patientName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS patientBirthDateValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private II patientIDValue = new IIImpl();
+    private PN patientNameValue = new PNImpl();
 
 
     /**
@@ -69,11 +69,11 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
      * required.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    public Date getPatientBirthDateValue() {
+        return this.patientBirthDateValue.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientBirthDateValue(Date patientBirthDateValue) {
+        this.patientBirthDateValue.setValue(patientBirthDateValue);
     }
 
 
@@ -86,11 +86,11 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
      * query. As a result, this attribute is required.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -107,11 +107,11 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
      * this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
+    public Identifier getPatientIDValue() {
+        return this.patientIDValue.getValue();
     }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
+    public void setPatientIDValue(Identifier patientIDValue) {
+        this.patientIDValue.setValue(patientIDValue);
     }
 
 
@@ -125,11 +125,11 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
      * a result, this attribute is required.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 }

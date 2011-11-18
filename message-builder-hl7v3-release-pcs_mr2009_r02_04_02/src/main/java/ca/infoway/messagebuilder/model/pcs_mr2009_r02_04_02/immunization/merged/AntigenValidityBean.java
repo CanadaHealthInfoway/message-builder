@@ -78,9 +78,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenValidity","POIZ_MT030060CA.AntigenValidity","POIZ_MT060150CA.AntigenValidity","POIZ_MT061150CA.AntigenValidity"})
 public class AntigenValidityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV invalidAntigenReasonCode = new CVImpl();
-    private BL antigenValidityIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV reasonCode = new CVImpl();
+    private BL value = new BLImpl();
 
 
     /**
@@ -100,11 +100,11 @@ public class AntigenValidityBean extends MessagePartBean {
      * attribute.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public Code getInvalidAntigenReasonCode() {
-        return (Code) this.invalidAntigenReasonCode.getValue();
+    public Code getReasonCode() {
+        return (Code) this.reasonCode.getValue();
     }
-    public void setInvalidAntigenReasonCode(Code invalidAntigenReasonCode) {
-        this.invalidAntigenReasonCode.setValue(invalidAntigenReasonCode);
+    public void setReasonCode(Code reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 
@@ -121,11 +121,11 @@ public class AntigenValidityBean extends MessagePartBean {
      * valid administration.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Boolean getAntigenValidityIndicator() {
-        return this.antigenValidityIndicator.getValue();
+    public Boolean getValue() {
+        return this.value.getValue();
     }
-    public void setAntigenValidityIndicator(Boolean antigenValidityIndicator) {
-        this.antigenValidityIndicator.setValue(antigenValidityIndicator);
+    public void setValue(Boolean value) {
+        this.value.setValue(value);
     }
 
 }

@@ -95,16 +95,16 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II immunizationEventID = new IIImpl();
-    private BL notImmunized = new BLImpl();
-    private CS immunizationEventStatus = new CSImpl();
-    private TS immunizationDate = new TSImpl();
-    private SET<CV, Code> immunizationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV uncertaintyCode = new CVImpl();
-    private CV anatomicalSite = new CVImpl();
-    private CV routeOfAdministration = new CVImpl();
-    private PQ quantityAdministered = new PQImpl();
+    private CV approachSiteCode = new CVImpl();
+    private CV routeCode = new CVImpl();
+    private PQ doseQuantity = new PQImpl();
     private AdministeredToBean subject;
     private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
@@ -136,11 +136,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * immunization record. Thus the mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getImmunizationEventID() {
-        return this.immunizationEventID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setImmunizationEventID(Identifier immunizationEventID) {
-        this.immunizationEventID.setValue(immunizationEventID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -158,11 +158,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * not meaningful for this flag to be 'unknown'.</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -180,11 +180,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p><p>Nullified=Retracted</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getImmunizationEventStatus() {
-        return (ActStatus) this.immunizationEventStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setImmunizationEventStatus(ActStatus immunizationEventStatus) {
-        this.immunizationEventStatus.setValue(immunizationEventStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -201,11 +201,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * in the scheduling of subsequent immunizations.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -228,8 +228,8 @@ public class ImmunizationsBean extends MessagePartBean {
      * masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getImmunizationMaskingIndicators() {
-        return this.immunizationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -280,11 +280,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * allow for use of pre-coordinated SNOMED Codes.</p></p>
      */
     @Hl7XmlMapping({"approachSiteCode"})
-    public HumanSubstanceAdministrationSite getAnatomicalSite() {
-        return (HumanSubstanceAdministrationSite) this.anatomicalSite.getValue();
+    public HumanSubstanceAdministrationSite getApproachSiteCode() {
+        return (HumanSubstanceAdministrationSite) this.approachSiteCode.getValue();
     }
-    public void setAnatomicalSite(HumanSubstanceAdministrationSite anatomicalSite) {
-        this.anatomicalSite.setValue(anatomicalSite);
+    public void setApproachSiteCode(HumanSubstanceAdministrationSite approachSiteCode) {
+        this.approachSiteCode.setValue(approachSiteCode);
     }
 
 
@@ -307,11 +307,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * use of pre-coordinated SNOMED Codes.</p></p>
      */
     @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 
@@ -334,11 +334,11 @@ public class ImmunizationsBean extends MessagePartBean {
      * be known and thus null flavor must be specified.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getQuantityAdministered() {
-        return this.quantityAdministered.getValue();
+    public PhysicalQuantity getDoseQuantity() {
+        return this.doseQuantity.getValue();
     }
-    public void setQuantityAdministered(PhysicalQuantity quantityAdministered) {
-        this.quantityAdministered.setValue(quantityAdministered);
+    public void setDoseQuantity(PhysicalQuantity doseQuantity) {
+        this.doseQuantity.setValue(doseQuantity);
     }
 
 

@@ -53,18 +53,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.IntoleranceCondition","POIZ_MT030060CA.IntoleranceCondition","POIZ_MT060150CA.IntoleranceCondition"})
 public class IntoleranceConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II allergyIntoleranceRecordID = new IIImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private CV confirmedIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private CV uncertaintyCode = new CVImpl();
 
 
     /**
      * <p>AllergyIntoleranceRecordID</p>
-     * 
-     * <p>Allergy/Intolerance Record ID</p>
      * 
      * <p>Allergy/Intolerance Record ID</p>
      * 
@@ -73,13 +71,15 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * <p><p>Needed to reference allergy and intolerance records 
      * stored in a patient's logitudinal electronic health record. 
      * As a result, this attribute is mandatory.</p></p>
+     * 
+     * <p>Allergy/Intolerance Record ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordID() {
-        return this.allergyIntoleranceRecordID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAllergyIntoleranceRecordID(Identifier allergyIntoleranceRecordID) {
-        this.allergyIntoleranceRecordID.setValue(allergyIntoleranceRecordID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -100,18 +100,16 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * <p>Allergy Intolerance Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    public ObservationIntoleranceType getCode() {
+        return (ObservationIntoleranceType) this.code.getValue();
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setCode(ObservationIntoleranceType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>AllergyIntoleranceRefuted</p>
-     * 
-     * <p>Allergy/Intolerance Refuted</p>
      * 
      * <p>Allergy/Intolerance Refuted</p>
      * 
@@ -123,18 +121,22 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * <p><p>Allows providers to refute a previously confirmed or 
      * suspected allergy. The attribute is mandatory because it is 
      * essential to know whether a record is refuted or not.</p></p>
+     * 
+     * <p>Allergy/Intolerance Refuted</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
     /**
      * <p>AllergyIntoleranceStatus</p>
+     * 
+     * <p>Allergy/Intolerance Status</p>
      * 
      * <p>Allergy/Intolerance Status</p>
      * 
@@ -145,15 +147,13 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * <p><p>Allows providers to evaluate the relevance of a 
      * recorded allergy/intolerance. The status has a default value 
      * of 'ACTIVE' and is therefore mandatory.</p></p>
-     * 
-     * <p>Allergy/Intolerance Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -178,11 +178,11 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * or 'suspected'.</p></p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getConfirmedIndicator() {
-        return (ActUncertainty) this.confirmedIndicator.getValue();
+    public ActUncertainty getUncertaintyCode() {
+        return (ActUncertainty) this.uncertaintyCode.getValue();
     }
-    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
-        this.confirmedIndicator.setValue(confirmedIndicator);
+    public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
+        this.uncertaintyCode.setValue(uncertaintyCode);
     }
 
 }

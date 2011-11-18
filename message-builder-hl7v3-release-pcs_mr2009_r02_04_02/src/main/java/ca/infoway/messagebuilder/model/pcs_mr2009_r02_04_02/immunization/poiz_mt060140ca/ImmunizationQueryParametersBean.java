@@ -55,12 +55,12 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II immunizationEventID = new IIImpl();
-    private TS patientBirthDate = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private SET<II, Identifier> patientIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
-    private PN patientName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II immunizationEventIDValue = new IIImpl();
+    private TS patientBirthDateValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private SET<II, Identifier> patientIDValue = new SETImpl<II, Identifier>(IIImpl.class);
+    private PN patientNameValue = new PNImpl();
 
 
     /**
@@ -72,11 +72,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * ID. As a result, this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"immunizationEventID/value"})
-    public Identifier getImmunizationEventID() {
-        return this.immunizationEventID.getValue();
+    public Identifier getImmunizationEventIDValue() {
+        return this.immunizationEventIDValue.getValue();
     }
-    public void setImmunizationEventID(Identifier immunizationEventID) {
-        this.immunizationEventID.setValue(immunizationEventID);
+    public void setImmunizationEventIDValue(Identifier immunizationEventIDValue) {
+        this.immunizationEventIDValue.setValue(immunizationEventIDValue);
     }
 
 
@@ -89,11 +89,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * As a result, this attribute is required.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    public Date getPatientBirthDateValue() {
+        return this.patientBirthDateValue.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientBirthDateValue(Date patientBirthDateValue) {
+        this.patientBirthDateValue.setValue(patientBirthDateValue);
     }
 
 
@@ -106,11 +106,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * query. As a result, this attribute is required.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -127,8 +127,8 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * attribute is required.</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Set<Identifier> getPatientIdentifiers() {
-        return this.patientIdentifiers.rawSet();
+    public Set<Identifier> getPatientIDValue() {
+        return this.patientIDValue.rawSet();
     }
 
 
@@ -154,11 +154,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * addition to the text string.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 }

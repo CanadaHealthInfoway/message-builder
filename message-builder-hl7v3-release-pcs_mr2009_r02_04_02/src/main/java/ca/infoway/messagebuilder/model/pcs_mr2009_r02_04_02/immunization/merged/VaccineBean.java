@@ -80,13 +80,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Vaccine","POIZ_MT030060CA.Vaccine","POIZ_MT060150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV vaccineCode = new CVImpl();
-    private ST vaccineName = new STImpl();
-    private ST vaccineDescription = new STImpl();
-    private CV drugForm = new CVImpl();
-    private ST vaccineLotNumber = new STImpl();
-    private IVL<TS, Interval<Date>> vaccineExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
+    private ST desc = new STImpl();
+    private CV formCode = new CVImpl();
+    private ST lotNumberText = new STImpl();
+    private IVL<TS, Interval<Date>> expirationTime = new IVLImpl<TS, Interval<Date>>();
     private ManufacturerBean asManufacturedProductManufacturer;
     private List<AntigensBean> ingredientsIngredient = new ArrayList<AntigensBean>();
 
@@ -108,11 +108,11 @@ public class VaccineBean extends MessagePartBean {
      * identifiers.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalDrug getVaccineCode() {
-        return (ClinicalDrug) this.vaccineCode.getValue();
+    public ClinicalDrug getCode() {
+        return (ClinicalDrug) this.code.getValue();
     }
-    public void setVaccineCode(ClinicalDrug vaccineCode) {
-        this.vaccineCode.setValue(vaccineCode);
+    public void setCode(ClinicalDrug code) {
+        this.code.setValue(code);
     }
 
 
@@ -130,11 +130,11 @@ public class VaccineBean extends MessagePartBean {
      * identifier. The attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getVaccineName() {
-        return this.vaccineName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setVaccineName(String vaccineName) {
-        this.vaccineName.setValue(vaccineName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -152,11 +152,11 @@ public class VaccineBean extends MessagePartBean {
      * recipe in free text form.</p></p>
      */
     @Hl7XmlMapping({"desc"})
-    public String getVaccineDescription() {
-        return this.vaccineDescription.getValue();
+    public String getDesc() {
+        return this.desc.getValue();
     }
-    public void setVaccineDescription(String vaccineDescription) {
-        this.vaccineDescription.setValue(vaccineDescription);
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
     }
 
 
@@ -176,11 +176,11 @@ public class VaccineBean extends MessagePartBean {
      * the Drug Form.</p></p>
      */
     @Hl7XmlMapping({"formCode"})
-    public AdministrableDrugForm getDrugForm() {
-        return (AdministrableDrugForm) this.drugForm.getValue();
+    public AdministrableDrugForm getFormCode() {
+        return (AdministrableDrugForm) this.formCode.getValue();
     }
-    public void setDrugForm(AdministrableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setFormCode(AdministrableDrugForm formCode) {
+        this.formCode.setValue(formCode);
     }
 
 
@@ -196,11 +196,11 @@ public class VaccineBean extends MessagePartBean {
      * known (e.g. historical immunization records).</p></p>
      */
     @Hl7XmlMapping({"lotNumberText"})
-    public String getVaccineLotNumber() {
-        return this.vaccineLotNumber.getValue();
+    public String getLotNumberText() {
+        return this.lotNumberText.getValue();
     }
-    public void setVaccineLotNumber(String vaccineLotNumber) {
-        this.vaccineLotNumber.setValue(vaccineLotNumber);
+    public void setLotNumberText(String lotNumberText) {
+        this.lotNumberText.setValue(lotNumberText);
     }
 
 
@@ -226,11 +226,11 @@ public class VaccineBean extends MessagePartBean {
      * the 'High' property</p></p>
      */
     @Hl7XmlMapping({"expirationTime"})
-    public Interval<Date> getVaccineExpiryDate() {
-        return this.vaccineExpiryDate.getValue();
+    public Interval<Date> getExpirationTime() {
+        return this.expirationTime.getValue();
     }
-    public void setVaccineExpiryDate(Interval<Date> vaccineExpiryDate) {
-        this.vaccineExpiryDate.setValue(vaccineExpiryDate);
+    public void setExpirationTime(Interval<Date> expirationTime) {
+        this.expirationTime.setValue(expirationTime);
     }
 
 

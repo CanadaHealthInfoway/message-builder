@@ -47,11 +47,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
-    private INT doseNumber = new INTImpl();
-    private CV immunizingAgentCode = new CVImpl();
-    private CV immunizationStatus = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT consumableSequenceNumber = new INTImpl();
+    private CV consumableMedicationAdministerableMedicineCode = new CVImpl();
+    private CV subjectForecastStatusCode = new CVImpl();
 
 
     /**
@@ -70,11 +70,11 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * administration.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEligibilityPeriod() {
-        return this.eligibilityPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setEligibilityPeriod(Interval<Date> eligibilityPeriod) {
-        this.eligibilityPeriod.setValue(eligibilityPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -90,11 +90,11 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * forecast.</p></p>
      */
     @Hl7XmlMapping({"consumable/sequenceNumber"})
-    public Integer getDoseNumber() {
-        return this.doseNumber.getValue();
+    public Integer getConsumableSequenceNumber() {
+        return this.consumableSequenceNumber.getValue();
     }
-    public void setDoseNumber(Integer doseNumber) {
-        this.doseNumber.setValue(doseNumber);
+    public void setConsumableSequenceNumber(Integer consumableSequenceNumber) {
+        this.consumableSequenceNumber.setValue(consumableSequenceNumber);
     }
 
 
@@ -109,11 +109,11 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * provided. As a result, this attribute is populated.</p></p>
      */
     @Hl7XmlMapping({"consumable/medication/administerableMedicine/code"})
-    public ClinicalDrug getImmunizingAgentCode() {
-        return (ClinicalDrug) this.immunizingAgentCode.getValue();
+    public ClinicalDrug getConsumableMedicationAdministerableMedicineCode() {
+        return (ClinicalDrug) this.consumableMedicationAdministerableMedicineCode.getValue();
     }
-    public void setImmunizingAgentCode(ClinicalDrug immunizingAgentCode) {
-        this.immunizingAgentCode.setValue(immunizingAgentCode);
+    public void setConsumableMedicationAdministerableMedicineCode(ClinicalDrug consumableMedicationAdministerableMedicineCode) {
+        this.consumableMedicationAdministerableMedicineCode.setValue(consumableMedicationAdministerableMedicineCode);
     }
 
 
@@ -128,11 +128,11 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject/forecastStatus/code"})
-    public Code getImmunizationStatus() {
-        return (Code) this.immunizationStatus.getValue();
+    public Code getSubjectForecastStatusCode() {
+        return (Code) this.subjectForecastStatusCode.getValue();
     }
-    public void setImmunizationStatus(Code immunizationStatus) {
-        this.immunizationStatus.setValue(immunizationStatus);
+    public void setSubjectForecastStatusCode(Code subjectForecastStatusCode) {
+        this.subjectForecastStatusCode.setValue(subjectForecastStatusCode);
     }
 
 }

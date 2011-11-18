@@ -68,9 +68,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientImmunizationObservations","POIZ_MT030060CA.PatientImmunizationObservations","POIZ_MT060150CA.PatientImmunizationObservations"})
 public class PatientImmunizationObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV patientImmunizationObservationType = new CVImpl();
-    private ANY<Object> patientImmunizationObservationValue = new ANYImpl<Object>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
@@ -79,11 +79,11 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * <p>Patient Immunization Observation Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPatientImmunizationObservationType() {
-        return (Code) this.patientImmunizationObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPatientImmunizationObservationType(Code patientImmunizationObservationType) {
-        this.patientImmunizationObservationType.setValue(patientImmunizationObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -99,11 +99,11 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * observation. As a result, this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getPatientImmunizationObservationValue() {
-        return this.patientImmunizationObservationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setPatientImmunizationObservationValue(Object patientImmunizationObservationValue) {
-        this.patientImmunizationObservationValue.setValue(patientImmunizationObservationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 }

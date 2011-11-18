@@ -65,10 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthDocument","POIZ_MT030060CA.HealthDocument","POIZ_MT060150CA.HealthDocument"})
 public class HealthDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II healthDocumentID = new IIImpl();
-    private ST healthDocumentTitle = new STImpl();
-    private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST title = new STImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -84,11 +84,11 @@ public class HealthDocumentBean extends MessagePartBean {
      * attribute is optional.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getHealthDocumentID() {
-        return this.healthDocumentID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setHealthDocumentID(Identifier healthDocumentID) {
-        this.healthDocumentID.setValue(healthDocumentID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -105,11 +105,11 @@ public class HealthDocumentBean extends MessagePartBean {
      * is optional.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getHealthDocumentTitle() {
-        return this.healthDocumentTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setHealthDocumentTitle(String healthDocumentTitle) {
-        this.healthDocumentTitle.setValue(healthDocumentTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -127,11 +127,11 @@ public class HealthDocumentBean extends MessagePartBean {
      * is optional.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getHealthDocumentText() {
-        return this.healthDocumentText.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setHealthDocumentText(EncapsulatedData healthDocumentText) {
-        this.healthDocumentText.setValue(healthDocumentText);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 }

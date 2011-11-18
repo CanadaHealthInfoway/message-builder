@@ -36,8 +36,8 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT061140CA.PatientID"})
 public class PatientIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> patientIDs = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> value = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
@@ -52,8 +52,8 @@ public class PatientIDBean extends MessagePartBean {
      * result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Set<Identifier> getPatientIDs() {
-        return this.patientIDs.rawSet();
+    public Set<Identifier> getValue() {
+        return this.value.rawSet();
     }
 
 }

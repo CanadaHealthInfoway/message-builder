@@ -84,11 +84,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InvestigationEvent","POIZ_MT030060CA.InvestigationEvent","POIZ_MT060150CA.InvestigationEvent","POIZ_MT061150CA.InvestigationEvent"})
 public class InvestigationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adverseEventReportID = new IIImpl();
-    private CV reportType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
     private ST text = new STImpl();
-    private CS reportStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
 
 
     /**
@@ -106,11 +106,11 @@ public class InvestigationEventBean extends MessagePartBean {
      * always be known.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdverseEventReportID() {
-        return this.adverseEventReportID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdverseEventReportID(Identifier adverseEventReportID) {
-        this.adverseEventReportID.setValue(adverseEventReportID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -125,16 +125,16 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p><p>Provides a mechanism to categorizing the report.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public IndividualCaseSafetyReportType getReportType() {
-        return (IndividualCaseSafetyReportType) this.reportType.getValue();
+    public IndividualCaseSafetyReportType getCode() {
+        return (IndividualCaseSafetyReportType) this.code.getValue();
     }
-    public void setReportType(IndividualCaseSafetyReportType reportType) {
-        this.reportType.setValue(reportType);
+    public void setCode(IndividualCaseSafetyReportType code) {
+        this.code.setValue(code);
     }
 
 
     /**
-     * <p>Adverse Event ReportText</p>
+     * <p>Adverse Event Text</p>
      * 
      * <p><p>Textual description of the Adverse Event Following 
      * Immunization reported</p></p>
@@ -143,7 +143,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * addition to an indication that an adverse event occurred - 
      * information that would not otherwise be known.</p></p>
      * 
-     * <p>Adverse Event Text</p>
+     * <p>Adverse Event ReportText</p>
      * 
      * <p><p>Textual description of the Adverse Event Following 
      * Immunization reported</p></p>
@@ -184,11 +184,11 @@ public class InvestigationEventBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getReportStatus() {
-        return (ActStatus) this.reportStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setReportStatus(ActStatus reportStatus) {
-        this.reportStatus.setValue(reportStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 }

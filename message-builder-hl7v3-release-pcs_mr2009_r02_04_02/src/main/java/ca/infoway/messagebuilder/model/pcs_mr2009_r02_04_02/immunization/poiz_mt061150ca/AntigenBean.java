@@ -47,11 +47,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV antigenCode = new CVImpl();
-    private ST antigenName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
-    private INT antigenCountValue = new INTImpl();
+    private INT asHealthChartSubjectOf2AntigenCountValue = new INTImpl();
 
 
     /**
@@ -70,11 +70,11 @@ public class AntigenBean extends MessagePartBean {
      * of ingredients in vaccines.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalDrug getAntigenCode() {
-        return (ClinicalDrug) this.antigenCode.getValue();
+    public ClinicalDrug getCode() {
+        return (ClinicalDrug) this.code.getValue();
     }
-    public void setAntigenCode(ClinicalDrug antigenCode) {
-        this.antigenCode.setValue(antigenCode);
+    public void setCode(ClinicalDrug code) {
+        this.code.setValue(code);
     }
 
 
@@ -88,11 +88,11 @@ public class AntigenBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getAntigenName() {
-        return this.antigenName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setAntigenName(String antigenName) {
-        this.antigenName.setValue(antigenName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -114,11 +114,11 @@ public class AntigenBean extends MessagePartBean {
      * current antigen count value.</p></p>
      */
     @Hl7XmlMapping({"asHealthChart/subjectOf2/antigenCount/value"})
-    public Integer getAntigenCountValue() {
-        return this.antigenCountValue.getValue();
+    public Integer getAsHealthChartSubjectOf2AntigenCountValue() {
+        return this.asHealthChartSubjectOf2AntigenCountValue.getValue();
     }
-    public void setAntigenCountValue(Integer antigenCountValue) {
-        this.antigenCountValue.setValue(antigenCountValue);
+    public void setAsHealthChartSubjectOf2AntigenCountValue(Integer asHealthChartSubjectOf2AntigenCountValue) {
+        this.asHealthChartSubjectOf2AntigenCountValue.setValue(asHealthChartSubjectOf2AntigenCountValue);
     }
 
 }

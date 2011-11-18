@@ -58,11 +58,11 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Summary {
 
-    private static final long serialVersionUID = 20110906L;
-    private II immunizationRecordId = new IIImpl();
-    private BL notImmunized = new BLImpl();
-    private CS immunizationEventStatus = new CSImpl();
-    private TS immunizationDate = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
     private CV uncertaintyCode = new CVImpl();
     private AdministeredToBean subject;
     private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
@@ -82,11 +82,11 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
      * responses and is, therefore, mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getImmunizationRecordId() {
-        return this.immunizationRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setImmunizationRecordId(Identifier immunizationRecordId) {
-        this.immunizationRecordId.setValue(immunizationRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -102,11 +102,11 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
      * not meaningful for this flag to be 'unknown'.</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -122,11 +122,11 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
      * <p><p>Nullified=Retracted</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getImmunizationEventStatus() {
-        return (ActStatus) this.immunizationEventStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setImmunizationEventStatus(ActStatus immunizationEventStatus) {
-        this.immunizationEventStatus.setValue(immunizationEventStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -141,11 +141,11 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
      * in the scheduling of subsequent immunizations.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

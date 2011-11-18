@@ -51,9 +51,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> dateOfInformation = new IVLImpl<TS, Interval<Date>>();
-    private CV informationSourceForm = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
+    private CV modeCode = new CVImpl();
     private InformationSourceChoice informationSourceChoice;
 
 
@@ -77,18 +77,16 @@ public class InformantBean extends MessagePartBean {
      * <p>Date of Information</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getDateOfInformation() {
-        return this.dateOfInformation.getValue();
+    public Interval<Date> getTime() {
+        return this.time.getValue();
     }
-    public void setDateOfInformation(Interval<Date> dateOfInformation) {
-        this.dateOfInformation.setValue(dateOfInformation);
+    public void setTime(Interval<Date> time) {
+        this.time.setValue(time);
     }
 
 
     /**
      * <p>InformationSourceForm</p>
-     * 
-     * <p>Information Source Form</p>
      * 
      * <p>Information Source Form</p>
      * 
@@ -98,13 +96,15 @@ public class InformantBean extends MessagePartBean {
      * <p><p>Useful for categorizing how information is gathered 
      * from information sources. This information may not always be 
      * available, so this attribute is noted as being required.</p></p>
+     * 
+     * <p>Information Source Form</p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationSourceForm() {
-        return (ParticipationMode) this.informationSourceForm.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setInformationSourceForm(ParticipationMode informationSourceForm) {
-        this.informationSourceForm.setValue(informationSourceForm);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 

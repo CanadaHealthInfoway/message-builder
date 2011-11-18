@@ -62,9 +62,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Antigens","POIZ_MT030060CA.Antigens","POIZ_MT060150CA.Antigens"})
 public class AntigensBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV antigenCode = new CVImpl();
-    private ST antigenName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
     private HealthChartBean asHealthChart;
 
 
@@ -86,11 +86,11 @@ public class AntigensBean extends MessagePartBean {
      * of ingredients in vaccines.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalDrug getAntigenCode() {
-        return (ClinicalDrug) this.antigenCode.getValue();
+    public ClinicalDrug getCode() {
+        return (ClinicalDrug) this.code.getValue();
     }
-    public void setAntigenCode(ClinicalDrug antigenCode) {
-        this.antigenCode.setValue(antigenCode);
+    public void setCode(ClinicalDrug code) {
+        this.code.setValue(code);
     }
 
 
@@ -106,11 +106,11 @@ public class AntigensBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getAntigenName() {
-        return this.antigenName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setAntigenName(String antigenName) {
-        this.antigenName.setValue(antigenName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 

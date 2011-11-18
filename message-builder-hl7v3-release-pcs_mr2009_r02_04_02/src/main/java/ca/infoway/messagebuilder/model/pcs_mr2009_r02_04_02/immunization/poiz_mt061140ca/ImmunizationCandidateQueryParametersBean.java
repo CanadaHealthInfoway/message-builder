@@ -60,15 +60,15 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> immunizationPeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> patientBirthDateValue = new IVLImpl<TS, Interval<Date>>();
+    private CV patientGenderValue = new CVImpl();
     private List<PatientIDBean> patientID = new ArrayList<PatientIDBean>();
-    private PN patientName = new PNImpl();
-    private ST postalCode = new STImpl();
-    private List<II> serviceDeliveryLocations = new ArrayList<II>();
-    private CV vaccineCode = new CVImpl();
+    private PN patientNameValue = new PNImpl();
+    private ST postalCodeValue = new STImpl();
+    private List<II> serviceDeliveryLocationValue = new ArrayList<II>();
+    private CV vaccineCodeValue = new CVImpl();
 
 
     /**
@@ -90,11 +90,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * is required.</p></p>
      */
     @Hl7XmlMapping({"immunizationPeriod/value"})
-    public Interval<Date> getImmunizationPeriod() {
-        return this.immunizationPeriod.getValue();
+    public Interval<Date> getImmunizationPeriodValue() {
+        return this.immunizationPeriodValue.getValue();
     }
-    public void setImmunizationPeriod(Interval<Date> immunizationPeriod) {
-        this.immunizationPeriod.setValue(immunizationPeriod);
+    public void setImmunizationPeriodValue(Interval<Date> immunizationPeriodValue) {
+        this.immunizationPeriodValue.setValue(immunizationPeriodValue);
     }
 
 
@@ -108,11 +108,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * As a result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
-    public Interval<Date> getPatientBirthDateRange() {
-        return this.patientBirthDateRange.getValue();
+    public Interval<Date> getPatientBirthDateValue() {
+        return this.patientBirthDateValue.getValue();
     }
-    public void setPatientBirthDateRange(Interval<Date> patientBirthDateRange) {
-        this.patientBirthDateRange.setValue(patientBirthDateRange);
+    public void setPatientBirthDateValue(Interval<Date> patientBirthDateValue) {
+        this.patientBirthDateValue.setValue(patientBirthDateValue);
     }
 
 
@@ -125,11 +125,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * query. As a result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -160,11 +160,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * addition to the text string.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 
@@ -186,11 +186,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * a result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"postalCode/value"})
-    public String getPostalCode() {
-        return this.postalCode.getValue();
+    public String getPostalCodeValue() {
+        return this.postalCodeValue.getValue();
     }
-    public void setPostalCode(String postalCode) {
-        this.postalCode.setValue(postalCode);
+    public void setPostalCodeValue(String postalCodeValue) {
+        this.postalCodeValue.setValue(postalCodeValue);
     }
 
 
@@ -212,8 +212,8 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * a result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation/value"})
-    public List<Identifier> getServiceDeliveryLocations() {
-        return new RawListWrapper<II, Identifier>(serviceDeliveryLocations, IIImpl.class);
+    public List<Identifier> getServiceDeliveryLocationValue() {
+        return new RawListWrapper<II, Identifier>(serviceDeliveryLocationValue, IIImpl.class);
     }
 
 
@@ -235,11 +235,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * immunization. As a result, this parameter is required.</p></p>
      */
     @Hl7XmlMapping({"vaccineCode/value"})
-    public ClinicalDrug getVaccineCode() {
-        return (ClinicalDrug) this.vaccineCode.getValue();
+    public ClinicalDrug getVaccineCodeValue() {
+        return (ClinicalDrug) this.vaccineCodeValue.getValue();
     }
-    public void setVaccineCode(ClinicalDrug vaccineCode) {
-        this.vaccineCode.setValue(vaccineCode);
+    public void setVaccineCodeValue(ClinicalDrug vaccineCodeValue) {
+        this.vaccineCodeValue.setValue(vaccineCodeValue);
     }
 
 }

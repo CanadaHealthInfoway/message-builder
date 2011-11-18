@@ -44,15 +44,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NoImmunizationReason","POIZ_MT030060CA.NoImmunizationReason","POIZ_MT060150CA.NoImmunizationReason"})
 public class NoImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST immunizationRefusalReasonText = new STImpl();
-    private CV immunizationRefusalReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
+    private CV reasonCode = new CVImpl();
 
 
     /**
      * <p>ImmunizationRefusalReasonText</p>
-     * 
-     * <p>Immunization Refusal Reason Text</p>
      * 
      * <p>Immunization Refusal Reason Text</p>
      * 
@@ -63,13 +61,15 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * to the reason for not immunizing. Not all implementations 
      * will support text. As a result, this attribute is 
      * optional.</p></p>
+     * 
+     * <p>Immunization Refusal Reason Text</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getImmunizationRefusalReasonText() {
-        return this.immunizationRefusalReasonText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setImmunizationRefusalReasonText(String immunizationRefusalReasonText) {
-        this.immunizationRefusalReasonText.setValue(immunizationRefusalReasonText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -96,11 +96,11 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * <p>Immunization Refusal Reason</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ActNoImmunizationReason getImmunizationRefusalReason() {
-        return (ActNoImmunizationReason) this.immunizationRefusalReason.getValue();
+    public ActNoImmunizationReason getReasonCode() {
+        return (ActNoImmunizationReason) this.reasonCode.getValue();
     }
-    public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
-        this.immunizationRefusalReason.setValue(immunizationRefusalReason);
+    public void setReasonCode(ActNoImmunizationReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 }

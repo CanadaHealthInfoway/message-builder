@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationReason","POIZ_MT030060CA.ImmunizationReason","POIZ_MT060150CA.ImmunizationReason"})
 public class ImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST immunizationReasonText = new STImpl();
-    private CV immunizationReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
+    private CV reasonCode = new CVImpl();
 
 
     /**
@@ -63,11 +63,11 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>Immunization Reason Text</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getImmunizationReasonText() {
-        return this.immunizationReasonText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setImmunizationReasonText(String immunizationReasonText) {
-        this.immunizationReasonText.setValue(immunizationReasonText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -87,11 +87,11 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>Immunization Reason</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public Code getImmunizationReason() {
-        return (Code) this.immunizationReason.getValue();
+    public Code getReasonCode() {
+        return (Code) this.reasonCode.getValue();
     }
-    public void setImmunizationReason(Code immunizationReason) {
-        this.immunizationReason.setValue(immunizationReason);
+    public void setReasonCode(Code reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 }
