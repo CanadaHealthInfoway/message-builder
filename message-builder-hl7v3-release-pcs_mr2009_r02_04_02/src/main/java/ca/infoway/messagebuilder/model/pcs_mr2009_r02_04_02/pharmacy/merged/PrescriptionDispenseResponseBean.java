@@ -74,12 +74,12 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> inFulfillmentOfActRequestId = new SETImpl<II, Identifier>(IIImpl.class);
     private RelatedPersonBean receiverPersonalRelationship;
-    private TS supplyDate = new TSImpl();
-    private PQ suppliedQuantity = new PQImpl();
+    private TS effectiveTime = new TSImpl();
+    private PQ quantity = new PQImpl();
     private DispensedBean product;
     private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
@@ -94,6 +94,15 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p><p>Allows formal tracking of centrally recorded dispenses 
      * to local records for audit and related purposes.</p></p>
      * 
+     * <p>Dispense Id</p>
+     * 
+     * <p><p>Identity of prescription dispense that has been picked 
+     * up.</p></p>
+     * 
+     * <p><p>Allows dispenses to be uniquely identified. This 
+     * attribute is mandatory because the identity of the dispense 
+     * record must be known.</p></p>
+     * 
      * <p>Dispense Identifier</p>
      * 
      * <p><p>Identifier of a dispense event to be used by the 
@@ -103,15 +112,6 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * prescription. Attribute is mandatory to ensure that 
      * successful request to dispense has been acknowledged by the 
      * DIS.</p></p>
-     * 
-     * <p>Dispense Id</p>
-     * 
-     * <p><p>Identity of prescription dispense that has been picked 
-     * up.</p></p>
-     * 
-     * <p><p>Allows dispenses to be uniquely identified. This 
-     * attribute is mandatory because the identity of the dispense 
-     * record must be known.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -145,8 +145,8 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * prescription record to be uniquely identified.</p></p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getInFulfillmentOfActRequestId() {
+        return this.inFulfillmentOfActRequestId.rawSet();
     }
 
 
@@ -176,11 +176,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * retroactively) e.g. system failure</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getSupplyDate() {
-        return this.supplyDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSupplyDate(Date supplyDate) {
-        this.supplyDate.setValue(supplyDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -197,11 +197,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * amount used from the office.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 

@@ -65,10 +65,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV drugCategoryCode = new CVImpl();
-    private CV drugCode = new CVImpl();
-    private ST drugName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV generalizedMedicineClassCode = new CVImpl();
+    private ST generalizedMedicineClassName = new STImpl();
 
 
     /**
@@ -83,33 +83,16 @@ public class GroupedWithinBean extends MessagePartBean {
      * products (e.g. Drug A is the generic for Drug B)</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public MedicationGeneralizationRoleType getDrugCategoryCode() {
-        return (MedicationGeneralizationRoleType) this.drugCategoryCode.getValue();
+    public MedicationGeneralizationRoleType getCode() {
+        return (MedicationGeneralizationRoleType) this.code.getValue();
     }
-    public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
-        this.drugCategoryCode.setValue(drugCategoryCode);
+    public void setCode(MedicationGeneralizationRoleType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>DrugCode</p>
-     * 
-     * <p>Drug Code</p>
-     * 
-     * <p><p>A code that uniquely identifiers a drug within a 
-     * specific drug identification scheme.</p></p>
-     * 
-     * <p><p>Used to uniquely identify a particular drug product 
-     * when prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as drug code 
-     * should be available in most cases.</p></p>
-     * 
-     * <p><p>Used to uniquely identify a particular drug product 
-     * when prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as drug code 
-     * should be available in most cases.</p></p>
      * 
      * <p>Drug Code</p>
      * 
@@ -127,13 +110,30 @@ public class GroupedWithinBean extends MessagePartBean {
      * (e.g. generic drug, generic formulation).</p><p>This 
      * attribute is marked as &quot;populated&quot; as a drug code 
      * should be available in most cases.</p></p>
+     * 
+     * <p>Drug Code</p>
+     * 
+     * <p><p>A code that uniquely identifiers a drug within a 
+     * specific drug identification scheme.</p></p>
+     * 
+     * <p><p>Used to uniquely identify a particular drug product 
+     * when prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as drug code 
+     * should be available in most cases.</p></p>
+     * 
+     * <p><p>Used to uniquely identify a particular drug product 
+     * when prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as drug code 
+     * should be available in most cases.</p></p>
      */
     @Hl7XmlMapping({"generalizedMedicineClass/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getGeneralizedMedicineClassCode() {
+        return (ClinicalDrug) this.generalizedMedicineClassCode.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setGeneralizedMedicineClassCode(ClinicalDrug generalizedMedicineClassCode) {
+        this.generalizedMedicineClassCode.setValue(generalizedMedicineClassCode);
     }
 
 
@@ -171,11 +171,11 @@ public class GroupedWithinBean extends MessagePartBean {
      * most cases.</p></p>
      */
     @Hl7XmlMapping({"generalizedMedicineClass/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
+    public String getGeneralizedMedicineClassName() {
+        return this.generalizedMedicineClassName.getValue();
     }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setGeneralizedMedicineClassName(String generalizedMedicineClassName) {
+        this.generalizedMedicineClassName.setValue(generalizedMedicineClassName);
     }
 
 }

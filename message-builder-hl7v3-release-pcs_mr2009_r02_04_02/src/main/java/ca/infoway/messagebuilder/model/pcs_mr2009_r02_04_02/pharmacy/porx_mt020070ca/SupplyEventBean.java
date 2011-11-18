@@ -45,12 +45,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT numberOfRemainingFills = new INTImpl();
-    private PQ dispensedQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT repeatNumber = new INTImpl();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DispensedBean product;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
@@ -67,11 +67,11 @@ public class SupplyEventBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
@@ -95,11 +95,11 @@ public class SupplyEventBean extends MessagePartBean {
      * retroactively) e.g. system failure.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -113,11 +113,11 @@ public class SupplyEventBean extends MessagePartBean {
      * &quot;completed&quot; status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfRemainingFills() {
-        return this.numberOfRemainingFills.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
-        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -133,11 +133,11 @@ public class SupplyEventBean extends MessagePartBean {
      * dispensed against the prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -155,11 +155,11 @@ public class SupplyEventBean extends MessagePartBean {
      * field.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 

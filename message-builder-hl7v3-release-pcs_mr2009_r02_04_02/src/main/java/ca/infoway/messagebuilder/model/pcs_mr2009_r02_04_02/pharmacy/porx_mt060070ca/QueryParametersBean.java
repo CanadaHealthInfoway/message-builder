@@ -58,14 +58,14 @@ import java.util.List;
 @Hl7RootType
 public class QueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private CV issueFilterCode = new CVImpl();
-    private BL mostRecentByDeviceIndicator = new BLImpl();
-    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDValue = new ArrayList<II>();
+    private List<CV> careCompositionTypeValue = new ArrayList<CV>();
+    private CV issueFilterCodeValue = new CVImpl();
+    private BL mostRecentByDeviceIndicatorValue = new BLImpl();
+    private List<CV> rxDispenseIndicatorValue = new ArrayList<CV>();
+    private IVL<TS, Interval<Date>> usageEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -87,11 +87,11 @@ public class QueryParametersBean extends MessagePartBean {
      * records.</p><p>Useful for constraining run-away queries.</p></p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
+    public Interval<Date> getAmendedInTimeRangeValue() {
+        return this.amendedInTimeRangeValue.getValue();
     }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
+        this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
     }
 
 
@@ -122,8 +122,8 @@ public class QueryParametersBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    public List<Identifier> getCareCompositionIDValue() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDValue, IIImpl.class);
     }
 
 
@@ -140,8 +140,8 @@ public class QueryParametersBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    public List<ActCareEventType> getCareCompositionTypeValue() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypeValue, CVImpl.class);
     }
 
 
@@ -162,11 +162,11 @@ public class QueryParametersBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
+    public IssueFilterCode getIssueFilterCodeValue() {
+        return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
+    public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
+        this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
 
 
@@ -194,11 +194,11 @@ public class QueryParametersBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
-    public Boolean getMostRecentByDeviceIndicator() {
-        return this.mostRecentByDeviceIndicator.getValue();
+    public Boolean getMostRecentByDeviceIndicatorValue() {
+        return this.mostRecentByDeviceIndicatorValue.getValue();
     }
-    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
-        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
+    public void setMostRecentByDeviceIndicatorValue(Boolean mostRecentByDeviceIndicatorValue) {
+        this.mostRecentByDeviceIndicatorValue.setValue(mostRecentByDeviceIndicatorValue);
     }
 
 
@@ -223,8 +223,8 @@ public class QueryParametersBean extends MessagePartBean {
      * retrieved based on the fill status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
+    public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenseIndicatorValue, CVImpl.class);
     }
 
 
@@ -252,11 +252,11 @@ public class QueryParametersBean extends MessagePartBean {
      * date plus the days supply'</p></p>
      */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
-    public Interval<Date> getUsageEffectivePeriod() {
-        return this.usageEffectivePeriod.getValue();
+    public Interval<Date> getUsageEffectivePeriodValue() {
+        return this.usageEffectivePeriodValue.getValue();
     }
-    public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
-        this.usageEffectivePeriod.setValue(usageEffectivePeriod);
+    public void setUsageEffectivePeriodValue(Interval<Date> usageEffectivePeriodValue) {
+        this.usageEffectivePeriodValue.setValue(usageEffectivePeriodValue);
     }
 
 }

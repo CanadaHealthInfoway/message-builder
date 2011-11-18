@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.AdministrationInstructions","PORX_MT060100CA.AdministrationInstructions"})
 public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV prescriptionType = new CVImpl();
-    private ST renderedDosageInstruction = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
 
 
     /**
@@ -50,11 +50,11 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * 
      * <p><p>Important in providing the context of the rendered 
      * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p></p>
+     * Mandatory.</p></p>
      * 
      * <p><p>Important in providing the context of the rendered 
      * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p></p>
+     * Mandatory.</p></p>
      * 
      * <p>Prescription Type</p>
      * 
@@ -63,18 +63,18 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * 
      * <p><p>Important in providing the context of the rendered 
      * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p></p>
+     * Mandatory</p></p>
      * 
      * <p><p>Important in providing the context of the rendered 
      * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p></p>
+     * Mandatory</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -113,6 +113,12 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * prescriptions and dispenses have dosage, this attribute is 
      * mandatory.</p></p>
      * 
+     * <p><p>For dosage instructions which cannot be summarized in 
+     * the space allocated, a string such as &quot;Complex 
+     * dose&quot; or &quot;Scaling dose&quot; or something similar 
+     * should be sent. Dosage instructions should never be 
+     * truncated.</p></p>
+     * 
      * <p>Rendered Dosage Instruction</p>
      * 
      * <p><p>A free form textual specification generated from the 
@@ -144,19 +150,13 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * administration instructions on query responses. Because all 
      * prescriptions and dispenses have dosage, this attribute is 
      * mandatory.</p></p>
-     * 
-     * <p><p>For dosage instructions which cannot be summarized in 
-     * the space allocated, a string such as &quot;Complex 
-     * dose&quot; or &quot;Scaling dose&quot; or something similar 
-     * should be sent. Dosage instructions should never be 
-     * truncated.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

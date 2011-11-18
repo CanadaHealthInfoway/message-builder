@@ -110,9 +110,9 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CS dispenseStatus = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
     private OccurredAtBean location;
@@ -124,7 +124,7 @@ public class MedicationDispenseBean extends MessagePartBean {
     private BL subjectOf3DetectedIssueIndicator = new BLImpl(false);
     private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
 
 
@@ -156,11 +156,11 @@ public class MedicationDispenseBean extends MessagePartBean {
      * mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -170,22 +170,9 @@ public class MedicationDispenseBean extends MessagePartBean {
      * <p>C:Dispense Status</p>
      * 
      * <p><p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If '''Active''' it means that the dispense has 
-     * been processed but not yet given to the patient. If 
-     * '''Complete''', it indicates that the medication has been 
-     * delivered to the patient.</p></p>
-     * 
-     * <p><p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p></p>
-     * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p><p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
+     * the EHR/DIS. If Active it means that the dispense has been 
+     * processed but not yet given to the patient. If Complete, it 
+     * indicates that the medication has been delivered to the 
      * patient.</p></p>
      * 
      * <p><p>Important in understanding what medication the patient 
@@ -205,13 +192,26 @@ public class MedicationDispenseBean extends MessagePartBean {
      * actually has on hand, thus the attribute is mandatory. May 
      * also influence the ability of a different pharmacy to 
      * dispense the medication.</p></p>
+     * 
+     * <p>C:Dispense Status</p>
+     * 
+     * <p><p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -403,42 +403,42 @@ public class MedicationDispenseBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

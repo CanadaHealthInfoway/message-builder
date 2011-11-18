@@ -53,11 +53,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
-    private INT numberOfFills = new INTImpl();
-    private PQ fillQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT repeatNumber = new INTImpl();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -73,16 +73,31 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * in a particular timeframe.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseInterval() {
-        return this.dispenseInterval.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispenseInterval(Interval<Date> dispenseInterval) {
-        this.dispenseInterval.setValue(dispenseInterval);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
      * <p>NumberOfFills</p>
+     * 
+     * <p>G:Number of Fills</p>
+     * 
+     * <p><p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p></p>
+     * 
+     * <p><p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p></p>
+     * 
+     * <p><p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p></p>
      * 
      * <p>G:Number of Fills</p>
      * 
@@ -133,28 +148,13 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * used for compliance checking.</p><p>Expressed as Number of 
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p></p>
-     * 
-     * <p>G:Number of Fills</p>
-     * 
-     * <p><p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p></p>
-     * 
-     * <p><p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p></p>
-     * 
-     * <p><p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFills() {
-        return this.numberOfFills.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfFills(Integer numberOfFills) {
-        this.numberOfFills.setValue(numberOfFills);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -192,11 +192,11 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * possession at a time. Used in compliance checking.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFillQuantity() {
-        return this.fillQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setFillQuantity(PhysicalQuantity fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -235,11 +235,11 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * research</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDaysSupply() {
-        return this.daysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setDaysSupply(Interval<Date> daysSupply) {
-        this.daysSupply.setValue(daysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

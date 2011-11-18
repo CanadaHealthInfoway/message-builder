@@ -42,11 +42,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT numberOfRemainingFills = new INTImpl();
-    private INT dispensedQuantity = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT repeatNumber = new INTImpl();
+    private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DeviceProductBean productManufacturedProduct;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
@@ -67,11 +67,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
@@ -132,11 +132,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * indicate the date it was processed.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -152,11 +152,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * &quot;completed&quot; status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfRemainingFills() {
-        return this.numberOfRemainingFills.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
-        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -167,6 +167,10 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p><p>The number of devices that have been dispensed.</p></p>
      * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
      * <p><p>Critical in understanding the patient's profile, both 
      * past and current, This is also mandatory to allow 
      * determination of the amount that remains to be dispensed 
@@ -176,21 +180,17 @@ public class DispenseDetailsBean extends MessagePartBean {
      * 
      * <p><p>The number of devices that have been dispensed.</p></p>
      * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
      * <p><p>Critical in understanding the patient's profile, both 
      * past and current, This is also mandatory to allow 
      * determination of the amount that remains to be dispensed 
      * against the prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -201,6 +201,20 @@ public class DispenseDetailsBean extends MessagePartBean {
      * expected to last. Cannot be mandatory as there are some 
      * situations where 'as needed' cannot be used to determine 
      * days supply.</p></p>
+     * 
+     * <p><p>.daysSupply</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p></p>
+     * 
+     * <p>Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p></p>
      * 
      * <p><p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -234,20 +248,6 @@ public class DispenseDetailsBean extends MessagePartBean {
      * expected to last. Cannot be mandatory as there are some 
      * situations where 'as needed' cannot be used to determine 
      * days supply.</p></p>
-     * 
-     * <p><p>.daysSupply</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p></p>
-     * 
-     * <p>Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p></p>
      * 
      * <p><p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 

@@ -59,9 +59,9 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CS prescriptionStatus = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CS statusCode = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
 
@@ -87,8 +87,8 @@ public class SupplyOrderBean extends MessagePartBean {
      * Number.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPrescriptionIdentifier() {
-        return this.prescriptionIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -103,11 +103,11 @@ public class SupplyOrderBean extends MessagePartBean {
      * <p><p>Needed in some jurisdictions</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 

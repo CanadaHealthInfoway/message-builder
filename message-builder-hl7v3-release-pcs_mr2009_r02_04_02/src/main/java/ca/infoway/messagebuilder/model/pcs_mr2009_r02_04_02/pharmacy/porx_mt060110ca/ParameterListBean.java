@@ -48,11 +48,11 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV issueFilterCode = new CVImpl();
-    private BL mostRecentByDrugIndicator = new BLImpl();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private CV issueFilterCodeValue = new CVImpl();
+    private BL mostRecentByDrugIndicatorValue = new BLImpl();
+    private BL mostRecentDispenseForEachRxIndicatorValue = new BLImpl();
 
 
     /**
@@ -81,11 +81,11 @@ public class ParameterListBean extends MessagePartBean {
      * date plus the days supply'</p></p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    public Interval<Date> getAdministrationEffectivePeriodValue() {
+        return this.administrationEffectivePeriodValue.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
+        this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
     }
 
 
@@ -106,11 +106,11 @@ public class ParameterListBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
+    public IssueFilterCode getIssueFilterCodeValue() {
+        return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
+    public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
+        this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
 
 
@@ -139,11 +139,11 @@ public class ParameterListBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
+    public Boolean getMostRecentByDrugIndicatorValue() {
+        return this.mostRecentByDrugIndicatorValue.getValue();
     }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    public void setMostRecentByDrugIndicatorValue(Boolean mostRecentByDrugIndicatorValue) {
+        this.mostRecentByDrugIndicatorValue.setValue(mostRecentByDrugIndicatorValue);
     }
 
 
@@ -187,11 +187,11 @@ public class ParameterListBean extends MessagePartBean {
      * the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    public Boolean getMostRecentDispenseForEachRxIndicatorValue() {
+        return this.mostRecentDispenseForEachRxIndicatorValue.getValue();
     }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    public void setMostRecentDispenseForEachRxIndicatorValue(Boolean mostRecentDispenseForEachRxIndicatorValue) {
+        this.mostRecentDispenseForEachRxIndicatorValue.setValue(mostRecentDispenseForEachRxIndicatorValue);
     }
 
 }

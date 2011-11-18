@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.Component2"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private BL notEligibleForTrial = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private BL negationInd = new BLImpl();
 
 
     /**
@@ -75,11 +75,11 @@ public class Component2Bean extends MessagePartBean {
      * or false.</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotEligibleForTrial() {
-        return this.notEligibleForTrial.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setNotEligibleForTrial(Boolean notEligibleForTrial) {
-        this.notEligibleForTrial.setValue(notEligibleForTrial);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 }

@@ -71,9 +71,9 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> previousPrescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
 
 
     /**
@@ -95,8 +95,8 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * renewal prescriptions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPreviousPrescriptionOrderNumber() {
-        return this.previousPrescriptionOrderNumber.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -114,11 +114,11 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

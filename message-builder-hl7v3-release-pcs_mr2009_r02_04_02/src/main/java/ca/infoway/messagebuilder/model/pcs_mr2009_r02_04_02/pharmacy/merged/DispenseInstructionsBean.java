@@ -97,9 +97,9 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT totalPrescribedQuantity = new INTImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private INT quantity = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private OccurredAtBean location;
     private CS componentContextControlCode = new CSImpl();
@@ -139,11 +139,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * the context of a part-fill prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -163,11 +163,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * the quantity prescribed.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 

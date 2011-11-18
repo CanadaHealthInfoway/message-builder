@@ -50,19 +50,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private MO drugCost = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private MO unitPriceAmt = new MOImpl();
 
 
     /**
      * <p>DrugCost</p>
-     * 
-     * <p>I:Drug Cost</p>
-     * 
-     * <p><p>The average unit dose cost of the drug.</p></p>
-     * 
-     * <p><p>May influence prescriber and pharmacists decisions as 
-     * cost can impact compliance.</p></p>
      * 
      * <p>Drug Cost</p>
      * 
@@ -70,13 +63,20 @@ public class DrugCostBean extends MessagePartBean {
      * 
      * <p><p>May influence prescriber and pharmacists decisions as 
      * cost can impact compliance.</p></p>
+     * 
+     * <p>I:Drug Cost</p>
+     * 
+     * <p><p>The average unit dose cost of the drug.</p></p>
+     * 
+     * <p><p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p></p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Money getDrugCost() {
-        return this.drugCost.getValue();
+    public Money getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setDrugCost(Money drugCost) {
-        this.drugCost.setValue(drugCost);
+    public void setUnitPriceAmt(Money unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 }

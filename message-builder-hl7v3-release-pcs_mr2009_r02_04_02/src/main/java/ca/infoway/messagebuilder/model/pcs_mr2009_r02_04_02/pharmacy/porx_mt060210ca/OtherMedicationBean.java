@@ -95,13 +95,13 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Pharmacy {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> administrationRecordId = new SETImpl<II, Identifier>(IIImpl.class);
-    private CD otherMedicationType = new CDImpl();
-    private CS otherMedicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CV routeOfAdministration = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
@@ -125,8 +125,8 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * medication record. Thus the mandatory requirement. .</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAdministrationRecordId() {
-        return this.administrationRecordId.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -149,18 +149,18 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * provide support for SNOMED.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getOtherMedicationType() {
-        return (Code) this.otherMedicationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setOtherMedicationType(Code otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>B:Other Medication Status</p>
      * 
-     * <p><p>Status can only be '''ACTIVE''' or '''COMPLETE'''</p></p>
+     * <p><p>Status can only be ACTIVE or COMPLETE</p></p>
      * 
      * <p><p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
@@ -197,11 +197,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * record.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOtherMedicationStatus() {
-        return (ActStatus) this.otherMedicationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
-        this.otherMedicationStatus.setValue(otherMedicationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -216,11 +216,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * available, the attribute is marked as 'populated'.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -274,8 +274,8 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
      * communicate masked data returned from other 
@@ -284,8 +284,8 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
      * communicate masked data returned from other 
@@ -294,8 +294,8 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
      * communicate masked data returned from other 
@@ -304,16 +304,16 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
      * communicate masked data returned from other 
      * jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getOtherMedicationMaskingIndicators() {
-        return this.otherMedicationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -332,11 +332,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * it is marked as optional.</p></p>
      */
     @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 

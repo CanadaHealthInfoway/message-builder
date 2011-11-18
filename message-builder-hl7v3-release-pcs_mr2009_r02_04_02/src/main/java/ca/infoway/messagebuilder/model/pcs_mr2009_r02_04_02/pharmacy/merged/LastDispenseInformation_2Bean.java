@@ -58,9 +58,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT lastQuantityDispensed = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT quantity = new INTImpl();
 
 
     /**
@@ -85,16 +85,31 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * compliance.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
      * <p>LastQuantityDispensed</p>
+     * 
+     * <p>Last Quantity Dispensed</p>
+     * 
+     * <p><p>Indicates the most recent quantity of the drug that 
+     * was picked up for the prescription.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p></p>
      * 
      * <p>B:Last Quantity Dispensed</p>
      * 
@@ -112,28 +127,13 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
      * mandatory.</p></p>
-     * 
-     * <p>Last Quantity Dispensed</p>
-     * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
-     * 
-     * <p><p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p></p>
-     * 
-     * <p><p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getLastQuantityDispensed() {
-        return this.lastQuantityDispensed.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setLastQuantityDispensed(Integer lastQuantityDispensed) {
-        this.lastQuantityDispensed.setValue(lastQuantityDispensed);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

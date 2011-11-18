@@ -64,13 +64,13 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV drugCode = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private ST description = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV administerableMedicineCode = new CVImpl();
+    private SET<TN, TrivialName> administerableMedicineName = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST administerableMedicineDesc = new STImpl();
+    private CV administerableMedicineFormCode = new CVImpl();
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private CS regulatoryStatusCode = new CSImpl();
+    private CS administerableMedicineAsRegulatedProductStatusCode = new CSImpl();
     private DispensedInBean administerableMedicineAsContent;
     private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
@@ -94,11 +94,11 @@ public class MedicationBean extends MessagePartBean {
      * identifiers.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getAdministerableMedicineCode() {
+        return (ClinicalDrug) this.administerableMedicineCode.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setAdministerableMedicineCode(ClinicalDrug administerableMedicineCode) {
+        this.administerableMedicineCode.setValue(administerableMedicineCode);
     }
 
 
@@ -116,8 +116,8 @@ public class MedicationBean extends MessagePartBean {
      * all attributes, this element is mandatory.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
+    public Set<TrivialName> getAdministerableMedicineName() {
+        return this.administerableMedicineName.rawSet();
     }
 
 
@@ -133,11 +133,11 @@ public class MedicationBean extends MessagePartBean {
      * recipe in free text form.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDescription() {
-        return this.description.getValue();
+    public String getAdministerableMedicineDesc() {
+        return this.administerableMedicineDesc.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setAdministerableMedicineDesc(String administerableMedicineDesc) {
+        this.administerableMedicineDesc.setValue(administerableMedicineDesc);
     }
 
 
@@ -152,11 +152,11 @@ public class MedicationBean extends MessagePartBean {
      * the patient.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    public OrderableDrugForm getAdministerableMedicineFormCode() {
+        return (OrderableDrugForm) this.administerableMedicineFormCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setAdministerableMedicineFormCode(OrderableDrugForm administerableMedicineFormCode) {
+        this.administerableMedicineFormCode.setValue(administerableMedicineFormCode);
     }
 
 
@@ -180,11 +180,11 @@ public class MedicationBean extends MessagePartBean {
      * medication for use in Canada.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    public RoleStatusNormal getAdministerableMedicineAsRegulatedProductStatusCode() {
+        return (RoleStatusNormal) this.administerableMedicineAsRegulatedProductStatusCode.getValue();
     }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    public void setAdministerableMedicineAsRegulatedProductStatusCode(RoleStatusNormal administerableMedicineAsRegulatedProductStatusCode) {
+        this.administerableMedicineAsRegulatedProductStatusCode.setValue(administerableMedicineAsRegulatedProductStatusCode);
     }
 
 

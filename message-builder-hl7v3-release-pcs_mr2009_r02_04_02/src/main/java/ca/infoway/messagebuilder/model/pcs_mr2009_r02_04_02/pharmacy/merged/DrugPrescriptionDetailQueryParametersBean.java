@@ -62,15 +62,15 @@ import java.util.Set;
 @Hl7RootType
 public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private BL includeEventHistoryIndicator = new BLImpl();
-    private BL includeIssuesIndicator = new BLImpl();
-    private BL includeNotesIndicator = new BLImpl();
-    private BL includePendingChangesIndicator = new BLImpl();
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private II prescriptionDispenseNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private List<II> careCompositionIDValue = new ArrayList<II>();
+    private List<CV> careCompositionTypeValue = new ArrayList<CV>();
+    private BL includeEventHistoryIndicatorValue = new BLImpl();
+    private BL includeIssuesIndicatorValue = new BLImpl();
+    private BL includeNotesIndicatorValue = new BLImpl();
+    private BL includePendingChangesIndicatorValue = new BLImpl();
+    private SET<II, Identifier> prescriptionOrderNumberValue = new SETImpl<II, Identifier>(IIImpl.class);
+    private II prescriptionDispenseNumberValue = new IIImpl();
 
 
     /**
@@ -104,8 +104,8 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    public List<Identifier> getCareCompositionIDValue() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDValue, IIImpl.class);
     }
 
 
@@ -124,8 +124,8 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    public List<ActCareEventType> getCareCompositionTypeValue() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypeValue, CVImpl.class);
     }
 
 
@@ -155,16 +155,34 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * 'TRUE' or 'FALSE' it is mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
-    public Boolean getIncludeEventHistoryIndicator() {
-        return this.includeEventHistoryIndicator.getValue();
+    public Boolean getIncludeEventHistoryIndicatorValue() {
+        return this.includeEventHistoryIndicatorValue.getValue();
     }
-    public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
-        this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
+    public void setIncludeEventHistoryIndicatorValue(Boolean includeEventHistoryIndicatorValue) {
+        this.includeEventHistoryIndicatorValue.setValue(includeEventHistoryIndicatorValue);
     }
 
 
     /**
      * <p>IncludeIssuesIndicator</p>
+     * 
+     * <p>Include Issues Indicator</p>
+     * 
+     * <p><p>Indicates whether or not Issues (detected and/or 
+     * managed) attached to the prescription dispense record to be 
+     * returned along with the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * issues in the retrieval of patient medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * issues in the retrieval of patient medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
      * 
      * <p>Include Issues Indicator</p>
      * 
@@ -184,54 +202,18 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p></p>
-     * 
-     * <p>Include Issues Indicator</p>
-     * 
-     * <p><p>Indicates whether or not Issues (detected and/or 
-     * managed) attached to the prescription dispense record to be 
-     * returned along with the detailed information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * issues in the retrieval of patient medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * issues in the retrieval of patient medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
+    public Boolean getIncludeIssuesIndicatorValue() {
+        return this.includeIssuesIndicatorValue.getValue();
     }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
+        this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
     }
 
 
     /**
      * <p>IncludeNotesIndicator</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p><p>Indicates whether or not notes attached to the 
-     * prescription dispense record are to be returned along with 
-     * the detailed information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
      * 
      * <p>Include Notes Indicator</p>
      * 
@@ -250,13 +232,31 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p></p>
+     * 
+     * <p>Include Notes Indicator</p>
+     * 
+     * <p><p>Indicates whether or not notes attached to the 
+     * prescription dispense record are to be returned along with 
+     * the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for medication detail 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for medication detail 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
+    public Boolean getIncludeNotesIndicatorValue() {
+        return this.includeNotesIndicatorValue.getValue();
     }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
+        this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
     }
 
 
@@ -283,11 +283,11 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
+    public Boolean getIncludePendingChangesIndicatorValue() {
+        return this.includePendingChangesIndicatorValue.getValue();
     }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    public void setIncludePendingChangesIndicatorValue(Boolean includePendingChangesIndicatorValue) {
+        this.includePendingChangesIndicatorValue.setValue(includePendingChangesIndicatorValue);
     }
 
 
@@ -308,8 +308,8 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getPrescriptionOrderNumberValue() {
+        return this.prescriptionOrderNumberValue.rawSet();
     }
 
 
@@ -327,11 +327,11 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
      * attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getPrescriptionDispenseNumberValue() {
+        return this.prescriptionDispenseNumberValue.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setPrescriptionDispenseNumberValue(Identifier prescriptionDispenseNumberValue) {
+        this.prescriptionDispenseNumberValue.setValue(prescriptionDispenseNumberValue);
     }
 
 }

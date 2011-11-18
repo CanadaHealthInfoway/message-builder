@@ -49,9 +49,9 @@ import java.util.Set;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV issueFilterCode = new CVImpl();
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV issueFilterCodeValue = new CVImpl();
+    private SET<II, Identifier> prescriptionOrderNumberValue = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
@@ -71,11 +71,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
+    public IssueFilterCode getIssueFilterCodeValue() {
+        return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
+    public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
+        this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
 
 
@@ -94,8 +94,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getPrescriptionOrderNumberValue() {
+        return this.prescriptionOrderNumberValue.rawSet();
     }
 
 }

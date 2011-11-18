@@ -138,9 +138,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS refusalToFillDate = new TSImpl();
-    private CV refusalToFillReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS effectiveTime = new TSImpl();
+    private CV reasonCode = new CVImpl();
     private RefusedByBean author;
     private OccurredAtBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -148,21 +148,6 @@ public class RefusalToFillsBean extends MessagePartBean {
 
     /**
      * <p>RefusalToFillDate</p>
-     * 
-     * <p>Refusal To Fill Date</p>
-     * 
-     * <p><p>The date that the dispenser refused to fill the 
-     * prescription</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occurred.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
-     * 
-     * <p><p>May be important to down stream providers to know when 
-     * the refusal occurred.</p><p>Is marked as populated as it may 
-     * not always be known for historical data pre- loaded into the 
-     * EHR</p></p>
      * 
      * <p>Refusal To Fill Date</p>
      * 
@@ -178,13 +163,28 @@ public class RefusalToFillsBean extends MessagePartBean {
      * the refusal occured.</p><p>Is marked as populated as it may 
      * not always be known for historical data pre- loaded into the 
      * EHR</p></p>
+     * 
+     * <p>Refusal To Fill Date</p>
+     * 
+     * <p><p>The date that the dispenser refused to fill the 
+     * prescription</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occurred.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
+     * 
+     * <p><p>May be important to down stream providers to know when 
+     * the refusal occurred.</p><p>Is marked as populated as it may 
+     * not always be known for historical data pre- loaded into the 
+     * EHR</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getRefusalToFillDate() {
-        return this.refusalToFillDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setRefusalToFillDate(Date refusalToFillDate) {
-        this.refusalToFillDate.setValue(refusalToFillDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -215,17 +215,8 @@ public class RefusalToFillsBean extends MessagePartBean {
      * refusing to fill.</p></p>
      * 
      * <p><p>Supports capture of reasons such as 'moral objection' 
-     * which are not tied to specific issues. Set to CWE to allow 
-     * non-coded reasons.</p></p>
-     * 
-     * <p>Refusal To Fill Reason</p>
-     * 
-     * <p><p>Indicates a non-clinical-issue based reason for 
-     * refusing to fill.</p></p>
-     * 
-     * <p><p>Supports capture of reasons such as 'moral objection' 
-     * which are not tied to specific issues. Set as CWE to allow 
-     * for non-coded reasons.</p></p>
+     * which are not tied to specific issues. The element is CWE to 
+     * allow for non-coded reasons.</p></p>
      * 
      * <p>Refusal to Fill Reason</p>
      * 
@@ -241,15 +232,24 @@ public class RefusalToFillsBean extends MessagePartBean {
      * refusing to fill.</p></p>
      * 
      * <p><p>Supports capture of reasons such as 'moral objection' 
-     * which are not tied to specific issues. The element is CWE to 
-     * allow for non-coded reasons.</p></p>
+     * which are not tied to specific issues. Set to CWE to allow 
+     * non-coded reasons.</p></p>
+     * 
+     * <p>Refusal To Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. Set as CWE to allow 
+     * for non-coded reasons.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ActSupplyFulfillmentRefusalReason getRefusalToFillReason() {
-        return (ActSupplyFulfillmentRefusalReason) this.refusalToFillReason.getValue();
+    public ActSupplyFulfillmentRefusalReason getReasonCode() {
+        return (ActSupplyFulfillmentRefusalReason) this.reasonCode.getValue();
     }
-    public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
-        this.refusalToFillReason.setValue(refusalToFillReason);
+    public void setReasonCode(ActSupplyFulfillmentRefusalReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

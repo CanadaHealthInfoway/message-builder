@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","PORR_MT050016CA.AssignedEntity"})
 public class AssignedEntity3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ST assignedOrganizationName = new STImpl();
 
 
@@ -55,14 +55,6 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p><p>Helps the receiver evaluate the supplied 
      * information.</p></p>
      * 
-     * <p>Monograph Author Name</p>
-     * 
-     * <p><p>The name of the organization responsible for creating 
-     * the monograph</p></p>
-     * 
-     * <p><p>Helps the receiver evaluate the supplied 
-     * information.</p></p>
-     * 
      * <p>Monitoring Organization Name</p>
      * 
      * <p><p>The name of the organization responsible for the 
@@ -70,6 +62,14 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * 
      * <p><p>Helps identify the program and understand its context. 
      * May also indicate who to send reports to.</p></p>
+     * 
+     * <p>Monograph Author Name</p>
+     * 
+     * <p><p>The name of the organization responsible for creating 
+     * the monograph</p></p>
+     * 
+     * <p><p>Helps the receiver evaluate the supplied 
+     * information.</p></p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({

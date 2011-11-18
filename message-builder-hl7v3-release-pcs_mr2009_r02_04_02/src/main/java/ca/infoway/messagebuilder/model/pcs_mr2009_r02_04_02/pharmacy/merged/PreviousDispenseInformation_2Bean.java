@@ -59,9 +59,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventPastSummary","PORX_MT060060CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT numberOfFillsMadeAgainstRx = new INTImpl();
-    private INT totalSuppliedAmount = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT repeatNumber = new INTImpl();
+    private INT quantity = new INTImpl();
 
 
     /**
@@ -77,11 +77,11 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * prescription.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFillsMadeAgainstRx() {
-        return this.numberOfFillsMadeAgainstRx.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfFillsMadeAgainstRx(Integer numberOfFillsMadeAgainstRx) {
-        this.numberOfFillsMadeAgainstRx.setValue(numberOfFillsMadeAgainstRx);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -90,25 +90,25 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>B:Total Supplied Amount</p>
      * 
+     * <p><p>Indicates the number of the prescribed devices that 
+     * has been dispensed to-date.</p></p>
+     * 
+     * <p><p>Useful for tracking the progress of a prescription</p></p>
+     * 
+     * <p>B:Total Supplied Amount</p>
+     * 
      * <p><p>Indicates the amount of the prescribed medication that 
      * has been dispensed to-date.</p></p>
      * 
      * <p><p>Useful for tracking the progress of a 
      * prescription.</p></p>
-     * 
-     * <p>B:Total Supplied Amount</p>
-     * 
-     * <p><p>Indicates the number of the prescribed devices that 
-     * has been dispensed to-date.</p></p>
-     * 
-     * <p><p>Useful for tracking the progress of a prescription</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getTotalSuppliedAmount() {
-        return this.totalSuppliedAmount.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalSuppliedAmount(Integer totalSuppliedAmount) {
-        this.totalSuppliedAmount.setValue(totalSuppliedAmount);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

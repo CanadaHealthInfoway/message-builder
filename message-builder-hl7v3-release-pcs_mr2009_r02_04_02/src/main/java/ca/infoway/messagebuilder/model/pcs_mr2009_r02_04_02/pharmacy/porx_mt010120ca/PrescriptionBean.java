@@ -69,11 +69,11 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionNumber = new IIImpl();
-    private CV prescriptionType = new CVImpl();
-    private CS prescriptionStatus = new CSImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean directTargetMedication;
     private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
     private PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest;
@@ -127,11 +127,11 @@ public class PrescriptionBean extends MessagePartBean {
      * the element is optional.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionNumber() {
-        return this.prescriptionNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionNumber(Identifier prescriptionNumber) {
-        this.prescriptionNumber.setValue(prescriptionNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -146,11 +146,11 @@ public class PrescriptionBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -170,11 +170,11 @@ public class PrescriptionBean extends MessagePartBean {
      * every prescription needs to be in some state.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -217,38 +217,34 @@ public class PrescriptionBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

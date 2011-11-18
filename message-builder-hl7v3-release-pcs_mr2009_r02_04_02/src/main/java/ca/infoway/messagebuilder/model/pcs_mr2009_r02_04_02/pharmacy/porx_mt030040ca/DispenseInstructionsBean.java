@@ -48,9 +48,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBea
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS prescriptionDispenseIndicator = new CSImpl();
-    private PQ totalPrescribedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS statusCode = new CSImpl();
+    private PQ quantity = new PQImpl();
     private OccurredAtBean location;
 
 
@@ -74,11 +74,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispenseIndicator() {
-        return (ActStatus) this.prescriptionDispenseIndicator.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionDispenseIndicator(ActStatus prescriptionDispenseIndicator) {
-        this.prescriptionDispenseIndicator.setValue(prescriptionDispenseIndicator);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -105,11 +105,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * must always be specified as a total quantity.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 

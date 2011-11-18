@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060190CA.AdministrationInstructions"})
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD medicationType = new CDImpl();
-    private ST renderedDosageInstruction = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
 
 
     /**
@@ -55,11 +55,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * Mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getMedicationType() {
-        return (Code) this.medicationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setMedicationType(Code medicationType) {
-        this.medicationType.setValue(medicationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -82,11 +82,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * prescriber.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

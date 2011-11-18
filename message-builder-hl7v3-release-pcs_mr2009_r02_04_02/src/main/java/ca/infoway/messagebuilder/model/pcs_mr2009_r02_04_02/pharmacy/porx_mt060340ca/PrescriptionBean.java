@@ -96,11 +96,11 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private CD prescriptionType = new CDImpl();
-    private CS prescriptionStatus = new CSImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean directTargetMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
@@ -161,8 +161,8 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * printed.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -182,11 +182,11 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * provide support for SNOMED.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -207,11 +207,11 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * because every prescription needs to be in some state.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -281,42 +281,42 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

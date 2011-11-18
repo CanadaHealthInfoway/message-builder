@@ -50,9 +50,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Assi
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV programType = new CVImpl();
-    private ST programName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
 
 
@@ -72,11 +72,11 @@ public class MonitoringProgramsBean extends MessagePartBean {
      * types have different business rules.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getProgramType() {
-        return (Code) this.programType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setProgramType(Code programType) {
-        this.programType.setValue(programType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -90,11 +90,11 @@ public class MonitoringProgramsBean extends MessagePartBean {
      * program.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getProgramName() {
-        return this.programName.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setProgramName(String programName) {
-        this.programName.setValue(programName);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 

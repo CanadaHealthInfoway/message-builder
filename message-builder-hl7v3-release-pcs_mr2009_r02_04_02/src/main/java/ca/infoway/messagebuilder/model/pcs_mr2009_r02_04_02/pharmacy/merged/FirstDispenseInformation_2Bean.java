@@ -58,9 +58,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFirstSummary","PORX_MT060060CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> firstDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT firstQuantityDispensed = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT quantity = new INTImpl();
 
 
     /**
@@ -89,25 +89,16 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * therapy.</p><p>Important information for compliance.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getFirstDispensePickupDate() {
-        return this.firstDispensePickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setFirstDispensePickupDate(Interval<Date> firstDispensePickupDate) {
-        this.firstDispensePickupDate.setValue(firstDispensePickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
      * <p>FirstQuantityDispensed</p>
-     * 
-     * <p>First Quantity Dispensed</p>
-     * 
-     * <p><p>Indicates the amount of device first dispensed on the 
-     * prescription.</p></p>
-     * 
-     * <p><p>Usually establishes trial quantities for a 
-     * prescription. If the first dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p></p>
      * 
      * <p>B:First Quantity Dispensed</p>
      * 
@@ -123,13 +114,22 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * prescription.</p><p>Because the quantity should always be 
      * known if the first dispense is known, this attribute is 
      * mandatory.</p></p>
+     * 
+     * <p>First Quantity Dispensed</p>
+     * 
+     * <p><p>Indicates the amount of device first dispensed on the 
+     * prescription.</p></p>
+     * 
+     * <p><p>Usually establishes trial quantities for a 
+     * prescription. If the first dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getFirstQuantityDispensed() {
-        return this.firstQuantityDispensed.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setFirstQuantityDispensed(Integer firstQuantityDispensed) {
-        this.firstQuantityDispensed.setValue(firstQuantityDispensed);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

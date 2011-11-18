@@ -46,9 +46,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private PatientBean subjectPatient;
-    private ST recommendingAuthorityName = new STImpl();
+    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
@@ -74,11 +74,11 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
      * therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
-    public String getRecommendingAuthorityName() {
-        return this.recommendingAuthorityName.getValue();
+    public String getAuthorAssignedEntityAssignedOrganizationName() {
+        return this.authorAssignedEntityAssignedOrganizationName.getValue();
     }
-    public void setRecommendingAuthorityName(String recommendingAuthorityName) {
-        this.recommendingAuthorityName.setValue(recommendingAuthorityName);
+    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
+        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }
 
 

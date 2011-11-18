@@ -43,10 +43,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV dispenseType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PQ dispensedQuantity = new PQImpl();
+    private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
     private RelatedPersonBean receiverPersonalRelationship;
@@ -55,16 +55,6 @@ public class SupplyEventBean extends MessagePartBean {
 
     /**
      * <p>DispenseType</p>
-     * 
-     * <p>Dispense Type</p>
-     * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
-     * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
      * 
      * <p>B:Dispense Type</p>
      * 
@@ -75,18 +65,28 @@ public class SupplyEventBean extends MessagePartBean {
      * <p><p>Indicates reason for the size of dispense. Because it 
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p></p>
+     * 
+     * <p>Dispense Type</p>
+     * 
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
     /**
-     * <p>D:Dispensed Processing and Pickup Date</p>
+     * <p>Dispense Processing and Pickup Date</p>
      * 
      * <p><p>Represents the date the dispense product was prepared 
      * and when the product was picked up by or delivered to the 
@@ -106,7 +106,7 @@ public class SupplyEventBean extends MessagePartBean {
      * is mandatory because an existing dispense record must at 
      * least indicate the date it was processed.</p></p>
      * 
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>D:Dispensed Processing and Pickup Date</p>
      * 
      * <p><p>Represents the date the dispense product was prepared 
      * and when the product was picked up by or delivered to the 
@@ -153,7 +153,7 @@ public class SupplyEventBean extends MessagePartBean {
     /**
      * <p>DispensedQuantity</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>F:Dispensed Quantity</p>
      * 
      * <p><p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p></p>
@@ -163,7 +163,7 @@ public class SupplyEventBean extends MessagePartBean {
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p></p>
      * 
-     * <p>F:Dispensed Quantity</p>
+     * <p>Dispensed Quantity</p>
      * 
      * <p><p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p></p>
@@ -174,39 +174,15 @@ public class SupplyEventBean extends MessagePartBean {
      * dispensed against the prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
     /**
-     * <p>G:Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Thus the attribute is marked as 'populated'.</p></p>
-     * 
-     * <p>Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last. Cannot be mandatory as there are some 
-     * situations where 'as needed' cannot be used to determine 
-     * days supply.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p></p>
-     * 
      * <p>Dispense Days Supply</p>
      * 
      * <p><p>The number of days that the dispensed quantity is 
@@ -225,6 +201,30 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p></p>
+     * 
+     * <p>Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last. Cannot be mandatory as there are some 
+     * situations where 'as needed' cannot be used to determine 
+     * days supply.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p></p>
+     * 
+     * <p>G:Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Thus the attribute is marked as 'populated'.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {

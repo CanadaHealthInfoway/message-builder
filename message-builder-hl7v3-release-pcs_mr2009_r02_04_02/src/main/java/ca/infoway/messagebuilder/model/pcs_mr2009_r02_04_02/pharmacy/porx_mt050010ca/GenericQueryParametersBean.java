@@ -46,8 +46,8 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private List<CV> drugCodes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20111117L;
+    private List<CV> drugCodeValue = new ArrayList<CV>();
 
 
     /**
@@ -90,8 +90,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * medications into profile scenarios.</p></p>
      */
     @Hl7XmlMapping({"drugCode/value"})
-    public List<ClinicalDrug> getDrugCodes() {
-        return new RawListWrapper<CV, ClinicalDrug>(drugCodes, CVImpl.class);
+    public List<ClinicalDrug> getDrugCodeValue() {
+        return new RawListWrapper<CV, ClinicalDrug>(drugCodeValue, CVImpl.class);
     }
 
 }

@@ -77,8 +77,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventLastSummary","PORX_MT060160CA.SupplyEventLastSummary","PORX_MT060190CA.SupplyEventLastSummary","PORX_MT060340CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
 
 
@@ -95,11 +95,11 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * compliance.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -120,23 +120,6 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * compliance.</p><p>If the most recent dispense information is 
      * known, the quantity must be known and therefore is 
      * mandatory</p></p>
-     * 
-     * <p>Last Quantity Dispensed</p>
-     * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
-     * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
-     * compliance.</p><p>Because the quantity should always be 
-     * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
-     * compliance.</p><p>Because the quantity should always be 
-     * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
      * 
      * <p>Last Dispense Quantity</p>
      * 
@@ -167,6 +150,23 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * mandatory.</p></p>
      * 
      * <p><p>Useful in determining the amount of medication that a 
+     * patient should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p>Last Quantity Dispensed</p>
+     * 
+     * <p><p>Indicates the most recent quantity of the drug that 
+     * was picked up for the prescription.</p></p>
+     * 
+     * <p><p>Useful in determining amount of medication that a 
+     * patient should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Useful in determining amount of medication that a 
      * patient should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 

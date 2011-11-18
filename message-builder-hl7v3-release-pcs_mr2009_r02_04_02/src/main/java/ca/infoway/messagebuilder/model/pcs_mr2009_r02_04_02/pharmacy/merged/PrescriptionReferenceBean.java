@@ -94,18 +94,35 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private ClassifiesBean component1;
     private Component2Bean component;
-    private CS prescriptionStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
 
 
     /**
      * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>Prescription Order Number</p>
+     * 
+     * <p><p>This is an identifier assigned to a specific device 
+     * order. The number remains constant across the lifetime of 
+     * the order, regardless of the number of providers or 
+     * pharmacies involved in fulfilling the order.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p></p>
      * 
      * <p>Prescription Order Number</p>
      * 
@@ -153,27 +170,10 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * referenced.</p><p>The ID is only 'populated' because in some 
      * cases the prescription will not yet exist 
      * electronically.</p></p>
-     * 
-     * <p>Prescription Order Number</p>
-     * 
-     * <p><p>This is an identifier assigned to a specific device 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -197,11 +197,11 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * For this reason is Mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -255,11 +255,11 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p><p>Needed in some jurisdictions</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 }

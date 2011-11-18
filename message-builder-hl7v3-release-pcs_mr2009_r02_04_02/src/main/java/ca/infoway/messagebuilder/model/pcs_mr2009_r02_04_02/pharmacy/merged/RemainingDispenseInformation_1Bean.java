@@ -86,7 +86,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventFutureSummary","PORX_MT060160CA.SupplyEventFutureSummary","PORX_MT060190CA.SupplyEventFutureSummary","PORX_MT060340CA.SupplyEventFutureSummary"})
 public class RemainingDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
 
@@ -101,7 +101,7 @@ public class RemainingDispenseInformation_1Bean extends MessagePartBean {
      * <p><p>Indicates the number of dispenses that may still 
      * occur.</p></p>
      * 
-     * <p>Fills Remaining</p>
+     * <p>A:Total Fills Remaining</p>
      * 
      * <p><p>Indicates the number of remaining dispenses estimated, 
      * assuming that each fill is equal to the quantity prescribed 
@@ -110,7 +110,7 @@ public class RemainingDispenseInformation_1Bean extends MessagePartBean {
      * <p><p>Indicates the number of dispenses that may still 
      * occur.</p></p>
      * 
-     * <p>A:Total Fills Remaining</p>
+     * <p>Fills Remaining</p>
      * 
      * <p><p>Indicates the number of remaining dispenses estimated, 
      * assuming that each fill is equal to the quantity prescribed 

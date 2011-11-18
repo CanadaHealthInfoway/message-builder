@@ -56,24 +56,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV characteristicType = new CVImpl();
-    private ST characteristic = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST value = new STImpl();
 
 
     /**
      * <p>CharacteristicType</p>
-     * 
-     * <p>A:Characteristic Type</p>
-     * 
-     * <p><p>A coded value denoting the type of physical 
-     * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size, etc.</p></p>
-     * 
-     * <p><p>Identifies what kind of characteristic is being 
-     * identified. This is mandatory as providing the 
-     * characteristic alone without specifying the type can result 
-     * in ambiguity.</p></p>
      * 
      * <p>Characteristic Type</p>
      * 
@@ -85,13 +74,24 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * identified. This is mandatory as providing the 
      * characteristic alone without specifying the type can result 
      * in ambiguity</p></p>
+     * 
+     * <p>A:Characteristic Type</p>
+     * 
+     * <p><p>A coded value denoting the type of physical 
+     * characteristic being documented. Kinds of characteristics 
+     * include: Color, Shape, Markings, Size, etc.</p></p>
+     * 
+     * <p><p>Identifies what kind of characteristic is being 
+     * identified. This is mandatory as providing the 
+     * characteristic alone without specifying the type can result 
+     * in ambiguity.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public MedicationObservationType getCharacteristicType() {
-        return (MedicationObservationType) this.characteristicType.getValue();
+    public MedicationObservationType getCode() {
+        return (MedicationObservationType) this.code.getValue();
     }
-    public void setCharacteristicType(MedicationObservationType characteristicType) {
-        this.characteristicType.setValue(characteristicType);
+    public void setCode(MedicationObservationType code) {
+        this.code.setValue(code);
     }
 
 
@@ -131,11 +131,11 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * as there must be a value for a mandatory code.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getCharacteristic() {
-        return this.characteristic.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setCharacteristic(String characteristic) {
-        this.characteristic.setValue(characteristic);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 }

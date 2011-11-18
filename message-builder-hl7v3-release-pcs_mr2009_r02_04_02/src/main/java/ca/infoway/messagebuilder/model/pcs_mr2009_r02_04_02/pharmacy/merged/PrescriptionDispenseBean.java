@@ -69,15 +69,15 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
     private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean componentSupplyEvent;
     private IncludesBean subjectOf;
-    private CS dispenseStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
     private OccurredAtBean location;
@@ -91,144 +91,46 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
      * <p><p>Identifier assigned by the dispensing facility.</p></p>
      * 
      * <p><p>Allows formal tracking of centrally recorded dispenses 
      * to local records for audit and related purposes.</p></p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
     /**
      * <p>PrescriptionMaskingIndicators</p>
-     * 
-     * <p>E:Prescription Masking Indicators</p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows 
-     * providers to request restricted access by 
-     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
-     * restricted - denotes very restricted access as declared by 
-     * the Privacy Officer of the record holder) and 'T' (taboo - 
-     * denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows 
-     * providers to request restricted access by 
-     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
-     * restricted - denotes very restricted access as declared by 
-     * the Privacy Officer of the record holder) and 'T' (taboo - 
-     * denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows 
-     * providers to request restricted access by 
-     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
-     * restricted - denotes very restricted access as declared by 
-     * the Privacy Officer of the record holder) and 'T' (taboo - 
-     * denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows 
-     * providers to request restricted access by 
-     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
-     * restricted - denotes very restricted access as declared by 
-     * the Privacy Officer of the record holder) and 'T' (taboo - 
-     * denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows 
-     * providers to request restricted access by 
-     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
-     * restricted - denotes very restricted access as declared by 
-     * the Privacy Officer of the record holder) and 'T' (taboo - 
-     * denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
      * 
      * <p>E:Prescription Masking Indicators</p>
      * 
@@ -303,12 +205,108 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * default is 'normal' signifying 'Not Masked'.</p></p>
      * 
      * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a n
+     * present in a new dispense request.</p><p>Allows the patient 
+     * to have discrete control over access to their prescription 
+     * data.</p><p>Taboo allows the provider to request restricted 
+     * access to patient or their care giver.</p><p>Constraint: 
+     * Cant have both normal and one of the other codes 
+     * simultaneously.</p><p>The attribute is optional because not 
+     * all systems will support masking.</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>Allows the patient 
+     * to have discrete control over access to their prescription 
+     * data.</p><p>Taboo allows the provider to request restricted 
+     * access to patient or their care giver.</p><p>Constraint: 
+     * Cant have both normal and one of the other codes 
+     * simultaneously.</p><p>The attribute is optional because not 
+     * all systems will support masking.</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>Allows the patient 
+     * to have discrete control over access to their prescription 
+     * data.</p><p>Taboo allows the provider to request restricted 
+     * access to patient or their care giver.</p><p>Constraint: 
+     * Cant have both normal and one of the other codes 
+     * simultaneously.</p><p>The attribute is optional because not 
+     * all systems will support masking.</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>Allows the patient 
+     * to have discrete control over access to their prescription 
+     * data.</p><p>Taboo allows the provider to request restricted 
+     * access to patient or their care giver.</p><p>Constraint: 
+     * Cant have both normal and one of the other codes 
+     * simultaneously.</p><p>The attribute is optional because not 
+     * all systems will support masking.</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>Allows the patient 
+     * to have discrete control over access to their prescription 
+     * data.</p><p>Taboo allows the provider to request restricted 
+     * access to patient or their care giver.</p><p>Constraint: 
+     * Cant have both normal and one of the other codes 
+     * simultaneously.</p><p>The attribute is optional because not 
+     * all systems will support masking.</p></p>
+     * 
+     * <p><p>If a dispense is masked, it implicitly masks the 
+     * prescription being dispensed. (There's no point in masking a 
+     * dispense if the prescription is unmasked.)</p></p>
+     * 
+     * <p>E:Prescription Masking Indicators</p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Allows 
+     * providers to request restricted access by 
+     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
+     * restricted - denotes very restricted access as declared by 
+     * the Privacy Officer of the record holder) and 'T' (taboo - 
+     * denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Allows 
+     * providers to request restricted access by 
+     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
+     * restricted - denotes very restricted access as declared by 
+     * the Privacy Officer of the record holder) and 'T' (taboo - 
+     * denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Allows 
+     * providers to request restricted access by 
+     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
+     * restricted - denotes very restricted access as declared by 
+     * the Privacy Officer of the record holder) and 'T' (taboo - 
+     * denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Allows 
+     * providers to request restricted access by 
+     * patients.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked'); 'V' (very 
+     * restricted - denotes very restricted access as declared by 
+     * the Privacy Officer of the record holder) and 'T' (taboo - 
+     * denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'No
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -379,11 +377,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * dispense the medication.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 

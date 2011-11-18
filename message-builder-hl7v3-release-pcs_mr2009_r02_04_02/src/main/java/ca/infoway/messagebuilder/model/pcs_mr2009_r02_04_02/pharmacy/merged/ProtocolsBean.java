@@ -44,8 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p><p>Allows linking to specific guidelines or protocols. 
  * Also used to provide additional detail needed when 
- * requesting a '''special access''' drug from Health 
- * Canada.</p></p>
+ * requesting a special access drug from Health Canada.</p></p>
  * 
  * <p>PORX_MT060160CA.SubstanceAdministrationDefinition: 
  * Protocols</p>
@@ -69,39 +68,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstanceAdministrationDefinition","PORX_MT060160CA.SubstanceAdministrationDefinition","PORX_MT060340CA.SubstanceAdministrationDefinition"})
 public class ProtocolsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II protocolIdentifiers = new IIImpl();
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
 
 
     /**
      * <p>ProtocolIdentifiers</p>
-     * 
-     * <p>Protocol Identifiers</p>
-     * 
-     * <p><p>A unique identifier for a specific protocol or 
-     * guideline which the prescription has been written in 
-     * accordance with.</p></p>
-     * 
-     * <p><p>Enables the communication of a reference to a 
-     * protocol, study or guideline id, specific to the 
-     * jurisdiction;</p><p>Allows providers to reference a 
-     * protocol/guideline for prescribing to specific situations. 
-     * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited Use' 
-     * medications in Ontario require physicians to use a code 
-     * indicating that a patient is eligible for this particular 
-     * medication.</p></p>
-     * 
-     * <p><p>Enables the communication of a reference to a 
-     * protocol, study or guideline id, specific to the 
-     * jurisdiction;</p><p>Allows providers to reference a 
-     * protocol/guideline for prescribing to specific situations. 
-     * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited Use' 
-     * medications in Ontario require physicians to use a code 
-     * indicating that a patient is eligible for this particular 
-     * medication.</p></p>
      * 
      * <p>H:Protocol Identifiers</p>
      * 
@@ -156,27 +129,53 @@ public class ProtocolsBean extends MessagePartBean {
      * jurisdiction;</p><p>Allows providers to reference a 
      * protocol/guideline for prescribing to specific situations. 
      * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited' 
-     * Use''' medications in Ontario require physicians to use a 
-     * code indicating that a patient is eligible for this 
-     * particular medication.</p></p>
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication.</p></p>
      * 
      * <p><p>Enables the communication of a reference to a 
      * protocol, study or guideline id, specific to the 
      * jurisdiction;</p><p>Allows providers to reference a 
      * protocol/guideline for prescribing to specific situations. 
      * This could also be used for justification for prescribing a 
-     * medication from a particular formulary. E.g., 'Limited' 
-     * Use''' medications in Ontario require physicians to use a 
-     * code indicating that a patient is eligible for this 
-     * particular medication.</p></p>
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication.</p></p>
+     * 
+     * <p>Protocol Identifiers</p>
+     * 
+     * <p><p>A unique identifier for a specific protocol or 
+     * guideline which the prescription has been written in 
+     * accordance with.</p></p>
+     * 
+     * <p><p>Enables the communication of a reference to a 
+     * protocol, study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited' Use 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication.</p></p>
+     * 
+     * <p><p>Enables the communication of a reference to a 
+     * protocol, study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited' Use 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getProtocolIdentifiers() {
-        return this.protocolIdentifiers.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setProtocolIdentifiers(Identifier protocolIdentifiers) {
-        this.protocolIdentifiers.setValue(protocolIdentifiers);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -204,11 +203,11 @@ public class ProtocolsBean extends MessagePartBean {
      * being followed.</p><p>Therefore is Mandatory</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

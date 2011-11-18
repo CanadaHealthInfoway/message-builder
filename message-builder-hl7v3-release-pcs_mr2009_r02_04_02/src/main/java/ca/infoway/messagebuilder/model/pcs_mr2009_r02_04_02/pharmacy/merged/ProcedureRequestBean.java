@@ -32,34 +32,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ProcedureRequest","PORX_MT020060CA.ProcedureRequest","PORX_MT060010CA.ProcedureRequest","PORX_MT060040CA.ProcedureRequest","PORX_MT060060CA.ProcedureRequest"})
 public class ProcedureRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST usageInstructions = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
 
 
     /**
      * <p>UsageInstructions</p>
-     * 
-     * <p>Usage Instructions</p>
-     * 
-     * <p><p>Indicates how the device should be used by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Instructions are a key part of the prescription.</p></p>
-     * 
-     * <p>Usage Instructions</p>
-     * 
-     * <p><p>Indicates how the device is intended to be used.</p></p>
-     * 
-     * <p><p>Shows other providers the usage instructions provided 
-     * to the patient.</p></p>
-     * 
-     * <p>Usage Instructions</p>
-     * 
-     * <p><p>Indicates how the prescribed device is intended to be 
-     * used.</p></p>
-     * 
-     * <p><p>Usage instructions are a critical part of a 
-     * prescription.</p></p>
      * 
      * <p>Usage Instructions</p>
      * 
@@ -76,13 +54,35 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p><p>Communicates to other providers how the patient is 
      * expected to use the dispensed device</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the device is intended to be used.</p></p>
+     * 
+     * <p><p>Shows other providers the usage instructions provided 
+     * to the patient.</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the device should be used by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Instructions are a key part of the prescription.</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the prescribed device is intended to be 
+     * used.</p></p>
+     * 
+     * <p><p>Usage instructions are a critical part of a 
+     * prescription.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getUsageInstructions() {
-        return this.usageInstructions.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setUsageInstructions(String usageInstructions) {
-        this.usageInstructions.setValue(usageInstructions);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

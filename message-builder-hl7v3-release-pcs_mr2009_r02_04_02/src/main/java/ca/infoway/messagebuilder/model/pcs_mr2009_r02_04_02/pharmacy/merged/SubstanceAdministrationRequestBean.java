@@ -76,10 +76,10 @@ import java.util.Set;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Pharmacy, Prescription {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private CS prescriptionStatus = new CSImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CS statusCode = new CSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DeviceProductBean directTargetManufacturedProduct;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
@@ -96,10 +96,32 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private CV prescriptionType = new CVImpl();
+    private CV code = new CVImpl();
 
 
     /**
+     * <p>A:Prescription Order Number</p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>The number is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>The number is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     * 
      * <p>A:Prescription Identifier</p>
      * 
      * <p><p>The Prescription Order Number is a globally unique 
@@ -125,28 +147,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * 
      * <p><p>Links the dispense to the prescription it 
      * fulfilled.</p></p>
-     * 
-     * <p>A:Prescription Order Number</p>
-     * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>The number is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>The number is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -156,13 +156,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
     /**
      * <p>PrescriptionStatus</p>
-     * 
-     * <p>Prescription Status</p>
-     * 
-     * <p><p>Provides the status of the prescription without 
-     * requiring additional queries</p></p>
-     * 
-     * <p><p>Needed in some jurisdictions</p></p>
      * 
      * <p>C:Prescription Status</p>
      * 
@@ -178,13 +171,20 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * <p><p>Indicates what actions are allowed to be performed 
      * against a prescription.</p><p>This is a mandatory field 
      * because every prescription needs to be in some state.</p></p>
+     * 
+     * <p>Prescription Status</p>
+     * 
+     * <p><p>Provides the status of the prescription without 
+     * requiring additional queries</p></p>
+     * 
+     * <p><p>Needed in some jurisdictions</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -256,42 +256,42 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -442,11 +442,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * prescription being fulfilled. Therefore is Mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

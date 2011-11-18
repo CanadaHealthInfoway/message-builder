@@ -102,12 +102,12 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> otherMedicationId = new SETImpl<II, Identifier>(IIImpl.class);
-    private CD otherMedicationType = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -126,8 +126,8 @@ public class OtherMedicationBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getOtherMedicationId() {
-        return this.otherMedicationId.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -152,15 +152,43 @@ public class OtherMedicationBean extends MessagePartBean {
      * provide support for SNOMED.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getOtherMedicationType() {
-        return (Code) this.otherMedicationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setOtherMedicationType(Code otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
     /**
+     * <p>B:Medication Status</p>
+     * 
+     * <p><p>Status can only be ACTIVE or COMPLETED</p></p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
      * <p>C:Other Medication Status</p>
      * 
      * <p><p>Status can only be 'ACTIVE' or 'COMPLETED'</p></p>
@@ -188,34 +216,6 @@ public class OtherMedicationBean extends MessagePartBean {
      * the medication could be set to 'COMPLETED' by the provider 
      * without necessarily setting an End Date on the medication 
      * record.</p></p>
-     * 
-     * <p>B:Medication Status</p>
-     * 
-     * <p><p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p></p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -229,14 +229,6 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>DrugActivePeriod</p>
      * 
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p><p>The new period in which the active medication is 
-     * deemed to be active.</p></p>
-     * 
-     * <p><p>Allows the drug active period information to be 
-     * changed.</p></p>
-     * 
      * <p>d:Drug Active Period</p>
      * 
      * <p><p>Indicates the time-period in which the patient has 
@@ -248,13 +240,21 @@ public class OtherMedicationBean extends MessagePartBean {
      * 
      * <p><p>Either the start or end or both can be null if they 
      * are not known.</p></p>
+     * 
+     * <p>C:Drug Active Period</p>
+     * 
+     * <p><p>The new period in which the active medication is 
+     * deemed to be active.</p></p>
+     * 
+     * <p><p>Allows the drug active period information to be 
+     * changed.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -310,32 +310,32 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Cant have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
      * 
@@ -388,38 +388,34 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p>Allows the patient to have discrete control over 
      * access to their medication data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getOtherMedicationMaskingIndicators() {
-        return this.otherMedicationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

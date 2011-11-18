@@ -50,11 +50,11 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV issueFilterCode = new CVImpl();
-    private BL mostRecentByDeviceIndicator = new BLImpl();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV issueFilterCodeValue = new CVImpl();
+    private BL mostRecentByDeviceIndicatorValue = new BLImpl();
+    private BL mostRecentDispenseForEachRxIndicatorValue = new BLImpl();
+    private IVL<TS, Interval<Date>> usageEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -74,11 +74,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
+    public IssueFilterCode getIssueFilterCodeValue() {
+        return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
+    public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
+        this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
 
 
@@ -106,11 +106,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * false.</p></p>
      */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
-    public Boolean getMostRecentByDeviceIndicator() {
-        return this.mostRecentByDeviceIndicator.getValue();
+    public Boolean getMostRecentByDeviceIndicatorValue() {
+        return this.mostRecentByDeviceIndicatorValue.getValue();
     }
-    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
-        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
+    public void setMostRecentByDeviceIndicatorValue(Boolean mostRecentByDeviceIndicatorValue) {
+        this.mostRecentByDeviceIndicatorValue.setValue(mostRecentByDeviceIndicatorValue);
     }
 
 
@@ -154,11 +154,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * false.</p></p>
      */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    public Boolean getMostRecentDispenseForEachRxIndicatorValue() {
+        return this.mostRecentDispenseForEachRxIndicatorValue.getValue();
     }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    public void setMostRecentDispenseForEachRxIndicatorValue(Boolean mostRecentDispenseForEachRxIndicatorValue) {
+        this.mostRecentDispenseForEachRxIndicatorValue.setValue(mostRecentDispenseForEachRxIndicatorValue);
     }
 
 
@@ -186,11 +186,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * date plus the days supply'</p></p>
      */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
-    public Interval<Date> getUsageEffectivePeriod() {
-        return this.usageEffectivePeriod.getValue();
+    public Interval<Date> getUsageEffectivePeriodValue() {
+        return this.usageEffectivePeriodValue.getValue();
     }
-    public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
-        this.usageEffectivePeriod.setValue(usageEffectivePeriod);
+    public void setUsageEffectivePeriodValue(Interval<Date> usageEffectivePeriodValue) {
+        this.usageEffectivePeriodValue.setValue(usageEffectivePeriodValue);
     }
 
 }

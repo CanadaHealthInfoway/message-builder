@@ -42,9 +42,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II previousPrescriptionOrderNumber = new IIImpl();
-    private CV prescriptionType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
 
 
     /**
@@ -72,11 +72,11 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
      * the previous prescription, it is Mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPreviousPrescriptionOrderNumber() {
-        return this.previousPrescriptionOrderNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPreviousPrescriptionOrderNumber(Identifier previousPrescriptionOrderNumber) {
-        this.previousPrescriptionOrderNumber.setValue(previousPrescriptionOrderNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -92,11 +92,11 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPrescriptionType() {
-        return (Code) this.prescriptionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPrescriptionType(Code prescriptionType) {
-        this.prescriptionType.setValue(prescriptionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

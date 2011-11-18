@@ -113,10 +113,10 @@ import java.util.Set;
 @Hl7RootType
 public class DeviceDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CS dispenseStatus = new CSImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
     private OccurredAtBean location;
@@ -175,11 +175,11 @@ public class DeviceDispenseBean extends MessagePartBean {
      * mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -209,11 +209,11 @@ public class DeviceDispenseBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -269,7 +269,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p><p>Allows a patient to control access to 'sensitive' 
      * prescriptions.</p><p>Taboo allows the provider to request 
      * restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
@@ -278,7 +278,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p><p>Allows a patient to control access to 'sensitive' 
      * prescriptions.</p><p>Taboo allows the provider to request 
      * restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
@@ -287,7 +287,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p><p>Allows a patient to control access to 'sensitive' 
      * prescriptions.</p><p>Taboo allows the provider to request 
      * restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
@@ -296,15 +296,15 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p><p>Allows a patient to control access to 'sensitive' 
      * prescriptions.</p><p>Taboo allows the provider to request 
      * restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can'''t have both normal and one of 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

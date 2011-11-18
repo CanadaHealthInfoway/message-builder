@@ -99,12 +99,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2"})
 public class DispenseShipToLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private AD addr = new ADImpl();
 
 
     /**
-     * <p>Ship To Address</p>
+     * <p>I:Ship-To Address</p>
      * 
      * <p><p>Indicates where the dispensed product was sent.</p></p>
      * 
@@ -121,7 +121,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * need to be shipped to the physician's office to replace 
      * stock used for the patient.</p></p>
      * 
-     * <p>I:Ship-To Address</p>
+     * <p>Ship To Address</p>
      * 
      * <p><p>Indicates where the dispensed product was sent.</p></p>
      * 

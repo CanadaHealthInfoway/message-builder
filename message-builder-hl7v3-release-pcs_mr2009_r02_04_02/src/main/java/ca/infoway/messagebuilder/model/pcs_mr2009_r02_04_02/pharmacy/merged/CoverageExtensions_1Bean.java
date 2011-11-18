@@ -64,14 +64,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.UnderwriterBe
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS extensionGrantedIndicator = new CSImpl();
-    private II coverageExtensionId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS moodCode = new CSImpl();
+    private II id = new IIImpl();
     private UnderwriterBean authorUnderwriter;
 
 
     /**
      * <p>ExtensionGrantedIndicator</p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     * 
+     * <p><p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p></p>
+     * 
+     * <p><p>Indicates to the pharmacy whether they need to check 
+     * the status of coverage prior to dispensing</p></p>
      * 
      * <p>Extension Granted Indicator</p>
      * 
@@ -90,21 +98,13 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p><p>Indicates to the pharmacy whether they need to check 
      * the status of coverage prior to dispensing. The attribute is 
      * mandatory due to HL7 rules.</p></p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     * 
-     * <p><p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p></p>
-     * 
-     * <p><p>Indicates to the pharmacy whether they need to check 
-     * the status of coverage prior to dispensing</p></p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodRequestEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodRequestEvent) this.extensionGrantedIndicator.getValue();
+    public x_ActMoodRequestEvent getMoodCode() {
+        return (x_ActMoodRequestEvent) this.moodCode.getValue();
     }
-    public void setExtensionGrantedIndicator(x_ActMoodRequestEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    public void setMoodCode(x_ActMoodRequestEvent moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -158,11 +158,11 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * submitted), the attribute is 'populated'.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getCoverageExtensionId() {
-        return this.coverageExtensionId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCoverageExtensionId(Identifier coverageExtensionId) {
-        this.coverageExtensionId.setValue(coverageExtensionId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

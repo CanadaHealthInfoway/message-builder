@@ -72,14 +72,24 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV prescriptionPatientMeasurementType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
-    private PQ prescriptionPatientMeasuredValue = new PQImpl();
+    private PQ value = new PQImpl();
 
 
     /**
      * <p>PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Prescription Patient Measurement Type</p>
+     * 
+     * <p><p>Identification of the type of measurement/observation 
+     * that was made about the patient. The only two allowable 
+     * types are height and weight.</p></p>
+     * 
+     * <p><p>Distinguishes what kind of information is being 
+     * specified. Code is mandatory to ensure that 
+     * measurements/observations are distinguishable.</p></p>
      * 
      * <p>Prescription Patient Measurement Type</p>
      * 
@@ -94,23 +104,13 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p><p>Distinguishes height from weight.</p><p>Code is 
      * mandatory to ensure that measurements/observations are 
      * distinguishable.</p></p>
-     * 
-     * <p>Prescription Patient Measurement Type</p>
-     * 
-     * <p><p>Identification of the type of measurement/observation 
-     * that was made about the patient. The only two allowable 
-     * types are height and weight.</p></p>
-     * 
-     * <p><p>Distinguishes what kind of information is being 
-     * specified. Code is mandatory to ensure that 
-     * measurements/observations are distinguishable.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
-        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
+    public x_ActObservationHeightOrWeight getCode() {
+        return (x_ActObservationHeightOrWeight) this.code.getValue();
     }
-    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
-        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
+    public void setCode(x_ActObservationHeightOrWeight code) {
+        this.code.setValue(code);
     }
 
 
@@ -202,11 +202,11 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * mandatory because the measurement value must be known.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getPrescriptionPatientMeasuredValue() {
-        return this.prescriptionPatientMeasuredValue.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setPrescriptionPatientMeasuredValue(PhysicalQuantity prescriptionPatientMeasuredValue) {
-        this.prescriptionPatientMeasuredValue.setValue(prescriptionPatientMeasuredValue);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 }

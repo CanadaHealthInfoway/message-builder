@@ -64,12 +64,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS prescriptionDispensableIndicator = new CSImpl();
-    private PQ totalPrescribedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS statusCode = new CSImpl();
+    private PQ quantity = new PQImpl();
     private OccurredAtBean location;
-    private INT numberOfAuthorizedFills = new INTImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private INT repeatNumber = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -96,11 +96,11 @@ public class SupplyRequestBean extends MessagePartBean {
      * be known.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -144,11 +144,11 @@ public class SupplyRequestBean extends MessagePartBean {
      * prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -172,27 +172,16 @@ public class SupplyRequestBean extends MessagePartBean {
      * in some jurisdictions.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfAuthorizedFills() {
-        return this.numberOfAuthorizedFills.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfAuthorizedFills(Integer numberOfAuthorizedFills) {
-        this.numberOfAuthorizedFills.setValue(numberOfAuthorizedFills);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
     /**
      * <p>TotalDaysSupply</p>
-     * 
-     * <p>Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy').</p></p>
      * 
      * <p>Total Days Supply</p>
      * 
@@ -211,13 +200,24 @@ public class SupplyRequestBean extends MessagePartBean {
      * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
      * Therapy').</p><p>As it should always be known and for the 
      * reasons cited, the attribute is Mandatory.</p></p>
+     * 
+     * <p>Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

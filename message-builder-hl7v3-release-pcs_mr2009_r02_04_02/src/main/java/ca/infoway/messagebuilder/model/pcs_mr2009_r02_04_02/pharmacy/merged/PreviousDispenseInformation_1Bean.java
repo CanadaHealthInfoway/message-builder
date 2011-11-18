@@ -86,20 +86,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventPastSummary","PORX_MT060160CA.SupplyEventPastSummary","PORX_MT060190CA.SupplyEventPastSummary","PORX_MT060340CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
 
 
     /**
-     * <p>A:Number of Fills Made Against Rx</p>
-     * 
-     * <p><p>Indicates the number of dispense events performed 
-     * against the prescription to date, including trial, partial 
-     * and complete fills.</p></p>
-     * 
-     * <p><p>Useful in tracking the progress of a prescription.</p></p>
-     * 
      * <p>Number of Fills Made Against Rx</p>
      * 
      * <p><p>Indicates the number of dispense events performed 
@@ -117,6 +109,14 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
      * 
      * <p><p>Useful in tracking the progress of a prescription in 
      * prescription.</p></p>
+     * 
+     * <p>A:Number of Fills Made Against Rx</p>
+     * 
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
+     * 
+     * <p><p>Useful in tracking the progress of a prescription.</p></p>
      * 
      * <p>A:Number of Fill Made Against Rx</p>
      * 
@@ -137,6 +137,13 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
 
     /**
+     * <p>B:Total Supplied Amount</p>
+     * 
+     * <p><p>Indicates the amount of the prescribed medication that 
+     * has been dispensed to-date.</p></p>
+     * 
+     * <p><p>Useful for tracking the progress of a prescription</p></p>
+     * 
      * <p>B:Dispensed Quantity To-date</p>
      * 
      * <p><p>Depending on the Dispense Aggregate Information Type, 
@@ -153,13 +160,6 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
      * 
      * <p><p>Useful for tracking the progress of a 
      * prescription.</p></p>
-     * 
-     * <p>B:Total Supplied Amount</p>
-     * 
-     * <p><p>Indicates the amount of the prescribed medication that 
-     * has been dispensed to-date.</p></p>
-     * 
-     * <p><p>Useful for tracking the progress of a prescription</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {

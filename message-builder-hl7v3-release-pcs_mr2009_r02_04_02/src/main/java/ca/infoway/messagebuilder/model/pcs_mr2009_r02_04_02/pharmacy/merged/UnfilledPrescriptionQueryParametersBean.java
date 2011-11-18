@@ -65,15 +65,35 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private II prescriberProviderID = new IIImpl();
-    private List<CV> prescriptionStatuses = new ArrayList<CV>();
-    private CV rxDispenseIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private II prescriberProviderIDValue = new IIImpl();
+    private List<CV> prescriptionStatusValue = new ArrayList<CV>();
+    private CV rxDispenseIndicatorValue = new CVImpl();
 
 
     /**
      * <p>AdministrationEffectivePeriod</p>
+     * 
+     * <p>D:Administration Effective Period</p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the administration 
+     * period of interest for the retrieval. Useful for 
+     * constraining run-away queries.</p></p>
      * 
      * <p>E:Administration Effective Period</p>
      * 
@@ -98,33 +118,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p><p>The determination for applicability for inclusion in 
      * the query response should be considered to be the 'Pick up 
      * date plus the days supply'</p></p>
-     * 
-     * <p>D:Administration Effective Period</p>
-     * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
-     * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the administration 
-     * period of interest for the retrieval. Useful for 
-     * constraining run-away queries.</p></p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    public Interval<Date> getAdministrationEffectivePeriodValue() {
+        return this.administrationEffectivePeriodValue.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
+        this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
     }
 
 
@@ -149,11 +149,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * specific prescriber.</p></p>
      */
     @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
+    public Identifier getPrescriberProviderIDValue() {
+        return this.prescriberProviderIDValue.getValue();
     }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
+    public void setPrescriberProviderIDValue(Identifier prescriberProviderIDValue) {
+        this.prescriberProviderIDValue.setValue(prescriberProviderIDValue);
     }
 
 
@@ -172,8 +172,8 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * prescription.</p></p>
      */
     @Hl7XmlMapping({"prescriptionStatus/value"})
-    public List<ActStatus> getPrescriptionStatuses() {
-        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    public List<ActStatus> getPrescriptionStatusValue() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatusValue, CVImpl.class);
     }
 
 
@@ -191,11 +191,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * retrieved based on the fill status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public PrescriptionDispenseFilterCode getRxDispenseIndicator() {
-        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicator.getValue();
+    public PrescriptionDispenseFilterCode getRxDispenseIndicatorValue() {
+        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicatorValue.getValue();
     }
-    public void setRxDispenseIndicator(PrescriptionDispenseFilterCode rxDispenseIndicator) {
-        this.rxDispenseIndicator.setValue(rxDispenseIndicator);
+    public void setRxDispenseIndicatorValue(PrescriptionDispenseFilterCode rxDispenseIndicatorValue) {
+        this.rxDispenseIndicatorValue.setValue(rxDispenseIndicatorValue);
     }
 
 }

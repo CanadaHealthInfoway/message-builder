@@ -55,15 +55,15 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private BL includeIssuesIndicator = new BLImpl();
-    private BL includeNotesIndicator = new BLImpl();
-    private CV issueFilterCode = new CVImpl();
-    private II otherMedicationRecordId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDValue = new ArrayList<II>();
+    private List<CV> careCompositionTypeValue = new ArrayList<CV>();
+    private BL includeIssuesIndicatorValue = new BLImpl();
+    private BL includeNotesIndicatorValue = new BLImpl();
+    private CV issueFilterCodeValue = new CVImpl();
+    private II otherMedicationRecordIdValue = new IIImpl();
 
 
     /**
@@ -86,11 +86,11 @@ public class ParameterListBean extends MessagePartBean {
      * constraining run-away queries.</p></p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    public Interval<Date> getAdministrationEffectivePeriodValue() {
+        return this.administrationEffectivePeriodValue.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
+        this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
     }
 
 
@@ -113,11 +113,11 @@ public class ParameterListBean extends MessagePartBean {
      * records.</p><p>Useful for constraining run-away queries</p></p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
+    public Interval<Date> getAmendedInTimeRangeValue() {
+        return this.amendedInTimeRangeValue.getValue();
     }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
+        this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
     }
 
 
@@ -148,8 +148,8 @@ public class ParameterListBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    public List<Identifier> getCareCompositionIDValue() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDValue, IIImpl.class);
     }
 
 
@@ -167,8 +167,8 @@ public class ParameterListBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    public List<ActCareEventType> getCareCompositionTypeValue() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypeValue, CVImpl.class);
     }
 
 
@@ -190,11 +190,11 @@ public class ParameterListBean extends MessagePartBean {
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
+    public Boolean getIncludeIssuesIndicatorValue() {
+        return this.includeIssuesIndicatorValue.getValue();
     }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
+        this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
     }
 
 
@@ -218,11 +218,11 @@ public class ParameterListBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
+    public Boolean getIncludeNotesIndicatorValue() {
+        return this.includeNotesIndicatorValue.getValue();
     }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
+        this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
     }
 
 
@@ -243,11 +243,11 @@ public class ParameterListBean extends MessagePartBean {
      * is mandatory.</p></p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
+    public IssueFilterCode getIssueFilterCodeValue() {
+        return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
+    public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
+        this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
 
 
@@ -261,11 +261,11 @@ public class ParameterListBean extends MessagePartBean {
      * on a specific active medication record.</p></p>
      */
     @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
+    public Identifier getOtherMedicationRecordIdValue() {
+        return this.otherMedicationRecordIdValue.getValue();
     }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
+    public void setOtherMedicationRecordIdValue(Identifier otherMedicationRecordIdValue) {
+        this.otherMedicationRecordIdValue.setValue(otherMedicationRecordIdValue);
     }
 
 }
