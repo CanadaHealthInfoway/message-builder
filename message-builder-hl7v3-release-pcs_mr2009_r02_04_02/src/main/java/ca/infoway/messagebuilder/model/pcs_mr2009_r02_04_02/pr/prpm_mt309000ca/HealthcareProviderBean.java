@@ -56,12 +56,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
-    private CV healthcareProviderRoleType = new CVImpl();
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV code = new CVImpl();
+    private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
 
@@ -82,8 +82,8 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -103,26 +103,26 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getHealthcareProviderRoleType() {
-        return (HealthcareProviderRoleType) this.healthcareProviderRoleType.getValue();
+    public HealthcareProviderRoleType getCode() {
+        return (HealthcareProviderRoleType) this.code.getValue();
     }
-    public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
-        this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
+    public void setCode(HealthcareProviderRoleType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
-     * <p><p>The provider'''s name pertaining to the specific 
+     * <p><p>The providers name pertaining to the specific 
      * healthcare provider role.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public List<PersonName> getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.rawList();
+    public List<PersonName> getName() {
+        return this.name.rawList();
     }
 
 

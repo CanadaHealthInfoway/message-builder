@@ -51,10 +51,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II organizationId = new IIImpl();
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
-    private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST name = new STImpl();
+    private SET<AD, PostalAddress> addr = new SETImpl<AD, PostalAddress>(ADImpl.class);
     private TerritorialAuthorityBean territorialAuthority;
 
 
@@ -69,11 +69,11 @@ public class OrganizationBean extends MessagePartBean {
      * to the specified roleClass</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -83,19 +83,19 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a providers 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a providers 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
      * <p><p>1. Organization that is responsible for registering 
      * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a provider'''s 
+     * role.</p><p>2. Organization associated with a providers 
      * functional role.</p><p>3. Organization that grants the 
      * qualifications or expertise.</p></p>
      * 
@@ -103,11 +103,11 @@ public class OrganizationBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getIssuingRepresentingQualificationGrantingOrganizationNameS() {
-        return this.issuingRepresentingQualificationGrantingOrganizationNameS.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
-        this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -138,8 +138,8 @@ public class OrganizationBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public Set<PostalAddress> getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
-        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.rawSet();
+    public Set<PostalAddress> getAddr() {
+        return this.addr.rawSet();
     }
 
 

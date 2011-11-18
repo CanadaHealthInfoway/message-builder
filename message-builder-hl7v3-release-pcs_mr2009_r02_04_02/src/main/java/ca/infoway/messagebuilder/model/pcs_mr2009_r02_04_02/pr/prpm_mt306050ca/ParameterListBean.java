@@ -56,17 +56,17 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private List<AD> healthcareProviderRoleAddress = new ArrayList<AD>();
-    private CV principalPersonGender = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private List<AD> addressValue = new ArrayList<AD>();
+    private CV administrativeGenderValue = new CVImpl();
     private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
     private REAL confidenceValue = new REALImpl();
-    private TS principalPersonDateOfBirth = new TSImpl();
-    private List<CV> jurisdictionType = new ArrayList<CV>();
-    private PN healthcareProviderRoleName = new PNImpl();
-    private II healthcareProviderRoleIdentification = new IIImpl();
+    private TS dOBValue = new TSImpl();
+    private List<CV> jurisdictionValue = new ArrayList<CV>();
+    private PN nameValue = new PNImpl();
+    private II providerIDValue = new IIImpl();
     private List<CV> roleClassValue = new ArrayList<CV>();
-    private List<CV> healthcareProviderRoleType = new ArrayList<CV>();
+    private List<CV> roleTypeValue = new ArrayList<CV>();
 
 
     /**
@@ -79,25 +79,25 @@ public class ParameterListBean extends MessagePartBean {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"address/value"})
-    public List<PostalAddress> getHealthcareProviderRoleAddress() {
-        return new RawListWrapper<AD, PostalAddress>(healthcareProviderRoleAddress, ADImpl.class);
+    public List<PostalAddress> getAddressValue() {
+        return new RawListWrapper<AD, PostalAddress>(addressValue, ADImpl.class);
     }
 
 
     /**
      * <p>Principal Person Gender</p>
      * 
-     * <p><p>The principal person'''s gender.</p></p>
+     * <p><p>The principal persons gender.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"administrativeGender/value"})
-    public AdministrativeGender getPrincipalPersonGender() {
-        return (AdministrativeGender) this.principalPersonGender.getValue();
+    public AdministrativeGender getAdministrativeGenderValue() {
+        return (AdministrativeGender) this.administrativeGenderValue.getValue();
     }
-    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
-        this.principalPersonGender.setValue(principalPersonGender);
+    public void setAdministrativeGenderValue(AdministrativeGender administrativeGenderValue) {
+        this.administrativeGenderValue.setValue(administrativeGenderValue);
     }
 
 
@@ -137,17 +137,17 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Principal Person Date of Birth</p>
      * 
-     * <p><p>The principal person'''s date of birth.</p></p>
+     * <p><p>The principal persons date of birth.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"dOB/value"})
-    public Date getPrincipalPersonDateOfBirth() {
-        return this.principalPersonDateOfBirth.getValue();
+    public Date getDOBValue() {
+        return this.dOBValue.getValue();
     }
-    public void setPrincipalPersonDateOfBirth(Date principalPersonDateOfBirth) {
-        this.principalPersonDateOfBirth.setValue(principalPersonDateOfBirth);
+    public void setDOBValue(Date dOBValue) {
+        this.dOBValue.setValue(dOBValue);
     }
 
 
@@ -162,26 +162,26 @@ public class ParameterListBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"jurisdiction/value"})
-    public List<Code> getJurisdictionType() {
-        return new RawListWrapper<CV, Code>(jurisdictionType, CVImpl.class);
+    public List<Code> getJurisdictionValue() {
+        return new RawListWrapper<CV, Code>(jurisdictionValue, CVImpl.class);
     }
 
 
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
-     * <p><p>The provider'''s name pertaining to the specific 
+     * <p><p>The providers name pertaining to the specific 
      * healthcare provider role.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name/value"})
-    public PersonName getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.getValue();
+    public PersonName getNameValue() {
+        return this.nameValue.getValue();
     }
-    public void setHealthcareProviderRoleName(PersonName healthcareProviderRoleName) {
-        this.healthcareProviderRoleName.setValue(healthcareProviderRoleName);
+    public void setNameValue(PersonName nameValue) {
+        this.nameValue.setValue(nameValue);
     }
 
 
@@ -195,11 +195,11 @@ public class ParameterListBean extends MessagePartBean {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"providerID/value"})
-    public Identifier getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.getValue();
+    public Identifier getProviderIDValue() {
+        return this.providerIDValue.getValue();
     }
-    public void setHealthcareProviderRoleIdentification(Identifier healthcareProviderRoleIdentification) {
-        this.healthcareProviderRoleIdentification.setValue(healthcareProviderRoleIdentification);
+    public void setProviderIDValue(Identifier providerIDValue) {
+        this.providerIDValue.setValue(providerIDValue);
     }
 
 
@@ -226,8 +226,8 @@ public class ParameterListBean extends MessagePartBean {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"roleType/value"})
-    public List<HealthcareProviderRoleType> getHealthcareProviderRoleType() {
-        return new RawListWrapper<CV, HealthcareProviderRoleType>(healthcareProviderRoleType, CVImpl.class);
+    public List<HealthcareProviderRoleType> getRoleTypeValue() {
+        return new RawListWrapper<CV, HealthcareProviderRoleType>(roleTypeValue, CVImpl.class);
     }
 
 }

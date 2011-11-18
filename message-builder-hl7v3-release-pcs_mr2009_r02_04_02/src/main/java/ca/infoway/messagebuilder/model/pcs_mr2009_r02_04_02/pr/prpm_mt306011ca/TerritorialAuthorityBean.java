@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV territorialAuthorityType = new CVImpl();
-    private CV jurisdictionType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV territoryCode = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
 
 
@@ -59,11 +59,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getTerritorialAuthorityType() {
-        return (Code) this.territorialAuthorityType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setTerritorialAuthorityType(Code territorialAuthorityType) {
-        this.territorialAuthorityType.setValue(territorialAuthorityType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -84,11 +84,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * Territorial Authority Type is Expected to Exist</p></p>
      */
     @Hl7XmlMapping({"territory/code"})
-    public Code getJurisdictionType() {
-        return (Code) this.jurisdictionType.getValue();
+    public Code getTerritoryCode() {
+        return (Code) this.territoryCode.getValue();
     }
-    public void setJurisdictionType(Code jurisdictionType) {
-        this.jurisdictionType.setValue(jurisdictionType);
+    public void setTerritoryCode(Code territoryCode) {
+        this.territoryCode.setValue(territoryCode);
     }
 
 

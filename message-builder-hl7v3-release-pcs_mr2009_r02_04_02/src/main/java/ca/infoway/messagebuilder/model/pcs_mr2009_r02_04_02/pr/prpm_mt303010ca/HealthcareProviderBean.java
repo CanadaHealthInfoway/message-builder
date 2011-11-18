@@ -68,16 +68,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private II healthcareProviderRoleIdentification = new IIImpl();
+    private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private CV healthcareProviderRoleType = new CVImpl();
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private LIST<AD, PostalAddress> healthcareProviderRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> healthcareProviderRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private CS healthcareProviderRoleStatusCode = new CSImpl();
-    private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
+    private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_1Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
 
@@ -98,11 +98,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setHealthcareProviderRoleIdentification(Identifier healthcareProviderRoleIdentification) {
-        this.healthcareProviderRoleIdentification.setValue(healthcareProviderRoleIdentification);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -122,26 +122,26 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getHealthcareProviderRoleType() {
-        return (HealthcareProviderRoleType) this.healthcareProviderRoleType.getValue();
+    public HealthcareProviderRoleType getCode() {
+        return (HealthcareProviderRoleType) this.code.getValue();
     }
-    public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
-        this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
+    public void setCode(HealthcareProviderRoleType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
-     * <p><p>The provider'''s name pertaining to the specific 
+     * <p><p>The providers name pertaining to the specific 
      * healthcare provider role.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public List<PersonName> getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.rawList();
+    public List<PersonName> getName() {
+        return this.name.rawList();
     }
 
 
@@ -155,8 +155,8 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getHealthcareProviderRoleAddress() {
-        return this.healthcareProviderRoleAddress.rawList();
+    public List<PostalAddress> getAddr() {
+        return this.addr.rawList();
     }
 
 
@@ -170,8 +170,8 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getHealthcareProviderRoleTelecom() {
-        return this.healthcareProviderRoleTelecom.rawList();
+    public List<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawList();
     }
 
 
@@ -185,11 +185,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public RoleStatus getHealthcareProviderRoleStatusCode() {
-        return (RoleStatus) this.healthcareProviderRoleStatusCode.getValue();
+    public RoleStatus getStatusCode() {
+        return (RoleStatus) this.statusCode.getValue();
     }
-    public void setHealthcareProviderRoleStatusCode(RoleStatus healthcareProviderRoleStatusCode) {
-        this.healthcareProviderRoleStatusCode.setValue(healthcareProviderRoleStatusCode);
+    public void setStatusCode(RoleStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -203,11 +203,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getHealthcareProviderRoleEffectiveDate() {
-        return this.healthcareProviderRoleEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setHealthcareProviderRoleEffectiveDate(Interval<Date> healthcareProviderRoleEffectiveDate) {
-        this.healthcareProviderRoleEffectiveDate.setValue(healthcareProviderRoleEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

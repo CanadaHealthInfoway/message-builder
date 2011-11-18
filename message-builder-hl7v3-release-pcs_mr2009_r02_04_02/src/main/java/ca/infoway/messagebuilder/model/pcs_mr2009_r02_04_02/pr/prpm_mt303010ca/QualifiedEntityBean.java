@@ -59,12 +59,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private II expertiseOrCredentialsRoleIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
 
@@ -84,11 +84,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * healthcare provider credentials</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setExpertiseOrCredentialsRoleIdentifier(Identifier expertiseOrCredentialsRoleIdentifier) {
-        this.expertiseOrCredentialsRoleIdentifier.setValue(expertiseOrCredentialsRoleIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -112,11 +112,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * message, then Role Type Must Exist.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public QualifiedRoleType getExpertiseOrCredentialsRoleType() {
-        return (QualifiedRoleType) this.expertiseOrCredentialsRoleType.getValue();
+    public QualifiedRoleType getCode() {
+        return (QualifiedRoleType) this.code.getValue();
     }
-    public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
-        this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
+    public void setCode(QualifiedRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -133,11 +133,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * message, then Role Effective Date Must Exist</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getExpertiseOrCredentialsRoleEffectiveDate() {
-        return this.expertiseOrCredentialsRoleEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
-        this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

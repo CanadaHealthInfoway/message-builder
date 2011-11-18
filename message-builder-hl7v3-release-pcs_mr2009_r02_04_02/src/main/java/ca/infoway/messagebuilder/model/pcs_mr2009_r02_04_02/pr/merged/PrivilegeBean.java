@@ -102,13 +102,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II restrictionsToPracticeIdentifier = new IIImpl();
-    private CV restrictionsToPracticeType = new CVImpl();
-    private BL restrictionsToPracticeNegationIndicator = new BLImpl();
-    private ST restrictionsToPracticeText = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private BL negationInd = new BLImpl();
+    private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
+    private CV confidentialityCode = new CVImpl();
     private List<PrivilegeCategorizationBean> subjectOfPrivilegeCategorization = new ArrayList<PrivilegeCategorizationBean>();
 
 
@@ -119,7 +119,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p><p>Unique identifier for the restriction.</p></p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p><p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      * 
@@ -127,32 +127,21 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p><p>Unique identifier for the restriction.</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p><p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRestrictionsToPracticeIdentifier() {
-        return this.restrictionsToPracticeIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
-        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
     /**
      * <p>RestrictionsToPracticeType</p>
-     * 
-     * <p>Restrictions to Practice Type</p>
-     * 
-     * <p><p>Type of restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Type Must Exist</p></p>
      * 
      * <p>Restrictions to Practice Type</p>
      * 
@@ -164,13 +153,24 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p><p>If Restrictions to Practice are included in the 
      * message, then Type Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Type</p>
+     * 
+     * <p><p>Type of restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Type Must Exist</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getRestrictionsToPracticeType() {
-        return (Code) this.restrictionsToPracticeType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setRestrictionsToPracticeType(Code restrictionsToPracticeType) {
-        this.restrictionsToPracticeType.setValue(restrictionsToPracticeType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -186,11 +186,11 @@ public class PrivilegeBean extends MessagePartBean {
      * privileges</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getRestrictionsToPracticeNegationIndicator() {
-        return this.restrictionsToPracticeNegationIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setRestrictionsToPracticeNegationIndicator(Boolean restrictionsToPracticeNegationIndicator) {
-        this.restrictionsToPracticeNegationIndicator.setValue(restrictionsToPracticeNegationIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -206,20 +206,20 @@ public class PrivilegeBean extends MessagePartBean {
      * privileges</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getRestrictionsToPracticeText() {
-        return this.restrictionsToPracticeText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
-        this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
     /**
-     * <p>Restrictions to Practice Effective Date</p>
+     * <p>Restrictions to Practice Type</p>
      * 
      * <p><p>Effective date of the restriction.</p></p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
+     * <p><p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      * 
@@ -237,11 +237,11 @@ public class PrivilegeBean extends MessagePartBean {
      * <p><p>If Restrictions to Practice are included in the 
      * message, then Effective Date Must Exist</p></p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Restrictions to Practice Effective Date</p>
      * 
      * <p><p>Effective date of the restriction.</p></p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p><p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      * 
@@ -259,38 +259,6 @@ public class PrivilegeBean extends MessagePartBean {
 
     /**
      * <p>RestrictionsToPracticeConfidentialityCode</p>
-     * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
-     * 
-     * <p><p>Indicates the degree to which the restriction to 
-     * practice is to be kept confidential.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>Data in the EHR may at some point (and in some 
-     * jurisdictions) be accessed directly by patients. Some health 
-     * information may be deemed inappropriate for direct access by 
-     * patients and requires interpretation by a clinician (e.g. 
-     * prescription of placebos, analysis of certain psychiatric 
-     * conditions, etc) Even where direct access by patient is not 
-     * provided, there may need to be guidance to other providers 
-     * viewing the record where care should be used in disclosing 
-     * information to the patient. Non-clinical data (e.g. 
-     * demographics) may need to be flagged as not for disclosure 
-     * to patient and or next of kin. There may be professional 
-     * policy and or legislative guidelines about when/if records 
-     * may be flagged as not for direct disclosure.</p></p>
-     * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
-     * 
-     * <p><p>Indicates the degree to which the restriction to 
-     * practice is to be kept confidential.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
      * 
      * <p>Restrictions to Practice Confidentiality Code</p>
      * 
@@ -314,13 +282,45 @@ public class PrivilegeBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p></p>
+     * 
+     * <p>Restrictions to Practice Confidentiality Code</p>
+     * 
+     * <p><p>Indicates the degree to which the restriction to 
+     * practice is to be kept confidential.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>Data in the EHR may at some point (and in some 
+     * jurisdictions) be accessed directly by patients. Some health 
+     * information may be deemed inappropriate for direct access by 
+     * patients and requires interpretation by a clinician (e.g. 
+     * prescription of placebos, analysis of certain psychiatric 
+     * conditions, etc) Even where direct access by patient is not 
+     * provided, there may need to be guidance to other providers 
+     * viewing the record where care should be used in disclosing 
+     * information to the patient. Non-clinical data (e.g. 
+     * demographics) may need to be flagged as not for disclosure 
+     * to patient and or next of kin. There may be professional 
+     * policy and or legislative guidelines about when/if records 
+     * may be flagged as not for direct disclosure.</p></p>
+     * 
+     * <p>Restrictions to Practice Confidentiality Code</p>
+     * 
+     * <p><p>Indicates the degree to which the restriction to 
+     * practice is to be kept confidential.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getRestrictionsToPracticeConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.restrictionsToPracticeConfidentialityCode.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setRestrictionsToPracticeConfidentialityCode(x_VeryBasicConfidentialityKind restrictionsToPracticeConfidentialityCode) {
-        this.restrictionsToPracticeConfidentialityCode.setValue(restrictionsToPracticeConfidentialityCode);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 

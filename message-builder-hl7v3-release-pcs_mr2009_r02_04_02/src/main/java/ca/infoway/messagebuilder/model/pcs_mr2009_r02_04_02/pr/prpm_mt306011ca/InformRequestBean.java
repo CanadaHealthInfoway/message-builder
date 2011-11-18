@@ -50,9 +50,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.ServiceDel
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD informRequestCode = new CDImpl();
-    private CE serviceDeliveryLocationParticipationMode = new CEImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private CE subjectModeCode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
@@ -68,11 +68,11 @@ public class InformRequestBean extends MessagePartBean {
      * document(s) be routed from an SDL to them.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInformRequestCode() {
-        return (Code) this.informRequestCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInformRequestCode(Code informRequestCode) {
-        this.informRequestCode.setValue(informRequestCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -83,11 +83,11 @@ public class InformRequestBean extends MessagePartBean {
      * playing the Role is participating in the Act.</p></p>
      */
     @Hl7XmlMapping({"subject/modeCode"})
-    public ParticipationMode getServiceDeliveryLocationParticipationMode() {
-        return (ParticipationMode) this.serviceDeliveryLocationParticipationMode.getValue();
+    public ParticipationMode getSubjectModeCode() {
+        return (ParticipationMode) this.subjectModeCode.getValue();
     }
-    public void setServiceDeliveryLocationParticipationMode(ParticipationMode serviceDeliveryLocationParticipationMode) {
-        this.serviceDeliveryLocationParticipationMode.setValue(serviceDeliveryLocationParticipationMode);
+    public void setSubjectModeCode(ParticipationMode subjectModeCode) {
+        this.subjectModeCode.setValue(subjectModeCode);
     }
 
 

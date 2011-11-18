@@ -65,12 +65,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
-    private CV functionalRoleType = new CVImpl();
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV code = new CVImpl();
+    private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPersonBean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
     private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
@@ -92,8 +92,8 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getFunctionalRoleIdentifier() {
-        return this.functionalRoleIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -112,26 +112,26 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public AssignedRoleType getFunctionalRoleType() {
-        return (AssignedRoleType) this.functionalRoleType.getValue();
+    public AssignedRoleType getCode() {
+        return (AssignedRoleType) this.code.getValue();
     }
-    public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
-        this.functionalRoleType.setValue(functionalRoleType);
+    public void setCode(AssignedRoleType code) {
+        this.code.setValue(code);
     }
 
 
     /**
      * <p>Functional Role Name</p>
      * 
-     * <p><p>The provider'''s name pertaining to the specific 
+     * <p><p>The providers name pertaining to the specific 
      * functional role.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
+    public List<PersonName> getName() {
+        return this.name.rawList();
     }
 
 

@@ -54,9 +54,9 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
 
@@ -70,8 +70,8 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -89,11 +89,11 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
      * message, then Role Type Must Exist.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public QualifiedRoleType getExpertiseOrCredentialsRoleType() {
-        return (QualifiedRoleType) this.expertiseOrCredentialsRoleType.getValue();
+    public QualifiedRoleType getCode() {
+        return (QualifiedRoleType) this.code.getValue();
     }
-    public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
-        this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
+    public void setCode(QualifiedRoleType code) {
+        this.code.setValue(code);
     }
 
 

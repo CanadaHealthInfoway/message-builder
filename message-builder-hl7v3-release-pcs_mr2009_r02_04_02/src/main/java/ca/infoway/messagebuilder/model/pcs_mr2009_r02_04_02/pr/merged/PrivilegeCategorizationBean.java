@@ -82,13 +82,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV restrictionsCategorizationType = new CVImpl();
-    private CV restrictionsCategorizationValue = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV value = new CVImpl();
 
 
     /**
      * <p>RestrictionsCategorizationType</p>
+     * 
+     * <p>Restrictions Categorization Type</p>
+     * 
+     * <p><p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
      * 
      * <p>Restrictions Categorization Type</p>
      * 
@@ -104,25 +113,16 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p><p>The code identifying the specific privilege and/or 
      * restrictions on those privileges</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p>Restrictions Categorization Type</p>
-     * 
-     * <p><p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
-     * 
      * <p><p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getRestrictionsCategorizationType() {
-        return (Code) this.restrictionsCategorizationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setRestrictionsCategorizationType(Code restrictionsCategorizationType) {
-        this.restrictionsCategorizationType.setValue(restrictionsCategorizationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -134,7 +134,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p><p>The value identifying the specific privilege and/or 
      * restrictions on those privileges</p></p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p><p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      * 
@@ -143,16 +143,16 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * <p><p>The value identifying the specific privilege and/or 
      * restrictions on those privileges</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p><p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Code getRestrictionsCategorizationValue() {
-        return (Code) this.restrictionsCategorizationValue.getValue();
+    public Code getValue() {
+        return (Code) this.value.getValue();
     }
-    public void setRestrictionsCategorizationValue(Code restrictionsCategorizationValue) {
-        this.restrictionsCategorizationValue.setValue(restrictionsCategorizationValue);
+    public void setValue(Code value) {
+        this.value.setValue(value);
     }
 
 }

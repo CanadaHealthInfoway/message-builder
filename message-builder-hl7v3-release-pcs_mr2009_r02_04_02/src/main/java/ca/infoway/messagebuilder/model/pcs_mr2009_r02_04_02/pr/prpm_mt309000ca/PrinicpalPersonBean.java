@@ -64,14 +64,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.PrincipalPerson"})
 public class PrinicpalPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> principalPersonAggregateIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CV principalPersonGender = new CVImpl();
-    private TS principalPersonDateOfBirth = new TSImpl();
-    private BL principalPersonDeceasedIndicator = new BLImpl();
-    private TS principalPersonDeceasedDate = new TSImpl();
-    private AD birthplaceAddress = new ADImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV administrativeGenderCode = new CVImpl();
+    private TS birthTime = new TSImpl();
+    private BL deceasedInd = new BLImpl();
+    private TS deceasedTime = new TSImpl();
+    private AD birthplaceAddr = new ADImpl();
     private List<LanguageOfCommunicationBean> languageCommunication = new ArrayList<LanguageOfCommunicationBean>();
 
 
@@ -86,15 +86,15 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPrincipalPersonAggregateIdentifier() {
-        return this.principalPersonAggregateIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
     /**
      * <p>Principal Person Name</p>
      * 
-     * <p><p>The person'''s name independent of any role they may 
+     * <p><p>The persons name independent of any role they may 
      * play.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
@@ -104,15 +104,15 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * Person Name Must Exist.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public List<PersonName> getPrincipalPersonName() {
-        return this.principalPersonName.rawList();
+    public List<PersonName> getName() {
+        return this.name.rawList();
     }
 
 
     /**
      * <p>Principal Person Gender</p>
      * 
-     * <p><p>The principal person'''s gender.</p></p>
+     * <p><p>The principal persons gender.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
@@ -121,18 +121,18 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * Person Gender is Expected to Exist.</p></p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPrincipalPersonGender() {
-        return (AdministrativeGender) this.principalPersonGender.getValue();
+    public AdministrativeGender getAdministrativeGenderCode() {
+        return (AdministrativeGender) this.administrativeGenderCode.getValue();
     }
-    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
-        this.principalPersonGender.setValue(principalPersonGender);
+    public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
+        this.administrativeGenderCode.setValue(administrativeGenderCode);
     }
 
 
     /**
      * <p>Principal Person Date of Birth</p>
      * 
-     * <p><p>The principal person'''s date of birth.</p></p>
+     * <p><p>The principal persons date of birth.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
@@ -141,11 +141,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * Prinicpal Person Date of Birth is Expected to Exist.</p></p>
      */
     @Hl7XmlMapping({"birthTime"})
-    public Date getPrincipalPersonDateOfBirth() {
-        return this.principalPersonDateOfBirth.getValue();
+    public Date getBirthTime() {
+        return this.birthTime.getValue();
     }
-    public void setPrincipalPersonDateOfBirth(Date principalPersonDateOfBirth) {
-        this.principalPersonDateOfBirth.setValue(principalPersonDateOfBirth);
+    public void setBirthTime(Date birthTime) {
+        this.birthTime.setValue(birthTime);
     }
 
 
@@ -159,11 +159,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * healthcare provider</p></p>
      */
     @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPrincipalPersonDeceasedIndicator() {
-        return this.principalPersonDeceasedIndicator.getValue();
+    public Boolean getDeceasedInd() {
+        return this.deceasedInd.getValue();
     }
-    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
-        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
+    public void setDeceasedInd(Boolean deceasedInd) {
+        this.deceasedInd.setValue(deceasedInd);
     }
 
 
@@ -184,11 +184,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * allow the sharing of this information.</p></p>
      */
     @Hl7XmlMapping({"deceasedTime"})
-    public Date getPrincipalPersonDeceasedDate() {
-        return this.principalPersonDeceasedDate.getValue();
+    public Date getDeceasedTime() {
+        return this.deceasedTime.getValue();
     }
-    public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
-        this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
+    public void setDeceasedTime(Date deceasedTime) {
+        this.deceasedTime.setValue(deceasedTime);
     }
 
 
@@ -204,11 +204,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
      * is Expected to Exist.</p></p>
      */
     @Hl7XmlMapping({"birthplace/addr"})
-    public PostalAddress getBirthplaceAddress() {
-        return this.birthplaceAddress.getValue();
+    public PostalAddress getBirthplaceAddr() {
+        return this.birthplaceAddr.getValue();
     }
-    public void setBirthplaceAddress(PostalAddress birthplaceAddress) {
-        this.birthplaceAddress.setValue(birthplaceAddress);
+    public void setBirthplaceAddr(PostalAddress birthplaceAddr) {
+        this.birthplaceAddr.setValue(birthplaceAddr);
     }
 
 

@@ -35,8 +35,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> relationshipEffectiveDateAndTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
 
@@ -46,11 +46,11 @@ public class RelatedToBean extends MessagePartBean {
      * <p><p>Effective date and time of the role relationships.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getRelationshipEffectiveDateAndTime() {
-        return this.relationshipEffectiveDateAndTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setRelationshipEffectiveDateAndTime(Interval<Date> relationshipEffectiveDateAndTime) {
-        this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

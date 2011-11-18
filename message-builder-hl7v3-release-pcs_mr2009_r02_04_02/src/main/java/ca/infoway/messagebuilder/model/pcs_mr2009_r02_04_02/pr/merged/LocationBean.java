@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT orderOfServiceDeliveryLocations = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
 
 
@@ -46,11 +46,11 @@ public class LocationBean extends MessagePartBean {
      * sequentially listed.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getOrderOfServiceDeliveryLocations() {
-        return this.orderOfServiceDeliveryLocations.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setOrderOfServiceDeliveryLocations(Integer orderOfServiceDeliveryLocations) {
-        this.orderOfServiceDeliveryLocations.setValue(orderOfServiceDeliveryLocations);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

@@ -120,13 +120,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> serviceDeliveryLocationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV serviceDeliveryLocationType = new CVImpl();
-    private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> serviceDeliveryLocationTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private ST serviceDeliveryLocationName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST locationName = new STImpl();
 
 
     /**
@@ -149,8 +149,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getServiceDeliveryLocationIdentifier() {
-        return this.serviceDeliveryLocationIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -166,11 +166,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getCode() {
+        return (ServiceDeliveryLocationRoleType) this.code.getValue();
     }
-    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
-        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
+    public void setCode(ServiceDeliveryLocationRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -185,8 +185,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getServiceDeliveryLocationAddress() {
-        return this.serviceDeliveryLocationAddress.rawList();
+    public List<PostalAddress> getAddr() {
+        return this.addr.rawList();
     }
 
 
@@ -202,8 +202,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getServiceDeliveryLocationTelecom() {
-        return this.serviceDeliveryLocationTelecom.rawList();
+    public List<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawList();
     }
 
 
@@ -219,11 +219,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -238,11 +238,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"location/name"})
-    public String getServiceDeliveryLocationName() {
-        return this.serviceDeliveryLocationName.getValue();
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
-        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 }

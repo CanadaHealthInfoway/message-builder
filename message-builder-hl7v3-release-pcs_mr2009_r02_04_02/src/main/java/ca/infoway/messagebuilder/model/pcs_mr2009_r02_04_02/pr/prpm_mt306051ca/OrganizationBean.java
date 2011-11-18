@@ -45,9 +45,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II organizationId = new IIImpl();
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST name = new STImpl();
     private TerritorialAuthorityBean territorialAuthority;
 
 
@@ -60,11 +60,11 @@ public class OrganizationBean extends MessagePartBean {
      * identification of the healthcare provider</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -76,39 +76,39 @@ public class OrganizationBean extends MessagePartBean {
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
-     * that grants the qualifications or expertise.</p></p>
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p></p>
      * 
      * <p><p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
-     * that grants the qualifications or expertise.</p></p>
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p></p>
      * 
      * <p><p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
-     * that grants the qualifications or expertise.</p></p>
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p></p>
      * 
      * <p><p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider'''s functional role.</p><p>3. Organization 
-     * that grants the qualifications or expertise.</p></p>
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p></p>
      * 
      * <p><p>Required attribute supports the validation and 
      * identification of the healthcare provider.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getIssuingRepresentingQualificationGrantingOrganizationNameS() {
-        return this.issuingRepresentingQualificationGrantingOrganizationNameS.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
-        this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
