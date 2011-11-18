@@ -32,19 +32,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthOrderNumber"})
 public class MultipleBirthOrderNumberBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT clientMultipleBirthOrderNumber = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT value = new INTImpl();
 
 
     /**
      * <p>Client Multiple Birth Order Number</p>
      */
     @Hl7XmlMapping({"value"})
-    public Integer getClientMultipleBirthOrderNumber() {
-        return this.clientMultipleBirthOrderNumber.getValue();
+    public Integer getValue() {
+        return this.value.getValue();
     }
-    public void setClientMultipleBirthOrderNumber(Integer clientMultipleBirthOrderNumber) {
-        this.clientMultipleBirthOrderNumber.setValue(clientMultipleBirthOrderNumber);
+    public void setValue(Integer value) {
+        this.value.setValue(value);
     }
 
 }

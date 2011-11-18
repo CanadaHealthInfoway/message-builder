@@ -53,9 +53,9 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV clientGender = new CVImpl();
-    private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
+    private static final long serialVersionUID = 20111117L;
+    private CV administrativeGenderValue = new CVImpl();
+    private List<II> clientIdValue = new ArrayList<II>();
     private DeceasedIndicatorBean deceasedIndicator;
     private DeceasedTimeBean deceasedTime;
     private FathersNameBean fathersName;
@@ -63,10 +63,10 @@ public class ParameterListBean extends MessagePartBean {
     private MothersMaidenNameBean mothersMaidenName;
     private MultipleBirthIndicatorBean multipleBirthIndicator;
     private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
-    private List<AD> clientAddress = new ArrayList<AD>();
-    private TS clientDateOfBirth = new TSImpl();
-    private List<PN> clientName = new ArrayList<PN>();
-    private List<TEL> clientTelecom = new ArrayList<TEL>();
+    private List<AD> personAddressValue = new ArrayList<AD>();
+    private TS personBirthtimeValue = new TSImpl();
+    private List<PN> personNameValue = new ArrayList<PN>();
+    private List<TEL> personTelecomValue = new ArrayList<TEL>();
     private PersonalRelationshipCodeBean personalRelationshipCode;
 
 
@@ -74,11 +74,11 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Gender</p>
      */
     @Hl7XmlMapping({"administrativeGender/value"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
+    public AdministrativeGender getAdministrativeGenderValue() {
+        return (AdministrativeGender) this.administrativeGenderValue.getValue();
     }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
+    public void setAdministrativeGenderValue(AdministrativeGender administrativeGenderValue) {
+        this.administrativeGenderValue.setValue(administrativeGenderValue);
     }
 
 
@@ -86,8 +86,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Identification</p>
      */
     @Hl7XmlMapping({"clientId/value"})
-    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
-        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
+    public List<Identifier> getClientIdValue() {
+        return new RawListWrapper<II, Identifier>(clientIdValue, IIImpl.class);
     }
 
 
@@ -158,8 +158,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Address</p>
      */
     @Hl7XmlMapping({"personAddress/value"})
-    public List<PostalAddress> getClientAddress() {
-        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+    public List<PostalAddress> getPersonAddressValue() {
+        return new RawListWrapper<AD, PostalAddress>(personAddressValue, ADImpl.class);
     }
 
 
@@ -167,11 +167,11 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Date of Birth</p>
      */
     @Hl7XmlMapping({"personBirthtime/value"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
+    public Date getPersonBirthtimeValue() {
+        return this.personBirthtimeValue.getValue();
     }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    public void setPersonBirthtimeValue(Date personBirthtimeValue) {
+        this.personBirthtimeValue.setValue(personBirthtimeValue);
     }
 
 
@@ -179,8 +179,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Name</p>
      */
     @Hl7XmlMapping({"personName/value"})
-    public List<PersonName> getClientName() {
-        return new RawListWrapper<PN, PersonName>(clientName, PNImpl.class);
+    public List<PersonName> getPersonNameValue() {
+        return new RawListWrapper<PN, PersonName>(personNameValue, PNImpl.class);
     }
 
 
@@ -188,8 +188,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Client Telecom</p>
      */
     @Hl7XmlMapping({"personTelecom/value"})
-    public List<TelecommunicationAddress> getClientTelecom() {
-        return new RawListWrapper<TEL, TelecommunicationAddress>(clientTelecom, TELImpl.class);
+    public List<TelecommunicationAddress> getPersonTelecomValue() {
+        return new RawListWrapper<TEL, TelecommunicationAddress>(personTelecomValue, TELImpl.class);
     }
 
 

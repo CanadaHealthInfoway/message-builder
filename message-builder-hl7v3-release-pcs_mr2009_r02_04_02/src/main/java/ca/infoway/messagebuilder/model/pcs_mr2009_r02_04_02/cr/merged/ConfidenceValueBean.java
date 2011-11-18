@@ -75,9 +75,9 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent","PRPA_MT101106CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV probabilityMatchCode = new CVImpl();
-    private REAL confidenceValue = new REALImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private REAL value = new REALImpl();
 
 
     /**
@@ -93,11 +93,11 @@ public class ConfidenceValueBean extends MessagePartBean {
      * of intended client</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationQueryMatchType getProbabilityMatchCode() {
-        return (ObservationQueryMatchType) this.probabilityMatchCode.getValue();
+    public ObservationQueryMatchType getCode() {
+        return (ObservationQueryMatchType) this.code.getValue();
     }
-    public void setProbabilityMatchCode(ObservationQueryMatchType probabilityMatchCode) {
-        this.probabilityMatchCode.setValue(probabilityMatchCode);
+    public void setCode(ObservationQueryMatchType code) {
+        this.code.setValue(code);
     }
 
 
@@ -114,11 +114,11 @@ public class ConfidenceValueBean extends MessagePartBean {
      * success of query</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public BigDecimal getConfidenceValue() {
-        return this.confidenceValue.getValue();
+    public BigDecimal getValue() {
+        return this.value.getValue();
     }
-    public void setConfidenceValue(BigDecimal confidenceValue) {
-        this.confidenceValue.setValue(confidenceValue);
+    public void setValue(BigDecimal value) {
+        this.value.setValue(value);
     }
 
 }

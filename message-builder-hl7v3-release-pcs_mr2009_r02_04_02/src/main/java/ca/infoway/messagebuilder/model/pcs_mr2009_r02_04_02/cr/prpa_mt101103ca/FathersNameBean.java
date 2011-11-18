@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.FathersName"})
 public class FathersNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private PN fatherSName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PN value = new PNImpl();
     private ST semanticsText = new STImpl();
 
 
@@ -57,11 +57,11 @@ public class FathersNameBean extends MessagePartBean {
      * focal person.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public PersonName getFatherSName() {
-        return this.fatherSName.getValue();
+    public PersonName getValue() {
+        return this.value.getValue();
     }
-    public void setFatherSName(PersonName fatherSName) {
-        this.fatherSName.setValue(fatherSName);
+    public void setValue(PersonName value) {
+        this.value.setValue(value);
     }
 
 

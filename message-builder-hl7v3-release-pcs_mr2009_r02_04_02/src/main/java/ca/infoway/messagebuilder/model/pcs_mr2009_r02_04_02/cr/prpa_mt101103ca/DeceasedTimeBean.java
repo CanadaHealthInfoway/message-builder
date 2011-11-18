@@ -33,19 +33,19 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.DeceasedTime"})
 public class DeceasedTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS deceasedDate = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS value = new TSImpl();
 
 
     /**
      * <p>Deceased Date</p>
      */
     @Hl7XmlMapping({"value"})
-    public Date getDeceasedDate() {
-        return this.deceasedDate.getValue();
+    public Date getValue() {
+        return this.value.getValue();
     }
-    public void setDeceasedDate(Date deceasedDate) {
-        this.deceasedDate.setValue(deceasedDate);
+    public void setValue(Date value) {
+        this.value.setValue(value);
     }
 
 }
