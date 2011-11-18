@@ -35,8 +35,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResult"})
 public class ResultOfAdjudicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adjudicationID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 
 
@@ -46,11 +46,11 @@ public class ResultOfAdjudicationBean extends MessagePartBean {
      * <p><p>Unique identifier for this adjudication</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationID() {
-        return this.adjudicationID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicationID(Identifier adjudicationID) {
-        this.adjudicationID.setValue(adjudicationID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

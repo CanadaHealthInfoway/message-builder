@@ -58,14 +58,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementDetail","FICR_MT510201CA.InvoiceElementDetail","FICR_MT610201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II submittedInvoiceLineIdentifier = new IIImpl();
-    private CV submittedProductServiceCode = new CVImpl();
-    private MO submittedInvoiceLineAmount = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private MO netAmt = new MOImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private PQ submittedUnitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private REAL taxAppliedToUnitPriceAmt = new REALImpl();
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
+    private REAL factorNumber = new REALImpl();
 
 
     /**
@@ -74,11 +74,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Submitted Invoice Line Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSubmittedInvoiceLineIdentifier() {
-        return this.submittedInvoiceLineIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
-        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -90,11 +90,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Submitted product/Service code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getSubmittedProductServiceCode() {
-        return (Code) this.submittedProductServiceCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setSubmittedProductServiceCode(Code submittedProductServiceCode) {
-        this.submittedProductServiceCode.setValue(submittedProductServiceCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -104,11 +104,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Submitted Invoice Line Amount</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getSubmittedInvoiceLineAmount() {
-        return this.submittedInvoiceLineAmount.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
-        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -124,11 +124,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Submitted Unit Quantity</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getSubmittedUnitQuantity() {
-        return this.submittedUnitQuantity.getValue();
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
     }
-    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
-        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
     }
 
 
@@ -138,11 +138,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Submitted Unit Amount Price</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 
@@ -152,11 +152,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>Tax % applied to unitPriceAmt.</p>
      */
     @Hl7XmlMapping({"factorNumber"})
-    public BigDecimal getTaxAppliedToUnitPriceAmt() {
-        return this.taxAppliedToUnitPriceAmt.getValue();
+    public BigDecimal getFactorNumber() {
+        return this.factorNumber.getValue();
     }
-    public void setTaxAppliedToUnitPriceAmt(BigDecimal taxAppliedToUnitPriceAmt) {
-        this.taxAppliedToUnitPriceAmt.setValue(taxAppliedToUnitPriceAmt);
+    public void setFactorNumber(BigDecimal factorNumber) {
+        this.factorNumber.setValue(factorNumber);
     }
 
 }

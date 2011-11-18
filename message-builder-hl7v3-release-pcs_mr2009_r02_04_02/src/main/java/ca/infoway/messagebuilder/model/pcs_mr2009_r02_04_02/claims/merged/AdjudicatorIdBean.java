@@ -41,10 +41,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorIdBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
     private AdjudicatorPersonBean playingAdjudicatorPerson;
-    private II adjudicatorInsuranceCarrierID = new IIImpl();
+    private II directAuthorityInsuranceCarrierRoleId = new IIImpl();
 
 
     /**
@@ -79,11 +79,11 @@ public class AdjudicatorIdBean extends MessagePartBean {
      * <p>Adjudicator Insurance Carrier ID</p>
      */
     @Hl7XmlMapping({"directAuthority/insuranceCarrierRole/id"})
-    public Identifier getAdjudicatorInsuranceCarrierID() {
-        return this.adjudicatorInsuranceCarrierID.getValue();
+    public Identifier getDirectAuthorityInsuranceCarrierRoleId() {
+        return this.directAuthorityInsuranceCarrierRoleId.getValue();
     }
-    public void setAdjudicatorInsuranceCarrierID(Identifier adjudicatorInsuranceCarrierID) {
-        this.adjudicatorInsuranceCarrierID.setValue(adjudicatorInsuranceCarrierID);
+    public void setDirectAuthorityInsuranceCarrierRoleId(Identifier directAuthorityInsuranceCarrierRoleId) {
+        this.directAuthorityInsuranceCarrierRoleId.setValue(directAuthorityInsuranceCarrierRoleId);
     }
 
 }

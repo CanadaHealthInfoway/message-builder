@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Form"})
 public class FormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TEL uRLForLocationForForm = new TELImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TEL telecom = new TELImpl();
 
 
     /**
      * <p>URL for location for form</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getURLForLocationForForm() {
-        return this.uRLForLocationForForm.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setURLForLocationForForm(TelecommunicationAddress uRLForLocationForForm) {
-        this.uRLForLocationForForm.setValue(uRLForLocationForForm);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 }

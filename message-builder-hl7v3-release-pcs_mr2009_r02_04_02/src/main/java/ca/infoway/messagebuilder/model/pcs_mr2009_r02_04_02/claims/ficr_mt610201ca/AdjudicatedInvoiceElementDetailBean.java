@@ -53,15 +53,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private AllowableBean reference1Allowable;
     private AdjudicatedResultOutcomeBean outcomeOf;
-    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
-    private CV adjudicatedProductServiceCode = new CVImpl();
-    private PQ adjudicatedUnitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private MO adjudicatedInvoiceLineAmount = new MOImpl();
-    private List<REAL> multiplierEG007 = new ArrayList<REAL>();
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
+    private MO netAmt = new MOImpl();
+    private List<REAL> factorNumber = new ArrayList<REAL>();
 
 
     @Hl7XmlMapping({"reference1/allowable"})
@@ -86,11 +86,11 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Adjudicated Invoice Element Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedInvoiceElementIdentifier() {
-        return this.adjudicatedInvoiceElementIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
-        this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -98,11 +98,11 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Adjudicated Product/Service Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getAdjudicatedProductServiceCode() {
-        return (Code) this.adjudicatedProductServiceCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
-        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -110,11 +110,11 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Adjudicated Unit Quantity</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getAdjudicatedUnitQuantity() {
-        return this.adjudicatedUnitQuantity.getValue();
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
     }
-    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
-        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
     }
 
 
@@ -122,11 +122,11 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Adjudicated Unit Price</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
-        return this.adjudicatedUnitPrice.getValue();
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
-        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 
@@ -134,11 +134,11 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Adjudicated Invoice Line Amount</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getAdjudicatedInvoiceLineAmount() {
-        return this.adjudicatedInvoiceLineAmount.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
-        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -146,8 +146,8 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
      * <p>Multiplier, e.g. 0.07</p>
      */
     @Hl7XmlMapping({"factorNumber"})
-    public List<BigDecimal> getMultiplierEG007() {
-        return new RawListWrapper<REAL, BigDecimal>(multiplierEG007, REALImpl.class);
+    public List<BigDecimal> getFactorNumber() {
+        return new RawListWrapper<REAL, BigDecimal>(factorNumber, REALImpl.class);
     }
 
 }

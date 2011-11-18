@@ -58,17 +58,17 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterList_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS adjudicationDate = new TSImpl();
-    private II adjudicatedResultsGroupID = new IIImpl();
-    private II financialContractID = new IIImpl();
-    private II insuranceCarrierID = new IIImpl();
-    private II locationIDNumber = new IIImpl();
-    private II payeeID = new IIImpl();
-    private II payorID = new IIImpl();
-    private II providerID = new IIImpl();
-    private II sendingApplicationIDNumber = new IIImpl();
-    private CV invoiceElementGroupCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
+    private II adjudResultsGroupIdValue = new IIImpl();
+    private II financialContractIdValue = new IIImpl();
+    private II insuranceCarrierRoleIdValue = new IIImpl();
+    private II locationIdValue = new IIImpl();
+    private II payeeIdValue = new IIImpl();
+    private II payorIdValue = new IIImpl();
+    private II providerIdValue = new IIImpl();
+    private II sendingApplicationIdValue = new IIImpl();
+    private CV invoiceElementGroupCodeValue = new CVImpl();
 
 
     /**
@@ -79,11 +79,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * <p><p>Date of the Adjudication</p></p>
      */
     @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Date getAdjudicationDate() {
-        return this.adjudicationDate.getValue();
+    public Date getAdjudResultsGroupAuthorTimeValue() {
+        return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
-    public void setAdjudicationDate(Date adjudicationDate) {
-        this.adjudicationDate.setValue(adjudicationDate);
+    public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
+        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
@@ -96,11 +96,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * results</p></p>
      */
     @Hl7XmlMapping({"adjudResultsGroupId/value"})
-    public Identifier getAdjudicatedResultsGroupID() {
-        return this.adjudicatedResultsGroupID.getValue();
+    public Identifier getAdjudResultsGroupIdValue() {
+        return this.adjudResultsGroupIdValue.getValue();
     }
-    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
-        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
+    public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
+        this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
     }
 
 
@@ -113,11 +113,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * invoices.</p></p>
      */
     @Hl7XmlMapping({"financialContractId/value"})
-    public Identifier getFinancialContractID() {
-        return this.financialContractID.getValue();
+    public Identifier getFinancialContractIdValue() {
+        return this.financialContractIdValue.getValue();
     }
-    public void setFinancialContractID(Identifier financialContractID) {
-        this.financialContractID.setValue(financialContractID);
+    public void setFinancialContractIdValue(Identifier financialContractIdValue) {
+        this.financialContractIdValue.setValue(financialContractIdValue);
     }
 
 
@@ -129,11 +129,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * <p><p>Business ID for Insurance Carrier</p></p>
      */
     @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
-    public Identifier getInsuranceCarrierID() {
-        return this.insuranceCarrierID.getValue();
+    public Identifier getInsuranceCarrierRoleIdValue() {
+        return this.insuranceCarrierRoleIdValue.getValue();
     }
-    public void setInsuranceCarrierID(Identifier insuranceCarrierID) {
-        this.insuranceCarrierID.setValue(insuranceCarrierID);
+    public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
+        this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
     }
 
 
@@ -145,11 +145,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * <p><p>Unique ID for location (OID)</p></p>
      */
     @Hl7XmlMapping({"locationId/value"})
-    public Identifier getLocationIDNumber() {
-        return this.locationIDNumber.getValue();
+    public Identifier getLocationIdValue() {
+        return this.locationIdValue.getValue();
     }
-    public void setLocationIDNumber(Identifier locationIDNumber) {
-        this.locationIDNumber.setValue(locationIDNumber);
+    public void setLocationIdValue(Identifier locationIdValue) {
+        this.locationIdValue.setValue(locationIdValue);
     }
 
 
@@ -163,11 +163,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * queried.</p></p>
      */
     @Hl7XmlMapping({"payeeId/value"})
-    public Identifier getPayeeID() {
-        return this.payeeID.getValue();
+    public Identifier getPayeeIdValue() {
+        return this.payeeIdValue.getValue();
     }
-    public void setPayeeID(Identifier payeeID) {
-        this.payeeID.setValue(payeeID);
+    public void setPayeeIdValue(Identifier payeeIdValue) {
+        this.payeeIdValue.setValue(payeeIdValue);
     }
 
 
@@ -180,11 +180,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * payment of adjudicated Invoice elements.</p></p>
      */
     @Hl7XmlMapping({"payorId/value"})
-    public Identifier getPayorID() {
-        return this.payorID.getValue();
+    public Identifier getPayorIdValue() {
+        return this.payorIdValue.getValue();
     }
-    public void setPayorID(Identifier payorID) {
-        this.payorID.setValue(payorID);
+    public void setPayorIdValue(Identifier payorIdValue) {
+        this.payorIdValue.setValue(payorIdValue);
     }
 
 
@@ -197,11 +197,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * jurisdictional PHN. eg. Professional registry no.</p></p>
      */
     @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderID() {
-        return this.providerID.getValue();
+    public Identifier getProviderIdValue() {
+        return this.providerIdValue.getValue();
     }
-    public void setProviderID(Identifier providerID) {
-        this.providerID.setValue(providerID);
+    public void setProviderIdValue(Identifier providerIdValue) {
+        this.providerIdValue.setValue(providerIdValue);
     }
 
 
@@ -214,11 +214,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * (OID)</p></p>
      */
     @Hl7XmlMapping({"sendingApplicationId/value"})
-    public Identifier getSendingApplicationIDNumber() {
-        return this.sendingApplicationIDNumber.getValue();
+    public Identifier getSendingApplicationIdValue() {
+        return this.sendingApplicationIdValue.getValue();
     }
-    public void setSendingApplicationIDNumber(Identifier sendingApplicationIDNumber) {
-        this.sendingApplicationIDNumber.setValue(sendingApplicationIDNumber);
+    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
+        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 
@@ -231,11 +231,11 @@ public class ParameterList_2Bean extends MessagePartBean {
      * details.</p></p>
      */
     @Hl7XmlMapping({"invoiceElementGroupCode/value"})
-    public Code getInvoiceElementGroupCode() {
-        return (Code) this.invoiceElementGroupCode.getValue();
+    public Code getInvoiceElementGroupCodeValue() {
+        return (Code) this.invoiceElementGroupCodeValue.getValue();
     }
-    public void setInvoiceElementGroupCode(Code invoiceElementGroupCode) {
-        this.invoiceElementGroupCode.setValue(invoiceElementGroupCode);
+    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
+        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
     }
 
 }

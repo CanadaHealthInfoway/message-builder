@@ -45,13 +45,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private AllowableBean reference1Allowable;
     private AdjudicationResultBean outcomeOfAdjudicationResult;
-    private II adjudicationResultIdentifier = new IIImpl();
-    private CV invoiceType = new CVImpl();
-    private CS invoiceStatus = new CSImpl();
-    private MO paidAmount = new MOImpl();
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private MO netAmt = new MOImpl();
     private Author1Bean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
     private CoverageBean coverage;
@@ -80,11 +80,11 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Adjudication Result Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultIdentifier() {
-        return this.adjudicationResultIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
-        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -92,11 +92,11 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Invoice Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -104,11 +104,11 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Invoice status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getInvoiceStatus() {
-        return (ActStatus) this.invoiceStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setInvoiceStatus(ActStatus invoiceStatus) {
-        this.invoiceStatus.setValue(invoiceStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -116,11 +116,11 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Paid Amount</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 

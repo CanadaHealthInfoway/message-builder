@@ -37,8 +37,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS adjudicationDateTime = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private AdjudicatorIdBean adjudicatorRole;
 
@@ -47,11 +47,11 @@ public class Author1Bean extends MessagePartBean {
      * <p>Adjudication date/time</p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getAdjudicationDateTime() {
-        return this.adjudicationDateTime.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setAdjudicationDateTime(Date adjudicationDateTime) {
-        this.adjudicationDateTime.setValue(adjudicationDateTime);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 

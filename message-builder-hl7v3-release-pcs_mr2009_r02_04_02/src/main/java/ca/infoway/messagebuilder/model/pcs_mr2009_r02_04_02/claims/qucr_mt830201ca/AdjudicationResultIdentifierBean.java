@@ -54,13 +54,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adjudicationResultIdentifier = new IIImpl();
-    private CV invoiceType = new CVImpl();
-    private MO paidAmount = new MOImpl();
-    private CS contextControlCode = new CSImpl();
-    private TS adjudicationDateTime = new TSImpl();
-    private CV eOBCommunicationMethod = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private MO netAmt = new MOImpl();
+    private CS authorContextControlCode = new CSImpl();
+    private TS authorTime = new TSImpl();
+    private CV authorModeCode = new CVImpl();
     private AdjudicatorIdBean authorAdjudicatorRole;
     private AdjudicatedResultOutcomeBean outcomeOf;
 
@@ -75,11 +75,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * adjudicator.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultIdentifier() {
-        return this.adjudicationResultIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
-        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -126,11 +126,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * same domain (i.e ActInvoiceGroupCode).</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -145,11 +145,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * codes.</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -157,11 +157,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Context Control code</p>
      */
     @Hl7XmlMapping({"author/contextControlCode"})
-    public ContextControl getContextControlCode() {
-        return (ContextControl) this.contextControlCode.getValue();
+    public ContextControl getAuthorContextControlCode() {
+        return (ContextControl) this.authorContextControlCode.getValue();
     }
-    public void setContextControlCode(ContextControl contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
+    public void setAuthorContextControlCode(ContextControl authorContextControlCode) {
+        this.authorContextControlCode.setValue(authorContextControlCode);
     }
 
 
@@ -174,11 +174,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * Will only be value for electronic EOBs</p></p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getAdjudicationDateTime() {
-        return this.adjudicationDateTime.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setAdjudicationDateTime(Date adjudicationDateTime) {
-        this.adjudicationDateTime.setValue(adjudicationDateTime);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 
@@ -206,11 +206,11 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * only</p></p>
      */
     @Hl7XmlMapping({"author/modeCode"})
-    public ParticipationMode getEOBCommunicationMethod() {
-        return (ParticipationMode) this.eOBCommunicationMethod.getValue();
+    public ParticipationMode getAuthorModeCode() {
+        return (ParticipationMode) this.authorModeCode.getValue();
     }
-    public void setEOBCommunicationMethod(ParticipationMode eOBCommunicationMethod) {
-        this.eOBCommunicationMethod.setValue(eOBCommunicationMethod);
+    public void setAuthorModeCode(ParticipationMode authorModeCode) {
+        this.authorModeCode.setValue(authorModeCode);
     }
 
 

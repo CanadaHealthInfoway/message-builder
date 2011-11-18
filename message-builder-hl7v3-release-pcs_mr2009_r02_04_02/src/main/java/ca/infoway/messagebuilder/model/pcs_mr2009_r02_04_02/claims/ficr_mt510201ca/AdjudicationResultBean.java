@@ -37,8 +37,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV adjudicationResultsAdjudicationCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
@@ -49,11 +49,11 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>Adjudication Results Adjudication Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getAdjudicationResultsAdjudicationCode() {
-        return (Code) this.adjudicationResultsAdjudicationCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setAdjudicationResultsAdjudicationCode(Code adjudicationResultsAdjudicationCode) {
-        this.adjudicationResultsAdjudicationCode.setValue(adjudicationResultsAdjudicationCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 

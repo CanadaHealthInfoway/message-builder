@@ -58,16 +58,16 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II specialAuthorizationRequestID = new IIImpl();
-    private CV specialAuthorizationRequestType = new CVImpl();
-    private CS requestStatus = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
     private HealthcareWorkerBean authorAssignedEntity;
     private Subject3Bean subject;
     private SpecialAuthorizationBean fulfillmentSpecialAuthorization;
-    private IVL<TS, Interval<Date>> specialAuthorizationRequestEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private CV specialAuthorizationPriorityCode = new CVImpl();
-    private SET<CV, Code> confidentialityRestrictionS = new SETImpl<CV, Code>(CVImpl.class);
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV priorityCode = new CVImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private FormRoleBean directTargetFormRole;
     private ContactPartyBean callBackContactContactParty;
     private SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference;
@@ -85,11 +85,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Special Authorization Request ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSpecialAuthorizationRequestID() {
-        return this.specialAuthorizationRequestID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSpecialAuthorizationRequestID(Identifier specialAuthorizationRequestID) {
-        this.specialAuthorizationRequestID.setValue(specialAuthorizationRequestID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -99,11 +99,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Special Authorization Request Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getSpecialAuthorizationRequestType() {
-        return (Code) this.specialAuthorizationRequestType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setSpecialAuthorizationRequestType(Code specialAuthorizationRequestType) {
-        this.specialAuthorizationRequestType.setValue(specialAuthorizationRequestType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -113,11 +113,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Request Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getRequestStatus() {
-        return (ActStatus) this.requestStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setRequestStatus(ActStatus requestStatus) {
-        this.requestStatus.setValue(requestStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -159,11 +159,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Special Authorization Request Effective Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecialAuthorizationRequestEffectiveDate() {
-        return this.specialAuthorizationRequestEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSpecialAuthorizationRequestEffectiveDate(Interval<Date> specialAuthorizationRequestEffectiveDate) {
-        this.specialAuthorizationRequestEffectiveDate.setValue(specialAuthorizationRequestEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -173,11 +173,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Special Authorization Priority Code</p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public ActPriority getSpecialAuthorizationPriorityCode() {
-        return (ActPriority) this.specialAuthorizationPriorityCode.getValue();
+    public ActPriority getPriorityCode() {
+        return (ActPriority) this.priorityCode.getValue();
     }
-    public void setSpecialAuthorizationPriorityCode(ActPriority specialAuthorizationPriorityCode) {
-        this.specialAuthorizationPriorityCode.setValue(specialAuthorizationPriorityCode);
+    public void setPriorityCode(ActPriority priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -187,8 +187,8 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
      * <p>Confidentiality Restriction(s</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConfidentialityRestrictionS() {
-        return this.confidentialityRestrictionS.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

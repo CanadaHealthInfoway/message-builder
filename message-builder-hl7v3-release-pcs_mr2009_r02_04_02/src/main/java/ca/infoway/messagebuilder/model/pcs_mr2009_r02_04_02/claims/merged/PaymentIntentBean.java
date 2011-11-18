@@ -56,8 +56,8 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS paymentIntentDateTime = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
@@ -86,17 +86,15 @@ public class PaymentIntentBean extends MessagePartBean {
      * control act wrapper.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getPaymentIntentDateTime() {
-        return this.paymentIntentDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
-        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
-     * <p>Total intent payment amount</p>
-     * 
      * <p>payment amount</p>
      * 
      * <p><p>Net_amt must be positive or 0 for</p><p>Adjudication 
@@ -130,6 +128,8 @@ public class PaymentIntentBean extends MessagePartBean {
      * Invoice Nullify Results: the payment intent is completed 
      * only, and therefore the amount must be specified.</p><p>For 
      * completed Payment Intents, this field is mandatory.</p></p>
+     * 
+     * <p>Total intent payment amount</p>
      */
     @Hl7XmlMapping({"amt"})
     public Money getAmt() {

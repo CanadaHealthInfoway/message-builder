@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Invoic
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT invoiceElementSequenceNumber = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 
 
@@ -51,11 +51,11 @@ public class InvoiceElementComponentBean extends MessagePartBean {
      * <p>Invoice Element Sequence Number</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getInvoiceElementSequenceNumber() {
-        return this.invoiceElementSequenceNumber.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setInvoiceElementSequenceNumber(Integer invoiceElementSequenceNumber) {
-        this.invoiceElementSequenceNumber.setValue(invoiceElementSequenceNumber);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

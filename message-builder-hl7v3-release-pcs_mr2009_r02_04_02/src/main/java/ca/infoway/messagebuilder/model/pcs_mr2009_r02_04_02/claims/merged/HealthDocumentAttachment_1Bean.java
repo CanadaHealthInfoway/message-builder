@@ -39,10 +39,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.HealthDocumentAttachment","FICR_MT490102CA.HealthDocumentAttachment","FICR_MT490103CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II attachmentIdentifier = new IIImpl();
-    private CV attachmentType = new CVImpl();
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -51,11 +51,11 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
      * <p>Attachment Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAttachmentIdentifier() {
-        return this.attachmentIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAttachmentIdentifier(Identifier attachmentIdentifier) {
-        this.attachmentIdentifier.setValue(attachmentIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -73,11 +73,11 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
      * - Form 8).</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getAttachmentType() {
-        return (Code) this.attachmentType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setAttachmentType(Code attachmentType) {
-        this.attachmentType.setValue(attachmentType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -87,11 +87,11 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
      * <p>Attachment Content</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 }

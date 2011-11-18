@@ -36,9 +36,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
-    private ED<EncapsulatedData> adjudicatedResultInfo = new EDImpl<EncapsulatedData>();
+    private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
@@ -51,11 +51,11 @@ public class AdjudicationResultInformationBean extends MessagePartBean implement
      * <p>Adjudicated Result Info.</p>
      */
     @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAdjudicatedResultInfo() {
-        return this.adjudicatedResultInfo.getValue();
+    public EncapsulatedData getValue() {
+        return this.value.getValue();
     }
-    public void setAdjudicatedResultInfo(EncapsulatedData adjudicatedResultInfo) {
-        this.adjudicatedResultInfo.setValue(adjudicatedResultInfo);
+    public void setValue(EncapsulatedData value) {
+        this.value.setValue(value);
     }
 
 }

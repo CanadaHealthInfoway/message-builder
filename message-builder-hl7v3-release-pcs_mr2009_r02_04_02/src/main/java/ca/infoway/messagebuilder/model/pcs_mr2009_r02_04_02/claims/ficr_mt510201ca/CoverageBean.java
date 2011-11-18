@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Coverage"})
 public class CoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT cOBSequenceAsAdjudicated = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
 
 
@@ -48,11 +48,11 @@ public class CoverageBean extends MessagePartBean {
      * <p>COB sequence as adjudicated.</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getCOBSequenceAsAdjudicated() {
-        return this.cOBSequenceAsAdjudicated.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setCOBSequenceAsAdjudicated(Integer cOBSequenceAsAdjudicated) {
-        this.cOBSequenceAsAdjudicated.setValue(cOBSequenceAsAdjudicated);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

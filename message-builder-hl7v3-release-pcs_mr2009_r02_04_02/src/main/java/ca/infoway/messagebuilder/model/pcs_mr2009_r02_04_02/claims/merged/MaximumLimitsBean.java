@@ -40,10 +40,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT400003CA.MaximumLimits","FICR_MT400004CA.MaximumLimits","FICR_MT490102CA.MaximumLimits"})
 public class MaximumLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT maximumFillsPermitted = new INTImpl();
-    private PQ maximumQuantitySupply = new PQImpl();
-    private IVL<TS, Interval<Date>> maximumDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private INT repeatNumber = new INTImpl();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -52,11 +52,11 @@ public class MaximumLimitsBean extends MessagePartBean {
      * <p>Maximum Fills Permitted</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getMaximumFillsPermitted() {
-        return this.maximumFillsPermitted.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setMaximumFillsPermitted(Integer maximumFillsPermitted) {
-        this.maximumFillsPermitted.setValue(maximumFillsPermitted);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -66,11 +66,11 @@ public class MaximumLimitsBean extends MessagePartBean {
      * <p>Maximum Quantity Supply</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getMaximumQuantitySupply() {
-        return this.maximumQuantitySupply.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setMaximumQuantitySupply(PhysicalQuantity maximumQuantitySupply) {
-        this.maximumQuantitySupply.setValue(maximumQuantitySupply);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -80,11 +80,11 @@ public class MaximumLimitsBean extends MessagePartBean {
      * <p>Maximum Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getMaximumDaysSupply() {
-        return this.maximumDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setMaximumDaysSupply(Interval<Date> maximumDaysSupply) {
-        this.maximumDaysSupply.setValue(maximumDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

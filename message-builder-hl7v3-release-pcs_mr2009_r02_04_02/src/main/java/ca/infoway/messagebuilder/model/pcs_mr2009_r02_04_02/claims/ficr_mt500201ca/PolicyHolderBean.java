@@ -36,20 +36,20 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private PN policyHolderName = new PNImpl();
-    private TS policyHolderDateOfBirth = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PN policyHolderPersonName = new PNImpl();
+    private TS policyHolderPersonBirthTime = new TSImpl();
 
 
     /**
      * <p>Policy Holder Name</p>
      */
     @Hl7XmlMapping({"policyHolderPerson/name"})
-    public PersonName getPolicyHolderName() {
-        return this.policyHolderName.getValue();
+    public PersonName getPolicyHolderPersonName() {
+        return this.policyHolderPersonName.getValue();
     }
-    public void setPolicyHolderName(PersonName policyHolderName) {
-        this.policyHolderName.setValue(policyHolderName);
+    public void setPolicyHolderPersonName(PersonName policyHolderPersonName) {
+        this.policyHolderPersonName.setValue(policyHolderPersonName);
     }
 
 
@@ -57,11 +57,11 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Policy Holder Date of birth</p>
      */
     @Hl7XmlMapping({"policyHolderPerson/birthTime"})
-    public Date getPolicyHolderDateOfBirth() {
-        return this.policyHolderDateOfBirth.getValue();
+    public Date getPolicyHolderPersonBirthTime() {
+        return this.policyHolderPersonBirthTime.getValue();
     }
-    public void setPolicyHolderDateOfBirth(Date policyHolderDateOfBirth) {
-        this.policyHolderDateOfBirth.setValue(policyHolderDateOfBirth);
+    public void setPolicyHolderPersonBirthTime(Date policyHolderPersonBirthTime) {
+        this.policyHolderPersonBirthTime.setValue(policyHolderPersonBirthTime);
     }
 
 }

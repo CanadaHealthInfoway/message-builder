@@ -52,12 +52,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementGroup","FICR_MT510201CA.InvoiceElementGroup"})
 public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private SET<II, Identifier> invoiceGroupingIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV invoiceType = new CVImpl();
-    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
-    private MO invoiceSubTotal = new MOImpl();
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private MO netAmt = new MOImpl();
     private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
     private FinancialContractBean inFulfillmentOfFinancialContract;
     private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
@@ -80,8 +80,8 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * <p>Invoice Grouping Identifier(s</p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceGroupingIdentifierS() {
-        return this.invoiceGroupingIdentifierS.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -93,11 +93,11 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * <p>Invoice Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -107,11 +107,11 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * <p>Time period for invoice</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTimePeriodForInvoice() {
-        return this.timePeriodForInvoice.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
-        this.timePeriodForInvoice.setValue(timePeriodForInvoice);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -123,11 +123,11 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
      * <p>Invoice sub-total</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 

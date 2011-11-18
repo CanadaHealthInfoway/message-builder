@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400003CA.PolicyHolderPerson"})
 public class PolicyHolderPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.PolicyHolderChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private PN policyHolderName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PN name = new PNImpl();
 
 
     /**
      * <p>Policy Holder Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public PersonName getPolicyHolderName() {
-        return this.policyHolderName.getValue();
+    public PersonName getName() {
+        return this.name.getValue();
     }
-    public void setPolicyHolderName(PersonName policyHolderName) {
-        this.policyHolderName.setValue(policyHolderName);
+    public void setName(PersonName name) {
+        this.name.setValue(name);
     }
 
 }

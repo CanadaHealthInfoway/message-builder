@@ -40,21 +40,21 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT remainingFillsPermitted = new INTImpl();
-    private PQ remainingQuantitySupply = new PQImpl();
-    private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private INT repeatNumber = new INTImpl();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
      * <p>Remaining Fills Permitted</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getRemainingFillsPermitted() {
-        return this.remainingFillsPermitted.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setRemainingFillsPermitted(Integer remainingFillsPermitted) {
-        this.remainingFillsPermitted.setValue(remainingFillsPermitted);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -62,11 +62,11 @@ public class RemainingLimitsBean extends MessagePartBean {
      * <p>Remaining Quantity Supply</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getRemainingQuantitySupply() {
-        return this.remainingQuantitySupply.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setRemainingQuantitySupply(PhysicalQuantity remainingQuantitySupply) {
-        this.remainingQuantitySupply.setValue(remainingQuantitySupply);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -74,11 +74,11 @@ public class RemainingLimitsBean extends MessagePartBean {
      * <p>Remaining Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getRemainingDaysSupply() {
-        return this.remainingDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setRemainingDaysSupply(Interval<Date> remainingDaysSupply) {
-        this.remainingDaysSupply.setValue(remainingDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

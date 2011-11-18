@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.FormRole"})
 public class FormRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II formNumberVersion = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II playingFormId = new IIImpl();
 
 
     /**
      * <p>Form Number + Version</p>
      */
     @Hl7XmlMapping({"playingForm/id"})
-    public Identifier getFormNumberVersion() {
-        return this.formNumberVersion.getValue();
+    public Identifier getPlayingFormId() {
+        return this.playingFormId.getValue();
     }
-    public void setFormNumberVersion(Identifier formNumberVersion) {
-        this.formNumberVersion.setValue(formNumberVersion);
+    public void setPlayingFormId(Identifier playingFormId) {
+        this.playingFormId.setValue(playingFormId);
     }
 
 }

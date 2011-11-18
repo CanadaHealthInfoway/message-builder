@@ -47,9 +47,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.FinancialContract","FICR_MT600201CA.FinancialContract"})
 public class FinancialContractBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II financialContractID = new IIImpl();
-    private CV billingArrangementType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
 
 
     /**
@@ -58,11 +58,11 @@ public class FinancialContractBean extends MessagePartBean {
      * <p>Financial Contract ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getFinancialContractID() {
-        return this.financialContractID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setFinancialContractID(Identifier financialContractID) {
-        this.financialContractID.setValue(financialContractID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -72,11 +72,11 @@ public class FinancialContractBean extends MessagePartBean {
      * <p>Billing Arrangement Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getBillingArrangementType() {
-        return (Code) this.billingArrangementType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setBillingArrangementType(Code billingArrangementType) {
-        this.billingArrangementType.setValue(billingArrangementType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

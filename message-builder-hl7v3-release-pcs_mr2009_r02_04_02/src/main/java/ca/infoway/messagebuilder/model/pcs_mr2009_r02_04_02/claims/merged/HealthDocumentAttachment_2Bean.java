@@ -79,10 +79,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.HealthDocumentAttachment","FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV attachmentType = new CVImpl();
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -91,8 +91,8 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
      * <p>Attachment identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAttachmentIdentifier() {
-        return this.attachmentIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -108,11 +108,11 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
      * - Form 8).</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getAttachmentType() {
-        return (Code) this.attachmentType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setAttachmentType(Code attachmentType) {
-        this.attachmentType.setValue(attachmentType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -122,11 +122,11 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
      * <p>Attachment content</p>
      */
     @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
+    public EncapsulatedData getValue() {
+        return this.value.getValue();
     }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
+    public void setValue(EncapsulatedData value) {
+        this.value.setValue(value);
     }
 
 }

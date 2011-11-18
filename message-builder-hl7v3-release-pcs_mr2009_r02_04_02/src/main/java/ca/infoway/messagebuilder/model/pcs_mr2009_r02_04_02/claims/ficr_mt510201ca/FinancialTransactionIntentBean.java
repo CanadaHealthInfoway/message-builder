@@ -71,11 +71,11 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II paymentIntentIdentifier = new IIImpl();
-    private CS paymentIntentStatus = new CSImpl();
-    private TS paymentIntentDateTime = new TSImpl();
-    private MO totalAmountOfPaymentIntent = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
+    private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
@@ -86,11 +86,11 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
      * <p>Payment Intent Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPaymentIntentIdentifier() {
-        return this.paymentIntentIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPaymentIntentIdentifier(Identifier paymentIntentIdentifier) {
-        this.paymentIntentIdentifier.setValue(paymentIntentIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -98,11 +98,11 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
      * <p>Payment Intent Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPaymentIntentStatus() {
-        return (ActStatus) this.paymentIntentStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPaymentIntentStatus(ActStatus paymentIntentStatus) {
-        this.paymentIntentStatus.setValue(paymentIntentStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -110,11 +110,11 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
      * <p>Payment Intent Date/Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getPaymentIntentDateTime() {
-        return this.paymentIntentDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
-        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -122,11 +122,11 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
      * <p>Total Amount of Payment Intent</p>
      */
     @Hl7XmlMapping({"amt"})
-    public Money getTotalAmountOfPaymentIntent() {
-        return this.totalAmountOfPaymentIntent.getValue();
+    public Money getAmt() {
+        return this.amt.getValue();
     }
-    public void setTotalAmountOfPaymentIntent(Money totalAmountOfPaymentIntent) {
-        this.totalAmountOfPaymentIntent.setValue(totalAmountOfPaymentIntent);
+    public void setAmt(Money amt) {
+        this.amt.setValue(amt);
     }
 
 

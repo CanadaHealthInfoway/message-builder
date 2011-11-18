@@ -97,8 +97,8 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adjudicatedResultsGroupID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
@@ -131,11 +131,11 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * message</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedResultsGroupID() {
-        return this.adjudicatedResultsGroupID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
-        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -237,14 +237,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Summary Period Date Range</p>
-     * 
      * <p>Time period for the payment</p>
      * 
      * <p><p>Time period for the payment or summary period.</p></p>
      * 
      * <p><p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p></p>
+     * 
+     * <p>Summary Period Date Range</p>
      * 
      * <p>Time period for the payment</p>
      * 

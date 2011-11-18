@@ -44,9 +44,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS specialAuthorizationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
     private PolicyOrAccountBean coveragePolicyOrAccount;
@@ -59,11 +59,11 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Special Authorization Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getSpecialAuthorizationStatus() {
-        return (ActStatus) this.specialAuthorizationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
-        this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -71,11 +71,11 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Special Authorization Effective Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecialAuthorizationEffectiveDate() {
-        return this.specialAuthorizationEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
-        this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

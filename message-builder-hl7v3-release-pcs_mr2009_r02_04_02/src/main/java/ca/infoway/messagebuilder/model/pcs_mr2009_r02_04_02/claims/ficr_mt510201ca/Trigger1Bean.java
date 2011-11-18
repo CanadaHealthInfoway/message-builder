@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Adjudi
 @Hl7PartTypeMapping({"FICR_MT510201CA.Trigger1"})
 public class Trigger1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private BL negationInd = new BLImpl();
     private AdjudicationResultRequiredActBean adjudicationResultRequiredAct;
 

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Component"})
 public class ComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 

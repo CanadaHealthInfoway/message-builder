@@ -55,22 +55,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroupSummaryData","FICR_MT630000CA.AdjudResultsGroupSummaryData","QUCR_MT810201CA.AdjudResultsGroupSummaryData"})
 public class SummaryDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private CV code = new CVImpl();
     private PQ value = new PQImpl();
 
 
     /**
-     * <p>Summary Information</p>
-     * 
-     * <p>Summary Type Code</p>
-     * 
      * <p>Summary Period Amt</p>
      * 
      * <p><p>Summary Period Amt</p></p>
      * 
      * <p><p>(defines the 'categorization'. Only really relevant 
      * for summaries.</p></p>
+     * 
+     * <p>Summary Information</p>
+     * 
+     * <p>Summary Type Code</p>
      */
     @Hl7XmlMapping({"code"})
     public Code getCode() {
@@ -82,6 +82,12 @@ public class SummaryDetailsBean extends MessagePartBean {
 
 
     /**
+     * <p>Value of summary</p>
+     * 
+     * <p><p>Constrain Value to PQ or MO data types only</p></p>
+     * 
+     * <p><p>PQ or MO - Value of summary</p></p>
+     * 
      * <p>Summary Total Amt</p>
      * 
      * <p><p>Constrain Value to PQ or MO data types only</p></p>
@@ -89,12 +95,6 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p><p>Summary Total Amt</p></p>
      * 
      * <p><p>PQ or MO only - Value of summary</p></p>
-     * 
-     * <p>Value of summary</p>
-     * 
-     * <p><p>Constrain Value to PQ or MO data types only</p></p>
-     * 
-     * <p><p>PQ or MO - Value of summary</p></p>
      * 
      * <p>Summary Total Amount</p>
      */

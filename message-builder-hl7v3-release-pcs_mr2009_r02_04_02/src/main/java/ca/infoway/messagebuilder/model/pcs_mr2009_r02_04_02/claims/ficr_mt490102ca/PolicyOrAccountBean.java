@@ -38,23 +38,23 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Policy
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II policyIdentifier = new IIImpl();
-    private CV policyType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
     private PolicyHolderBean holderPolicyHolder;
-    private II carrierIdentifier = new IIImpl();
+    private II authorUnderwriterId = new IIImpl();
 
 
     /**
      * <p>Policy Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -62,11 +62,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
      * <p>Policy Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPolicyType() {
-        return (Code) this.policyType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPolicyType(Code policyType) {
-        this.policyType.setValue(policyType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -92,11 +92,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
      * <p>Carrier Identifier</p>
      */
     @Hl7XmlMapping({"author/underwriter/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
+    public Identifier getAuthorUnderwriterId() {
+        return this.authorUnderwriterId.getValue();
     }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
+    public void setAuthorUnderwriterId(Identifier authorUnderwriterId) {
+        this.authorUnderwriterId.setValue(authorUnderwriterId);
     }
 
 }

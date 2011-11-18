@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorPerson"})
 public class AdjudicatorPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adjudicatorId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>Adjudicator Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatorId() {
-        return this.adjudicatorId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicatorId(Identifier adjudicatorId) {
-        this.adjudicatorId.setValue(adjudicatorId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

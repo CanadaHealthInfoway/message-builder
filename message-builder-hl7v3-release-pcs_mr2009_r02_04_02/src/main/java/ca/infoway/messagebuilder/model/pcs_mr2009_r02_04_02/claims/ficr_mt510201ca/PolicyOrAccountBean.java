@@ -43,22 +43,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Covere
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II policyIdentifier = new IIImpl();
-    private CV policyType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
-    private II carrierId = new IIImpl();
+    private II authorCarrierRoleId = new IIImpl();
 
 
     /**
      * <p>Policy Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -66,11 +66,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
      * <p>Policy type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPolicyType() {
-        return (Code) this.policyType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPolicyType(Code policyType) {
-        this.policyType.setValue(policyType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -87,11 +87,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
      * <p>Carrier Id</p>
      */
     @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierId() {
-        return this.carrierId.getValue();
+    public Identifier getAuthorCarrierRoleId() {
+        return this.authorCarrierRoleId.getValue();
     }
-    public void setCarrierId(Identifier carrierId) {
-        this.carrierId.setValue(carrierId);
+    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
+        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
     }
 
 }

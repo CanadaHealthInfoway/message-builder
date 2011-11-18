@@ -51,9 +51,9 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private MO totalBilledAmount = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
@@ -65,8 +65,8 @@ public class PaymentRequestBean extends MessagePartBean {
      * <p>Invoice Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceIdentifier() {
-        return this.invoiceIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -74,11 +74,11 @@ public class PaymentRequestBean extends MessagePartBean {
      * <p>Total Billed Amount</p>
      */
     @Hl7XmlMapping({"amt"})
-    public Money getTotalBilledAmount() {
-        return this.totalBilledAmount.getValue();
+    public Money getAmt() {
+        return this.amt.getValue();
     }
-    public void setTotalBilledAmount(Money totalBilledAmount) {
-        this.totalBilledAmount.setValue(totalBilledAmount);
+    public void setAmt(Money amt) {
+        this.amt.setValue(amt);
     }
 
 

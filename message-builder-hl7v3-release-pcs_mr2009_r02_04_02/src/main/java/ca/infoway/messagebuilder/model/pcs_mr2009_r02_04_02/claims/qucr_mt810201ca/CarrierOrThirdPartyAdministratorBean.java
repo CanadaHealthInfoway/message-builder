@@ -80,19 +80,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsCarrierRole"})
 public class CarrierOrThirdPartyAdministratorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II carrierId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>Carrier Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getCarrierId() {
-        return this.carrierId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCarrierId(Identifier carrierId) {
-        this.carrierId.setValue(carrierId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

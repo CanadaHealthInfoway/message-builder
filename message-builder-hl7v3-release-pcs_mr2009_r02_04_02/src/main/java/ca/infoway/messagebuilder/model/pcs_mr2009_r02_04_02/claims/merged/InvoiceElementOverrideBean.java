@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementOverride","FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceElementOverrideBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV invoiceOverrideCode = new CVImpl();
-    private ST invoiceOverrideNote = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
 
 
     /**
@@ -46,11 +46,11 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
      * <p>Invoice override code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceOverrideCode() {
-        return (Code) this.invoiceOverrideCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceOverrideCode(Code invoiceOverrideCode) {
-        this.invoiceOverrideCode.setValue(invoiceOverrideCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -60,11 +60,11 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
      * <p>Invoice Override Note</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getInvoiceOverrideNote() {
-        return this.invoiceOverrideNote.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setInvoiceOverrideNote(String invoiceOverrideNote) {
-        this.invoiceOverrideNote.setValue(invoiceOverrideNote);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

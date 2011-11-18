@@ -43,13 +43,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatientPerson"})
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private PN patientName = new PNImpl();
-    private CV personGender = new CVImpl();
-    private TS personDateOfBirth = new TSImpl();
-    private TS timeOfDeath = new TSImpl();
-    private BL personMultipleBirthIndicator = new BLImpl();
-    private INT personMultipleBirthOrderNumber = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private PN name = new PNImpl();
+    private CV administrativeGenderCode = new CVImpl();
+    private TS birthTime = new TSImpl();
+    private TS deceasedTime = new TSImpl();
+    private BL multipleBirthInd = new BLImpl();
+    private INT multipleBirthOrderNumber = new INTImpl();
     private ParentOrGuardianRoleBean parentOrGuardianRole;
 
 
@@ -57,11 +57,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>Patient Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getName() {
+        return this.name.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setName(PersonName name) {
+        this.name.setValue(name);
     }
 
 
@@ -69,11 +69,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>Person Gender</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPersonGender() {
-        return (AdministrativeGender) this.personGender.getValue();
+    public AdministrativeGender getAdministrativeGenderCode() {
+        return (AdministrativeGender) this.administrativeGenderCode.getValue();
     }
-    public void setPersonGender(AdministrativeGender personGender) {
-        this.personGender.setValue(personGender);
+    public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
+        this.administrativeGenderCode.setValue(administrativeGenderCode);
     }
 
 
@@ -81,11 +81,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>Person Date of birth</p>
      */
     @Hl7XmlMapping({"birthTime"})
-    public Date getPersonDateOfBirth() {
-        return this.personDateOfBirth.getValue();
+    public Date getBirthTime() {
+        return this.birthTime.getValue();
     }
-    public void setPersonDateOfBirth(Date personDateOfBirth) {
-        this.personDateOfBirth.setValue(personDateOfBirth);
+    public void setBirthTime(Date birthTime) {
+        this.birthTime.setValue(birthTime);
     }
 
 
@@ -93,11 +93,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>time of death</p>
      */
     @Hl7XmlMapping({"deceasedTime"})
-    public Date getTimeOfDeath() {
-        return this.timeOfDeath.getValue();
+    public Date getDeceasedTime() {
+        return this.deceasedTime.getValue();
     }
-    public void setTimeOfDeath(Date timeOfDeath) {
-        this.timeOfDeath.setValue(timeOfDeath);
+    public void setDeceasedTime(Date deceasedTime) {
+        this.deceasedTime.setValue(deceasedTime);
     }
 
 
@@ -105,11 +105,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>Person multiple birth indicator</p>
      */
     @Hl7XmlMapping({"multipleBirthInd"})
-    public Boolean getPersonMultipleBirthIndicator() {
-        return this.personMultipleBirthIndicator.getValue();
+    public Boolean getMultipleBirthInd() {
+        return this.multipleBirthInd.getValue();
     }
-    public void setPersonMultipleBirthIndicator(Boolean personMultipleBirthIndicator) {
-        this.personMultipleBirthIndicator.setValue(personMultipleBirthIndicator);
+    public void setMultipleBirthInd(Boolean multipleBirthInd) {
+        this.multipleBirthInd.setValue(multipleBirthInd);
     }
 
 
@@ -117,11 +117,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
      * <p>Person multiple birth order number</p>
      */
     @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public Integer getPersonMultipleBirthOrderNumber() {
-        return this.personMultipleBirthOrderNumber.getValue();
+    public Integer getMultipleBirthOrderNumber() {
+        return this.multipleBirthOrderNumber.getValue();
     }
-    public void setPersonMultipleBirthOrderNumber(Integer personMultipleBirthOrderNumber) {
-        this.personMultipleBirthOrderNumber.setValue(personMultipleBirthOrderNumber);
+    public void setMultipleBirthOrderNumber(Integer multipleBirthOrderNumber) {
+        this.multipleBirthOrderNumber.setValue(multipleBirthOrderNumber);
     }
 
 

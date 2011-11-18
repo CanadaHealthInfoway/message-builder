@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationRequestCrossReference","FICR_MT490102CA.SpecialAuthorizationRequestCrossReference"})
 public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II crossReferenceID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -43,11 +43,11 @@ public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBe
      * <p>Cross Reference ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getCrossReferenceID() {
-        return this.crossReferenceID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCrossReferenceID(Identifier crossReferenceID) {
-        this.crossReferenceID.setValue(crossReferenceID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

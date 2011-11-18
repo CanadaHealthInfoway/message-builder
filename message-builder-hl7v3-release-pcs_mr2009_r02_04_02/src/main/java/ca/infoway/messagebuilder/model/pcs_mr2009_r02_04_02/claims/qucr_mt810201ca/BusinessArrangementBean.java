@@ -38,8 +38,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsFinancialContract"})
 public class BusinessArrangementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II businessArrangementID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -48,11 +48,11 @@ public class BusinessArrangementBean extends MessagePartBean {
      * <p><p>Business arrangement identifier</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getBusinessArrangementID() {
-        return this.businessArrangementID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setBusinessArrangementID(Identifier businessArrangementID) {
-        this.businessArrangementID.setValue(businessArrangementID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

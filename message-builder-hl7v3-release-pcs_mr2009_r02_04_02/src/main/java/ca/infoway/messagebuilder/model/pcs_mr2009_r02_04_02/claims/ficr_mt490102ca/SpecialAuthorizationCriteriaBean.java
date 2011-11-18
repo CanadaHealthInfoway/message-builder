@@ -37,21 +37,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV generalSupportingInformationType = new CVImpl();
-    private ST generalSupportingInformationText = new STImpl();
-    private ANY<Object> generalSupportingInformationValue = new ANYImpl<Object>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
+    private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
      * <p>General Supporting Information Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getGeneralSupportingInformationType() {
-        return (Code) this.generalSupportingInformationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setGeneralSupportingInformationType(Code generalSupportingInformationType) {
-        this.generalSupportingInformationType.setValue(generalSupportingInformationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -59,11 +59,11 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
      * <p>General Supporting Information Text</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getGeneralSupportingInformationText() {
-        return this.generalSupportingInformationText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setGeneralSupportingInformationText(String generalSupportingInformationText) {
-        this.generalSupportingInformationText.setValue(generalSupportingInformationText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -71,11 +71,11 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
      * <p>General Supporting Information Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getGeneralSupportingInformationValue() {
-        return this.generalSupportingInformationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setGeneralSupportingInformationValue(Object generalSupportingInformationValue) {
-        this.generalSupportingInformationValue.setValue(generalSupportingInformationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 }

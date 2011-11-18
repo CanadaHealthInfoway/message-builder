@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private ED<EncapsulatedData> adjudicatedResultInformation = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     /**
      * <p>Adjudicated result information</p>
      */
     @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAdjudicatedResultInformation() {
-        return this.adjudicatedResultInformation.getValue();
+    public EncapsulatedData getValue() {
+        return this.value.getValue();
     }
-    public void setAdjudicatedResultInformation(EncapsulatedData adjudicatedResultInformation) {
-        this.adjudicatedResultInformation.setValue(adjudicatedResultInformation);
+    public void setValue(EncapsulatedData value) {
+        this.value.setValue(value);
     }
 
 }

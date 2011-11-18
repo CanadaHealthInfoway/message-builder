@@ -37,9 +37,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II additionalInformationRequestID = new IIImpl();
-    private ST additionalInformationQuestion = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST text = new STImpl();
     private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
 
 
@@ -49,11 +49,11 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * <p>Additional Information Request ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdditionalInformationRequestID() {
-        return this.additionalInformationRequestID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
-        this.additionalInformationRequestID.setValue(additionalInformationRequestID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -63,11 +63,11 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * <p>Additional Information Question</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getAdditionalInformationQuestion() {
-        return this.additionalInformationQuestion.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setAdditionalInformationQuestion(String additionalInformationQuestion) {
-        this.additionalInformationQuestion.setValue(additionalInformationQuestion);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 

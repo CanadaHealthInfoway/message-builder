@@ -44,10 +44,10 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II invoiceGroupID = new IIImpl();
-    private CV invoiceType = new CVImpl();
-    private MO invoiceSubTotal = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private MO netAmt = new MOImpl();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
 
 
@@ -90,11 +90,11 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * identifier 1. and 2.).</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getInvoiceGroupID() {
-        return this.invoiceGroupID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setInvoiceGroupID(Identifier invoiceGroupID) {
-        this.invoiceGroupID.setValue(invoiceGroupID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -190,11 +190,11 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * Type.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -218,11 +218,11 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * be present for a Coverage Extension Request.</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 

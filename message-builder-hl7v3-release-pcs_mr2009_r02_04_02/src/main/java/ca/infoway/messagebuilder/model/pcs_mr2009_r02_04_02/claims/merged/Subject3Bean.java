@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Subject3","FICR_MT400003CA.Subject","FICR_MT400003CA.Subject3","FICR_MT400004CA.Subject","FICR_MT400004CA.Subject3","FICR_MT490101CA.Subject3","FICR_MT490102CA.Subject3","FICR_MT490102CA.Subject4"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private BL includesExcludesProduct = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private BL negationInd = new BLImpl();
     private SpecialAuthorizationChoice specialAuthorizationChoice;
 
 
@@ -43,11 +43,11 @@ public class Subject3Bean extends MessagePartBean {
      * <p>Includes / Excludes Product</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getIncludesExcludesProduct() {
-        return this.includesExcludesProduct.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setIncludesExcludesProduct(Boolean includesExcludesProduct) {
-        this.includesExcludesProduct.setValue(includesExcludesProduct);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 

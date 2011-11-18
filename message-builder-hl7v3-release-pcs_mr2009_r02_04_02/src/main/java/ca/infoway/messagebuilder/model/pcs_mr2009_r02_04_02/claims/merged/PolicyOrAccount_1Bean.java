@@ -36,12 +36,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyOrAccount","FICR_MT400003CA.PolicyOrAccount","FICR_MT400004CA.PolicyOrAccount","FICR_MT490101CA.PolicyOrAccount"})
 public class PolicyOrAccount_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private CV policyType = new CVImpl();
+    private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
     private PolicyHolderBean holderPolicyHolder;
-    private II carrierIdentifier = new IIImpl();
+    private II authorCarrierRoleId = new IIImpl();
 
 
     /**
@@ -64,11 +64,11 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
      * <p>Policy Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPolicyType() {
-        return (Code) this.policyType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPolicyType(Code policyType) {
-        this.policyType.setValue(policyType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -96,11 +96,11 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
      * <p>Carrier Identifier</p>
      */
     @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
+    public Identifier getAuthorCarrierRoleId() {
+        return this.authorCarrierRoleId.getValue();
     }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
+    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
+        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
     }
 
 }

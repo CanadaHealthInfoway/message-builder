@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyHolder","FICR_MT400003CA.PolicyHolder","FICR_MT400004CA.PolicyHolder","FICR_MT490102CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II policyHolderIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private PolicyHolderChoice policyHolderChoice;
 
 
@@ -44,11 +44,11 @@ public class PolicyHolderBean extends MessagePartBean {
      * <p>Policy Holder Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPolicyHolderIdentifier() {
-        return this.policyHolderIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPolicyHolderIdentifier(Identifier policyHolderIdentifier) {
-        this.policyHolderIdentifier.setValue(policyHolderIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

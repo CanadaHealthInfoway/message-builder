@@ -227,18 +227,14 @@ import java.util.List;
  * animals.</p><p>Covered party may be a patient who for the 
  * purposes of the invoice is a covered party.</p></p>
  * 
- * <p><p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- 
+ * <p><p>Covered Person Identifier</p><p>(Assigned by
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatient","FICR_MT510201CA.CoveredPartyAsPatient","FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II coveredPartyIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
@@ -253,11 +249,11 @@ public class CoveredPartyAsPatientBean extends MessagePartBean {
      * <p>Covered Party Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getCoveredPartyIdentifier() {
-        return this.coveredPartyIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
-        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

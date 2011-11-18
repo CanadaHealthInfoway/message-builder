@@ -58,12 +58,12 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private CV invoiceType = new CVImpl();
-    private MO invoiceSubTotal = new MOImpl();
+    private CV code = new CVImpl();
+    private MO netAmt = new MOImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private FinancialContractBean inFulfillmentOfFinancialContract;
     private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
@@ -74,8 +74,6 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Invoice Grouping Identifier(s</p>
-     * 
      * <p>Invoice Group ID</p>
      * 
      * <p><p>Set of identifiers that uniquely identify the Invoice 
@@ -104,6 +102,8 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * invoice grouping identifier by adjudicator.</p><p>Obligation 
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p></p>
+     * 
+     * <p>Invoice Grouping Identifier(s</p>
      * 
      * <p>Invoice Grouping Identifier</p>
      * 
@@ -189,11 +189,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * <p>Invoice Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -201,8 +201,6 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * <p>InvoiceSubTotal</p>
      * 
      * <p>Invoice Sub-total</p>
-     * 
-     * <p>Invoice SubTotal</p>
      * 
      * <p>Invoice sub-total</p>
      * 
@@ -219,13 +217,15 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * for the Adjudicator for the Invoice Grouping that is being 
      * cancelled.</p><p>Attribute cannot be mandatory as it may not 
      * be present for a Coverage Extension Request.</p></p>
+     * 
+     * <p>Invoice SubTotal</p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -241,11 +241,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * <p>Time period for invoice</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTimePeriodForInvoice() {
-        return this.timePeriodForInvoice.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
-        this.timePeriodForInvoice.setValue(timePeriodForInvoice);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

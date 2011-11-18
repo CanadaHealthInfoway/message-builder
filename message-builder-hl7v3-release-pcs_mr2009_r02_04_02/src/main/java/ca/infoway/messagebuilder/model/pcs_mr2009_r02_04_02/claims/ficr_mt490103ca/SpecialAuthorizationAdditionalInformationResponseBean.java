@@ -42,9 +42,9 @@ import java.util.List;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II additionalInformationResponseID = new IIImpl();
-    private ST additionalInformationAnswer = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST text = new STImpl();
     private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
     private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
     private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
@@ -54,11 +54,11 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
      * <p>Additional Information Response ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdditionalInformationResponseID() {
-        return this.additionalInformationResponseID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdditionalInformationResponseID(Identifier additionalInformationResponseID) {
-        this.additionalInformationResponseID.setValue(additionalInformationResponseID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -66,11 +66,11 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
      * <p>Additional Information Answer</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getAdditionalInformationAnswer() {
-        return this.additionalInformationAnswer.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setAdditionalInformationAnswer(String additionalInformationAnswer) {
-        this.additionalInformationAnswer.setValue(additionalInformationAnswer);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 

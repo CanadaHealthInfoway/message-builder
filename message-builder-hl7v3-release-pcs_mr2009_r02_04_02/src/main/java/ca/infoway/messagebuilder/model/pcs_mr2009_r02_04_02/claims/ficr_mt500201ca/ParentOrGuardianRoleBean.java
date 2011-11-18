@@ -39,21 +39,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ParentOrGuardianRole"})
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II idOfParent = new IIImpl();
-    private CV parentOrGuardianRelationshipToPatient = new CVImpl();
-    private PN nameOfParentOrGuardian = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private PN relationshipHolderName = new PNImpl();
 
 
     /**
      * <p>Id of parent</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIdOfParent() {
-        return this.idOfParent.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIdOfParent(Identifier idOfParent) {
-        this.idOfParent.setValue(idOfParent);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -61,11 +61,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
      * <p>Parent or Guardian Relationship to patient</p>
      */
     @Hl7XmlMapping({"code"})
-    public PersonalRelationshipRoleType getParentOrGuardianRelationshipToPatient() {
-        return (PersonalRelationshipRoleType) this.parentOrGuardianRelationshipToPatient.getValue();
+    public PersonalRelationshipRoleType getCode() {
+        return (PersonalRelationshipRoleType) this.code.getValue();
     }
-    public void setParentOrGuardianRelationshipToPatient(PersonalRelationshipRoleType parentOrGuardianRelationshipToPatient) {
-        this.parentOrGuardianRelationshipToPatient.setValue(parentOrGuardianRelationshipToPatient);
+    public void setCode(PersonalRelationshipRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -73,11 +73,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
      * <p>Name of Parent or Guardian</p>
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getNameOfParentOrGuardian() {
-        return this.nameOfParentOrGuardian.getValue();
+    public PersonName getRelationshipHolderName() {
+        return this.relationshipHolderName.getValue();
     }
-    public void setNameOfParentOrGuardian(PersonName nameOfParentOrGuardian) {
-        this.nameOfParentOrGuardian.setValue(nameOfParentOrGuardian);
+    public void setRelationshipHolderName(PersonName relationshipHolderName) {
+        this.relationshipHolderName.setValue(relationshipHolderName);
     }
 
 }

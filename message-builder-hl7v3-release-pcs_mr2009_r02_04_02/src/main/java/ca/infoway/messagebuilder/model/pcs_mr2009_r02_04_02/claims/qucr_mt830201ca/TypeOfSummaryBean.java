@@ -54,10 +54,10 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD typeOfSummary = new CDImpl();
-    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
-    private MO summaryPeriodAmt = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private MO netAmt = new MOImpl();
     private List<AdjudicationResultIdentifierBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicationResultIdentifierBean>();
 
 
@@ -112,11 +112,11 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * advice (e.g. CFWD - carry forward adjustment).</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getTypeOfSummary() {
-        return (Code) this.typeOfSummary.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setTypeOfSummary(Code typeOfSummary) {
-        this.typeOfSummary.setValue(typeOfSummary);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -134,11 +134,11 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * which the clawback and/or retro adjustment applies.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSummaryPeriodDateRange() {
-        return this.summaryPeriodDateRange.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
-        this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -157,11 +157,11 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * the Payment Advice.</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getSummaryPeriodAmt() {
-        return this.summaryPeriodAmt.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setSummaryPeriodAmt(Money summaryPeriodAmt) {
-        this.summaryPeriodAmt.setValue(summaryPeriodAmt);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
