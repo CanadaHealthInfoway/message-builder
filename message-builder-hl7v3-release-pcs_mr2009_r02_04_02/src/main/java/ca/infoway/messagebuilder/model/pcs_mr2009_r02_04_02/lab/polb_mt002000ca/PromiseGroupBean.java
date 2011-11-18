@@ -55,15 +55,15 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.PromiseGroup"})
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
-    private II promiseGrouperIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private TS promiseGrouperDateTime = new TSImpl();
+    private TS effectiveTime = new TSImpl();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
@@ -95,11 +95,11 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
      * <p>Promise Grouper Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPromiseGrouperIdentifier() {
-        return this.promiseGrouperIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPromiseGrouperIdentifier(Identifier promiseGrouperIdentifier) {
-        this.promiseGrouperIdentifier.setValue(promiseGrouperIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -119,11 +119,11 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
      * <p>Promise Grouper Date/Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getPromiseGrouperDateTime() {
-        return this.promiseGrouperDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setPromiseGrouperDateTime(Date promiseGrouperDateTime) {
-        this.promiseGrouperDateTime.setValue(promiseGrouperDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -140,8 +140,8 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
      * <p>Result Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

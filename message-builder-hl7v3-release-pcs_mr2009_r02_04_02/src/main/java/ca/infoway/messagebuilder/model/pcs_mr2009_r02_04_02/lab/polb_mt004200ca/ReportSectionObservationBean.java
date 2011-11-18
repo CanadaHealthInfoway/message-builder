@@ -55,13 +55,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II sectionIdentifier = new IIImpl();
-    private CD reportSectionObservationType = new CDImpl();
-    private ST noteType = new STImpl();
-    private TS reportSectionObservationDateTime = new TSImpl();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private ANY<Object> reportSectionObservationValue = new ANYImpl<Object>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private TS effectiveTime = new TSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
@@ -71,11 +71,11 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * ObservationReport level.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSectionIdentifier() {
-        return this.sectionIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSectionIdentifier(Identifier sectionIdentifier) {
-        this.sectionIdentifier.setValue(sectionIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -85,11 +85,11 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * <p><p>Specifies the type of report section.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getReportSectionObservationType() {
-        return (Code) this.reportSectionObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setReportSectionObservationType(Code reportSectionObservationType) {
-        this.reportSectionObservationType.setValue(reportSectionObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -99,11 +99,11 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * <p><p>Type of comment or note.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getNoteType() {
-        return this.noteType.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setNoteType(String noteType) {
-        this.noteType.setValue(noteType);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -114,11 +114,11 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * &quot;reported&quot;.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getReportSectionObservationDateTime() {
-        return this.reportSectionObservationDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReportSectionObservationDateTime(Date reportSectionObservationDateTime) {
-        this.reportSectionObservationDateTime.setValue(reportSectionObservationDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -126,8 +126,8 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * <p>Result Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -140,11 +140,11 @@ public class ReportSectionObservationBean extends MessagePartBean {
      * Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getReportSectionObservationValue() {
-        return this.reportSectionObservationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setReportSectionObservationValue(Object reportSectionObservationValue) {
-        this.reportSectionObservationValue.setValue(reportSectionObservationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 }

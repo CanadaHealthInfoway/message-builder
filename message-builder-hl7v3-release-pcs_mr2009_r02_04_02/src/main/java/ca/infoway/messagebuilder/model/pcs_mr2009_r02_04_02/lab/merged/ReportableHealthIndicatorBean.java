@@ -58,9 +58,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ReportableTestIndicator","POLB_MT004100CA.ReportableTestIndicator","POLB_MT004200CA.ReportableTestIndicator"})
 public class ReportableHealthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD observationTypeReportableIndicator = new CDImpl();
-    private BL reportableIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private BL value = new BLImpl();
 
 
     /**
@@ -73,22 +73,22 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * 
      * <p>Observation Type - Reportable Indicator</p>
      * 
-     * <p><p>Describes this observation as an indicator as to 
-     * whether or not this result is to be reported to public 
-     * health.</p></p>
-     * 
-     * <p>Observation Type - Reportable Indicator</p>
-     * 
      * <p><p>Specifies this observation as indicating whether the 
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p></p>
+     * 
+     * <p>Observation Type - Reportable Indicator</p>
+     * 
+     * <p><p>Describes this observation as an indicator as to 
+     * whether or not this result is to be reported to public 
+     * health.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getObservationTypeReportableIndicator() {
-        return (Code) this.observationTypeReportableIndicator.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setObservationTypeReportableIndicator(Code observationTypeReportableIndicator) {
-        this.observationTypeReportableIndicator.setValue(observationTypeReportableIndicator);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -97,12 +97,12 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * 
      * <p>Reportable Indicator</p>
      * 
-     * <p><p>Report test and test results to another entity.</p></p>
+     * <p><p>This boolean value set whether this result is 
+     * reportable. True=reportable, false=not reportable.</p></p>
      * 
      * <p>Reportable Indicator</p>
      * 
-     * <p><p>This boolean value set whether this result is 
-     * reportable. True=reportable, false=not reportable.</p></p>
+     * <p><p>Report test and test results to another entity.</p></p>
      * 
      * <p>Reportable Indicator</p>
      * 
@@ -111,11 +111,11 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * True=reportable, false=not reportable.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Boolean getReportableIndicator() {
-        return this.reportableIndicator.getValue();
+    public Boolean getValue() {
+        return this.value.getValue();
     }
-    public void setReportableIndicator(Boolean reportableIndicator) {
-        this.reportableIndicator.setValue(reportableIndicator);
+    public void setValue(Boolean value) {
+        this.value.setValue(value);
     }
 
 }

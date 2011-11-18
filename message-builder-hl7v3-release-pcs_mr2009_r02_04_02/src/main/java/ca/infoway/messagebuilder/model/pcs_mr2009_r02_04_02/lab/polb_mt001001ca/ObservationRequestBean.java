@@ -68,22 +68,22 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.ObservationRequest"})
 public class ObservationRequestBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private II testIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private ParentTestBean occurrenceOfActParentPointer;
-    private CD testCode = new CDImpl();
+    private CD code = new CDImpl();
     private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
-    private CS testStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
-    private LIST<GTS, GeneralTimingSpecification> testRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
-    private TS testRequestAvailabilityTime = new TSImpl();
+    private LIST<GTS, GeneralTimingSpecification> effectiveTime = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
+    private TS availabilityTime = new TSImpl();
     private OrderSortKeyBean component3RequestSortKey;
     private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
-    private CV testPriorityCode = new CVImpl();
-    private SET<CV, Code> testMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private CV priorityCode = new CVImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf2ControlActEvent;
     private PriorTestRequestBean componentOf1PriorActRequest;
@@ -113,11 +113,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * order revisions and cancellations.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getTestIdentifier() {
-        return this.testIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setTestIdentifier(Identifier testIdentifier) {
-        this.testIdentifier.setValue(testIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -142,11 +142,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * <p><p>Specifies the requested test to be performed.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getTestCode() {
-        return (ObservationOrderableLabType) this.testCode.getValue();
+    public ObservationOrderableLabType getCode() {
+        return (ObservationOrderableLabType) this.code.getValue();
     }
-    public void setTestCode(ObservationOrderableLabType testCode) {
-        this.testCode.setValue(testCode);
+    public void setCode(ObservationOrderableLabType code) {
+        this.code.setValue(code);
     }
 
 
@@ -179,11 +179,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * complete=resulted and/or reported.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getTestStatus() {
-        return (ActStatus) this.testStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setTestStatus(ActStatus testStatus) {
-        this.testStatus.setValue(testStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -209,8 +209,8 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * future date.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public List<GeneralTimingSpecification> getTestRequestTimeSpecification() {
-        return this.testRequestTimeSpecification.rawList();
+    public List<GeneralTimingSpecification> getEffectiveTime() {
+        return this.effectiveTime.rawList();
     }
 
 
@@ -227,11 +227,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * be the most appropriate field.</p></p>
      */
     @Hl7XmlMapping({"availabilityTime"})
-    public Date getTestRequestAvailabilityTime() {
-        return this.testRequestAvailabilityTime.getValue();
+    public Date getAvailabilityTime() {
+        return this.availabilityTime.getValue();
     }
-    public void setTestRequestAvailabilityTime(Date testRequestAvailabilityTime) {
-        this.testRequestAvailabilityTime.setValue(testRequestAvailabilityTime);
+    public void setAvailabilityTime(Date availabilityTime) {
+        this.availabilityTime.setValue(availabilityTime);
     }
 
 
@@ -259,11 +259,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * stat, etc.)</p></p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public ActPriority getTestPriorityCode() {
-        return (ActPriority) this.testPriorityCode.getValue();
+    public ActPriority getPriorityCode() {
+        return (ActPriority) this.priorityCode.getValue();
     }
-    public void setTestPriorityCode(ActPriority testPriorityCode) {
-        this.testPriorityCode.setValue(testPriorityCode);
+    public void setPriorityCode(ActPriority priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -283,8 +283,8 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getTestMaskingIndicator() {
-        return this.testMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

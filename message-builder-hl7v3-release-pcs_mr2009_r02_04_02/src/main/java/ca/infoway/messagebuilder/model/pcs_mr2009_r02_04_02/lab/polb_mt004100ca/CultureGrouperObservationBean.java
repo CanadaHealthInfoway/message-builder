@@ -77,12 +77,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> cultureIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CD cultureType = new CDImpl();
-    private CS cultureStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> cultureEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ReportSectionSpecimenBean specimen;
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
@@ -105,8 +105,8 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * <p><p>Unique to identify this culture test.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getCultureIdentifier() {
-        return this.cultureIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -118,11 +118,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * source e.g. ear, blood, etc.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getCultureType() {
-        return (Code) this.cultureType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setCultureType(Code cultureType) {
-        this.cultureType.setValue(cultureType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -132,11 +132,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * <p><p>Status of the Culture.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCultureStatus() {
-        return (ActStatus) this.cultureStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setCultureStatus(ActStatus cultureStatus) {
-        this.cultureStatus.setValue(cultureStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -146,11 +146,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * <p><p>Effective time associated with the Culture.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCultureEffectiveTime() {
-        return this.cultureEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setCultureEffectiveTime(Interval<Date> cultureEffectiveTime) {
-        this.cultureEffectiveTime.setValue(cultureEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -170,8 +170,8 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

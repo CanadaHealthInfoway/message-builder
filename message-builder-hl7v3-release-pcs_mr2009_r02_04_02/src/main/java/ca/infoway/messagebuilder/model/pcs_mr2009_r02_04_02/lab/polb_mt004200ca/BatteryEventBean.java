@@ -65,18 +65,18 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private CD typeOfBatteryEvent = new CDImpl();
+    private CD code = new CDImpl();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private CS batteryEventStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> batteryEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
     private ResultSortKeyBean component2ResultSortKey;
@@ -103,8 +103,8 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
      * <p>Battery Event Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getBatteryEventIdentifier() {
-        return this.batteryEventIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -118,11 +118,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
      * <p>Type of Battery Event</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getTypeOfBatteryEvent() {
-        return (ObservationOrderableLabType) this.typeOfBatteryEvent.getValue();
+    public ObservationOrderableLabType getCode() {
+        return (ObservationOrderableLabType) this.code.getValue();
     }
-    public void setTypeOfBatteryEvent(ObservationOrderableLabType typeOfBatteryEvent) {
-        this.typeOfBatteryEvent.setValue(typeOfBatteryEvent);
+    public void setCode(ObservationOrderableLabType code) {
+        this.code.setValue(code);
     }
 
 
@@ -145,11 +145,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
      * <p>Battery Event Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getBatteryEventStatus() {
-        return (ActStatus) this.batteryEventStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setBatteryEventStatus(ActStatus batteryEventStatus) {
-        this.batteryEventStatus.setValue(batteryEventStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -159,11 +159,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
      * <p><p>Time at which the lab order became effective.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getBatteryEventEffectiveTime() {
-        return this.batteryEventEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setBatteryEventEffectiveTime(Interval<Date> batteryEventEffectiveTime) {
-        this.batteryEventEffectiveTime.setValue(batteryEventEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -180,8 +180,8 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
      * <p>Battery Event Confidentiality</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
-        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

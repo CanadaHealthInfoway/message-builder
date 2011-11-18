@@ -104,8 +104,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.ReferralRedirectIndicator","POLB_MT001001CA.ReferralRedirectIndicator","POLB_MT001010CA.ReferralRedirectIndicator","POLB_MT001999CA.ReferralRedirectIndicator"})
 public class ReferralRedirectIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD referralRedirectIndicator = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
 
 
     /**
@@ -117,11 +117,11 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * indicator act.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getReferralRedirectIndicator() {
-        return (Code) this.referralRedirectIndicator.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setReferralRedirectIndicator(Code referralRedirectIndicator) {
-        this.referralRedirectIndicator.setValue(referralRedirectIndicator);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

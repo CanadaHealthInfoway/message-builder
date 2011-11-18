@@ -43,9 +43,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001010CA.ActParentPointer: Parent Test</p>
  * 
- * <p><p>The classCode shall carry one of '''ACT''', 
- * '''BATTERY''' or '''OBS''' according to the parent order 
- * classCode.</p></p>
+ * <p><p>The classCode shall carry one of ACT, BATTERY or OBS 
+ * according to the parent order classCode.</p></p>
  * 
  * <p><p>Communicates the parent order (id) in a repeating 
  * child order.</p></p>
@@ -55,9 +54,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001001CA.ActParentPointer: Parent Test</p>
  * 
- * <p><p>The classCode shall carry one of '''ACT''', 
- * '''BATTERY''' or '''OBS''' according to the parent order 
- * classCode.</p></p>
+ * <p><p>The classCode shall carry one of ACT, BATTERY or OBS 
+ * according to the parent order classCode.</p></p>
  * 
  * <p><p>Communicates the parent order (id) in a repeating 
  * child order.</p></p>
@@ -67,9 +65,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001000CA.ActParentPointer: Parent Test</p>
  * 
- * <p><p>The classCode shall carry one of '''ACT''', 
- * '''BATTERY''' or '''OBS''' according to the parent order 
- * classCode.</p></p>
+ * <p><p>The classCode shall carry one of ACT, BATTERY or OBS 
+ * according to the parent order classCode.</p></p>
  * 
  * <p><p>Communicates the parent order (id) in a repeating 
  * child order.</p></p>
@@ -80,8 +77,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.ActParentPointer","POLB_MT001001CA.ActParentPointer","POLB_MT001010CA.ActParentPointer","POLB_MT001999CA.ActParentPointer"})
 public class ParentTestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II parentTestIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -96,11 +93,11 @@ public class ParentTestBean extends MessagePartBean {
      * parent order.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getParentTestIdentifier() {
-        return this.parentTestIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setParentTestIdentifier(Identifier parentTestIdentifier) {
-        this.parentTestIdentifier.setValue(parentTestIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

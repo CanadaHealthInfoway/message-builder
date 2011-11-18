@@ -61,13 +61,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001999CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
-    private SET<II, Identifier> placerGroupIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private HealthcareOrganizationBean performerAssignedEntity;
     private List<HealthcareWorkerBean> callBackContactAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private ParentTestBean occurrenceOfActParentPointer;
@@ -117,8 +117,8 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * nullify actions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPlacerGroupIdentifier() {
-        return this.placerGroupIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -153,8 +153,8 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
-        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

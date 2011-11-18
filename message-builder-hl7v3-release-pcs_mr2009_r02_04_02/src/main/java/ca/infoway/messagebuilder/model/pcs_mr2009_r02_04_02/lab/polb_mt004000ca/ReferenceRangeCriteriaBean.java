@@ -45,9 +45,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEventCriterion"})
 public class ReferenceRangeCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD referenceRangeCriteriaType = new CDImpl();
-    private ST referenceRangeCriteriaValue = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST value = new STImpl();
 
 
     /**
@@ -56,11 +56,11 @@ public class ReferenceRangeCriteriaBean extends MessagePartBean {
      * <p><p>The coded reference range criteria type.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getReferenceRangeCriteriaType() {
-        return (Code) this.referenceRangeCriteriaType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setReferenceRangeCriteriaType(Code referenceRangeCriteriaType) {
-        this.referenceRangeCriteriaType.setValue(referenceRangeCriteriaType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -70,11 +70,11 @@ public class ReferenceRangeCriteriaBean extends MessagePartBean {
      * <p><p>The reference range criteria value.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getReferenceRangeCriteriaValue() {
-        return this.referenceRangeCriteriaValue.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setReferenceRangeCriteriaValue(String referenceRangeCriteriaValue) {
-        this.referenceRangeCriteriaValue.setValue(referenceRangeCriteriaValue);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 }

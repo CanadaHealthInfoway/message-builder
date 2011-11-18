@@ -69,17 +69,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.OutbreakEvent","POLB_MT001010CA.OutbreakEvent","POLB_MT001999CA.OutbreakEvent","POLB_MT002000CA.OutbreakEvent","POLB_MT004000CA.OutbreakEvent","POLB_MT004100CA.OutbreakEvent","POLB_MT004200CA.OutbreakEvent"})
 public class OutbreakBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II outbreakIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
      * <p>OutbreakIdentifier</p>
-     * 
-     * <p>Outbreak Identifier</p>
-     * 
-     * <p><p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p></p>
      * 
      * <p>Outbreak Identifier</p>
      * 
@@ -93,13 +88,18 @@ public class OutbreakBean extends MessagePartBean {
      * should disposition.</p></p>
      * 
      * <p>Outbreak Identifier</p>
+     * 
+     * <p><p>Allows public health to identify an outbreak for which 
+     * this test is being conducted.</p></p>
+     * 
+     * <p>Outbreak Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getOutbreakIdentifier() {
-        return this.outbreakIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOutbreakIdentifier(Identifier outbreakIdentifier) {
-        this.outbreakIdentifier.setValue(outbreakIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

@@ -71,18 +71,18 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
-    private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private CD typeOfBatteryEvent = new CDImpl();
+    private CD code = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private CS batteryEventStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> batteryEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private ResultSortKeyBean component1ResultSortKey;
@@ -114,8 +114,8 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
      * <p><p>This is a unique identifier for the Battery Event.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getBatteryEventIdentifier() {
-        return this.batteryEventIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -132,11 +132,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
      * ordered by the lab.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getTypeOfBatteryEvent() {
-        return (ObservationOrderableLabType) this.typeOfBatteryEvent.getValue();
+    public ObservationOrderableLabType getCode() {
+        return (ObservationOrderableLabType) this.code.getValue();
     }
-    public void setTypeOfBatteryEvent(ObservationOrderableLabType typeOfBatteryEvent) {
-        this.typeOfBatteryEvent.setValue(typeOfBatteryEvent);
+    public void setCode(ObservationOrderableLabType code) {
+        this.code.setValue(code);
     }
 
 
@@ -162,11 +162,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
      * components of this Battery Event.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getBatteryEventStatus() {
-        return (ActStatus) this.batteryEventStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setBatteryEventStatus(ActStatus batteryEventStatus) {
-        this.batteryEventStatus.setValue(batteryEventStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -177,11 +177,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
      * battery.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getBatteryEventEffectiveTime() {
-        return this.batteryEventEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setBatteryEventEffectiveTime(Interval<Date> batteryEventEffectiveTime) {
-        this.batteryEventEffectiveTime.setValue(batteryEventEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -199,8 +199,8 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
      * Battery.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
-        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

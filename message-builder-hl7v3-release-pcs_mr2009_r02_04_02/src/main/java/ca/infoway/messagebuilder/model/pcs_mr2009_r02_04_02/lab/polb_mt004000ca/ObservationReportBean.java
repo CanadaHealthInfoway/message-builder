@@ -76,23 +76,23 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationReport"})
 public class ObservationReportBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
-    private II observationReportIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private CD labObservationReportType = new CDImpl();
+    private CD code = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private ST observationReportTitle = new STImpl();
+    private ST title = new STImpl();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private ED<EncapsulatedData> renderedReport = new EDImpl<EncapsulatedData>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private CS observationReportStatus = new CSImpl();
-    private TS reportDateTime = new TSImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private ResultSortKeyBean component1ResultSortKey;
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
     private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
     private VersionInformationBean subjectOf1ControlActEvent;
@@ -124,11 +124,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * cancels.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationReportIdentifier() {
-        return this.observationReportIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
-        this.observationReportIdentifier.setValue(observationReportIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -145,11 +145,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * queries.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getLabObservationReportType() {
-        return (Code) this.labObservationReportType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setLabObservationReportType(Code labObservationReportType) {
-        this.labObservationReportType.setValue(labObservationReportType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -174,11 +174,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * <p><p>The title for this report.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getObservationReportTitle() {
-        return this.observationReportTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setObservationReportTitle(String observationReportTitle) {
-        this.observationReportTitle.setValue(observationReportTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -196,11 +196,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * message in a displayable format.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getRenderedReport() {
-        return this.renderedReport.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setRenderedReport(EncapsulatedData renderedReport) {
-        this.renderedReport.setValue(renderedReport);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 
@@ -227,11 +227,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * complete=final.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getObservationReportStatus() {
-        return (ActStatus) this.observationReportStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setObservationReportStatus(ActStatus observationReportStatus) {
-        this.observationReportStatus.setValue(observationReportStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -242,11 +242,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * &quot;released&quot;.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getReportDateTime() {
-        return this.reportDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReportDateTime(Date reportDateTime) {
-        this.reportDateTime.setValue(reportDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -281,8 +281,8 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

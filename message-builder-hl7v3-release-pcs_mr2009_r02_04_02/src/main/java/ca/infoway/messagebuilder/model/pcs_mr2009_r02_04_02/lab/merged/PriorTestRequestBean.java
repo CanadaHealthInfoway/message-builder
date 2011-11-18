@@ -46,9 +46,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001010CA.PriorActRequest: Prior Test Request</p>
  * 
- * <p><p>The classCode shall carry one of '''ACT''', 
- * '''BATTERY''' or '''OBS''' according to the parent order 
- * classCode.</p></p>
+ * <p><p>The classCode shall carry one of ACT, BATTERY or OBS 
+ * according to the parent order classCode.</p></p>
  * 
  * <p><p>Must contain a value assigned by the order-placing 
  * organization that uniquely identifies this test request 
@@ -58,9 +57,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001001CA.PriorActRequest: Prior Test Request</p>
  * 
- * <p><p>The classCode shall carry one of '''ACT''', 
- * '''BATTERY''' or '''OBS''' according to the parent order 
- * classCode.</p></p>
+ * <p><p>The classCode shall carry one of ACT, BATTERY or OBS 
+ * according to the parent order classCode.</p></p>
  * 
  * <p><p>Must contain a value assigned by the order-placing 
  * organization that uniquely identifies this test request 
@@ -71,9 +69,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.PriorActRequest","POLB_MT001001CA.PriorActRequest","POLB_MT001010CA.PriorActRequest","POLB_MT001999CA.PriorActRequest"})
 public class PriorTestRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II priorTestIdentifier = new IIImpl();
-    private CS priorTestStatus = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
 
 
     /**
@@ -91,11 +89,11 @@ public class PriorTestRequestBean extends MessagePartBean {
      * <p>Prior Test Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPriorTestIdentifier() {
-        return this.priorTestIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPriorTestIdentifier(Identifier priorTestIdentifier) {
-        this.priorTestIdentifier.setValue(priorTestIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -104,18 +102,18 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>Prior Test Status</p>
      * 
+     * <p>Prior Test Status</p>
+     * 
      * <p><p>The status of the prior test request.</p></p>
      * 
      * <p><p>Used for order referrals.</p></p>
-     * 
-     * <p>Prior Test Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPriorTestStatus() {
-        return (ActStatus) this.priorTestStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPriorTestStatus(ActStatus priorTestStatus) {
-        this.priorTestStatus.setValue(priorTestStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 }

@@ -51,9 +51,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleB
 @Hl7PartTypeMapping({"POLB_MT002000CA.Specimen","POLB_MT004000CA.Specimen","POLB_MT004100CA.Specimen1","POLB_MT004200CA.Specimen"})
 public class ReportSectionSpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private SpecimenRoleBean specimen;
-    private INT specimenSequenceNumber = new INTImpl();
+    private INT sequenceNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"specimen"})
@@ -79,11 +79,11 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      * in the message.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getSpecimenSequenceNumber() {
-        return this.specimenSequenceNumber.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setSpecimenSequenceNumber(Integer specimenSequenceNumber) {
-        this.specimenSequenceNumber.setValue(specimenSequenceNumber);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 }

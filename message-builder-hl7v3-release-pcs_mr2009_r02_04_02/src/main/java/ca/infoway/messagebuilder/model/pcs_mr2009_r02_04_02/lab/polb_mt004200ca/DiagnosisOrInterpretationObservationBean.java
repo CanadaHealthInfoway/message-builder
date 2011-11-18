@@ -77,23 +77,23 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.SectionLevelObservationEvent"})
 public class DiagnosisOrInterpretationObservationBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private SET<II, Identifier> sectionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private CD sectionType = new CDImpl();
+    private CD code = new CDImpl();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private ST sectionText = new STImpl();
+    private ST text = new STImpl();
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private CS observationStatus = new CSImpl();
-    private TS sectionReportedDateTime = new TSImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ResultSortKeyBean component2ResultSortKey;
-    private ANY<Object> sectionValue = new ANYImpl<Object>();
+    private ANY<Object> value = new ANYImpl<Object>();
     private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
     private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
     private VersionInformationBean subjectOf1ControlActEvent;
@@ -122,8 +122,8 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * any object.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getSectionIdentifier() {
-        return this.sectionIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -144,11 +144,11 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * text.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getSectionType() {
-        return (Code) this.sectionType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setSectionType(Code sectionType) {
-        this.sectionType.setValue(sectionType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -175,11 +175,11 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * required to be captured and communicated.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getSectionText() {
-        return this.sectionText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setSectionText(String sectionText) {
-        this.sectionText.setValue(sectionText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -199,11 +199,11 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * Observation.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getObservationStatus() {
-        return (ActStatus) this.observationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setObservationStatus(ActStatus observationStatus) {
-        this.observationStatus.setValue(observationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -214,11 +214,11 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * reporting.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getSectionReportedDateTime() {
-        return this.sectionReportedDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSectionReportedDateTime(Date sectionReportedDateTime) {
-        this.sectionReportedDateTime.setValue(sectionReportedDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -250,8 +250,8 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -273,11 +273,11 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * SectionHeadingObservationValue Concept Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getSectionValue() {
-        return this.sectionValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setSectionValue(Object sectionValue) {
-        this.sectionValue.setValue(sectionValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 

@@ -80,27 +80,27 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEvent"})
 public class ResultObservationBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
-    private SET<II, Identifier> resultObservationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private CD resultObservationType = new CDImpl();
+    private CD code = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private ST resultObservationText = new STImpl();
+    private ST text = new STImpl();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private CS resultObservationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> resultObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private ResultSortKeyBean component1ResultSortKey;
-    private ANY<Object> resultObservationValue = new ANYImpl<Object>();
+    private ANY<Object> value = new ANYImpl<Object>();
     private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private CV observationInterpretationCode = new CVImpl();
+    private CV interpretationCode = new CVImpl();
     private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
-    private CV resultObservationMethod = new CVImpl();
+    private CV methodCode = new CVImpl();
     private List<DerivationBean> derivedFrom = new ArrayList<DerivationBean>();
     private VersionInformationBean subjectOf1ControlActEvent;
     private List<ReferenceRangeBean> referenceRangeInterpretationRange = new ArrayList<ReferenceRangeBean>();
@@ -132,8 +132,8 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * etc.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getResultObservationIdentifier() {
-        return this.resultObservationIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -156,11 +156,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * is also not specific or granular enough for this result.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getResultObservationType() {
-        return (Code) this.resultObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setResultObservationType(Code resultObservationType) {
-        this.resultObservationType.setValue(resultObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -189,11 +189,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * the other attribution or value sets.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getResultObservationText() {
-        return this.resultObservationText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setResultObservationText(String resultObservationText) {
-        this.resultObservationText.setValue(resultObservationText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -217,11 +217,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * complete=final.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getResultObservationStatus() {
-        return (ActStatus) this.resultObservationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setResultObservationStatus(ActStatus resultObservationStatus) {
-        this.resultObservationStatus.setValue(resultObservationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -232,11 +232,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * observation was performed.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getResultObservationDateTime() {
-        return this.resultObservationDateTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setResultObservationDateTime(Interval<Date> resultObservationDateTime) {
-        this.resultObservationDateTime.setValue(resultObservationDateTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -265,8 +265,8 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -293,11 +293,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getResultObservationValue() {
-        return this.resultObservationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setResultObservationValue(Object resultObservationValue) {
-        this.resultObservationValue.setValue(resultObservationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 
@@ -317,11 +317,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * <p><p>In v2.x, this was the abnormal flag.</p></p>
      */
     @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretation getObservationInterpretationCode() {
-        return (ObservationInterpretation) this.observationInterpretationCode.getValue();
+    public ObservationInterpretation getInterpretationCode() {
+        return (ObservationInterpretation) this.interpretationCode.getValue();
     }
-    public void setObservationInterpretationCode(ObservationInterpretation observationInterpretationCode) {
-        this.observationInterpretationCode.setValue(observationInterpretationCode);
+    public void setInterpretationCode(ObservationInterpretation interpretationCode) {
+        this.interpretationCode.setValue(interpretationCode);
     }
 
 
@@ -342,11 +342,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * code.</p></p>
      */
     @Hl7XmlMapping({"methodCode"})
-    public ObservationMethod getResultObservationMethod() {
-        return (ObservationMethod) this.resultObservationMethod.getValue();
+    public ObservationMethod getMethodCode() {
+        return (ObservationMethod) this.methodCode.getValue();
     }
-    public void setResultObservationMethod(ObservationMethod resultObservationMethod) {
-        this.resultObservationMethod.setValue(resultObservationMethod);
+    public void setMethodCode(ObservationMethod methodCode) {
+        this.methodCode.setValue(methodCode);
     }
 
 

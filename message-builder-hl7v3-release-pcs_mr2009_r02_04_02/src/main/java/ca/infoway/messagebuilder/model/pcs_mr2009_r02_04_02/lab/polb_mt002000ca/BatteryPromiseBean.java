@@ -63,18 +63,18 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.BatteryPromise"})
 public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
-    private II batteryPromiseIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private CD typeOfBatteryPromise = new CDImpl();
+    private CD code = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private CS batteryPromiseStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> batteryPromiseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private SET<CV, Code> batteryPromiseConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
@@ -105,11 +105,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
      * <p>Battery Promise Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getBatteryPromiseIdentifier() {
-        return this.batteryPromiseIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setBatteryPromiseIdentifier(Identifier batteryPromiseIdentifier) {
-        this.batteryPromiseIdentifier.setValue(batteryPromiseIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -125,11 +125,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
      * <p><p>A code identifying what was ordered by the lab.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getTypeOfBatteryPromise() {
-        return (ObservationOrderableLabType) this.typeOfBatteryPromise.getValue();
+    public ObservationOrderableLabType getCode() {
+        return (ObservationOrderableLabType) this.code.getValue();
     }
-    public void setTypeOfBatteryPromise(ObservationOrderableLabType typeOfBatteryPromise) {
-        this.typeOfBatteryPromise.setValue(typeOfBatteryPromise);
+    public void setCode(ObservationOrderableLabType code) {
+        this.code.setValue(code);
     }
 
 
@@ -152,11 +152,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
      * <p>Battery Promise Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getBatteryPromiseStatus() {
-        return (ActStatus) this.batteryPromiseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setBatteryPromiseStatus(ActStatus batteryPromiseStatus) {
-        this.batteryPromiseStatus.setValue(batteryPromiseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -164,11 +164,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
      * <p>Battery Promise Effective Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getBatteryPromiseEffectiveTime() {
-        return this.batteryPromiseEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setBatteryPromiseEffectiveTime(Interval<Date> batteryPromiseEffectiveTime) {
-        this.batteryPromiseEffectiveTime.setValue(batteryPromiseEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -182,8 +182,8 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
      * <p>Battery Promise Confidentiality</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryPromiseConfidentiality() {
-        return this.batteryPromiseConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

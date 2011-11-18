@@ -59,13 +59,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityObservationEvent"})
 public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD sensitivityTestCode = new CDImpl();
-    private ST sensitivityText = new STImpl();
-    private CS sensitivityStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> sensitivityTestDateTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private ST sensitivityValue = new STImpl();
-    private CV sensitivityValueInterpretation = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST value = new STImpl();
+    private CV interpretationCode = new CVImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
@@ -77,11 +77,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * for sensitivities.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getSensitivityTestCode() {
-        return (Code) this.sensitivityTestCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setSensitivityTestCode(Code sensitivityTestCode) {
-        this.sensitivityTestCode.setValue(sensitivityTestCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -97,11 +97,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * to be captured.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getSensitivityText() {
-        return this.sensitivityText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setSensitivityText(String sensitivityText) {
-        this.sensitivityText.setValue(sensitivityText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -111,11 +111,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * <p><p>Status associated with the sensitivity.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getSensitivityStatus() {
-        return (ActStatus) this.sensitivityStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setSensitivityStatus(ActStatus sensitivityStatus) {
-        this.sensitivityStatus.setValue(sensitivityStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -126,11 +126,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * was performed.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSensitivityTestDateTimeRange() {
-        return this.sensitivityTestDateTimeRange.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSensitivityTestDateTimeRange(Interval<Date> sensitivityTestDateTimeRange) {
-        this.sensitivityTestDateTimeRange.setValue(sensitivityTestDateTimeRange);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -142,11 +142,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * interpretationCode attribute.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getSensitivityValue() {
-        return this.sensitivityValue.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setSensitivityValue(String sensitivityValue) {
-        this.sensitivityValue.setValue(sensitivityValue);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 
@@ -157,11 +157,11 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
      * testing.</p></p>
      */
     @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretationSusceptibility getSensitivityValueInterpretation() {
-        return (ObservationInterpretationSusceptibility) this.sensitivityValueInterpretation.getValue();
+    public ObservationInterpretationSusceptibility getInterpretationCode() {
+        return (ObservationInterpretationSusceptibility) this.interpretationCode.getValue();
     }
-    public void setSensitivityValueInterpretation(ObservationInterpretationSusceptibility sensitivityValueInterpretation) {
-        this.sensitivityValueInterpretation.setValue(sensitivityValueInterpretation);
+    public void setInterpretationCode(ObservationInterpretationSusceptibility interpretationCode) {
+        this.interpretationCode.setValue(interpretationCode);
     }
 
 

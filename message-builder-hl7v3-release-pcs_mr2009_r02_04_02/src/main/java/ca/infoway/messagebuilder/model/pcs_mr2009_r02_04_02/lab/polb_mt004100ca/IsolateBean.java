@@ -44,10 +44,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Isolate2"})
 public class IsolateBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II isolateIdentifier = new IIImpl();
-    private CD microorganism = new CDImpl();
-    private ST microorganismDescription = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD isolateMicroorganismCode = new CDImpl();
+    private ST isolateMicroorganismDesc = new STImpl();
 
 
     /**
@@ -56,11 +56,11 @@ public class IsolateBean extends MessagePartBean {
      * <p><p>Unique identifier for the isolated microorganism.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIsolateIdentifier() {
-        return this.isolateIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIsolateIdentifier(Identifier isolateIdentifier) {
-        this.isolateIdentifier.setValue(isolateIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -70,11 +70,11 @@ public class IsolateBean extends MessagePartBean {
      * <p><p>Code for the microorganism.</p></p>
      */
     @Hl7XmlMapping({"isolateMicroorganism/code"})
-    public Code getMicroorganism() {
-        return (Code) this.microorganism.getValue();
+    public Code getIsolateMicroorganismCode() {
+        return (Code) this.isolateMicroorganismCode.getValue();
     }
-    public void setMicroorganism(Code microorganism) {
-        this.microorganism.setValue(microorganism);
+    public void setIsolateMicroorganismCode(Code isolateMicroorganismCode) {
+        this.isolateMicroorganismCode.setValue(isolateMicroorganismCode);
     }
 
 
@@ -85,11 +85,11 @@ public class IsolateBean extends MessagePartBean {
      * be used if SNOMED is not supported.</p></p>
      */
     @Hl7XmlMapping({"isolateMicroorganism/desc"})
-    public String getMicroorganismDescription() {
-        return this.microorganismDescription.getValue();
+    public String getIsolateMicroorganismDesc() {
+        return this.isolateMicroorganismDesc.getValue();
     }
-    public void setMicroorganismDescription(String microorganismDescription) {
-        this.microorganismDescription.setValue(microorganismDescription);
+    public void setIsolateMicroorganismDesc(String isolateMicroorganismDesc) {
+        this.isolateMicroorganismDesc.setValue(isolateMicroorganismDesc);
     }
 
 }

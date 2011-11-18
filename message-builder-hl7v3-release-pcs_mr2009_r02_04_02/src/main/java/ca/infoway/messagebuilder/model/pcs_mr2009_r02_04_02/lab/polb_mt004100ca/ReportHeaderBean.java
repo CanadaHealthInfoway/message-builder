@@ -82,14 +82,14 @@ import java.util.Set;
 @Hl7RootType
 public class ReportHeaderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca.ResultChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II observationReportIdentifier = new IIImpl();
-    private CD labObservationReportType = new CDImpl();
-    private ST observationReportTitle = new STImpl();
-    private ED<EncapsulatedData> renderedReport = new EDImpl<EncapsulatedData>();
-    private CS observationReportStatus = new CSImpl();
-    private TS observationReportDateTime = new TSImpl();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private ST title = new STImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private Patient_1Bean recordTargetPatient;
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
@@ -113,11 +113,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * corrections, and cancel transactions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationReportIdentifier() {
-        return this.observationReportIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
-        this.observationReportIdentifier.setValue(observationReportIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -128,11 +128,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * Sensitivity Report.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getLabObservationReportType() {
-        return (Code) this.labObservationReportType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setLabObservationReportType(Code labObservationReportType) {
-        this.labObservationReportType.setValue(labObservationReportType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -146,11 +146,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * and/or context of the result.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getObservationReportTitle() {
-        return this.observationReportTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setObservationReportTitle(String observationReportTitle) {
-        this.observationReportTitle.setValue(observationReportTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -162,11 +162,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * message in a displayable format.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getRenderedReport() {
-        return this.renderedReport.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setRenderedReport(EncapsulatedData renderedReport) {
-        this.renderedReport.setValue(renderedReport);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 
@@ -184,11 +184,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * complete=final.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getObservationReportStatus() {
-        return (ActStatus) this.observationReportStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setObservationReportStatus(ActStatus observationReportStatus) {
-        this.observationReportStatus.setValue(observationReportStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -199,11 +199,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * &quot;released&quot;.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getObservationReportDateTime() {
-        return this.observationReportDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setObservationReportDateTime(Date observationReportDateTime) {
-        this.observationReportDateTime.setValue(observationReportDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -223,8 +223,8 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

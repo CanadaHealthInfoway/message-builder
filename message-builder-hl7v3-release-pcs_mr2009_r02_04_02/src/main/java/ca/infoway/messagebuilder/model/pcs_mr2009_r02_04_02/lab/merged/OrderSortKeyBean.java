@@ -67,8 +67,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.RequestSortKey","POLB_MT001001CA.RequestSortKey","POLB_MT001010CA.RequestSortKey","POLB_MT001999CA.RequestSortKey"})
 public class OrderSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST sortKeyText = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
 
 
     /**
@@ -82,11 +82,11 @@ public class OrderSortKeyBean extends MessagePartBean {
      * value.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getSortKeyText() {
-        return this.sortKeyText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setSortKeyText(String sortKeyText) {
-        this.sortKeyText.setValue(sortKeyText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

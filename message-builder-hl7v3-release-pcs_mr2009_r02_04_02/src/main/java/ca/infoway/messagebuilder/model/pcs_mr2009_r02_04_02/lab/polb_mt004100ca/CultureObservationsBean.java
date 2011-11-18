@@ -61,12 +61,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD cultureObservationType = new CDImpl();
-    private ST cultureObservationComment = new STImpl();
-    private CS cultureObservationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
-    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ANY<Object> value = new ANYImpl<Object>();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
@@ -78,11 +78,11 @@ public class CultureObservationsBean extends MessagePartBean {
      * culture e.g. gram stain, etc.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getCultureObservationType() {
-        return (Code) this.cultureObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setCultureObservationType(Code cultureObservationType) {
-        this.cultureObservationType.setValue(cultureObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -92,11 +92,11 @@ public class CultureObservationsBean extends MessagePartBean {
      * <p><p>Comments associated with the Culture Observation.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getCultureObservationComment() {
-        return this.cultureObservationComment.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setCultureObservationComment(String cultureObservationComment) {
-        this.cultureObservationComment.setValue(cultureObservationComment);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -106,11 +106,11 @@ public class CultureObservationsBean extends MessagePartBean {
      * <p><p>Status associated with the Culture Observation.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCultureObservationStatus() {
-        return (ActStatus) this.cultureObservationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setCultureObservationStatus(ActStatus cultureObservationStatus) {
-        this.cultureObservationStatus.setValue(cultureObservationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -121,11 +121,11 @@ public class CultureObservationsBean extends MessagePartBean {
      * took place.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCultureObservationDateTime() {
-        return this.cultureObservationDateTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
-        this.cultureObservationDateTime.setValue(cultureObservationDateTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -138,11 +138,11 @@ public class CultureObservationsBean extends MessagePartBean {
      * CultureObservationValue Concept Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getCultureObservationValue() {
-        return this.cultureObservationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setCultureObservationValue(Object cultureObservationValue) {
-        this.cultureObservationValue.setValue(cultureObservationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 

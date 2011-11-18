@@ -73,21 +73,21 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private II batteryIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private ParentTestBean occurrenceOfActParentPointer;
-    private CD batteryType = new CDImpl();
+    private CD code = new CDImpl();
     private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
-    private CS batteryStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
-    private LIST<GTS, GeneralTimingSpecification> batteryRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
+    private LIST<GTS, GeneralTimingSpecification> effectiveTime = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
     private OrderSortKeyBean component3RequestSortKey;
-    private CV batteryPriorityCode = new CVImpl();
+    private CV priorityCode = new CVImpl();
     private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
-    private SET<CV, Code> batteryMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf2ControlActEvent;
     private PriorTestRequestBean componentOf1PriorActRequest;
@@ -115,11 +115,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * actions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getBatteryIdentifier() {
-        return this.batteryIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setBatteryIdentifier(Identifier batteryIdentifier) {
-        this.batteryIdentifier.setValue(batteryIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -146,11 +146,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * be performed.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getBatteryType() {
-        return (ObservationOrderableLabType) this.batteryType.getValue();
+    public ObservationOrderableLabType getCode() {
+        return (ObservationOrderableLabType) this.code.getValue();
     }
-    public void setBatteryType(ObservationOrderableLabType batteryType) {
-        this.batteryType.setValue(batteryType);
+    public void setCode(ObservationOrderableLabType code) {
+        this.code.setValue(code);
     }
 
 
@@ -186,11 +186,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * &quot;complete&quot; status for all child orders.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getBatteryStatus() {
-        return (ActStatus) this.batteryStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setBatteryStatus(ActStatus batteryStatus) {
-        this.batteryStatus.setValue(batteryStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -216,8 +216,8 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * future date.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public List<GeneralTimingSpecification> getBatteryRequestTimeSpecification() {
-        return this.batteryRequestTimeSpecification.rawList();
+    public List<GeneralTimingSpecification> getEffectiveTime() {
+        return this.effectiveTime.rawList();
     }
 
 
@@ -239,11 +239,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * stat, etc.)</p></p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public ActPriority getBatteryPriorityCode() {
-        return (ActPriority) this.batteryPriorityCode.getValue();
+    public ActPriority getPriorityCode() {
+        return (ActPriority) this.priorityCode.getValue();
     }
-    public void setBatteryPriorityCode(ActPriority batteryPriorityCode) {
-        this.batteryPriorityCode.setValue(batteryPriorityCode);
+    public void setPriorityCode(ActPriority priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -269,8 +269,8 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryMaskingIndicator() {
-        return this.batteryMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

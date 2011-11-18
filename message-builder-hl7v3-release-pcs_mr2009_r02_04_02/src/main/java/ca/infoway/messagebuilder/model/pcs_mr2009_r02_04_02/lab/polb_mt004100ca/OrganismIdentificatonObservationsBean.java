@@ -51,10 +51,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD organismIdentificationType = new CDImpl();
-    private CS organsimIdentificationObservationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private IsolateParticipationBean specimen;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
@@ -68,11 +68,11 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
      * 612-2).</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getOrganismIdentificationType() {
-        return (Code) this.organismIdentificationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setOrganismIdentificationType(Code organismIdentificationType) {
-        this.organismIdentificationType.setValue(organismIdentificationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -83,11 +83,11 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
      * observation.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOrgansimIdentificationObservationStatus() {
-        return (ActStatus) this.organsimIdentificationObservationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setOrgansimIdentificationObservationStatus(ActStatus organsimIdentificationObservationStatus) {
-        this.organsimIdentificationObservationStatus.setValue(organsimIdentificationObservationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -97,11 +97,11 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
      * <p><p>Effective time of the Organism Observation.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getOrganismObservationEffectiveTime() {
-        return this.organismObservationEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setOrganismObservationEffectiveTime(Interval<Date> organismObservationEffectiveTime) {
-        this.organismObservationEffectiveTime.setValue(organismObservationEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

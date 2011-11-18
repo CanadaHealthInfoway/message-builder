@@ -58,12 +58,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private II placerGroupIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private ParentTestBean occurrenceOfActParentPointer;
-    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
     private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
@@ -106,11 +106,11 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * nullify actions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPlacerGroupIdentifier() {
-        return this.placerGroupIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPlacerGroupIdentifier(Identifier placerGroupIdentifier) {
-        this.placerGroupIdentifier.setValue(placerGroupIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -139,8 +139,8 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
-        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

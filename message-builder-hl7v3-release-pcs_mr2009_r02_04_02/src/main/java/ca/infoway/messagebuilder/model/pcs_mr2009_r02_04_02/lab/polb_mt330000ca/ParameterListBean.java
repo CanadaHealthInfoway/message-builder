@@ -64,20 +64,20 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS orderStatusValue = new CSImpl();
-    private BL includeHistoryIndicator = new BLImpl();
-    private BL includeNullifiedOrdersIndicator = new BLImpl();
-    private BL includeResultsIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> observationAvailabilityEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> orderEntryEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CD orderTestCode = new CDImpl();
-    private II orderingProviderIdentifier = new IIImpl();
-    private TS patientDOB = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private II patientID = new IIImpl();
-    private PN patientName = new PNImpl();
-    private II placerOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS batteryRequestStatusValue = new CSImpl();
+    private BL includeHistoryIndicatorValue = new BLImpl();
+    private BL includeNullifiedIndicatorValue = new BLImpl();
+    private BL includeResultsIndicatorValue = new BLImpl();
+    private IVL<TS, Interval<Date>> observationAvailabilityDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> orderEnteredDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private CD orderTestCodeValue = new CDImpl();
+    private II orderingProviderValue = new IIImpl();
+    private TS patientDateofBirthValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private II patientIDValue = new IIImpl();
+    private PN patientNameValue = new PNImpl();
+    private II placerOrderNumberValue = new IIImpl();
 
 
     /**
@@ -92,11 +92,11 @@ public class ParameterListBean extends MessagePartBean {
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="batteryRequestStatus", type="POLB_MT330000CA.BatteryRequestStatus"),
         @Hl7MapByPartType(name="observationRequestStatus", type="POLB_MT330000CA.ObservationRequestStatus")})
-    public ActStatus getOrderStatusValue() {
-        return (ActStatus) this.orderStatusValue.getValue();
+    public ActStatus getBatteryRequestStatusValue() {
+        return (ActStatus) this.batteryRequestStatusValue.getValue();
     }
-    public void setOrderStatusValue(ActStatus orderStatusValue) {
-        this.orderStatusValue.setValue(orderStatusValue);
+    public void setBatteryRequestStatusValue(ActStatus batteryRequestStatusValue) {
+        this.batteryRequestStatusValue.setValue(batteryRequestStatusValue);
     }
 
 
@@ -112,11 +112,11 @@ public class ParameterListBean extends MessagePartBean {
      * quality assurance, etc.</p></p>
      */
     @Hl7XmlMapping({"includeHistoryIndicator/value"})
-    public Boolean getIncludeHistoryIndicator() {
-        return this.includeHistoryIndicator.getValue();
+    public Boolean getIncludeHistoryIndicatorValue() {
+        return this.includeHistoryIndicatorValue.getValue();
     }
-    public void setIncludeHistoryIndicator(Boolean includeHistoryIndicator) {
-        this.includeHistoryIndicator.setValue(includeHistoryIndicator);
+    public void setIncludeHistoryIndicatorValue(Boolean includeHistoryIndicatorValue) {
+        this.includeHistoryIndicatorValue.setValue(includeHistoryIndicatorValue);
     }
 
 
@@ -127,11 +127,11 @@ public class ParameterListBean extends MessagePartBean {
      * True=include records, the default is false</p></p>
      */
     @Hl7XmlMapping({"includeNullifiedIndicator/value"})
-    public Boolean getIncludeNullifiedOrdersIndicator() {
-        return this.includeNullifiedOrdersIndicator.getValue();
+    public Boolean getIncludeNullifiedIndicatorValue() {
+        return this.includeNullifiedIndicatorValue.getValue();
     }
-    public void setIncludeNullifiedOrdersIndicator(Boolean includeNullifiedOrdersIndicator) {
-        this.includeNullifiedOrdersIndicator.setValue(includeNullifiedOrdersIndicator);
+    public void setIncludeNullifiedIndicatorValue(Boolean includeNullifiedIndicatorValue) {
+        this.includeNullifiedIndicatorValue.setValue(includeNullifiedIndicatorValue);
     }
 
 
@@ -143,11 +143,11 @@ public class ParameterListBean extends MessagePartBean {
      * default is false.</p></p>
      */
     @Hl7XmlMapping({"includeResultsIndicator/value"})
-    public Boolean getIncludeResultsIndicator() {
-        return this.includeResultsIndicator.getValue();
+    public Boolean getIncludeResultsIndicatorValue() {
+        return this.includeResultsIndicatorValue.getValue();
     }
-    public void setIncludeResultsIndicator(Boolean includeResultsIndicator) {
-        this.includeResultsIndicator.setValue(includeResultsIndicator);
+    public void setIncludeResultsIndicatorValue(Boolean includeResultsIndicatorValue) {
+        this.includeResultsIndicatorValue.setValue(includeResultsIndicatorValue);
     }
 
 
@@ -166,11 +166,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"observationAvailabilityDateTimeRange/value"})
-    public Interval<Date> getObservationAvailabilityEffectiveTimeRange() {
-        return this.observationAvailabilityEffectiveTimeRange.getValue();
+    public Interval<Date> getObservationAvailabilityDateTimeRangeValue() {
+        return this.observationAvailabilityDateTimeRangeValue.getValue();
     }
-    public void setObservationAvailabilityEffectiveTimeRange(Interval<Date> observationAvailabilityEffectiveTimeRange) {
-        this.observationAvailabilityEffectiveTimeRange.setValue(observationAvailabilityEffectiveTimeRange);
+    public void setObservationAvailabilityDateTimeRangeValue(Interval<Date> observationAvailabilityDateTimeRangeValue) {
+        this.observationAvailabilityDateTimeRangeValue.setValue(observationAvailabilityDateTimeRangeValue);
     }
 
 
@@ -189,11 +189,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"orderEnteredDateTimeRange/value"})
-    public Interval<Date> getOrderEntryEffectiveTimeRange() {
-        return this.orderEntryEffectiveTimeRange.getValue();
+    public Interval<Date> getOrderEnteredDateTimeRangeValue() {
+        return this.orderEnteredDateTimeRangeValue.getValue();
     }
-    public void setOrderEntryEffectiveTimeRange(Interval<Date> orderEntryEffectiveTimeRange) {
-        this.orderEntryEffectiveTimeRange.setValue(orderEntryEffectiveTimeRange);
+    public void setOrderEnteredDateTimeRangeValue(Interval<Date> orderEnteredDateTimeRangeValue) {
+        this.orderEnteredDateTimeRangeValue.setValue(orderEnteredDateTimeRangeValue);
     }
 
 
@@ -206,11 +206,11 @@ public class ParameterListBean extends MessagePartBean {
      * <p><p>Identifies the specific test to perform.</p></p>
      */
     @Hl7XmlMapping({"orderTestCode/value"})
-    public ObservationOrderableLabType getOrderTestCode() {
-        return (ObservationOrderableLabType) this.orderTestCode.getValue();
+    public ObservationOrderableLabType getOrderTestCodeValue() {
+        return (ObservationOrderableLabType) this.orderTestCodeValue.getValue();
     }
-    public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
-        this.orderTestCode.setValue(orderTestCode);
+    public void setOrderTestCodeValue(ObservationOrderableLabType orderTestCodeValue) {
+        this.orderTestCodeValue.setValue(orderTestCodeValue);
     }
 
 
@@ -224,11 +224,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable for a specific ordering provider.</p></p>
      */
     @Hl7XmlMapping({"orderingProvider/value"})
-    public Identifier getOrderingProviderIdentifier() {
-        return this.orderingProviderIdentifier.getValue();
+    public Identifier getOrderingProviderValue() {
+        return this.orderingProviderValue.getValue();
     }
-    public void setOrderingProviderIdentifier(Identifier orderingProviderIdentifier) {
-        this.orderingProviderIdentifier.setValue(orderingProviderIdentifier);
+    public void setOrderingProviderValue(Identifier orderingProviderValue) {
+        this.orderingProviderValue.setValue(orderingProviderValue);
     }
 
 
@@ -241,11 +241,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientDateofBirth/value"})
-    public Date getPatientDOB() {
-        return this.patientDOB.getValue();
+    public Date getPatientDateofBirthValue() {
+        return this.patientDateofBirthValue.getValue();
     }
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB.setValue(patientDOB);
+    public void setPatientDateofBirthValue(Date patientDateofBirthValue) {
+        this.patientDateofBirthValue.setValue(patientDateofBirthValue);
     }
 
 
@@ -258,11 +258,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -276,11 +276,11 @@ public class ParameterListBean extends MessagePartBean {
      * retrieved.</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
+    public Identifier getPatientIDValue() {
+        return this.patientIDValue.getValue();
     }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
+    public void setPatientIDValue(Identifier patientIDValue) {
+        this.patientIDValue.setValue(patientIDValue);
     }
 
 
@@ -293,11 +293,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 
@@ -312,11 +312,11 @@ public class ParameterListBean extends MessagePartBean {
      * identifier.</p></p>
      */
     @Hl7XmlMapping({"placerOrderNumber/value"})
-    public Identifier getPlacerOrderNumber() {
-        return this.placerOrderNumber.getValue();
+    public Identifier getPlacerOrderNumberValue() {
+        return this.placerOrderNumberValue.getValue();
     }
-    public void setPlacerOrderNumber(Identifier placerOrderNumber) {
-        this.placerOrderNumber.setValue(placerOrderNumber);
+    public void setPlacerOrderNumberValue(Identifier placerOrderNumberValue) {
+        this.placerOrderNumberValue.setValue(placerOrderNumberValue);
     }
 
 }

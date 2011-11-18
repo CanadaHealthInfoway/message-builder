@@ -53,11 +53,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.IsolateObservationEvent"})
 public class IsolateObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD isolateObservationType = new CDImpl();
-    private CS isolateObservationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> isolateObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ST isolateObservationValue = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST value = new STImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
@@ -69,11 +69,11 @@ public class IsolateObservationsBean extends MessagePartBean {
      * to the LOINC code domain.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getIsolateObservationType() {
-        return (Code) this.isolateObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setIsolateObservationType(Code isolateObservationType) {
-        this.isolateObservationType.setValue(isolateObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -83,11 +83,11 @@ public class IsolateObservationsBean extends MessagePartBean {
      * <p><p>Status associated with the Isolate Observation.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getIsolateObservationStatus() {
-        return (ActStatus) this.isolateObservationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setIsolateObservationStatus(ActStatus isolateObservationStatus) {
-        this.isolateObservationStatus.setValue(isolateObservationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -97,11 +97,11 @@ public class IsolateObservationsBean extends MessagePartBean {
      * <p><p>Effective time of the Isolate Observation.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getIsolateObservationEffectiveTime() {
-        return this.isolateObservationEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setIsolateObservationEffectiveTime(Interval<Date> isolateObservationEffectiveTime) {
-        this.isolateObservationEffectiveTime.setValue(isolateObservationEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -111,11 +111,11 @@ public class IsolateObservationsBean extends MessagePartBean {
      * <p><p>The value of the isolate observation.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getIsolateObservationValue() {
-        return this.isolateObservationValue.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setIsolateObservationValue(String isolateObservationValue) {
-        this.isolateObservationValue.setValue(isolateObservationValue);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 

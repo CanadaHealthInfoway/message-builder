@@ -60,19 +60,19 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
-    private II labOrderObservationIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private CD orderableObservationType = new CDImpl();
+    private CD code = new CDImpl();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
-    private IVL<TS, Interval<Date>> orderObservationActivatedDateTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private CV plannedObservationMethod = new CVImpl();
+    private CV methodCode = new CVImpl();
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
     private VersionInformationBean subjectOf1ControlActEvent;
@@ -102,11 +102,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Lab Order Observation Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getLabOrderObservationIdentifier() {
-        return this.labOrderObservationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setLabOrderObservationIdentifier(Identifier labOrderObservationIdentifier) {
-        this.labOrderObservationIdentifier.setValue(labOrderObservationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -120,11 +120,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Orderable Observation Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getOrderableObservationType() {
-        return (Code) this.orderableObservationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setOrderableObservationType(Code orderableObservationType) {
-        this.orderableObservationType.setValue(orderableObservationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -147,11 +147,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Order Observation Activated Date/Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getOrderObservationActivatedDateTime() {
-        return this.orderObservationActivatedDateTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setOrderObservationActivatedDateTime(Interval<Date> orderObservationActivatedDateTime) {
-        this.orderObservationActivatedDateTime.setValue(orderObservationActivatedDateTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -165,8 +165,8 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Result Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -183,11 +183,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Planned Observation Method</p>
      */
     @Hl7XmlMapping({"methodCode"})
-    public ObservationMethod getPlannedObservationMethod() {
-        return (ObservationMethod) this.plannedObservationMethod.getValue();
+    public ObservationMethod getMethodCode() {
+        return (ObservationMethod) this.methodCode.getValue();
     }
-    public void setPlannedObservationMethod(ObservationMethod plannedObservationMethod) {
-        this.plannedObservationMethod.setValue(plannedObservationMethod);
+    public void setMethodCode(ObservationMethod methodCode) {
+        this.methodCode.setValue(methodCode);
     }
 
 

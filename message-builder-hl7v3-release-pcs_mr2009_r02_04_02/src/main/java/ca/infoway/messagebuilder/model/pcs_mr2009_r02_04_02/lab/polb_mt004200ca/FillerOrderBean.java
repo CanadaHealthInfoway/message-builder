@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ActPromise"})
 public class FillerOrderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II fillerOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
 
 
     /**
@@ -50,11 +50,11 @@ public class FillerOrderBean extends MessagePartBean implements ca.infoway.messa
      * promise.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getFillerOrderNumber() {
-        return this.fillerOrderNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setFillerOrderNumber(Identifier fillerOrderNumber) {
-        this.fillerOrderNumber.setValue(fillerOrderNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

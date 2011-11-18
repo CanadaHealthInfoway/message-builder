@@ -52,10 +52,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST clusterComment = new STImpl();
-    private CS clusterStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> clusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
     private HasComponentBean component2;
@@ -69,11 +69,11 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
      * <p><p>Comments associated with the Isolate Cluster.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getClusterComment() {
-        return this.clusterComment.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setClusterComment(String clusterComment) {
-        this.clusterComment.setValue(clusterComment);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -83,11 +83,11 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
      * <p><p>Status associated with the isolate cluster.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getClusterStatus() {
-        return (ActStatus) this.clusterStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setClusterStatus(ActStatus clusterStatus) {
-        this.clusterStatus.setValue(clusterStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -98,11 +98,11 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
      * Cluster.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClusterEffectiveTime() {
-        return this.clusterEffectiveTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setClusterEffectiveTime(Interval<Date> clusterEffectiveTime) {
-        this.clusterEffectiveTime.setValue(clusterEffectiveTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

@@ -45,9 +45,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004000CA.InterpretationRange"})
 public class ReferenceRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ANY<Object> referenceRangeValue = new ANYImpl<Object>();
-    private CV referenceRangeInterpretationType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ANY<Object> value = new ANYImpl<Object>();
+    private CV interpretationCode = new CVImpl();
     private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
 
 
@@ -62,11 +62,11 @@ public class ReferenceRangeBean extends MessagePartBean {
      * LaboratoryResultCodeValue Concept Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getReferenceRangeValue() {
-        return this.referenceRangeValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setReferenceRangeValue(Object referenceRangeValue) {
-        this.referenceRangeValue.setValue(referenceRangeValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 
@@ -77,11 +77,11 @@ public class ReferenceRangeBean extends MessagePartBean {
      * etc.</p></p>
      */
     @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretation getReferenceRangeInterpretationType() {
-        return (ObservationInterpretation) this.referenceRangeInterpretationType.getValue();
+    public ObservationInterpretation getInterpretationCode() {
+        return (ObservationInterpretation) this.interpretationCode.getValue();
     }
-    public void setReferenceRangeInterpretationType(ObservationInterpretation referenceRangeInterpretationType) {
-        this.referenceRangeInterpretationType.setValue(referenceRangeInterpretationType);
+    public void setInterpretationCode(ObservationInterpretation interpretationCode) {
+        this.interpretationCode.setValue(interpretationCode);
     }
 
 

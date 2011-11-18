@@ -82,23 +82,23 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ObservationReport"})
 public class ReportHeaderBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private II observationReportIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private CD labObservationReportType = new CDImpl();
+    private CD code = new CDImpl();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private ST observationReportTitle = new STImpl();
+    private ST title = new STImpl();
     private OutbreakBean pertinentInformation1OutbreakEvent;
-    private ED<EncapsulatedData> renderedReport = new EDImpl<EncapsulatedData>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private CS observationReportStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private TS observationReportDateTime = new TSImpl();
+    private TS effectiveTime = new TSImpl();
     private ResultSortKeyBean component2ResultSortKey;
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
     private Patient_1Bean recordTargetPatient;
     private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
@@ -128,11 +128,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * corrections, and cancel transactions.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationReportIdentifier() {
-        return this.observationReportIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
-        this.observationReportIdentifier.setValue(observationReportIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -148,11 +148,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * <p><p>The type of this report.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getLabObservationReportType() {
-        return (Code) this.labObservationReportType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setLabObservationReportType(Code labObservationReportType) {
-        this.labObservationReportType.setValue(labObservationReportType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -181,11 +181,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * and/or context of the result.</p></p>
      */
     @Hl7XmlMapping({"title"})
-    public String getObservationReportTitle() {
-        return this.observationReportTitle.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setObservationReportTitle(String observationReportTitle) {
-        this.observationReportTitle.setValue(observationReportTitle);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -206,11 +206,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * message in a displayable format.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getRenderedReport() {
-        return this.renderedReport.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setRenderedReport(EncapsulatedData renderedReport) {
-        this.renderedReport.setValue(renderedReport);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 
@@ -234,11 +234,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * complete=final.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getObservationReportStatus() {
-        return (ActStatus) this.observationReportStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setObservationReportStatus(ActStatus observationReportStatus) {
-        this.observationReportStatus.setValue(observationReportStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -255,11 +255,11 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * &quot;released&quot;.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getObservationReportDateTime() {
-        return this.observationReportDateTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setObservationReportDateTime(Date observationReportDateTime) {
-        this.observationReportDateTime.setValue(observationReportDateTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -288,8 +288,8 @@ public class ReportHeaderBean extends MessagePartBean implements ObservationChoi
      * providers.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

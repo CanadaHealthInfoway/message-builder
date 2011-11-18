@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ResultStatusProcessStep","POLB_MT004000CA.ResultStatusProcessStep","POLB_MT004100CA.ResultStatusProcessStep","POLB_MT004200CA.ResultStatusProcessStep"})
 public class ResultStatusProcessStepBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD resultStatusProcessStepCode = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
 
 
     /**
@@ -54,19 +54,19 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * 
      * <p>Result Status Process Step Code</p>
      * 
-     * <p><p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p></p>
+     * <p><p>Preliminary or Final.</p></p>
      * 
      * <p>Result Status Process Step Code</p>
      * 
-     * <p><p>Preliminary or Final.</p></p>
+     * <p><p>Used to designate &quot;preliminary&quot; and 
+     * &quot;final&quot; result statuses.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getResultStatusProcessStepCode() {
-        return (Code) this.resultStatusProcessStepCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setResultStatusProcessStepCode(Code resultStatusProcessStepCode) {
-        this.resultStatusProcessStepCode.setValue(resultStatusProcessStepCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.LabInitiatedOrderIndicator","POLB_MT001001CA.LabInitiatedOrderIndicator","POLB_MT001010CA.LabInitiatedOrderIndicator","POLB_MT001999CA.LabInitiatedOrderIndicator"})
 public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private BL labInitiatedOrderIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private BL negationInd = new BLImpl();
 
 
     /**
@@ -41,17 +41,17 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * 
      * <p>Lab Initiated Order Indicator</p>
      * 
-     * <p>Lab Initiated Order Indicator</p>
-     * 
      * <p><p>A 'true' value indicates that the Order was initiated 
      * by the Lab.</p></p>
+     * 
+     * <p>Lab Initiated Order Indicator</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getLabInitiatedOrderIndicator() {
-        return this.labInitiatedOrderIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setLabInitiatedOrderIndicator(Boolean labInitiatedOrderIndicator) {
-        this.labInitiatedOrderIndicator.setValue(labInitiatedOrderIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 }

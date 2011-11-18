@@ -74,26 +74,26 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV assignedPatientLocationType = new CVImpl();
-    private BL includeHistoryIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> jLISReceivedEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV assignedPatientLocationValue = new CVImpl();
+    private BL includeHistoryIndicatorValue = new BLImpl();
+    private IVL<TS, Interval<Date>> jLISReceivedDateTimeValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> observationAvailabilityDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
-    private II orderingProviderIdentfier = new IIImpl();
-    private II resultCopiesToIdentfier = new IIImpl();
-    private II batteryIdentifier = new IIImpl();
-    private BL includeNullifiedResultsIndicator = new BLImpl();
-    private List<CD> resultCode = new ArrayList<CD>();
-    private IVL<TS, Interval<Date>> observationEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private II observationIdentifier = new IIImpl();
-    private II observationReportIdentifier = new IIImpl();
-    private List<CD> orderTestCode = new ArrayList<CD>();
-    private TS patientDOB = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private II patientId = new IIImpl();
-    private PN patientName = new PNImpl();
-    private IVL<TS, Interval<Date>> specimenCollectionEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> specimenReceivedEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private II orderingProviderValue = new IIImpl();
+    private II resultCopiesToValue = new IIImpl();
+    private II batteryIdentifierValue = new IIImpl();
+    private BL includeNullifiedIndicatorValue = new BLImpl();
+    private List<CD> observationCodeValue = new ArrayList<CD>();
+    private IVL<TS, Interval<Date>> observationDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private II observationIdentifierValue = new IIImpl();
+    private II observationReportIdentifierValue = new IIImpl();
+    private List<CD> orderTestCodeValue = new ArrayList<CD>();
+    private TS patientDateofBirthValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private II patientIDValue = new IIImpl();
+    private PN patientNameValue = new PNImpl();
+    private IVL<TS, Interval<Date>> specimenCollectedDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> specimenReceivedDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -110,24 +110,16 @@ public class ParameterListBean extends MessagePartBean {
      * department, etc).</p></p>
      */
     @Hl7XmlMapping({"assignedPatientLocation/value"})
-    public ServiceDeliveryLocationRoleType getAssignedPatientLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.assignedPatientLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getAssignedPatientLocationValue() {
+        return (ServiceDeliveryLocationRoleType) this.assignedPatientLocationValue.getValue();
     }
-    public void setAssignedPatientLocationType(ServiceDeliveryLocationRoleType assignedPatientLocationType) {
-        this.assignedPatientLocationType.setValue(assignedPatientLocationType);
+    public void setAssignedPatientLocationValue(ServiceDeliveryLocationRoleType assignedPatientLocationValue) {
+        this.assignedPatientLocationValue.setValue(assignedPatientLocationValue);
     }
 
 
     /**
      * <p>IncludeHistoryIndicator</p>
-     * 
-     * <p>Include History Indicator</p>
-     * 
-     * <p><p>Indicates whether or not to include historical records 
-     * (so, all the changes made to each return record).</p></p>
-     * 
-     * <p><p>Historical (version) records are usable for audit, 
-     * quality assurance, etc.</p></p>
      * 
      * <p>Include History Indicator</p>
      * 
@@ -138,13 +130,21 @@ public class ParameterListBean extends MessagePartBean {
      * 
      * <p><p>Historical (version) records are usable for audit, 
      * quality assurance, etc.</p></p>
+     * 
+     * <p>Include History Indicator</p>
+     * 
+     * <p><p>Indicates whether or not to include historical records 
+     * (so, all the changes made to each return record).</p></p>
+     * 
+     * <p><p>Historical (version) records are usable for audit, 
+     * quality assurance, etc.</p></p>
      */
     @Hl7XmlMapping({"includeHistoryIndicator/value"})
-    public Boolean getIncludeHistoryIndicator() {
-        return this.includeHistoryIndicator.getValue();
+    public Boolean getIncludeHistoryIndicatorValue() {
+        return this.includeHistoryIndicatorValue.getValue();
     }
-    public void setIncludeHistoryIndicator(Boolean includeHistoryIndicator) {
-        this.includeHistoryIndicator.setValue(includeHistoryIndicator);
+    public void setIncludeHistoryIndicatorValue(Boolean includeHistoryIndicatorValue) {
+        this.includeHistoryIndicatorValue.setValue(includeHistoryIndicatorValue);
     }
 
 
@@ -165,16 +165,16 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"jLISReceivedDateTime/value"})
-    public Interval<Date> getJLISReceivedEffectiveTimeRange() {
-        return this.jLISReceivedEffectiveTimeRange.getValue();
+    public Interval<Date> getJLISReceivedDateTimeValue() {
+        return this.jLISReceivedDateTimeValue.getValue();
     }
-    public void setJLISReceivedEffectiveTimeRange(Interval<Date> jLISReceivedEffectiveTimeRange) {
-        this.jLISReceivedEffectiveTimeRange.setValue(jLISReceivedEffectiveTimeRange);
+    public void setJLISReceivedDateTimeValue(Interval<Date> jLISReceivedDateTimeValue) {
+        this.jLISReceivedDateTimeValue.setValue(jLISReceivedDateTimeValue);
     }
 
 
     /**
-     * <p>Observation Availability Time Range</p>
+     * <p>Observation Availability Effective Time Range</p>
      * 
      * <p><p>Filters the set of records to be retrieved to those 
      * which the observation availability date/time for the patient 
@@ -187,7 +187,7 @@ public class ParameterListBean extends MessagePartBean {
      * <p><p>Allows constraining the retrieved records to those 
      * applicable at a particular time.</p></p>
      * 
-     * <p>Observation Availability Effective Time Range</p>
+     * <p>Observation Availability Time Range</p>
      * 
      * <p><p>Filters the set of records to be retrieved to those 
      * which the observation availability date/time for the patient 
@@ -221,11 +221,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable for a particular provider.</p></p>
      */
     @Hl7XmlMapping({"orderingProvider/value"})
-    public Identifier getOrderingProviderIdentfier() {
-        return this.orderingProviderIdentfier.getValue();
+    public Identifier getOrderingProviderValue() {
+        return this.orderingProviderValue.getValue();
     }
-    public void setOrderingProviderIdentfier(Identifier orderingProviderIdentfier) {
-        this.orderingProviderIdentfier.setValue(orderingProviderIdentfier);
+    public void setOrderingProviderValue(Identifier orderingProviderValue) {
+        this.orderingProviderValue.setValue(orderingProviderValue);
     }
 
 
@@ -242,11 +242,11 @@ public class ParameterListBean extends MessagePartBean {
      * copied.</p></p>
      */
     @Hl7XmlMapping({"resultCopiesTo/value"})
-    public Identifier getResultCopiesToIdentfier() {
-        return this.resultCopiesToIdentfier.getValue();
+    public Identifier getResultCopiesToValue() {
+        return this.resultCopiesToValue.getValue();
     }
-    public void setResultCopiesToIdentfier(Identifier resultCopiesToIdentfier) {
-        this.resultCopiesToIdentfier.setValue(resultCopiesToIdentfier);
+    public void setResultCopiesToValue(Identifier resultCopiesToValue) {
+        this.resultCopiesToValue.setValue(resultCopiesToValue);
     }
 
 
@@ -263,11 +263,11 @@ public class ParameterListBean extends MessagePartBean {
      * identifier.</p></p>
      */
     @Hl7XmlMapping({"batteryIdentifier/value"})
-    public Identifier getBatteryIdentifier() {
-        return this.batteryIdentifier.getValue();
+    public Identifier getBatteryIdentifierValue() {
+        return this.batteryIdentifierValue.getValue();
     }
-    public void setBatteryIdentifier(Identifier batteryIdentifier) {
-        this.batteryIdentifier.setValue(batteryIdentifier);
+    public void setBatteryIdentifierValue(Identifier batteryIdentifierValue) {
+        this.batteryIdentifierValue.setValue(batteryIdentifierValue);
     }
 
 
@@ -283,11 +283,11 @@ public class ParameterListBean extends MessagePartBean {
      * records are usable for audit, quality assurance, etc.</p></p>
      */
     @Hl7XmlMapping({"includeNullifiedIndicator/value"})
-    public Boolean getIncludeNullifiedResultsIndicator() {
-        return this.includeNullifiedResultsIndicator.getValue();
+    public Boolean getIncludeNullifiedIndicatorValue() {
+        return this.includeNullifiedIndicatorValue.getValue();
     }
-    public void setIncludeNullifiedResultsIndicator(Boolean includeNullifiedResultsIndicator) {
-        this.includeNullifiedResultsIndicator.setValue(includeNullifiedResultsIndicator);
+    public void setIncludeNullifiedIndicatorValue(Boolean includeNullifiedIndicatorValue) {
+        this.includeNullifiedIndicatorValue.setValue(includeNullifiedIndicatorValue);
     }
 
 
@@ -302,8 +302,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p><p>Identifies the specific test peformed.</p></p>
      */
     @Hl7XmlMapping({"observationCode/value"})
-    public List<Code> getResultCode() {
-        return new RawListWrapper<CD, Code>(resultCode, CDImpl.class);
+    public List<Code> getObservationCodeValue() {
+        return new RawListWrapper<CD, Code>(observationCodeValue, CDImpl.class);
     }
 
 
@@ -324,11 +324,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"observationDateTimeRange/value"})
-    public Interval<Date> getObservationEffectiveTimeRange() {
-        return this.observationEffectiveTimeRange.getValue();
+    public Interval<Date> getObservationDateTimeRangeValue() {
+        return this.observationDateTimeRangeValue.getValue();
     }
-    public void setObservationEffectiveTimeRange(Interval<Date> observationEffectiveTimeRange) {
-        this.observationEffectiveTimeRange.setValue(observationEffectiveTimeRange);
+    public void setObservationDateTimeRangeValue(Interval<Date> observationDateTimeRangeValue) {
+        this.observationDateTimeRangeValue.setValue(observationDateTimeRangeValue);
     }
 
 
@@ -345,11 +345,11 @@ public class ParameterListBean extends MessagePartBean {
      * identifier.</p></p>
      */
     @Hl7XmlMapping({"observationIdentifier/value"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
+    public Identifier getObservationIdentifierValue() {
+        return this.observationIdentifierValue.getValue();
     }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
+    public void setObservationIdentifierValue(Identifier observationIdentifierValue) {
+        this.observationIdentifierValue.setValue(observationIdentifierValue);
     }
 
 
@@ -365,11 +365,11 @@ public class ParameterListBean extends MessagePartBean {
      * identifier.</p></p>
      */
     @Hl7XmlMapping({"observationReportIdentifier/value"})
-    public Identifier getObservationReportIdentifier() {
-        return this.observationReportIdentifier.getValue();
+    public Identifier getObservationReportIdentifierValue() {
+        return this.observationReportIdentifierValue.getValue();
     }
-    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
-        this.observationReportIdentifier.setValue(observationReportIdentifier);
+    public void setObservationReportIdentifierValue(Identifier observationReportIdentifierValue) {
+        this.observationReportIdentifierValue.setValue(observationReportIdentifierValue);
     }
 
 
@@ -384,8 +384,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p><p>Identifies the specific test to perform.</p></p>
      */
     @Hl7XmlMapping({"orderTestCode/value"})
-    public List<ObservationOrderableLabType> getOrderTestCode() {
-        return new RawListWrapper<CD, ObservationOrderableLabType>(orderTestCode, CDImpl.class);
+    public List<ObservationOrderableLabType> getOrderTestCodeValue() {
+        return new RawListWrapper<CD, ObservationOrderableLabType>(orderTestCodeValue, CDImpl.class);
     }
 
 
@@ -400,11 +400,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientDateofBirth/value"})
-    public Date getPatientDOB() {
-        return this.patientDOB.getValue();
+    public Date getPatientDateofBirthValue() {
+        return this.patientDateofBirthValue.getValue();
     }
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB.setValue(patientDOB);
+    public void setPatientDateofBirthValue(Date patientDateofBirthValue) {
+        this.patientDateofBirthValue.setValue(patientDateofBirthValue);
     }
 
 
@@ -419,11 +419,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -439,11 +439,11 @@ public class ParameterListBean extends MessagePartBean {
      * retrieved.</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientId() {
-        return this.patientId.getValue();
+    public Identifier getPatientIDValue() {
+        return this.patientIDValue.getValue();
     }
-    public void setPatientId(Identifier patientId) {
-        this.patientId.setValue(patientId);
+    public void setPatientIDValue(Identifier patientIDValue) {
+        this.patientIDValue.setValue(patientIDValue);
     }
 
 
@@ -458,11 +458,11 @@ public class ParameterListBean extends MessagePartBean {
      * patient id parameter).</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 
@@ -483,11 +483,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"specimenCollectedDateTimeRange/value"})
-    public Interval<Date> getSpecimenCollectionEffectiveTimeRange() {
-        return this.specimenCollectionEffectiveTimeRange.getValue();
+    public Interval<Date> getSpecimenCollectedDateTimeRangeValue() {
+        return this.specimenCollectedDateTimeRangeValue.getValue();
     }
-    public void setSpecimenCollectionEffectiveTimeRange(Interval<Date> specimenCollectionEffectiveTimeRange) {
-        this.specimenCollectionEffectiveTimeRange.setValue(specimenCollectionEffectiveTimeRange);
+    public void setSpecimenCollectedDateTimeRangeValue(Interval<Date> specimenCollectedDateTimeRangeValue) {
+        this.specimenCollectedDateTimeRangeValue.setValue(specimenCollectedDateTimeRangeValue);
     }
 
 
@@ -508,11 +508,11 @@ public class ParameterListBean extends MessagePartBean {
      * applicable at a particular time.</p></p>
      */
     @Hl7XmlMapping({"specimenReceivedDateTimeRange/value"})
-    public Interval<Date> getSpecimenReceivedEffectiveTimeRange() {
-        return this.specimenReceivedEffectiveTimeRange.getValue();
+    public Interval<Date> getSpecimenReceivedDateTimeRangeValue() {
+        return this.specimenReceivedDateTimeRangeValue.getValue();
     }
-    public void setSpecimenReceivedEffectiveTimeRange(Interval<Date> specimenReceivedEffectiveTimeRange) {
-        this.specimenReceivedEffectiveTimeRange.setValue(specimenReceivedEffectiveTimeRange);
+    public void setSpecimenReceivedDateTimeRangeValue(Interval<Date> specimenReceivedDateTimeRangeValue) {
+        this.specimenReceivedDateTimeRangeValue.setValue(specimenReceivedDateTimeRangeValue);
     }
 
 }

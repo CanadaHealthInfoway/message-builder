@@ -108,13 +108,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.SupportingClinicalObservationEvent","POLB_MT001001CA.SupportingClinicalObservationEvent","POLB_MT001010CA.SupportingClinicalObservationEvent","POLB_MT001999CA.SupportingClinicalObservationEvent","POLB_MT002000CA.SupportingClinicalObservationEvent","POLB_MT004000CA.SupportingClinicalObservationEvent","POLB_MT004100CA.SupportingClinicalObservationEvent1","POLB_MT004100CA.SupportingClinicalObservationEvent2","POLB_MT004200CA.SupportingClinicalObservationEvent1"})
 public class SupportingClinicalInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD supportingClinicalObservationCode = new CDImpl();
-    private ANY<Object> supportingClinicalObservationValue = new ANYImpl<Object>();
+    private static final long serialVersionUID = 20111117L;
+    private CD code = new CDImpl();
+    private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
      * <p>SupportingClinicalObservationCode</p>
+     * 
+     * <p>L:Supporting Clinical Observation Code</p>
+     * 
+     * <p><p>Describes the type of supporting clinical 
+     * information.</p></p>
+     * 
+     * <p><p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p></p>
      * 
      * <p>Supporting Clinical Observation Code</p>
      * 
@@ -129,13 +137,10 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p><p>Used to describe the type of information in this 
      * observation event.</p></p>
      * 
-     * <p>L:Supporting Clinical Observation Code</p>
+     * <p>Supporting Clinical Observation Code</p>
      * 
-     * <p><p>Describes the type of supporting clinical 
-     * information.</p></p>
-     * 
-     * <p><p>Used to include that clinical information pertinent to 
-     * the performance of the requested test(s).</p></p>
+     * <p><p>The type of supporting information being communicated 
+     * with this result.</p></p>
      * 
      * <p>Supporting Clinical Observation Code</p>
      * 
@@ -146,18 +151,13 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * observation event.</p></p>
      * 
      * <p>Supporting Clinical Observation Code</p>
-     * 
-     * <p><p>The type of supporting information being communicated 
-     * with this result.</p></p>
-     * 
-     * <p>Supporting Clinical Observation Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getSupportingClinicalObservationCode() {
-        return (Code) this.supportingClinicalObservationCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setSupportingClinicalObservationCode(Code supportingClinicalObservationCode) {
-        this.supportingClinicalObservationCode.setValue(supportingClinicalObservationCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -170,41 +170,10 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value applies, the value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p></p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
-     * 
-     * <p><p>If a coded value applies, the value must be selected 
-     * from the SupportingClinicalInformationValue Concept 
-     * Domain.</p></p>
-     * 
-     * <p>Supporting Clinical Observation Value</p>
-     * 
-     * <p><p>The value of the supporting clinical observation to be 
-     * communicated at the report level. If a coded value applies, 
-     * values must be selected from the 
-     * SupportingClinicalInformationValue Concept Domain.</p></p>
-     * 
-     * <p><p>The value is mandatory as this is the information to 
-     * communication (categorized or described by the code 
-     * attribute).</p></p>
-     * 
      * <p>M:Supporting Clinical Observation Value</p>
      * 
      * <p><p>The supporting clinical information. Could be coded 
-     * information or text-based. If a coded value applies, values 
-     * must be selected from the SupportingClinicalInformationValue 
-     * Concept Domain.</p></p>
-     * 
-     * <p>Supporting Clinical Observation Value</p>
-     * 
-     * <p><p>The value of the observation to be communicated at the 
-     * culture level. When a coded value applies, values must be 
-     * selected from the SupportingClinicalInformationValue Concept 
-     * Domain.</p></p>
-     * 
-     * <p>M:Supporting Clinical Observation Value</p>
-     * 
-     * <p><p>The supporting clinical information. Could be coded 
-     * information or text-based. When a coded value applies, the 
+     * information or text-based. If a coded value applies, the 
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p></p>
      * 
@@ -223,16 +192,47 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>M:Supporting Clinical Observation Value</p>
      * 
      * <p><p>The supporting clinical information. Could be coded 
-     * information or text-based. If a coded value applies, the 
+     * information or text-based. When a coded value applies, the 
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p></p>
+     * 
+     * <p>Supporting Clinical Observation Value</p>
+     * 
+     * <p><p>The value of the supporting clinical observation to be 
+     * communicated at the report level. If a coded value applies, 
+     * values must be selected from the 
+     * SupportingClinicalInformationValue Concept Domain.</p></p>
+     * 
+     * <p><p>The value is mandatory as this is the information to 
+     * communication (categorized or described by the code 
+     * attribute).</p></p>
+     * 
+     * <p>Supporting Clinical Observation Value</p>
+     * 
+     * <p><p>If a coded value applies, the value must be selected 
+     * from the SupportingClinicalInformationValue Concept 
+     * Domain.</p></p>
+     * 
+     * <p>Supporting Clinical Observation Value</p>
+     * 
+     * <p><p>The value of the observation to be communicated at the 
+     * culture level. When a coded value applies, values must be 
+     * selected from the SupportingClinicalInformationValue Concept 
+     * Domain.</p></p>
+     * 
+     * <p>M:Supporting Clinical Observation Value</p>
+     * 
+     * <p><p>The supporting clinical information. Could be coded 
+     * information or text-based. If a coded value applies, values 
+     * must be selected from the SupportingClinicalInformationValue 
+     * Concept Domain.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Object getSupportingClinicalObservationValue() {
-        return this.supportingClinicalObservationValue.getValue();
+    public Object getValue() {
+        return this.value.getValue();
     }
-    public void setSupportingClinicalObservationValue(Object supportingClinicalObservationValue) {
-        this.supportingClinicalObservationValue.setValue(supportingClinicalObservationValue);
+    public void setValue(Object value) {
+        this.value.setValue(value);
     }
 
 }
