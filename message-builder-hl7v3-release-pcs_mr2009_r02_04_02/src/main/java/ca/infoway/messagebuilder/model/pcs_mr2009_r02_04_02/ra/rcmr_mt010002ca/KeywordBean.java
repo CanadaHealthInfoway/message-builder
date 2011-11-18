@@ -53,10 +53,10 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST keyword = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     /**
@@ -71,11 +71,11 @@ public class KeywordBean extends MessagePartBean {
      * 'populated'.</p></p>
      */
     @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
+    public String getAuthorSignatureText() {
+        return this.authorSignatureText.getValue();
     }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
+    public void setAuthorSignatureText(String authorSignatureText) {
+        this.authorSignatureText.setValue(authorSignatureText);
     }
 
 
@@ -124,8 +124,8 @@ public class KeywordBean extends MessagePartBean {
      * therefore the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
-    public List<Code> getConsentInformationTypes() {
-        return new RawListWrapper<CV, Code>(consentInformationTypes, CVImpl.class);
+    public List<Code> getSubjectRecordTypeCode() {
+        return new RawListWrapper<CV, Code>(subjectRecordTypeCode, CVImpl.class);
     }
 
 }

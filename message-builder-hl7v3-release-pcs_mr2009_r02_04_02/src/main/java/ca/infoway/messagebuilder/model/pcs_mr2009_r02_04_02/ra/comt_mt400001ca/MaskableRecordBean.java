@@ -53,10 +53,10 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II recordIdentifier = new IIImpl();
-    private CV recordType = new CVImpl();
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private RoleBean directTargetRole;
     private DiagnosisBean reasonDiagnosis;
 
@@ -77,11 +77,11 @@ public class MaskableRecordBean extends MessagePartBean {
      * as well.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -96,11 +96,11 @@ public class MaskableRecordBean extends MessagePartBean {
      * individually.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
+    public ActInformationCategoryCode getCode() {
+        return (ActInformationCategoryCode) this.code.getValue();
     }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
+    public void setCode(ActInformationCategoryCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -116,8 +116,8 @@ public class MaskableRecordBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getMaskedIndicator() {
-        return this.maskedIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
