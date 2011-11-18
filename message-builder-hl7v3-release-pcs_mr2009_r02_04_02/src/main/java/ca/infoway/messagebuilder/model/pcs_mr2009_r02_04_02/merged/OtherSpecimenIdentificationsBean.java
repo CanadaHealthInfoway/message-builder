@@ -80,17 +80,33 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private II organizationIdentifier = new IIImpl();
-    private ST organizationName = new STImpl();
-    private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CV clientGender = new CVImpl();
-    private TS clientDateOfBirth = new TSImpl();
+    private II assigningOrganizationId = new IIImpl();
+    private ST assigningOrganizationName = new STImpl();
+    private LIST<PN, PersonName> identifiedPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV identifiedPersonAdministrativeGenderCode = new CVImpl();
+    private TS identifiedPersonBirthTime = new TSImpl();
 
 
     /**
+     * <p>Other Specimen Identifiers</p>
+     * 
+     * <p><p>Associated specimen identifiers.</p></p>
+     * 
+     * <p><p>For referral and redirected orders, this information 
+     * helps keep track of the different id's assigned during each 
+     * phase of processing.</p></p>
+     * 
+     * <p>K:Other Identifier</p>
+     * 
+     * <p><p>Alternate Identifiers for the Patient (e.g., Drivers 
+     * License number, Health insurance number).</p></p>
+     * 
+     * <p><p>Other identification numbers associated with 
+     * identifying a patient.</p></p>
+     * 
      * <p>Client Healthcare Identification Number</p>
      * 
      * <p><p>This identification attribute supports capture of a 
@@ -100,22 +116,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p><p>Mandatory attribute supports unique identification of 
      * the client.</p></p>
-     * 
-     * <p>K:Other Identifier</p>
-     * 
-     * <p><p>Alternate Identifiers for the Patient (e.g., 
-     * Driver'''s License number, Health insurance number).</p></p>
-     * 
-     * <p><p>Other identification numbers associated with 
-     * identifying a patient.</p></p>
-     * 
-     * <p>Other Specimen Identifiers</p>
-     * 
-     * <p><p>Associated specimen identifiers.</p></p>
-     * 
-     * <p><p>For referral and redirected orders, this information 
-     * helps keep track of the different id's assigned during each 
-     * phase of processing.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -163,11 +163,11 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"assigningOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
+    public Identifier getAssigningOrganizationId() {
+        return this.assigningOrganizationId.getValue();
     }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setAssigningOrganizationId(Identifier assigningOrganizationId) {
+        this.assigningOrganizationId.setValue(assigningOrganizationId);
     }
 
 
@@ -183,11 +183,11 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"assigningOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
+    public String getAssigningOrganizationName() {
+        return this.assigningOrganizationName.getValue();
     }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
+    public void setAssigningOrganizationName(String assigningOrganizationName) {
+        this.assigningOrganizationName.setValue(assigningOrganizationName);
     }
 
 
@@ -202,8 +202,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * client</p></p>
      */
     @Hl7XmlMapping({"identifiedPerson/name"})
-    public List<PersonName> getClientName() {
-        return this.clientName.rawList();
+    public List<PersonName> getIdentifiedPersonName() {
+        return this.identifiedPersonName.rawList();
     }
 
 
@@ -221,11 +221,11 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * client</p></p>
      */
     @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
+    public AdministrativeGender getIdentifiedPersonAdministrativeGenderCode() {
+        return (AdministrativeGender) this.identifiedPersonAdministrativeGenderCode.getValue();
     }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
+    public void setIdentifiedPersonAdministrativeGenderCode(AdministrativeGender identifiedPersonAdministrativeGenderCode) {
+        this.identifiedPersonAdministrativeGenderCode.setValue(identifiedPersonAdministrativeGenderCode);
     }
 
 
@@ -240,11 +240,11 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * client</p></p>
      */
     @Hl7XmlMapping({"identifiedPerson/birthTime"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
+    public Date getIdentifiedPersonBirthTime() {
+        return this.identifiedPersonBirthTime.getValue();
     }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    public void setIdentifiedPersonBirthTime(Date identifiedPersonBirthTime) {
+        this.identifiedPersonBirthTime.setValue(identifiedPersonBirthTime);
     }
 
 }

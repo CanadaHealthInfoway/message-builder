@@ -56,17 +56,25 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ST specimenMaterialDesc = new STImpl();
-    private II specimenIdentifier = new IIImpl();
-    private CD specimenCode = new CDImpl();
+    private II id = new IIImpl();
+    private CD specimenMaterialCode = new CDImpl();
     private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
-    private CV specimenContainerRisk = new CVImpl();
+    private CV specimenMaterialAsContentContainerRiskCode = new CVImpl();
     private List<SpecimenProcessStepsBean> subjectOfTransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
 
 
     /**
+     * <p>W:Specimen Text</p>
+     * 
+     * <p><p>Any descriptive specimen information not sufficiently 
+     * communicated by the code attribute.</p></p>
+     * 
+     * <p><p>Used when information is not able to be coded or 
+     * represented using the available other attributes.</p></p>
+     * 
      * <p>I: Focus Area</p>
      * 
      * <p><p>Describes the specific body region or area associated 
@@ -92,14 +100,6 @@ public class SpecimenRoleBean extends MessagePartBean {
      * body site.</p><p>This element is optional because not all 
      * systems will support Localized Health Condition-based 
      * Collections</p></p>
-     * 
-     * <p>W:Specimen Text</p>
-     * 
-     * <p><p>Any descriptive specimen information not sufficiently 
-     * communicated by the code attribute.</p></p>
-     * 
-     * <p><p>Used when information is not able to be coded or 
-     * represented using the available other attributes.</p></p>
      */
     @Hl7XmlMapping({"specimenMaterial/desc"})
     public String getSpecimenMaterialDesc() {
@@ -143,11 +143,11 @@ public class SpecimenRoleBean extends MessagePartBean {
      * tracking and management.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getSpecimenIdentifier() {
-        return this.specimenIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setSpecimenIdentifier(Identifier specimenIdentifier) {
-        this.specimenIdentifier.setValue(specimenIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -163,11 +163,11 @@ public class SpecimenRoleBean extends MessagePartBean {
      * methods, and resulting processing of specimen material.</p></p>
      */
     @Hl7XmlMapping({"specimenMaterial/code"})
-    public Code getSpecimenCode() {
-        return (Code) this.specimenCode.getValue();
+    public Code getSpecimenMaterialCode() {
+        return (Code) this.specimenMaterialCode.getValue();
     }
-    public void setSpecimenCode(Code specimenCode) {
-        this.specimenCode.setValue(specimenCode);
+    public void setSpecimenMaterialCode(Code specimenMaterialCode) {
+        this.specimenMaterialCode.setValue(specimenMaterialCode);
     }
 
 
@@ -189,11 +189,11 @@ public class SpecimenRoleBean extends MessagePartBean {
      * the container.</p></p>
      */
     @Hl7XmlMapping({"specimenMaterial/asContent/container/riskCode"})
-    public EntityRisk getSpecimenContainerRisk() {
-        return (EntityRisk) this.specimenContainerRisk.getValue();
+    public EntityRisk getSpecimenMaterialAsContentContainerRiskCode() {
+        return (EntityRisk) this.specimenMaterialAsContentContainerRiskCode.getValue();
     }
-    public void setSpecimenContainerRisk(EntityRisk specimenContainerRisk) {
-        this.specimenContainerRisk.setValue(specimenContainerRisk);
+    public void setSpecimenMaterialAsContentContainerRiskCode(EntityRisk specimenMaterialAsContentContainerRiskCode) {
+        this.specimenMaterialAsContentContainerRiskCode.setValue(specimenMaterialAsContentContainerRiskCode);
     }
 
 

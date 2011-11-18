@@ -115,15 +115,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication","PRPM_MT301010CA.LanguageCommunication","PRPM_MT303010CA.LanguageCommunication","PRPM_MT306011CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV languageOfCommunicationCode = new CVImpl();
-    private CV languageOfCommunicationSkillsCode = new CVImpl();
-    private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
-    private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV languageCode = new CVImpl();
+    private CV modeCode = new CVImpl();
+    private CV proficiencyLevelCode = new CVImpl();
+    private BL preferenceInd = new BLImpl();
 
 
     /**
      * <p>LanguageOfCommunicationCode</p>
+     * 
+     * <p>Language of Communication Code</p>
+     * 
+     * <p><p>A code indicating the language of communication</p></p>
+     * 
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
      * 
      * <p>Language of Communication Code</p>
      * 
@@ -136,22 +143,15 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * 
      * <p><p>A code indicating the language of communication</p></p>
      * 
-     * <p><p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p></p>
-     * 
-     * <p>Language of Communication Code</p>
-     * 
-     * <p><p>A code indicating the language of communication</p></p>
-     * 
      * <p><p>Required attribute conveying the expected language 
      * message elements are to be transmitted in</p></p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 
@@ -169,11 +169,11 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * given language</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public LanguageAbilityMode getLanguageOfCommunicationSkillsCode() {
-        return (LanguageAbilityMode) this.languageOfCommunicationSkillsCode.getValue();
+    public LanguageAbilityMode getModeCode() {
+        return (LanguageAbilityMode) this.modeCode.getValue();
     }
-    public void setLanguageOfCommunicationSkillsCode(LanguageAbilityMode languageOfCommunicationSkillsCode) {
-        this.languageOfCommunicationSkillsCode.setValue(languageOfCommunicationSkillsCode);
+    public void setModeCode(LanguageAbilityMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -191,11 +191,11 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * given language</p></p>
      */
     @Hl7XmlMapping({"proficiencyLevelCode"})
-    public LanguageAbilityProficiency getLanguageOfCommunicationProficiencyLevelCode() {
-        return (LanguageAbilityProficiency) this.languageOfCommunicationProficiencyLevelCode.getValue();
+    public LanguageAbilityProficiency getProficiencyLevelCode() {
+        return (LanguageAbilityProficiency) this.proficiencyLevelCode.getValue();
     }
-    public void setLanguageOfCommunicationProficiencyLevelCode(LanguageAbilityProficiency languageOfCommunicationProficiencyLevelCode) {
-        this.languageOfCommunicationProficiencyLevelCode.setValue(languageOfCommunicationProficiencyLevelCode);
+    public void setProficiencyLevelCode(LanguageAbilityProficiency proficiencyLevelCode) {
+        this.proficiencyLevelCode.setValue(proficiencyLevelCode);
     }
 
 
@@ -212,11 +212,11 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * communications.</p></p>
      */
     @Hl7XmlMapping({"preferenceInd"})
-    public Boolean getLanguageOfCommunicationPreferenceIndicator() {
-        return this.languageOfCommunicationPreferenceIndicator.getValue();
+    public Boolean getPreferenceInd() {
+        return this.preferenceInd.getValue();
     }
-    public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
-        this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
+    public void setPreferenceInd(Boolean preferenceInd) {
+        this.preferenceInd.setValue(preferenceInd);
     }
 
 }

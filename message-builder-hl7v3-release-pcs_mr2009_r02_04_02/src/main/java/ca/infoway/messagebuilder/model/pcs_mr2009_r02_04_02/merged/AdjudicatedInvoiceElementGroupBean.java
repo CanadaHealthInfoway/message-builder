@@ -60,8 +60,8 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II adjudicationResultId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private MO netAmt = new MOImpl();
@@ -86,20 +86,15 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p><p>May include data centre and sequence numbers</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultId() {
-        return this.adjudicationResultId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdjudicationResultId(Identifier adjudicationResultId) {
-        this.adjudicationResultId.setValue(adjudicationResultId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
     /**
-     * <p>Invoice element group Code</p>
-     * 
-     * <p><p>(Invoice Type e.g. Healthcare Services, Rx Dispense, 
-     * Rx Compound, Healthcare Goods, Preferred Accomodation</p></p>
-     * 
      * <p>Invoice Type</p>
      * 
      * <p><p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
@@ -140,6 +135,11 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * identifier of the EOB that was previously messaged to the 
      * Provider.</p><p>Modifiers for the codes are taken from the 
      * same domain (i.e ActInvoiceGroupCode).</p></p>
+     * 
+     * <p>Invoice element group Code</p>
+     * 
+     * <p><p>(Invoice Type e.g. Healthcare Services, Rx Dispense, 
+     * Rx Compound, Healthcare Goods, Preferred Accomodation</p></p>
      */
     @Hl7XmlMapping({"code"})
     public Code getCode() {
@@ -257,6 +257,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
+     * <p>Invoice Element amount billed</p>
+     * 
+     * <p><p>Identifies the total monetary amount billed for the 
+     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p></p>
+     * 
      * <p>Paid Amount</p>
      * 
      * <p><p>Paid Amount</p></p>
@@ -264,12 +270,6 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p><p>For Coverage Extension Results, this is typically not 
      * specified, as dollar limits are noted as information 
      * codes</p></p>
-     * 
-     * <p>Invoice Element amount billed</p>
-     * 
-     * <p><p>Identifies the total monetary amount billed for the 
-     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {

@@ -119,16 +119,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AssignedEntity","POIZ_MT030060CA.AssignedEntity","POIZ_MT060150CA.AssignedEntity","REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private PN providerName = new PNImpl();
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN assignedProviderName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ActingPersonBean assignedPerson;
-    private II organizationIdentifier = new IIImpl();
-    private ST organizationName = new STImpl();
-    private CV organizationType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private II representedOrganizationId = new IIImpl();
+    private ST representedOrganizationName = new STImpl();
+    private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> representedOrganizationAssignedOrganizationTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -218,11 +218,11 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>C: Provider Name</p>
      */
     @Hl7XmlMapping({"assignedProvider/name"})
-    public PersonName getProviderName() {
-        return this.providerName.getValue();
+    public PersonName getAssignedProviderName() {
+        return this.assignedProviderName.getValue();
     }
-    public void setProviderName(PersonName providerName) {
-        this.providerName.setValue(providerName);
+    public void setAssignedProviderName(PersonName assignedProviderName) {
+        this.assignedProviderName.setValue(assignedProviderName);
     }
 
 
@@ -239,8 +239,8 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * queries of the provider registry.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 
@@ -266,11 +266,11 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
+    public Identifier getRepresentedOrganizationId() {
+        return this.representedOrganizationId.getValue();
     }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
+        this.representedOrganizationId.setValue(representedOrganizationId);
     }
 
 
@@ -286,11 +286,11 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
+    public String getRepresentedOrganizationName() {
+        return this.representedOrganizationName.getValue();
     }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
+    public void setRepresentedOrganizationName(String representedOrganizationName) {
+        this.representedOrganizationName.setValue(representedOrganizationName);
     }
 
 
@@ -307,11 +307,11 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getOrganizationType() {
-        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
+        return (HealthcareOrganizationRoleType) this.representedOrganizationAssignedOrganizationCode.getValue();
     }
-    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
-        this.organizationType.setValue(organizationType);
+    public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
+        this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
     }
 
 
@@ -328,8 +328,8 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * registry.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
-        return this.organizationPhoneAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {
+        return this.representedOrganizationAssignedOrganizationTelecom.rawSet();
     }
 
 }

@@ -148,15 +148,15 @@ import java.util.Set;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV issueType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private ST text = new STImpl();
-    private CV issuePriority = new CVImpl();
-    private SET<ST, String> messageIssueLocation = new SETImpl<ST, String>(STImpl.class);
+    private CV priorityCode = new CVImpl();
+    private SET<ST, String> targetSiteCode = new SETImpl<ST, String>(STImpl.class);
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV severityCode = new CVImpl();
+    private CV subjectOf2SeverityObservationValue = new CVImpl();
     private BL triggerForActRequest = new BLImpl(false);
     private BL subjectOf1StorageIntent = new BLImpl(false);
 
@@ -164,13 +164,40 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>IssueType</p>
      * 
+     * <p>Issue Type</p>
+     * 
+     * <p><p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p></p>
+     * 
+     * <p><p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p></p>
+     * 
+     * <p><p>Identifies what kind of issue was detected or is being 
+     * managed.</p><p>This is mandatory so as to ensure that one 
+     * issue type can be distinguished from another.</p></p>
+     * 
+     * <p>Issue Type</p>
+     * 
+     * <p><p>A coded value that is used to distinguish between 
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * suspect fraud etc.</p></p>
+     * 
+     * <p><p>Identifies what kind of issue was detected or is being 
+     * managed and is therefore mandatory.</p></p>
+     * 
      * <p>A:Issue Type</p>
      * 
      * <p><p>A coded value that is used to distinguish between 
      * different kinds of issues. Types of issue include: 
      * unrecognized identifiers, permission issues, drug-drug 
      * contraindications, drug-allergy alerts, duplicate therapies, 
-     * etc.</p></p>
+     * suspect fraud etc.</p></p>
      * 
      * <p><p>Contraindication.crossSensitive (if code is related 
      * reaction dected issue then crossSensitive is 
@@ -298,45 +325,24 @@ public class IssuesBean extends MessagePartBean {
      * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
      * DPD, and Duplicate Therapy 
      * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
-     * contraindications errors are handled at transmission or 
-     * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>Interaction 
-     * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
-     * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>Contraindication.crossSensitive (if code is related 
-     * reaction dected issue then crossSensitive is 
-     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
-     * DPD, and Duplicate Therapy 
-     * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
-     * contraindications errors are handled at transmission or 
-     * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>Interaction 
-     * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
-     * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>Contraindication.crossSensitive (if code is related 
-     * reaction dected issue then crossSensitive is 
-     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
-     * DPD, and Duplicate Therapy 
-     * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.r
+     * contraindication
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
-    public ActDetectedIssueCode getIssueType() {
-        return (ActDetectedIssueCode) this.issueType.getValue();
+    public ActDetectedIssueCode getCode() {
+        return (ActDetectedIssueCode) this.code.getValue();
     }
-    public void setIssueType(ActDetectedIssueCode issueType) {
-        this.issueType.setValue(issueType);
+    public void setCode(ActDetectedIssueCode code) {
+        this.code.setValue(code);
     }
 
 
     /**
-     * <p>Issue Comment</p>
+     * <p>B:Issue Comment</p>
      * 
-     * <p><p>A free form textual description regarding the issue. 
-     * This may be specified in place of, or in addition to the 
-     * coded issue.</p></p>
+     * <p><p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p></p>
      * 
      * <p><p>Enables extra or more detailed description of the 
      * alert</p></p>
@@ -351,15 +357,6 @@ public class IssuesBean extends MessagePartBean {
      * alert</p></p>
      * 
      * <p>D:Issue Details</p>
-     * 
-     * <p>B:Issue Comment</p>
-     * 
-     * <p><p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p></p>
-     * 
-     * <p><p>Enables extra or more detailed description of the 
-     * alert</p></p>
      * 
      * <p>D:Issue Details</p>
      * 
@@ -385,6 +382,15 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p><p>Lets providers see textual explanation of the 
      * issue.</p></p>
+     * 
+     * <p>Issue Comment</p>
+     * 
+     * <p><p>A free form textual description regarding the issue. 
+     * This may be specified in place of, or in addition to the 
+     * coded issue.</p></p>
+     * 
+     * <p><p>Enables extra or more detailed description of the 
+     * alert</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -400,6 +406,8 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>C:Issue Priority</p>
      * 
+     * <p>C:Issue Priority</p>
+     * 
      * <p><p>A coded value denoting the importance of a detectable 
      * issue. Valid codes are: I - for Information, E - for Error, 
      * and W - for Warning.</p></p>
@@ -409,15 +417,13 @@ public class IssuesBean extends MessagePartBean {
      * the DIS to determine the order of returning issues. 
      * Attribute is mandatory because every issue needs to be 
      * prioritized.</p></p>
-     * 
-     * <p>C:Issue Priority</p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
+    public ActIssuePriority getPriorityCode() {
+        return (ActIssuePriority) this.priorityCode.getValue();
     }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
+    public void setPriorityCode(ActIssuePriority priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -427,7 +433,7 @@ public class IssuesBean extends MessagePartBean {
      * <p>Message Issue Location</p>
      * 
      * <p><p>Used to identify XPath references that indicate which 
-     * attributes from the message instance were involved in the 
+     * attributes in a message instance were involved in the 
      * issue.</p></p>
      * 
      * <p>Message Issue Location</p>
@@ -439,12 +445,12 @@ public class IssuesBean extends MessagePartBean {
      * <p>Message Issue Location</p>
      * 
      * <p><p>Used to identify XPath references that indicate which 
-     * attributes in a message instance were involved in the 
+     * attributes from the message instance were involved in the 
      * issue.</p></p>
      */
     @Hl7XmlMapping({"targetSiteCode"})
-    public Set<String> getMessageIssueLocation() {
-        return this.messageIssueLocation.rawSet();
+    public Set<String> getTargetSiteCode() {
+        return this.targetSiteCode.rawSet();
     }
 
 
@@ -474,8 +480,6 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>B:Severity Code</p>
      * 
-     * <p>B:Severity Code</p>
-     * 
      * <p><p>A coded value denoting the gravity of the detected 
      * issue.</p></p>
      * 
@@ -502,6 +506,8 @@ public class IssuesBean extends MessagePartBean {
      * be managed and how.</p><p>This attribute is marked as 
      * &quot;mandatory&quot; because the code denoting the level of 
      * severity must be specified.</p></p>
+     * 
+     * <p>B:Severity Code</p>
      */
     @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
     @Hl7MapByPartTypes({
@@ -511,11 +517,11 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="COCT_MT260030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2", type="COCT_MT260020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="COCT_MT260020CA.SeverityObservation")})
-    public SeverityObservation getSeverityCode() {
-        return (SeverityObservation) this.severityCode.getValue();
+    public SeverityObservation getSubjectOf2SeverityObservationValue() {
+        return (SeverityObservation) this.subjectOf2SeverityObservationValue.getValue();
     }
-    public void setSeverityCode(SeverityObservation severityCode) {
-        this.severityCode.setValue(severityCode);
+    public void setSubjectOf2SeverityObservationValue(SeverityObservation subjectOf2SeverityObservationValue) {
+        this.subjectOf2SeverityObservationValue.setValue(subjectOf2SeverityObservationValue);
     }
 
 

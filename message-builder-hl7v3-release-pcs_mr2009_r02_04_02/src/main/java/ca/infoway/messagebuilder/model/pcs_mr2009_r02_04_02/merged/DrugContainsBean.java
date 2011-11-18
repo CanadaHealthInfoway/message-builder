@@ -121,33 +121,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","FICR_MT400003CA.Ingredient","FICR_MT400004CA.Ingredient","FICR_MT490102CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
-    private CV drugIngredientIdentifier = new CVImpl();
+    private CV ingredientCode = new CVImpl();
     private ST ingredientName = new STImpl();
 
 
     /**
-     * <p>L:Does Not Contain Indicator</p>
-     * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
-     * 
      * <p>D:Drug Does Not Contain Indicator</p>
      * 
      * <p><p>An indication that a drug does not contain the 
@@ -170,6 +151,25 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must not contain&quot; is essential, however in 
      * some circumstances it is necessary to say &quot;may 
      * contain&quot;.</p></p>
+     * 
+     * <p>L:Does Not Contain Indicator</p>
+     * 
+     * <p><p>An indication that a drug does not contain the 
+     * specified ingredient (active or inactive).</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
      * 
      * <p>Does Not Contain Indicator</p>
      * 
@@ -202,16 +202,6 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>M:Ingredient Quantity</p>
-     * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
-     * 
-     * <p><p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p></p>
-     * 
      * <p>C:Drug Ingredient Quantity</p>
      * 
      * <p><p>The quantity of the ingredient in a drug. This is 
@@ -306,7 +296,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p></p>
      * 
-     * <p>Ingredient Quantity</p>
+     * <p>M:Ingredient Quantity</p>
      * 
      * <p><p>The quantity of the ingredient in a drug. This is 
      * represented/measured in various forms/units including: mg, 
@@ -317,6 +307,16 @@ public class DrugContainsBean extends MessagePartBean {
      * proper composition.</p></p>
      * 
      * <p>Drug Ingredient Quantity</p>
+     * 
+     * <p>Ingredient Quantity</p>
+     * 
+     * <p><p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p></p>
+     * 
+     * <p><p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -329,6 +329,31 @@ public class DrugContainsBean extends MessagePartBean {
 
     /**
      * <p>DrugIngredientIdentifier</p>
+     * 
+     * <p>J:Drug Ingredient Identifier</p>
+     * 
+     * <p><p>The unique identifier for the drug or chemical.</p></p>
+     * 
+     * <p><p>Allows un-ambiguous identification of the ingredients 
+     * of a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in vaccines.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p></p>
+     * 
+     * <p><p>Allows un-ambiguous identification of the ingredients 
+     * of a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in vaccines.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p></p>
+     * 
+     * <p><p>Allows un-ambiguous identification of the ingredients 
+     * of a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in vaccines.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p></p>
      * 
      * <p>A:Drug Ingredient Identifier</p>
      * 
@@ -393,8 +418,6 @@ public class DrugContainsBean extends MessagePartBean {
      * of a drug for performing various alert checking.</p><p>Also 
      * allows for the identification of antigens as specific class 
      * of ingredients in vaccines.</p></p>
-     * 
-     * <p>A:Drug Ingredient Identifier</p>
      * 
      * <p>Drug Ingredient Identifier</p>
      * 
@@ -445,43 +468,19 @@ public class DrugContainsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p></p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p>
+     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"ingredient/code"})
-    public ActiveIngredientDrugEntityType getDrugIngredientIdentifier() {
-        return (ActiveIngredientDrugEntityType) this.drugIngredientIdentifier.getValue();
+    public ActiveIngredientDrugEntityType getIngredientCode() {
+        return (ActiveIngredientDrugEntityType) this.ingredientCode.getValue();
     }
-    public void setDrugIngredientIdentifier(ActiveIngredientDrugEntityType drugIngredientIdentifier) {
-        this.drugIngredientIdentifier.setValue(drugIngredientIdentifier);
+    public void setIngredientCode(ActiveIngredientDrugEntityType ingredientCode) {
+        this.ingredientCode.setValue(ingredientCode);
     }
 
 
     /**
-     * <p>B:Drug Ingredient Name</p>
-     * 
-     * <p><p>The name of the contained drug or chemical.</p></p>
-     * 
-     * <p><p>CompoundIngredient.IngredientDrug.drugProductName</p></p>
-     * 
-     * <p><p>Used for communication between and display to 
-     * providers.</p></p>
-     * 
      * <p>K:Ingredient Name</p>
      * 
      * <p><p>The name of the contained drug or chemical.</p></p>
@@ -511,6 +510,15 @@ public class DrugContainsBean extends MessagePartBean {
      * available in most cases.</p></p>
      * 
      * <p>B:Drug Ingredient Name</p>
+     * 
+     * <p>B:Drug Ingredient Name</p>
+     * 
+     * <p><p>The name of the contained drug or chemical.</p></p>
+     * 
+     * <p><p>CompoundIngredient.IngredientDrug.drugProductName</p></p>
+     * 
+     * <p><p>Used for communication between and display to 
+     * providers.</p></p>
      */
     @Hl7XmlMapping({"ingredient/name"})
     public String getIngredientName() {

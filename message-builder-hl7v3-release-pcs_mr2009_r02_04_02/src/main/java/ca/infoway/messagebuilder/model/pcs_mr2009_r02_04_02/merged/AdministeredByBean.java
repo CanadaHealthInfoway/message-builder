@@ -83,10 +83,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Performer","POIZ_MT030060CA.Performer","POIZ_MT060150CA.Performer","REPC_MT210001CA.Performer","REPC_MT210002CA.Performer","REPC_MT210003CA.Performer"})
 public class AdministeredByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV signingMethod = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV modeCode = new CVImpl();
     private CV signatureCode = new CVImpl();
-    private ED<String> digitalSignature = new EDImpl<String>();
+    private ED<String> signatureText = new EDImpl<String>();
     private HealthcareWorkerBean assignedEntity;
 
 
@@ -104,11 +104,11 @@ public class AdministeredByBean extends MessagePartBean {
      * information, this attribute is optional.</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getSigningMethod() {
-        return (ParticipationMode) this.signingMethod.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setSigningMethod(ParticipationMode signingMethod) {
-        this.signingMethod.setValue(signingMethod);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -153,11 +153,11 @@ public class AdministeredByBean extends MessagePartBean {
      * signatures. As a result, this attribute is optional.</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getDigitalSignature() {
-        return this.digitalSignature.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature.setValue(digitalSignature);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

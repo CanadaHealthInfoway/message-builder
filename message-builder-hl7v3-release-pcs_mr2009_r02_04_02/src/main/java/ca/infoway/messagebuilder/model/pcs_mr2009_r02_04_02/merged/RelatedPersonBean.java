@@ -97,30 +97,15 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, Choice, Consenter, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt120600ca.AssignedPerson {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private CV code = new CVImpl();
-    private II relatedPersonIdentifier = new IIImpl();
-    private PN relatedPersonName = new PNImpl();
-    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD relatedPersonAddress = new ADImpl();
+    private II id = new IIImpl();
+    private PN relationshipHolderName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> relationshipHolderTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD relationshipHolderAddr = new ADImpl();
 
 
     /**
-     * <p>Personal relationship code</p>
-     * 
-     * <p>C:Related Person Type</p>
-     * 
-     * <p><p>A coded value indicating how the related person is 
-     * related to the patient.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p>Personal Relationship Type</p>
-     * 
-     * <p>Examples are spouse, child</p>
-     * 
      * <p>C:Responsible Person Type</p>
      * 
      * <p><p>A coded value indicating how the responsible person is 
@@ -131,6 +116,21 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p></p></p>
      * 
      * <p></p></p>
+     * 
+     * <p>Personal relationship code</p>
+     * 
+     * <p>Personal Relationship Type</p>
+     * 
+     * <p>C:Related Person Type</p>
+     * 
+     * <p><p>A coded value indicating how the related person is 
+     * related to the patient.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p>Examples are spouse, child</p>
      */
     @Hl7XmlMapping({"code"})
     public x_SimplePersonalRelationship getCode() {
@@ -146,8 +146,8 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * 
      * <p>B:Related Person Identifier</p>
      * 
-     * <p><p>A unique identifier for the responsible person (as 
-     * found in a client registry).</p></p>
+     * <p><p>A unique identifier for the related person. May 
+     * include PHNs, drivers license or other identifiers.</p></p>
      * 
      * <p><p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
      * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
@@ -336,20 +336,15 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p></p>
-     * 
-     * <p><p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p
+     * (part of Extens
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRelatedPersonIdentifier() {
-        return this.relatedPersonIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
-        this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -526,17 +521,14 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
      * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getRelatedPersonName() {
-        return this.relatedPersonName.getValue();
+    public PersonName getRelationshipHolderName() {
+        return this.relationshipHolderName.getValue();
     }
-    public void setRelatedPersonName(PersonName relatedPersonName) {
-        this.relatedPersonName.setValue(relatedPersonName);
+    public void setRelationshipHolderName(PersonName relationshipHolderName) {
+        this.relationshipHolderName.setValue(relationshipHolderName);
     }
 
 
@@ -551,8 +543,8 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p><p>Used to contact the related person.</p></p>
      */
     @Hl7XmlMapping({"relationshipHolder/telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getRelationshipHolderTelecom() {
+        return this.relationshipHolderTelecom.rawSet();
     }
 
 
@@ -567,11 +559,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p><p>Used to contact the related person.</p></p>
      */
     @Hl7XmlMapping({"relationshipHolder/addr"})
-    public PostalAddress getRelatedPersonAddress() {
-        return this.relatedPersonAddress.getValue();
+    public PostalAddress getRelationshipHolderAddr() {
+        return this.relationshipHolderAddr.getValue();
     }
-    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
-        this.relatedPersonAddress.setValue(relatedPersonAddress);
+    public void setRelationshipHolderAddr(PostalAddress relationshipHolderAddr) {
+        this.relationshipHolderAddr.setValue(relationshipHolderAddr);
     }
 
 }

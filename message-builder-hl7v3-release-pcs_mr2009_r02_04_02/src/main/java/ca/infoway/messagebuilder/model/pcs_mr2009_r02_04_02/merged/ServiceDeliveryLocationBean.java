@@ -134,23 +134,32 @@ import java.util.Date;
 @Hl7RootType
 public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice, Recipient {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private CV serviceDeliveryLocationType = new CVImpl();
-    private AD serviceDeliveryLocationAddress = new ADImpl();
-    private TEL serviceDeliveryLocationTelecom = new TELImpl();
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
+    private AD addr = new ADImpl();
+    private TEL telecom = new TELImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ST locationName = new STImpl();
 
 
     /**
-     * <p>Location Id Reference</p>
+     * <p>Service Delivery Location Identifier</p>
      * 
-     * <p><p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p></p>
+     * <p><p>A unique identifier for the service delivery 
+     * location.</p></p>
      * 
-     * <p><p>Allows linking participants to locations.</p></p>
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     * 
+     * <p>C:Ship-to Facility Id</p>
+     * 
+     * <p><p>Identifier of the facility where the dispensed 
+     * medication was shipped.</p></p>
+     * 
+     * <p><p>Allows tracking what drugs are dispensed to a 
+     * facility. The attribute is mandatory because identification 
+     * of the facility must be known.</p></p>
      * 
      * <p>C:Service Location Identifier</p>
      * 
@@ -195,22 +204,13 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * the principal mechanism for uniquely identifying the 
      * facility.</p></p>
      * 
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Location Id Reference</p>
      * 
-     * <p><p>A unique identifier for the service delivery 
-     * location.</p></p>
+     * <p><p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     * 
-     * <p>C:Ship-to Facility Id</p>
-     * 
-     * <p><p>Identifier of the facility where the dispensed 
-     * medication was shipped.</p></p>
-     * 
-     * <p><p>Allows tracking what drugs are dispensed to a 
-     * facility. The attribute is mandatory because identification 
-     * of the facility must be known.</p></p>
+     * <p><p>Allows linking participants to locations.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -233,11 +233,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getCode() {
+        return (ServiceDeliveryLocationRoleType) this.code.getValue();
     }
-    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
-        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
+    public void setCode(ServiceDeliveryLocationRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -248,22 +248,22 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p><p>Address of the specific service delivery location</p></p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p><p>Required attribute supports the validation and 
      * identification of the service delivery location</p></p>
      * 
      * <p>Service Delivery Location Address</p>
      * 
      * <p><p>Address of the specific service delivery location</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p><p>Populated attribute supports the validation and 
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceDeliveryLocationAddress() {
-        return this.serviceDeliveryLocationAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setServiceDeliveryLocationAddress(PostalAddress serviceDeliveryLocationAddress) {
-        this.serviceDeliveryLocationAddress.setValue(serviceDeliveryLocationAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -279,11 +279,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getServiceDeliveryLocationTelecom() {
-        return this.serviceDeliveryLocationTelecom.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setServiceDeliveryLocationTelecom(TelecommunicationAddress serviceDeliveryLocationTelecom) {
-        this.serviceDeliveryLocationTelecom.setValue(serviceDeliveryLocationTelecom);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -299,15 +299,22 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     * 
      * <p>B:Service Location Name</p>
      * 
      * <p><p>The name assigned to the service location.</p></p>
@@ -323,13 +330,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p><p>Used for human communication, and for cross-checking 
      * of location Id and is therefore mandatory</p></p>
-     * 
-     * <p>Service Delivery Location Name</p>
-     * 
-     * <p><p>The name of the service delivery location</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {

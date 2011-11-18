@@ -66,23 +66,34 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT050007CA.Person","COCT_MT050202CA.Person","COCT_MT050207CA.Person","COCT_MT050208CA.Person","COCT_MT090102CA.Person","COCT_MT090108CA.Person","COCT_MT910108CA.Person","POIZ_MT030050CA.Person","POIZ_MT030060CA.Person","POIZ_MT060150CA.Person"})
 public class ActingPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private PN name = new PNImpl();
-    private CV patientGender = new CVImpl();
+    private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();
-    private II licenseNumber = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD relatedPersonAddress = new ADImpl();
-    private BL patientDeceasedIndicator = new BLImpl();
-    private TS patientDeceasedDatetime = new TSImpl();
+    private II asHealthCareProviderId = new IIImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD addr = new ADImpl();
+    private BL deceasedInd = new BLImpl();
+    private TS deceasedTime = new TSImpl();
     private List<OtherSpecimenIdentificationsBean> asIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
 
 
     /**
      * <p>B:Patient Name</p>
      * 
-     * <p><p>The name by which the patient is known to the client 
-     * registry.</p></p>
+     * <p><p>The name by which the patient is known and which apply 
+     * to a particular clinical action that has been reported or 
+     * recorded.</p></p>
+     * 
+     * <p><p>Used, with other patient identity attributes, to 
+     * confirm patient identity, as well as when addressing the 
+     * patient. Element is populated because the patient's name is 
+     * frequently necessary for positive identification of the 
+     * patient in the jurisdictional client registry.</p></p>
+     * 
+     * <p>B:Patient Name</p>
+     * 
+     * <p><p>The name by which the patient is known.</p></p>
      * 
      * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
@@ -257,20 +268,7 @@ public class ActingPersonBean extends MessagePartBean {
      * (partType=Suffix)</p><p>PTT.030-05 
      * (partType=Prefix)</p><p>patient 
      * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * oc
+     * (partType=Given)</p><p>Pati
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"name"})
@@ -311,17 +309,33 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p><p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
      * 
      * <p><p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p></p>
      * 
      * <p>F:Patient Gender</p>
      * 
@@ -349,17 +363,17 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p><p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
      * 
      * <p><p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
      * 
      * <p>D:Patient Gender</p>
      * 
@@ -368,116 +382,17 @@ public class ActingPersonBean extends MessagePartBean {
      * considered relevant.</p></p>
      * 
      * <p><p>Used to confirm patient identity.</p></p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>The element is 
-     * mandatory because the patient's gender is necessary for 
-     * positive identification of the patient in the jurisdictional 
-     * client registry and should always be known.</p></p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getAdministrativeGenderCode() {
+        return (AdministrativeGender) this.administrativeGenderCode.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
+        this.administrativeGenderCode.setValue(administrativeGenderCode);
     }
 
 
     /**
-     * <p>E:Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     * 
      * <p>E:Patient Birth Date</p>
      * 
      * <p><p>Indicates the date on which the patient was born, as 
@@ -502,6 +417,89 @@ public class ActingPersonBean extends MessagePartBean {
      * <p><p>Indicates the date on which the patient was born.</p></p>
      * 
      * <p><p>Used to confirm patient identity.</p></p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born as 
+     * known by the client registry.</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born as 
+     * known by the client registry.</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
      */
     @Hl7XmlMapping({"birthTime"})
     public Date getBirthTime() {
@@ -514,27 +512,6 @@ public class ActingPersonBean extends MessagePartBean {
 
     /**
      * <p>LicenseNumber</p>
-     * 
-     * <p>D: License Number</p>
-     * 
-     * <p><p>The license number issued to the provider and relevant 
-     * to the current action.</p></p>
-     * 
-     * <p><p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p></p>
-     * 
-     * <p><p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p><p>Detailed information about the 
-     * status and effective period of licenses must be retrieved 
-     * from the provider registry.</p></p>
-     * 
-     * <p><p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p><p>Detailed information about the 
-     * status and effective period of licenses must be retrieved 
-     * from the provider registry.</p></p>
      * 
      * <p>D: License Number</p>
      * 
@@ -569,13 +546,34 @@ public class ActingPersonBean extends MessagePartBean {
      * <p><p>If the identifier used in the root of the CMET is the 
      * same as the license number, the license number should be 
      * sent in both places.</p></p>
+     * 
+     * <p>D: License Number</p>
+     * 
+     * <p><p>The license number issued to the provider and relevant 
+     * to the current action.</p></p>
+     * 
+     * <p><p>Allows lookup on college website, confirmation of 
+     * identity, etc. Regulations occasionally require license 
+     * numbers to be specified as part of clinical records.</p></p>
+     * 
+     * <p><p>If the identifier used in the root of the CMET is the 
+     * same as the license number, the license number should be 
+     * sent in both places.</p><p>Detailed information about the 
+     * status and effective period of licenses must be retrieved 
+     * from the provider registry.</p></p>
+     * 
+     * <p><p>If the identifier used in the root of the CMET is the 
+     * same as the license number, the license number should be 
+     * sent in both places.</p><p>Detailed information about the 
+     * status and effective period of licenses must be retrieved 
+     * from the provider registry.</p></p>
      */
     @Hl7XmlMapping({"asHealthCareProvider/id"})
-    public Identifier getLicenseNumber() {
-        return this.licenseNumber.getValue();
+    public Identifier getAsHealthCareProviderId() {
+        return this.asHealthCareProviderId.getValue();
     }
-    public void setLicenseNumber(Identifier licenseNumber) {
-        this.licenseNumber.setValue(licenseNumber);
+    public void setAsHealthCareProviderId(Identifier asHealthCareProviderId) {
+        this.asHealthCareProviderId.setValue(asHealthCareProviderId);
     }
 
 
@@ -591,8 +589,8 @@ public class ActingPersonBean extends MessagePartBean {
      * <p><p>Used to contact the related person.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 
@@ -607,11 +605,11 @@ public class ActingPersonBean extends MessagePartBean {
      * <p><p>Used to contact the related person.</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getRelatedPersonAddress() {
-        return this.relatedPersonAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
-        this.relatedPersonAddress.setValue(relatedPersonAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -623,11 +621,11 @@ public class ActingPersonBean extends MessagePartBean {
      * <p><p>Indicates whether the patient is deceased.</p></p>
      */
     @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPatientDeceasedIndicator() {
-        return this.patientDeceasedIndicator.getValue();
+    public Boolean getDeceasedInd() {
+        return this.deceasedInd.getValue();
     }
-    public void setPatientDeceasedIndicator(Boolean patientDeceasedIndicator) {
-        this.patientDeceasedIndicator.setValue(patientDeceasedIndicator);
+    public void setDeceasedInd(Boolean deceasedInd) {
+        this.deceasedInd.setValue(deceasedInd);
     }
 
 
@@ -640,11 +638,11 @@ public class ActingPersonBean extends MessagePartBean {
      * &quot;deceased.&quot;</p></p>
      */
     @Hl7XmlMapping({"deceasedTime"})
-    public Date getPatientDeceasedDatetime() {
-        return this.patientDeceasedDatetime.getValue();
+    public Date getDeceasedTime() {
+        return this.deceasedTime.getValue();
     }
-    public void setPatientDeceasedDatetime(Date patientDeceasedDatetime) {
-        this.patientDeceasedDatetime.setValue(patientDeceasedDatetime);
+    public void setDeceasedTime(Date deceasedTime) {
+        this.deceasedTime.setValue(deceasedTime);
     }
 
 

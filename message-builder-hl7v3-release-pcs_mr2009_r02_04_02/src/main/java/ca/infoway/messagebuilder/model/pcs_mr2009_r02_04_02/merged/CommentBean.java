@@ -64,21 +64,30 @@ import java.util.Set;
  * <p><p>Allows comments to be attached to a Patient record. A 
  * Patient record can pertain to demographic or clinical (Drug, 
  * Condition, Lab, DI, etc) information.</p></p>
+ * 
+ * <p>COMT_MT301001CA.Annotation: Comment</p>
+ * 
+ * <p><p>Identifies the comments to be recorded against a 
+ * Patient's record.</p></p>
+ * 
+ * <p><p>Allows comments to be attached to a Patient record. A 
+ * Patient record can pertain to demographic or clinical (Drug, 
+ * Condition, Lab, DI, etc) information.</p></p>
  */
 @Hl7PartTypeMapping({"COMT_MT300001CA.Annotation","COMT_MT300003CA.Annotation","COMT_MT301001CA.Annotation"})
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV patientNoteCategory = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private ST text = new STImpl();
-    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
-    private II patientNoteId = new IIImpl();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AnnotatedByBean author;
     private OccurredAtBean location;
-    private CV writtenIn = new CVImpl();
-    private II recordId = new IIImpl();
+    private CV languageCode = new CVImpl();
+    private II subjectAnnotatedActId = new IIImpl();
 
 
     /**
@@ -109,17 +118,15 @@ public class CommentBean extends MessagePartBean {
      * access control to different types of notes.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPatientAnnotationCode getPatientNoteCategory() {
-        return (ActPatientAnnotationCode) this.patientNoteCategory.getValue();
+    public ActPatientAnnotationCode getCode() {
+        return (ActPatientAnnotationCode) this.code.getValue();
     }
-    public void setPatientNoteCategory(ActPatientAnnotationCode patientNoteCategory) {
-        this.patientNoteCategory.setValue(patientNoteCategory);
+    public void setCode(ActPatientAnnotationCode code) {
+        this.code.setValue(code);
     }
 
 
     /**
-     * <p>C:Annotation Text</p>
-     * 
      * <p>C:Patient Note Text</p>
      * 
      * <p><p>Free textual description of the patient note.</p></p>
@@ -129,6 +136,16 @@ public class CommentBean extends MessagePartBean {
      * DI, etc). This attribute is mandatory because there's no 
      * point in having a patient note unless there's actually 
      * content in the note.</p></p>
+     * 
+     * <p>C:Annotation Text</p>
+     * 
+     * <p><p>Free text comment to be attached to a record.</p></p>
+     * 
+     * <p><p>Allows a provider to attach arbitrary comments to 
+     * clinical records (prescription, dispenses, lab results, 
+     * allergies, etc) for communication. This attribute is 
+     * mandatory because there's no point in having an annotation 
+     * unless there's actually content in the note.</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -155,33 +172,33 @@ public class CommentBean extends MessagePartBean {
      * exposed to the patient (at least without the guidance of the 
      * authoring or other responsible healthcare provider). Valid 
      * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
+     * (denotes 'Masked'); very restricted (denotes Masked by 
+     * Regulation); and 'taboo' (denotes 'patient restricted'). The 
+     * default is 'normal' signifying 'Not Masked'. Either or both 
+     * of the other codes can be asserted to indicate masking by 
+     * the patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is required because even 
      * if a jurisdiction doesn't support masking on the way in, it 
      * will need to need to communicate masked data returned from 
      * other jurisdictions.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is required because even 
      * if a jurisdiction doesn't support masking on the way in, it 
      * will need to need to communicate masked data returned from 
      * other jurisdictions.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is required because even 
      * if a jurisdiction doesn't support masking on the way in, it 
      * will need to need to communicate masked data returned from 
@@ -200,35 +217,35 @@ public class CommentBean extends MessagePartBean {
      * exposed to the patient (at least without the guidance of the 
      * authoring or other responsible healthcare provider). Valid 
      * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
+     * (denotes 'Masked'); very restricted (denotes Masked by 
+     * Regulation); and 'taboo' (denotes 'patient restricted'). The 
+     * default is 'normal' signifying 'Not Masked'. Either or both 
+     * of the other codes can be asserted to indicate masking by 
+     * the patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
      * all systems will support masking.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
      * all systems will support masking.</p></p>
      * 
      * <p><p>Taboo allows the provider to request restricted access 
-     * to patient or their care giver.</p><p>Constraint: Can'''t 
-     * have both normal and one of the other codes 
+     * to patient or their care giver.</p><p>Constraint: Cant have 
+     * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
      * all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getRestrictedPatientAccess() {
-        return this.restrictedPatientAccess.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -250,11 +267,11 @@ public class CommentBean extends MessagePartBean {
      * the note.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPatientNoteId() {
-        return this.patientNoteId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPatientNoteId(Identifier patientNoteId) {
-        this.patientNoteId.setValue(patientNoteId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -291,11 +308,11 @@ public class CommentBean extends MessagePartBean {
      * <p>D:Written in</p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 
@@ -303,13 +320,19 @@ public class CommentBean extends MessagePartBean {
      * <p>RecordId</p>
      * 
      * <p>A:Record Id</p>
+     * 
+     * <p><p>The identifier assigned by the central system (EHR) to 
+     * the record item being annotated.</p></p>
+     * 
+     * <p><p>Allows the record to be uniquely referenced and is 
+     * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject/annotatedAct/id"})
-    public Identifier getRecordId() {
-        return this.recordId.getValue();
+    public Identifier getSubjectAnnotatedActId() {
+        return this.subjectAnnotatedActId.getValue();
     }
-    public void setRecordId(Identifier recordId) {
-        this.recordId.setValue(recordId);
+    public void setSubjectAnnotatedActId(Identifier subjectAnnotatedActId) {
+        this.subjectAnnotatedActId.setValue(subjectAnnotatedActId);
     }
 
 }

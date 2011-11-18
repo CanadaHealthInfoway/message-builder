@@ -247,80 +247,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Author1","COCT_MT260010CA.Author2","COCT_MT260012CA.Author1","COCT_MT260020CA.Author1","COCT_MT260020CA.Author2","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","COCT_MT260030CA.Author2","COCT_MT470002CA.Author2","COCT_MT470012CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private TS time = new TSImpl();
-    private CV prescriptionTransmissionMethod = new CVImpl();
-    private ED<String> signature = new EDImpl<String>();
+    private CV modeCode = new CVImpl();
+    private ED<String> signatureText = new EDImpl<String>();
     private HealthcareWorkerBean assignedEntity;
 
 
     /**
-     * <p>Prescribed Date</p>
-     * 
-     * <p><p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p></p>
-     * 
-     * <p>Prescription Order Date</p>
-     * 
-     * <p><p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
-     * 
      * <p>Prescription Order Date</p>
      * 
      * <p><p>The date at which the drug was prescribed. This may 
@@ -337,42 +271,6 @@ public class PrescribedByBean extends MessagePartBean {
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
      * prescriptions.</p></p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p><p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p></p>
-     * 
-     * <p>B:Issue Monograph Effective Date</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p><p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p></p>
      * 
      * <p>B:Issue Monograph Effective Date</p>
      * 
@@ -402,6 +300,35 @@ public class PrescribedByBean extends MessagePartBean {
      * inferred prescription, and is therefore marked as 
      * &quot;populated&quot;.</p></p>
      * 
+     * <p>B:Management Date</p>
+     * 
+     * <p><p>The date and time on which the provider managed the 
+     * issue.</p></p>
+     * 
+     * <p><p>ManagedContraindication.CreationDate</p></p>
+     * 
+     * <p><p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p></p>
+     * 
+     * <p>B:Issue Monograph Effective Date</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p><p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p></p>
+     * 
      * <p>Prescribed Date</p>
      * 
      * <p><p>The date at which the device was prescribed. This may 
@@ -421,6 +348,89 @@ public class PrescribedByBean extends MessagePartBean {
      * not be know if a repository is pre-populated with dispense 
      * information.</p></p>
      * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p><p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p></p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p><p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p></p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p><p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p></p>
+     * 
      * <p>B:Management Date</p>
      * 
      * <p><p>The date and time on which the provider used this 
@@ -432,16 +442,6 @@ public class PrescribedByBean extends MessagePartBean {
      * therefore only marked as 'populated'.</p></p>
      * 
      * <p>B:Management Date</p>
-     * 
-     * <p>B:Management Date</p>
-     * 
-     * <p><p>The date and time on which the provider managed the 
-     * issue.</p></p>
-     * 
-     * <p><p>ManagedContraindication.CreationDate</p></p>
-     * 
-     * <p><p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p></p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -466,11 +466,11 @@ public class PrescribedByBean extends MessagePartBean {
      * entered into a central repository from the pharmacy.</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getPrescriptionTransmissionMethod() {
-        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
-        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -487,11 +487,11 @@ public class PrescribedByBean extends MessagePartBean {
      * jurisdictions may not support digital signatures.</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

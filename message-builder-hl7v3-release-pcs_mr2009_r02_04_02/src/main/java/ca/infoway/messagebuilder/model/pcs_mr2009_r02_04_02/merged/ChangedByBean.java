@@ -235,7 +235,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","REPC_MT000007CA.Author","REPC_MT000007CA.Author3","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT420003CA.Author3","REPC_MT500003CA.Author3","REPC_MT500004CA.Author3","REPC_MT610002CA.Author3"})
 public class ChangedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private ActingPerson actingPerson;
@@ -250,68 +250,6 @@ public class ChangedByBean extends MessagePartBean {
      * <p><p>Gives other providers the frame of reference in 
      * evaluating any post-change issues with the prescription 
      * dispense. Also used for sorting and audit purposes.</p></p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p><p>The date on which the change was made.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>The 
-     * attribute is marked as &quot;mandatory&quot; because the 
-     * time of change must be known.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>The 
-     * attribute is marked as &quot;mandatory&quot; because the 
-     * time of change must be known.</p></p>
-     * 
-     * <p>Authored Datetime</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p>Amend Datetime</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p><p>The date and time at which the change was made.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>The 
-     * attribute is marked as &quot;mandatory&quot; because the 
-     * time of change must be known.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>The 
-     * attribute is marked as &quot;mandatory&quot; because the 
-     * time of change must be known.</p></p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p><p>The date and time at which the change was made.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p></p>
      * 
      * <p>Change Timestamp</p>
      * 
@@ -369,6 +307,68 @@ public class ChangedByBean extends MessagePartBean {
      * evaluating any post-change issues with the allergy. Also 
      * used for sorting and audit purposes. Time of change is 
      * always known and thus the attribute is mandatory.</p></p>
+     * 
+     * <p>Authored Datetime</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p>Change Timestamp</p>
+     * 
+     * <p><p>The date on which the change was made.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p></p>
+     * 
+     * <p>Amend Datetime</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p>Change Timestamp</p>
+     * 
+     * <p><p>The date and time at which the change was made.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p></p>
+     * 
+     * <p>Change Timestamp</p>
+     * 
+     * <p><p>The date and time at which the change was made.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p></p>
      * 
      * <p>A: Authored Datetime</p>
      * 

@@ -78,10 +78,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV contactType = new CVImpl();
-    private AD contactAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private AD addr = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -99,11 +99,11 @@ public class ContactPointsBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public AdministrativeContactRoleType getContactType() {
-        return (AdministrativeContactRoleType) this.contactType.getValue();
+    public AdministrativeContactRoleType getCode() {
+        return (AdministrativeContactRoleType) this.code.getValue();
     }
-    public void setContactType(AdministrativeContactRoleType contactType) {
-        this.contactType.setValue(contactType);
+    public void setCode(AdministrativeContactRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -118,11 +118,11 @@ public class ContactPointsBean extends MessagePartBean {
      * may also be used for courier-type deliveries.</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getContactAddress() {
-        return this.contactAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setContactAddress(PostalAddress contactAddress) {
-        this.contactAddress.setValue(contactAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -137,8 +137,8 @@ public class ContactPointsBean extends MessagePartBean {
      * <p><p>Used for more immediate contact requirements</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getContactPhoneNumberAndEmails() {
-        return this.contactPhoneNumberAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 }

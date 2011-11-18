@@ -62,16 +62,26 @@ import java.util.List;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private CV careCompositionType = new CVImpl();
-    private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
     private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
     private OccurredAtBean location;
 
 
     /**
+     * <p>B: Care Composition Identifier</p>
+     * 
+     * <p><p>Unique identifier of an encounter, condition or 
+     * care-based collection.</p></p>
+     * 
+     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
+     * 
+     * <p><p>Allows care compositions to be uniquely identified and 
+     * referenced.</p></p>
+     * 
      * <p>N: Referral Report Link</p>
      * 
      * <p><p>A unique identifier for the report resulting from the 
@@ -85,16 +95,6 @@ public class CareCompositionsBean extends MessagePartBean {
      * referral.</p></p>
      * 
      * <p>N: Referral Report Link</p>
-     * 
-     * <p>B: Care Composition Identifier</p>
-     * 
-     * <p><p>Unique identifier of an encounter, condition or 
-     * care-based collection.</p></p>
-     * 
-     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
-     * 
-     * <p><p>Allows care compositions to be uniquely identified and 
-     * referenced.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -128,11 +128,11 @@ public class CareCompositionsBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
+    public ActCareEventType getCode() {
+        return (ActCareEventType) this.code.getValue();
     }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
+    public void setCode(ActCareEventType code) {
+        this.code.setValue(code);
     }
 
 
@@ -142,11 +142,11 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Care Composition Effective Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCareCompositionEffectiveDate() {
-        return this.careCompositionEffectiveDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setCareCompositionEffectiveDate(Interval<Date> careCompositionEffectiveDate) {
-        this.careCompositionEffectiveDate.setValue(careCompositionEffectiveDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

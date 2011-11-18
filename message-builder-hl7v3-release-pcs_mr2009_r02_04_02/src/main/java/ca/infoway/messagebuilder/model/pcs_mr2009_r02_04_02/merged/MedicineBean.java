@@ -36,11 +36,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT400003CA.Medicine","FICR_MT400004CA.Medicine","FICR_MT490101CA.Medicine"})
 public class MedicineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV drugCode = new CVImpl();
-    private ST drugName = new STImpl();
-    private ST drugDescription = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
+    private ST desc = new STImpl();
+    private CV formCode = new CVImpl();
     private DrugContainsBean ingredient;
 
 
@@ -50,11 +50,11 @@ public class MedicineBean extends MessagePartBean {
      * <p>Drug Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getCode() {
+        return (ClinicalDrug) this.code.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setCode(ClinicalDrug code) {
+        this.code.setValue(code);
     }
 
 
@@ -64,11 +64,11 @@ public class MedicineBean extends MessagePartBean {
      * <p>Drug Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -78,11 +78,11 @@ public class MedicineBean extends MessagePartBean {
      * <p>Drug Description</p>
      */
     @Hl7XmlMapping({"desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
+    public String getDesc() {
+        return this.desc.getValue();
     }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
     }
 
 
@@ -97,11 +97,11 @@ public class MedicineBean extends MessagePartBean {
      * etc.</p></p>
      */
     @Hl7XmlMapping({"formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    public OrderableDrugForm getFormCode() {
+        return (OrderableDrugForm) this.formCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setFormCode(OrderableDrugForm formCode) {
+        this.formCode.setValue(formCode);
     }
 
 

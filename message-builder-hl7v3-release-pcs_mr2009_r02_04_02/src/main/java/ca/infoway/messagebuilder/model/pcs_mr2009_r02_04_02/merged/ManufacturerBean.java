@@ -102,21 +102,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POIZ_MT030050CA.Manufacturer","POIZ_MT030060CA.Manufacturer","POIZ_MT060150CA.Manufacturer","POIZ_MT061150CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private ST manufacturerName = new STImpl();
+    private ST name = new STImpl();
 
 
     /**
-     * <p>Organization Id</p>
-     * 
-     * <p><p>An identifier denoting a specific drug 
-     * manufacturer.</p></p>
-     * 
-     * <p><p>Allows sending of identifiers in place of manufacturer 
-     * name. May be used in drug search where specific manufacturer 
-     * is a criterion.</p></p>
-     * 
      * <p>Manufacturer ID</p>
      * 
      * <p><p>An identifier denoting a specific drug 
@@ -127,6 +118,15 @@ public class ManufacturerBean extends MessagePartBean {
      * is a criterion.</p></p>
      * 
      * <p>Manufacturer Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     * 
+     * <p>Organization Id</p>
      * 
      * <p><p>An identifier denoting a specific drug 
      * manufacturer.</p></p>
@@ -172,11 +172,11 @@ public class ManufacturerBean extends MessagePartBean {
      * for an organization.</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public String getManufacturerName() {
-        return this.manufacturerName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName.setValue(manufacturerName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 }

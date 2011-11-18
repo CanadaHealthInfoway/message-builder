@@ -35,10 +35,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ClinicalDevice","FICR_MT400003CA.ClinicalDevice","FICR_MT400004CA.ClinicalDevice","FICR_MT490101CA.ClinicalDevice","FICR_MT490102CA.ClinicalDevice"})
 public class ClinicalDeviceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV deviceCode = new CVImpl();
-    private ST deviceName = new STImpl();
-    private ST deviceDescription = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST name = new STImpl();
+    private ST desc = new STImpl();
 
 
     /**
@@ -47,11 +47,11 @@ public class ClinicalDeviceBean extends MessagePartBean {
      * <p>Device Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getDeviceCode() {
-        return (Code) this.deviceCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setDeviceCode(Code deviceCode) {
-        this.deviceCode.setValue(deviceCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -61,11 +61,11 @@ public class ClinicalDeviceBean extends MessagePartBean {
      * <p>Device Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public String getDeviceName() {
-        return this.deviceName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setDeviceName(String deviceName) {
-        this.deviceName.setValue(deviceName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 
@@ -75,11 +75,11 @@ public class ClinicalDeviceBean extends MessagePartBean {
      * <p>Device Description</p>
      */
     @Hl7XmlMapping({"desc"})
-    public String getDeviceDescription() {
-        return this.deviceDescription.getValue();
+    public String getDesc() {
+        return this.desc.getValue();
     }
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription.setValue(deviceDescription);
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
     }
 
 }

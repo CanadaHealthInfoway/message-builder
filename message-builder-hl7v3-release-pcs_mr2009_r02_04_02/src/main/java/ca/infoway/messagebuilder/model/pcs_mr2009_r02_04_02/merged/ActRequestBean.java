@@ -79,7 +79,7 @@ import java.util.Set;
 @Hl7RootType
 public class ActRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
 
@@ -91,6 +91,14 @@ public class ActRequestBean extends MessagePartBean {
      * the Event record being referred to.</p></p>
      * 
      * <p><p>Allows the event record to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
+     * 
+     * <p>Record Ids</p>
+     * 
+     * <p><p>The identifier assigned by the registry to the role 
+     * record being referred to</p></p>
+     * 
+     * <p><p>Allows the role record to be uniquely referenced and 
      * is therefore mandatory.</p></p>
      * 
      * <p>A:Prescription Order Number</p>
@@ -111,14 +119,6 @@ public class ActRequestBean extends MessagePartBean {
      * prescription ids by the prescriber, EHR, and potentially by 
      * pharmacies.</p><p>The ID is mandatory to allow every 
      * prescription record to be uniquely identified.</p></p>
-     * 
-     * <p>Record Ids</p>
-     * 
-     * <p><p>The identifier assigned by the registry to the role 
-     * record being referred to</p></p>
-     * 
-     * <p><p>Allows the role record to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

@@ -75,9 +75,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private CV code = new CVImpl();
-    private ST diagnosisDescription = new STImpl();
+    private ST text = new STImpl();
     private CV value = new CVImpl();
 
 
@@ -85,7 +85,7 @@ public class DiagnosisBean extends MessagePartBean {
      * <p>A:Diagnosis Type</p>
      * 
      * <p><p>If code is SNOMED, value must not be specified. 
-     * Otherwise value is mandatory and code must be '''DX'''</p></p>
+     * Otherwise value is mandatory and code must be DX</p></p>
      * 
      * <p><p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
@@ -121,18 +121,18 @@ public class DiagnosisBean extends MessagePartBean {
      * <p><p>Can be used to supplement a diagnostic code</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getDiagnosisDescription() {
-        return this.diagnosisDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setDiagnosisDescription(String diagnosisDescription) {
-        this.diagnosisDescription.setValue(diagnosisDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
     /**
      * <p>Diagnosis Value</p>
      * 
-     * <p><p>Diagnosis Code eg. ICD-10-CA code.</p></p>
+     * <p><p>coded Value denoting diagnosis</p></p>
      * 
      * <p>B:Diagnosis</p>
      * 
@@ -146,7 +146,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Diagnosis Value</p>
      * 
-     * <p><p>coded Value denoting diagnosis</p></p>
+     * <p><p>Diagnosis Code eg. ICD-10-CA code.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {

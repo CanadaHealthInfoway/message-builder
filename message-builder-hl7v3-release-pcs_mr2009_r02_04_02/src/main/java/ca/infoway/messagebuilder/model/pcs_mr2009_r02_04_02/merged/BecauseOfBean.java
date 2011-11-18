@@ -245,20 +245,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt120402
  * migraine. Also needed for drug-disease interaction checking 
  * software to work properly.</p><p>This field is marked as 
  * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers eva
+ * 'Nulls' are allowed because the individual recording
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Reason","PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2","REPC_MT210001CA.Reason","REPC_MT210002CA.Reason","REPC_MT210003CA.Reason","REPC_MT220001CA.Reason","REPC_MT220002CA.Reason","REPC_MT220003CA.Reason","REPC_MT230001CA.Reason","REPC_MT230002CA.Reason","REPC_MT230003CA.Reason","REPC_MT410001CA.Reason","REPC_MT410003CA.Reason","REPC_MT420001CA.Reason","REPC_MT420003CA.Reason","REPC_MT500001CA.Reason","REPC_MT500002CA.Reason","REPC_MT500003CA.Reason","REPC_MT500004CA.Reason","REPC_MT610001CA.Reason","REPC_MT610002CA.Reason"})
 public class BecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private Indications indications;
-    private INT indicationPriority = new INTImpl();
+    private INT priorityNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"indications"})
@@ -273,7 +268,7 @@ public class BecauseOfBean extends MessagePartBean {
     /**
      * <p>IndicationPriority</p>
      * 
-     * <p>Indication Priority</p>
+     * <p>B:Indication Priority</p>
      * 
      * <p><p>Ordering of prescribing indications from primary 
      * indication (low number) to minor indication (higher number). 
@@ -285,7 +280,7 @@ public class BecauseOfBean extends MessagePartBean {
      * for Benign Prostatic Hypertrophy as primary and Hypertension 
      * as secondary or vice-versa.</p></p>
      * 
-     * <p>B:Indication Priority</p>
+     * <p>Indication Priority</p>
      * 
      * <p><p>Ordering of prescribing indications from primary 
      * indication (low number) to minor indication (higher number). 
@@ -298,11 +293,11 @@ public class BecauseOfBean extends MessagePartBean {
      * as secondary or vice-versa.</p></p>
      */
     @Hl7XmlMapping({"priorityNumber"})
-    public Integer getIndicationPriority() {
-        return this.indicationPriority.getValue();
+    public Integer getPriorityNumber() {
+        return this.priorityNumber.getValue();
     }
-    public void setIndicationPriority(Integer indicationPriority) {
-        this.indicationPriority.setValue(indicationPriority);
+    public void setPriorityNumber(Integer priorityNumber) {
+        this.priorityNumber.setValue(priorityNumber);
     }
 
 }

@@ -50,35 +50,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>K:Contained Service Event Ids</p>
-     * 
-     * <p><p>References health service event records to be added to 
-     * or removed from the care composition.</p></p>
-     * 
-     * <p><p>One of the primary purposes of a care composition is 
-     * to 'group' information. This attribute is the representation 
-     * of that grouping.</p></p>
-     * 
-     * <p>Record Identifier</p>
-     * 
-     * <p><p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p><p>For the retract 
-     * interaction, the identfier of the control act requested to 
-     * be nullified.</p></p>
-     * 
-     * <p><p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p><p>For the retract 
-     * interaction, the identfier of the control act requested to 
-     * be nullified.</p></p>
-     * 
-     * <p><p>Allows the event record to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
-     * 
      * <p>Reported On Service Link</p>
      * 
      * <p><p>A unique identifier assigned to the discrete record 
@@ -88,6 +64,15 @@ public class ActEventBean extends MessagePartBean {
      * <p><p>Provides a direct link for drill-down to the discrete 
      * record of the procedure or observation being reported 
      * on.</p></p>
+     * 
+     * <p>K:Contained Service Event Ids</p>
+     * 
+     * <p><p>References health service event records to be added to 
+     * or removed from the care composition.</p></p>
+     * 
+     * <p><p>One of the primary purposes of a care composition is 
+     * to 'group' information. This attribute is the representation 
+     * of that grouping.</p></p>
      * 
      * <p>K:Contained Service Event Ids</p>
      * 
@@ -107,6 +92,21 @@ public class ActEventBean extends MessagePartBean {
      * <p><p>One of the primary purposes of a care composition is 
      * to 'group' information. This attribute is the representation 
      * of that grouping.</p></p>
+     * 
+     * <p>Record Identifier</p>
+     * 
+     * <p><p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p><p>For the retract 
+     * interaction, the identfier of the control act requested to 
+     * be nullified.</p></p>
+     * 
+     * <p><p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p><p>For the retract 
+     * interaction, the identfier of the control act requested to 
+     * be nullified.</p></p>
+     * 
+     * <p><p>Allows the event record to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
