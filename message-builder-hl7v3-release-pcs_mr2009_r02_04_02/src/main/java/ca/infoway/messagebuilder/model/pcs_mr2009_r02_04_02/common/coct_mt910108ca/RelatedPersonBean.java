@@ -64,9 +64,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonB
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110906L;
-    private II relatedPersonIdentifier = new IIImpl();
-    private CV responsiblePersonType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
     private ActingPersonBean relationshipHolder;
 
 
@@ -265,19 +265,15 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
      * (part of Extension)</p></p>
      * 
-     * <p><p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
- 
+     * <p><p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtensio
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getRelatedPersonIdentifier() {
-        return this.relatedPersonIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
-        this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -296,11 +292,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * reports by other related parties</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public x_SimplePersonalRelationship getResponsiblePersonType() {
-        return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
+    public x_SimplePersonalRelationship getCode() {
+        return (x_SimplePersonalRelationship) this.code.getValue();
     }
-    public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
-        this.responsiblePersonType.setValue(responsiblePersonType);
+    public void setCode(x_SimplePersonalRelationship code) {
+        this.code.setValue(code);
     }
 
 

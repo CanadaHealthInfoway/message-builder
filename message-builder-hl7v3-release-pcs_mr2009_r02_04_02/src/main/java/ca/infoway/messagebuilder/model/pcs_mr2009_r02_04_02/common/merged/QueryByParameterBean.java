@@ -54,11 +54,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II queryIdentifier = new IIImpl();
-    private CS expeditedQueryIndicator = new CSImpl();
-    private INT queryLimit = new INTImpl();
-    private CV queryLimitType = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II queryId = new IIImpl();
+    private CS responseModalityCode = new CSImpl();
+    private INT initialQuantity = new INTImpl();
+    private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
     private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
 
@@ -74,30 +74,16 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * query requests and responses and therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    public Identifier getQueryId() {
+        return this.queryId.getValue();
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setQueryId(Identifier queryId) {
+        this.queryId.setValue(queryId);
     }
 
 
     /**
      * <p>ExpeditedQueryIndicator</p>
-     * 
-     * <p>K: Expedited Query Indicator</p>
-     * 
-     * <p><p>This allows the sender to indicate to the receiver 
-     * that this query should follow an expedited processing 
-     * flow.</p></p>
-     * 
-     * <p><p>Intended to convey the 'packaging' of query results. 
-     * This attribute does not affect which rows are selected by 
-     * the query, just the manner in which they are returned. For 
-     * example, a batch file containing responses, a response 
-     * message containing multiple payloads, or a stream of 
-     * response messages (notifications) each identifying itself as 
-     * a response to a query request.</p></p>
      * 
      * <p>K: Expedited Query Indicator</p>
      * 
@@ -112,13 +98,27 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response message containing multiple payloads, or a stream 
      * of response messages (notifications) each identifying itself 
      * as a response to a query request.</p></p>
+     * 
+     * <p>K: Expedited Query Indicator</p>
+     * 
+     * <p><p>This allows the sender to indicate to the receiver 
+     * that this query should follow an expedited processing 
+     * flow.</p></p>
+     * 
+     * <p><p>Intended to convey the 'packaging' of query results. 
+     * This attribute does not affect which rows are selected by 
+     * the query, just the manner in which they are returned. For 
+     * example, a batch file containing responses, a response 
+     * message containing multiple payloads, or a stream of 
+     * response messages (notifications) each identifying itself as 
+     * a response to a query request.</p></p>
      */
     @Hl7XmlMapping({"responseModalityCode"})
-    public ResponseModality getExpeditedQueryIndicator() {
-        return (ResponseModality) this.expeditedQueryIndicator.getValue();
+    public ResponseModality getResponseModalityCode() {
+        return (ResponseModality) this.responseModalityCode.getValue();
     }
-    public void setExpeditedQueryIndicator(ResponseModality expeditedQueryIndicator) {
-        this.expeditedQueryIndicator.setValue(expeditedQueryIndicator);
+    public void setResponseModalityCode(ResponseModality responseModalityCode) {
+        this.responseModalityCode.setValue(responseModalityCode);
     }
 
 
@@ -153,11 +153,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * matching rows based on the query parameters.</p></p>
      */
     @Hl7XmlMapping({"initialQuantity"})
-    public Integer getQueryLimit() {
-        return this.queryLimit.getValue();
+    public Integer getInitialQuantity() {
+        return this.initialQuantity.getValue();
     }
-    public void setQueryLimit(Integer queryLimit) {
-        this.queryLimit.setValue(queryLimit);
+    public void setInitialQuantity(Integer initialQuantity) {
+        this.initialQuantity.setValue(initialQuantity);
     }
 
 
@@ -174,11 +174,11 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * be returned in the query.</p></p>
      */
     @Hl7XmlMapping({"initialQuantityCode"})
-    public QueryRequestLimit getQueryLimitType() {
-        return (QueryRequestLimit) this.queryLimitType.getValue();
+    public QueryRequestLimit getInitialQuantityCode() {
+        return (QueryRequestLimit) this.initialQuantityCode.getValue();
     }
-    public void setQueryLimitType(QueryRequestLimit queryLimitType) {
-        this.queryLimitType.setValue(queryLimitType);
+    public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
+        this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 

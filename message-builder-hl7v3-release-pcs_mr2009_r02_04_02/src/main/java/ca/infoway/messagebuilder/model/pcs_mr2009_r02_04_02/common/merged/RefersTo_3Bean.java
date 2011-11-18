@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MFMI_MT700717CA.Subject2: f:refers to</p>
  * 
- * <p><p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p></p>
+ * <p><p>On creation interactions (where the state transition 
+ * is null-&gt;active), this must be true otherwise it must be 
+ * false.</p></p>
  * 
  * <p><p>Indicates the item(s) being acted upon by this trigger 
  * event.</p><p>Will be mandatory in wrappers with payload 
@@ -55,9 +55,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MFMI_MT700726CA.Subject2: f:refers to</p>
  * 
- * <p><p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p></p>
+ * <p><p>On creation interactions (where the state transition 
+ * is null-&gt;active), this must be true otherwise it must be 
+ * false.</p></p>
  * 
  * <p><p>Indicates the item(s) being acted upon by this trigger 
  * event.</p><p>Will be mandatory in wrappers with payload 
@@ -77,8 +77,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700717CA.Subject2","MFMI_MT700726CA.Subject2"})
 public class RefersTo_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private BL cascadeResponsibilityIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111117L;
+    private BL contextConductionInd = new BLImpl();
     private RegistrationEventBean<RR> registrationEvent;
 
 
@@ -188,11 +188,11 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * cascading will be specified one way or another.</p></p>
      */
     @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getCascadeResponsibilityIndicator() {
-        return this.cascadeResponsibilityIndicator.getValue();
+    public Boolean getContextConductionInd() {
+        return this.contextConductionInd.getValue();
     }
-    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
-        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
+    public void setContextConductionInd(Boolean contextConductionInd) {
+        this.contextConductionInd.setValue(contextConductionInd);
     }
 
 

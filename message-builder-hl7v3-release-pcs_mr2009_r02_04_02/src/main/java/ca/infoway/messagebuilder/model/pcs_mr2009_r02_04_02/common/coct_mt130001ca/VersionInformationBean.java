@@ -59,12 +59,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II changeIdentifier = new IIImpl();
-    private CV changeType = new CVImpl();
-    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
-    private CV changeReason = new CVImpl();
-    private TS changeDatetime = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV reasonCode = new CVImpl();
+    private TS authorTime = new TSImpl();
     private ActingPerson authorActingPerson;
 
 
@@ -78,11 +78,11 @@ public class VersionInformationBean extends MessagePartBean {
      * this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getChangeIdentifier() {
-        return this.changeIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setChangeIdentifier(Identifier changeIdentifier) {
-        this.changeIdentifier.setValue(changeIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -95,11 +95,11 @@ public class VersionInformationBean extends MessagePartBean {
      * types are distinguishable.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
     }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -117,11 +117,11 @@ public class VersionInformationBean extends MessagePartBean {
      * suspend including a planned release date).</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getChangeEffectiveDateAndEndDate() {
-        return this.changeEffectiveDateAndEndDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
-        this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -135,11 +135,11 @@ public class VersionInformationBean extends MessagePartBean {
      * reasons will correspond to a pre-defined code.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getChangeReason() {
-        return (ControlActReason) this.changeReason.getValue();
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
     }
-    public void setChangeReason(ControlActReason changeReason) {
-        this.changeReason.setValue(changeReason);
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 
@@ -156,11 +156,11 @@ public class VersionInformationBean extends MessagePartBean {
      * known and thus the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getChangeDatetime() {
-        return this.changeDatetime.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setChangeDatetime(Date changeDatetime) {
-        this.changeDatetime.setValue(changeDatetime);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 

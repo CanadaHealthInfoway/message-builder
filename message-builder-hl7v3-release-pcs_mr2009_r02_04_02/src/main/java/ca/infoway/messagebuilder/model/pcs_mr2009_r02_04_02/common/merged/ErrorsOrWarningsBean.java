@@ -60,11 +60,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS messageType = new CSImpl();
-    private CV responseCode = new CVImpl();
-    private ST messageDescription = new STImpl();
-    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CS typeCode = new CSImpl();
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
+    private SET<ST, String> location = new SETImpl<ST, String>(STImpl.class);
 
 
     /**
@@ -79,11 +79,11 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * different ramifications.</p></p>
      */
     @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementDetailType getMessageType() {
-        return (AcknowledgementDetailType) this.messageType.getValue();
+    public AcknowledgementDetailType getTypeCode() {
+        return (AcknowledgementDetailType) this.typeCode.getValue();
     }
-    public void setMessageType(AcknowledgementDetailType messageType) {
-        this.messageType.setValue(messageType);
+    public void setTypeCode(AcknowledgementDetailType typeCode) {
+        this.typeCode.setValue(typeCode);
     }
 
 
@@ -118,11 +118,11 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * jurisdictions are bound to adopt the recommendation.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public AcknowledgementDetailCode getResponseCode() {
-        return (AcknowledgementDetailCode) this.responseCode.getValue();
+    public AcknowledgementDetailCode getCode() {
+        return (AcknowledgementDetailCode) this.code.getValue();
     }
-    public void setResponseCode(AcknowledgementDetailCode responseCode) {
-        this.responseCode.setValue(responseCode);
+    public void setCode(AcknowledgementDetailCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -140,11 +140,11 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * human-readability.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getMessageDescription() {
-        return this.messageDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setMessageDescription(String messageDescription) {
-        this.messageDescription.setValue(messageDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -165,8 +165,8 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * predicates are permitted.</p></p>
      */
     @Hl7XmlMapping({"location"})
-    public Set<String> getReferencedMessageLocations() {
-        return this.referencedMessageLocations.rawSet();
+    public Set<String> getLocation() {
+        return this.location.rawSet();
     }
 
 }

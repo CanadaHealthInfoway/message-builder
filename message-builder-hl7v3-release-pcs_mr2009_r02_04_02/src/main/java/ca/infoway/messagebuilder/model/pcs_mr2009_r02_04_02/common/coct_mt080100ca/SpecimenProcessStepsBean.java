@@ -52,10 +52,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV transportationType = new CVImpl();
-    private CS transportationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -68,11 +68,11 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
      * communiated.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActSpecimenTransportationCode getTransportationType() {
-        return (ActSpecimenTransportationCode) this.transportationType.getValue();
+    public ActSpecimenTransportationCode getCode() {
+        return (ActSpecimenTransportationCode) this.code.getValue();
     }
-    public void setTransportationType(ActSpecimenTransportationCode transportationType) {
-        this.transportationType.setValue(transportationType);
+    public void setCode(ActSpecimenTransportationCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -87,11 +87,11 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
      * has yet to be acted upon).</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getTransportationStatus() {
-        return (ActStatus) this.transportationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setTransportationStatus(ActStatus transportationStatus) {
-        this.transportationStatus.setValue(transportationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -108,11 +108,11 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
      * received date/time).</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTransportationDateTime() {
-        return this.transportationDateTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setTransportationDateTime(Interval<Date> transportationDateTime) {
-        this.transportationDateTime.setValue(transportationDateTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

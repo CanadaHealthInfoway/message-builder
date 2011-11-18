@@ -49,11 +49,11 @@ import java.util.Date;
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II accountID = new IIImpl();
-    private CV typeOfAccount = new CVImpl();
-    private ST nameOnCreditCard = new STImpl();
-    private TS expiryDateOnCreditCard = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private ST title = new STImpl();
+    private TS effectiveTime = new TSImpl();
     private PayeeRoleBean holderPayeeRole;
 
 
@@ -67,11 +67,11 @@ public class PayeeAccountBean extends MessagePartBean {
      * not already known to the Payer.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAccountID() {
-        return this.accountID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAccountID(Identifier accountID) {
-        this.accountID.setValue(accountID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -79,11 +79,11 @@ public class PayeeAccountBean extends MessagePartBean {
      * <p>Type of Account</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getTypeOfAccount() {
-        return (Code) this.typeOfAccount.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setTypeOfAccount(Code typeOfAccount) {
-        this.typeOfAccount.setValue(typeOfAccount);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -91,11 +91,11 @@ public class PayeeAccountBean extends MessagePartBean {
      * <p>name on credit card</p>
      */
     @Hl7XmlMapping({"title"})
-    public String getNameOnCreditCard() {
-        return this.nameOnCreditCard.getValue();
+    public String getTitle() {
+        return this.title.getValue();
     }
-    public void setNameOnCreditCard(String nameOnCreditCard) {
-        this.nameOnCreditCard.setValue(nameOnCreditCard);
+    public void setTitle(String title) {
+        this.title.setValue(title);
     }
 
 
@@ -103,11 +103,11 @@ public class PayeeAccountBean extends MessagePartBean {
      * <p>expiry date on credit card</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getExpiryDateOnCreditCard() {
-        return this.expiryDateOnCreditCard.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setExpiryDateOnCreditCard(Date expiryDateOnCreditCard) {
-        this.expiryDateOnCreditCard.setValue(expiryDateOnCreditCard);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

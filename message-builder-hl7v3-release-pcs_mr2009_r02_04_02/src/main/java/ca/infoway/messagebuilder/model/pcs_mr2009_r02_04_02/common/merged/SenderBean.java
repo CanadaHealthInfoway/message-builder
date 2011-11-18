@@ -43,15 +43,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TEL sendingNetworkAddress = new TELImpl();
-    private II sendingApplicationIdentifier = new IIImpl();
-    private ST sendingApplicationName = new STImpl();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
-    private ST sendingSoftwareVersionNumber = new STImpl();
-    private ST sendingApplicationSoftwareName = new STImpl();
-    private II sendingOrganizationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
+    private ST deviceName = new STImpl();
+    private ST deviceDesc = new STImpl();
+    private IVL<TS, Interval<Date>> deviceExistenceTime = new IVLImpl<TS, Interval<Date>>();
+    private ST deviceManufacturerModelName = new STImpl();
+    private ST deviceSoftwareName = new STImpl();
+    private II deviceAgentAgentOrganizationId = new IIImpl();
 
 
     /**
@@ -70,11 +70,11 @@ public class SenderBean extends MessagePartBean {
      * is mandatory when communicating using SOAP.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getSendingNetworkAddress() {
-        return this.sendingNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
-        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -104,11 +104,11 @@ public class SenderBean extends MessagePartBean {
      * requirements.</p></p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getSendingApplicationIdentifier() {
-        return this.sendingApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
-        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 
@@ -123,11 +123,11 @@ public class SenderBean extends MessagePartBean {
      * <p><p>Provides useful information when debugging.</p></p>
      */
     @Hl7XmlMapping({"device/name"})
-    public String getSendingApplicationName() {
-        return this.sendingApplicationName.getValue();
+    public String getDeviceName() {
+        return this.deviceName.getValue();
     }
-    public void setSendingApplicationName(String sendingApplicationName) {
-        this.sendingApplicationName.setValue(sendingApplicationName);
+    public void setDeviceName(String deviceName) {
+        this.deviceName.setValue(deviceName);
     }
 
 
@@ -144,11 +144,11 @@ public class SenderBean extends MessagePartBean {
      * debugging interactions.</p></p>
      */
     @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
+    public String getDeviceDesc() {
+        return this.deviceDesc.getValue();
     }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    public void setDeviceDesc(String deviceDesc) {
+        this.deviceDesc.setValue(deviceDesc);
     }
 
 
@@ -164,11 +164,11 @@ public class SenderBean extends MessagePartBean {
      * debugging.</p></p>
      */
     @Hl7XmlMapping({"device/existenceTime"})
-    public Interval<Date> getSendingApplicationVersionDate() {
-        return this.sendingApplicationVersionDate.getValue();
+    public Interval<Date> getDeviceExistenceTime() {
+        return this.deviceExistenceTime.getValue();
     }
-    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    public void setDeviceExistenceTime(Interval<Date> deviceExistenceTime) {
+        this.deviceExistenceTime.setValue(deviceExistenceTime);
     }
 
 
@@ -184,11 +184,11 @@ public class SenderBean extends MessagePartBean {
      * testing of the sending software.</p></p>
      */
     @Hl7XmlMapping({"device/manufacturerModelName"})
-    public String getSendingSoftwareVersionNumber() {
-        return this.sendingSoftwareVersionNumber.getValue();
+    public String getDeviceManufacturerModelName() {
+        return this.deviceManufacturerModelName.getValue();
     }
-    public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
-        this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
+    public void setDeviceManufacturerModelName(String deviceManufacturerModelName) {
+        this.deviceManufacturerModelName.setValue(deviceManufacturerModelName);
     }
 
 
@@ -204,11 +204,11 @@ public class SenderBean extends MessagePartBean {
      * application compliance testing.</p></p>
      */
     @Hl7XmlMapping({"device/softwareName"})
-    public String getSendingApplicationSoftwareName() {
-        return this.sendingApplicationSoftwareName.getValue();
+    public String getDeviceSoftwareName() {
+        return this.deviceSoftwareName.getValue();
     }
-    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
+    public void setDeviceSoftwareName(String deviceSoftwareName) {
+        this.deviceSoftwareName.setValue(deviceSoftwareName);
     }
 
 
@@ -219,25 +219,25 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p><p>Sending organization unique identifier.</p></p>
      * 
-     * <p><p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * sending device to agent is optional.</p></p>
+     * <p><p>Identifier is the only non-structure attribute in this 
+     * class and is therefore mandatory. The agent association from 
+     * the sending device (application) to the agent role is 
+     * optional.</p></p>
      * 
      * <p>IK:Sending Organization Identifier</p>
      * 
      * <p><p>Sending organization unique identifier.</p></p>
      * 
-     * <p><p>Identifier is the only non-structure attribute in this 
-     * class and is therefore mandatory. The agent association from 
-     * the sending device (application) to the agent role is 
-     * optional.</p></p>
+     * <p><p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * sending device to agent is optional.</p></p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id"})
-    public Identifier getSendingOrganizationIdentifier() {
-        return this.sendingOrganizationIdentifier.getValue();
+    public Identifier getDeviceAgentAgentOrganizationId() {
+        return this.deviceAgentAgentOrganizationId.getValue();
     }
-    public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
-        this.sendingOrganizationIdentifier.setValue(sendingOrganizationIdentifier);
+    public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
+        this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);
     }
 
 }

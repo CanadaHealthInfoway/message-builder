@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DiagnosisBean
 @Hl7PartTypeMapping({"COCT_MT290000CA.DiagnosisInformation","COCT_MT490000CA.DiagnosisInformation"})
 public class DiagnosisInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT diagnosisPriority = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private DiagnosisBean diagnosis;
 
 
@@ -52,11 +52,11 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * <p><p>1=Primary, 2=Secondary, etc.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getDiagnosisPriority() {
-        return this.diagnosisPriority.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setDiagnosisPriority(Integer diagnosisPriority) {
-        this.diagnosisPriority.setValue(diagnosisPriority);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

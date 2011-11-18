@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV problemType = new CVImpl();
-    private CD problemCode = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CD value = new CDImpl();
 
 
     /**
@@ -57,11 +57,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
      * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getProblemType() {
-        return (Code) this.problemType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setProblemType(Code problemType) {
-        this.problemType.setValue(problemType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -76,11 +76,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
      * <p></p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Code getProblemCode() {
-        return (Code) this.problemCode.getValue();
+    public Code getValue() {
+        return (Code) this.value.getValue();
     }
-    public void setProblemCode(Code problemCode) {
-        this.problemCode.setValue(problemCode);
+    public void setValue(Code value) {
+        this.value.setValue(value);
     }
 
 }

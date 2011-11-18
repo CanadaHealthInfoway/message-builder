@@ -63,11 +63,11 @@ import java.util.Set;
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II serviceEventID = new IIImpl();
-    private CV procedureCode = new CVImpl();
-    private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> serviceReason = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> reasonCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
     private HealthcareProviderBean secondaryPerformerHealthCareProvider;
     private HealthcareProviderBean performerHealthCareProvider;
@@ -85,11 +85,11 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p><p>Can be used to uniquely identify a service event</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getServiceEventID() {
-        return this.serviceEventID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setServiceEventID(Identifier serviceEventID) {
-        this.serviceEventID.setValue(serviceEventID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -99,11 +99,11 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p><p>procedure cd, CPT cd, supply cd</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getProcedureCode() {
-        return (Code) this.procedureCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setProcedureCode(Code procedureCode) {
-        this.procedureCode.setValue(procedureCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -113,11 +113,11 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p><p>Duration, date/time of occurrence</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDurationDateTimeOfOccurrence() {
-        return this.durationDateTimeOfOccurrence.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDurationDateTimeOfOccurrence(Interval<Date> durationDateTimeOfOccurrence) {
-        this.durationDateTimeOfOccurrence.setValue(durationDateTimeOfOccurrence);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -133,8 +133,8 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * prescription</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public Set<Code> getServiceReason() {
-        return this.serviceReason.rawSet(Code.class);
+    public Set<Code> getReasonCode() {
+        return this.reasonCode.rawSet(Code.class);
     }
 
 

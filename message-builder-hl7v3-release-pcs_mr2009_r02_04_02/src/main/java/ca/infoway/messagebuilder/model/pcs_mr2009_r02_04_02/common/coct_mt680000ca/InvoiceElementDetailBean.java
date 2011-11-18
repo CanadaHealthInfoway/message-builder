@@ -45,13 +45,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedRe
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private AdjudicatedResultOutcomeBean outcomeOf;
-    private CV productServiceCode = new CVImpl();
-    private PQ quantityPerUnit = new PQImpl();
-    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
-    private MO invoiceElementAmountBilled = new MOImpl();
-    private INT multiplierForTaxes = new INTImpl();
+    private CV code = new CVImpl();
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
+    private MO netAmt = new MOImpl();
+    private INT factorNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"outcomeOf"})
@@ -74,11 +74,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
      * northern isolation, off hours specialty, on call</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getProductServiceCode() {
-        return (Code) this.productServiceCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setProductServiceCode(Code productServiceCode) {
-        this.productServiceCode.setValue(productServiceCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -88,11 +88,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
      * <p><p>e.g. 3 {boxes}</p></p>
      */
     @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getQuantityPerUnit() {
-        return this.quantityPerUnit.getValue();
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
     }
-    public void setQuantityPerUnit(PhysicalQuantity quantityPerUnit) {
-        this.quantityPerUnit.setValue(quantityPerUnit);
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
     }
 
 
@@ -102,11 +102,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
      * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 
@@ -117,11 +117,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
      * E.g. $150 CAD</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceElementAmountBilled() {
-        return this.invoiceElementAmountBilled.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setInvoiceElementAmountBilled(Money invoiceElementAmountBilled) {
-        this.invoiceElementAmountBilled.setValue(invoiceElementAmountBilled);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -132,11 +132,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
      * 0.07</p></p>
      */
     @Hl7XmlMapping({"factorNumber"})
-    public Integer getMultiplierForTaxes() {
-        return this.multiplierForTaxes.getValue();
+    public Integer getFactorNumber() {
+        return this.factorNumber.getValue();
     }
-    public void setMultiplierForTaxes(Integer multiplierForTaxes) {
-        this.multiplierForTaxes.setValue(multiplierForTaxes);
+    public void setFactorNumber(Integer factorNumber) {
+        this.factorNumber.setValue(factorNumber);
     }
 
 }

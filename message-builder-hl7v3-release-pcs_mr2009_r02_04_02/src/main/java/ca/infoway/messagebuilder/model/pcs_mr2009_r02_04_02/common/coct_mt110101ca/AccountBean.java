@@ -41,8 +41,8 @@ import java.util.Set;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> payorIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> holderPayorRoleId = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
@@ -51,8 +51,8 @@ public class AccountBean extends MessagePartBean {
      * <p><p>assigned by adjudicator</p></p>
      */
     @Hl7XmlMapping({"holder/payorRole/id"})
-    public Set<Identifier> getPayorIdentifier() {
-        return this.payorIdentifier.rawSet();
+    public Set<Identifier> getHolderPayorRoleId() {
+        return this.holderPayorRoleId.rawSet();
     }
 
 }

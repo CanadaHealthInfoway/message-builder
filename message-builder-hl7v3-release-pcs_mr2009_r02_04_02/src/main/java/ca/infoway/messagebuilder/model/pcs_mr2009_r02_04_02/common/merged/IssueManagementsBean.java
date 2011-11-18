@@ -88,14 +88,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByB
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV managementType = new CVImpl();
-    private ST managementDescription = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
     private PrescribedByBean author;
 
 
     /**
      * <p>ManagementType</p>
+     * 
+     * <p>A:Management Type</p>
      * 
      * <p>A:Management Type</p>
      * 
@@ -196,8 +198,6 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>A:Management Type</p>
      * 
-     * <p>A:Management Type</p>
-     * 
      * <p><p>Indicates the kinds of management actions that have 
      * been taken, depending on the issue type.</p></p>
      * 
@@ -242,17 +242,15 @@ public class IssueManagementsBean extends MessagePartBean {
      * overrides in ControlAct 
      * wrapper.</p><p>ZPB3.10</p><p>Intervention 
      * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p></p>
-     * 
-     * <p><p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, other
+   
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
-    public ActDetectedIssueManagementCode getManagementType() {
-        return (ActDetectedIssueManagementCode) this.managementType.getValue();
+    public ActDetectedIssueManagementCode getCode() {
+        return (ActDetectedIssueManagementCode) this.code.getValue();
     }
-    public void setManagementType(ActDetectedIssueManagementCode managementType) {
-        this.managementType.setValue(managementType);
+    public void setCode(ActDetectedIssueManagementCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -270,11 +268,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * are important clinically and not conveyed by the code.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getManagementDescription() {
-        return this.managementDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setManagementDescription(String managementDescription) {
-        this.managementDescription.setValue(managementDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 

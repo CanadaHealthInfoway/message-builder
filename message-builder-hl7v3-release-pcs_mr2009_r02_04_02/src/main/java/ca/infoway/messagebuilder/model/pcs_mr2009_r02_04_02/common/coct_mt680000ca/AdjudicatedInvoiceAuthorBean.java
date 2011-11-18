@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ED<String> eOBSignature = new EDImpl<String>();
-    private ST adjudicatorDeviceSoftwareName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ED<String> signatureText = new EDImpl<String>();
+    private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
 
 
     /**
@@ -45,11 +45,11 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
      * <p><p>EOB signature</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getEOBSignature() {
-        return this.eOBSignature.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setEOBSignature(String eOBSignature) {
-        this.eOBSignature.setValue(eOBSignature);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 
@@ -61,11 +61,11 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
      * PreDet</p></p>
      */
     @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
-    public String getAdjudicatorDeviceSoftwareName() {
-        return this.adjudicatorDeviceSoftwareName.getValue();
+    public String getAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName() {
+        return this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.getValue();
     }
-    public void setAdjudicatorDeviceSoftwareName(String adjudicatorDeviceSoftwareName) {
-        this.adjudicatorDeviceSoftwareName.setValue(adjudicatorDeviceSoftwareName);
+    public void setAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName(String adjudicatorRolePlayingAdjudicatorDeviceSoftwareName) {
+        this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.setValue(adjudicatorRolePlayingAdjudicatorDeviceSoftwareName);
     }
 
 }

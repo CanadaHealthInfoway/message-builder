@@ -47,13 +47,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private PayeeRelationshipRoleBean asRole;
-    private PN payeeName = new PNImpl();
-    private AD payeeAddress = new ADImpl();
-    private CV payeePersonLanguage = new CVImpl();
-    private CV languageOfCommunication = new CVImpl();
-    private BL preferredLanguageIndicator = new BLImpl();
+    private PN name = new PNImpl();
+    private AD addr = new ADImpl();
+    private CV payeeLanguageLanguageCode = new CVImpl();
+    private CV payeeLanguageModeCode = new CVImpl();
+    private BL payeeLanguagePreferenceInd = new BLImpl();
 
 
     @Hl7XmlMapping({"asRole"})
@@ -71,11 +71,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p><p>name of person who is the payee</p></p>
      */
     @Hl7XmlMapping({"name"})
-    public PersonName getPayeeName() {
-        return this.payeeName.getValue();
+    public PersonName getName() {
+        return this.name.getValue();
     }
-    public void setPayeeName(PersonName payeeName) {
-        this.payeeName.setValue(payeeName);
+    public void setName(PersonName name) {
+        this.name.setValue(name);
     }
 
 
@@ -83,11 +83,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>payee address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPayeeAddress() {
-        return this.payeeAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPayeeAddress(PostalAddress payeeAddress) {
-        this.payeeAddress.setValue(payeeAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -95,11 +95,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>Payee Person Language</p>
      */
     @Hl7XmlMapping({"payeeLanguage/languageCode"})
-    public HumanLanguage getPayeePersonLanguage() {
-        return (HumanLanguage) this.payeePersonLanguage.getValue();
+    public HumanLanguage getPayeeLanguageLanguageCode() {
+        return (HumanLanguage) this.payeeLanguageLanguageCode.getValue();
     }
-    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
-        this.payeePersonLanguage.setValue(payeePersonLanguage);
+    public void setPayeeLanguageLanguageCode(HumanLanguage payeeLanguageLanguageCode) {
+        this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
     }
 
 
@@ -110,11 +110,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * language.</p></p>
      */
     @Hl7XmlMapping({"payeeLanguage/modeCode"})
-    public LanguageAbilityMode getLanguageOfCommunication() {
-        return (LanguageAbilityMode) this.languageOfCommunication.getValue();
+    public LanguageAbilityMode getPayeeLanguageModeCode() {
+        return (LanguageAbilityMode) this.payeeLanguageModeCode.getValue();
     }
-    public void setLanguageOfCommunication(LanguageAbilityMode languageOfCommunication) {
-        this.languageOfCommunication.setValue(languageOfCommunication);
+    public void setPayeeLanguageModeCode(LanguageAbilityMode payeeLanguageModeCode) {
+        this.payeeLanguageModeCode.setValue(payeeLanguageModeCode);
     }
 
 
@@ -122,11 +122,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
      * <p>Preferred Language Indicator</p>
      */
     @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
-    public Boolean getPreferredLanguageIndicator() {
-        return this.preferredLanguageIndicator.getValue();
+    public Boolean getPayeeLanguagePreferenceInd() {
+        return this.payeeLanguagePreferenceInd.getValue();
     }
-    public void setPreferredLanguageIndicator(Boolean preferredLanguageIndicator) {
-        this.preferredLanguageIndicator.setValue(preferredLanguageIndicator);
+    public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
+        this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
     }
 
 }

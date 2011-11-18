@@ -56,11 +56,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST animalName = new STImpl();
-    private AD ownerAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN ownerName = new PNImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST patientNonPersonLivingSubjectName = new STImpl();
+    private AD patientNonPersonLivingSubjectContactPartyAddr = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> patientNonPersonLivingSubjectContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN patientNonPersonLivingSubjectContactPartyContactPersonName = new PNImpl();
 
 
     /**
@@ -250,19 +250,15 @@ public class AnimalPatientBean extends MessagePartBean {
      * 
      * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (p
+     * repetitions except first)</p><p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
+    public String getPatientNonPersonLivingSubjectName() {
+        return this.patientNonPersonLivingSubjectName.getValue();
     }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
+    public void setPatientNonPersonLivingSubjectName(String patientNonPersonLivingSubjectName) {
+        this.patientNonPersonLivingSubjectName.setValue(patientNonPersonLivingSubjectName);
     }
 
 
@@ -275,11 +271,11 @@ public class AnimalPatientBean extends MessagePartBean {
      * <p><p>Used to contact the owner or contact person</p></p>
      */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
+    public PostalAddress getPatientNonPersonLivingSubjectContactPartyAddr() {
+        return this.patientNonPersonLivingSubjectContactPartyAddr.getValue();
     }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
+    public void setPatientNonPersonLivingSubjectContactPartyAddr(PostalAddress patientNonPersonLivingSubjectContactPartyAddr) {
+        this.patientNonPersonLivingSubjectContactPartyAddr.setValue(patientNonPersonLivingSubjectContactPartyAddr);
     }
 
 
@@ -292,8 +288,8 @@ public class AnimalPatientBean extends MessagePartBean {
      * <p><p>Used to contact the owner or contact person</p></p>
      */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getPatientNonPersonLivingSubjectContactPartyTelecom() {
+        return this.patientNonPersonLivingSubjectContactPartyTelecom.rawSet();
     }
 
 
@@ -307,11 +303,11 @@ public class AnimalPatientBean extends MessagePartBean {
      * owner person, it is mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
+    public PersonName getPatientNonPersonLivingSubjectContactPartyContactPersonName() {
+        return this.patientNonPersonLivingSubjectContactPartyContactPersonName.getValue();
     }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
+    public void setPatientNonPersonLivingSubjectContactPartyContactPersonName(PersonName patientNonPersonLivingSubjectContactPartyContactPersonName) {
+        this.patientNonPersonLivingSubjectContactPartyContactPersonName.setValue(patientNonPersonLivingSubjectContactPartyContactPersonName);
     }
 
 }

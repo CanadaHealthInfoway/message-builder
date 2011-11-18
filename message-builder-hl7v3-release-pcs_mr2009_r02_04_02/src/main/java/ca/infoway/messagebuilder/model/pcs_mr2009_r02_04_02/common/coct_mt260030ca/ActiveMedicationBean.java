@@ -67,14 +67,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS otherMedicationIndicator = new CSImpl();
-    private II activeMedicationRecordNumber = new IIImpl();
-    private CD administrationType = new CDImpl();
-    private CS activeMedicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private PQ activeMedicationDoseQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS moodCode = new CSImpl();
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
+    private PQ doseQuantity = new PQImpl();
     private DrugProductBean consumableMedication;
 
 
@@ -90,11 +90,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodRequestEvent getOtherMedicationIndicator() {
-        return (x_ActMoodRequestEvent) this.otherMedicationIndicator.getValue();
+    public x_ActMoodRequestEvent getMoodCode() {
+        return (x_ActMoodRequestEvent) this.moodCode.getValue();
     }
-    public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
-        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    public void setMoodCode(x_ActMoodRequestEvent moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -126,11 +126,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * determining their management approach for the issue.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getActiveMedicationRecordNumber() {
-        return this.activeMedicationRecordNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
-        this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -152,11 +152,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * type to support SNOMED implementations.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActSubstanceAdministrationCode getAdministrationType() {
-        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
+    public ActSubstanceAdministrationCode getCode() {
+        return (ActSubstanceAdministrationCode) this.code.getValue();
     }
-    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
-        this.administrationType.setValue(administrationType);
+    public void setCode(ActSubstanceAdministrationCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -175,11 +175,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * actively taken.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getActiveMedicationStatus() {
-        return (ActStatus) this.activeMedicationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
-        this.activeMedicationStatus.setValue(activeMedicationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -195,11 +195,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * and similar timing-based issues.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -219,8 +219,8 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getActiveMedicationMaskingIndicator() {
-        return this.activeMedicationMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -245,11 +245,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p><p>Used in Low Dose/High Dose issues.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getActiveMedicationDoseQuantity() {
-        return this.activeMedicationDoseQuantity.getValue();
+    public PhysicalQuantity getDoseQuantity() {
+        return this.doseQuantity.getValue();
     }
-    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
-        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
+    public void setDoseQuantity(PhysicalQuantity doseQuantity) {
+        this.doseQuantity.setValue(doseQuantity);
     }
 
 

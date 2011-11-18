@@ -56,9 +56,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ConsentGivenToBean receiver;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"receiver"})
@@ -75,6 +75,17 @@ public class AccessTypeBean extends MessagePartBean {
      * 
      * <p>B:Consent Information Types</p>
      * 
+     * <p><p>The type of patient information that can be accessed 
+     * or modified.</p></p>
+     * 
+     * <p><p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p></p>
+     * 
+     * <p>B:Consent Information Types</p>
+     * 
      * <p><p>The type of patient, client, or provider information 
      * that can be accessed or modified.</p></p>
      * 
@@ -84,21 +95,10 @@ public class AccessTypeBean extends MessagePartBean {
      * results). Understanding the type of information the consent 
      * applies to is critical, and therefore the attribute is 
      * mandatory.</p></p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified.</p></p>
-     * 
-     * <p><p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject/actDefinition/code"})
-    public List<Code> getConsentInformationTypes() {
-        return new RawListWrapper<CV, Code>(consentInformationTypes, CVImpl.class);
+    public List<Code> getSubjectActDefinitionCode() {
+        return new RawListWrapper<CV, Code>(subjectActDefinitionCode, CVImpl.class);
     }
 
 }

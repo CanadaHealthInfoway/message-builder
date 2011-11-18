@@ -67,10 +67,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TS timeOfCreation = new TSImpl();
-    private CV informationReceivedMethod = new CVImpl();
-    private ED<String> digitalSignature = new EDImpl<String>();
+    private static final long serialVersionUID = 20111117L;
+    private TS time = new TSImpl();
+    private CV modeCode = new CVImpl();
+    private ED<String> signatureText = new EDImpl<String>();
     private AuthorPerson authorPerson;
 
 
@@ -99,11 +99,11 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * information and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getTimeOfCreation() {
-        return this.timeOfCreation.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setTimeOfCreation(Date timeOfCreation) {
-        this.timeOfCreation.setValue(timeOfCreation);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 
@@ -119,11 +119,11 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * reliability of the information.</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationReceivedMethod() {
-        return (ParticipationMode) this.informationReceivedMethod.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
-        this.informationReceivedMethod.setValue(informationReceivedMethod);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -141,11 +141,11 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * where it will be used.</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getDigitalSignature() {
-        return this.digitalSignature.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature.setValue(digitalSignature);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

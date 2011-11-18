@@ -67,22 +67,22 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II messageIdentifier = new IIImpl();
-    private TS messageTimestamp = new TSImpl();
-    private ST securityToken = new STImpl();
-    private CS responseType = new CSImpl();
-    private II interactionType = new IIImpl();
-    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private TS creationTime = new TSImpl();
+    private ST securityText = new STImpl();
+    private CS responseModeCode = new CSImpl();
+    private II interactionId = new IIImpl();
+    private LIST<II, Identifier> profileId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
-    private CS desiredAcknowledgmentType = new CSImpl();
+    private CS acceptAckCode = new CSImpl();
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
     private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
     private CAE controlActEvent;
-    private CS processingMode = new CSImpl();
+    private CS processingModeCode = new CSImpl();
 
 
     /**
@@ -99,11 +99,11 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * The attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -121,11 +121,11 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * result, the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"creationTime"})
-    public Date getMessageTimestamp() {
-        return this.messageTimestamp.getValue();
+    public Date getCreationTime() {
+        return this.creationTime.getValue();
     }
-    public void setMessageTimestamp(Date messageTimestamp) {
-        this.messageTimestamp.setValue(messageTimestamp);
+    public void setCreationTime(Date creationTime) {
+        this.creationTime.setValue(creationTime);
     }
 
 
@@ -144,29 +144,16 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * capability.</p></p>
      */
     @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
+    public String getSecurityText() {
+        return this.securityText.getValue();
     }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
+    public void setSecurityText(String securityText) {
+        this.securityText.setValue(securityText);
     }
 
 
     /**
      * <p>ResponseType</p>
-     * 
-     * <p>DA: Response Type</p>
-     * 
-     * <p><p>Identifies whether the response is desired immediately 
-     * (as a direct acknowledgement), on a deferred basis (as a 
-     * subsequent independent interaction) or via queue using 
-     * polling.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:Action (after the second underscore, 
-     * if any, '''D''' otherwise)</p></p>
-     * 
-     * <p><p>Essential to determining receiver behavior and 
-     * therefore mandatory.</p></p>
      * 
      * <p>DA: Response Type</p>
      * 
@@ -176,17 +163,30 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * via queue using polling.</p></p>
      * 
      * <p><p>soap:Header\wsa:Action (after the second underscore, 
-     * if any, '''D''' otherwise)</p></p>
+     * if any, D otherwise)</p></p>
+     * 
+     * <p><p>Essential to determining receiver behavior and 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>DA: Response Type</p>
+     * 
+     * <p><p>Identifies whether the response is desired immediately 
+     * (as a direct acknowledgement), on a deferred basis (as a 
+     * subsequent independent interaction) or via queue using 
+     * polling.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:Action (after the second underscore, 
+     * if any, D otherwise)</p></p>
      * 
      * <p><p>Essential to determining receiver behavior and 
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"responseModeCode"})
-    public ResponseMode getResponseType() {
-        return (ResponseMode) this.responseType.getValue();
+    public ResponseMode getResponseModeCode() {
+        return (ResponseMode) this.responseModeCode.getValue();
     }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType.setValue(responseType);
+    public void setResponseModeCode(ResponseMode responseModeCode) {
+        this.responseModeCode.setValue(responseModeCode);
     }
 
 
@@ -198,19 +198,19 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p><p>Indicates the interaction conveyed by this 
      * message.</p></p>
      * 
-     * <p><p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' 
-     * and before the second underscore, if any)</p></p>
+     * <p><p>soap:Header\wsa:Action (after urn:hl7-org:v3: and 
+     * before the second underscore, if any)</p></p>
      * 
      * <p><p>Identifies what the receiving application should do, 
      * and how the message should be validated. The attribute is 
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"interactionId"})
-    public Identifier getInteractionType() {
-        return this.interactionType.getValue();
+    public Identifier getInteractionId() {
+        return this.interactionId.getValue();
     }
-    public void setInteractionType(Identifier interactionType) {
-        this.interactionType.setValue(interactionType);
+    public void setInteractionId(Identifier interactionId) {
+        this.interactionId.setValue(interactionId);
     }
 
 
@@ -227,8 +227,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * processed.</p></p>
      */
     @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
+    public List<Identifier> getProfileId() {
+        return this.profileId.rawList();
     }
 
 
@@ -240,8 +240,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p><p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p></p>
      * 
-     * <p><p>soap:Header\wsa:To\(portion between second-last 
-     * '''\''' and third-last '''\''')</p></p>
+     * <p><p>soap:Header\wsa:To\(portion between second-last \ and 
+     * third-last \)</p></p>
      * 
      * <p><p>Indicates how the message should be handled and is 
      * therefore mandatory.</p></p>
@@ -272,11 +272,11 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * transport protocol, not HL7.)</p></p>
      */
     @Hl7XmlMapping({"acceptAckCode"})
-    public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
+    public AcknowledgementCondition getAcceptAckCode() {
+        return (AcknowledgementCondition) this.acceptAckCode.getValue();
     }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
+    public void setAcceptAckCode(AcknowledgementCondition acceptAckCode) {
+        this.acceptAckCode.setValue(acceptAckCode);
     }
 
 
@@ -345,11 +345,11 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * archive mode.</p></p>
      */
     @Hl7XmlMapping({"processingModeCode"})
-    public ProcessingMode getProcessingMode() {
-        return (ProcessingMode) this.processingMode.getValue();
+    public ProcessingMode getProcessingModeCode() {
+        return (ProcessingMode) this.processingModeCode.getValue();
     }
-    public void setProcessingMode(ProcessingMode processingMode) {
-        this.processingMode.setValue(processingMode);
+    public void setProcessingModeCode(ProcessingMode processingModeCode) {
+        this.processingModeCode.setValue(processingModeCode);
     }
 
 }

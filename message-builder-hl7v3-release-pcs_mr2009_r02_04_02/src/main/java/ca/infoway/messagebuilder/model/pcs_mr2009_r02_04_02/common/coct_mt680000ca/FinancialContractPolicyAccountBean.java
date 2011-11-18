@@ -40,8 +40,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PolicyUnderwr
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV policyAccountCode = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private PolicyUnderwriterBean author;
 
 
@@ -51,11 +51,11 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
      * <p><p>Code Set denoting policy type</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getPolicyAccountCode() {
-        return (Code) this.policyAccountCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setPolicyAccountCode(Code policyAccountCode) {
-        this.policyAccountCode.setValue(policyAccountCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 

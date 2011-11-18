@@ -52,11 +52,11 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV typeOfDispense = new CVImpl();
-    private TS dispenseTime = new TSImpl();
-    private PQ totalDispensed = new PQImpl();
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private TS effectiveTime = new TSImpl();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DispensedInBean productContent;
     private PharmacistRoleBean performerPharmacistRole;
     private ServiceLocationBean originServiceDeliveryLocation;
@@ -69,11 +69,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Type of Dispense</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getTypeOfDispense() {
-        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
-        this.typeOfDispense.setValue(typeOfDispense);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
@@ -81,11 +81,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Dispense Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getDispenseTime() {
-        return this.dispenseTime.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispenseTime(Date dispenseTime) {
-        this.dispenseTime.setValue(dispenseTime);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -93,11 +93,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Total Dispensed</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalDispensed() {
-        return this.totalDispensed.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalDispensed(PhysicalQuantity totalDispensed) {
-        this.totalDispensed.setValue(totalDispensed);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -105,11 +105,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Dispensed Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 

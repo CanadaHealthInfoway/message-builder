@@ -74,10 +74,10 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private AD patientContactAddress = new ADImpl();
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private AD addr = new ADImpl();
+    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ActingPersonBean patientPerson;
 
 
@@ -86,9 +86,17 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * 
      * <p>A:Patient Identifier</p>
      * 
-     * <p><p>Unique identifier assigned to a person, possibly by a 
-     * local system or some other non-client-registry 
-     * identifier.</p></p>
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
      * 
      * <p><p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -211,27 +219,18 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * (Root)</p><p>Person.PHN (Extension)</p></p>
      * 
      * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this CMET deals with patients not confirmable 
-     * against a client registry, it's possible that no identifier 
-     * will be known and therefore the attribute is only 
-     * 'populated'. The cardinality of patient identifiers is up to 
-     * 3 based on the use case to support communication of a local 
-     * and jurisdictional identifier along with the national 
+     * Because this is the principal mechanism for identifying 
+     * patients to computer systems, the attribute is mandatory. 
+     * The cardinality of patient identifiers is up to 3 based on 
+     * the use case to support communication of a local and 
+     * jurisdictional identifier along with the national 
      * identifier.</p></p>
      * 
      * <p>A:Patient Identifier</p>
      * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
-     * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
+     * <p><p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p></p>
      * 
      * <p><p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -293,14 +292,12 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p><
+     * (Root)</p><p>Claim.330-CW</p><p>He
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPatientIdentifier() {
-        return this.patientIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -508,19 +505,15 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
      * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
      * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
-     * by carriage return)</p><p>PTT.060-01 
-     * (partType=SAL)</p><p>PTT.060-02 
-     * (partType=CTY)</p><p>PTT.060-03 
-     * (partType=CNT)</p><p>PTT.060-04 
+     * (usablePeriod (IVL&lt;
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientContactAddress() {
-        return this.patientContactAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPatientContactAddress(PostalAddress patientContactAddress) {
-        this.patientContactAddress.setValue(patientContactAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -719,16 +712,12 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * 
      * <p><p>Provides basic contact information for the patient 
      * avoiding the need to separately query the client 
-     * registry.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
-     * 
-     * <p><p>Contact information specific to the patient for
+     * registry.</p><p>Impor
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
-        return this.patientContactPhoneAndEMails.rawList();
+    public List<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawList();
     }
 
 

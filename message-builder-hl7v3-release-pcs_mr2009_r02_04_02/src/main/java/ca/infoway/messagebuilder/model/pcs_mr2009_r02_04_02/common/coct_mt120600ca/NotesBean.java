@@ -67,9 +67,9 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST noteText = new STImpl();
-    private TS noteTimestamp = new TSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
+    private TS authorTime = new TSImpl();
     private AssignedPerson authorAssignedPerson;
 
 
@@ -92,11 +92,11 @@ public class NotesBean extends MessagePartBean {
      * grouping or filtering comments based on language</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getNoteText() {
-        return this.noteText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setNoteText(String noteText) {
-        this.noteText.setValue(noteText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -116,11 +116,11 @@ public class NotesBean extends MessagePartBean {
      * be known.</p></p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getNoteTimestamp() {
-        return this.noteTimestamp.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setNoteTimestamp(Date noteTimestamp) {
-        this.noteTimestamp.setValue(noteTimestamp);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 

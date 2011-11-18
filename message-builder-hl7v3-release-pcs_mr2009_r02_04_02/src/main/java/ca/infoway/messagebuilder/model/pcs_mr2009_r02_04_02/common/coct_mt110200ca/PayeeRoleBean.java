@@ -60,8 +60,8 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRole"})
 public class PayeeRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> payeeIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private PayeeChoice payeeChoice;
 
 
@@ -228,14 +228,12 @@ public class PayeeRoleBean extends MessagePartBean {
      * individual listed on the insurance (e.g. policy holder or 
      * covered party)</p><p>- PayeeRole.id must not be 
      * specified</p><p>- Specify PayeeRelationshipRole (e.g. Policy 
-     * Holder)</p><p>- Optionally specify name, addr, language, 
-     * bank account info</p><p>- Account bank info is likely on 
-     * file with Payor and is NOT required for d
+     * Holder)<
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPayeeIdentifier() {
-        return this.payeeIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 

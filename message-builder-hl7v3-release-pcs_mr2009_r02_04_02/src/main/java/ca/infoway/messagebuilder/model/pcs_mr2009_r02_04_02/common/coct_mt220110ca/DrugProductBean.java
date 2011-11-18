@@ -60,11 +60,11 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20110906L;
-    private CD drugCode = new CDImpl();
-    private ST drugName = new STImpl();
-    private ST drugDescription = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CD administerableMedicineCode = new CDImpl();
+    private ST administerableMedicineName = new STImpl();
+    private ST administerableMedicineDesc = new STImpl();
+    private CV administerableMedicineFormCode = new CVImpl();
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private DispensedInBean administerableMedicineAsContent;
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
@@ -232,17 +232,15 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p></p>
      * 
      * <p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p>
+     
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"administerableMedicine/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getAdministerableMedicineCode() {
+        return (ClinicalDrug) this.administerableMedicineCode.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setAdministerableMedicineCode(ClinicalDrug administerableMedicineCode) {
+        this.administerableMedicineCode.setValue(administerableMedicineCode);
     }
 
 
@@ -360,16 +358,15 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefore mandatory.</p></p>
-     * 
-     * <p><p>First occurrence is preferred for display.</p></p>
+     * identifier. The attribute 
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"administerableMedicine/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
+    public String getAdministerableMedicineName() {
+        return this.administerableMedicineName.getValue();
     }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setAdministerableMedicineName(String administerableMedicineName) {
+        this.administerableMedicineName.setValue(administerableMedicineName);
     }
 
 
@@ -397,11 +394,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * recipe in free text form.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
+    public String getAdministerableMedicineDesc() {
+        return this.administerableMedicineDesc.getValue();
     }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
+    public void setAdministerableMedicineDesc(String administerableMedicineDesc) {
+        this.administerableMedicineDesc.setValue(administerableMedicineDesc);
     }
 
 
@@ -479,11 +476,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * Drug Form.</p></p>
      */
     @Hl7XmlMapping({"administerableMedicine/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    public OrderableDrugForm getAdministerableMedicineFormCode() {
+        return (OrderableDrugForm) this.administerableMedicineFormCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setAdministerableMedicineFormCode(OrderableDrugForm administerableMedicineFormCode) {
+        this.administerableMedicineFormCode.setValue(administerableMedicineFormCode);
     }
 
 

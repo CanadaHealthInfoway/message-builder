@@ -44,9 +44,9 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV coordinateAxisType = new CVImpl();
-    private REAL coordinateAxisValue = new REALImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private REAL value = new REALImpl();
 
 
     /**
@@ -68,11 +68,11 @@ public class CoordinateAxisBean extends MessagePartBean {
      * that expresses a coordinate and is therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getCoordinateAxisType() {
-        return (Code) this.coordinateAxisType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setCoordinateAxisType(Code coordinateAxisType) {
-        this.coordinateAxisType.setValue(coordinateAxisType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -88,11 +88,11 @@ public class CoordinateAxisBean extends MessagePartBean {
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public BigDecimal getCoordinateAxisValue() {
-        return this.coordinateAxisValue.getValue();
+    public BigDecimal getValue() {
+        return this.value.getValue();
     }
-    public void setCoordinateAxisValue(BigDecimal coordinateAxisValue) {
-        this.coordinateAxisValue.setValue(coordinateAxisValue);
+    public void setValue(BigDecimal value) {
+        this.value.setValue(value);
     }
 
 }

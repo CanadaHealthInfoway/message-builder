@@ -58,11 +58,11 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110906L;
-    private II organizationIdentifier = new IIImpl();
-    private ST organizationName = new STImpl();
-    private CV organizationType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II representedOrganizationId = new IIImpl();
+    private ST representedOrganizationName = new STImpl();
+    private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> representedOrganizationAssignedOrganizationTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -76,11 +76,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
+    public Identifier getRepresentedOrganizationId() {
+        return this.representedOrganizationId.getValue();
     }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
+        this.representedOrganizationId.setValue(representedOrganizationId);
     }
 
 
@@ -94,11 +94,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
+    public String getRepresentedOrganizationName() {
+        return this.representedOrganizationName.getValue();
     }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
+    public void setRepresentedOrganizationName(String representedOrganizationName) {
+        this.representedOrganizationName.setValue(representedOrganizationName);
     }
 
 
@@ -113,11 +113,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getOrganizationType() {
-        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
+        return (HealthcareOrganizationRoleType) this.representedOrganizationAssignedOrganizationCode.getValue();
     }
-    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
-        this.organizationType.setValue(organizationType);
+    public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
+        this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
     }
 
 
@@ -132,8 +132,8 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * registry.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
-        return this.organizationPhoneAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {
+        return this.representedOrganizationAssignedOrganizationTelecom.rawSet();
     }
 
 }

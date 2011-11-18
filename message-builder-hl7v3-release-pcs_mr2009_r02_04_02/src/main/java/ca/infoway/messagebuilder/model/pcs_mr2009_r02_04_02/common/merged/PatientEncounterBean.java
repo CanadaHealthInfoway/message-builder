@@ -50,8 +50,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II encounterID = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
 
@@ -68,25 +68,25 @@ public class PatientEncounterBean extends MessagePartBean {
      * with the patient.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getEncounterID() {
-        return this.encounterID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setEncounterID(Identifier encounterID) {
-        this.encounterID.setValue(encounterID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
     /**
-     * <p>Admit/Discharge Date</p>
-     * 
-     * <p><p>Time of encounter</p></p>
-     * 
      * <p>Encounter Date</p>
      * 
      * <p><p>The start and end dates of the interaction with the 
      * patient, eg. for dispensing, the interval would be when the 
      * patient handed the prescription to the pharmacy to when the 
      * patient picked up the medication.</p></p>
+     * 
+     * <p>Admit/Discharge Date</p>
+     * 
+     * <p><p>Time of encounter</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {

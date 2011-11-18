@@ -72,15 +72,15 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS dosageUsageContext = new CSImpl();
-    private CD dosageType = new CDImpl();
-    private ST renderedDosageInstruction = new STImpl();
-    private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private CS moodCode = new CSImpl();
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> approachSiteCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeCode = new CVImpl();
-    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
-    private CV dosageUnit = new CVImpl();
+    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maxDoseQuantity = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
+    private CV administrationUnitCode = new CVImpl();
     private Medication consumableMedication1;
     private AdditionalSIGInstructionBean component1SupplementalInstruction;
     private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
@@ -126,11 +126,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    public x_ActMoodDefEvnRqo getMoodCode() {
+        return (x_ActMoodDefEvnRqo) this.moodCode.getValue();
     }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
+    public void setMoodCode(x_ActMoodDefEvnRqo moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -148,11 +148,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * value of DRUG.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getDosageType() {
-        return (Code) this.dosageType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setDosageType(Code dosageType) {
-        this.dosageType.setValue(dosageType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -198,11 +198,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * in rendered form.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -253,11 +253,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * written</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getAdministrationPeriod() {
-        return this.administrationPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAdministrationPeriod(Interval<Date> administrationPeriod) {
-        this.administrationPeriod.setValue(administrationPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -279,8 +279,8 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * using SNOMED.</p></p>
      */
     @Hl7XmlMapping({"approachSiteCode"})
-    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
-        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
+    public Set<HumanSubstanceAdministrationSite> getApproachSiteCode() {
+        return this.approachSiteCode.rawSet(HumanSubstanceAdministrationSite.class);
     }
 
 
@@ -335,8 +335,8 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * comments.</p></p>
      */
     @Hl7XmlMapping({"maxDoseQuantity"})
-    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
-        return this.maximumDailyWeeklyDoses.rawSet();
+    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaxDoseQuantity() {
+        return this.maxDoseQuantity.rawSet();
     }
 
 
@@ -357,11 +357,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * Actuations, etc.</p></p>
      */
     @Hl7XmlMapping({"administrationUnitCode"})
-    public AdministrableDrugForm getDosageUnit() {
-        return (AdministrableDrugForm) this.dosageUnit.getValue();
+    public AdministrableDrugForm getAdministrationUnitCode() {
+        return (AdministrableDrugForm) this.administrationUnitCode.getValue();
     }
-    public void setDosageUnit(AdministrableDrugForm dosageUnit) {
-        this.dosageUnit.setValue(dosageUnit);
+    public void setAdministrationUnitCode(AdministrableDrugForm administrationUnitCode) {
+        this.administrationUnitCode.setValue(administrationUnitCode);
     }
 
 

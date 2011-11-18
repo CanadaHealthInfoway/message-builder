@@ -52,9 +52,9 @@ import java.util.List;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II serviceLocationIdentifier = new IIImpl();
-    private ST serviceLocationName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ST locationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
@@ -103,11 +103,11 @@ public class ServiceLocationBean extends MessagePartBean {
      * facility.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getServiceLocationIdentifier() {
-        return this.serviceLocationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
-        this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -129,11 +129,11 @@ public class ServiceLocationBean extends MessagePartBean {
      * of location Id and is therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 

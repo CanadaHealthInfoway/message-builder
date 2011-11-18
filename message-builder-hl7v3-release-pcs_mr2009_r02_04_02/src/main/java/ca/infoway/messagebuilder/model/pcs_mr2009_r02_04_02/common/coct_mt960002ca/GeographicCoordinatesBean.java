@@ -48,8 +48,8 @@ import java.util.List;
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV coordinateSystem = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 
 
@@ -63,11 +63,11 @@ public class GeographicCoordinatesBean extends MessagePartBean {
      * and therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getCoordinateSystem() {
-        return (Code) this.coordinateSystem.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setCoordinateSystem(Code coordinateSystem) {
-        this.coordinateSystem.setValue(coordinateSystem);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 

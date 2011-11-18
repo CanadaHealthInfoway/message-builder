@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT injuryCodingPriority = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private AccidentInjuryCodingBean accidentInjuryCoding;
 
 
@@ -46,11 +46,11 @@ public class AccidentInformationBean extends MessagePartBean {
      * <p><p>Used for more than one set of injury coding.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getInjuryCodingPriority() {
-        return this.injuryCodingPriority.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setInjuryCodingPriority(Integer injuryCodingPriority) {
-        this.injuryCodingPriority.setValue(injuryCodingPriority);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

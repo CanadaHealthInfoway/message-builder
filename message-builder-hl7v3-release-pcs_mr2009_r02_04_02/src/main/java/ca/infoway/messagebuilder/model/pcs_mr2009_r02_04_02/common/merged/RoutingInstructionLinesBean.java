@@ -62,9 +62,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.AttentionLine","MCCI_MT002300CA.AttentionLine","MCCI_MT102001CA.AttentionLine"})
 public class RoutingInstructionLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST routingType = new STImpl();
-    private ST routingName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST keyWordText = new STImpl();
+    private ST value = new STImpl();
 
 
     /**
@@ -80,11 +80,11 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * information.</p></p>
      */
     @Hl7XmlMapping({"keyWordText"})
-    public String getRoutingType() {
-        return this.routingType.getValue();
+    public String getKeyWordText() {
+        return this.keyWordText.getValue();
     }
-    public void setRoutingType(String routingType) {
-        this.routingType.setValue(routingType);
+    public void setKeyWordText(String keyWordText) {
+        this.keyWordText.setValue(keyWordText);
     }
 
 
@@ -99,11 +99,11 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p><p>Allows internal routing within an application.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getRoutingName() {
-        return this.routingName.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setRoutingName(String routingName) {
-        this.routingName.setValue(routingName);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 }

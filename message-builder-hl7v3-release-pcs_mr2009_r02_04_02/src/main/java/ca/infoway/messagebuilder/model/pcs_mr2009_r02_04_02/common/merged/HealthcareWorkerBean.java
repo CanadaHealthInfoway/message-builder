@@ -78,34 +78,18 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice, EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private ST assignedOrganizationName = new STImpl();
-    private SET<II, Identifier> healthcareWorkerIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV healthcareWorkerType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ActingPersonBean assignedPerson;
-    private II organizationIdentifier = new IIImpl();
-    private CV organizationType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private II representedOrganizationId = new IIImpl();
+    private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> representedOrganizationAssignedOrganizationTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
-     * <p>E: Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p>H: Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     * 
      * <p>C:Knowledgebase Vendor Name</p>
      * 
      * <p><p>The name of a clinical knowledgebase vendor 
@@ -119,7 +103,23 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p></p>
      * 
+     * <p>H: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     * 
      * <p>C:Knowledgebase Vendor Name</p>
+     * 
+     * <p>E: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({
@@ -158,8 +158,8 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * traceability and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareWorkerIdentifier() {
-        return this.healthcareWorkerIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -177,11 +177,11 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getHealthcareWorkerType() {
-        return (HealthcareProviderRoleType) this.healthcareWorkerType.getValue();
+    public HealthcareProviderRoleType getCode() {
+        return (HealthcareProviderRoleType) this.code.getValue();
     }
-    public void setHealthcareWorkerType(HealthcareProviderRoleType healthcareWorkerType) {
-        this.healthcareWorkerType.setValue(healthcareWorkerType);
+    public void setCode(HealthcareProviderRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -198,8 +198,8 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * queries of the provider registry.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 
@@ -234,11 +234,11 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
+    public Identifier getRepresentedOrganizationId() {
+        return this.representedOrganizationId.getValue();
     }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
+        this.representedOrganizationId.setValue(representedOrganizationId);
     }
 
 
@@ -255,11 +255,11 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getOrganizationType() {
-        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
+        return (HealthcareOrganizationRoleType) this.representedOrganizationAssignedOrganizationCode.getValue();
     }
-    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
-        this.organizationType.setValue(organizationType);
+    public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
+        this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
     }
 
 
@@ -276,8 +276,8 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * registry.</p></p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
-        return this.organizationPhoneAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {
+        return this.representedOrganizationAssignedOrganizationTelecom.rawSet();
     }
 
 }

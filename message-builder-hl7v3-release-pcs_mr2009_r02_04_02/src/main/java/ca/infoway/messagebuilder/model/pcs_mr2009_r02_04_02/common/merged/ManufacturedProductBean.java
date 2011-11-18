@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt490000
  * 
  * <p>COCT_MT490000CA.ManufacturedProduct: Manufactured Product</p>
  * 
- * <p><p>Must have Organization if you don'''t have UPC/GTIN or 
+ * <p><p>Must have Organization if you dont have UPC/GTIN or 
  * pseudo UPC</p></p>
  * 
  * <p><p>Playing Role of Manufactured Product</p></p>
@@ -65,21 +65,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt490000
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;
     private ST manufacturerManufacturedProductOrganizationName = new STImpl();
     private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
-    private CD productNumber = new CDImpl();
+    private CD manufacturedMaterialCode = new CDImpl();
 
 
     /**
-     * <p>Product Number</p>
+     * <p>Product ID</p>
      * 
      * <p><p>serial number</p></p>
      * 
-     * <p>Product ID</p>
+     * <p>Product Number</p>
      * 
      * <p><p>serial number</p></p>
      */
@@ -95,7 +95,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>Manufactured Product Code</p>
      * 
-     * <p><p>(UPC/GTIN/pseudo UPC number manufacturer'''s 
+     * <p><p>(UPC/GTIN/pseudo UPC number manufacturers 
      * item/catalogue number</p></p>
      * 
      * <p>Product Code</p>
@@ -121,13 +121,13 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Manufacturer Name</p>
-     * 
-     * <p><p>Name of manufacturer.</p></p>
-     * 
      * <p>Organisation Name</p>
      * 
      * <p><p>Manufacturer Name</p></p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p><p>Name of manufacturer.</p></p>
      */
     @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/name"})
     public String getManufacturerManufacturedProductOrganizationName() {
@@ -164,11 +164,11 @@ public class ManufacturedProductBean extends MessagePartBean {
      * <p><p>Code for manufactured material eg. DIN/PIN</p></p>
      */
     @Hl7XmlMapping({"manufacturedMaterial/code"})
-    public EntityCode getProductNumber() {
-        return (EntityCode) this.productNumber.getValue();
+    public EntityCode getManufacturedMaterialCode() {
+        return (EntityCode) this.manufacturedMaterialCode.getValue();
     }
-    public void setProductNumber(EntityCode productNumber) {
-        this.productNumber.setValue(productNumber);
+    public void setManufacturedMaterialCode(EntityCode manufacturedMaterialCode) {
+        this.manufacturedMaterialCode.setValue(manufacturedMaterialCode);
     }
 
 }

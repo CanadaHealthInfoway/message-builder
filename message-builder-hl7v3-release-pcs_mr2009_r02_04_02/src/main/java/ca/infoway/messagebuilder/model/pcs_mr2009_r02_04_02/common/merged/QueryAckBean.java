@@ -38,12 +38,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II queryResponseIdentifier = new IIImpl();
-    private CS queryStatus = new CSImpl();
-    private INT totalMatchingRows = new INTImpl();
-    private INT returnedRows = new INTImpl();
-    private INT remainingRows = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II queryId = new IIImpl();
+    private CS queryResponseCode = new CSImpl();
+    private INT resultTotalQuantity = new INTImpl();
+    private INT resultCurrentQuantity = new INTImpl();
+    private INT resultRemainingQuantity = new INTImpl();
 
 
     /**
@@ -58,11 +58,11 @@ public class QueryAckBean extends MessagePartBean {
      * when responses are deferred or queued.</p></p>
      */
     @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryResponseIdentifier() {
-        return this.queryResponseIdentifier.getValue();
+    public Identifier getQueryId() {
+        return this.queryId.getValue();
     }
-    public void setQueryResponseIdentifier(Identifier queryResponseIdentifier) {
-        this.queryResponseIdentifier.setValue(queryResponseIdentifier);
+    public void setQueryId(Identifier queryId) {
+        this.queryId.setValue(queryId);
     }
 
 
@@ -77,11 +77,11 @@ public class QueryAckBean extends MessagePartBean {
      * mandatory.</p></p>
      */
     @Hl7XmlMapping({"queryResponseCode"})
-    public QueryResponse getQueryStatus() {
-        return (QueryResponse) this.queryStatus.getValue();
+    public QueryResponse getQueryResponseCode() {
+        return (QueryResponse) this.queryResponseCode.getValue();
     }
-    public void setQueryStatus(QueryResponse queryStatus) {
-        this.queryStatus.setValue(queryStatus);
+    public void setQueryResponseCode(QueryResponse queryResponseCode) {
+        this.queryResponseCode.setValue(queryResponseCode);
     }
 
 
@@ -98,11 +98,11 @@ public class QueryAckBean extends MessagePartBean {
      * the result set is actually returned.</p></p>
      */
     @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getTotalMatchingRows() {
-        return this.totalMatchingRows.getValue();
+    public Integer getResultTotalQuantity() {
+        return this.resultTotalQuantity.getValue();
     }
-    public void setTotalMatchingRows(Integer totalMatchingRows) {
-        this.totalMatchingRows.setValue(totalMatchingRows);
+    public void setResultTotalQuantity(Integer resultTotalQuantity) {
+        this.resultTotalQuantity.setValue(resultTotalQuantity);
     }
 
 
@@ -126,11 +126,11 @@ public class QueryAckBean extends MessagePartBean {
      * and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"resultCurrentQuantity"})
-    public Integer getReturnedRows() {
-        return this.returnedRows.getValue();
+    public Integer getResultCurrentQuantity() {
+        return this.resultCurrentQuantity.getValue();
     }
-    public void setReturnedRows(Integer returnedRows) {
-        this.returnedRows.setValue(returnedRows);
+    public void setResultCurrentQuantity(Integer resultCurrentQuantity) {
+        this.resultCurrentQuantity.setValue(resultCurrentQuantity);
     }
 
 
@@ -146,11 +146,11 @@ public class QueryAckBean extends MessagePartBean {
      * therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"resultRemainingQuantity"})
-    public Integer getRemainingRows() {
-        return this.remainingRows.getValue();
+    public Integer getResultRemainingQuantity() {
+        return this.resultRemainingQuantity.getValue();
     }
-    public void setRemainingRows(Integer remainingRows) {
-        this.remainingRows.setValue(remainingRows);
+    public void setResultRemainingQuantity(Integer resultRemainingQuantity) {
+        this.resultRemainingQuantity.setValue(resultRemainingQuantity);
     }
 
 }

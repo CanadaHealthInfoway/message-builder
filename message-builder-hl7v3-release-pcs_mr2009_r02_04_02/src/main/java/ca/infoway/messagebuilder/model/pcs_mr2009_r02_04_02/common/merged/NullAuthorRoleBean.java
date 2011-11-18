@@ -123,6 +123,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorRole","MCAI_MT700211CA.AuthorRole","MCAI_MT700212CA.AuthorRole","MCAI_MT700220CA.AuthorRole","MCAI_MT700221CA.AuthorRole","MCAI_MT700222CA.AuthorRole","MCAI_MT700230CA.AuthorRole","MCAI_MT700231CA.AuthorRole","MCAI_MT700232CA.AuthorRole","MFMI_MT700711CA.AuthorRole","MFMI_MT700751CA.AuthorRole","QUQI_MT020000CA.AuthorRole","QUQI_MT020002CA.AuthorRole"})
 public class NullAuthorRoleBean extends MessagePartBean implements AuthorPerson {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
 
 }

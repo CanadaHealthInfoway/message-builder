@@ -38,9 +38,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
 public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV invoiceElementIntentCode = new CVImpl();
-    private MO totalAmountBilledForInvoiceElement = new MOImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private MO netAmt = new MOImpl();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
 
 
@@ -51,11 +51,11 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
      * Rx Compound, Healthcare Goods, Preferred Accomodation</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getInvoiceElementIntentCode() {
-        return (Code) this.invoiceElementIntentCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setInvoiceElementIntentCode(Code invoiceElementIntentCode) {
-        this.invoiceElementIntentCode.setValue(invoiceElementIntentCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -66,11 +66,11 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
      * invoice element.</p></p>
      */
     @Hl7XmlMapping({"netAmt"})
-    public Money getTotalAmountBilledForInvoiceElement() {
-        return this.totalAmountBilledForInvoiceElement.getValue();
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setTotalAmountBilledForInvoiceElement(Money totalAmountBilledForInvoiceElement) {
-        this.totalAmountBilledForInvoiceElement.setValue(totalAmountBilledForInvoiceElement);
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 

@@ -58,9 +58,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByB
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II issueMonographId = new IIImpl();
-    private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
@@ -101,11 +101,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIssueMonographId() {
-        return this.issueMonographId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIssueMonographId(Identifier issueMonographId) {
-        this.issueMonographId.setValue(issueMonographId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -129,11 +129,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>C:Issue Description</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getIssueDescription() {
-        return this.issueDescription.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setIssueDescription(EncapsulatedData issueDescription) {
-        this.issueDescription.setValue(issueDescription);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 

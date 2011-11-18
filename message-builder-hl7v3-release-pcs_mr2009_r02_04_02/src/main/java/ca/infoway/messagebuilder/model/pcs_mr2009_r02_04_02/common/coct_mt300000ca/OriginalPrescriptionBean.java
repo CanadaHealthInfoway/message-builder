@@ -43,9 +43,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SupplyOrder"})
 public class OriginalPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> lastAllowedDispense = new IVLImpl<TS, Interval<Date>>();
-    private INT numberOfRefills1 = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT repeatNumber = new INTImpl();
 
 
     /**
@@ -56,11 +56,11 @@ public class OriginalPrescriptionBean extends MessagePartBean {
      * <p><p>last allowed dispense</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastAllowedDispense() {
-        return this.lastAllowedDispense.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setLastAllowedDispense(Interval<Date> lastAllowedDispense) {
-        this.lastAllowedDispense.setValue(lastAllowedDispense);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -70,11 +70,11 @@ public class OriginalPrescriptionBean extends MessagePartBean {
      * <p><p># refills + 1</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfRefills1() {
-        return this.numberOfRefills1.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfRefills1(Integer numberOfRefills1) {
-        this.numberOfRefills1.setValue(numberOfRefills1);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 }

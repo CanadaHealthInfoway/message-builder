@@ -53,14 +53,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private II id = new IIImpl();
-    private ST repositoryName = new STImpl();
-    private ST repositoryJurisdictionName = new STImpl();
-    private ST applicationName = new STImpl();
+    private ST assignedRepositoryName = new STImpl();
+    private ST representedRepositoryJurisdictionName = new STImpl();
+    private ST assignedDeviceManufacturerModelName = new STImpl();
 
 
     /**
+     * <p>Repository Identifier</p>
+     * 
+     * <p><p>A unique identifier for the EHR repository.</p></p>
+     * 
+     * <p><p>Allows repositories to be uniquely identified for 
+     * linking or grouping purposes and is therefore mandatory.</p></p>
+     * 
      * <p>C:Application Id</p>
      * 
      * <p><p>Unique identifier of an application or a system.</p></p>
@@ -96,13 +103,6 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * <p><p>To uniquely identify an 
      * application/system.</p><p>Attribute is mandatory to allow 
      * for distinguishing different applications/systems.</p></p>
-     * 
-     * <p>Repository Identifier</p>
-     * 
-     * <p><p>A unique identifier for the EHR repository.</p></p>
-     * 
-     * <p><p>Allows repositories to be uniquely identified for 
-     * linking or grouping purposes and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -126,11 +126,11 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * is therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"assignedRepository/name"})
-    public String getRepositoryName() {
-        return this.repositoryName.getValue();
+    public String getAssignedRepositoryName() {
+        return this.assignedRepositoryName.getValue();
     }
-    public void setRepositoryName(String repositoryName) {
-        this.repositoryName.setValue(repositoryName);
+    public void setAssignedRepositoryName(String assignedRepositoryName) {
+        this.assignedRepositoryName.setValue(assignedRepositoryName);
     }
 
 
@@ -147,11 +147,11 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * custodianship, and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
-    public String getRepositoryJurisdictionName() {
-        return this.repositoryJurisdictionName.getValue();
+    public String getRepresentedRepositoryJurisdictionName() {
+        return this.representedRepositoryJurisdictionName.getValue();
     }
-    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
-        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
+    public void setRepresentedRepositoryJurisdictionName(String representedRepositoryJurisdictionName) {
+        this.representedRepositoryJurisdictionName.setValue(representedRepositoryJurisdictionName);
     }
 
 
@@ -176,11 +176,11 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * 'mandatory'.</p></p>
      */
     @Hl7XmlMapping({"assignedDevice/manufacturerModelName"})
-    public String getApplicationName() {
-        return this.applicationName.getValue();
+    public String getAssignedDeviceManufacturerModelName() {
+        return this.assignedDeviceManufacturerModelName.getValue();
     }
-    public void setApplicationName(String applicationName) {
-        this.applicationName.setValue(applicationName);
+    public void setAssignedDeviceManufacturerModelName(String assignedDeviceManufacturerModelName) {
+        this.assignedDeviceManufacturerModelName.setValue(assignedDeviceManufacturerModelName);
     }
 
 }

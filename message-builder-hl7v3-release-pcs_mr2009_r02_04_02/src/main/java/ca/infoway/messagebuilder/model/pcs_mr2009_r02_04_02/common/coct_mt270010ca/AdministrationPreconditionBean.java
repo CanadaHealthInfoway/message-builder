@@ -41,15 +41,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * accurately calculated. This has important compliance 
  * implications.</p></p>
  * 
- * <p><p>To flag a prescription as '''PRN''' without specifying 
- * a condition, include the association but specify a null 
- * flavor for the Dosage Condition.</p></p>
+ * <p><p>To flag a prescription as PRN without specifying a 
+ * condition, include the association but specify a null flavor 
+ * for the Dosage Condition.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST dosageCondition = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
 
 
     /**
@@ -78,11 +78,11 @@ public class AdministrationPreconditionBean extends MessagePartBean {
      * the medication should be taken.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getDosageCondition() {
-        return this.dosageCondition.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setDosageCondition(String dosageCondition) {
-        this.dosageCondition.setValue(dosageCondition);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

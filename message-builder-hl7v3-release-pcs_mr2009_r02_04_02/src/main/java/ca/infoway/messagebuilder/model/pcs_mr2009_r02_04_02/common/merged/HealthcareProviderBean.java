@@ -63,30 +63,30 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PN healthCareProviderPersonName = new PNImpl();
     private TEL healthCareProviderPersonTelecom = new TELImpl();
-    private CV providerGender = new CVImpl();
+    private CV healthCareProviderPersonAdministrativeGenderCode = new CVImpl();
     private TS healthCareProviderPersonBirthTime = new TSImpl();
-    private AD providerAddress = new ADImpl();
+    private AD healthCareProviderPersonAddr = new ADImpl();
 
 
     /**
-     * <p>Provider ID</p>
-     * 
-     * <p><p>More than 1 Provider identifier can be provided for a 
-     * particular role, e.g. some dental claims. An Id may not be 
-     * available for out of jurisdiction providers and 
-     * consulltants.</p></p>
-     * 
      * <p>Provider identifiers</p>
      * 
      * <p><p>Provider ID, eg. Prof. license no.</p></p>
      * 
      * <p><p>More than provider identifier could be provided, eg. 
      * for dental claims.</p></p>
+     * 
+     * <p>Provider ID</p>
+     * 
+     * <p><p>More than 1 Provider identifier can be provided for a 
+     * particular role, e.g. some dental claims. An Id may not be 
+     * available for out of jurisdiction providers and 
+     * consulltants.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -95,13 +95,13 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider code</p>
-     * 
-     * <p><p>code denoting healthcare Provider Type</p></p>
-     * 
      * <p>Provider Type</p>
      * 
      * <p><p>Allows for crosswalks between speciality code sets</p></p>
+     * 
+     * <p>Healthcare Provider code</p>
+     * 
+     * <p><p>code denoting healthcare Provider Type</p></p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -156,20 +156,20 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Provider Gender</p>
      * 
-     * <p><p>only required if provider is not known to the 
-     * Payor</p></p>
+     * <p><p>Telecom, gender, birth time, addr are only required if 
+     * provider is not known to the Payor</p></p>
      * 
      * <p>Provider Gender</p>
      * 
-     * <p><p>Telecom, gender, birth time, addr are only required if 
-     * provider is not known to the Payor</p></p>
+     * <p><p>only required if provider is not known to the 
+     * Payor</p></p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/administrativeGenderCode"})
-    public AdministrativeGender getProviderGender() {
-        return (AdministrativeGender) this.providerGender.getValue();
+    public AdministrativeGender getHealthCareProviderPersonAdministrativeGenderCode() {
+        return (AdministrativeGender) this.healthCareProviderPersonAdministrativeGenderCode.getValue();
     }
-    public void setProviderGender(AdministrativeGender providerGender) {
-        this.providerGender.setValue(providerGender);
+    public void setHealthCareProviderPersonAdministrativeGenderCode(AdministrativeGender healthCareProviderPersonAdministrativeGenderCode) {
+        this.healthCareProviderPersonAdministrativeGenderCode.setValue(healthCareProviderPersonAdministrativeGenderCode);
     }
 
 
@@ -210,11 +210,11 @@ public class HealthcareProviderBean extends MessagePartBean {
      * providers</p></p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/addr"})
-    public PostalAddress getProviderAddress() {
-        return this.providerAddress.getValue();
+    public PostalAddress getHealthCareProviderPersonAddr() {
+        return this.healthCareProviderPersonAddr.getValue();
     }
-    public void setProviderAddress(PostalAddress providerAddress) {
-        this.providerAddress.setValue(providerAddress);
+    public void setHealthCareProviderPersonAddr(PostalAddress healthCareProviderPersonAddr) {
+        this.healthCareProviderPersonAddr.setValue(healthCareProviderPersonAddr);
     }
 
 }

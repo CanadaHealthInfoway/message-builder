@@ -38,10 +38,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV observationInjuryType = new CVImpl();
-    private CV injuryCode = new CVImpl();
-    private CV actInjurySite = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV value = new CVImpl();
+    private CV targetSiteCode = new CVImpl();
 
 
     /**
@@ -50,11 +50,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
      * <p><p>Injury Type</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getObservationInjuryType() {
-        return (Code) this.observationInjuryType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setObservationInjuryType(Code observationInjuryType) {
-        this.observationInjuryType.setValue(observationInjuryType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -64,11 +64,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
      * <p><p>Nature of Injury</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public Code getInjuryCode() {
-        return (Code) this.injuryCode.getValue();
+    public Code getValue() {
+        return (Code) this.value.getValue();
     }
-    public void setInjuryCode(Code injuryCode) {
-        this.injuryCode.setValue(injuryCode);
+    public void setValue(Code value) {
+        this.value.setValue(value);
     }
 
 
@@ -78,11 +78,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
      * <p><p>Body Part + modifier = Side of Body</p></p>
      */
     @Hl7XmlMapping({"targetSiteCode"})
-    public Code getActInjurySite() {
-        return (Code) this.actInjurySite.getValue();
+    public Code getTargetSiteCode() {
+        return (Code) this.targetSiteCode.getValue();
     }
-    public void setActInjurySite(Code actInjurySite) {
-        this.actInjurySite.setValue(actInjurySite);
+    public void setTargetSiteCode(Code targetSiteCode) {
+        this.targetSiteCode.setValue(targetSiteCode);
     }
 
 }

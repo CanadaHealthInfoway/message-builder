@@ -79,12 +79,12 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II eventIdentifier = new IIImpl();
-    private CV eventType = new CVImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV eventReason = new CVImpl();
-    private CE messageLanguage = new CEImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV reasonCode = new CVImpl();
+    private CE languageCode = new CEImpl();
     private RefersTo_3Bean<RR> subject;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
@@ -109,11 +109,11 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
      * application.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -128,11 +128,11 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
      * understanding the meaning of the event.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -151,11 +151,11 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
      * date may also be indicated.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -177,11 +177,11 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
      * interaction description.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
     }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 
@@ -191,11 +191,11 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
      * <p>Message Language</p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 

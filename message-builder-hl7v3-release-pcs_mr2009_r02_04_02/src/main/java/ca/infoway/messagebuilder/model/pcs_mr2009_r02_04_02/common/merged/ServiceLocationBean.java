@@ -93,12 +93,12 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipients, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient {
 
-    private static final long serialVersionUID = 20110906L;
-    private II serviceLocationIdentifier = new IIImpl();
-    private CV serviceLocationType = new CVImpl();
-    private AD serviceLocationAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ST serviceLocationName = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private AD addr = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST locationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
@@ -134,19 +134,10 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
      * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
      * 
-     * <p><p>Allows for lookup and retrieval of detailed 
-     * information about a specific service location. Also ensures 
-     * unique identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p></p>
-     * 
-     * <p><p>Allows for lookup and retrieval of detailed 
-     * information about a specific service location. Also ensures 
-     * unique identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p></p>
+     * <p><p>Allows for a location to be uniquely referenced. 
+     * However, because this CMET is used for locations not 
+     * necessarily found in a registry, the attribute is only 
+     * 'required'.</p></p>
      * 
      * <p>C:Service Location Identifier</p>
      * 
@@ -177,22 +168,33 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
      * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
      * 
-     * <p><p>Allows for a location to be uniquely referenced. 
-     * However, because this CMET is used for locations not 
-     * necessarily found in a registry, the attribute is only 
-     * 'required'.</p></p>
+     * <p><p>Allows for lookup and retrieval of detailed 
+     * information about a specific service location. Also ensures 
+     * unique identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p></p>
+     * 
+     * <p><p>Allows for lookup and retrieval of detailed 
+     * information about a specific service location. Also ensures 
+     * unique identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getServiceLocationIdentifier() {
-        return this.serviceLocationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
-        this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
     /**
      * <p>ServiceLocationType</p>
+     * 
+     * <p>Service Location Type</p>
      * 
      * <p>A: Service Location Type</p>
      * 
@@ -202,15 +204,13 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p><p>Useful in providing context. May also be used for 
      * grouping and organizing data. Because this is a key element 
      * in understanding the location, it is mandatory.</p></p>
-     * 
-     * <p>Service Location Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceLocationType.getValue();
+    public ServiceDeliveryLocationRoleType getCode() {
+        return (ServiceDeliveryLocationRoleType) this.code.getValue();
     }
-    public void setServiceLocationType(ServiceDeliveryLocationRoleType serviceLocationType) {
-        this.serviceLocationType.setValue(serviceLocationType);
+    public void setCode(ServiceDeliveryLocationRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -235,11 +235,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * not always be available or meaningful.</p></p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceLocationAddress() {
-        return this.serviceLocationAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
-        this.serviceLocationAddress.setValue(serviceLocationAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -256,8 +256,8 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * always exist, the field is marked 'populated'.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 
@@ -281,11 +281,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * of location Id and is therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 

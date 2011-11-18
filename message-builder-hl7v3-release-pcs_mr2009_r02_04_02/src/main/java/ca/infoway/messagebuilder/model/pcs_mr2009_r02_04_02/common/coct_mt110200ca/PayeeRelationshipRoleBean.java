@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.Role"})
 public class PayeeRelationshipRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS accountPayeePolicyRelationshipRole = new CSImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS classCode = new CSImpl();
 
 
     /**
@@ -51,11 +51,11 @@ public class PayeeRelationshipRoleBean extends MessagePartBean {
      * <p><p>Invoice Adjudication Results</p></p>
      */
     @Hl7XmlMapping({"classCode"})
-    public Code getAccountPayeePolicyRelationshipRole() {
-        return (Code) this.accountPayeePolicyRelationshipRole.getValue();
+    public Code getClassCode() {
+        return (Code) this.classCode.getValue();
     }
-    public void setAccountPayeePolicyRelationshipRole(Code accountPayeePolicyRelationshipRole) {
-        this.accountPayeePolicyRelationshipRole.setValue(accountPayeePolicyRelationshipRole);
+    public void setClassCode(Code classCode) {
+        this.classCode.setValue(classCode);
     }
 
 }

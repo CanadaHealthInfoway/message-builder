@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV substitutionType = new CVImpl();
-    private CV substitutionReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private CV reasonCode = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
 
 
@@ -46,11 +46,11 @@ public class DispenseSubstitutionBean extends MessagePartBean {
      * <p><p>type of substitution</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActSubstanceAdminSubstitutionCode getSubstitutionType() {
-        return (ActSubstanceAdminSubstitutionCode) this.substitutionType.getValue();
+    public ActSubstanceAdminSubstitutionCode getCode() {
+        return (ActSubstanceAdminSubstitutionCode) this.code.getValue();
     }
-    public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
-        this.substitutionType.setValue(substitutionType);
+    public void setCode(ActSubstanceAdminSubstitutionCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -63,11 +63,11 @@ public class DispenseSubstitutionBean extends MessagePartBean {
      * because prescriber requested</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
-        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
+    public SubstanceAdminSubstitutionReason getReasonCode() {
+        return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
     }
-    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
-        this.substitutionReason.setValue(substitutionReason);
+    public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

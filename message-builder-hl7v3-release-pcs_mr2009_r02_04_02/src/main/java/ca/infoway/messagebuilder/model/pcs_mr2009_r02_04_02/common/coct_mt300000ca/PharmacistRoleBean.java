@@ -41,8 +41,8 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PharmacistRole"})
 public class PharmacistRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> pharmacistID = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
@@ -51,8 +51,8 @@ public class PharmacistRoleBean extends MessagePartBean {
      * <p><p>Pharmacist ID</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPharmacistID() {
-        return this.pharmacistID.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 }

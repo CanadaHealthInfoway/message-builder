@@ -38,8 +38,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private INT cOBPriority = new INTImpl();
+    private static final long serialVersionUID = 20111117L;
+    private INT sequenceNumber = new INTImpl();
     private FinancialContractPolicyAccountBean policyOrAccount;
 
 
@@ -50,11 +50,11 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
      * etc.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getCOBPriority() {
-        return this.cOBPriority.getValue();
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setCOBPriority(Integer cOBPriority) {
-        this.cOBPriority.setValue(cOBPriority);
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

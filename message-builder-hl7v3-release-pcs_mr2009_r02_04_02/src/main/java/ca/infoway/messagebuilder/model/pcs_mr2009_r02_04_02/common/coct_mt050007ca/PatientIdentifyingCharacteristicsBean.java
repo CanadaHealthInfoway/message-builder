@@ -44,9 +44,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent"})
 public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV identifyingCharacteristicsObservationType = new CVImpl();
-    private ST patientCharacteristicsText = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST value = new STImpl();
 
 
     /**
@@ -59,11 +59,11 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
      * characteristics used for identification.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public PatientCharacteristicObservationType getIdentifyingCharacteristicsObservationType() {
-        return (PatientCharacteristicObservationType) this.identifyingCharacteristicsObservationType.getValue();
+    public PatientCharacteristicObservationType getCode() {
+        return (PatientCharacteristicObservationType) this.code.getValue();
     }
-    public void setIdentifyingCharacteristicsObservationType(PatientCharacteristicObservationType identifyingCharacteristicsObservationType) {
-        this.identifyingCharacteristicsObservationType.setValue(identifyingCharacteristicsObservationType);
+    public void setCode(PatientCharacteristicObservationType code) {
+        this.code.setValue(code);
     }
 
 
@@ -81,11 +81,11 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
      * identification.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getPatientCharacteristicsText() {
-        return this.patientCharacteristicsText.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setPatientCharacteristicsText(String patientCharacteristicsText) {
-        this.patientCharacteristicsText.setValue(patientCharacteristicsText);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 }

@@ -62,20 +62,18 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CS dispenseStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DispensedBean product;
     private OccurredAtBean location;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private SET<II, Identifier> inFulfillmentOfSubstanceAdministrationEventId = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
      * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
@@ -85,13 +83,15 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p><p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p></p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -114,11 +114,11 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>B:Dispense Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -147,15 +147,17 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * up.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
+     * <p>C:Dispense Masked Indicator</p>
+     * 
      * <p>C:Dispense Masking Indicator</p>
      * 
      * <p><p>An indication of sensitivity surrounding the related 
@@ -169,8 +171,6 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p><p>Conveys the patient's wishes relating to the 
      * sensitivity of the drug information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p></p>
-     * 
-     * <p>C:Dispense Masked Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -205,8 +205,8 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * fulfilled.</p></p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationEvent/id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
+    public Set<Identifier> getInFulfillmentOfSubstanceAdministrationEventId() {
+        return this.inFulfillmentOfSubstanceAdministrationEventId.rawSet();
     }
 
 }

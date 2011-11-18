@@ -43,11 +43,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.Acknowledgement","MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CS acknowledgementCode = new CSImpl();
-    private INT numberOfWaitingMessages = new INTImpl();
-    private CV messageWaitingPriority = new CVImpl();
-    private II acknowledgedMessageId = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CS typeCode = new CSImpl();
+    private INT messageWaitingNumber = new INTImpl();
+    private CV messageWaitingPriorityCode = new CVImpl();
+    private II targetMessageId = new IIImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
 
 
@@ -63,11 +63,11 @@ public class AcknowledgementBean extends MessagePartBean {
      * successful and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementType getAcknowledgementCode() {
-        return (AcknowledgementType) this.acknowledgementCode.getValue();
+    public AcknowledgementType getTypeCode() {
+        return (AcknowledgementType) this.typeCode.getValue();
     }
-    public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
-        this.acknowledgementCode.setValue(acknowledgementCode);
+    public void setTypeCode(AcknowledgementType typeCode) {
+        this.typeCode.setValue(typeCode);
     }
 
 
@@ -85,11 +85,11 @@ public class AcknowledgementBean extends MessagePartBean {
      * polling.</p></p>
      */
     @Hl7XmlMapping({"messageWaitingNumber"})
-    public Integer getNumberOfWaitingMessages() {
-        return this.numberOfWaitingMessages.getValue();
+    public Integer getMessageWaitingNumber() {
+        return this.messageWaitingNumber.getValue();
     }
-    public void setNumberOfWaitingMessages(Integer numberOfWaitingMessages) {
-        this.numberOfWaitingMessages.setValue(numberOfWaitingMessages);
+    public void setMessageWaitingNumber(Integer messageWaitingNumber) {
+        this.messageWaitingNumber.setValue(messageWaitingNumber);
     }
 
 
@@ -108,11 +108,11 @@ public class AcknowledgementBean extends MessagePartBean {
      * will support polling.</p></p>
      */
     @Hl7XmlMapping({"messageWaitingPriorityCode"})
-    public MessageWaitingPriority getMessageWaitingPriority() {
-        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
+    public MessageWaitingPriority getMessageWaitingPriorityCode() {
+        return (MessageWaitingPriority) this.messageWaitingPriorityCode.getValue();
     }
-    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
-        this.messageWaitingPriority.setValue(messageWaitingPriority);
+    public void setMessageWaitingPriorityCode(MessageWaitingPriority messageWaitingPriorityCode) {
+        this.messageWaitingPriorityCode.setValue(messageWaitingPriorityCode);
     }
 
 
@@ -131,11 +131,11 @@ public class AcknowledgementBean extends MessagePartBean {
      * conversational. This attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"targetMessage/id"})
-    public Identifier getAcknowledgedMessageId() {
-        return this.acknowledgedMessageId.getValue();
+    public Identifier getTargetMessageId() {
+        return this.targetMessageId.getValue();
     }
-    public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
-        this.acknowledgedMessageId.setValue(acknowledgedMessageId);
+    public void setTargetMessageId(Identifier targetMessageId) {
+        this.targetMessageId.setValue(targetMessageId);
     }
 
 

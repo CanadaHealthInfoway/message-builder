@@ -53,10 +53,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II dispenseID = new IIImpl();
-    private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
-    private CV inLieuOfDaysSupply = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV priorityCode = new CVImpl();
     private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
     private DispenseSubstitutionBean componentSubstitution;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -68,11 +68,11 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * <p><p>filler transaction number for dispense</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getDispenseID() {
-        return this.dispenseID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setDispenseID(Identifier dispenseID) {
-        this.dispenseID.setValue(dispenseID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -87,11 +87,11 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * expected to be taken</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSubstanceAdministrationTime() {
-        return this.substanceAdministrationTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSubstanceAdministrationTime(Interval<Date> substanceAdministrationTime) {
-        this.substanceAdministrationTime.setValue(substanceAdministrationTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -107,11 +107,11 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * <p><p>for PRN, UD or unknown (use NullFlavor</p></p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public Code getInLieuOfDaysSupply() {
-        return (Code) this.inLieuOfDaysSupply.getValue();
+    public Code getPriorityCode() {
+        return (Code) this.priorityCode.getValue();
     }
-    public void setInLieuOfDaysSupply(Code inLieuOfDaysSupply) {
-        this.inLieuOfDaysSupply.setValue(inLieuOfDaysSupply);
+    public void setPriorityCode(Code priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 

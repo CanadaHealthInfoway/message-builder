@@ -58,10 +58,10 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private II billableClinicalProductID = new IIImpl();
-    private CV methodOfPaymentForProduct = new CVImpl();
-    private IVL<TS, Interval<Date>> timeOfSale = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ManufacturedProductBean productManufacturedProduct;
     private HealthcareProviderBean performerHealthCareProvider;
     private HealthcareProviderBean referrerHealthCareProvider;
@@ -78,11 +78,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * <p><p>receipt number for the sale or rental</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getBillableClinicalProductID() {
-        return this.billableClinicalProductID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setBillableClinicalProductID(Identifier billableClinicalProductID) {
-        this.billableClinicalProductID.setValue(billableClinicalProductID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -92,11 +92,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * <p><p>Rent or Sale.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getMethodOfPaymentForProduct() {
-        return (Code) this.methodOfPaymentForProduct.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setMethodOfPaymentForProduct(Code methodOfPaymentForProduct) {
-        this.methodOfPaymentForProduct.setValue(methodOfPaymentForProduct);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -114,11 +114,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * rentals, this is the rental period.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTimeOfSale() {
-        return this.timeOfSale.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setTimeOfSale(Interval<Date> timeOfSale) {
-        this.timeOfSale.setValue(timeOfSale);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

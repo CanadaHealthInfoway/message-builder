@@ -51,13 +51,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV manufacturedMaterialCode = new CVImpl();
-    private ST packageDescription = new STImpl();
-    private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
-    private ST warrantorOrganisationName = new STImpl();
-    private TEL warrantorOrganisationTelecom = new TELImpl();
-    private PQ packageQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST desc = new STImpl();
+    private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST asWarrantorWarrantingWarrantorOrganizationName = new STImpl();
+    private TEL asWarrantorWarrantingWarrantorOrganizationTelecom = new TELImpl();
+    private PQ contentPackagedProductQuantity = new PQImpl();
     private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
 
 
@@ -67,11 +67,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p><p>Code for manufactured material</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getManufacturedMaterialCode() {
-        return (Code) this.manufacturedMaterialCode.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setManufacturedMaterialCode(Code manufacturedMaterialCode) {
-        this.manufacturedMaterialCode.setValue(manufacturedMaterialCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -82,11 +82,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * HC-PCS?</p></p>
      */
     @Hl7XmlMapping({"desc"})
-    public String getPackageDescription() {
-        return this.packageDescription.getValue();
+    public String getDesc() {
+        return this.desc.getValue();
     }
-    public void setPackageDescription(String packageDescription) {
-        this.packageDescription.setValue(packageDescription);
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
     }
 
 
@@ -96,11 +96,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p><p>time of warranty</p></p>
      */
     @Hl7XmlMapping({"asWarrantor/effectiveTime"})
-    public Interval<Date> getTimeOfWarranty() {
-        return this.timeOfWarranty.getValue();
+    public Interval<Date> getAsWarrantorEffectiveTime() {
+        return this.asWarrantorEffectiveTime.getValue();
     }
-    public void setTimeOfWarranty(Interval<Date> timeOfWarranty) {
-        this.timeOfWarranty.setValue(timeOfWarranty);
+    public void setAsWarrantorEffectiveTime(Interval<Date> asWarrantorEffectiveTime) {
+        this.asWarrantorEffectiveTime.setValue(asWarrantorEffectiveTime);
     }
 
 
@@ -110,11 +110,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p><p>name of Organization that holds warranty</p></p>
      */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
-    public String getWarrantorOrganisationName() {
-        return this.warrantorOrganisationName.getValue();
+    public String getAsWarrantorWarrantingWarrantorOrganizationName() {
+        return this.asWarrantorWarrantingWarrantorOrganizationName.getValue();
     }
-    public void setWarrantorOrganisationName(String warrantorOrganisationName) {
-        this.warrantorOrganisationName.setValue(warrantorOrganisationName);
+    public void setAsWarrantorWarrantingWarrantorOrganizationName(String asWarrantorWarrantingWarrantorOrganizationName) {
+        this.asWarrantorWarrantingWarrantorOrganizationName.setValue(asWarrantorWarrantingWarrantorOrganizationName);
     }
 
 
@@ -124,11 +124,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p><p>Warrantor Organization telephone number</p></p>
      */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
-    public TelecommunicationAddress getWarrantorOrganisationTelecom() {
-        return this.warrantorOrganisationTelecom.getValue();
+    public TelecommunicationAddress getAsWarrantorWarrantingWarrantorOrganizationTelecom() {
+        return this.asWarrantorWarrantingWarrantorOrganizationTelecom.getValue();
     }
-    public void setWarrantorOrganisationTelecom(TelecommunicationAddress warrantorOrganisationTelecom) {
-        this.warrantorOrganisationTelecom.setValue(warrantorOrganisationTelecom);
+    public void setAsWarrantorWarrantingWarrantorOrganizationTelecom(TelecommunicationAddress asWarrantorWarrantingWarrantorOrganizationTelecom) {
+        this.asWarrantorWarrantingWarrantorOrganizationTelecom.setValue(asWarrantorWarrantingWarrantorOrganizationTelecom);
     }
 
 
@@ -138,11 +138,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p><p>number of items in the package</p></p>
      */
     @Hl7XmlMapping({"contentPackagedProduct/quantity"})
-    public PhysicalQuantity getPackageQuantity() {
-        return this.packageQuantity.getValue();
+    public PhysicalQuantity getContentPackagedProductQuantity() {
+        return this.contentPackagedProductQuantity.getValue();
     }
-    public void setPackageQuantity(PhysicalQuantity packageQuantity) {
-        this.packageQuantity.setValue(packageQuantity);
+    public void setContentPackagedProductQuantity(PhysicalQuantity contentPackagedProductQuantity) {
+        this.contentPackagedProductQuantity.setValue(contentPackagedProductQuantity);
     }
 
 

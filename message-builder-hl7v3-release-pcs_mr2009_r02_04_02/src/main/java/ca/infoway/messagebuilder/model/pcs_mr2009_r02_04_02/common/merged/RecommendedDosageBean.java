@@ -67,9 +67,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministrationEventCriterion","COCT_MT260020CA.SubstanceAdministrationEventCriterion","COCT_MT260030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20111117L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
 
 
@@ -88,11 +88,11 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p><p>Allows calculation of amount under or over.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDoseDuration() {
-        return this.doseDuration.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDoseDuration(Interval<Date> doseDuration) {
-        this.doseDuration.setValue(doseDuration);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -119,11 +119,11 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p><p>Allows calculation of amount over/under.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRange() {
-        return this.dosageRange.getValue();
+    public UncertainRange<PhysicalQuantity> getDoseQuantity() {
+        return this.doseQuantity.getValue();
     }
-    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
-        this.dosageRange.setValue(dosageRange);
+    public void setDoseQuantity(UncertainRange<PhysicalQuantity> doseQuantity) {
+        this.doseQuantity.setValue(doseQuantity);
     }
 
 

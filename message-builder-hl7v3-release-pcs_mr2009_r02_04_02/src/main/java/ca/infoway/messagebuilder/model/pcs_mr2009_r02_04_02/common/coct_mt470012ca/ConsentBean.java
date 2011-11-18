@@ -81,10 +81,10 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II consentFormNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
-    private CV consentOverrideReason = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV reasonCode = new CVImpl();
     private SubjectChoice subject1SubjectChoice;
     private ConsentedToByBean author1;
     private PrescribedByBean author2;
@@ -103,11 +103,11 @@ public class ConsentBean extends MessagePartBean {
      * consent form and its electronic record</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -123,11 +123,11 @@ public class ConsentBean extends MessagePartBean {
      * patient, client, or provider retains a level of control.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -149,11 +149,11 @@ public class ConsentBean extends MessagePartBean {
      * <p><p>Important for audit purposes</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public Code getConsentOverrideReason() {
-        return (Code) this.consentOverrideReason.getValue();
+    public Code getReasonCode() {
+        return (Code) this.reasonCode.getValue();
     }
-    public void setConsentOverrideReason(Code consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
+    public void setReasonCode(Code reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

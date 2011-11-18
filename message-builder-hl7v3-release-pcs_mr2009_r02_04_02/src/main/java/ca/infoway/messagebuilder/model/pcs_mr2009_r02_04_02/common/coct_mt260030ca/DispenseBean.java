@@ -59,11 +59,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110906L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CS dispenseStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> dispenseMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DispensedBean product;
     private OccurredAtBean location;
 
@@ -79,11 +79,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      * their issue management decision.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -102,11 +102,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      * dispense the medication.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -133,11 +133,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      * up.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -157,8 +157,8 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDispenseMaskingIndicator() {
-        return this.dispenseMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 

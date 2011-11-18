@@ -54,10 +54,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST specimenCollectionText = new STImpl();
-    private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
-    private CV specimenCollectionProcedureMethod = new CVImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST text = new STImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV methodCode = new CVImpl();
     private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
 
@@ -82,11 +82,11 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
      * reasons.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getSpecimenCollectionText() {
-        return this.specimenCollectionText.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setSpecimenCollectionText(String specimenCollectionText) {
-        this.specimenCollectionText.setValue(specimenCollectionText);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -106,11 +106,11 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
      * laboratory tests.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecimenCollectionDateTime() {
-        return this.specimenCollectionDateTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSpecimenCollectionDateTime(Interval<Date> specimenCollectionDateTime) {
-        this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -121,11 +121,11 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
      * Surgical Pathology.</p></p>
      */
     @Hl7XmlMapping({"methodCode"})
-    public Code getSpecimenCollectionProcedureMethod() {
-        return (Code) this.specimenCollectionProcedureMethod.getValue();
+    public Code getMethodCode() {
+        return (Code) this.methodCode.getValue();
     }
-    public void setSpecimenCollectionProcedureMethod(Code specimenCollectionProcedureMethod) {
-        this.specimenCollectionProcedureMethod.setValue(specimenCollectionProcedureMethod);
+    public void setMethodCode(Code methodCode) {
+        this.methodCode.setValue(methodCode);
     }
 
 

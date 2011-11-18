@@ -77,24 +77,17 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20110906L;
-    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private AD patientAddress = new ADImpl();
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ST patientHealthCardVersionCode = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
+    private AD addr = new ADImpl();
+    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST certificateText = new STImpl();
     private ActingPersonBean patientPerson;
     private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
 
 
     /**
      * <p>PatientIdentifier</p>
-     * 
-     * <p>A:Patient Identifier</p>
-     * 
-     * <p><p>The cardinality of patient identifiers is up to 3 
-     * based on the use case to support communication of a local 
-     * and jurisdictional identifier along with the national 
-     * identifier.</p></p>
      * 
      * <p>A:Patient Identifier</p>
      * 
@@ -228,10 +221,17 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * the use case to support communication of a local and 
      * jurisdictional identifier along with the national 
      * identifier.</p></p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p><p>The cardinality of patient identifiers is up to 3 
+     * based on the use case to support communication of a local 
+     * and jurisdictional identifier along with the national 
+     * identifier.</p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPatientIdentifier() {
-        return this.patientIdentifier.rawSet();
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -241,11 +241,11 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * <p>E:Patient Address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientAddress() {
-        return this.patientAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPatientAddress(PostalAddress patientAddress) {
-        this.patientAddress.setValue(patientAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -255,8 +255,8 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * <p>F:Patient Contact Phone and E-Mails</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
-        return this.patientContactPhoneAndEMails.rawList();
+    public List<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawList();
     }
 
 
@@ -266,11 +266,11 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * <p>L:Patient Health Card Version Code</p>
      */
     @Hl7XmlMapping({"certificateText"})
-    public String getPatientHealthCardVersionCode() {
-        return this.patientHealthCardVersionCode.getValue();
+    public String getCertificateText() {
+        return this.certificateText.getValue();
     }
-    public void setPatientHealthCardVersionCode(String patientHealthCardVersionCode) {
-        this.patientHealthCardVersionCode.setValue(patientHealthCardVersionCode);
+    public void setCertificateText(String certificateText) {
+        this.certificateText.setValue(certificateText);
     }
 
 

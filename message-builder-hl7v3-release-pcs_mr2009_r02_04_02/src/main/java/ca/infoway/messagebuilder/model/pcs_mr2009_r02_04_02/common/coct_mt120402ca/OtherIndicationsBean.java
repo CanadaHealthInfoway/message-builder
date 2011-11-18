@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110906L;
-    private CV otherIndication = new CVImpl();
-    private ST otherIndicationAdHocDescription = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
 
 
     /**
@@ -68,11 +68,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * for a lab test.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ActNonConditionIndicationCode getOtherIndication() {
-        return (ActNonConditionIndicationCode) this.otherIndication.getValue();
+    public ActNonConditionIndicationCode getCode() {
+        return (ActNonConditionIndicationCode) this.code.getValue();
     }
-    public void setOtherIndication(ActNonConditionIndicationCode otherIndication) {
-        this.otherIndication.setValue(otherIndication);
+    public void setCode(ActNonConditionIndicationCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -87,11 +87,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * text is the only information allowed.</p></p>
      */
     @Hl7XmlMapping({"text"})
-    public String getOtherIndicationAdHocDescription() {
-        return this.otherIndicationAdHocDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
-        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

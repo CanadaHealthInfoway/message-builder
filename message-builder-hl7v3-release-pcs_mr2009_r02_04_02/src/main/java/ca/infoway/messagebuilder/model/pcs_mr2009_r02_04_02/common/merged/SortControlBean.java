@@ -100,10 +100,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.SortControl","MFMI_MT700751CA.SortControl","QUQI_MT020000CA.SortControl","QUQI_MT020002CA.SortControl","QUQI_MT120006CA.SortControl","QUQI_MT120008CA.SortControl"})
 public class SortControlBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
+    private static final long serialVersionUID = 20111117L;
     private INT sequenceNumber = new INTImpl();
-    private ST sortElementName = new STImpl();
-    private CS sortControlDirection = new CSImpl();
+    private ST elementName = new STImpl();
+    private CS directionCode = new CSImpl();
 
 
     /**
@@ -136,11 +136,11 @@ public class SortControlBean extends MessagePartBean {
      * <p><p>The name of the element is mandatory.</p></p>
      */
     @Hl7XmlMapping({"elementName"})
-    public String getSortElementName() {
-        return this.sortElementName.getValue();
+    public String getElementName() {
+        return this.elementName.getValue();
     }
-    public void setSortElementName(String sortElementName) {
-        this.sortElementName.setValue(sortElementName);
+    public void setElementName(String elementName) {
+        this.elementName.setValue(elementName);
     }
 
 
@@ -155,11 +155,11 @@ public class SortControlBean extends MessagePartBean {
      * <p><p>This element is required.</p></p>
      */
     @Hl7XmlMapping({"directionCode"})
-    public Sequencing getSortControlDirection() {
-        return (Sequencing) this.sortControlDirection.getValue();
+    public Sequencing getDirectionCode() {
+        return (Sequencing) this.directionCode.getValue();
     }
-    public void setSortControlDirection(Sequencing sortControlDirection) {
-        this.sortControlDirection.setValue(sortControlDirection);
+    public void setDirectionCode(Sequencing directionCode) {
+        this.directionCode.setValue(directionCode);
     }
 
 }

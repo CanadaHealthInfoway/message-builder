@@ -66,15 +66,17 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110906L;
-    private II observationIdentifier = new IIImpl();
-    private CD observationType = new CDImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private CV observationValue = new CVImpl();
+    private CV value = new CVImpl();
 
 
     /**
      * <p>ObservationIdentifier</p>
+     * 
+     * <p>A:Observation Identifier</p>
      * 
      * <p>A:Observation Identifier</p>
      * 
@@ -86,15 +88,13 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * allergy, medical condition, pregnancy status, etc.) for 
      * additional details when evaluating appropriateness of issue 
      * management.</p></p>
-     * 
-     * <p>A:Observation Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -131,11 +131,11 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * class.</p></p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getObservationType() {
-        return (Code) this.observationType.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setObservationType(Code observationType) {
-        this.observationType.setValue(observationType);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -248,11 +248,11 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * observation.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public IssueTriggerObservationValue getObservationValue() {
-        return (IssueTriggerObservationValue) this.observationValue.getValue();
+    public IssueTriggerObservationValue getValue() {
+        return (IssueTriggerObservationValue) this.value.getValue();
     }
-    public void setObservationValue(IssueTriggerObservationValue observationValue) {
-        this.observationValue.setValue(observationValue);
+    public void setValue(IssueTriggerObservationValue value) {
+        this.value.setValue(value);
     }
 
 }

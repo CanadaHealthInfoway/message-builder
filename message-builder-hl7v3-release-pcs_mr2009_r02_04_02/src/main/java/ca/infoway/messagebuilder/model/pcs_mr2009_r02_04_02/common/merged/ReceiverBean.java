@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private TEL receiverNetworkAddress = new TELImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
-    private ST receiverApplicationName = new STImpl();
-    private II receiverOrganizationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
+    private ST deviceName = new STImpl();
+    private II deviceAgentAgentOrganizationId = new IIImpl();
 
 
     /**
@@ -60,11 +60,11 @@ public class ReceiverBean extends MessagePartBean {
      * SOAP.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getReceiverNetworkAddress() {
-        return this.receiverNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -84,11 +84,11 @@ public class ReceiverBean extends MessagePartBean {
      * application.</p></p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 
@@ -99,30 +99,30 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p><p>Name of receiver application.</p></p>
      * 
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Name of receiver application.</p></p>
-     * 
      * <p><p>Optional name of receiver application</p></p>
-     * 
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Optional name of receiver application.</p></p>
-     * 
-     * <p><p>Optional application name.</p></p>
      * 
      * <p>JE:Receiver Application Name</p>
      * 
      * <p><p>Name of the receiver application.</p></p>
      * 
      * <p><p>Optional name of the receiver application.</p></p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p><p>Name of receiver application.</p></p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p><p>Optional name of receiver application.</p></p>
+     * 
+     * <p><p>Optional application name.</p></p>
      */
     @Hl7XmlMapping({"device/name"})
-    public String getReceiverApplicationName() {
-        return this.receiverApplicationName.getValue();
+    public String getDeviceName() {
+        return this.deviceName.getValue();
     }
-    public void setReceiverApplicationName(String receiverApplicationName) {
-        this.receiverApplicationName.setValue(receiverApplicationName);
+    public void setDeviceName(String deviceName) {
+        this.deviceName.setValue(deviceName);
     }
 
 
@@ -140,14 +140,6 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
-     * <p><p>Organization intended to receive this message</p></p>
-     * 
-     * <p><p>Id is the only attribute in this class which is 
-     * non-structural and is therefore mandatory. The agent 
-     * association (from the receiver device) is optional.</p></p>
-     * 
-     * <p>JK:Receiver Organization Identifier</p>
-     * 
      * <p><p>Receiver organization.</p></p>
      * 
      * <p><p>The identifier of the receiver organization. This is 
@@ -158,6 +150,14 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
+     * <p><p>Organization intended to receive this message</p></p>
+     * 
+     * <p><p>Id is the only attribute in this class which is 
+     * non-structural and is therefore mandatory. The agent 
+     * association (from the receiver device) is optional.</p></p>
+     * 
+     * <p>JK:Receiver Organization Identifier</p>
+     * 
      * <p><p>Unique identifier for the receiver organization.</p></p>
      * 
      * <p><p>The identifier is the only non-structural attribute in 
@@ -165,11 +165,11 @@ public class ReceiverBean extends MessagePartBean {
      * receiver device to agent is optional.</p></p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id"})
-    public Identifier getReceiverOrganizationIdentifier() {
-        return this.receiverOrganizationIdentifier.getValue();
+    public Identifier getDeviceAgentAgentOrganizationId() {
+        return this.deviceAgentAgentOrganizationId.getValue();
     }
-    public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
-        this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
+    public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
+        this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);
     }
 
 }

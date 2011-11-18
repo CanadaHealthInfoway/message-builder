@@ -81,8 +81,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700717CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110906L;
-    private II priorRegisteredRoleIds = new IIImpl();
+    private static final long serialVersionUID = 20111117L;
+    private II subjectPriorRegisteredRoleId = new IIImpl();
 
 
     /**
@@ -97,11 +97,11 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * <p><p>Provides support for merges.</p></p>
      */
     @Hl7XmlMapping({"subject/priorRegisteredRole/id"})
-    public Identifier getPriorRegisteredRoleIds() {
-        return this.priorRegisteredRoleIds.getValue();
+    public Identifier getSubjectPriorRegisteredRoleId() {
+        return this.subjectPriorRegisteredRoleId.getValue();
     }
-    public void setPriorRegisteredRoleIds(Identifier priorRegisteredRoleIds) {
-        this.priorRegisteredRoleIds.setValue(priorRegisteredRoleIds);
+    public void setSubjectPriorRegisteredRoleId(Identifier subjectPriorRegisteredRoleId) {
+        this.subjectPriorRegisteredRoleId.setValue(subjectPriorRegisteredRoleId);
     }
 
 }

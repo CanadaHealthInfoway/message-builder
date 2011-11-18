@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReason"})
 public class AdjudicationResultReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20110906L;
-    private ST actAdjudicationReason = new STImpl();
+    private static final long serialVersionUID = 20111117L;
+    private ST value = new STImpl();
 
 
     /**
@@ -42,11 +42,11 @@ public class AdjudicationResultReasonBean extends MessagePartBean implements ca.
      * <p><p>Reason for the adjudication.</p></p>
      */
     @Hl7XmlMapping({"value"})
-    public String getActAdjudicationReason() {
-        return this.actAdjudicationReason.getValue();
+    public String getValue() {
+        return this.value.getValue();
     }
-    public void setActAdjudicationReason(String actAdjudicationReason) {
-        this.actAdjudicationReason.setValue(actAdjudicationReason);
+    public void setValue(String value) {
+        this.value.setValue(value);
     }
 
 }
