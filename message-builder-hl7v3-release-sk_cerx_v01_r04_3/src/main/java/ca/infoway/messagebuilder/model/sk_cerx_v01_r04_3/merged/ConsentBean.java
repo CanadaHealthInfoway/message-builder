@@ -51,16 +51,16 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II consentFormNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
-    private CV consentOverrideReason = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV reasonCode = new CVImpl();
     private PatientBean subjectPatient;
     private PrescribedByBean author2;
     private ConsentedToByBean author1;
     private AccessTypeBean subject2InformDefinition;
-    private CV consentType = new CVImpl();
-    private BL consentRefusedIndicator = new BLImpl();
+    private CV code = new CVImpl();
+    private BL negationInd = new BLImpl();
     private InformationAccessBean componentPermissionToInform;
 
 
@@ -70,11 +70,11 @@ public class ConsentBean extends MessagePartBean {
      * <p>D:Consent Form Number</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -89,11 +89,11 @@ public class ConsentBean extends MessagePartBean {
      * <p>C:Consent Effective and End Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -103,11 +103,11 @@ public class ConsentBean extends MessagePartBean {
      * <p>E:Consent Override Reason</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    public ActConsentInformationAccessReason getReasonCode() {
+        return (ActConsentInformationAccessReason) this.reasonCode.getValue();
     }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
+    public void setReasonCode(ActConsentInformationAccessReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 
@@ -164,11 +164,11 @@ public class ConsentBean extends MessagePartBean {
      * <p>A:Consent Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActConsentType getConsentType() {
-        return (ActConsentType) this.consentType.getValue();
+    public ActConsentType getCode() {
+        return (ActConsentType) this.code.getValue();
     }
-    public void setConsentType(ActConsentType consentType) {
-        this.consentType.setValue(consentType);
+    public void setCode(ActConsentType code) {
+        this.code.setValue(code);
     }
 
 
@@ -178,11 +178,11 @@ public class ConsentBean extends MessagePartBean {
      * <p>B:Consent Refused Indicator</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getConsentRefusedIndicator() {
-        return this.consentRefusedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setConsentRefusedIndicator(Boolean consentRefusedIndicator) {
-        this.consentRefusedIndicator.setValue(consentRefusedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 

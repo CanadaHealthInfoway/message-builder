@@ -34,19 +34,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private ST broadcastMessage = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private ST text = new STImpl();
 
 
     /**
      * <p>Broadcast Message</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getBroadcastMessage() {
-        return this.broadcastMessage.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setBroadcastMessage(String broadcastMessage) {
-        this.broadcastMessage.setValue(broadcastMessage);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

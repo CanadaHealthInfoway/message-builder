@@ -42,9 +42,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministrationEventCriterion","PORX_MT980020CA.SubstanceAdministrationEventCriterion","PORX_MT980030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
 
 
@@ -54,11 +54,11 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>A:Dose Duration</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDoseDuration() {
-        return this.doseDuration.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDoseDuration(Interval<Date> doseDuration) {
-        this.doseDuration.setValue(doseDuration);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -68,11 +68,11 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>B:Dosage Range</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRange() {
-        return this.dosageRange.getValue();
+    public UncertainRange<PhysicalQuantity> getDoseQuantity() {
+        return this.doseQuantity.getValue();
     }
-    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
-        this.dosageRange.setValue(dosageRange);
+    public void setDoseQuantity(UncertainRange<PhysicalQuantity> doseQuantity) {
+        this.doseQuantity.setValue(doseQuantity);
     }
 
 

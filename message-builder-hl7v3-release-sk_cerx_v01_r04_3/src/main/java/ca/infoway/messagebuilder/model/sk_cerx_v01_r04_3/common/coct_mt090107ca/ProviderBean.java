@@ -41,22 +41,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110901L;
-    private II providerId = new IIImpl();
-    private CV providerType = new CVImpl();
-    private PN providerName = new PNImpl();
-    private II providerLicenseNumber = new IIImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private PN representedPersonName = new PNImpl();
+    private II representedPersonAsLicensedEntityId = new IIImpl();
 
 
     /**
      * <p>A:Provider Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getProviderId() {
-        return this.providerId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setProviderId(Identifier providerId) {
-        this.providerId.setValue(providerId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -64,11 +64,11 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * <p>Provider Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getProviderType() {
-        return (HealthcareProviderRoleType) this.providerType.getValue();
+    public HealthcareProviderRoleType getCode() {
+        return (HealthcareProviderRoleType) this.code.getValue();
     }
-    public void setProviderType(HealthcareProviderRoleType providerType) {
-        this.providerType.setValue(providerType);
+    public void setCode(HealthcareProviderRoleType code) {
+        this.code.setValue(code);
     }
 
 
@@ -76,11 +76,11 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * <p>B:Provider Name</p>
      */
     @Hl7XmlMapping({"representedPerson/name"})
-    public PersonName getProviderName() {
-        return this.providerName.getValue();
+    public PersonName getRepresentedPersonName() {
+        return this.representedPersonName.getValue();
     }
-    public void setProviderName(PersonName providerName) {
-        this.providerName.setValue(providerName);
+    public void setRepresentedPersonName(PersonName representedPersonName) {
+        this.representedPersonName.setValue(representedPersonName);
     }
 
 
@@ -88,11 +88,11 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * <p>D:Provider License Number</p>
      */
     @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
-    public Identifier getProviderLicenseNumber() {
-        return this.providerLicenseNumber.getValue();
+    public Identifier getRepresentedPersonAsLicensedEntityId() {
+        return this.representedPersonAsLicensedEntityId.getValue();
     }
-    public void setProviderLicenseNumber(Identifier providerLicenseNumber) {
-        this.providerLicenseNumber.setValue(providerLicenseNumber);
+    public void setRepresentedPersonAsLicensedEntityId(Identifier representedPersonAsLicensedEntityId) {
+        this.representedPersonAsLicensedEntityId.setValue(representedPersonAsLicensedEntityId);
     }
 
 }

@@ -43,11 +43,11 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private PatientBean subject1Patient;
-    private ST keyword = new STImpl();
+    private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private List<CV> subject2RecordTypeCode = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"subject1/patient"})
@@ -63,11 +63,11 @@ public class KeywordBean extends MessagePartBean {
      * <p>Keyword</p>
      */
     @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
+    public String getAuthorSignatureText() {
+        return this.authorSignatureText.getValue();
     }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
+    public void setAuthorSignatureText(String authorSignatureText) {
+        this.authorSignatureText.setValue(authorSignatureText);
     }
 
 
@@ -79,11 +79,11 @@ public class KeywordBean extends MessagePartBean {
         this.authorConsenter = authorConsenter;
     }
 
-    public ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean getAuthorConsenterAsPatient() {
-        return this.authorConsenter instanceof ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean ? (ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean) this.authorConsenter : null;
+    public ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.merged.PatientBean getAuthorConsenterAsPatient() {
+        return this.authorConsenter instanceof ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.merged.PatientBean ? (ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.merged.PatientBean) this.authorConsenter : null;
     }
     public boolean hasAuthorConsenterAsPatient() {
-        return (this.authorConsenter instanceof ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.rcmr_mt010002ca.PatientBean);
+        return (this.authorConsenter instanceof ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.merged.PatientBean);
     }
 
     public ResponsiblePersonBean getAuthorConsenterAsResponsibleParty() {
@@ -98,8 +98,8 @@ public class KeywordBean extends MessagePartBean {
      * <p>B:Consent Information Types</p>
      */
     @Hl7XmlMapping({"subject2/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
+    public List<ActInformationAccessTypeCode> getSubject2RecordTypeCode() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(subject2RecordTypeCode, CVImpl.class);
     }
 
 }

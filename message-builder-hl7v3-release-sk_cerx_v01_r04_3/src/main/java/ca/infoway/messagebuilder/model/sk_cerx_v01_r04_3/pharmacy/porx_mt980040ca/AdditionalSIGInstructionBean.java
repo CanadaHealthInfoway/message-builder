@@ -35,20 +35,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.SupplementalInstruction"})
 public class AdditionalSIGInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CS dosageUsageContext = new CSImpl();
-    private ST additionalDosageInstruction = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CS moodCode = new CSImpl();
+    private ST text = new STImpl();
 
 
     /**
      * <p>Dosage Usage Context</p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    public x_ActMoodDefEvnRqo getMoodCode() {
+        return (x_ActMoodDefEvnRqo) this.moodCode.getValue();
     }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
+    public void setMoodCode(x_ActMoodDefEvnRqo moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -56,11 +56,11 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * <p>F:Additional Dosage Instruction</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getAdditionalDosageInstruction() {
-        return this.additionalDosageInstruction.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setAdditionalDosageInstruction(String additionalDosageInstruction) {
-        this.additionalDosageInstruction.setValue(additionalDosageInstruction);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

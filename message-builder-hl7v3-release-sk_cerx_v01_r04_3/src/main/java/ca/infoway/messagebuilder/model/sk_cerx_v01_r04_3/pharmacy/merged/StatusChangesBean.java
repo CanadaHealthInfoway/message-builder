@@ -41,12 +41,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
-    private TS changeTimestamp = new TSImpl();
+    private TS authorTime = new TSImpl();
     private ChangedBy authorChangedBy;
 
 
@@ -113,11 +113,11 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Change Timestamp</p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getChangeTimestamp() {
-        return this.changeTimestamp.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setChangeTimestamp(Date changeTimestamp) {
-        this.changeTimestamp.setValue(changeTimestamp);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 

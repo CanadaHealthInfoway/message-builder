@@ -40,9 +40,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private TS refusalToFillDate = new TSImpl();
-    private CV refusalToFillReason = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private TS effectiveTime = new TSImpl();
+    private CV reasonCode = new CVImpl();
     private RefusedByBean author;
     private RecordedAtBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -54,11 +54,11 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Refusal To Fill Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getRefusalToFillDate() {
-        return this.refusalToFillDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setRefusalToFillDate(Date refusalToFillDate) {
-        this.refusalToFillDate.setValue(refusalToFillDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -70,11 +70,11 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Refusal to Fill Reason</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ActSupplyFulfillmentRefusalReason getRefusalToFillReason() {
-        return (ActSupplyFulfillmentRefusalReason) this.refusalToFillReason.getValue();
+    public ActSupplyFulfillmentRefusalReason getReasonCode() {
+        return (ActSupplyFulfillmentRefusalReason) this.reasonCode.getValue();
     }
-    public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
-        this.refusalToFillReason.setValue(refusalToFillReason);
+    public void setReasonCode(ActSupplyFulfillmentRefusalReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

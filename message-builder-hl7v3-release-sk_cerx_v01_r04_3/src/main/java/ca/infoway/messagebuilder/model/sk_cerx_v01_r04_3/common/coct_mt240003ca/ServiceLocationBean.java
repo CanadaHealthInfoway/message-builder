@@ -46,22 +46,22 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient {
 
-    private static final long serialVersionUID = 20110901L;
-    private II serviceLocationId = new IIImpl();
-    private AD serviceLocationAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ST serviceLocationName = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private AD addr = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST locationName = new STImpl();
 
 
     /**
      * <p>C:Service Location Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getServiceLocationId() {
-        return this.serviceLocationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setServiceLocationId(Identifier serviceLocationId) {
-        this.serviceLocationId.setValue(serviceLocationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -69,11 +69,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>D:Service Location Address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceLocationAddress() {
-        return this.serviceLocationAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
-        this.serviceLocationAddress.setValue(serviceLocationAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -81,8 +81,8 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>E:Service Location Phones and E-mails</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
+    public Set<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawSet();
     }
 
 
@@ -90,11 +90,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>B:Service Location Name</p>
      */
     @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 }

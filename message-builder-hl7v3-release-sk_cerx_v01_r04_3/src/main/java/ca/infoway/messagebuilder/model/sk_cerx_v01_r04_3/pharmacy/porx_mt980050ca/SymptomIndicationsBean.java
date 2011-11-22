@@ -38,21 +38,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110901L;
-    private CD symptomType = new CDImpl();
-    private ST freeFormSymptomIndication = new STImpl();
-    private CV symptomCode = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private CV value = new CVImpl();
 
 
     /**
      * <p>Symptom Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getSymptomType() {
-        return (ActCode) this.symptomType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setSymptomType(ActCode symptomType) {
-        this.symptomType.setValue(symptomType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -60,11 +60,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
      * <p>Free Form Symptom Indication</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getFreeFormSymptomIndication() {
-        return this.freeFormSymptomIndication.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setFreeFormSymptomIndication(String freeFormSymptomIndication) {
-        this.freeFormSymptomIndication.setValue(freeFormSymptomIndication);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -72,11 +72,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
      * <p>A:Symptom Code</p>
      */
     @Hl7XmlMapping({"value"})
-    public SymptomValue getSymptomCode() {
-        return (SymptomValue) this.symptomCode.getValue();
+    public SymptomValue getValue() {
+        return (SymptomValue) this.value.getValue();
     }
-    public void setSymptomCode(SymptomValue symptomCode) {
-        this.symptomCode.setValue(symptomCode);
+    public void setValue(SymptomValue value) {
+        this.value.setValue(value);
     }
 
 }

@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.PrescribedByBean
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II prescriptionIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private PrescribedByBean author;
 
@@ -47,11 +47,11 @@ public class SupplyOrderBean extends MessagePartBean {
      * <p>A:Prescription Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionIdentifier() {
-        return this.prescriptionIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionIdentifier(Identifier prescriptionIdentifier) {
-        this.prescriptionIdentifier.setValue(prescriptionIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

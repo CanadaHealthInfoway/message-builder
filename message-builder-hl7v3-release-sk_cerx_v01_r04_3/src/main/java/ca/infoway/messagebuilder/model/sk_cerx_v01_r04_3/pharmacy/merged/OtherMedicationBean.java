@@ -53,11 +53,11 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II otherMedicationId = new IIImpl();
-    private CS medicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV otherMedicationMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
     private CV routeCode = new CVImpl();
     private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
@@ -71,11 +71,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>A:Other Medication Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getOtherMedicationId() {
-        return this.otherMedicationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOtherMedicationId(Identifier otherMedicationId) {
-        this.otherMedicationId.setValue(otherMedicationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -95,11 +95,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * will be returned.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getMedicationStatus() {
-        return (ActStatus) this.medicationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setMedicationStatus(ActStatus medicationStatus) {
-        this.medicationStatus.setValue(medicationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -111,11 +111,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>d:Drug Active Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -131,11 +131,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
-        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 

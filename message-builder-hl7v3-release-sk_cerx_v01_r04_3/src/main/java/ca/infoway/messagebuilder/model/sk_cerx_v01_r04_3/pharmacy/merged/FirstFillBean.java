@@ -38,10 +38,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
-    private PQ firstFillQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private PQ quantity = new PQImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -50,11 +50,11 @@ public class FirstFillBean extends MessagePartBean {
      * <p>First Fill Expiry Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getFirstFillExpiryDate() {
-        return this.firstFillExpiryDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setFirstFillExpiryDate(Interval<Date> firstFillExpiryDate) {
-        this.firstFillExpiryDate.setValue(firstFillExpiryDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -64,11 +64,11 @@ public class FirstFillBean extends MessagePartBean {
      * <p>First Fill Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFirstFillQuantity() {
-        return this.firstFillQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
-        this.firstFillQuantity.setValue(firstFillQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -78,11 +78,11 @@ public class FirstFillBean extends MessagePartBean {
      * <p>First Fill Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getFirstFillDaysSupply() {
-        return this.firstFillDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
-        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

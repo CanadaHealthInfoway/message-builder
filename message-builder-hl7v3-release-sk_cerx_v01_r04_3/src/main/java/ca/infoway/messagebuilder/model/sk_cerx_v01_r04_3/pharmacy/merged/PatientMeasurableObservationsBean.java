@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationMeasurableEvent","PORX_MT980020CA.ObservationMeasurableEvent","PORX_MT980030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110901L;
-    private II observationIdentifier = new IIImpl();
-    private CV observationType = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
-    private PQ observationValue = new PQImpl();
+    private PQ value = new PQImpl();
 
 
     /**
@@ -53,11 +53,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>A:Observation Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationIdentifier() {
-        return this.observationIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationIdentifier(Identifier observationIdentifier) {
-        this.observationIdentifier.setValue(observationIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -67,11 +67,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>B:Observation Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationIssueTriggerMeasuredObservationType getObservationType() {
-        return (ObservationIssueTriggerMeasuredObservationType) this.observationType.getValue();
+    public ObservationIssueTriggerMeasuredObservationType getCode() {
+        return (ObservationIssueTriggerMeasuredObservationType) this.code.getValue();
     }
-    public void setObservationType(ObservationIssueTriggerMeasuredObservationType observationType) {
-        this.observationType.setValue(observationType);
+    public void setCode(ObservationIssueTriggerMeasuredObservationType code) {
+        this.code.setValue(code);
     }
 
 
@@ -95,11 +95,11 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>C:Observation Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationValue() {
-        return this.observationValue.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setObservationValue(PhysicalQuantity observationValue) {
-        this.observationValue.setValue(observationValue);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 }

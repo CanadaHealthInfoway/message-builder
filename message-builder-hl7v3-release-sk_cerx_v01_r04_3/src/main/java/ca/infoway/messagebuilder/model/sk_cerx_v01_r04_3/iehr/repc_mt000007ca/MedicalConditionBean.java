@@ -60,13 +60,13 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II medicalConditionRecordId = new IIImpl();
-    private CD conditionType = new CDImpl();
-    private CS conditionStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV conditionMaskingIndicator = new CVImpl();
-    private CV condition = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
+    private CV value = new CVImpl();
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
@@ -81,11 +81,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>A:Medical Condition Record Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getMedicalConditionRecordId() {
-        return this.medicalConditionRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setMedicalConditionRecordId(Identifier medicalConditionRecordId) {
-        this.medicalConditionRecordId.setValue(medicalConditionRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -93,11 +93,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>Condition Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getConditionType() {
-        return (ActCode) this.conditionType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setConditionType(ActCode conditionType) {
-        this.conditionType.setValue(conditionType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -105,11 +105,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>D:Condition Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getConditionStatus() {
-        return (ActStatus) this.conditionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setConditionStatus(ActStatus conditionStatus) {
-        this.conditionStatus.setValue(conditionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -117,11 +117,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>E:Condition Time Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConditionTimePeriod() {
-        return this.conditionTimePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
-        this.conditionTimePeriod.setValue(conditionTimePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -129,11 +129,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>F:Condition Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConditionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.conditionMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setConditionMaskingIndicator(x_VeryBasicConfidentialityKind conditionMaskingIndicator) {
-        this.conditionMaskingIndicator.setValue(conditionMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -141,11 +141,11 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>C:Condition</p>
      */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 

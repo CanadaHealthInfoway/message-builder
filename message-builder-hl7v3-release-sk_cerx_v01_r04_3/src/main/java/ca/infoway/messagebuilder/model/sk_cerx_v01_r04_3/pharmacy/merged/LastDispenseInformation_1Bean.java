@@ -38,8 +38,8 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventLastSummary","PORX_MT060160CA.SupplyEventLastSummary","PORX_MT060190CA.SupplyEventLastSummary","PORX_MT060340CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
 
 
@@ -49,11 +49,11 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Last Dispense Pickup Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

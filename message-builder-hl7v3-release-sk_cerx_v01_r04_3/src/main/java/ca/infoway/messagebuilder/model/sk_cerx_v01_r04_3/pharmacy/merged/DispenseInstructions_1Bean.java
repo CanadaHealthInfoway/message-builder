@@ -38,9 +38,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT020060CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private INT totalPrescribedQuantity = new INTImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private INT quantity = new INTImpl();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private RecordedAtBean location;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private SupplementalFillInformationBean componentSupplementalFillInformation;
@@ -60,11 +60,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -82,11 +82,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 

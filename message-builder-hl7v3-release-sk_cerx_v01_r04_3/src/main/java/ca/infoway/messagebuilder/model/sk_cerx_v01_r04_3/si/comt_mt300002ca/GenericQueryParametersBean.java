@@ -45,23 +45,23 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private TS patientBirthDate = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private II patientID = new IIImpl();
-    private PN patientName = new PNImpl();
-    private CV patientNoteCategoryCode = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private TS patientBirthDateValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private II patientIDValue = new IIImpl();
+    private PN patientNameValue = new PNImpl();
+    private CV patientNoteCategoryCodeValue = new CVImpl();
 
 
     /**
      * <p>Patient Birth Date</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    public Date getPatientBirthDateValue() {
+        return this.patientBirthDateValue.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientBirthDateValue(Date patientBirthDateValue) {
+        this.patientBirthDateValue.setValue(patientBirthDateValue);
     }
 
 
@@ -69,11 +69,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Patient Gender</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -81,11 +81,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>B:Patient ID</p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
+    public Identifier getPatientIDValue() {
+        return this.patientIDValue.getValue();
     }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
+    public void setPatientIDValue(Identifier patientIDValue) {
+        this.patientIDValue.setValue(patientIDValue);
     }
 
 
@@ -93,11 +93,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>C:Patient Name</p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 
@@ -105,11 +105,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Patient Note Category Code</p>
      */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
-    public ActPatientAnnotationCode getPatientNoteCategoryCode() {
-        return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();
+    public ActPatientAnnotationCode getPatientNoteCategoryCodeValue() {
+        return (ActPatientAnnotationCode) this.patientNoteCategoryCodeValue.getValue();
     }
-    public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
-        this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
+    public void setPatientNoteCategoryCodeValue(ActPatientAnnotationCode patientNoteCategoryCodeValue) {
+        this.patientNoteCategoryCodeValue.setValue(patientNoteCategoryCodeValue);
     }
 
 }

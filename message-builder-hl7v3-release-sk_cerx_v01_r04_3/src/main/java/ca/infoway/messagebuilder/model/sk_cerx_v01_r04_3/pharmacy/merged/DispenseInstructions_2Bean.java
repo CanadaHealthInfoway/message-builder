@@ -42,11 +42,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private CS statusCode = new CSImpl();
-    private PQ totalPrescribedQuantity = new PQImpl();
+    private PQ quantity = new PQImpl();
     private RecordedAtBean location;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -71,11 +71,11 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * <p>Total Prescribed Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -94,11 +94,11 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * <p>Total Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
     }
 
 }

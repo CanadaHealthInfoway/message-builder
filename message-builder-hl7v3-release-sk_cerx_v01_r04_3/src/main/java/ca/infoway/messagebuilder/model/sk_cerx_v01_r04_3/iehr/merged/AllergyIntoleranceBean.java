@@ -58,11 +58,11 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CD allergyIntoleranceType = new CDImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
+    private TS effectiveTime = new TSImpl();
     private CV confidentialityCode = new CVImpl();
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
@@ -94,11 +94,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * while EALG is.</strong></p></p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    public ObservationIntoleranceType getCode() {
+        return (ObservationIntoleranceType) this.code.getValue();
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setCode(ObservationIntoleranceType code) {
+        this.code.setValue(code);
     }
 
 
@@ -108,11 +108,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>G:Allergy/Intolerance Refuted</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -138,11 +138,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>I:Allergy/Intolerance Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

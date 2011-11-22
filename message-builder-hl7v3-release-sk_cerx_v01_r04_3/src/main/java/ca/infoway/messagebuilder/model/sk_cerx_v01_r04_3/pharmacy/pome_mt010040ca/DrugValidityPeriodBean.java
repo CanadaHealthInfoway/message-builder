@@ -35,19 +35,19 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.InitialDispense"})
 public class DrugValidityPeriodBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> firstFillPeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
      * <p>First Fill Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getFirstFillPeriod() {
-        return this.firstFillPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setFirstFillPeriod(Interval<Date> firstFillPeriod) {
-        this.firstFillPeriod.setValue(firstFillPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

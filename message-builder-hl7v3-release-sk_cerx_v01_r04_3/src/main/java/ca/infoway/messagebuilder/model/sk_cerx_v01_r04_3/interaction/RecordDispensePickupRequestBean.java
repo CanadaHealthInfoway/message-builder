@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt020020c
 @Hl7PartTypeMapping({"PORX_IN020080CA"})
 public class RecordDispensePickupRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<DispensePickupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
 
 }

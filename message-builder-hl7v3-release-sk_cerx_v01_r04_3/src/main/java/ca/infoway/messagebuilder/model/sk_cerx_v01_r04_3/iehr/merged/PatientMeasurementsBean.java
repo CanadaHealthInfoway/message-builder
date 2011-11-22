@@ -58,12 +58,12 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II observationMeasurementId = new IIImpl();
-    private CD measurementType = new CDImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
-    private CV commonObservationMaskingIndicator = new CVImpl();
-    private PQ observationMeasurementValue = new PQImpl();
+    private CV confidentialityCode = new CVImpl();
+    private PQ value = new PQImpl();
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
@@ -79,11 +79,11 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>E:Observation Measurement Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getObservationMeasurementId() {
-        return this.observationMeasurementId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setObservationMeasurementId(Identifier observationMeasurementId) {
-        this.observationMeasurementId.setValue(observationMeasurementId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -95,11 +95,11 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>A:Measurement Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public CommonClinicalObservationType getMeasurementType() {
-        return (CommonClinicalObservationType) this.measurementType.getValue();
+    public CommonClinicalObservationType getCode() {
+        return (CommonClinicalObservationType) this.code.getValue();
     }
-    public void setMeasurementType(CommonClinicalObservationType measurementType) {
-        this.measurementType.setValue(measurementType);
+    public void setCode(CommonClinicalObservationType code) {
+        this.code.setValue(code);
     }
 
 
@@ -123,11 +123,11 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>D:Common Observation Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getCommonObservationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.commonObservationMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setCommonObservationMaskingIndicator(x_VeryBasicConfidentialityKind commonObservationMaskingIndicator) {
-        this.commonObservationMaskingIndicator.setValue(commonObservationMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -137,11 +137,11 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>B:Observation Measurement Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationMeasurementValue() {
-        return this.observationMeasurementValue.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setObservationMeasurementValue(PhysicalQuantity observationMeasurementValue) {
-        this.observationMeasurementValue.setValue(observationMeasurementValue);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 

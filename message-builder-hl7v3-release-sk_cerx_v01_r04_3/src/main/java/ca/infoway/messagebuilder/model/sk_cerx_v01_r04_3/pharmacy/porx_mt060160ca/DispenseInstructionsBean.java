@@ -44,9 +44,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CS prescriptionDispensableIndicator = new CSImpl();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
@@ -57,11 +57,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * <p>Prescription Dispensable Indicator</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -69,11 +69,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * <p>A:Dispensing Allowed Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

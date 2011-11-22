@@ -36,11 +36,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.RespondTo","MCCI_MT000200CA.RespondTo","MCCI_MT000300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private TEL respondToNetworkAddress = new TELImpl();
-    private II respondToApplicationIdentifier = new IIImpl();
-    private II respondToOrganizationId = new IIImpl();
-    private II respondToFacilityId = new IIImpl();
+    private static final long serialVersionUID = 20111121L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
+    private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
+    private II deviceAsLocatedEntityLocationId = new IIImpl();
 
 
     /**
@@ -49,11 +49,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KB:Respond to Network Address</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getRespondToNetworkAddress() {
-        return this.respondToNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -63,11 +63,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KA:Respond to Application Identifier</p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getRespondToApplicationIdentifier() {
-        return this.respondToApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 
@@ -77,11 +77,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KC:Respond to Organization Id</p>
      */
     @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
-    public Identifier getRespondToOrganizationId() {
-        return this.respondToOrganizationId.getValue();
+    public Identifier getDeviceAsAgentRepresentedOrganizationId() {
+        return this.deviceAsAgentRepresentedOrganizationId.getValue();
     }
-    public void setRespondToOrganizationId(Identifier respondToOrganizationId) {
-        this.respondToOrganizationId.setValue(respondToOrganizationId);
+    public void setDeviceAsAgentRepresentedOrganizationId(Identifier deviceAsAgentRepresentedOrganizationId) {
+        this.deviceAsAgentRepresentedOrganizationId.setValue(deviceAsAgentRepresentedOrganizationId);
     }
 
 
@@ -91,11 +91,11 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>KD:Respond to Facility Id</p>
      */
     @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
-    public Identifier getRespondToFacilityId() {
-        return this.respondToFacilityId.getValue();
+    public Identifier getDeviceAsLocatedEntityLocationId() {
+        return this.deviceAsLocatedEntityLocationId.getValue();
     }
-    public void setRespondToFacilityId(Identifier respondToFacilityId) {
-        this.respondToFacilityId.setValue(respondToFacilityId);
+    public void setDeviceAsLocatedEntityLocationId(Identifier deviceAsLocatedEntityLocationId) {
+        this.deviceAsLocatedEntityLocationId.setValue(deviceAsLocatedEntityLocationId);
     }
 
 }

@@ -55,13 +55,13 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV drugCode = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private ST description = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV playerCode = new CVImpl();
+    private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST playerDesc = new STImpl();
+    private CV playerFormCode = new CVImpl();
     private ManufacturerBean playerAsManufacturedProductManufacturer;
-    private CS regulatoryStatusCode = new CSImpl();
+    private CS playerAsRegulatedProductStatusCode = new CSImpl();
     private DispensedInBean playerAsContent;
     private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
@@ -73,11 +73,11 @@ public class MedicationBean extends MessagePartBean {
      * <p>A:Drug Code</p>
      */
     @Hl7XmlMapping({"player/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getPlayerCode() {
+        return (ClinicalDrug) this.playerCode.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setPlayerCode(ClinicalDrug playerCode) {
+        this.playerCode.setValue(playerCode);
     }
 
 
@@ -85,8 +85,8 @@ public class MedicationBean extends MessagePartBean {
      * <p>B:Drug Names</p>
      */
     @Hl7XmlMapping({"player/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
+    public Set<TrivialName> getPlayerName() {
+        return this.playerName.rawSet();
     }
 
 
@@ -94,11 +94,11 @@ public class MedicationBean extends MessagePartBean {
      * <p>Description</p>
      */
     @Hl7XmlMapping({"player/desc"})
-    public String getDescription() {
-        return this.description.getValue();
+    public String getPlayerDesc() {
+        return this.playerDesc.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setPlayerDesc(String playerDesc) {
+        this.playerDesc.setValue(playerDesc);
     }
 
 
@@ -106,11 +106,11 @@ public class MedicationBean extends MessagePartBean {
      * <p>D:Drug Form</p>
      */
     @Hl7XmlMapping({"player/formCode"})
-    public Code getDrugForm() {
-        return (Code) this.drugForm.getValue();
+    public Code getPlayerFormCode() {
+        return (Code) this.playerFormCode.getValue();
     }
-    public void setDrugForm(Code drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setPlayerFormCode(Code playerFormCode) {
+        this.playerFormCode.setValue(playerFormCode);
     }
 
 
@@ -127,11 +127,11 @@ public class MedicationBean extends MessagePartBean {
      * <p>Regulatory Status Code</p>
      */
     @Hl7XmlMapping({"player/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    public RoleStatusNormal getPlayerAsRegulatedProductStatusCode() {
+        return (RoleStatusNormal) this.playerAsRegulatedProductStatusCode.getValue();
     }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    public void setPlayerAsRegulatedProductStatusCode(RoleStatusNormal playerAsRegulatedProductStatusCode) {
+        this.playerAsRegulatedProductStatusCode.setValue(playerAsRegulatedProductStatusCode);
     }
 
 

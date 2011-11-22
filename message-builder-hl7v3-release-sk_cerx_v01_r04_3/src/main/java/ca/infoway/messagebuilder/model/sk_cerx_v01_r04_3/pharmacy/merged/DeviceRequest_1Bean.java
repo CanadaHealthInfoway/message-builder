@@ -53,9 +53,9 @@ import java.util.List;
 @Hl7RootType
 public class DeviceRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private II id = new IIImpl();
-    private CS prescriptionStatus = new CSImpl();
+    private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private DeviceProductBean directTargetManufacturedProduct;
     private PatientBean subjectPatient;
@@ -94,11 +94,11 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * issue to be returned.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 

@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
      * <p>Patient Gender</p>
      */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientLivingSubjectKindAdministrativeGenderCode() {
+        return (AdministrativeGender) this.patientLivingSubjectKindAdministrativeGenderCode.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender patientLivingSubjectKindAdministrativeGenderCode) {
+        this.patientLivingSubjectKindAdministrativeGenderCode.setValue(patientLivingSubjectKindAdministrativeGenderCode);
     }
 
 }

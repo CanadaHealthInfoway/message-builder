@@ -53,13 +53,13 @@ import java.util.List;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20110901L;
-    private II patientID = new IIImpl();
-    private AD patientContactAddress = new ADImpl();
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN patientName = new PNImpl();
-    private CV patientGender = new CVImpl();
-    private TS patientBirthDate = new TSImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private AD addr = new ADImpl();
+    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN patientPersonName = new PNImpl();
+    private CV patientPersonAdministrativeGenderCode = new CVImpl();
+    private TS patientPersonBirthTime = new TSImpl();
 
 
     /**
@@ -68,11 +68,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>A:Patient ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -82,11 +82,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>C:Patient Contact Address</p>
      */
     @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientContactAddress() {
-        return this.patientContactAddress.getValue();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
     }
-    public void setPatientContactAddress(PostalAddress patientContactAddress) {
-        this.patientContactAddress.setValue(patientContactAddress);
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -96,8 +96,8 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>D:Patient Contact Phone and E-mails</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
-        return this.patientContactPhoneAndEMails.rawList();
+    public List<TelecommunicationAddress> getTelecom() {
+        return this.telecom.rawList();
     }
 
 
@@ -107,11 +107,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>B:Patient Name</p>
      */
     @Hl7XmlMapping({"patientPerson/name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientPersonName() {
+        return this.patientPersonName.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientPersonName(PersonName patientPersonName) {
+        this.patientPersonName.setValue(patientPersonName);
     }
 
 
@@ -121,11 +121,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>F:Patient Gender</p>
      */
     @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
+        return (AdministrativeGender) this.patientPersonAdministrativeGenderCode.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientPersonAdministrativeGenderCode(AdministrativeGender patientPersonAdministrativeGenderCode) {
+        this.patientPersonAdministrativeGenderCode.setValue(patientPersonAdministrativeGenderCode);
     }
 
 
@@ -135,11 +135,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>E:Patient Birth Date</p>
      */
     @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    public Date getPatientPersonBirthTime() {
+        return this.patientPersonBirthTime.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientPersonBirthTime(Date patientPersonBirthTime) {
+        this.patientPersonBirthTime.setValue(patientPersonBirthTime);
     }
 
 }

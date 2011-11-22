@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II payorIdentifier = new IIImpl();
-    private ST payorName = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private ST underwritingOrganizationName = new STImpl();
 
 
     /**
@@ -48,11 +48,11 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>Payor Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPayorIdentifier() {
-        return this.payorIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPayorIdentifier(Identifier payorIdentifier) {
-        this.payorIdentifier.setValue(payorIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -64,11 +64,11 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>Payor Name</p>
      */
     @Hl7XmlMapping({"underwritingOrganization/name"})
-    public String getPayorName() {
-        return this.payorName.getValue();
+    public String getUnderwritingOrganizationName() {
+        return this.underwritingOrganizationName.getValue();
     }
-    public void setPayorName(String payorName) {
-        this.payorName.setValue(payorName);
+    public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
+        this.underwritingOrganizationName.setValue(underwritingOrganizationName);
     }
 
 }

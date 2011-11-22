@@ -37,9 +37,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT lastQuantityDispensed = new INTImpl();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT quantity = new INTImpl();
 
 
     /**
@@ -50,11 +50,11 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * <p>A:Last Dispense Pickup Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -66,11 +66,11 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * <p>Last Quantity Dispensed</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getLastQuantityDispensed() {
-        return this.lastQuantityDispensed.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setLastQuantityDispensed(Integer lastQuantityDispensed) {
-        this.lastQuantityDispensed.setValue(lastQuantityDispensed);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

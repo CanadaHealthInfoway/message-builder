@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980050c
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private INT indicationPriority = new INTImpl();
+    private static final long serialVersionUID = 20111121L;
+    private INT priorityNumber = new INTImpl();
     private Indications indications;
 
 
@@ -46,11 +46,11 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * <p>Indication Priority</p>
      */
     @Hl7XmlMapping({"priorityNumber"})
-    public Integer getIndicationPriority() {
-        return this.indicationPriority.getValue();
+    public Integer getPriorityNumber() {
+        return this.priorityNumber.getValue();
     }
-    public void setIndicationPriority(Integer indicationPriority) {
-        this.indicationPriority.setValue(indicationPriority);
+    public void setPriorityNumber(Integer priorityNumber) {
+        this.priorityNumber.setValue(priorityNumber);
     }
 
 

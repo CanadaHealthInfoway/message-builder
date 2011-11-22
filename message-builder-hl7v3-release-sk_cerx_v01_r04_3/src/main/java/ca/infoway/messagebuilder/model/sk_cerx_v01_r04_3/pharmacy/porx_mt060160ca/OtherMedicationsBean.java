@@ -61,13 +61,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20110901L;
-    private II administrationRecordId = new IIImpl();
-    private CD otherMedicationType = new CDImpl();
-    private CS otherMedicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV otherMedicationMaskingIndicator = new CVImpl();
-    private CV routeOfAdministration = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
+    private CV routeCode = new CVImpl();
     private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
     private ProviderBean responsiblePartyAssignedPerson;
@@ -85,11 +85,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>A:Administration Record Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAdministrationRecordId() {
-        return this.administrationRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAdministrationRecordId(Identifier administrationRecordId) {
-        this.administrationRecordId.setValue(administrationRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -97,11 +97,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>Other Medication Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -109,11 +109,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>B:Other Medication Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOtherMedicationStatus() {
-        return (ActStatus) this.otherMedicationStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
-        this.otherMedicationStatus.setValue(otherMedicationStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -121,11 +121,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>C:Drug Active Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -133,11 +133,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>D:Other Medication Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
-        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -145,11 +145,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>E:Route of Administration</p>
      */
     @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 

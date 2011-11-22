@@ -62,14 +62,14 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II allergyIntoleranceRecordId = new IIImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
-    private CV allergyIntoleranceMaskingIndicator = new CVImpl();
-    private CV confirmedIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CD code = new CDImpl();
+    private BL negationInd = new BLImpl();
+    private CS statusCode = new CSImpl();
+    private TS effectiveTime = new TSImpl();
+    private CV confidentialityCode = new CVImpl();
+    private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
@@ -87,11 +87,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>D:Allergy/Intolerance Record Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordId() {
-        return this.allergyIntoleranceRecordId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
-        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -99,11 +99,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>A:Allergy/Intolerance Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    public ObservationIntoleranceType getCode() {
+        return (ObservationIntoleranceType) this.code.getValue();
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setCode(ObservationIntoleranceType code) {
+        this.code.setValue(code);
     }
 
 
@@ -111,11 +111,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>G:Allergy/Intolerance Refuted</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -123,11 +123,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>E:Allergy/Intolerance Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -135,11 +135,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>I:Allergy/Intolerance Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -147,11 +147,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>H:Allergy/Intolerance Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getAllergyIntoleranceMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.allergyIntoleranceMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setAllergyIntoleranceMaskingIndicator(x_VeryBasicConfidentialityKind allergyIntoleranceMaskingIndicator) {
-        this.allergyIntoleranceMaskingIndicator.setValue(allergyIntoleranceMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -159,11 +159,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>F:Confirmed Indicator</p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getConfirmedIndicator() {
-        return (ActUncertainty) this.confirmedIndicator.getValue();
+    public ActUncertainty getUncertaintyCode() {
+        return (ActUncertainty) this.uncertaintyCode.getValue();
     }
-    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
-        this.confirmedIndicator.setValue(confirmedIndicator);
+    public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
+        this.uncertaintyCode.setValue(uncertaintyCode);
     }
 
 

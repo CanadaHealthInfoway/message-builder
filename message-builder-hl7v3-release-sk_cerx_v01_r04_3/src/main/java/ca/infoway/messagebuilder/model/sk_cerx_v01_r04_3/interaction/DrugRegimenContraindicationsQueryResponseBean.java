@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt050010c
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
 
 }

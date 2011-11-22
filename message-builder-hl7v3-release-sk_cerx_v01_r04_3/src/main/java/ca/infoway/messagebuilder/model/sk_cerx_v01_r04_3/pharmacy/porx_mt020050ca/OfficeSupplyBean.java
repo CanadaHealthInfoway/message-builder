@@ -47,13 +47,13 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II localDispenseID = new IIImpl();
-    private CV dispenseType = new CVImpl();
-    private TS supplyDate = new TSImpl();
-    private PQ suppliedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private TS effectiveTime = new TSImpl();
+    private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
-    private II shipToFacilityId = new IIImpl();
+    private II destinationServiceDeliveryLocationId = new IIImpl();
     private SupplyOrderBean fulfillmentSupplyRequest;
     private CommentBean subjectOfAnnotation;
 
@@ -62,11 +62,11 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>A:Local Dispense ID</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseID() {
-        return this.localDispenseID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setLocalDispenseID(Identifier localDispenseID) {
-        this.localDispenseID.setValue(localDispenseID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -74,11 +74,11 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>Dispense Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getDispenseType() {
-        return (ActCode) this.dispenseType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setDispenseType(ActCode dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -86,11 +86,11 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>A:Supply Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getSupplyDate() {
-        return this.supplyDate.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setSupplyDate(Date supplyDate) {
-        this.supplyDate.setValue(supplyDate);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -98,11 +98,11 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>B:Supplied Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -119,11 +119,11 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>C:Ship-to Facility Id</p>
      */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
+    public Identifier getDestinationServiceDeliveryLocationId() {
+        return this.destinationServiceDeliveryLocationId.getValue();
     }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
+    public void setDestinationServiceDeliveryLocationId(Identifier destinationServiceDeliveryLocationId) {
+        this.destinationServiceDeliveryLocationId.setValue(destinationServiceDeliveryLocationId);
     }
 
 

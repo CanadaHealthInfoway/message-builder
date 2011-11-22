@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private II id = new IIImpl();
-    private ST manufacturerName = new STImpl();
+    private ST name = new STImpl();
 
 
     /**
@@ -60,11 +60,11 @@ public class ManufacturerBean extends MessagePartBean {
      * <p>Manufacturer Name</p>
      */
     @Hl7XmlMapping({"name"})
-    public String getManufacturerName() {
-        return this.manufacturerName.getValue();
+    public String getName() {
+        return this.name.getValue();
     }
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName.setValue(manufacturerName);
+    public void setName(String name) {
+        this.name.setValue(name);
     }
 
 }

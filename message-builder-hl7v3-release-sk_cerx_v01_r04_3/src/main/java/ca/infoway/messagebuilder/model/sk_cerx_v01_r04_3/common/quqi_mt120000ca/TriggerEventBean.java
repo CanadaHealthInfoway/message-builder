@@ -47,11 +47,11 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II eventIdentifier = new IIImpl();
-    private CV eventType = new CVImpl();
-    private TS eventEffectivePeriod = new TSImpl();
-    private CV eventReason = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CV code = new CVImpl();
+    private TS effectiveTime = new TSImpl();
+    private CV reasonCode = new CVImpl();
     private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private QueryResponseInformationBean queryAck;
@@ -62,11 +62,11 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * <p>B:Event Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -74,11 +74,11 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * <p>A:Event Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -86,11 +86,11 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * <p>C:Event Effective Period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -98,11 +98,11 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * <p>E:Event Reason</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
     }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 

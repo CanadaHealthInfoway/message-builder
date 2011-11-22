@@ -32,9 +32,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventPastSummary","PORX_MT060060CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private INT numberOfFillsMadeAgainstRx = new INTImpl();
-    private INT totalSuppliedAmount = new INTImpl();
+    private static final long serialVersionUID = 20111121L;
+    private INT repeatNumber = new INTImpl();
+    private INT quantity = new INTImpl();
 
 
     /**
@@ -43,11 +43,11 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * <p>A:Number of Fills Made Against Rx</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFillsMadeAgainstRx() {
-        return this.numberOfFillsMadeAgainstRx.getValue();
+    public Integer getRepeatNumber() {
+        return this.repeatNumber.getValue();
     }
-    public void setNumberOfFillsMadeAgainstRx(Integer numberOfFillsMadeAgainstRx) {
-        this.numberOfFillsMadeAgainstRx.setValue(numberOfFillsMadeAgainstRx);
+    public void setRepeatNumber(Integer repeatNumber) {
+        this.repeatNumber.setValue(repeatNumber);
     }
 
 
@@ -57,11 +57,11 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * <p>B:Total Supplied Amount</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getTotalSuppliedAmount() {
-        return this.totalSuppliedAmount.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setTotalSuppliedAmount(Integer totalSuppliedAmount) {
-        this.totalSuppliedAmount.setValue(totalSuppliedAmount);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

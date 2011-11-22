@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private BL substitutionNotAllowedIndicator = new BLImpl();
+    private static final long serialVersionUID = 20111121L;
+    private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
 
 
@@ -46,11 +46,11 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>A:Substitution Not Allowed Indicator</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getSubstitutionNotAllowedIndicator() {
-        return this.substitutionNotAllowedIndicator.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setSubstitutionNotAllowedIndicator(Boolean substitutionNotAllowedIndicator) {
-        this.substitutionNotAllowedIndicator.setValue(substitutionNotAllowedIndicator);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 

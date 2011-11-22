@@ -37,9 +37,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private ConsentGivenToBean receiver;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     @Hl7XmlMapping({"receiver"})
@@ -55,8 +55,8 @@ public class InformationAccessBean extends MessagePartBean {
      * <p>B:Consent Information Types</p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
+    public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(subjectRecordTypeCode, CVImpl.class);
     }
 
 }

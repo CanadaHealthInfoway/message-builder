@@ -45,11 +45,11 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20110901L;
-    private CD drugCode = new CDImpl();
-    private ST drugName = new STImpl();
-    private ST drugDescription = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CD playerCode = new CDImpl();
+    private ST playerName = new STImpl();
+    private ST playerDesc = new STImpl();
+    private CV playerFormCode = new CVImpl();
     private ManufacturerBean playerAsManufacturedProductManufacturer;
     private DispensedInBean playerAsContent;
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
@@ -59,11 +59,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * <p>A:Drug Code</p>
      */
     @Hl7XmlMapping({"player/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getPlayerCode() {
+        return (ClinicalDrug) this.playerCode.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setPlayerCode(ClinicalDrug playerCode) {
+        this.playerCode.setValue(playerCode);
     }
 
 
@@ -71,11 +71,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * <p>B:Drug Name</p>
      */
     @Hl7XmlMapping({"player/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
+    public String getPlayerName() {
+        return this.playerName.getValue();
     }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
+    public void setPlayerName(String playerName) {
+        this.playerName.setValue(playerName);
     }
 
 
@@ -83,11 +83,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * <p>C:Drug Description</p>
      */
     @Hl7XmlMapping({"player/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
+    public String getPlayerDesc() {
+        return this.playerDesc.getValue();
     }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
+    public void setPlayerDesc(String playerDesc) {
+        this.playerDesc.setValue(playerDesc);
     }
 
 
@@ -95,11 +95,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * <p>D:Drug Form</p>
      */
     @Hl7XmlMapping({"player/formCode"})
-    public Code getDrugForm() {
-        return (Code) this.drugForm.getValue();
+    public Code getPlayerFormCode() {
+        return (Code) this.playerFormCode.getValue();
     }
-    public void setDrugForm(Code drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setPlayerFormCode(Code playerFormCode) {
+        this.playerFormCode.setValue(playerFormCode);
     }
 
 

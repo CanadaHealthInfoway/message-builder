@@ -37,7 +37,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private DrugOrCompoundBean player;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;

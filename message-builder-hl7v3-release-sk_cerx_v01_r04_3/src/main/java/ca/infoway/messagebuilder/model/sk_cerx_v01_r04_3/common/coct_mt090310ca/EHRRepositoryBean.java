@@ -37,21 +37,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private ST repositoryName = new STImpl();
-    private TEL repositoryURL = new TELImpl();
-    private ST repositoryJurisdictionName = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private ST assignedRepositoryLocationName = new STImpl();
+    private TEL assignedRepositoryLocationTelecom = new TELImpl();
+    private ST representedRepositoryJurisdictionName = new STImpl();
 
 
     /**
      * <p>Repository Name</p>
      */
     @Hl7XmlMapping({"assignedRepositoryLocation/name"})
-    public String getRepositoryName() {
-        return this.repositoryName.getValue();
+    public String getAssignedRepositoryLocationName() {
+        return this.assignedRepositoryLocationName.getValue();
     }
-    public void setRepositoryName(String repositoryName) {
-        this.repositoryName.setValue(repositoryName);
+    public void setAssignedRepositoryLocationName(String assignedRepositoryLocationName) {
+        this.assignedRepositoryLocationName.setValue(assignedRepositoryLocationName);
     }
 
 
@@ -59,11 +59,11 @@ public class EHRRepositoryBean extends MessagePartBean {
      * <p>Repository URL</p>
      */
     @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
-    public TelecommunicationAddress getRepositoryURL() {
-        return this.repositoryURL.getValue();
+    public TelecommunicationAddress getAssignedRepositoryLocationTelecom() {
+        return this.assignedRepositoryLocationTelecom.getValue();
     }
-    public void setRepositoryURL(TelecommunicationAddress repositoryURL) {
-        this.repositoryURL.setValue(repositoryURL);
+    public void setAssignedRepositoryLocationTelecom(TelecommunicationAddress assignedRepositoryLocationTelecom) {
+        this.assignedRepositoryLocationTelecom.setValue(assignedRepositoryLocationTelecom);
     }
 
 
@@ -71,11 +71,11 @@ public class EHRRepositoryBean extends MessagePartBean {
      * <p>Repository Jurisdiction Name</p>
      */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
-    public String getRepositoryJurisdictionName() {
-        return this.repositoryJurisdictionName.getValue();
+    public String getRepresentedRepositoryJurisdictionName() {
+        return this.representedRepositoryJurisdictionName.getValue();
     }
-    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
-        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
+    public void setRepresentedRepositoryJurisdictionName(String representedRepositoryJurisdictionName) {
+        this.representedRepositoryJurisdictionName.setValue(representedRepositoryJurisdictionName);
     }
 
 }

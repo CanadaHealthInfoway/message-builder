@@ -40,21 +40,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV patientCharacteristicType = new CVImpl();
-    private BL excludeCharacteristic = new BLImpl();
-    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private BL negationInd = new BLImpl();
+    private IVL<PQ, Interval<PhysicalQuantity>> value = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
 
 
     /**
      * <p>Patient Characteristic Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
-        return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
+    public ObservationDosageDefinitionPreconditionType getCode() {
+        return (ObservationDosageDefinitionPreconditionType) this.code.getValue();
     }
-    public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
-        this.patientCharacteristicType.setValue(patientCharacteristicType);
+    public void setCode(ObservationDosageDefinitionPreconditionType code) {
+        this.code.setValue(code);
     }
 
 
@@ -62,11 +62,11 @@ public class PatientCharacteristicsBean extends MessagePartBean {
      * <p>Exclude characteristic?</p>
      */
     @Hl7XmlMapping({"negationInd"})
-    public Boolean getExcludeCharacteristic() {
-        return this.excludeCharacteristic.getValue();
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
     }
-    public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
-        this.excludeCharacteristic.setValue(excludeCharacteristic);
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 
@@ -74,11 +74,11 @@ public class PatientCharacteristicsBean extends MessagePartBean {
      * <p>Patient Characteristic Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
-        return this.patientCharacteristicValue.getValue();
+    public Interval<PhysicalQuantity> getValue() {
+        return this.value.getValue();
     }
-    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
-        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
+    public void setValue(Interval<PhysicalQuantity> value) {
+        this.value.setValue(value);
     }
 
 }

@@ -47,9 +47,9 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II localDispenseId = new IIImpl();
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
     private PatientBean recordTargetPatient;
     private SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
@@ -67,11 +67,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * using the given identifier.</strong></p></p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseId() {
-        return this.localDispenseId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setLocalDispenseId(Identifier localDispenseId) {
-        this.localDispenseId.setValue(localDispenseId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -79,11 +79,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>E:Prescription Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 

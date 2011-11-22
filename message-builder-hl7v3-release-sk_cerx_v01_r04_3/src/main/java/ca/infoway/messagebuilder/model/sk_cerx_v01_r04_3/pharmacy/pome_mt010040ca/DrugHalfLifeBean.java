@@ -33,19 +33,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.HalfLife"})
 public class DrugHalfLifeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private PQ halfLifePeriod = new PQImpl();
+    private static final long serialVersionUID = 20111121L;
+    private PQ value = new PQImpl();
 
 
     /**
      * <p>Half-Life Period</p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getHalfLifePeriod() {
-        return this.halfLifePeriod.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setHalfLifePeriod(PhysicalQuantity halfLifePeriod) {
-        this.halfLifePeriod.setValue(halfLifePeriod);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 }

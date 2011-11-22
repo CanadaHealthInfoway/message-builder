@@ -37,20 +37,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110901L;
-    private II applicationId = new IIImpl();
-    private ST applicationName = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private ST assignedDeviceName = new STImpl();
 
 
     /**
      * <p>C:Application Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getApplicationId() {
-        return this.applicationId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setApplicationId(Identifier applicationId) {
-        this.applicationId.setValue(applicationId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -58,11 +58,11 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
      * <p>B:Application Name</p>
      */
     @Hl7XmlMapping({"assignedDevice/name"})
-    public String getApplicationName() {
-        return this.applicationName.getValue();
+    public String getAssignedDeviceName() {
+        return this.assignedDeviceName.getValue();
     }
-    public void setApplicationName(String applicationName) {
-        this.applicationName.setValue(applicationName);
+    public void setAssignedDeviceName(String assignedDeviceName) {
+        this.assignedDeviceName.setValue(assignedDeviceName);
     }
 
 }

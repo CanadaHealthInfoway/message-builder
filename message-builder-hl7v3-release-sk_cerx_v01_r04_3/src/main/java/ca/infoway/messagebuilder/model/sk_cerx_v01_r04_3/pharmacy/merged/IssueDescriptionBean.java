@@ -40,11 +40,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II issueMonographId = new IIImpl();
-    private ANY<Object> issueDescription = new ANYImpl<Object>();
-    private TS issueMonographEffectiveDate = new TSImpl();
-    private ST knowledgebaseVendorName = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
+    private ANY<Object> text = new ANYImpl<Object>();
+    private TS authorTime = new TSImpl();
+    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
@@ -54,11 +54,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>A:Issue Monograph Id</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getIssueMonographId() {
-        return this.issueMonographId.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setIssueMonographId(Identifier issueMonographId) {
-        this.issueMonographId.setValue(issueMonographId);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -68,11 +68,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>C:Issue Description</p>
      */
     @Hl7XmlMapping({"text"})
-    public Object getIssueDescription() {
-        return this.issueDescription.getValue();
+    public Object getText() {
+        return this.text.getValue();
     }
-    public void setIssueDescription(Object issueDescription) {
-        this.issueDescription.setValue(issueDescription);
+    public void setText(Object text) {
+        this.text.setValue(text);
     }
 
 
@@ -82,11 +82,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>B:Issue Monograph Effective Date</p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getIssueMonographEffectiveDate() {
-        return this.issueMonographEffectiveDate.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setIssueMonographEffectiveDate(Date issueMonographEffectiveDate) {
-        this.issueMonographEffectiveDate.setValue(issueMonographEffectiveDate);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 
@@ -96,11 +96,11 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>C:Knowledgebase Vendor Name</p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
-    public String getKnowledgebaseVendorName() {
-        return this.knowledgebaseVendorName.getValue();
+    public String getAuthorAssignedEntityAssignedOrganizationName() {
+        return this.authorAssignedEntityAssignedOrganizationName.getValue();
     }
-    public void setKnowledgebaseVendorName(String knowledgebaseVendorName) {
-        this.knowledgebaseVendorName.setValue(knowledgebaseVendorName);
+    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
+        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }
 
 

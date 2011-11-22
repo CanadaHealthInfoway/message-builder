@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private MO drugCost = new MOImpl();
+    private static final long serialVersionUID = 20111121L;
+    private MO unitPriceAmt = new MOImpl();
 
 
     /**
@@ -45,11 +45,11 @@ public class DrugCostBean extends MessagePartBean {
      * <p>I:Drug Cost</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
-    public Money getDrugCost() {
-        return this.drugCost.getValue();
+    public Money getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
     }
-    public void setDrugCost(Money drugCost) {
-        this.drugCost.setValue(drugCost);
+    public void setUnitPriceAmt(Money unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 }

@@ -53,12 +53,12 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CD diagnosisType = new CDImpl();
-    private ST description = new STImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private CV adverseReactionMaskingIndicator = new CVImpl();
-    private CV reaction = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CD code = new CDImpl();
+    private ST text = new STImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
+    private CV value = new CVImpl();
     private PatientBean subjectPatient;
     private ReportedByBean informant;
     private CommentBean subjectOf1Annotation;
@@ -70,11 +70,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Diagnosis Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -82,11 +82,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>G:Description</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -94,11 +94,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>F:Reaction Onset Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -106,11 +106,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>G:Adverse Reaction Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
-        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -118,11 +118,11 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>B:Reaction</p>
      */
     @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
+    public SubjectReaction getValue() {
+        return (SubjectReaction) this.value.getValue();
     }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
+    public void setValue(SubjectReaction value) {
+        this.value.setValue(value);
     }
 
 

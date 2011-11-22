@@ -46,22 +46,22 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Patient {
 
-    private static final long serialVersionUID = 20110901L;
-    private ST animalName = new STImpl();
-    private AD ownerAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN ownerName = new PNImpl();
+    private static final long serialVersionUID = 20111121L;
+    private ST patientAnimalName = new STImpl();
+    private AD patientAnimalContactPartyAddr = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> patientAnimalContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN patientAnimalContactPartyContactPersonName = new PNImpl();
 
 
     /**
      * <p>B:Animal name</p>
      */
     @Hl7XmlMapping({"patientAnimal/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
+    public String getPatientAnimalName() {
+        return this.patientAnimalName.getValue();
     }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
+    public void setPatientAnimalName(String patientAnimalName) {
+        this.patientAnimalName.setValue(patientAnimalName);
     }
 
 
@@ -69,11 +69,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
      * <p>Owner address</p>
      */
     @Hl7XmlMapping({"patientAnimal/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
+    public PostalAddress getPatientAnimalContactPartyAddr() {
+        return this.patientAnimalContactPartyAddr.getValue();
     }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
+    public void setPatientAnimalContactPartyAddr(PostalAddress patientAnimalContactPartyAddr) {
+        this.patientAnimalContactPartyAddr.setValue(patientAnimalContactPartyAddr);
     }
 
 
@@ -81,8 +81,8 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
      * <p>Owner Phones and Emails</p>
      */
     @Hl7XmlMapping({"patientAnimal/contactParty/telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
+    public Set<TelecommunicationAddress> getPatientAnimalContactPartyTelecom() {
+        return this.patientAnimalContactPartyTelecom.rawSet();
     }
 
 
@@ -90,11 +90,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
      * <p>Owner Name</p>
      */
     @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
+    public PersonName getPatientAnimalContactPartyContactPersonName() {
+        return this.patientAnimalContactPartyContactPersonName.getValue();
     }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
+    public void setPatientAnimalContactPartyContactPersonName(PersonName patientAnimalContactPartyContactPersonName) {
+        this.patientAnimalContactPartyContactPersonName.setValue(patientAnimalContactPartyContactPersonName);
     }
 
 }

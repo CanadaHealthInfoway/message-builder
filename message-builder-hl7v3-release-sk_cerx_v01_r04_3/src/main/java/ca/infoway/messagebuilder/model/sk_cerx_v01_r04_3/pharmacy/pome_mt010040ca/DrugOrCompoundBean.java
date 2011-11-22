@@ -51,13 +51,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV drugCode = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private ST description = new STImpl();
-    private CV drugForm = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST desc = new STImpl();
+    private CV formCode = new CVImpl();
     private ManufacturerBean asManufacturedProductManufacturer;
-    private CS regulatoryStatusCode = new CSImpl();
+    private CS asRegulatedProductStatusCode = new CSImpl();
     private DispensedInBean asContent;
     private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
@@ -67,11 +67,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * <p>Drug Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    public ClinicalDrug getCode() {
+        return (ClinicalDrug) this.code.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setCode(ClinicalDrug code) {
+        this.code.setValue(code);
     }
 
 
@@ -79,8 +79,8 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * <p>Drug Names</p>
      */
     @Hl7XmlMapping({"name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
+    public Set<TrivialName> getName() {
+        return this.name.rawSet();
     }
 
 
@@ -88,11 +88,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * <p>Description</p>
      */
     @Hl7XmlMapping({"desc"})
-    public String getDescription() {
-        return this.description.getValue();
+    public String getDesc() {
+        return this.desc.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
     }
 
 
@@ -100,11 +100,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * <p>Drug Form</p>
      */
     @Hl7XmlMapping({"formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    public OrderableDrugForm getFormCode() {
+        return (OrderableDrugForm) this.formCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setFormCode(OrderableDrugForm formCode) {
+        this.formCode.setValue(formCode);
     }
 
 
@@ -121,11 +121,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * <p>Regulatory Status Code</p>
      */
     @Hl7XmlMapping({"asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    public RoleStatusNormal getAsRegulatedProductStatusCode() {
+        return (RoleStatusNormal) this.asRegulatedProductStatusCode.getValue();
     }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    public void setAsRegulatedProductStatusCode(RoleStatusNormal asRegulatedProductStatusCode) {
+        this.asRegulatedProductStatusCode.setValue(asRegulatedProductStatusCode);
     }
 
 

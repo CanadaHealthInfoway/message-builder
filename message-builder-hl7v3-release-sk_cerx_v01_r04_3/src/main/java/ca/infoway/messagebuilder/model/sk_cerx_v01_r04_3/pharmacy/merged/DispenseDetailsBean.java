@@ -42,10 +42,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private INT dispensedQuantity = new INTImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DeviceProductBean productManufacturedProduct;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
@@ -58,11 +58,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Dispense Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
@@ -72,11 +72,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Dispense Processing and Pickup Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -86,11 +86,11 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Dispensed Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    public Integer getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setQuantity(Integer quantity) {
+        this.quantity.setValue(quantity);
     }
 
 

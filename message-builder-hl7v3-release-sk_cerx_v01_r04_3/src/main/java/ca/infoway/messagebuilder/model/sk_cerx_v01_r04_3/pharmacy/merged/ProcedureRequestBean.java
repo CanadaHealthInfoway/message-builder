@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ProcedureRequest","PORX_MT020060CA.ProcedureRequest","PORX_MT060010CA.ProcedureRequest","PORX_MT060040CA.ProcedureRequest","PORX_MT060060CA.ProcedureRequest"})
 public class ProcedureRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private ST usageInstructions = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private ST text = new STImpl();
 
 
     /**
@@ -42,11 +42,11 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Usage Instructions</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getUsageInstructions() {
-        return this.usageInstructions.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setUsageInstructions(String usageInstructions) {
-        this.usageInstructions.setValue(usageInstructions);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

@@ -34,7 +34,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060190CA.Author2","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private ProviderBean assignedPerson;
     private TS time = new TSImpl();
 

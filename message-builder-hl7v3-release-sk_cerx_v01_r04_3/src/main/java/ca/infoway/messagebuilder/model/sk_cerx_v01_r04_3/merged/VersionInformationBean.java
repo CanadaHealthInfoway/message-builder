@@ -45,13 +45,13 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private II changeIdentifier = new IIImpl();
+    private II id = new IIImpl();
 
 
     /**
@@ -126,11 +126,11 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>B:Change Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getChangeIdentifier() {
-        return this.changeIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setChangeIdentifier(Identifier changeIdentifier) {
-        this.changeIdentifier.setValue(changeIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

@@ -51,10 +51,10 @@ import java.util.List;
 @Hl7RootType
 public class CombinedMedicationRequest_1Bean extends MessagePartBean implements Prescription_1 {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private II id = new IIImpl();
-    private CS prescriptionStatus = new CSImpl();
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private CV confidentialityCode = new CVImpl();
     private DrugProductBean directTargetMedication;
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
@@ -62,7 +62,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private ST renderedDosageInstruction = new STImpl();
+    private ST component1AdministrationInstructionsText = new STImpl();
     private Component2_2Bean component2;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
@@ -94,11 +94,11 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>C:Prescription Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -108,11 +108,11 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>F:Prescription Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -182,11 +182,11 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Rendered Dosage Instruction</p>
      */
     @Hl7XmlMapping({"component1/administrationInstructions/text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
+    public String getComponent1AdministrationInstructionsText() {
+        return this.component1AdministrationInstructionsText.getValue();
     }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    public void setComponent1AdministrationInstructionsText(String component1AdministrationInstructionsText) {
+        this.component1AdministrationInstructionsText.setValue(component1AdministrationInstructionsText);
     }
 
 

@@ -35,20 +35,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV otherIndication = new CVImpl();
-    private ST otherIndicationAdHocDescription = new STImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
 
 
     /**
      * <p>Other Indication</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActNonConditionIndicationCode getOtherIndication() {
-        return (ActNonConditionIndicationCode) this.otherIndication.getValue();
+    public ActNonConditionIndicationCode getCode() {
+        return (ActNonConditionIndicationCode) this.code.getValue();
     }
-    public void setOtherIndication(ActNonConditionIndicationCode otherIndication) {
-        this.otherIndication.setValue(otherIndication);
+    public void setCode(ActNonConditionIndicationCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -56,11 +56,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * <p>Other indication ad-hoc description</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getOtherIndicationAdHocDescription() {
-        return this.otherIndicationAdHocDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
-        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

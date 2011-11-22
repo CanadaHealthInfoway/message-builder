@@ -36,11 +36,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Receiver","MCCI_MT000200CA.Receiver","MCCI_MT000300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private TEL receiverNetworkAddress = new TELImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
-    private II receiverOrganizationIdentifier = new IIImpl();
-    private II receiverFacilityIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20111121L;
+    private TEL telecom = new TELImpl();
+    private II deviceId = new IIImpl();
+    private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
+    private II deviceAsLocatedEntityLocationId = new IIImpl();
 
 
     /**
@@ -49,11 +49,11 @@ public class ReceiverBean extends MessagePartBean {
      * <p>JB:Receiver Network Address</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getReceiverNetworkAddress() {
-        return this.receiverNetworkAddress.getValue();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
     }
-    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -63,11 +63,11 @@ public class ReceiverBean extends MessagePartBean {
      * <p>JA:Receiver Application Identifier</p>
      */
     @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
+    public Identifier getDeviceId() {
+        return this.deviceId.getValue();
     }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    public void setDeviceId(Identifier deviceId) {
+        this.deviceId.setValue(deviceId);
     }
 
 
@@ -77,11 +77,11 @@ public class ReceiverBean extends MessagePartBean {
      * <p>JC:Receiver Organization Identifier</p>
      */
     @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
-    public Identifier getReceiverOrganizationIdentifier() {
-        return this.receiverOrganizationIdentifier.getValue();
+    public Identifier getDeviceAsAgentRepresentedOrganizationId() {
+        return this.deviceAsAgentRepresentedOrganizationId.getValue();
     }
-    public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
-        this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
+    public void setDeviceAsAgentRepresentedOrganizationId(Identifier deviceAsAgentRepresentedOrganizationId) {
+        this.deviceAsAgentRepresentedOrganizationId.setValue(deviceAsAgentRepresentedOrganizationId);
     }
 
 
@@ -91,11 +91,11 @@ public class ReceiverBean extends MessagePartBean {
      * <p>JD:Receiver Facility Identifier</p>
      */
     @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
-    public Identifier getReceiverFacilityIdentifier() {
-        return this.receiverFacilityIdentifier.getValue();
+    public Identifier getDeviceAsLocatedEntityLocationId() {
+        return this.deviceAsLocatedEntityLocationId.getValue();
     }
-    public void setReceiverFacilityIdentifier(Identifier receiverFacilityIdentifier) {
-        this.receiverFacilityIdentifier.setValue(receiverFacilityIdentifier);
+    public void setDeviceAsLocatedEntityLocationId(Identifier deviceAsLocatedEntityLocationId) {
+        this.deviceAsLocatedEntityLocationId.setValue(deviceAsLocatedEntityLocationId);
     }
 
 }

@@ -47,14 +47,14 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
+    private static final long serialVersionUID = 20111121L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV writtenIn = new CVImpl();
+    private CV languageCode = new CVImpl();
     private AssignedEntity3Bean authorAssignedEntity;
-    private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
+    private ED<EncapsulatedData> componentDocumentBodyEventText = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -91,11 +91,11 @@ public class MonographsBean extends MessagePartBean {
      * <p>Monograph Content</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedData getMonographContent() {
-        return this.monographContent.getValue();
+    public EncapsulatedData getText() {
+        return this.text.getValue();
     }
-    public void setMonographContent(EncapsulatedData monographContent) {
-        this.monographContent.setValue(monographContent);
+    public void setText(EncapsulatedData text) {
+        this.text.setValue(text);
     }
 
 
@@ -119,11 +119,11 @@ public class MonographsBean extends MessagePartBean {
      * <p>Written in</p>
      */
     @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
+    public HumanLanguage getLanguageCode() {
+        return (HumanLanguage) this.languageCode.getValue();
     }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
+    public void setLanguageCode(HumanLanguage languageCode) {
+        this.languageCode.setValue(languageCode);
     }
 
 
@@ -142,11 +142,11 @@ public class MonographsBean extends MessagePartBean {
      * <p>F:Medication Document Content + Language</p>
      */
     @Hl7XmlMapping({"component/documentBodyEvent/text"})
-    public EncapsulatedData getMedicationDocumentContentLanguage() {
-        return this.medicationDocumentContentLanguage.getValue();
+    public EncapsulatedData getComponentDocumentBodyEventText() {
+        return this.componentDocumentBodyEventText.getValue();
     }
-    public void setMedicationDocumentContentLanguage(EncapsulatedData medicationDocumentContentLanguage) {
-        this.medicationDocumentContentLanguage.setValue(medicationDocumentContentLanguage);
+    public void setComponentDocumentBodyEventText(EncapsulatedData componentDocumentBodyEventText) {
+        this.componentDocumentBodyEventText.setValue(componentDocumentBodyEventText);
     }
 
 }

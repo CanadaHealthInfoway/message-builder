@@ -52,25 +52,25 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private TS patientBirthDate = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private II patientID = new IIImpl();
-    private PN patientName = new PNImpl();
-    private List<CV> prescriptionStatuses = new ArrayList<CV>();
-    private CV rxDispenseIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
+    private TS patientBirthDateValue = new TSImpl();
+    private CV patientGenderValue = new CVImpl();
+    private II patientIDValue = new IIImpl();
+    private PN patientNameValue = new PNImpl();
+    private List<CV> prescriptionStatusValue = new ArrayList<CV>();
+    private CV rxDispenseIndicatorValue = new CVImpl();
 
 
     /**
      * <p>D:Administration Effective Period</p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    public Interval<Date> getAdministrationEffectivePeriodValue() {
+        return this.administrationEffectivePeriodValue.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
+        this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
     }
 
 
@@ -78,11 +78,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>Patient Birth Date</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    public Date getPatientBirthDateValue() {
+        return this.patientBirthDateValue.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientBirthDateValue(Date patientBirthDateValue) {
+        this.patientBirthDateValue.setValue(patientBirthDateValue);
     }
 
 
@@ -90,11 +90,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>Patient Gender</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    public AdministrativeGender getPatientGenderValue() {
+        return (AdministrativeGender) this.patientGenderValue.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
+        this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
@@ -102,11 +102,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>B:Patient ID</p>
      */
     @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
+    public Identifier getPatientIDValue() {
+        return this.patientIDValue.getValue();
     }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
+    public void setPatientIDValue(Identifier patientIDValue) {
+        this.patientIDValue.setValue(patientIDValue);
     }
 
 
@@ -114,11 +114,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>C:Patient Name</p>
      */
     @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    public PersonName getPatientNameValue() {
+        return this.patientNameValue.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientNameValue(PersonName patientNameValue) {
+        this.patientNameValue.setValue(patientNameValue);
     }
 
 
@@ -126,8 +126,8 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>E:Prescription Statuses</p>
      */
     @Hl7XmlMapping({"prescriptionStatus/value"})
-    public List<ActStatus> getPrescriptionStatuses() {
-        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    public List<ActStatus> getPrescriptionStatusValue() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatusValue, CVImpl.class);
     }
 
 
@@ -135,11 +135,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * <p>Rx Dispense Indicator</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public PrescriptionDispenseFilterCode getRxDispenseIndicator() {
-        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicator.getValue();
+    public PrescriptionDispenseFilterCode getRxDispenseIndicatorValue() {
+        return (PrescriptionDispenseFilterCode) this.rxDispenseIndicatorValue.getValue();
     }
-    public void setRxDispenseIndicator(PrescriptionDispenseFilterCode rxDispenseIndicator) {
-        this.rxDispenseIndicator.setValue(rxDispenseIndicator);
+    public void setRxDispenseIndicatorValue(PrescriptionDispenseFilterCode rxDispenseIndicatorValue) {
+        this.rxDispenseIndicatorValue.setValue(rxDispenseIndicatorValue);
     }
 
 }

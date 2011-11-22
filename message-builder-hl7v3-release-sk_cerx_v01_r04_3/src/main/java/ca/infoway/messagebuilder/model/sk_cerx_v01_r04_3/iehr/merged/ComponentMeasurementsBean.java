@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000018CA.SubObservationEvent","REPC_MT100002CA.SubObservationEvent"})
 public class ComponentMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CD bloodPressureMeasurementType = new CDImpl();
-    private PQ bloodPressureMeasurementValue = new PQImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CD code = new CDImpl();
+    private PQ value = new PQImpl();
 
 
     /**
@@ -49,11 +49,11 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>Blood Pressure Measurement Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public CommonClinicalObservationType getBloodPressureMeasurementType() {
-        return (CommonClinicalObservationType) this.bloodPressureMeasurementType.getValue();
+    public CommonClinicalObservationType getCode() {
+        return (CommonClinicalObservationType) this.code.getValue();
     }
-    public void setBloodPressureMeasurementType(CommonClinicalObservationType bloodPressureMeasurementType) {
-        this.bloodPressureMeasurementType.setValue(bloodPressureMeasurementType);
+    public void setCode(CommonClinicalObservationType code) {
+        this.code.setValue(code);
     }
 
 
@@ -63,11 +63,11 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>B:Blood Pressure Measurement Value</p>
      */
     @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getBloodPressureMeasurementValue() {
-        return this.bloodPressureMeasurementValue.getValue();
+    public PhysicalQuantity getValue() {
+        return this.value.getValue();
     }
-    public void setBloodPressureMeasurementValue(PhysicalQuantity bloodPressureMeasurementValue) {
-        this.bloodPressureMeasurementValue.setValue(bloodPressureMeasurementValue);
+    public void setValue(PhysicalQuantity value) {
+        this.value.setValue(value);
     }
 
 }

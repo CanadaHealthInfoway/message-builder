@@ -54,14 +54,14 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV serviceCode = new CVImpl();
-    private IVL<TS, Interval<Date>> consultationTimeAndLength = new IVLImpl<TS, Interval<Date>>();
-    private CV professionalServiceMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV confidentialityCode = new CVImpl();
     private PatientBean subjectPatient;
     private OrderForServiceBean inFulfillmentOfActRequest;
     private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
-    private II serviceRecordIdentifier = new IIImpl();
+    private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
     private RecordedAtBean location;
@@ -74,11 +74,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>B:Service Code</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActProfessionalServiceCode getServiceCode() {
-        return (ActProfessionalServiceCode) this.serviceCode.getValue();
+    public ActProfessionalServiceCode getCode() {
+        return (ActProfessionalServiceCode) this.code.getValue();
     }
-    public void setServiceCode(ActProfessionalServiceCode serviceCode) {
-        this.serviceCode.setValue(serviceCode);
+    public void setCode(ActProfessionalServiceCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -88,11 +88,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>C:Consultation Time and Length</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsultationTimeAndLength() {
-        return this.consultationTimeAndLength.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setConsultationTimeAndLength(Interval<Date> consultationTimeAndLength) {
-        this.consultationTimeAndLength.setValue(consultationTimeAndLength);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -102,11 +102,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>D:Professional Service Masking Indicator</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getProfessionalServiceMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.professionalServiceMaskingIndicator.getValue();
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setProfessionalServiceMaskingIndicator(x_VeryBasicConfidentialityKind professionalServiceMaskingIndicator) {
-        this.professionalServiceMaskingIndicator.setValue(professionalServiceMaskingIndicator);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
@@ -145,11 +145,11 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>A:Service Record Identifier</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getServiceRecordIdentifier() {
-        return this.serviceRecordIdentifier.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setServiceRecordIdentifier(Identifier serviceRecordIdentifier) {
-        this.serviceRecordIdentifier.setValue(serviceRecordIdentifier);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

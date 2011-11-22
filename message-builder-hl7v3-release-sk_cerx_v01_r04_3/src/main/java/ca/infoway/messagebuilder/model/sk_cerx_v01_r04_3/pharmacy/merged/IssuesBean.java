@@ -45,14 +45,14 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV issueType = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
     private ST text = new STImpl();
-    private CV issuePriority = new CVImpl();
+    private CV priorityCode = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV severityCode = new CVImpl();
+    private CV subjectOfSeverityObservationValue = new CVImpl();
     private BL triggerForActRequest = new BLImpl(false);
     private BL subjectOf1StorageIntent = new BLImpl(false);
 
@@ -65,11 +65,11 @@ public class IssuesBean extends MessagePartBean {
      * <p>A:Issue Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActDetectedIssueCode getIssueType() {
-        return (ActDetectedIssueCode) this.issueType.getValue();
+    public ActDetectedIssueCode getCode() {
+        return (ActDetectedIssueCode) this.code.getValue();
     }
-    public void setIssueType(ActDetectedIssueCode issueType) {
-        this.issueType.setValue(issueType);
+    public void setCode(ActDetectedIssueCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -95,11 +95,11 @@ public class IssuesBean extends MessagePartBean {
      * <p>C:Issue Priority</p>
      */
     @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
+    public ActIssuePriority getPriorityCode() {
+        return (ActIssuePriority) this.priorityCode.getValue();
     }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
+    public void setPriorityCode(ActIssuePriority priorityCode) {
+        this.priorityCode.setValue(priorityCode);
     }
 
 
@@ -137,11 +137,11 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="PORX_MT980030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT980020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="PORX_MT980020CA.SeverityObservation")})
-    public SeverityObservation getSeverityCode() {
-        return (SeverityObservation) this.severityCode.getValue();
+    public SeverityObservation getSubjectOfSeverityObservationValue() {
+        return (SeverityObservation) this.subjectOfSeverityObservationValue.getValue();
     }
-    public void setSeverityCode(SeverityObservation severityCode) {
-        this.severityCode.setValue(severityCode);
+    public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
+        this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
     }
 
 

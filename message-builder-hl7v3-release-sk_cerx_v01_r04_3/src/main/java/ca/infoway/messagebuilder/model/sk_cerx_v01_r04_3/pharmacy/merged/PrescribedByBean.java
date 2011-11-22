@@ -39,10 +39,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private TS prescribedDate = new TSImpl();
-    private CV prescriptionTransmissionMethod = new CVImpl();
-    private ED<String> signature = new EDImpl<String>();
+    private static final long serialVersionUID = 20111121L;
+    private TS time = new TSImpl();
+    private CV modeCode = new CVImpl();
+    private ED<String> signatureText = new EDImpl<String>();
     private ProviderBean assignedPerson;
 
 
@@ -52,11 +52,11 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>Prescribed Date</p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getPrescribedDate() {
-        return this.prescribedDate.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setPrescribedDate(Date prescribedDate) {
-        this.prescribedDate.setValue(prescribedDate);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 
@@ -66,11 +66,11 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>Prescription Transmission Method</p>
      */
     @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getPrescriptionTransmissionMethod() {
-        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
-        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
     }
 
 
@@ -80,11 +80,11 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>Signature</p>
      */
     @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
+    public String getSignatureText() {
+        return this.signatureText.getValue();
     }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 

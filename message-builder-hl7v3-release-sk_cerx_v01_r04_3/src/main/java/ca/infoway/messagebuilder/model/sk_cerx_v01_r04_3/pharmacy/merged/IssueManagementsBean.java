@@ -39,10 +39,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV managementType = new CVImpl();
-    private ST managementDescription = new STImpl();
-    private TS managementDate = new TSImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
+    private ST text = new STImpl();
+    private TS authorTime = new TSImpl();
     private ProviderBean authorAssignedPerson;
 
 
@@ -52,11 +52,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>A:Management Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActDetectedIssueManagementCode getManagementType() {
-        return (ActDetectedIssueManagementCode) this.managementType.getValue();
+    public ActDetectedIssueManagementCode getCode() {
+        return (ActDetectedIssueManagementCode) this.code.getValue();
     }
-    public void setManagementType(ActDetectedIssueManagementCode managementType) {
-        this.managementType.setValue(managementType);
+    public void setCode(ActDetectedIssueManagementCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -66,11 +66,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>C:Management Description</p>
      */
     @Hl7XmlMapping({"text"})
-    public String getManagementDescription() {
-        return this.managementDescription.getValue();
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setManagementDescription(String managementDescription) {
-        this.managementDescription.setValue(managementDescription);
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -80,11 +80,11 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>B:Management Date</p>
      */
     @Hl7XmlMapping({"author/time"})
-    public Date getManagementDate() {
-        return this.managementDate.getValue();
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setManagementDate(Date managementDate) {
-        this.managementDate.setValue(managementDate);
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
     }
 
 

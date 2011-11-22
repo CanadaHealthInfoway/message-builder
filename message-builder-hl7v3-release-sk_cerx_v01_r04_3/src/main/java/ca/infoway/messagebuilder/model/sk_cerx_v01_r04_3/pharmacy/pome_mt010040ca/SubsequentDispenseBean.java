@@ -35,19 +35,19 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private IVL<TS, Interval<Date>> refillPeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20111121L;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
      * <p>Refill period</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getRefillPeriod() {
-        return this.refillPeriod.getValue();
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setRefillPeriod(Interval<Date> refillPeriod) {
-        this.refillPeriod.setValue(refillPeriod);
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

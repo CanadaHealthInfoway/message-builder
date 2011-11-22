@@ -43,10 +43,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private CV dispenseType = new CVImpl();
+    private static final long serialVersionUID = 20111121L;
+    private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PQ dispensedQuantity = new PQImpl();
+    private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
     private ResponsiblePersonBean receiverResponsibleParty;
@@ -61,11 +61,11 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>B:Dispense Type</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    public ActPharmacySupplyType getCode() {
+        return (ActPharmacySupplyType) this.code.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setCode(ActPharmacySupplyType code) {
+        this.code.setValue(code);
     }
 
 
@@ -91,11 +91,11 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>F:Dispensed Quantity</p>
      */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
     }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 

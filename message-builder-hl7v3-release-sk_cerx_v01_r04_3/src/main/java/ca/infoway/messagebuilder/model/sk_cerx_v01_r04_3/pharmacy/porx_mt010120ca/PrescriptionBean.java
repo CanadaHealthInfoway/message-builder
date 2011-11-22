@@ -56,8 +56,8 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110901L;
-    private II prescriptionNumber = new IIImpl();
+    private static final long serialVersionUID = 20111121L;
+    private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private DrugProductBean directTargetMedication;
@@ -80,11 +80,11 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>A:Prescription Number</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionNumber() {
-        return this.prescriptionNumber.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setPrescriptionNumber(Identifier prescriptionNumber) {
-        this.prescriptionNumber.setValue(prescriptionNumber);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
