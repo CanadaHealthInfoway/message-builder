@@ -98,8 +98,11 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
         assertEquals("error message", "The timestamp 19990355 in element <something value=\"19990355\"/> cannot be parsed.", hl7Error.getMessage());
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
-	
+
 	@Test
+	/**
+	 * @sharpen.remove 
+	 */
 	public void dateInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
 		Node node = createNode("<something value=\"19990303000000\" />");
 		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")), node, this.xmlResult).getBareValue());
