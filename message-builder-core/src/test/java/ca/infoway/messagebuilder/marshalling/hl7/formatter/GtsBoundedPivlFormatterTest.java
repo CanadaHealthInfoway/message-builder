@@ -42,9 +42,9 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
-/*
-* @sharpen.ignore
-*/
+/**
+ * @sharpen.ignore
+ */
 public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 	
 	@Before
