@@ -74,11 +74,11 @@
 	</scm>
 -->
         <scm>
-		<connection>scm:svn:https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<connection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</connection>
-		<developerConnection>scm:svn:https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<developerConnection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</developerConnection>
-		<url>https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<url>https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</url>
 	</scm>
 	<modules>
@@ -406,7 +406,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
-					<tagBase>https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags
+					<tagBase>https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags
 					</tagBase>
 					<!-- See http://jira.codehaus.org/browse/SCM-406 -->
 					<remoteTagging>true</remoteTagging>
