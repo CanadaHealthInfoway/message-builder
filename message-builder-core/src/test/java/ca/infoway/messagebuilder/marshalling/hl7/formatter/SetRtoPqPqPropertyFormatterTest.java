@@ -40,23 +40,23 @@ public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNonNull() throws Exception {
-		
+
 		PhysicalQuantity numerator1 = new PhysicalQuantity(BigDecimal.ONE, UnitsOfMeasureCaseSensitive.CENTIMETRE);
-		PhysicalQuantity denominator1 = new PhysicalQuantity(BigDecimal.valueOf(2), UnitsOfMeasureCaseSensitive.CUBIC_CENTIMETER);
+		PhysicalQuantity denominator1 = new PhysicalQuantity(BigDecimal.ONE.add(BigDecimal.ONE), UnitsOfMeasureCaseSensitive.CUBIC_CENTIMETER);
 
 		PhysicalQuantity numerator2 = new PhysicalQuantity(BigDecimal.TEN, UnitsOfMeasureCaseSensitive.MILLIMETER);
-		PhysicalQuantity denominator2 = new PhysicalQuantity(BigDecimal.valueOf(11), UnitsOfMeasureCaseSensitive.CUBIC_MILIMETER);
-		
+		PhysicalQuantity denominator2 = new PhysicalQuantity(BigDecimal.TEN.add(BigDecimal.ONE), UnitsOfMeasureCaseSensitive.CUBIC_MILIMETER);
+
 		Ratio<PhysicalQuantity,PhysicalQuantity> ratio1 = new Ratio<PhysicalQuantity,PhysicalQuantity>(numerator1, denominator1);
 		Ratio<PhysicalQuantity,PhysicalQuantity> ratio2 = new Ratio<PhysicalQuantity,PhysicalQuantity>(numerator2, denominator2);
-        
+
         SETImpl<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>> set = new SETImpl<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>>(RTOImpl.class);
         set.rawSet().addAll(makeSet(ratio1, ratio2));
-        
+
 		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl("blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY), 
+				new FormatContextImpl("blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY),
 				set);
-		
+
         assertXml("non null", "<blah><numerator unit=\"cm\" value=\"1\" xsi:type=\"PQ\"/><denominator unit=\"cm3\" value=\"2\" xsi:type=\"PQ\"/></blah><blah><numerator unit=\"mm\" value=\"10\" xsi:type=\"PQ\"/><denominator unit=\"mm3\" value=\"11\" xsi:type=\"PQ\"/></blah>", result);
     }
 
