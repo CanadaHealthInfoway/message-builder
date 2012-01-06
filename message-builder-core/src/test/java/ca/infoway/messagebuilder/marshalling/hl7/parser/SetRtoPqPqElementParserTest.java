@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -38,32 +38,32 @@ import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetRtoPqPqElementParserTest extends ParserTestCase {
-	
+
 	@Test
 	public void testParse() throws Exception {
 		Node node = createNode("<top>" +
-									"<something>" + 
+									"<something>" +
 										"<numerator unit=\"mg\" value=\"1000\" />" +
 										"<denominator unit=\"d\" value=\"1\" />" +
-									"</something>" + 
-									"<something>" + 
+									"</something>" +
+									"<something>" +
 										"<numerator unit=\"mg\" value=\"1001\"	/>" +
 										"<denominator unit=\"d\" value=\"2\" />" +
-									"</something>" + 
+									"</something>" +
 								"</top>");
-		
+
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<RTO<PQ.DRUG,PQ.TIME>>", null, SpecificationVersion.V01R04_3_SK, null, null, ConformanceLevel.MANDATORY), 
-				asList(node.getChildNodes()), 
+				ParserContextImpl.create("SET<RTO<PQ.DRUG,PQ.TIME>>", null, SpecificationVersion.V01R04_3_SK, null, null, ConformanceLevel.MANDATORY),
+				asList(node.getChildNodes()),
 				null);
 		Set<Ratio<PhysicalQuantity,PhysicalQuantity>> set = ((SET<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>>) result).rawSet();
-		
+
 		assertNotNull("null", set);
 		assertEquals("size", 2, set.size());
 
 		boolean foundFirst = false;
 		boolean foundSecond = false;
-		
+
 		for (Ratio<PhysicalQuantity, PhysicalQuantity> ratio : set) {
 			if (ratio.getNumerator().getQuantity().intValue() == 1000 && ratio.getDenominator().getQuantity().intValue() == 1) {
 				foundFirst = true;
@@ -71,9 +71,9 @@ public class SetRtoPqPqElementParserTest extends ParserTestCase {
 				foundSecond = true;
 			}
 		}
-		
+
 		assertTrue(foundFirst);
 		assertTrue(foundSecond);
-		
+
 	}
 }

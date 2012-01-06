@@ -24,13 +24,13 @@
 
 	<property file="../translation.properties" />
 	<import file="../translation-common.xml" />
-	
+
 	<target name="sharpen" depends="init">
 
 		<property name="project" value="xml" />
 		<prepare-sharpen-workspace project="${project}" dir="${sharpen.workspace.dir}" />
 
-		<exec dir="." executable="mvn">
+		<exec dir="." executable="mvn.bat">
                   <arg line="package"/>
                 </exec>
 
@@ -52,12 +52,12 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.2.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.6-SNAPSHOT.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
 		</sharpen>
-		
+
 		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-xml/Main" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/main/java">
 		    <include name="**/*.cs" />
@@ -76,7 +76,7 @@
 	 	<copy-sharpen-output todir="${sharpen.workspace.dir}/${project}.net/Test" fromdir="${sharpen.workspace.dir}/${project}.net/src/test/java" />
 		-->
 	</target>
-	
+
 	<target name="init">
 		<reset-dir dir="${sharpen.workspace.dir}" />
 	</target>

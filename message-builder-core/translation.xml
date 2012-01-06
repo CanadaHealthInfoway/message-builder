@@ -24,13 +24,13 @@
 
 	<property file="../translation.properties" />
 	<import file="../translation-common.xml" />
-	
+
 	<target name="sharpen" depends="init">
 
-		<property name="project" value="core" />
+		<property name="project" value="message-builder-core" />
 		<prepare-sharpen-workspace project="${project}" dir="${sharpen.workspace.dir}" />
 
-		<exec dir="." executable="mvn">
+		<exec dir="." executable="mvn.bat">
                   <arg line="package"/>
                 </exec>
 
@@ -57,10 +57,10 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.2.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.2-tests.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.2.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.2.2.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.2.6-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.6-SNAPSHOT-tests.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.2.6-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.2.6-SNAPSHOT.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
@@ -72,15 +72,15 @@
 		  <arg line="--password 287uiQA"/>
 		  <arg line="https://svn.old.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
 		</exec>
-		
-		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Main" overwrite="true">
+
+		<copy todir="${sharpen.workspace.dir}/mbtdotnet/${project}/Main" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/main/java">
 		    <include name="**/*.cs" />
 		  </fileset>
 		</copy>
 
 
-		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Test" overwrite="true">
+		<copy todir="${sharpen.workspace.dir}/mbtdotnet/${project}/Test" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/test/java">
 		    <include name="**/*.cs" />
 		  </fileset>
@@ -91,7 +91,7 @@
 	 	<copy-sharpen-output todir="${sharpen.workspace.dir}/${project}.net/Test" fromdir="${sharpen.workspace.dir}/${project}.net/src/test/java" />
 		-->
 	</target>
-	
+
 	<target name="init">
 		<reset-dir dir="${sharpen.workspace.dir}" />
 	</target>

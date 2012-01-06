@@ -24,13 +24,13 @@
 
 	<property file="../translation.properties" />
 	<import file="../translation-common.xml" />
-	
+
 	<target name="sharpen" depends="init">
 
 		<property name="project" value="util" />
 		<prepare-sharpen-workspace project="${project}" dir="${sharpen.workspace.dir}" />
 
-		<exec dir="." executable="mvn">
+		<exec dir="." executable="mvn.bat">
                   <arg line="package"/>
                 </exec>
 
@@ -63,7 +63,7 @@
 	 	<copy-sharpen-output todir="${sharpen.workspace.dir}/${project}.net/Test" fromdir="${sharpen.workspace.dir}/${project}.net/src/test/java" />
 		-->
 	</target>
-	
+
 	<target name="init">
 		<reset-dir dir="${sharpen.workspace.dir}" />
 	</target>
