@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+MBT-Model-Version-Numbers: R02_04_03
+MBT-Message-Set: /messageSet_r02_04_03.xml
+
+

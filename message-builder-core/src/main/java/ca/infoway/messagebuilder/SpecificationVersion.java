@@ -50,6 +50,8 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public static final SpecificationVersion R02_04_02 = new SpecificationVersion("R02_04_02", "R02.04.02");
 	
+	public static final SpecificationVersion R02_04_03 = new SpecificationVersion("R02_04_03", "R02.04.03");
+
 	/**
 	 * Newfoundland and Labrador (mixed V01R04.3 / V02R02).
 	 */
