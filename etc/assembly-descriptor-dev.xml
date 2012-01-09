@@ -43,6 +43,17 @@
       
       <moduleSet>
         <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2009_r02_04_03</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
           <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2009_r02_04_02</include>
         </includes>
         <binaries>
@@ -131,6 +142,13 @@
         <outputDirectory>core/javadoc</outputDirectory>
       </fileSet>
       <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_03/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
         <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
         <includes>
           <include>*-javadoc.jar</include>
@@ -194,6 +212,13 @@
           <include>*-sources.jar</include>
         </includes>
         <outputDirectory>core/src</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_03/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/sources</outputDirectory>
       </fileSet>
       <fileSet>
         <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
