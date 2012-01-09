@@ -25,41 +25,34 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 
 public class ReceiverValueHolder {
 
-    private TelecommunicationAddress receiverNetworkAddress;
-    private Identifier receiverApplicationIdentifier;
-    private String receiverApplicationName;
-    private Identifier receiverOrganizationIdentifier;
+    private TelecommunicationAddress telecom;
+    private Identifier deviceId;
+    private String deviceName;
+    private Identifier deviceAgentAgentOrganizationId;
     
-	public TelecommunicationAddress getReceiverNetworkAddress() {
-		return this.receiverNetworkAddress;
+	public TelecommunicationAddress getTelecom() {
+		return telecom;
 	}
-	public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-		this.receiverNetworkAddress = receiverNetworkAddress;
+	public void setTelecom(TelecommunicationAddress telecom) {
+		this.telecom = telecom;
 	}
-	public Identifier getReceiverApplicationIdentifier() {
-		return receiverApplicationIdentifier;
+	public Identifier getDeviceId() {
+		return deviceId;
 	}
-	public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-		this.receiverApplicationIdentifier = receiverApplicationIdentifier;
+	public void setDeviceId(Identifier deviceId) {
+		this.deviceId = deviceId;
 	}
-	// SPD: sets receiverApplicationIdentifier...accommodate different part name
-	public Identifier getRespondToApplicationIdentifier() {
-		return this.receiverApplicationIdentifier;
+	public String getDeviceName() {
+		return deviceName;
 	}
-	public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-		this.receiverApplicationIdentifier = respondToApplicationIdentifier;
-	}	
-	public String getReceiverApplicationName() {
-		return this.receiverApplicationName;
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
 	}
-	public void setReceiverApplicationName(String receiverApplicationName) {
-		this.receiverApplicationName = receiverApplicationName;
+	public Identifier getDeviceAgentAgentOrganizationId() {
+		return deviceAgentAgentOrganizationId;
 	}
-	public Identifier getReceiverOrganizationIdentifier() {
-		return this.receiverOrganizationIdentifier;
+	public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
+		this.deviceAgentAgentOrganizationId = deviceAgentAgentOrganizationId;
 	}
-	public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
-		this.receiverOrganizationIdentifier = receiverOrganizationIdentifier;
-	}
-	
+
 }

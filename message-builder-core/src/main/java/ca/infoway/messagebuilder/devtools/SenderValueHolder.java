@@ -28,64 +28,62 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 
 public class SenderValueHolder {
 
-    private TelecommunicationAddress sendingNetworkAddress;
-    private Identifier sendingApplicationIdentifier;
-    private String sendingApplicationName;
-    private String sendingApplicationConfigurationInformation;
-    private Interval<Date> sendingApplicationVersionDate;
-    private String sendingSoftwareVersionNumber;
-    private String sendingApplicationSoftwareName;
-    private Identifier sendingOrganizationIdentifier;
+    private TelecommunicationAddress telecom;
+    private Identifier deviceId;
+    private String deviceName;
+    private String deviceDesc;
+    private Interval<Date> deviceExistenceTime;
+    private String deviceManufacturerModelName;
+    private String deviceSoftwareName;
+    private Identifier deviceAgentAgentOrganizationId;
     
-	public TelecommunicationAddress getSendingNetworkAddress() {
-		return this.sendingNetworkAddress;
+	public TelecommunicationAddress getTelecom() {
+		return telecom;
 	}
-	public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
-		this.sendingNetworkAddress = sendingNetworkAddress;
+	public void setTelecom(TelecommunicationAddress telecom) {
+		this.telecom = telecom;
 	}
-	public Identifier getSendingApplicationIdentifier() {
-		return this.sendingApplicationIdentifier;
+	public Identifier getDeviceId() {
+		return deviceId;
 	}
-	public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
-		this.sendingApplicationIdentifier = sendingApplicationIdentifier;
+	public void setDeviceId(Identifier deviceId) {
+		this.deviceId = deviceId;
 	}
-	public String getSendingApplicationName() {
-		return this.sendingApplicationName;
+	public String getDeviceName() {
+		return deviceName;
 	}
-	public void setSendingApplicationName(String sendingApplicationName) {
-		this.sendingApplicationName = sendingApplicationName;
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
 	}
-	public String getSendingApplicationConfigurationInformation() {
-		return this.sendingApplicationConfigurationInformation;
+	public String getDeviceDesc() {
+		return deviceDesc;
 	}
-	public void setSendingApplicationConfigurationInformation(
-			String sendingApplicationConfigurationInformation) {
-		this.sendingApplicationConfigurationInformation = sendingApplicationConfigurationInformation;
+	public void setDeviceDesc(String deviceDesc) {
+		this.deviceDesc = deviceDesc;
 	}
-	public Interval<Date> getSendingApplicationVersionDate() {
-		return this.sendingApplicationVersionDate;
+	public Interval<Date> getDeviceExistenceTime() {
+		return deviceExistenceTime;
 	}
-	public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-		this.sendingApplicationVersionDate = sendingApplicationVersionDate;
+	public void setDeviceExistenceTime(Interval<Date> deviceExistenceTime) {
+		this.deviceExistenceTime = deviceExistenceTime;
 	}
-	public String getSendingSoftwareVersionNumber() {
-		return this.sendingSoftwareVersionNumber;
+	public String getDeviceManufacturerModelName() {
+		return deviceManufacturerModelName;
 	}
-	public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
-		this.sendingSoftwareVersionNumber = sendingSoftwareVersionNumber;
+	public void setDeviceManufacturerModelName(String deviceManufacturerModelName) {
+		this.deviceManufacturerModelName = deviceManufacturerModelName;
 	}
-	public String getSendingApplicationSoftwareName() {
-		return this.sendingApplicationSoftwareName;
+	public String getDeviceSoftwareName() {
+		return deviceSoftwareName;
 	}
-	public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-		this.sendingApplicationSoftwareName = sendingApplicationSoftwareName;
+	public void setDeviceSoftwareName(String deviceSoftwareName) {
+		this.deviceSoftwareName = deviceSoftwareName;
 	}
-	public Identifier getSendingOrganizationIdentifier() {
-		return this.sendingOrganizationIdentifier;
+	public Identifier getDeviceAgentAgentOrganizationId() {
+		return deviceAgentAgentOrganizationId;
 	}
-	public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
-		this.sendingOrganizationIdentifier = sendingOrganizationIdentifier;
+	public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
+		this.deviceAgentAgentOrganizationId = deviceAgentAgentOrganizationId;
 	}
-	
-	
+    
 }

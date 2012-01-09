@@ -24,20 +24,20 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 
 public class ToBeRespondedToByValueHolder {
-    private Identifier respondToApplicationIdentifier;
-    private TelecommunicationAddress respondToNetworkAddress;
+    private Identifier deviceId;
+    private TelecommunicationAddress telecom;
     
-	public Identifier getRespondToApplicationIdentifier() {
-		return this.respondToApplicationIdentifier;
+	public Identifier getDeviceId() {
+		return deviceId;
 	}
-	public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-		this.respondToApplicationIdentifier = respondToApplicationIdentifier;
+	public void setDeviceId(Identifier deviceId) {
+		this.deviceId = deviceId;
 	}
-	
-	public TelecommunicationAddress getRespondToNetworkAddress() {
-		return this.respondToNetworkAddress;
+	public TelecommunicationAddress getTelecom() {
+		return telecom;
 	}
-	public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-		this.respondToNetworkAddress = respondToNetworkAddress;
+	public void setTelecom(TelecommunicationAddress telecom) {
+		this.telecom = telecom;
 	}
+
 }

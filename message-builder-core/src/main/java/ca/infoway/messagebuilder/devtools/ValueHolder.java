@@ -33,49 +33,49 @@ import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 
 public class ValueHolder {
 
-	private Identifier messageIdentifier;
-    private Date messageTimestamp;
-    private String securityToken;
-    private ResponseMode responseType;
-    private List<Identifier> conformanceProfileIdentifiers = Collections.synchronizedList(new ArrayList<Identifier>());
+	private Identifier id;
+    private Date creationTime;
+    private String securityText;
+    private ResponseMode responseModeCode;
+    private List<Identifier> profileId = Collections.synchronizedList(new ArrayList<Identifier>());
     private ProcessingID processingCode;
-    private ProcessingMode processingMode;
-	private AcknowledgementCondition desiredAcknowledgmentType;
+    private ProcessingMode processingModeCode;
+	private AcknowledgementCondition acceptAckCode;
     private ReceiverValueHolder receiver = new ReceiverValueHolder();
     private SenderValueHolder sender = new SenderValueHolder();
 	private ToBeRespondedToByValueHolder respondTo = new ToBeRespondedToByValueHolder();  
     private List<RoutingInstructionLinesValueHolder> attentionLine = new ArrayList<RoutingInstructionLinesValueHolder>();
 
-	public Identifier getMessageIdentifier() {
-        return this.messageIdentifier;
+	public Identifier getId() {
+        return this.id;
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier = messageIdentifier;
-    }
-
-    public Date getMessageTimestamp() {
-        return this.messageTimestamp;
-    }
-    public void setMessageTimestamp(Date messageTimestamp) {
-        this.messageTimestamp = messageTimestamp;
+    public void setId(Identifier messageIdentifier) {
+        this.id = messageIdentifier;
     }
 
-    public String getSecurityToken() {
-        return this.securityToken;
+    public Date getCreationTime() {
+        return this.creationTime;
     }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken = securityToken;
-    }
-
-    public ResponseMode getResponseType() {
-        return this.responseType;
-    }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType = responseType;
+    public void setCreationTime(Date messageTimestamp) {
+        this.creationTime = messageTimestamp;
     }
 
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers;
+    public String getSecurityText() {
+        return this.securityText;
+    }
+    public void setSecurityText(String securityToken) {
+        this.securityText = securityToken;
+    }
+
+    public ResponseMode getResponseModeCode() {
+        return this.responseModeCode;
+    }
+    public void setResponseModeCode(ResponseMode responseType) {
+        this.responseModeCode = responseType;
+    }
+
+    public List<Identifier> getProfileId() {
+        return this.profileId;
     }
 
     public ProcessingID getProcessingCode() {
@@ -85,18 +85,18 @@ public class ValueHolder {
         this.processingCode = processingCode;
     }
 
-    public ProcessingMode getProcessingMode() {
-		return this.processingMode;
+    public ProcessingMode getProcessingModeCode() {
+		return this.processingModeCode;
 	}
-	public void setProcessingMode(ProcessingMode processingMode) {
-		this.processingMode = processingMode;
+	public void setProcessingModeCode(ProcessingMode processingMode) {
+		this.processingModeCode = processingMode;
 	}
 
-	public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return this.desiredAcknowledgmentType;
+	public AcknowledgementCondition getAcceptAckCode() {
+        return this.acceptAckCode;
     }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType = desiredAcknowledgmentType;
+    public void setAcceptAckCode(AcknowledgementCondition desiredAcknowledgmentType) {
+        this.acceptAckCode = desiredAcknowledgmentType;
     }
 
     public ReceiverValueHolder getReceiver() {

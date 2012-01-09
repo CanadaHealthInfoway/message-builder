@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.model.InteractionBean;
 
 
 //@Hl7PartTypeMapping({"REPC_IN000086CA"})
-public class PatientDischargeCareSummariesQueryBean extends HL7MessageBean
+public class PatientDischargeCareSummariesQueryBean extends HL7Message_1Bean
 //<TriggerEventBean<ParameterList_4Bean>> 
 implements InteractionBean {
 

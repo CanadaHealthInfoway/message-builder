@@ -37,28 +37,28 @@ import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 public class DefaultValueHolder extends ValueHolder {
 
 	@Override
-	public Identifier getMessageIdentifier() {
+	public Identifier getId() {
 		return new Identifier(UUID.randomUUID().toString(), null);
 	}
 
 	@Override
-	public Date getMessageTimestamp() {
+	public Date getCreationTime() {
 		return new Date();
 	}
 	
 	@Override
-	public String getSecurityToken() {
+	public String getSecurityText() {
 		return "SecurityToken";
 	}
 	
 	@Override
-	public ResponseMode getResponseType() {
+	public ResponseMode getResponseModeCode() {
 		return ca.infoway.messagebuilder.domainvalue.transport.ResponseMode.IMMEDIATE;
 	}
 	
 	@Override
-	public List<Identifier> getConformanceProfileIdentifiers() {
-		List<Identifier> conformanceProfileIdentifiers = super.getConformanceProfileIdentifiers();
+	public List<Identifier> getProfileId() {
+		List<Identifier> conformanceProfileIdentifiers = super.getProfileId();
 		conformanceProfileIdentifiers.clear();
 		conformanceProfileIdentifiers.add(new Identifier("1.1.1", "ext1"));
 		return conformanceProfileIdentifiers;
@@ -70,12 +70,12 @@ public class DefaultValueHolder extends ValueHolder {
 	}
 
 	@Override
-	public ProcessingMode getProcessingMode() {
+	public ProcessingMode getProcessingModeCode() {
 		return ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode.CURRENT_PROCESSING;
 	}
 	
 	@Override
-	public AcknowledgementCondition getDesiredAcknowledgmentType() {
+	public AcknowledgementCondition getAcceptAckCode() {
 		return ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
 	}
 	
@@ -97,12 +97,12 @@ public class DefaultValueHolder extends ValueHolder {
 	@Override
 	public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
 		RoutingInstructionLinesValueHolder bean = new RoutingInstructionLinesValueHolder();
-		bean.setRoutingName("routing name");
-		bean.setRoutingType("routing type");
+		bean.setKeyWordText("routing type");
+		bean.setValue("routing name");
 		
 		RoutingInstructionLinesValueHolder bean2 = new RoutingInstructionLinesValueHolder();
-		bean2.setRoutingName("another routing name");
-		bean2.setRoutingType("another routing type");
+		bean2.setKeyWordText("another routing type");
+		bean2.setValue("another routing name");
 		
 		List<RoutingInstructionLinesValueHolder> result = new ArrayList<RoutingInstructionLinesValueHolder>();
 		result.add(bean);
@@ -112,30 +112,30 @@ public class DefaultValueHolder extends ValueHolder {
 
 	private ReceiverValueHolder populateReceiver() {
 		ReceiverValueHolder receiver = new ReceiverValueHolder();
-		receiver.setReceiverApplicationName("Receiver Application Name");
-		receiver.setReceiverNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.1"));
-		receiver.setReceiverOrganizationIdentifier(new Identifier("1.1.2", "ext2"));
-		receiver.setReceiverApplicationIdentifier(new Identifier("1.1.3", "ext3"));
+		receiver.setDeviceName("Receiver Application Name");
+		receiver.setTelecom(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.1"));
+		receiver.setDeviceAgentAgentOrganizationId(new Identifier("1.1.2", "ext2"));
+		receiver.setDeviceId(new Identifier("1.1.3", "ext3"));
 		return receiver;
 	}
 
 	private SenderValueHolder populateSender() {
 		SenderValueHolder sender = new SenderValueHolder();
-		sender.setSendingNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.2"));
-		sender.setSendingApplicationIdentifier(new Identifier("1.1.4", "ext4"));
-		sender.setSendingSoftwareVersionNumber("1.0");
-		sender.setSendingApplicationSoftwareName("MBT Pharmacy");
-		sender.setSendingApplicationConfigurationInformation("Configuration information");
-		sender.setSendingApplicationName("Sending Application name");
-		sender.setSendingApplicationVersionDate(IntervalFactory.<Date>createLow(new Date()));
-		sender.setSendingOrganizationIdentifier(new Identifier("1.1.5", "ext5"));
+		sender.setTelecom(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.2"));
+		sender.setDeviceId(new Identifier("1.1.4", "ext4"));
+		sender.setDeviceManufacturerModelName("1.0");
+		sender.setDeviceSoftwareName("MBT Pharmacy");
+		sender.setDeviceDesc("Configuration information");
+		sender.setDeviceName("Sending Application Name");
+		sender.setDeviceExistenceTime(IntervalFactory.<Date>createLow(new Date()));
+		sender.setDeviceAgentAgentOrganizationId(new Identifier("1.1.5", "ext5"));
 		return sender;
 	}
 	
 	private ToBeRespondedToByValueHolder populateRespondTo() {
 		ToBeRespondedToByValueHolder bean = new ToBeRespondedToByValueHolder();
-		bean.setRespondToApplicationIdentifier(new Identifier("1.1.6", "ext6"));
-		bean.setRespondToNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.3"));
+		bean.setDeviceId(new Identifier("1.1.6", "ext6"));
+		bean.setTelecom(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.3"));
 		return bean;
 	}
 
