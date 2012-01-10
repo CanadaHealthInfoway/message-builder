@@ -29,6 +29,9 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
+	                    <manifest>
+	                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	                    </manifest>
 						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
 					</archive>
 				</configuration>
