@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.2
+                               Version 1.2.6
                                Release Notes
 
 INTRODUCTION:
@@ -33,12 +33,3 @@ BUGS FIXED:
 
 The following is a list of the bugs fixed in this release, with their Redmine numbers:
 
-654	(.NET)System.NotImplementedException: The method or operation is not implemented.
-649	(.NET)Validator - Can't determine the domain type of .
-600	(.NET)Could not read messageSet_r02_04_02.xml
-594	(.NET)AbstractPivlPropertyFormatter.cs - Unreachable code
-586	Missing dlls for releases other than MR2009
-585	paragraph tags in comments (.NET) are unclosed 
-492	Expected mandatory attribute "specializationType"  (Aversan)
-482	Runtime exception trying to parse a generated BC Find Candidates message
-427	New Issue:  No support for BAG<AD>
