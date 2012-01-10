@@ -365,6 +365,17 @@
 						<!-- simplified xml -->
 						<!--exclude>ca/infoway/messagebuilder/simple/**/*.java</exclude-->
 					</excludes>
+		                  <archive>
+			                  <manifest>
+			                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	      		            </manifest>
+                        		<manifestEntries>
+		                            <Application-Name>${project.name}</Application-Name>
+		                            <Implementation-Build>${buildNumber}</Implementation-Build>
+            		                <Implementation-Version>${project.version}</Implementation-Version>
+                        		    <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+		                        </manifestEntries>
+		                  </archive>
 				    </configuration>
 				  </execution>
 				</executions>
@@ -382,7 +393,7 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.5.1</version>
 			</plugin>
-<!-- uncomment this plugin when running the assembly descriptors to package the project
+<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -397,6 +408,17 @@
 			            <phase>package</phase>
 				    <configuration>
 				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
+		                  <archive>
+			                  <manifest>
+			                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	      		            </manifest>
+                        		<manifestEntries>
+		                            <Application-Name>${project.name}</Application-Name>
+		                            <Implementation-Build>${buildNumber}</Implementation-Build>
+            		                <Implementation-Version>${project.version}</Implementation-Version>
+                        		    <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+		                        </manifestEntries>
+		                  </archive>
 				    </configuration>
 				  </execution>
 				</executions>
@@ -474,6 +496,67 @@
 						</filesets>
 					</configuration>
 				</plugin>
+		            <plugin>
+   				    <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-jar-plugin</artifactId>
+		                <version>2.1</version>
+		                <configuration>
+		                    <archive>
+			                    <manifest>
+			                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+			                    </manifest>
+		                        <manifestEntries>
+		                            <Application-Name>${project.name}</Application-Name>
+		                            <Implementation-Build>${buildNumber}</Implementation-Build>
+		                            <Implementation-Version>${project.version}</Implementation-Version>
+		                            <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+		                        </manifestEntries>
+		                    </archive>
+		                </configuration>
+		            </plugin>
+			      <plugin>
+				     <groupId>org.apache.maven.plugins</groupId>
+				     <artifactId>maven-javadoc-plugin</artifactId>
+		                 <executions>
+		                      <execution>
+		                           <goals>
+		                                <goal>jar</goal>
+		                           </goals>
+		                           <phase>package</phase>
+				               <configuration>
+		                                <archive>
+			                               <manifest>
+			                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	      		                         </manifest>
+                        		             <manifestEntries>
+		                                          <Application-Name>${project.name}</Application-Name>
+		                                          <Implementation-Build>${buildNumber}</Implementation-Build>
+            		                              <Implementation-Version>${project.version}</Implementation-Version>
+                        		                  <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+		                                     </manifestEntries>
+		                                </archive>
+				               </configuration>
+		                      </execution>
+		                 </executions>
+ 			      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				    <configuration>
+		                  <archive>
+			                  <manifest>
+			                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	      		            </manifest>
+                        		<manifestEntries>
+		                            <Application-Name>${project.name}</Application-Name>
+		                            <Implementation-Build>${buildNumber}</Implementation-Build>
+            		                <Implementation-Version>${project.version}</Implementation-Version>
+                        		    <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+		                        </manifestEntries>
+		                  </archive>
+				    </configuration>
+ 			</plugin>
 			</plugins>
 		</pluginManagement>
 		<resources>
