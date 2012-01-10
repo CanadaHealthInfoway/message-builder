@@ -42,18 +42,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true
-							</addDefaultImplementationEntries>
-						</manifest>
-						<manifestEntries>
-							<MBT-Model-Version-Numbers>V02R02 NEWFOUNDLAND V01R04_3_HOTFIX3
-							</MBT-Model-Version-Numbers>
-						</manifestEntries>
-					</archive>
-				</configuration>
 				<executions>
 					<execution>
 						<goals>

@@ -24,9 +24,6 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
-	                    <manifest>
-	                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-	                    </manifest>
 						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
 					</archive>
 				</configuration>
@@ -34,14 +31,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-		        <executions>
-		          <execution>
-		            <goals>
-		              <goal>jar</goal>
-		            </goals>
-		            <phase>package</phase>
-		          </execution>
-		        </executions>
  			</plugin>
 		</plugins>
 	</build>
