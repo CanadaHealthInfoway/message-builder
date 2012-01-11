@@ -1,5 +1,5 @@
 /**
- * Copyright 2011 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,13 +38,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * elements in an Invoice Grouping and will not be included in 
  * Adjudication Results. 
  * 
- * <p>At most 5 levels of recursion, with “n” children at each 
+ * <p>At most 5 levels of recursion, with children at each 
  * level. Root level counts as level 1. 
  * 
  * <p>The number of children for each group cannot and should 
  * not be limited. 
  * 
- * <p>At most 5 levels of recursion, with “n” children at each 
+ * <p>At most 5 levels of recursion, with children at each 
  * level. Root level counts as level 1. 
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
