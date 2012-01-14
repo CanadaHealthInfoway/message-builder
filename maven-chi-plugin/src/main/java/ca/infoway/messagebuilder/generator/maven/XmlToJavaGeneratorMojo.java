@@ -22,7 +22,9 @@ package ca.infoway.messagebuilder.generator.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
@@ -30,6 +32,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
 import ca.infoway.messagebuilder.generator.NamingPolicy;
+import ca.infoway.messagebuilder.generator.java.FingerprintDuplicateRegistry;
 import ca.infoway.messagebuilder.generator.java.IntermediateToJavaGenerator;
 import ca.infoway.messagebuilder.generator.java.IntermediateToModelConfiguration;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
@@ -82,6 +85,14 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
     private File messageSet;
 	
     /**
+     * Allows for on-the-fly registration of any problematic types/relationships 
+     * that cause duplicate fingerprints during generation.
+     * 
+     * @parameter 
+     */
+    private List<FingerprintDuplicate> fingerprintDuplicates;
+    
+    /**
      * <p>Perform the generation.  Read in the message set, and create
      * the corresponding Java classes.
      * 
@@ -108,6 +119,7 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
 			}
 			this.generatedReportsDirectory.mkdirs();
 			
+			registerFingerprintDuplicates();
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
 			IntermediateToJavaGenerator generator = new IntermediateToJavaGenerator(
 					new OutputUIImpl(this), createConfiguration());
@@ -116,6 +128,15 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
 			throw new MojoExecutionException("IOException", e);
 		} catch (Exception e) {
 			throw new MojoExecutionException("Exception", e);
+		}
+	}
+
+	private void registerFingerprintDuplicates() {
+		if (CollectionUtils.isNotEmpty(this.fingerprintDuplicates)) {
+			for (FingerprintDuplicate fingerprintDuplicate : this.fingerprintDuplicates) {
+				FingerprintDuplicateRegistry.addDuplicateFingerprint(
+						fingerprintDuplicate.getType(), fingerprintDuplicate.getRelationship());
+			}
 		}
 	}
 
