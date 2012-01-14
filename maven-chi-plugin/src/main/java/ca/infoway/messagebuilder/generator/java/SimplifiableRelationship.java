@@ -20,9 +20,11 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.java.FingerprintDuplicateRegistry.causesDuplicateFingerprint;
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 class SimplifiableRelationship implements Named, Fingerprintable {
 
@@ -78,15 +80,30 @@ class SimplifiableRelationship implements Named, Fingerprintable {
 		return this.variable != null;
 	}
 
-	public Fingerprint getFingerprint() {
+	public Fingerprint getFingerprint(TypeName containingType) {
 		if (this.relationship.isAttribute()) {
 			return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
 		} else if (this.relationship.isTemplateRelationship()) {
 			return new Fingerprint(RelationshipType.ASSOCIATION, this.relationship.getTemplateParameterName());
-		} else if (this.type.getMergedTypeName() != null) {
-			return new Fingerprint(RelationshipType.ASSOCIATION, this.type.getMergedTypeName().getName());
 		} else {
-			return new Fingerprint(RelationshipType.ASSOCIATION, this.type.getTypeName().getName());
+			String nameForFingerprint = getAssociationTypeNameForFingerprint(containingType, this.type, this.relationship.getName());
+			return new Fingerprint(RelationshipType.ASSOCIATION, nameForFingerprint);
 		}
 	}
+
+	private String getAssociationTypeNameForFingerprint(TypeName containingType, SimplifiableType actualType, String relationshipName) {
+		String result = null;
+		if (actualType.getMergedTypeName() != null) {
+			result = actualType.getMergedTypeName().getName();
+		} else {
+			result = actualType.getTypeName().getName();
+		}
+		
+		if (causesDuplicateFingerprint(containingType.getName(), relationshipName)) {
+			result = result + "." + relationshipName;
+		}
+		
+		return result;
+	}
+	
 }

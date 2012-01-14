@@ -81,7 +81,7 @@ public class MergedAssociation extends Association {
 	}
 	
 	@Override
-	public Fingerprint getFingerprint() {
-		return this.association.getFingerprint();
+	public Fingerprint getFingerprint(TypeName containingType) {
+		return this.association.getFingerprint(containingType);
 	}
 }

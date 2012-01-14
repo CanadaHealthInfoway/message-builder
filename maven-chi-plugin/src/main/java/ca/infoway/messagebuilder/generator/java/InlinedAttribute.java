@@ -24,9 +24,11 @@ import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 public class InlinedAttribute extends Attribute {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -4309595874411105506L;
 	
 	private final BaseRelationship elidedRelationship;
@@ -82,7 +84,7 @@ public class InlinedAttribute extends Attribute {
 	}
 	
 	@Override
-	public Fingerprint getFingerprint() {
-		return getElidedRelationship().getFingerprint().concat(getInlinedRelationship().getFingerprint());
+	public Fingerprint getFingerprint(TypeName containingType) {
+		return getElidedRelationship().getFingerprint(containingType).concat(getInlinedRelationship().getFingerprint(containingType));
 	}
 }

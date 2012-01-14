@@ -75,7 +75,7 @@ public class SimplifiableType implements Named, NamedType {
 		Map<Fingerprint,Collection<SimplifiableRelationship>> result = new LinkedHashMap<Fingerprint, Collection<SimplifiableRelationship>>();
 		
 		for (SimplifiableRelationship relationship : getRelationships()) {
-			Fingerprint fingerprint = relationship.getFingerprint();
+			Fingerprint fingerprint = relationship.getFingerprint(this.getTypeName());
 			if (!result.containsKey(fingerprint)) {
 				result.put(fingerprint, new ArrayList<SimplifiableRelationship>());
 			}
@@ -208,7 +208,7 @@ public class SimplifiableType implements Named, NamedType {
 	SimplifiableRelationship getRelationshipByFingerprint(Fingerprint fingerprint) {
 		SimplifiableRelationship result = null;
 		for (SimplifiableRelationship relationship : this.relationships) {
-			if (fingerprint.equals(relationship.getFingerprint())) {
+			if (fingerprint.equals(relationship.getFingerprint(this.getTypeName()))) {
 				if (result != null) {
 					result = chooseMoreUpToDate(result, relationship);
 				} else {

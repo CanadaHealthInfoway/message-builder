@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Attribute extends BaseRelationship {
 
@@ -126,8 +127,8 @@ public class Attribute extends BaseRelationship {
 	}
 
 	@Override
-	public Fingerprint getFingerprint() {
+	public Fingerprint getFingerprint(TypeName containingType) {
 		return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
 	}
-	
+
 }

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.java.FingerprintDuplicateRegistry.causesDuplicateFingerprint;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -33,6 +35,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Association extends BaseRelationship {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 8680061980374131773L;
 	
 	private final TemplateVariable templateVariable;
@@ -148,14 +151,29 @@ public class Association extends BaseRelationship {
 	public static Association createStandardAssociation(Relationship relationship, Type type, List<Choice> allChoiceTypes) {
 		return new Association(relationship, type, allChoiceTypes);
 	}
+	
 	@Override
-	public Fingerprint getFingerprint() {
+	public Fingerprint getFingerprint(TypeName containingType) {
 		if (this.relationship.isTemplateRelationship()) {
 			return new Fingerprint(RelationshipType.ASSOCIATION, this.relationship.getTemplateParameterName());
-		} else if (this.associationType.getMergedName() == null) {
-			return new Fingerprint(RelationshipType.ASSOCIATION, this.associationType.getTypeName().getName());
 		} else {
-			return new Fingerprint(RelationshipType.ASSOCIATION, this.associationType.getMergedName().getName());
+			String nameForFingerprint = getAssociationTypeNameForFingerprint(containingType, this.associationType, this.relationship.getName());
+			return new Fingerprint(RelationshipType.ASSOCIATION, nameForFingerprint);
 		}
+	}
+	
+	private String getAssociationTypeNameForFingerprint(TypeName containingType, Type associationType, String relationshipName) {
+		String result = null;
+		if (associationType.getMergedName() != null) {
+			result = associationType.getMergedName().getName();
+		} else {
+			result = associationType.getTypeName().getName();
+		}
+		
+		if (causesDuplicateFingerprint(containingType.getName(), relationshipName)) {
+			result = result + "." + relationshipName;
+		}
+		
+		return result;
 	}
 }

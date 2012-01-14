@@ -238,7 +238,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	private void checkRelationships(SimplifiableType type, SimplifiableType otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
 		for (SimplifiableRelationship relationship : type.getRelationships()) {
 			MatchType matchType = MatchType.EXACT;
-			SimplifiableRelationship otherRelationship = otherType.getRelationshipByFingerprint(relationship.getFingerprint());
+			SimplifiableRelationship otherRelationship = otherType.getRelationshipByFingerprint(relationship.getFingerprint(type.getTypeName()));
 			
 			if (otherRelationship != null) {
 				if (!StringUtils.equals(relationship.getName(), otherRelationship.getName())) {

@@ -26,10 +26,12 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 public abstract class BaseRelationship implements PropertyGeneratorProvider, Named, Fingerprintable {
 
@@ -164,6 +166,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	final Set<NameAndType> getMapByPartTypeMappings() {
 		return getXmlMappingHelper().getMapByPartTypeMappings();
 	}
+
+	public abstract Fingerprint getFingerprint(TypeName containingType);
 	
-	public abstract Fingerprint getFingerprint();
 }

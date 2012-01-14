@@ -66,10 +66,10 @@ class MergedTypeCollator {
 
 
 	void addRelationship(TypeName typeName, BaseRelationship relationship) {
-		if (!this.relationship.containsKey(relationship.getFingerprint())) {
-			this.relationship.put(relationship.getFingerprint(), new HashMap<TypeName, BaseRelationship>());
+		if (!this.relationship.containsKey(relationship.getFingerprint(typeName))) {
+			this.relationship.put(relationship.getFingerprint(typeName), new HashMap<TypeName, BaseRelationship>());
 		}
-		this.relationship.get(relationship.getFingerprint()).put(typeName, relationship);
-		assignExemplarIfAppropriate(relationship.getFingerprint(), relationship);
+		this.relationship.get(relationship.getFingerprint(typeName)).put(typeName, relationship);
+		assignExemplarIfAppropriate(relationship.getFingerprint(typeName), relationship);
 	}
 }

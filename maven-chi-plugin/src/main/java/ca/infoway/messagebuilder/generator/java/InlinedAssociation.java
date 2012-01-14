@@ -26,6 +26,7 @@ import java.util.List;
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 
 public class InlinedAssociation extends Association {
@@ -89,7 +90,7 @@ public class InlinedAssociation extends Association {
 	}
 	
 	@Override
-	public Fingerprint getFingerprint() {
-		return getElidedRelationship().getFingerprint().concat(getInlinedRelationship().getFingerprint());
+	public Fingerprint getFingerprint(TypeName containingType) {
+		return getElidedRelationship().getFingerprint(containingType).concat(getInlinedRelationship().getFingerprint(containingType));
 	}
 }
