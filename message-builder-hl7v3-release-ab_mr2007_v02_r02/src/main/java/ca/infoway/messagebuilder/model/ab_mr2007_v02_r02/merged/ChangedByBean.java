@@ -29,13 +29,25 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_1Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ChangedBy;
 import java.util.Date;
 
 
 
 /**
+ * <p>PORX_MT980010CA.Author1: *managed by</p>
+ * 
+ * <p><p>Identifies the provider who managed the issue.</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>Part of the audit record and therefore mandatory.</p></p>
+ * 
  * <p>PORX_MT060340CA.Author1: *changed by</p>
  * 
  * <p><p>Identity of the health service provider or application 
@@ -76,6 +88,18 @@ import java.util.Date;
  * attribute is &quot;mandatory&quot; because provider or 
  * application maintaining the prescription must be known.</p></p>
  * 
+ * <p>PORX_MT980030CA.Author1: *managed by</p>
+ * 
+ * <p><p>Identifies the provider who managed the issue.</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>Part of the audit record and therefore mandatory.</p></p>
+ * 
  * <p>PORX_MT060040CA.Author1: *changed by</p>
  * 
  * <p><p>Identity of the health service provider or application 
@@ -107,6 +131,20 @@ import java.util.Date;
  * for auditing and sorting. The attribute is marked as 
  * &quot;mandatory&quot; because provider or application 
  * maintaining the other medication must be known.</p></p>
+ * 
+ * <p>PORX_MT980020CA.Author1: managed by</p>
+ * 
+ * <p><p>Identifies the provider who created the management of 
+ * the issue.</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>OverrideReason.provider</p><p>ManagedContraindication.provider</p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>Part of the audit record, but may not always be known 
+ * for historical managements.</p></p>
  * 
  * <p>COCT_MT260010CA.Author1: *managed by</p>
  * 
@@ -167,13 +205,14 @@ import java.util.Date;
  * 
  * <p><p>Part of the audit record and therefore mandatory.</p></p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","PORX_MT980010CA.Author1","PORX_MT980020CA.Author1","PORX_MT980030CA.Author1"})
 public class ChangedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private TS time = new TSImpl();
+    private ProviderBean assignedPerson;
     private ChangedBy changedBy;
-    private AssignedEntity_1Bean assignedEntity;
+    private HealthcareWorkerBean assignedEntity;
     private CS typeCode = new CSImpl();
 
 
@@ -201,6 +240,16 @@ public class ChangedByBean extends MessagePartBean {
      * Also used for sorting and audit purposes.</p><p>The 
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p></p>
+     * 
+     * <p>B:Management Date</p>
+     * 
+     * <p><p>The date and time on which the provider managed the 
+     * issue.</p></p>
+     * 
+     * <p><p>ManagedContraindication.CreationDate</p></p>
+     * 
+     * <p><p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p></p>
      * 
      * <p>Change Timestamp</p>
      * 
@@ -268,6 +317,16 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>B:Management Date</p>
      * 
+     * <p><p>The date and time on which the provider used this 
+     * management for the issue in the past.</p></p>
+     * 
+     * <p><p>ManagedContraindication.CreationDate</p></p>
+     * 
+     * <p><p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p></p>
+     * 
+     * <p>B:Management Date</p>
+     * 
      * <p><p>The date and time on which the provider managed the 
      * issue.</p></p>
      * 
@@ -285,6 +344,15 @@ public class ChangedByBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"assignedPerson"})
+    public ProviderBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ProviderBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
+
+
     @Hl7XmlMapping({"changedBy"})
     public ChangedBy getChangedBy() {
         return this.changedBy;
@@ -295,10 +363,10 @@ public class ChangedByBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"assignedEntity"})
-    public AssignedEntity_1Bean getAssignedEntity() {
+    public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
-    public void setAssignedEntity(AssignedEntity_1Bean assignedEntity) {
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 

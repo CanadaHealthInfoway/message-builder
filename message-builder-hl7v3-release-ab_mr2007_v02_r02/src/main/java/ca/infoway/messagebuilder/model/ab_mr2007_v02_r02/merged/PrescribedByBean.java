@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -142,11 +142,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
-    private AssignedEntity_2Bean assignedEntity;
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
@@ -352,10 +352,10 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"assignedEntity"})
-    public AssignedEntity_2Bean getAssignedEntity() {
+    public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
-    public void setAssignedEntity(AssignedEntity_2Bean assignedEntity) {
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 

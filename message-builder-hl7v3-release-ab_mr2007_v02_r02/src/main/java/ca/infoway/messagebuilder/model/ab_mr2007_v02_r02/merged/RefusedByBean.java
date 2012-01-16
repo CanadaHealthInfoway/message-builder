@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -184,16 +184,16 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
-    private AssignedEntity_2Bean assignedEntity;
+    private static final long serialVersionUID = 20120116L;
+    private HealthcareWorkerBean assignedEntity;
     private TS time = new TSImpl();
 
 
     @Hl7XmlMapping({"assignedEntity"})
-    public AssignedEntity_2Bean getAssignedEntity() {
+    public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
-    public void setAssignedEntity(AssignedEntity_2Bean assignedEntity) {
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 

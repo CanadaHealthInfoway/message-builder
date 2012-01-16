@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT240002CA.Place","COCT_MT240003CA.Place","COCT_MT240007CA.Place","COCT_MT240012CA.Place","PRPM_MT301010CA.Place","PRPM_MT303010CA.Place","PRPM_MT306011CA.Place"})
 public class ServiceDeliveryLocationPlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private CS determinerCode = new CSImpl();
     private ST name = new STImpl();

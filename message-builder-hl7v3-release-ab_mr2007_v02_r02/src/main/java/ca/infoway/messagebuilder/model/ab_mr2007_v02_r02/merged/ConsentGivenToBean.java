@@ -42,6 +42,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p><p>Indicates who is being authorized to receive the 
  * information, and is therefore populated.</p></p>
  * 
+ * <p>COCT_MT470000CA.Receiver: *consent given to</p>
+ * 
+ * <p><p>Identifies the beneficiary of the consent as being a 
+ * Provider or Service Location.</p></p>
+ * 
+ * <p><p>Indicates who is receiving consent to view 
+ * information.</p><p>This participation is marked as 
+ * &quot;populated&quot; as receiver must be specified when 
+ * keyword is involved.</p></p>
+ * 
+ * <p><p>Indicates who is receiving consent to view 
+ * information.</p><p>This participation is marked as 
+ * &quot;populated&quot; as receiver must be specified when 
+ * keyword is involved.</p></p>
+ * 
  * <p>COCT_MT470012CA.Receiver: *consent given to</p>
  * 
  * <p><p>Identifies the beneficiary of the consent as being a 
@@ -72,10 +87,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * &quot;populated&quot; as receiver must be specified when 
  * keyword is involved.</p></p>
  */
-@Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","RCMR_MT010001CA.Receiver"})
+@Hl7PartTypeMapping({"COCT_MT470000CA.Receiver","COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private Recipient recipient;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
