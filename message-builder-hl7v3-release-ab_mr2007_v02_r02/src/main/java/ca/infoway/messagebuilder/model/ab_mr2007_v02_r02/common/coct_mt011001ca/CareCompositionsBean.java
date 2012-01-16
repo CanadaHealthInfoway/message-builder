@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
