@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101104CA.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private CS determinerCode = new CSImpl();
     private PN name = new PNImpl();
