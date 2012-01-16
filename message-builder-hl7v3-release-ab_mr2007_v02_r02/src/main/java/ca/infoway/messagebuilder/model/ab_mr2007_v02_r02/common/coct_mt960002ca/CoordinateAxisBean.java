@@ -44,7 +44,7 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
