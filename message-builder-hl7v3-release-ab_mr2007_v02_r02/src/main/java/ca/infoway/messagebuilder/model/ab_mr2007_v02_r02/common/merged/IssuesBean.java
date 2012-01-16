@@ -40,6 +40,8 @@ import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IssueDescriptionBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,13 +79,13 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
-    private List<IssueManagements_2Bean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagements_2Bean>();
+    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
     private CV subjectOf2SeverityObservationValue = new CVImpl();
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
@@ -336,7 +338,7 @@ public class IssuesBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagements_2Bean> getMitigatedByDetectedIssueManagement() {
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
         return this.mitigatedByDetectedIssueManagement;
     }
 

@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

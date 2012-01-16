@@ -112,7 +112,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt960002ca.
 @Hl7PartTypeMapping({"COCT_MT240002CA.Subject","COCT_MT240003CA.Subject","COCT_MT240007CA.Subject"})
 public class LocatedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private GeographicCoordinatesBean position;
     private CS typeCode = new CSImpl();
 

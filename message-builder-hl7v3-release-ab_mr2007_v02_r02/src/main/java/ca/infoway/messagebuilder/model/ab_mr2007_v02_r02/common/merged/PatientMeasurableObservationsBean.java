@@ -74,9 +74,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * drilling down for more information.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
-public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
+public class PatientMeasurableObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();
