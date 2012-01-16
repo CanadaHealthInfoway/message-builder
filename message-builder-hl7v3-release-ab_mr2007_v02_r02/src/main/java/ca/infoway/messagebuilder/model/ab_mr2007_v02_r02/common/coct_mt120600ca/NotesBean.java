@@ -31,8 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -67,7 +66,7 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
     private AssignedPerson authorAssignedPerson;
@@ -132,18 +131,18 @@ public class NotesBean extends MessagePartBean {
         this.authorAssignedPerson = authorAssignedPerson;
     }
 
-    public AssignedEntity_1Bean getAuthorAssignedPersonAsAssignedEntity1() {
-        return this.authorAssignedPerson instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.authorAssignedPerson : null;
+    public HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity1() {
+        return this.authorAssignedPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity1() {
-        return (this.authorAssignedPerson instanceof AssignedEntity_1Bean);
+        return (this.authorAssignedPerson instanceof HealthcareWorkerBean);
     }
 
-    public AssignedEntity_2Bean getAuthorAssignedPersonAsAssignedEntity2() {
-        return this.authorAssignedPerson instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.authorAssignedPerson : null;
+    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity2() {
+        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity2() {
-        return (this.authorAssignedPerson instanceof AssignedEntity_2Bean);
+        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
     }
 
     public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship1() {
@@ -160,18 +159,18 @@ public class NotesBean extends MessagePartBean {
         return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson);
     }
 
-    public AssignedEntity_2Bean getAuthorAssignedPersonAsAssignedEntity3() {
-        return this.authorAssignedPerson instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.authorAssignedPerson : null;
+    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity3() {
+        return this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity3() {
-        return (this.authorAssignedPerson instanceof AssignedEntity_2Bean);
+        return (this.authorAssignedPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
     }
 
-    public AssignedEntity_1Bean getAuthorAssignedPersonAsAssignedEntity4() {
-        return this.authorAssignedPerson instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.authorAssignedPerson : null;
+    public HealthcareWorkerBean getAuthorAssignedPersonAsAssignedEntity4() {
+        return this.authorAssignedPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorAssignedPerson : null;
     }
     public boolean hasAuthorAssignedPersonAsAssignedEntity4() {
-        return (this.authorAssignedPerson instanceof AssignedEntity_1Bean);
+        return (this.authorAssignedPerson instanceof HealthcareWorkerBean);
     }
 
     public RelatedPersonBean getAuthorAssignedPersonAsPersonalRelationship2() {
