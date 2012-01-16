@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private List<BL> preferenceInd = new ArrayList<BL>();
     private CV languageCode = new CVImpl();
 

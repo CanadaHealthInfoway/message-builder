@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.Subject","PRPA_MT101104CA.Subject"})
 public class HasConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS typeCode = new CSImpl();
     private ConfidenceValueBean observationEvent;
 
