@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private BL contextConductionInd = new BLImpl();

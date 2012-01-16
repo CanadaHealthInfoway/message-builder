@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CS statusCode = new CSImpl();
