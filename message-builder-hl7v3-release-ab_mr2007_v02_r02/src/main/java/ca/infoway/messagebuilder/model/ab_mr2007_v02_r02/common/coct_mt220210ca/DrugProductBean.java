@@ -60,9 +60,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"COCT_MT220210CA.Medication"})
 @Hl7RootType
-public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt270010ca.Medication {
+public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Medication {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CV administerableMedicineCode = new CVImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();
