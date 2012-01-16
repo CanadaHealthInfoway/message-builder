@@ -59,9 +59,9 @@ import java.util.Date;
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient_2, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private PN patientPersonName = new PNImpl();
