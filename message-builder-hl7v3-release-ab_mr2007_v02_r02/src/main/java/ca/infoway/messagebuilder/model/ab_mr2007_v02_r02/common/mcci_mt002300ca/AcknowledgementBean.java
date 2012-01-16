@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ErrorsOrWarningsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ErrorsOrWarningsBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS typeCode = new CSImpl();
     private List<INT> messageWaitingNumber = new ArrayList<INT>();
     private List<CV> messageWaitingPriorityCode = new ArrayList<CV>();
