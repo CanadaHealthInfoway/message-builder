@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.IsCreatedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsCreatedByBean;
 import java.util.Date;
 
 
@@ -83,7 +83,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();

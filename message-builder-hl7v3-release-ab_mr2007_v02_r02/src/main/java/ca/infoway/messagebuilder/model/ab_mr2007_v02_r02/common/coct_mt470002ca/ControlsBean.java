@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentGivenToBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Subject3Bean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Subject2"})
 public class ControlsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private CS informDefinitionClassCode = new CSImpl();
