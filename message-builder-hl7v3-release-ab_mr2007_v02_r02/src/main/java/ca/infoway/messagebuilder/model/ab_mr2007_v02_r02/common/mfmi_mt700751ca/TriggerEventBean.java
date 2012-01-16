@@ -40,14 +40,13 @@ import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorizedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedBy_2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -74,14 +73,14 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private AssignedEntity_1Bean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
     private CreatedAtBean location;
@@ -196,10 +195,10 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntity_1Bean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
-    public void setResponsiblePartyAssignedEntity(AssignedEntity_1Bean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -221,18 +220,18 @@ public class TriggerEventBean<PL> extends MessagePartBean {
         this.dataEntererEntererChoice = dataEntererEntererChoice;
     }
 
-    public AssignedEntity_1Bean getDataEntererEntererChoiceAsAssignedEntity1() {
-        return this.dataEntererEntererChoice instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.dataEntererEntererChoice : null;
+    public HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity1() {
+        return this.dataEntererEntererChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererEntererChoice : null;
     }
     public boolean hasDataEntererEntererChoiceAsAssignedEntity1() {
-        return (this.dataEntererEntererChoice instanceof AssignedEntity_1Bean);
+        return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
     }
 
-    public AssignedEntity_2Bean getDataEntererEntererChoiceAsAssignedEntity2() {
-        return this.dataEntererEntererChoice instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.dataEntererEntererChoice : null;
+    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity2() {
+        return this.dataEntererEntererChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.dataEntererEntererChoice : null;
     }
     public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
-        return (this.dataEntererEntererChoice instanceof AssignedEntity_2Bean);
+        return (this.dataEntererEntererChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
     }
 
 
