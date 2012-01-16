@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
