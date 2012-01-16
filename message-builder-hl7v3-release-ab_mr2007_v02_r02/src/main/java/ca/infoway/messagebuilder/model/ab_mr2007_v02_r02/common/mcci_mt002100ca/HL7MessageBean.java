@@ -39,10 +39,10 @@ import ca.infoway.messagebuilder.domainvalue.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ReceiverBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RoutingInstructionLinesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SenderBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ToBeRespondedToByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ReceiverBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RoutingInstructionLinesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SenderBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ToBeRespondedToByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,7 +61,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
