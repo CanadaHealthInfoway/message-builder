@@ -37,12 +37,12 @@ import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.IsCreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AccessTypeBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentedToByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsCreatedByBean;
 import java.util.Date;
 
 
@@ -86,7 +86,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -174,18 +174,18 @@ public class ConsentBean extends MessagePartBean {
         return (this.subject1SubjectChoice instanceof PatientBean);
     }
 
-    public AssignedEntity_1Bean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.subject1SubjectChoice : null;
+    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
+        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof AssignedEntity_1Bean);
+        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
     }
 
-    public AssignedEntity_2Bean getSubject1SubjectChoiceAsAssignedEntity2() {
-        return this.subject1SubjectChoice instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.subject1SubjectChoice : null;
+    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity2() {
+        return this.subject1SubjectChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity2() {
-        return (this.subject1SubjectChoice instanceof AssignedEntity_2Bean);
+        return (this.subject1SubjectChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
     }
 
     public RelatedPersonBean getSubject1SubjectChoiceAsPersonalRelationship() {
