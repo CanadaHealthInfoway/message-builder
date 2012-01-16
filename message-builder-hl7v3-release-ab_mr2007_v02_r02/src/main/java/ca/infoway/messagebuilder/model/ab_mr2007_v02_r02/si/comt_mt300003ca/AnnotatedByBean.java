@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -45,9 +45,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private TS time = new TSImpl();
-    private AssignedEntity_2Bean assignedEntity;
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
@@ -75,10 +75,10 @@ public class AnnotatedByBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"assignedEntity"})
-    public AssignedEntity_2Bean getAssignedEntity() {
+    public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
-    public void setAssignedEntity(AssignedEntity_2Bean assignedEntity) {
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 
