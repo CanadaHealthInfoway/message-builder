@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.Component2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_1Bean;
@@ -85,7 +85,7 @@ import java.util.Set;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private CV code = new CVImpl();
@@ -103,7 +103,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
     private NotesBean subjectOf2Annotation;
     private ClassifiesBean componentOf;
-    private AssignedEntity_2Bean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
 
 
@@ -405,10 +405,10 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntity_2Bean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
-    public void setResponsiblePartyAssignedEntity(AssignedEntity_2Bean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 

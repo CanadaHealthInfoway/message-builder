@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausedBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 import java.util.ArrayList;
@@ -113,12 +113,12 @@ import java.util.Set;
 @Hl7RootType
 public class DeviceDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private AssignedEntity_2Bean responsiblePartyAssignedEntity;
-    private AssignedEntity_2Bean performerAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean performerAssignedEntity;
     private CreatedAtBean location;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean component2SupplyEvent;
@@ -269,19 +269,19 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntity_2Bean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
-    public void setResponsiblePartyAssignedEntity(AssignedEntity_2Bean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
     @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntity_2Bean getPerformerAssignedEntity() {
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
-    public void setPerformerAssignedEntity(AssignedEntity_2Bean performerAssignedEntity) {
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 

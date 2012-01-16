@@ -72,7 +72,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
