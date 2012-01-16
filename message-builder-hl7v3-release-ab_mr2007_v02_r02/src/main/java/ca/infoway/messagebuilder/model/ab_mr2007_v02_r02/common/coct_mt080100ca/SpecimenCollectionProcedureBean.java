@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_1Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,10 +52,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private AssignedEntity_1Bean performerAssignedEntity;
+    private HealthcareWorkerBean performerAssignedEntity;
     private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
 
 
@@ -112,10 +112,10 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntity_1Bean getPerformerAssignedEntity() {
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
-    public void setPerformerAssignedEntity(AssignedEntity_1Bean performerAssignedEntity) {
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 
