@@ -138,7 +138,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306010CA.ResponseObject"})
 public class ResponseObjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private SET<CV, Code> value = new SETImpl<CV, Code>(CVImpl.class);
 
 
