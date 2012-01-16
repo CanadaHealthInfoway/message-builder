@@ -33,7 +33,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.DeceasedTime"})
 public class DeceasedTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private TS value = new TSImpl();
 
 
