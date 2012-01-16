@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RefusedByBean;
 import java.util.ArrayList;
@@ -90,7 +90,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -98,7 +98,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
-    private AssignedEntity_2Bean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private CreatedAtBean location;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
@@ -296,10 +296,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntity_2Bean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
-    public void setResponsiblePartyAssignedEntity(AssignedEntity_2Bean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
