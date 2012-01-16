@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Dispensed_2Bean;
 import java.util.Date;
 
 
@@ -53,14 +54,14 @@ import java.util.Date;
  * too soon, etc.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CausalActs {
+public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private DispensedBean product;
+    private Dispensed_2Bean product;
     private CreatedAtBean location;
 
 
@@ -162,10 +163,10 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
+    public Dispensed_2Bean getProduct() {
         return this.product;
     }
-    public void setProduct(DispensedBean product) {
+    public void setProduct(Dispensed_2Bean product) {
         this.product = product;
     }
 
