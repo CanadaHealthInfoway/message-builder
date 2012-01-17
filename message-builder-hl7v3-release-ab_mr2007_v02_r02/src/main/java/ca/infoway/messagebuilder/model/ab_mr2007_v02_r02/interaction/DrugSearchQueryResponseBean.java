@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.pome_mt010100c
 @Hl7PartTypeMapping({"POME_IN010080CA"})
 public class DrugSearchQueryResponseBean extends HL7MessageBean<TriggerEvent_6Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
 
 }
