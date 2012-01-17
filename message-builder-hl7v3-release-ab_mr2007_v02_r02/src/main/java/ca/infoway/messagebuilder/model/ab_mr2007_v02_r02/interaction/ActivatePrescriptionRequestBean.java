@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Substan
 @Hl7PartTypeMapping({"PORX_IN010380CA"})
 public class ActivatePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<SubstanceAdministrationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
 
 }

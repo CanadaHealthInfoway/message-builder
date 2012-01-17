@@ -23,12 +23,14 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HL7MessageBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.merged.ActPermissionRequestBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.merged.HL7MessageBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcai_mt700210ca.TriggerEventBean;
 
 
 
-@Hl7PartTypeMapping({"MCCI_IN100004CA"})
-public class AcceptAckPollForNextMessageBean extends HL7MessageBean implements InteractionBean {
+@Hl7PartTypeMapping({"COMT_IN900030AB"})
+public class ChangePasswordRequestBean extends HL7MessageBean<TriggerEventBean<ActPermissionRequestBean>> implements InteractionBean {
 
     private static final long serialVersionUID = 20120116L;
 
