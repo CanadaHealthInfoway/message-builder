@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.merged.HL7MessageBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.merged.LogoffBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SubstanceAdministrationRequestBean;
 
 
 
-@Hl7PartTypeMapping({"PORX_IN010650CA"})
-public class PrescriptionFulfillmentRequestNoRespBean extends HL7MessageBean<TriggerEventBean<SubstanceAdministrationRequestBean>> implements InteractionBean {
+@Hl7PartTypeMapping({"COMT_IN900040AB"})
+public class RenewLogonRequestBean extends HL7MessageBean<TriggerEventBean<LogoffBean>> implements InteractionBean {
 
     private static final long serialVersionUID = 20120116L;
 

@@ -31,6 +31,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 @Hl7PartTypeMapping({"PORX_IN010630CA"})
 public class PrescriptionClinicalPreDeterminationNotOkBean extends HL7MessageBean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
 
 }

@@ -25,13 +25,13 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_2Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescriptionDispenseResponseBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseBean;
 
 
 
 @Hl7PartTypeMapping({"PORX_IN020340CA"})
-public class RecordDeviceDispProcessingRequestAcceptedBean extends HL7MessageBean<TriggerEvent_2Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
+public class RecordDeviceDispProcessingRequestAcceptedBean extends HL7MessageBean<TriggerEvent_2Bean<DispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20111208L;
+    private static final long serialVersionUID = 20120116L;
 
 }
