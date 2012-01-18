@@ -29,8 +29,9 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ChangedBy;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
+
 import java.util.Date;
 
 

@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.ab_mr2007_v02_r02.merged.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7MessageBean;
 
 
 
