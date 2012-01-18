@@ -76,6 +76,17 @@
 
       <moduleSet>
         <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-ab_mr2007_v02_r02</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
           <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2007_v02_r01</include>
         </includes>
         <binaries>
@@ -170,6 +181,13 @@
           <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r02/javadoc</outputDirectory>
       </fileSet>
       <fileSet>
+        <directory>message-builder-hl7v3-release-ab_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
         <directory>message-builder-hl7v3-release-pcs_cerx_v01_r04_3/target</directory>
         <includes>
           <include>*-javadoc.jar</include>
@@ -240,6 +258,13 @@
           <include>*-sources.jar</include>
         </includes>
           <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r02/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-ab_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/sources</outputDirectory>
       </fileSet>
       <fileSet>
         <directory>message-builder-hl7v3-release-pcs_cerx_v01_r04_3/target</directory>
