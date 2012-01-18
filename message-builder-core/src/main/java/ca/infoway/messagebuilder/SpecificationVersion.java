@@ -62,6 +62,11 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public static final SpecificationVersion V01R04_3_SK = new SpecificationVersion("V01R04_3_SK", "Saskatchewan (V01R04.3)", SpecificationVersion.V01R04_3);
 	
+	/**
+	 * Alberta (V02R02).
+	 */
+	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", SpecificationVersion.V02R02);
+	
 	public static final SpecificationVersion NA = new SpecificationVersion("NA", "", null, true);
 	
 	private final String description;

@@ -33,3 +33,19 @@ BUGS FIXED:
 
 The following is a list of the bugs fixed in this release, with their Redmine numbers:
 
+488	ControlActEvent->EventType for MedicationPrescriptionDetailQuery (PORX_IN060370CA)
+1228	Update tutorial applications and related documents
+1239	hello_world example - NullPointerException in FindCandidatesApp using REST
+1240	hello_world example - FindCandidatesApp failed to receive a response when using SOAP
+1242	Updating hello_world guide and code
+1466	Setting SpecializationType to a collection object
+1561	INT.NONNEG Value is changed to 0 if a negative number is given
+1562	INT.POS Value is not set and no warning/error if a negative number is given
+1570	PQ.Basic truncation provides no way to know what was the original value 
+1624	[SASK feature] Timezone can cause problems in general, and with TS.FULLDATE in particular
+2159	Question - Generate MB API using HL7 model element name (option #3) as the default option ?
+10245	Duplicate fingerprint found in AB Session Managment messages
+10266	Support pCS MR2009 R02.04.03
+10284	ValueHolder does not work in Message builder v1.2.5
+10285	MANIFEST.MF is missing the "Implementation-Version" property in the Message Builder hl7v3 releases
+10293	Create an official release for AB Session Managment API
