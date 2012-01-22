@@ -309,6 +309,7 @@
           <include>*.bat</include>
           <include>*.sh</include>
         </includes>
+	<filtered>true</filtered>
         <outputDirectory>core/bin</outputDirectory>
       </fileSet>
       <fileSet>

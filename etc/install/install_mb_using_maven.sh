@@ -20,10 +20,10 @@
 #
 
 mvn install:install-file -Dfile=./pom/message-builder-pom.xml -DpomFile=./pom/message-builder-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-util-1.2.jar -DpomFile=./pom/message-builder-util-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-xml-1.2.jar -DpomFile=./pom/message-builder-xml-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-core-1.2.jar -DpomFile=./pom/message-builder-core-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-terminology-1.2.jar -DpomFile=./pom/message-builder-terminology-pom.xml -DgeneratePom=false
+mvn install:install-file -Dfile=message-builder-util-${project.version}.jar -DpomFile=./pom/message-builder-util-pom.xml -DgeneratePom=false
+mvn install:install-file -Dfile=message-builder-xml-${project.version}.jar -DpomFile=./pom/message-builder-xml-pom.xml -DgeneratePom=false
+mvn install:install-file -Dfile=message-builder-core-${project.version}.jar -DpomFile=./pom/message-builder-core-pom.xml -DgeneratePom=false
+mvn install:install-file -Dfile=message-builder-terminology-${project.version}.jar -DpomFile=./pom/message-builder-terminology-pom.xml -DgeneratePom=false
 if [ "X$1" = "Xterminology" ]
 then
 	cp ./pom/obtain-core-dependencies-with-terminology-pom.xml pom.xml
