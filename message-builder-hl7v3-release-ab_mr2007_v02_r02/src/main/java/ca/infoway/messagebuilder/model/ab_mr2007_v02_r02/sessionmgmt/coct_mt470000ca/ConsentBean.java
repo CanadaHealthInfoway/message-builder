@@ -35,11 +35,10 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AccessTypeBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentedToByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ControlsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
-
 import java.util.Date;
 
 
@@ -82,14 +81,14 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private PatientBean subject1Patient;
     private ProviderBean author1AssignedPerson;
     private ConsentedToByBean author2;
-    private AccessTypeBean subject2InformDefinition;
+    private ControlsBean subject2;
 
 
     /**
@@ -182,12 +181,12 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
+    @Hl7XmlMapping({"subject2"})
+    public ControlsBean getSubject2() {
+        return this.subject2;
     }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
+    public void setSubject2(ControlsBean subject2) {
+        this.subject2 = subject2;
     }
 
 }
