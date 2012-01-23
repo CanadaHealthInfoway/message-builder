@@ -40,15 +40,19 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AdministrationInstructionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AllowedSubstitutionBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ClassifiesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentOverriddenByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ParentPrescriptionBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.Component2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt010120ca.ReferencesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220100ca.DrugProductBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -85,7 +89,7 @@ import java.util.Set;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private CV code = new CVImpl();
@@ -96,7 +100,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private List<Includes_2Bean> pertinentInformation = new ArrayList<Includes_2Bean>();
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private Component2Bean component2;
     private Includes_1Bean component3;
@@ -104,7 +108,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     private NotesBean subjectOf2Annotation;
     private ClassifiesBean componentOf;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private ConsentOverriddenByBean author;
 
 
     /**
@@ -348,7 +352,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+    public List<CoverageExtensionsBean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -414,10 +418,10 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public ConsentOverriddenByBean getAuthor() {
         return this.author;
     }
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(ConsentOverriddenByBean author) {
         this.author = author;
     }
 

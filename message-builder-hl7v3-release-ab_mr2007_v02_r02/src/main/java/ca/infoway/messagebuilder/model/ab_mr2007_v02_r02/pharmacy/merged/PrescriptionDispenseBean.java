@@ -41,9 +41,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.Set;
 
 
@@ -68,11 +68,11 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
-    private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
+    private DeviceRequest_1Bean inFulfillmentOfDeviceRequest;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean componentSupplyEvent;
     private NotesBean subjectOfAnnotation;
@@ -295,10 +295,10 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
+    public DeviceRequest_1Bean getInFulfillmentOfDeviceRequest() {
         return this.inFulfillmentOfDeviceRequest;
     }
-    public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
+    public void setInFulfillmentOfDeviceRequest(DeviceRequest_1Bean inFulfillmentOfDeviceRequest) {
         this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
     }
 

@@ -39,22 +39,6 @@ import java.util.List;
 
 
 /**
- * <p>PORX_MT060340CA.RefusalToFill: Refusal to Fills</p>
- * 
- * <p><p>One of 'Refusal to Fill Reason' or an 'Issue' must be 
- * specified but not both</p></p>
- * 
- * <p><p>Indicates that the identified issue resulted in a 
- * dispenser refusing to fill the subject prescription.</p></p>
- * 
- * <p><p>Exposes in the model that this issue is associated 
- * with a refusal to dispense.</p><p>An indication of 'refusal 
- * to fill' must be indicated, thus attribute is mandatory.</p></p>
- * 
- * <p><p>Exposes in the model that this issue is associated 
- * with a refusal to dispense.</p><p>An indication of 'refusal 
- * to fill' must be indicated, thus attribute is mandatory.</p></p>
- * 
  * <p>PORX_MT060060CA.RefusalToFill: Refusal To Fills</p>
  * 
  * <p><p>One of 'Refusal To Fill Reason' or Issue must be 
@@ -118,32 +102,16 @@ import java.util.List;
  * <p><p>Exposes in the model that this issue is associated 
  * with a refusal to dispense.</p><p>An indication of 'refusal 
  * to fill' must be indicated, thus attribute is mandatory.</p></p>
- * 
- * <p>PORX_MT060160CA.RefusalToFill: Fill Refusals</p>
- * 
- * <p><p>One of 'Refusal to Fill Reason' or an Issue must be 
- * specified but no both</p></p>
- * 
- * <p><p>Indicates that the identified issue resulted in a 
- * dispenser refusing to fill the subject prescription.</p></p>
- * 
- * <p><p>Exposes in the model that this issue is associated 
- * with a refusal to dispense.</p><p>An indication of 'refusal 
- * to fill' must be indicated, thus attribute is mandatory.</p></p>
- * 
- * <p><p>Exposes in the model that this issue is associated 
- * with a refusal to dispense.</p><p>An indication of 'refusal 
- * to fill' must be indicated, thus attribute is mandatory.</p></p>
  */
-@Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
+@Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060190CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
     private RefusedByBean author;
-    private CreatedAtBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CreatedAtBean location;
 
 
     /**
@@ -200,15 +168,6 @@ public class RefusalToFillsBean extends MessagePartBean {
      * which are not tied to specific issues. Set as CWE to allow 
      * non-coded reasons.</p></p>
      * 
-     * <p>Refusal to Fill Reason</p>
-     * 
-     * <p><p>Indicates a non-clinical-issue based reason for 
-     * refusing to fill.</p></p>
-     * 
-     * <p><p>Supports capture of reasons such as 'moral objection' 
-     * which are not tied to specific issues. Set to CWE to allow 
-     * non-coded reasons.</p></p>
-     * 
      * <p>Refusal To Fill Reason</p>
      * 
      * <p><p>Indicates a non-clinical-issue based reason for 
@@ -217,15 +176,6 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p><p>Supports capture of reasons such as 'moral objection' 
      * which are not tied to specific issues. Set to CWE to allow 
      * non-coded reasons.</p></p>
-     * 
-     * <p>Refusal To Fill Reason</p>
-     * 
-     * <p><p>Indicates a non-clinical-issue based reason for 
-     * refusing to fill.</p></p>
-     * 
-     * <p><p>Supports capture of reasons such as 'moral objection' 
-     * which are not tied to specific issues. Set as CWE to allow 
-     * for non-coded reasons.</p></p>
      * 
      * <p>Refusal to Fill Reason</p>
      * 
@@ -262,18 +212,18 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
+    }
+
+
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
     }
 
 }

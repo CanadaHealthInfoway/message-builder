@@ -45,9 +45,9 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AdministrationInstructionsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220100ca.DrugProductBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,7 +99,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();

@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private INT repeatNumber = new INTImpl();

@@ -24,7 +24,6 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.RTO;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
@@ -59,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private RTO<PhysicalQuantity, PhysicalQuantity> quantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 

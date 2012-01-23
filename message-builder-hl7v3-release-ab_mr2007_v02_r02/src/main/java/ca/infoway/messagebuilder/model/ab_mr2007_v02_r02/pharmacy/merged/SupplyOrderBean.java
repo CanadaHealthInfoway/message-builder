@@ -27,8 +27,8 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentOverriddenByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 
 
 
@@ -53,10 +53,10 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private ConsentOverriddenByBean author;
 
 
     /**
@@ -98,10 +98,10 @@ public class SupplyOrderBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public ConsentOverriddenByBean getAuthor() {
         return this.author;
     }
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(ConsentOverriddenByBean author) {
         this.author = author;
     }
 
