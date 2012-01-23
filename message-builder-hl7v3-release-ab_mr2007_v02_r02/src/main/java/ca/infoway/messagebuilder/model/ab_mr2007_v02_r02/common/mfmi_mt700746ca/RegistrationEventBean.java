@@ -31,9 +31,9 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RegisteredItemBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ReplacesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.EHRRepositoryBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CS statusCode = new CSImpl();
