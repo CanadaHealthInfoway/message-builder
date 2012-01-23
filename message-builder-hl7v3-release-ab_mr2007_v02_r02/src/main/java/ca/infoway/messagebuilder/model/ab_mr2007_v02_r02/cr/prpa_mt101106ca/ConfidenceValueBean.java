@@ -49,7 +49,7 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101106CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CD code = new CDImpl();
     private REAL value = new REALImpl();
 
