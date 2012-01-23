@@ -31,15 +31,12 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Author1Bean;
 import java.util.Date;
 
 
@@ -58,13 +55,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private TS authorTime = new TSImpl();
-    private ActingPerson authorActingPerson;
+    private Author1Bean author;
 
 
     /**
@@ -142,54 +138,12 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Change Datetime</p>
-     * 
-     * <p><p>The date on which the change was made. Note that this 
-     * may be earlier or occassionally later than when the change 
-     * is actually effective.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getAuthorTime() {
-        return this.authorTime.getValue();
+    @Hl7XmlMapping({"author"})
+    public Author1Bean getAuthor() {
+        return this.author;
     }
-    public void setAuthorTime(Date authorTime) {
-        this.authorTime.setValue(authorTime);
-    }
-
-
-    @Hl7XmlMapping({"author/actingPerson"})
-    public ActingPerson getAuthorActingPerson() {
-        return this.authorActingPerson;
-    }
-    public void setAuthorActingPerson(ActingPerson authorActingPerson) {
-        this.authorActingPerson = authorActingPerson;
-    }
-
-    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity1() {
-        return this.authorActingPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity1() {
-        return (this.authorActingPerson instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
-    }
-
-    public HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity2() {
-        return this.authorActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity2() {
-        return (this.authorActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public RelatedPersonBean getAuthorActingPersonAsPersonalRelationship() {
-        return this.authorActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsPersonalRelationship() {
-        return (this.authorActingPerson instanceof RelatedPersonBean);
+    public void setAuthor(Author1Bean author) {
+        this.author = author;
     }
 
 }
