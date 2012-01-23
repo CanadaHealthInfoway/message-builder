@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private ConsentGivenToBean receiver;
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
 

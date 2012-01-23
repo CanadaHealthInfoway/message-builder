@@ -27,12 +27,14 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -173,13 +175,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
 public class DispenseShipToLocationBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ServiceDeliveryLocationPlaceBean location;
+    private ST locationName = new STImpl();
 
 
     /**
@@ -236,6 +238,24 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * 
      * <p><p>Important as part of a claim for justifying shipping 
      * charges.</p></p>
+     * 
+     * <p>Ship To Address</p>
+     * 
+     * <p><p>Indicates where the dispensed product was sent.</p></p>
+     * 
+     * <p><p>Important as part of a claim for justifying shipping 
+     * charges.</p></p>
+     * 
+     * <p>H:Prescription Ship to Address</p>
+     * 
+     * <p><p>Indicates the location the dispensed medication should 
+     * be shipped to, at the request of the patient or 
+     * provider.</p></p>
+     * 
+     * <p><p>In some cases drugs need to be delivered to the 
+     * patient instead of being picked up. In other cases, drugs 
+     * need to be shipped to the physician's office to replace 
+     * stock used for the patient.</p></p>
      * 
      * <p>H:Prescription Ship to Address</p>
      * 
@@ -321,12 +341,22 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public ServiceDeliveryLocationPlaceBean getLocation() {
-        return this.location;
+    /**
+     * <p>ServiceDeliveryLocationName</p>
+     * 
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setLocation(ServiceDeliveryLocationPlaceBean location) {
-        this.location = location;
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 }

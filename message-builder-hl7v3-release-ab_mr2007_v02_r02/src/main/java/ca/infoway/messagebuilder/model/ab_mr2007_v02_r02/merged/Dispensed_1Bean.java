@@ -24,7 +24,7 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220200ca.DrugProductBean;
 
 
 
@@ -82,7 +82,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220200ca.
 @Hl7PartTypeMapping({"COCT_MT260010CA.Product","COCT_MT260020CA.Product","PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class Dispensed_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private DrugProductBean medication;
 
 

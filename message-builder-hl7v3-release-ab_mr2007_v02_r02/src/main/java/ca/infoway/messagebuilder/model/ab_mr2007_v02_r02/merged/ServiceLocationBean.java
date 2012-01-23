@@ -25,24 +25,23 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.RoleClass;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.LocatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt960002ca.GeographicCoordinatesBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -87,9 +86,6 @@ import java.util.Set;
  * statistical analysis. Also important for indicating where 
  * paper records can be located.</p></p>
  * 
- * <p><p>Information other than the id is expected to be 
- * extracted from the service delivery location registry.</p></p>
- * 
  * <p>COCT_MT240012CA.ServiceDeliveryLocation: Service Location</p>
  * 
  * <p><p>An identification of a service location (or facility) 
@@ -116,20 +112,60 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ServiceDeliveryLocationPlaceBean location;
-    private List<LocatedAtBean> subjectOf = new ArrayList<LocatedAtBean>();
-    private CS classCode = new CSImpl();
+    private ST locationName = new STImpl();
+    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
     /**
-     * <p>ServiceLocationIdentifier</p>
-     * 
      * <p>C:Service Location Identifier</p>
+     * 
+     * <p><p>Unique identifier for a healthcare service 
+     * location.</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p></p>
+     * 
+     * <p><p>Allows for lookup and retrieval of detailed 
+     * information about a specific service location. Also ensures 
+     * unique identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p></p>
+     * 
+     * <p><p>Allows for lookup and retrieval of detailed 
+     * information about a specific service location. Also ensures 
+     * unique identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p></p>
+     * 
+     * <p>C:Service Location Id</p>
      * 
      * <p><p>Unique identifier for a healthcare service 
      * location.</p></p>
@@ -255,6 +291,23 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * address is marked as 'populated' because it is considered a 
      * critical piece of information about the facility, but may 
      * not always be available or meaningful.</p></p>
+     * 
+     * <p>D:Service Location Address</p>
+     * 
+     * <p><p>The information by which a service location may be 
+     * contacted either physically or by mail.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -276,6 +329,15 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p><p>Allows a service location to be communicated with and 
      * is therefore important. Because a contact number won't 
      * always exist, the field is marked 'populated'.</p></p>
+     * 
+     * <p>E:Service Location Phones and E-mails</p>
+     * 
+     * <p><p>The phone numbers and/or electronic mail addresses by 
+     * which a service location may be contacted.</p></p>
+     * 
+     * <p><p>Allows a service location to be communicated with and 
+     * is therefore important. Because a contact number won't 
+     * always exist, the field is marked 'populated'.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {
@@ -283,27 +345,53 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public ServiceDeliveryLocationPlaceBean getLocation() {
-        return this.location;
+    /**
+     * <p>ServiceLocationName</p>
+     * 
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     * 
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setLocation(ServiceDeliveryLocationPlaceBean location) {
-        this.location = location;
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<LocatedAtBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    @Hl7XmlMapping({"classCode"})
-    public RoleClass getClassCode() {
-        return (RoleClass) this.classCode.getValue();
-    }
-    public void setClassCode(RoleClass classCode) {
-        this.classCode.setValue(classCode);
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
     }
 
 }

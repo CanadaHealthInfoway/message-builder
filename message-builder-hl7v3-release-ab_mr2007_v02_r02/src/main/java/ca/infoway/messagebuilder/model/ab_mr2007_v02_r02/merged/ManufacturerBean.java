@@ -70,13 +70,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
 
     /**
      * <p>Organization Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     * 
+     * <p>Manufacturer Id</p>
      * 
      * <p><p>An identifier denoting a specific drug 
      * manufacturer.</p></p>
@@ -115,6 +124,18 @@ public class ManufacturerBean extends MessagePartBean {
      * for an organization.</p></p>
      * 
      * <p><p>Used for reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p><p>The name of the drug manufacturer.</p></p>
+     * 
+     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p></p>
+     * 
+     * <p><p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p></p>
      * 

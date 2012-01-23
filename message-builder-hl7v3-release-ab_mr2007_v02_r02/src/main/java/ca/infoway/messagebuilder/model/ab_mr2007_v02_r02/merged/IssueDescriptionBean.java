@@ -25,10 +25,15 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.Date;
 
 
 
@@ -92,10 +97,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition","PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private ANY<Object> text = new ANYImpl<Object>();
-    private IsCreatedByBean author;
+    private TS authorTime = new TSImpl();
+    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
@@ -211,12 +217,79 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public IsCreatedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>IssueMonographEffectiveDate</p>
+     * 
+     * <p>B:Issue Monograph Effective Date</p>
+     * 
+     * <p><p>The date and time on which the monograph becomes valid 
+     * and applicable.</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p></p>
+     * 
+     * <p>B:Issue Monograph Effective Date</p>
+     * 
+     * <p><p>The date and time on which the monograph becomes valid 
+     * and applicable.</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p></p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
-    public void setAuthor(IsCreatedByBean author) {
-        this.author = author;
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
+    }
+
+
+    /**
+     * <p>KnowledgebaseVendorName</p>
+     * 
+     * <p>C:Knowledgebase Vendor Name</p>
+     * 
+     * <p><p>The name of a clinical knowledgebase vendor 
+     * organization.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
+     * 
+     * <p>C:Knowledgebase Vendor Name</p>
+     * 
+     * <p><p>The name of a clinical knowledgebase vendor 
+     * organization.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
+     */
+    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
+    public String getAuthorAssignedEntityAssignedOrganizationName() {
+        return this.authorAssignedEntityAssignedOrganizationName.getValue();
+    }
+    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
+        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }
 
 

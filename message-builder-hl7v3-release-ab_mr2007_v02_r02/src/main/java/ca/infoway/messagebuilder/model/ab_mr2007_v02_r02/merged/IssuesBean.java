@@ -49,6 +49,23 @@ import java.util.List;
 /**
  * <p>Issues</p>
  * 
+ * <p>COCT_MT260030CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p><p>This is the list of clinical and business issues that 
+ * have been detected and recorded involving the current 
+ * action.</p></p>
+ * 
+ * <p><p>Provides a list of issues that have been detected 
+ * and/or managed.</p></p>
+ * 
+ * <p>COCT_MT260022CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p><p>This is the list of clinical and business-rule issues 
+ * that have been detected and recorded involving the current 
+ * action.</p></p>
+ * 
+ * <p><p>Provides a list of issues that have been detected.</p></p>
+ * 
  * <p>PORX_MT030040CA.DetectedIssueEvent: Issues</p>
  * 
  * <p><p>Describes an issue associated with a prescription that 
@@ -59,7 +76,7 @@ import java.util.List;
  * well as others reviewing the patient's medication 
  * profile.</p></p>
  * 
- * <p>PORX_MT060160CA.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT060340CA.DetectedIssueEvent: Issues</p>
  * 
  * <p><p>Describes an issue associated with a prescription that 
  * resulted in a dispenser refusing to fill it.</p></p>
@@ -69,7 +86,25 @@ import java.util.List;
  * well as others reviewing the patient's medication 
  * profile.</p></p>
  * 
- * <p>PORX_MT060340CA.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT060040CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p><p>Describes an issue associated with a prescription that 
+ * resulted in a dispenser refusing to fill it.</p></p>
+ * 
+ * <p><p>Allows a dispenser to assert an issue against a 
+ * prescription to be displayed to subsequent dispensers as 
+ * well as others reviewing the patient's medication 
+ * profile.</p></p>
+ * 
+ * <p>COCT_MT260020CA.DetectedIssueEvent: Issues</p>
+ * 
+ * <p><p>This is the list of clinical and business-rule issues 
+ * that have been detected and recorded involving the current 
+ * action.</p></p>
+ * 
+ * <p><p>Provides a list of issues that have been detected.</p></p>
+ * 
+ * <p>PORX_MT060160CA.DetectedIssueEvent: Issues</p>
  * 
  * <p><p>Describes an issue associated with a prescription that 
  * resulted in a dispenser refusing to fill it.</p></p>
@@ -115,17 +150,7 @@ import java.util.List;
  * 
  * <p><p>Provides a list of issues that have been detected.</p></p>
  * 
- * <p>PORX_MT060040CA.DetectedIssueEvent: Issues</p>
- * 
- * <p><p>Describes an issue associated with a prescription that 
- * resulted in a dispenser refusing to fill it.</p></p>
- * 
- * <p><p>Allows a dispenser to assert an issue against a 
- * prescription to be displayed to subsequent dispensers as 
- * well as others reviewing the patient's medication 
- * profile.</p></p>
- * 
- * <p>PORX_MT980010CA.DetectedIssueEvent: Issues</p>
+ * <p>COCT_MT260010CA.DetectedIssueEvent: Issues</p>
  * 
  * <p><p>This is the list of clinical and business issues that 
  * have been detected and recorded involving the current 
@@ -134,7 +159,7 @@ import java.util.List;
  * <p><p>Provides a list of issues that have been detected 
  * and/or managed.</p></p>
  * 
- * <p>COCT_MT260010CA.DetectedIssueEvent: Issues</p>
+ * <p>PORX_MT980010CA.DetectedIssueEvent: Issues</p>
  * 
  * <p><p>This is the list of clinical and business issues that 
  * have been detected and recorded involving the current 
@@ -152,23 +177,23 @@ import java.util.List;
  * prescription to be displayed to subsequent dispensers as 
  * well as others reviewing the patient's profile.</p></p>
  */
-@Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueEvent","COCT_MT260012CA.DetectedIssueEvent","PORX_MT030040CA.DetectedIssueEvent","PORX_MT060040CA.DetectedIssueEvent","PORX_MT060060CA.DetectedIssueEvent","PORX_MT060160CA.DetectedIssueEvent","PORX_MT060190CA.DetectedIssueEvent","PORX_MT060340CA.DetectedIssueEvent","PORX_MT980010CA.DetectedIssueEvent","PORX_MT980020CA.DetectedIssueEvent","PORX_MT980030CA.DetectedIssueEvent"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueEvent","COCT_MT260012CA.DetectedIssueEvent","COCT_MT260020CA.DetectedIssueEvent","COCT_MT260022CA.DetectedIssueEvent","COCT_MT260030CA.DetectedIssueEvent","PORX_MT030040CA.DetectedIssueEvent","PORX_MT060040CA.DetectedIssueEvent","PORX_MT060060CA.DetectedIssueEvent","PORX_MT060160CA.DetectedIssueEvent","PORX_MT060190CA.DetectedIssueEvent","PORX_MT060340CA.DetectedIssueEvent","PORX_MT980010CA.DetectedIssueEvent","PORX_MT980020CA.DetectedIssueEvent","PORX_MT980030CA.DetectedIssueEvent"})
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
-    private CS classCode = new CSImpl();
-    private CS moodCode = new CSImpl();
-    private CS statusCode = new CSImpl();
     private CV priorityCode = new CVImpl();
-    private List<ManagedByBean> mitigatedBy = new ArrayList<ManagedByBean>();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private List<MitigatesBean> mitigatedBy = new ArrayList<MitigatesBean>();
     private CV subjectOfSeverityObservationValue = new CVImpl();
+    private CS classCode = new CSImpl();
+    private CS moodCode = new CSImpl();
     private BL triggerForActRequest = new BLImpl(false);
     private BL subjectOf1StorageIntent = new BLImpl(false);
+    private CS statusCode = new CSImpl();
 
 
     /**
@@ -342,6 +367,15 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Issue Comment</p>
      * 
+     * <p><p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p></p>
+     * 
+     * <p><p>Enables extra or more detailed description of the 
+     * alert</p></p>
+     * 
+     * <p>Issue Comment</p>
+     * 
      * <p><p>A free form textual description regarding the issue. 
      * This may be specified in place of, or in addition to the 
      * coded issue.</p></p>
@@ -426,33 +460,6 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"classCode"})
-    public ActClass getClassCode() {
-        return (ActClass) this.classCode.getValue();
-    }
-    public void setClassCode(ActClass classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    @Hl7XmlMapping({"moodCode"})
-    public ActMood getMoodCode() {
-        return (ActMood) this.moodCode.getValue();
-    }
-    public void setMoodCode(ActMood moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
-    }
-
-
     /**
      * <p>IssuePriority</p>
      * 
@@ -489,12 +496,6 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"mitigatedBy"})
-    public List<ManagedByBean> getMitigatedBy() {
-        return this.mitigatedBy;
-    }
-
-
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
         return this.subjectCausalActs;
@@ -507,6 +508,12 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
         this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    @Hl7XmlMapping({"mitigatedBy"})
+    public List<MitigatesBean> getMitigatedBy() {
+        return this.mitigatedBy;
     }
 
 
@@ -532,14 +539,14 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
      * 
-     * <p><p>May be used to determine which contraindications must 
-     * be managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
+     * <p><p>May be used to determine which issues must be managed 
+     * and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting level of 
      * severity must be specified.</p></p>
      * 
-     * <p><p>May be used to determine which contraindications must 
-     * be managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
+     * <p><p>May be used to determine which issues must be managed 
+     * and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting level of 
      * severity must be specified.</p></p>
      * 
      * <p>B:Severity Code</p>
@@ -568,6 +575,35 @@ public class IssuesBean extends MessagePartBean {
      * <p><p>May be used to determine which contraindications must 
      * be managed and how.</p><p>This attribute is marked as 
      * &quot;populated&quot; to allow for use of null flavors.</p></p>
+     * 
+     * <p>B:Severity Code</p>
+     * 
+     * <p><p>A coded value denoting the gravity of the detected 
+     * issue.</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>May be used to determine which contraindications must 
+     * be managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p></p>
+     * 
+     * <p><p>May be used to determine which contraindications must 
+     * be managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p></p>
      * 
      * <p>B:Severity Code</p>
      * 
@@ -626,18 +662,40 @@ public class IssuesBean extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="COCT_MT260010CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf", type="COCT_MT260030CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980010CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980030CA.Subject"),
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="COCT_MT260010CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf/severityObservation", type="COCT_MT260030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="PORX_MT980010CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="PORX_MT980030CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf2", type="COCT_MT260020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT980020CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="COCT_MT260020CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="PORX_MT980020CA.SeverityObservation")})
     public SeverityObservation getSubjectOfSeverityObservationValue() {
         return (SeverityObservation) this.subjectOfSeverityObservationValue.getValue();
     }
     public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
         this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
+    }
+
+
+    @Hl7XmlMapping({"classCode"})
+    public ActClass getClassCode() {
+        return (ActClass) this.classCode.getValue();
+    }
+    public void setClassCode(ActClass classCode) {
+        this.classCode.setValue(classCode);
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public ActMood getMoodCode() {
+        return (ActMood) this.moodCode.getValue();
+    }
+    public void setMoodCode(ActMood moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -656,6 +714,15 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
         this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);
+    }
+
+
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 }
