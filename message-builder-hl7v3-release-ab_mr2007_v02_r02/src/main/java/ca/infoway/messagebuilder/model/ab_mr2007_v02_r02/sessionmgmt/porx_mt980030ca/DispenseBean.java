@@ -56,7 +56,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
