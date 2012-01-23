@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.comt_mt900004ab.TransactionPermissionBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class LogoffBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> performerTime = new IVLImpl<TS, Interval<Date>>();
     private II performerAssignedEntityId = new IIImpl();
