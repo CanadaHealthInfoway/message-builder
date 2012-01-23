@@ -35,7 +35,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
