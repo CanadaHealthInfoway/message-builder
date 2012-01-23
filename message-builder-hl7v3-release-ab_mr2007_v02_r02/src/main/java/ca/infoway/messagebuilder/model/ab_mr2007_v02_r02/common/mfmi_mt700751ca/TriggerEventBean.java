@@ -42,12 +42,13 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorizedByBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedBy_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.QueryByParameterBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausedBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,7 +74,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
@@ -81,13 +82,13 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CreatedBy_2Bean author;
+    private CreatedByBean author;
     private EntererChoice dataEntererEntererChoice;
     private CreatedAtBean location;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private AuthorizedByBean subjectOf1;
-    private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<CausedBean> subjectOf2 = new ArrayList<CausedBean>();
     private QueryByParameterBean<PL> queryByParameter;
 
 
@@ -204,10 +205,10 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author"})
-    public CreatedBy_2Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
-    public void setAuthor(CreatedBy_2Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 
@@ -227,11 +228,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
         return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
     }
 
-    public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity2() {
-        return this.dataEntererEntererChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean ? (ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean) this.dataEntererEntererChoice : null;
+    public HealthcareOrganizationBean getDataEntererEntererChoiceAsAssignedEntity2() {
+        return this.dataEntererEntererChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererEntererChoice : null;
     }
     public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
-        return (this.dataEntererEntererChoice instanceof ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean);
+        return (this.dataEntererEntererChoice instanceof HealthcareOrganizationBean);
     }
 
 
@@ -271,9 +272,9 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
-        return this.subjectOf2DetectedIssueEvent;
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<CausedBean> getSubjectOf2() {
+        return this.subjectOf2;
     }
 
 
