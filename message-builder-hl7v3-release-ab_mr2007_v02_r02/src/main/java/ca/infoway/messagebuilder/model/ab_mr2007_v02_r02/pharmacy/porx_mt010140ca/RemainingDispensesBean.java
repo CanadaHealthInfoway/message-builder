@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220100ca.DrugProductBean;
 
 
 
@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
