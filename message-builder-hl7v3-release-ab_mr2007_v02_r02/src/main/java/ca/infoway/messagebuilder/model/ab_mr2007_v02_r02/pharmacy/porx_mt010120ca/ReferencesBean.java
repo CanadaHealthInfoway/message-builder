@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ProtocolsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ProtocolsBean;
 
 
 
@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Protoco
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 

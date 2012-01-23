@@ -31,9 +31,9 @@ import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt220100ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.FirstFillBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SubsequentSupplyRequestBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.FirstFillBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SubsequentSupplyRequestBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220100ca.DrugProductBean;
 import java.util.Date;
 
 
@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
