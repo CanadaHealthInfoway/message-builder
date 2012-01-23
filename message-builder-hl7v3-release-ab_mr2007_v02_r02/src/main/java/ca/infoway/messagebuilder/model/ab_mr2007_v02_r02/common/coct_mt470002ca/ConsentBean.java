@@ -40,7 +40,9 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsCreatedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ConsentPertainsToBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentOverriddenByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ControlsBean;
 import java.util.Date;
 
 
@@ -83,7 +85,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
@@ -91,7 +93,7 @@ public class ConsentBean extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ConsentPertainsToBean subject1;
-    private IsCreatedByBean author1;
+    private ConsentOverriddenByBean author1;
     private ConsentedToByBean author2;
     private ControlsBean subject2;
 
@@ -199,10 +201,10 @@ public class ConsentBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author1"})
-    public IsCreatedByBean getAuthor1() {
+    public ConsentOverriddenByBean getAuthor1() {
         return this.author1;
     }
-    public void setAuthor1(IsCreatedByBean author1) {
+    public void setAuthor1(ConsentOverriddenByBean author1) {
         this.author1 = author1;
     }
 
