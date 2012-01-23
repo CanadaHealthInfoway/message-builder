@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CV playerCode = new CVImpl();
     private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST playerDesc = new STImpl();
