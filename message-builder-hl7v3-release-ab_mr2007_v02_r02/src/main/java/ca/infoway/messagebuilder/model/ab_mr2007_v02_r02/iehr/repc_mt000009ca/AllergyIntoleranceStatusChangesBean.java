@@ -32,8 +32,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Author1Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -52,12 +52,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private RefusedByBean author;
+    private Author1Bean author;
 
 
     /**
@@ -127,10 +127,10 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public Author1Bean getAuthor() {
         return this.author;
     }
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(Author1Bean author) {
         this.author = author;
     }
 
