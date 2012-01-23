@@ -40,24 +40,24 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt141007ca.DeviceProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Author4Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.CoverageExtensions_1Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DeviceDispenseBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ParentPrescriptionBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedBecauseOfBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.CoverageExtensionsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructions_1Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.FirstDispenseInformation_2Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.LastDispenseInformation_2Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ParentPrescriptionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PreviousDispenseInformation_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseStatusChangesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.FirstDispenseInformationBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.LastDispenseInformationBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescriptionDispensesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PreviousDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ProcedureRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.RefusalToFillsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.RemainingDispenseInformation_2Bean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.StatusChangesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.RemainingDispenseInformationBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -88,30 +88,30 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"PORX_MT060040CA.DeviceRequest"})
 @Hl7RootType
-public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Prescription {
+public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Prescription_1 {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DeviceProductBean directTargetManufacturedProduct;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private Author4Bean author;
     private CreatedAtBean location;
     private ParentPrescriptionBean predecessorPriorSupplyRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseInstructions_1Bean component2SupplyRequest;
-    private LastDispenseInformation_2Bean fulfillment1SupplyEventLastSummary;
-    private FirstDispenseInformation_2Bean fulfillment2SupplyEventFirstSummary;
-    private RemainingDispenseInformation_2Bean fulfillment3SupplyEventFutureSummary;
-    private PreviousDispenseInformation_2Bean fulfillment4SupplyEventPastSummary;
-    private List<DeviceDispenseBean> fulfillment5DeviceDispense = new ArrayList<DeviceDispenseBean>();
+    private LastDispenseInformationBean fulfillment1SupplyEventLastSummary;
+    private FirstDispenseInformationBean fulfillment2SupplyEventFirstSummary;
+    private RemainingDispenseInformationBean fulfillment3SupplyEventFutureSummary;
+    private PreviousDispenseInformationBean fulfillment4SupplyEventPastSummary;
+    private List<PrescriptionDispensesBean> fulfillment5DeviceDispense = new ArrayList<PrescriptionDispensesBean>();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<StatusChangesBean> subjectOf2ControlActEvent = new ArrayList<StatusChangesBean>();
+    private List<DispenseStatusChangesBean> subjectOf2ControlActEvent = new ArrayList<DispenseStatusChangesBean>();
     private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
     private List<RefusalToFillsBean> subjectOf4RefusalToFill = new ArrayList<RefusalToFillsBean>();
     private BL subjectOf5DetectedIssueIndicator = new BLImpl(false);
@@ -294,10 +294,10 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public Author4Bean getAuthor() {
         return this.author;
     }
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(Author4Bean author) {
         this.author = author;
     }
 
@@ -345,7 +345,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+    public List<CoverageExtensionsBean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -369,43 +369,43 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"fulfillment1/supplyEventLastSummary"})
-    public LastDispenseInformation_2Bean getFulfillment1SupplyEventLastSummary() {
+    public LastDispenseInformationBean getFulfillment1SupplyEventLastSummary() {
         return this.fulfillment1SupplyEventLastSummary;
     }
-    public void setFulfillment1SupplyEventLastSummary(LastDispenseInformation_2Bean fulfillment1SupplyEventLastSummary) {
+    public void setFulfillment1SupplyEventLastSummary(LastDispenseInformationBean fulfillment1SupplyEventLastSummary) {
         this.fulfillment1SupplyEventLastSummary = fulfillment1SupplyEventLastSummary;
     }
 
 
     @Hl7XmlMapping({"fulfillment2/supplyEventFirstSummary"})
-    public FirstDispenseInformation_2Bean getFulfillment2SupplyEventFirstSummary() {
+    public FirstDispenseInformationBean getFulfillment2SupplyEventFirstSummary() {
         return this.fulfillment2SupplyEventFirstSummary;
     }
-    public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformation_2Bean fulfillment2SupplyEventFirstSummary) {
+    public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformationBean fulfillment2SupplyEventFirstSummary) {
         this.fulfillment2SupplyEventFirstSummary = fulfillment2SupplyEventFirstSummary;
     }
 
 
     @Hl7XmlMapping({"fulfillment3/supplyEventFutureSummary"})
-    public RemainingDispenseInformation_2Bean getFulfillment3SupplyEventFutureSummary() {
+    public RemainingDispenseInformationBean getFulfillment3SupplyEventFutureSummary() {
         return this.fulfillment3SupplyEventFutureSummary;
     }
-    public void setFulfillment3SupplyEventFutureSummary(RemainingDispenseInformation_2Bean fulfillment3SupplyEventFutureSummary) {
+    public void setFulfillment3SupplyEventFutureSummary(RemainingDispenseInformationBean fulfillment3SupplyEventFutureSummary) {
         this.fulfillment3SupplyEventFutureSummary = fulfillment3SupplyEventFutureSummary;
     }
 
 
     @Hl7XmlMapping({"fulfillment4/supplyEventPastSummary"})
-    public PreviousDispenseInformation_2Bean getFulfillment4SupplyEventPastSummary() {
+    public PreviousDispenseInformationBean getFulfillment4SupplyEventPastSummary() {
         return this.fulfillment4SupplyEventPastSummary;
     }
-    public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformation_2Bean fulfillment4SupplyEventPastSummary) {
+    public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformationBean fulfillment4SupplyEventPastSummary) {
         this.fulfillment4SupplyEventPastSummary = fulfillment4SupplyEventPastSummary;
     }
 
 
     @Hl7XmlMapping({"fulfillment5/deviceDispense"})
-    public List<DeviceDispenseBean> getFulfillment5DeviceDispense() {
+    public List<PrescriptionDispensesBean> getFulfillment5DeviceDispense() {
         return this.fulfillment5DeviceDispense;
     }
 
@@ -417,7 +417,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     @Hl7XmlMapping({"subjectOf2/controlActEvent"})
-    public List<StatusChangesBean> getSubjectOf2ControlActEvent() {
+    public List<DispenseStatusChangesBean> getSubjectOf2ControlActEvent() {
         return this.subjectOf2ControlActEvent;
     }
 
