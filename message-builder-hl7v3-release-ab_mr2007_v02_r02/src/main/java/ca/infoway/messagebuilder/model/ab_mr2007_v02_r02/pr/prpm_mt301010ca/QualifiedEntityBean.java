@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
