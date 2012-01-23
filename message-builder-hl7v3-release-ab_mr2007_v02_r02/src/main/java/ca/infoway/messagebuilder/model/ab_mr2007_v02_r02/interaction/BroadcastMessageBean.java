@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcai_mt700212ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_1Bean;
 
 
 
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
-public class BroadcastMessageBean extends HL7MessageBean<TriggerEventBean<ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
+public class BroadcastMessageBean extends HL7MessageBean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }

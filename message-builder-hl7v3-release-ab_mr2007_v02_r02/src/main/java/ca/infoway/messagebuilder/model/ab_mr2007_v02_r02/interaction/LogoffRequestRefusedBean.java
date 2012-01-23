@@ -23,14 +23,14 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt700222ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7MessageBean;
 
 
 
 @Hl7PartTypeMapping({"COMT_IN900022AB"})
-public class LogoffRequestRefusedBean extends HL7MessageBean<TriggerEvent_2Bean> implements InteractionBean {
+public class LogoffRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }

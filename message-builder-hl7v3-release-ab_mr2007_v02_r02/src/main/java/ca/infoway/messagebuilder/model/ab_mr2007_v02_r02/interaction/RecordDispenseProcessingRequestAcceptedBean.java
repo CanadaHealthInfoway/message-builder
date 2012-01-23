@@ -24,14 +24,14 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt700220ca.TriggerEventBean;
 
 
 
 @Hl7PartTypeMapping({"PORX_IN020130CA"})
-public class RecordDispenseProcessingRequestAcceptedBean extends HL7MessageBean<TriggerEvent_2Bean<DispenseBean>> implements InteractionBean {
+public class RecordDispenseProcessingRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<DispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }

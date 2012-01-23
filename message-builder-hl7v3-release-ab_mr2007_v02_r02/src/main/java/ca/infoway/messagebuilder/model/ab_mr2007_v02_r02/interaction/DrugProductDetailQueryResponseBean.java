@@ -24,15 +24,15 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEvent_4Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.pome_mt010040ca.MedicationBean;
 
 
 
 @Hl7PartTypeMapping({"POME_IN010060CA"})
-public class DrugProductDetailQueryResponseBean extends HL7MessageBean<TriggerEvent_6Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
+public class DrugProductDetailQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }

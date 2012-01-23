@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt700210ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.LogoffBean;
 
@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.Logo
 @Hl7PartTypeMapping({"COMT_IN900040AB"})
 public class RenewLogonRequestBean extends HL7MessageBean<TriggerEventBean<LogoffBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }

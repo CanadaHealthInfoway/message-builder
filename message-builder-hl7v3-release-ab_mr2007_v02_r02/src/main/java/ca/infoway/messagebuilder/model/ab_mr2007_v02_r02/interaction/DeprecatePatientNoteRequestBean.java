@@ -23,15 +23,15 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcai_mt700210ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt700210ca.TriggerEventBean;
 
 
 
 @Hl7PartTypeMapping({"COMT_IN300101CA"})
 public class DeprecatePatientNoteRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
 
 }
