@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.SET;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
@@ -37,6 +38,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -44,7 +46,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ServiceDeliveryLocationPlaceBean;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -119,13 +120,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ServiceDeliveryLocationPlaceBean location;
+    private ST locationName = new STImpl();
 
 
     /**
@@ -226,12 +227,22 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public ServiceDeliveryLocationPlaceBean getLocation() {
-        return this.location;
+    /**
+     * <p>ServiceDeliveryLocationName</p>
+     * 
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
     }
-    public void setLocation(ServiceDeliveryLocationPlaceBean location) {
-        this.location = location;
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 }
