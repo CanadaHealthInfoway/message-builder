@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private CE languageCode = new CEImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
