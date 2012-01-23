@@ -35,7 +35,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>AuthenticationToken</p>
  * 
- * <p>MCAI_MT700222CA.AuthorizationToken: Authentication Token</p>
+ * <p>MCAI_MT700232CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p><p>If specified, then the concepts covered by the token 
+ * must not be specified (i.e. at least one participation of 
+ * author, dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p><p>Only one of 
+ * Id or Text must be specified.</p></p>
+ * 
+ * <p><p>If specified, then the concepts covered by the token 
+ * must not be specified (i.e. at least one participation of 
+ * author, dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p><p>Only one of 
+ * Id or Text must be specified.</p></p>
  * 
  * <p><p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
@@ -127,35 +139,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p></p>
  * 
- * <p>MCAI_MT700220CA.AuthorizationToken: Authentication Token</p>
- * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
- * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
- * 
- * <p><p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
- * 
- * <p><p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
- * 
- * <p><p>Conveys information related to the individuals and/or 
- * locations involved with the action in situations where the 
- * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
- * 
  * <p>QUQI_MT020002CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p><p>If specified, then the concepts covered by the token 
@@ -202,7 +185,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p></p>
  * 
- * <p>MCAI_MT700210CA.AuthorizationToken: Authentication Token</p>
+ * <p>QUQI_MT020000CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p><p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p></p>
+ * 
+ * <p><p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p></p>
+ * 
+ * <p><p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p></p>
+ * 
+ * <p>MCAI_MT700230CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p><p>If specified, then the concepts covered by the token 
+ * must not be specified (i.e. at least one participation of 
+ * author, dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p><p>Only one of 
+ * Id or Text must be specified.</p></p>
+ * 
+ * <p><p>If specified, then the concepts covered by the token 
+ * must not be specified (i.e. at least one participation of 
+ * author, dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p><p>Only one of 
+ * Id or Text must be specified.</p></p>
  * 
  * <p><p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
@@ -236,25 +248,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p></p>
  * 
- * <p>MCAI_MT700230CA.AuthorizationToken: Authentication Token</p>
- * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
- * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or
+ * <p>MCAI_MT700231CA.Authorizatio
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
+@Hl7PartTypeMapping({"MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 

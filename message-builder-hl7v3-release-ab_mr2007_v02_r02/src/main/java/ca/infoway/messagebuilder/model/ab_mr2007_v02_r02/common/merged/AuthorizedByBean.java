@@ -80,52 +80,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
  * the EHR (e.g. prescriber to dispenser via a Drug Information 
  * System).</p></p>
  * 
- * <p>MCAI_MT700210CA.Subject3: c:authorized by</p>
- * 
- * <p><p>Information pertaining to a patient's 
- * agreement/acceptance to have his/her clinical information 
- * electronically stored and shared.</p></p>
- * 
- * <p><p>Provides authorization to record and/or view patient 
- * information.</p><p>Indicates the consent or keyword used to 
- * authorize access or update, including a reason for access; 
- * May also be used to override access restriction to the 
- * information ('break the glass') on a message by message 
- * basis.</p><p>May be required on a Prescription Request to 
- * indicate a keyword for drug utilization processing.</p></p>
- * 
- * <p><p>Provides authorization to record and/or view patient 
- * information.</p><p>Indicates the consent or keyword used to 
- * authorize access or update, including a reason for access; 
- * May also be used to override access restriction to the 
- * information ('break the glass') on a message by message 
- * basis.</p><p>May be required on a Prescription Request to 
- * indicate a keyword for drug utilization processing.</p></p>
- * 
- * <p><p>Provides authorization to record and/or view patient 
- * information.</p><p>Indicates the consent or keyword used to 
- * authorize access or update, including a reason for access; 
- * May also be used to override access restriction to the 
- * information ('break the glass') on a message by message 
- * basis.</p><p>May be required on a Prescription Request to 
- * indicate a keyword for drug utilization processing.</p></p>
- * 
- * <p><p>This will usually only be populated for queries, but 
- * could be used for updates if a jurisdiction requires consent 
- * before recording information in the EHR (e.g. consent to 
- * participate in electronic data exchange).</p><p>Note: 
- * keywords canot be passed from one application to another via 
- * the EHR (e.g. prescriber to dispenser via a Drug Information 
- * System).</p></p>
- * 
- * <p><p>This will usually only be populated for queries, but 
- * could be used for updates if a jurisdiction requires consent 
- * before recording information in the EHR (e.g. consent to 
- * participate in electronic data exchange).</p><p>Note: 
- * keywords canot be passed from one application to another via 
- * the EHR (e.g. prescriber to dispenser via a Drug Information 
- * System).</p></p>
- * 
  * <p>MFMI_MT700751CA.Subject1: c:authorized by</p>
  * 
  * <p><p>Information pertaining to a client's 
@@ -229,13 +183,59 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
  * May also be used to override access restriction to the 
  * information ('break the glass') on a message by message 
  * basis.</p><p>May be required on a Prescription Request to 
+ * indicate a keyword for drug utilization processing.</p></p>
+ * 
+ * <p><p>Provides authorization to record and/or view patient 
+ * information.</p><p>Indicates the consent or keyword used to 
+ * authorize access or update, including a reason for access; 
+ * May also be used to override access restriction to the 
+ * information ('break the glass') on a message by message 
+ * basis.</p><p>May be required on a Prescription Request to 
+ * indicate a keyword for drug utilization processing.</p></p>
+ * 
+ * <p><p>This will usually only be populated for queries, but 
+ * could be used for updates if a jurisdiction requires consent 
+ * before recording information in the EHR (e.g. consent to 
+ * participate in electronic data exchange).</p><p>Note: 
+ * keywords canot be passed from one application to another via 
+ * the EHR (e.g. prescriber to dispenser via a Drug Information 
+ * System).</p></p>
+ * 
+ * <p><p>This will usually only be populated for queries, but 
+ * could be used for updates if a jurisdiction requires consent 
+ * before recording information in the EHR (e.g. consent to 
+ * participate in electronic data exchange).</p><p>Note: 
+ * keywords canot be passed from one application to another via 
+ * the EHR (e.g. prescriber to dispenser via a Drug Information 
+ * System).</p></p>
+ * 
+ * <p>MCAI_MT700212CA.Subject3: c:authorized by</p>
+ * 
+ * <p><p>Information pertaining to a patient's 
+ * agreement/acceptance to have his/her clinical information 
+ * electronically stored and shared.</p></p>
+ * 
+ * <p><p>Provides authorization to record and/or view patient 
+ * information.</p><p>Indicates the consent or keyword used to 
+ * authorize access or update, including a reason for access; 
+ * May also be used to override access restriction to the 
+ * information ('break the glass') on a message by message 
+ * basis.</p><p>May be required on a Prescription Request to 
+ * indicate a keyword for drug utilization processing.</p></p>
+ * 
+ * <p><p>Provides authorization to record and/or view patient 
+ * information.</p><p>Indicates the consent or keyword used to 
+ * authorize access or update, including a reason for access; 
+ * May also be used to override access restriction to the 
+ * information ('break the glass') on a message by message 
+ * basis.</p><p>May be required on a Prescription Request to 
  * indicate a keyword for drug utilization pr
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"MCAI_MT700210CA.Subject3","MCAI_MT700211CA.Subject3","MCAI_MT700212CA.Subject3","MFMI_MT700751CA.Subject1","QUQI_MT020000CA.Subject3","QUQI_MT020002CA.Subject3","QUQI_MT120006CA.Subject3","QUQI_MT120008CA.Subject3"})
+@Hl7PartTypeMapping({"MCAI_MT700211CA.Subject3","MCAI_MT700212CA.Subject3","MFMI_MT700751CA.Subject1","QUQI_MT020000CA.Subject3","QUQI_MT020002CA.Subject3","QUQI_MT120006CA.Subject3","QUQI_MT120008CA.Subject3"})
 public class AuthorizedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private ConsentBean consentEvent;
     private CS contextControlCode = new CSImpl();
 

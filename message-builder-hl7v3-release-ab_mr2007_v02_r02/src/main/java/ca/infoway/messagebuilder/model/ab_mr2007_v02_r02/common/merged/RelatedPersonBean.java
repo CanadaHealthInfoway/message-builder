@@ -98,9 +98,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship"})
 @Hl7RootType
-public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.AssignedPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter {
+public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();

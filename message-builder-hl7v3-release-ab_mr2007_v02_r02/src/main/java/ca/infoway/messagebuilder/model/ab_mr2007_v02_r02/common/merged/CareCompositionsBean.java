@@ -75,26 +75,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p></p>
  * 
- * <p>MCAI_MT700210CA.Component: Care Compositions</p>
- * 
- * <p><p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p></p>
- * 
- * <p><p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p></p>
- * 
- * <p><p>Allows linking records to encounters, condition and 
- * care-based compositions. Useful for searching and navigation 
- * of the patient's record.</p></p>
- * 
  * <p>QUQI_MT120006CA.Component: Care Compositions</p>
  * 
  * <p><p>A care composition is a record, which summarizes the 
@@ -115,10 +95,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p></p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700210CA.Component","MCAI_MT700211CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
+@Hl7PartTypeMapping({"MCAI_MT700211CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private BL contextConductionInd = new BLImpl();
     private ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
     private CS typeCode = new CSImpl();

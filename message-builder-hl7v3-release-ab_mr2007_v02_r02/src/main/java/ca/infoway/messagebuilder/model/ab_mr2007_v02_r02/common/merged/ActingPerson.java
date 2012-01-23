@@ -26,8 +26,8 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT911102CA.ActingPerson","COCT_MT911107CA.ActingPerson"})
+@Hl7PartTypeMapping({"COCT_MT911102CA.ActingPerson","COCT_MT911107CA.ActingPerson","COCT_MT911108CA.ActingPerson"})
 @Hl7RootType
-public interface ActingPerson extends SubjectChoice, AuthorPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120600ca.AssignedPerson {
+public interface ActingPerson extends AuthorPerson, SubjectChoice {
 
 }

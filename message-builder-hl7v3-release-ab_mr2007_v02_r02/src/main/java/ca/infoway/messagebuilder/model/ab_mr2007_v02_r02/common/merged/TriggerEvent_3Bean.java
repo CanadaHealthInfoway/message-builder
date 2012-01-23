@@ -26,12 +26,10 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -40,6 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausedBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ import java.util.List;
 /**
  * <p>TriggerEvent</p>
  * 
- * <p>MCAI_MT700230CA.ControlActEvent: Trigger Event</p>
+ * <p>QUQI_MT020000CA.ControlActEvent: Trigger Event</p>
  * 
  * <p><p>Identifies the action that resulted in this message 
  * being sent.</p></p>
@@ -64,59 +63,7 @@ import java.util.List;
  * the interaction or the trigger events which are conveyed 
  * with this wrapper.</p></p>
  * 
- * <p>MCAI_MT700237CA.ControlActEvent: Trigger Event</p>
- * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
- * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
- * 
- * <p><p>There may be constraints on the usage of the 
- * effectiveTime and reasonCode attributes in the definition of 
- * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
- * 
- * <p>MCAI_MT700232CA.ControlActEvent: Trigger Event</p>
- * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
- * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
- * 
- * <p><p>There may be constraints on the usage of the 
- * effectiveTime and reasonCode attributes in the definition of 
- * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
- * 
- * <p>MCAI_MT700231CA.ControlActEvent: Trigger Event</p>
- * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
- * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
- * 
- * <p><p>There may be constraints on the usage of the 
- * effectiveTime and reasonCode attributes in the definition of 
- * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
- * 
- * <p>MCAI_MT700236CA.ControlActEvent: Trigger Event</p>
- * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
- * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
- * 
- * <p><p>There may be constraints on the usage of the 
- * effectiveTime and reasonCode attributes in the definition of 
- * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
- * 
- * <p>QUQI_MT000001CA.ControlActEvent: Trigger Event</p>
+ * <p>QUQI_MT020002CA.ControlActEvent: Trigger Event</p>
  * 
  * <p><p>Identifies the action that resulted in this message 
  * being sent.</p></p>
@@ -129,26 +76,26 @@ import java.util.List;
  * the interaction or the trigger events which are conveyed 
  * with this wrapper.</p></p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700230CA.ControlActEvent","MCAI_MT700231CA.ControlActEvent","MCAI_MT700232CA.ControlActEvent","MCAI_MT700236CA.ControlActEvent","MCAI_MT700237CA.ControlActEvent","QUQI_MT000001CA.ControlActEvent"})
+@Hl7PartTypeMapping({"QUQI_MT020000CA.ControlActEvent","QUQI_MT020002CA.ControlActEvent"})
 @Hl7RootType
-public class TriggerEvent_3Bean extends MessagePartBean {
+public class TriggerEvent_3Bean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120116L;
+    private static final long serialVersionUID = 20120122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private StoredInBean recordTarget;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CreatedBy_1Bean author;
+    private CreatedByBean author;
     private ActingPerson dataEntererActingPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private List<CausedBean> subjectOf = new ArrayList<CausedBean>();
-    private II queryContinuationQueryId = new IIImpl();
-    private INT queryContinuationStartResultNumber = new INTImpl();
-    private INT queryContinuationContinuationQuantity = new INTImpl();
+    private List<CausedBean> subjectOf1 = new ArrayList<CausedBean>();
+    private AuthorizedByBean subjectOf2;
+    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
+    private QueryByParameterBean<PL> queryByParameter;
 
 
     /**
@@ -263,10 +210,10 @@ public class TriggerEvent_3Bean extends MessagePartBean {
 
 
     @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
-    public void setAuthor(CreatedBy_1Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 
@@ -280,21 +227,21 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -307,71 +254,33 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<CausedBean> getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<CausedBean> getSubjectOf1() {
+        return this.subjectOf1;
     }
 
 
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     * 
-     * <p><p>Unique number for the query to be continued.</p></p>
-     * 
-     * <p><p>Links to the query for which continuation is desired. 
-     * Needed to ensure that the query is not re-executed, as the 
-     * results may have changed. As a result, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryContinuation/queryId"})
-    public Identifier getQueryContinuationQueryId() {
-        return this.queryContinuationQueryId.getValue();
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
     }
-    public void setQueryContinuationQueryId(Identifier queryContinuationQueryId) {
-        this.queryContinuationQueryId.setValue(queryContinuationQueryId);
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
     }
 
 
-    /**
-     * <p>StartPosition</p>
-     * 
-     * <p>I:Start Position</p>
-     * 
-     * <p><p>Indicates the record number at which to start the 
-     * returned result set.</p></p>
-     * 
-     * <p><p>Indicates what point the query should continue from 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryContinuation/startResultNumber"})
-    public Integer getQueryContinuationStartResultNumber() {
-        return this.queryContinuationStartResultNumber.getValue();
-    }
-    public void setQueryContinuationStartResultNumber(Integer queryContinuationStartResultNumber) {
-        this.queryContinuationStartResultNumber.setValue(queryContinuationStartResultNumber);
+    @Hl7XmlMapping({"componentOf"})
+    public List<CareCompositionsBean> getComponentOf() {
+        return this.componentOf;
     }
 
 
-    /**
-     * <p>QueryLimit</p>
-     * 
-     * <p>J:Query Limit</p>
-     * 
-     * <p><p>Indicates how many records should be returned for this 
-     * query.</p></p>
-     * 
-     * <p><p>Allows an application to control the number of 
-     * returned records. If not specified, the EHR may apply a 
-     * default limit.</p></p>
-     */
-    @Hl7XmlMapping({"queryContinuation/continuationQuantity"})
-    public Integer getQueryContinuationContinuationQuantity() {
-        return this.queryContinuationContinuationQuantity.getValue();
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
     }
-    public void setQueryContinuationContinuationQuantity(Integer queryContinuationContinuationQuantity) {
-        this.queryContinuationContinuationQuantity.setValue(queryContinuationContinuationQuantity);
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }
