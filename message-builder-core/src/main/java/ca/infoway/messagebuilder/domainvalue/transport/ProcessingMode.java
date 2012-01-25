@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum ProcessingMode.
  */
 public class ProcessingMode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ProcessingMode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
     private static final long serialVersionUID = -4741683761461235584L;
     

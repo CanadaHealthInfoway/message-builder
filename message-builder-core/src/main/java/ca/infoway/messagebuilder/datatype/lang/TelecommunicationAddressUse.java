@@ -33,7 +33,10 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class TelecommunicationAddressUse extends EnumPattern implements Describable, 
-		ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse {
+	ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+	
     private static final long serialVersionUID = -3649151061999838824L;
 	public static final TelecommunicationAddressUse HOME = new TelecommunicationAddressUse("HOME", "H");
     public static final TelecommunicationAddressUse PRIMARY_HOME = new TelecommunicationAddressUse("PRIMARY_HOME", "HP"); 

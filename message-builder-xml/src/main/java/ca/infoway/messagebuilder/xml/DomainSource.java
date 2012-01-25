@@ -27,6 +27,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 public class DomainSource extends EnumPattern {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 3259949645508081979L;
 	

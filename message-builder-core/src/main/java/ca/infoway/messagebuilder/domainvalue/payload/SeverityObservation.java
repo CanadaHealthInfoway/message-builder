@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * allergies, intolerance and contraindications involving combinations of drugs and other conditions.
  */
 public class SeverityObservation extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.SeverityObservation {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -5776943781743759764L;
 	

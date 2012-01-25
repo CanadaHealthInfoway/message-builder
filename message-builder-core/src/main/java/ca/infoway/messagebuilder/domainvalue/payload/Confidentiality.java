@@ -34,6 +34,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * 
  */
 public class Confidentiality extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind, x_BasicConfidentialityKind, x_NormalRestrictedTabooConfidentialityKind, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 7559834755963615602L;
 	

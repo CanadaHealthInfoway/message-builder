@@ -48,6 +48,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class Compression extends EnumPattern {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 2463751994500229084L;
 	
 	public static final Compression DEFLATE = new Compression("DEFLATE", "DF");

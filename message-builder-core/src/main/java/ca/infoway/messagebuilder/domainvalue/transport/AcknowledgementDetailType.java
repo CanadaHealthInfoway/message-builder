@@ -28,6 +28,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * warnings and information messages related to the transmission of the message
  */
 public class AcknowledgementDetailType extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailType {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
     private static final long serialVersionUID = -5837485473668582469L;
     

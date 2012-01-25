@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 public class MockActCodeEnum extends EnumPattern implements ActCode {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 5768896600339903436L;
 	

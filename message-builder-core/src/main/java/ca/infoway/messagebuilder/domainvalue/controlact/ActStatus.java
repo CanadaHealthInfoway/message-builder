@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum ActStatus. Codes representing the defined states of an Act as defined by the Act class state machine.
  */
 public class ActStatus extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActStatus, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 7809865843109575750L;
 	

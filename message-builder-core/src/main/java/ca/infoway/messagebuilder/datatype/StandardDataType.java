@@ -53,6 +53,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class StandardDataType extends EnumPattern implements Typed {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 75841345036545890L;
 	
 	public static final StandardDataType ANY = new StandardDataType("ANY", "ANY"); 

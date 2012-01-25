@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class SpecificationVersion extends EnumPattern implements VersionNumber {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 3269139690668726076L;
 
 	/**

@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class Currency extends EnumPattern implements Code {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
 	private static final long serialVersionUID = -4782912717651803398L;
 	

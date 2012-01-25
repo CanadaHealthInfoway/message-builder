@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class ActPharmacySupplyType extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -4833727160525452059L;
 	
 	public static final ActPharmacySupplyType DAILY_FILL = new ActPharmacySupplyType("DAILY_FILL", "DF"); 

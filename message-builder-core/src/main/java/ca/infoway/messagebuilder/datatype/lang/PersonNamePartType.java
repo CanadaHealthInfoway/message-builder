@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class PersonNamePartType extends EnumPattern implements NamePartType {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
     private static final long serialVersionUID = 8255492551088946001L;
     

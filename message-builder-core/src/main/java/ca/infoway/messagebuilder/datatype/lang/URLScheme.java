@@ -36,6 +36,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class URLScheme extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.URLScheme, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
     private static final long serialVersionUID = -2569871003868077442L;
     

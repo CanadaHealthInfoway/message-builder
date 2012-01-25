@@ -28,6 +28,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class QueryResponse extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.QueryResponse {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -6211467438802392184L;
 	
 	public static final QueryResponse APPLICATION_ERROR = new QueryResponse("APPLICATION_ERROR", "AE", true);

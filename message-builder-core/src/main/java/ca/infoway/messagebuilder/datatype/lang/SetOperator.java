@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class SetOperator extends EnumPattern implements Code {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 3137851858955816030L;
 	

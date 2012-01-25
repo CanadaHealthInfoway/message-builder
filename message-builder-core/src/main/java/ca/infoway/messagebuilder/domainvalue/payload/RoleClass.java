@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum RoleClass.
  */
 public class RoleClass extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.RoleClass, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -4129204171430176848L;
 

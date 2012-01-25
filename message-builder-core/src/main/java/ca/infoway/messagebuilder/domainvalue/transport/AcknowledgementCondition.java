@@ -33,6 +33,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author administrator
  */
 public class AcknowledgementCondition extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.AcknowledgementCondition, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 7605543876867112424L;
 

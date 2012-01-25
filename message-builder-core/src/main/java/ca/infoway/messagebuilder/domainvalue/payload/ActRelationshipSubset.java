@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class ActRelationshipSubset extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActRelationshipSubset, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -617461458714176662L;
 	
 	public static final ActRelationshipSubset EXPECTED_FUTURE = new ActRelationshipSubset("EXPECTED_FUTURE", "FUTURE");

@@ -32,6 +32,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * events used in the release of HL7 identified by the versionCode.
  */
 public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 4412605146444745176L;
 	

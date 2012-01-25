@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class AdministrativeGender extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.AdministrativeGender, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 1376436588630112644L;
 	
 	public static final AdministrativeGender FEMALE = new AdministrativeGender("FEMALE", "F"); 

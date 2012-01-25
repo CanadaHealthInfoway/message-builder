@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * or debugging system.
  */
 public class ProcessingID extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ProcessingID, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
     private static final long serialVersionUID = -4810533940602682646L;
     

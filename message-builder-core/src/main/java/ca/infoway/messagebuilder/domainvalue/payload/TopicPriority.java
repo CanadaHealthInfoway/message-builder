@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class TopicPriority extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.TopicPriority, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 4476190535780761850L;
 	
 	public static final TopicPriority NL_MANDATORY = new TopicPriority("NL_MANDATORY", "NL_MAND"); 

@@ -33,6 +33,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class PostalAddressUse extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.PostalAddressUse {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
 	private static final long serialVersionUID = -4205269283911237833L;
 	

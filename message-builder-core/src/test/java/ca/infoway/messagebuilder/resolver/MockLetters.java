@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 
 public class MockLetters extends EnumPattern implements MockCharacters {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = 6400732969093598844L;
 	
 	public static final MockLetters A = new MockLetters("A"); 

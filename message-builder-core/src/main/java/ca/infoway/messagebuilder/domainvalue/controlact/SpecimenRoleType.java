@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum SpecimenRoleType. Created manually. 
  */
 public class SpecimenRoleType extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.RoleCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 584607967819653758L;
 	

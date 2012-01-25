@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * filtered based on whether they have associated unmanaged or persistent issues.
  */
 public class IssueFilterCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.IssueFilterCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -4833350276910420958L;
 	

@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 public class UpdateModeType extends EnumPattern {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 3066114109382422542L;
 

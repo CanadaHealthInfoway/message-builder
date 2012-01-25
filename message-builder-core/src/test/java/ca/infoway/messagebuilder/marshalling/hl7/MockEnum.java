@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.marshalling.hl7;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 public class MockEnum extends EnumPattern implements MockCharacters {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 2054176307399510076L;
 	

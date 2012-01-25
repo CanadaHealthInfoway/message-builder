@@ -36,6 +36,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 	
 	public static class CustomUnit extends EnumPattern implements UnitsOfMeasureCaseSensitive {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 		private static final long serialVersionUID = -8455773998578575019L;
 		public static final CustomUnit SANDWICH = new CustomUnit("SANDWICH"); 
 		public static final CustomUnit COFFEE = new CustomUnit("COFFEE");

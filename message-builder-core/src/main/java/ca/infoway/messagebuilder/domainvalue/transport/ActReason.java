@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * Identifies why this specific query, modification request, or modification occurred.
  */
 public class ActReason extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActReason, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	private static final long serialVersionUID = -4688667149166033487L;
 
 	public static final ActReason SYSTEM_TEST = new ActReason("SYSTEM_TEST", "SYSTEST");

@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * Example: The degree of match or match weight returned by a matching algorithm in a response to a query.
  */
 public class ProbabilityMatchCode extends EnumPattern implements ObservationQueryMatchType, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -4412180444594616563L;
 	

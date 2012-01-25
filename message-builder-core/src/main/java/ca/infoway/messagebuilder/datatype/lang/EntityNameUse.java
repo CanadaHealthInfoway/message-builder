@@ -35,6 +35,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class EntityNameUse extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.EntityNameUse, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
 	private static final long serialVersionUID = -8087184682557715309L;
 	

@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class x_ActMoodIntentEvent extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -90066419599911191L;
 	
 	public static final x_ActMoodIntentEvent EVENT = new x_ActMoodIntentEvent("EVN"); 

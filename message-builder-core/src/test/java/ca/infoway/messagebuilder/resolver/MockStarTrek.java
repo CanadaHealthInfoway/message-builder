@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 
 public class MockStarTrek extends EnumPattern implements MockCharacters {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -5314443670242023450L;
 	
 	public static final MockStarTrek KIRK = new MockStarTrek("KIRK"); 

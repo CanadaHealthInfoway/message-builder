@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * should communicate its receiver responsibilities.
  */
 public class ResponseMode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ResponseMode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -3314261517693748622L;
 	/**

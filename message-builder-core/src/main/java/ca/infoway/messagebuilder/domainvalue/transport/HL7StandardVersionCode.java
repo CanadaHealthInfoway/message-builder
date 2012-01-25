@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * and added with each new version of the HL7 Standard. 
  */
 public class HL7StandardVersionCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.HL7StandardVersionCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     private static final long serialVersionUID = -2697379971765691638L;
 	public static final HL7StandardVersionCode V3_2005_05 = new HL7StandardVersionCode("V3_2005_05", "V3-2005-05");
     public static final HL7StandardVersionCode V3_2006_05 = new HL7StandardVersionCode("V3_2006_05", "V3-2006-05");

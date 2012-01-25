@@ -37,6 +37,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class DefaultTimeUnit extends EnumPattern implements DateConverter, x_TimeUnitsOfMeasure {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 3134130558551921271L;
 	

@@ -405,6 +405,8 @@ public class AddAllergyIntoleranceExample {
 	}
 
 	static class TrivialSeverityObservation extends EnumPattern implements Code {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 		private static final long serialVersionUID = 6727127928910765846L;
 		public static final TrivialSeverityObservation SEV = new TrivialSeverityObservation(
 				"SEV");

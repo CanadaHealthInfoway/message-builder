@@ -32,6 +32,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @sharpen.ignore - datatype - translated manually
  */
 public class PostalAddressPartType extends EnumPattern implements NamePartType, AddressPartType {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
     private static final long serialVersionUID = 6553215353191315355L;
     

@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum ActDetectedIssueCode. Identifies types of detected issues for Act class "ALRT"
  */
 public class ActDetectedIssueCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -2117496114393701585L;
 	

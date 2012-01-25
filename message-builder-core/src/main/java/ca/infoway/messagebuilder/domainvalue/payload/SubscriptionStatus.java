@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class SubscriptionStatus extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.SubscriptionStatus, Describable {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -8472481397627274517L;
 	
 	public static final SubscriptionStatus SUBSCRIBED = new SubscriptionStatus("SUBSCRIBED", "1"); 

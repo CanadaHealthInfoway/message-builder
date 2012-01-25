@@ -27,6 +27,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum CodeSystem. Groups a number of common Oids.
  */
 public class CodeSystem extends EnumPattern implements Oid {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 1L;
 	

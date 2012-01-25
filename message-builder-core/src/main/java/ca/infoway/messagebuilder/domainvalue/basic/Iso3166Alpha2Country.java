@@ -28,6 +28,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum Iso3166Alpha2Country.
  */
 public class Iso3166Alpha2Country extends EnumPattern implements Country {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -7361050354534966120L;
 	

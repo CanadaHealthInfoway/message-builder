@@ -30,6 +30,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum AcknowledgementDetailCode. A site specific code indicating the specific problem being reported by this Ack Detail.
  */
 public class AcknowledgementDetailCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
 	private static final long serialVersionUID = 7919022582239626775L;
 	

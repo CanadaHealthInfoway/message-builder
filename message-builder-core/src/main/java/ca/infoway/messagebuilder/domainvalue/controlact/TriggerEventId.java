@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum TriggerEventId. Created manually. 
  */
 public class TriggerEventId extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 584607967819653758L;
 	

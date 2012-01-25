@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum AcknowledgementType. This attribute contains an acknowledgement code as described in the HL7 message processing rules.
  */
 public class AcknowledgementType extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.AcknowledgementType, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
     
     private static final long serialVersionUID = -1689382159743562443L;
     

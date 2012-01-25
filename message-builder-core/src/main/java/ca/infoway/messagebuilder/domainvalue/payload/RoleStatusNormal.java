@@ -34,6 +34,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author BC Holmes
  */
 public class RoleStatusNormal extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.RoleStatusNormal, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -8503517204278317948L;
 

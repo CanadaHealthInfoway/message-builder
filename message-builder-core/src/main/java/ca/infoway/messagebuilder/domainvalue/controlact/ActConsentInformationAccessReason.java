@@ -29,7 +29,9 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum ActConsentInformationAccessReason.
  */
 public class ActConsentInformationAccessReason extends EnumPattern implements
-		ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason, Describable {
+	ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -3966382346162978317L;
 	public static final ActConsentInformationAccessReason EMERGENCY = new ActConsentInformationAccessReason("EMERGENCY", "EMERG");

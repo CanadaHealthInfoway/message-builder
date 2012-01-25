@@ -37,6 +37,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class MessageWaitingPriority extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.MessageWaitingPriority {
 
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
+
 	private static final long serialVersionUID = -9181499971666284366L;
 	
 	/**

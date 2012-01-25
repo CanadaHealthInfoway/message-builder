@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>The Enum ActCode. A code specifying the particular kind of Act that the Act-instance represents within its class. 
  */
 public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActCode, Describable {
+
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = 584607967819653758L;
 	
