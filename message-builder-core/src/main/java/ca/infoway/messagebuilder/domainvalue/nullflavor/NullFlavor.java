@@ -33,8 +33,6 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class NullFlavor extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.NullFlavor {
 
-	static{ /*static init block for translation purposes. Please do not remove.*/ }
-
     private static final long serialVersionUID = 7363875379566291402L;
     
 	public static final NullFlavor NO_INFORMATION = new NullFlavor("NO_INFORMATION", "NI"); 
@@ -91,6 +89,8 @@ public class NullFlavor extends EnumPattern implements ca.infoway.messagebuilder
     private static final Map<String, NullFlavor> codeToNullFlavor;
     
     static {
+    	/* static init block necessary for translation purposes. Please do not remove. */
+
     	codeToNullFlavor = new HashMap<String, NullFlavor>();
     	for (NullFlavor nullFlavor : EnumPattern.values(NullFlavor.class)) {
     		codeToNullFlavor.put(nullFlavor.getCodeValue(), nullFlavor);
