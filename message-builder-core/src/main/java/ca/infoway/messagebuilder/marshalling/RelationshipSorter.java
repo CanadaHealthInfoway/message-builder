@@ -90,12 +90,18 @@ class RelationshipSorter {
 			Object object = this.map.get(key);
 			if (object instanceof RelationshipSorter) {
 				Mapping rest = mapping.rest();
+				RelationshipSorter innerRelationshipSorter = (RelationshipSorter) object;
 				if (rest.isCompound()) {
-					((RelationshipSorter) object).properties.put(beanProperty.getName(), beanProperty);
-					((RelationshipSorter) object).addDuplicates(rest, beanProperty);
+					innerRelationshipSorter.properties.put(beanProperty.getName(), beanProperty);
+					// TM - Redmine 10965 - this "if" check fixes bug, might not be sufficient in the long run
+					if (innerRelationshipSorter.map.getAllTypeBased(rest.first()).isEmpty()) {
+						innerRelationshipSorter.add(rest, beanProperty);
+					} else {
+						innerRelationshipSorter.addDuplicates(rest, beanProperty);
+					}
 				} else {
 					// we are at the "bottom" of the chain - now we can add the "duplicate" property to its correct location 
-					((RelationshipSorter) object).add(rest, beanProperty);
+					innerRelationshipSorter.add(rest, beanProperty);
 				}
 			}
 		}
