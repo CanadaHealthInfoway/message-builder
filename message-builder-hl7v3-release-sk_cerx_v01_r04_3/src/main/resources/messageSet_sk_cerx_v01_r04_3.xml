@@ -71,11 +71,39 @@
             <messagePart name="COCT_MT050202CA.Patient" abstract="false">
                <documentation>
                   <businessName>Patient</businessName>
+                  <annotation annotationType="CONSTRAINT">
+                     <text><![CDATA[<p><font size="2" face="Helvetica"><font size="2" face="Helvetica">
+<p align="left">This is a common element that describes a person who is receiving or who may receive healthcare services. This element is sent both from the</p>
+<p align="left">vendor software to PIN and from PIN to the vendor software.</p>
+</font></font></p>
+<p align="left"><b><font size="2" face="Helvetica-Bold"><font size="2" face="Helvetica-Bold"><font face="Times New Roman">When being sent from PIN, all details that are known by the jurisdiction&rsquo;s</font></font></font><font size="2" face="Helvetica"><font size="2" face="Helvetica">
+<p>COCT_MT050202CA is currently only used in the Add Record Note and the Record Consent transactions.</p>
+</font></font></b></p>
+<p align="left">client registry will be returned. When being sent to PIN, the business rules specified below must be adhered to. NOTE: It is expected</p>
+<p align="left">that some jurisdictions will require external systems to validate patient details with the client registry before sending messages to PIN.</p>
+<p align="left">In that case, the business rules specified below might be relaxed since PIN will not be expected to validate the patient details.</p>]]></text>
+                  </annotation>
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="RoleClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="PAT" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>A:Patient ID</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"> </font></font></font></p>
+<p align="left"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">Unique identifier assigned to a person by a Federal,</font></font></font></p>
+<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Provincial, and Territorial jurisdiction.</p>
+</font></font></font></p>
+<p>&nbsp;</p>
+<p align="left"><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font face="Times New Roman">The specific</font></font></font></font></b></p>
+<p align="left">set of identifiers that can be sent to PIN will be</p>
+<p align="left">determined by a jurisdiction. When sent by PIN,</p>
+<p align="left">this will be the jurisdiction&rsquo;s client registry</p>
+<p align="left">external patient identifier.</p>
+<p align="left">If the identifier sent to PIN does not exist in the</p>
+<p align="left">jurisdiction&rsquo;s client registry, then a KEY204 error</p>
+<p>issue will be returned.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="patientPerson" type="COCT_MT050202CA.Person" conformance="MANDATORY" cardinality="1" sortOrder="2"/>
@@ -93,11 +121,30 @@
                <relationship name="administrativeGenderCode" type="CV" structural="false" domainType="AdministrativeGender" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>F:Patient Gender</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Indicates the gender (sex) of the patient.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">This must match the gender associated with the</p>
+<p>ID</p>
+<font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p>&nbsp;</p>
+</font></font></font></font></font></font></b></p>
+<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">.</font></font></font></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="birthTime" type="TS.DATE" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="4">
                   <documentation>
                      <businessName>E:Patient Birth Date</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Indicates the date on which the patient was born.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">This must match the birth month and year</p>
+<p>associated with the ID.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -110,21 +157,71 @@
             <messagePart name="COCT_MT050203CA.Patient" abstract="false">
                <documentation>
                   <businessName>Patient</businessName>
+                  <annotation annotationType="CONSTRAINT">
+                     <text><![CDATA[<p><font size="2" face="Helvetica"><font size="2" face="Helvetica">
+<p align="left">This is a common element that describes a person who is receiving or who may receive healthcare services. This element is sent both from the</p>
+<p align="left">vendor software to PIN and from PIN to the vendor software.</p>
+</font></font></p>
+<p align="left"><b><font size="2" face="Helvetica-Bold"><font size="2" face="Helvetica-Bold"><font face="Times New Roman">When being sent from PIN, all details that are known by the jurisdiction&rsquo;s</font></font></font></b></p>
+<p align="left">client registry will be returned. When being sent to PIN, the business rules specified below must be adhered to. NOTE: It is expected</p>
+<p align="left">that some jurisdictions will require external systems to validate patient details with the client registry before sending messages to PIN.</p>
+<p>In that case, the business rules specified below might be relaxed since PIN will not be expected to validate the patient details.</p>]]></text>
+                  </annotation>
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="RoleClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="PAT" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>A:Patient ID</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Unique identifier assigned to a person by a Federal,</p>
+<p align="left">Provincial, and Territorial jurisdiction.</p>
+</font></font></font></p>
+<p align="left"><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font face="Times New Roman">The specific</font></font></font></font></b></p>
+<p align="left">set of identifiers that can be sent to PIN will be</p>
+<p align="left">determined by a jurisdiction. When sent by PIN,</p>
+<p align="left">this will be the jurisdiction&rsquo;s client registry</p>
+<p align="left">external patient identifier.</p>
+<p align="left">If the identifier sent to PIN does not exist in the</p>
+<p align="left">jurisdiction&rsquo;s client registry, then a KEY204 error</p>
+<p>issue will be returned.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="addr" type="AD.BASIC" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>C:Patient Contact Address</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Physical address for the patient where they may be</p>
+<p align="left">visited or found for the purposes of this particular</p>
+<p align="left">action. Generally only specified when different from</p>
+<p align="left">the addresses stored on the client registry.</p>
+</font></font></font></p>
+<p align="left"><b><font color="#000080" size="2"><font color="#000080" size="2"><font color="#000080" size="2"><font face="Times New Roman">PIN will</font></font></font></font></b><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">be ignoring this address and will be returning</p>
+<p align="left">the address found in the jurisdiction&rsquo;s client</p>
+<p>registry.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="telecom" type="LIST&lt;TEL.PHONEMAIL&gt;" structural="false" conformance="POPULATED" cardinality="1-5" sortOrder="3">
                   <documentation>
                      <businessName>D:Patient Contact Phone and E-mails</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Telephone, fax or e-mail addresses intended as the</p>
+<p align="left">principal means of contact for the patient with</p>
+<p align="left">regard to the current action. E.g. the phone number</p>
+<p align="left">to reach the patient at regarding the results of an</p>
+<p align="left">ordered test.</p>
+</font></font></font></p>
+<p align="left"><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font face="Times New Roman">PIN will be ignoring the telephone</font></font></font></font></b></p>
+<p align="left">numbers and will be returning the telephone</p>
+<p align="left">numbers found in the jurisdction&rsquo;s client</p>
+<p>registry.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="patientPerson" type="COCT_MT050203CA.Person" conformance="MANDATORY" cardinality="1" sortOrder="4"/>
@@ -137,16 +234,51 @@
                <relationship name="name" type="PN.BASIC" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
                      <businessName>B:Patient Name</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">The name by which the patient is known and which</p>
+<p align="left">apply to a particular clinical action being reported or</p>
+<p align="left">recorded. For a prescription, this will be the name</p>
+<p align="left">traditionally printed on the paper script or the name</p>
+<p align="left">that appears on the patient's chart.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Although the PN.BASIC datatype allows for the</p>
+<p align="left">name to be sent without any parts, PIN requires</p>
+<p align="left">at least the Family Name to be identified for</p>
+<p align="left">validation purposes.</p>
+<p align="left">This must match the name associated with the</p>
+<p>ID.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="administrativeGenderCode" type="CV" structural="false" domainType="AdministrativeGender" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>F:Patient Gender</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Indicates the gender (sex) of the patient.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">This must match the gender associated with the</p>
+<p>ID</p>
+<font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p>&nbsp;</p>
+</font></font></font></font></font></font></b></p>
+<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">.</font></font></font></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="birthTime" type="TS.DATE" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="4">
                   <documentation>
                      <businessName>E:Patient Birth Date</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Indicates the date on which the patient was born.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">This must match the birth month and year</p>
+<p>associated with the ID.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -214,11 +346,35 @@
             <messagePart name="COCT_MT090107CA.AssignedPerson" abstract="false">
                <documentation>
                   <businessName>Provider</businessName>
+                  <annotation annotationType="CONSTRAINT">
+                     <text><![CDATA[<p><font size="2" face="Helvetica"><font size="2" face="Helvetica">
+<p align="left">This is a common element that describes a healthcare provider, both professional and non-professional, who is involved in the delivery of</p>
+<p align="left">healthcare services. This element is sent both from the vendor software to PIN and from PIN to the vendor software.</p>
+</font></font></p>
+<p align="left"><b><font size="2" face="Helvetica-Bold"><font size="2" face="Helvetica-Bold"><font face="Times New Roman">When being sent from</font></font></font></b></p>
+<p align="left">PIN, the Provider ID, the Provider Name and a Provide License number will be returned, If a provider has multiple license numbers only</p>
+<p align="left">one will be sent back. When being sent to PIN, either the Provider ID or the Provider License Number will be used to look up the</p>
+<p>provider in the jurisdiction&rsquo;s Provider Registry. The Provider Type is not used in PIN for authorization purposes so it will be ignored.</p>]]></text>
+                  </annotation>
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="RoleClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="ASSIGNED" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="POPULATED" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>A:Provider Id</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">This is a unique identifier for a provider.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Either this or the Provider License Number must</p>
+<p align="left">be specified or a MISSCOND error issue will be</p>
+<p align="left">returned.</p>
+<p align="left">If this is specified and the ID does not exist in</p>
+<p align="left">the jurisdiction&rsquo;s provider registry, a KEY204</p>
+<p align="left">error issue will be returned.</p>
+<p align="left">If this is specified, then the Provider License</p>
+<p>Number will be ignored.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="code" type="CV" structural="false" domainType="HealthcareProviderRoleType" conformance="REQUIRED" cardinality="0-1" sortOrder="2" codingStrength="CNE">
@@ -238,6 +394,22 @@
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>D:Provider License Number</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">This is the professional license number issued to</p>
+<p align="left">this provider. This will be used to verify authority for</p>
+<p align="left">clinical services.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Either this or the Provider License Number must</p>
+<p align="left">be specified or a MISSCOND error issues will be</p>
+<p align="left">returned.</p>
+<p align="left">If this is specified and the ID does not exist in</p>
+<p align="left">the jurisdiction&rsquo;s provider registry, a KEY204</p>
+<p align="left">error issue will be returned.</p>
+<p align="left">If the Provider ID is specified, then this ID will be</p>
+<p>ignored.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -535,6 +707,18 @@
                <relationship name="name" type="ST" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="3" length="100">
                   <documentation>
                      <businessName>B:Drug Name</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">The name assigned to a drug. Up to two names are</p>
+<p align="left">supported: a 'search name' which is fully formed with</p>
+<p align="left">no abbreviations, and a 'display name' which may</p>
+<p align="left">contain abbreviations to fit within a smaller area on</p>
+<p align="left">the screen.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will only be returning one name &ndash; the &lsquo;search</p>
+<p>name&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="desc" type="ST" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="4" length="2000">
@@ -574,7 +758,7 @@
                <relationship name="determinerCode" type="CS" structural="true" domainType="EntityDeterminer" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="KIND" codingStrength="CNE"/>
                <relationship name="code" type="CV" structural="false" domainType="ActiveIngredientDrugEntityType" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Drug Ingredient Identifier</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>The unique identifier for the drug or chemical.<br /><strong>PIN requires that an ingredient code be given. Ingredients that do not have a code will not be sent.</strong></p>
 <p><strong>This identifier must be the FDB HIC.<br /></strong></p>]]></text>
@@ -615,6 +799,16 @@
                <relationship name="negationInd" type="BL" structural="true" conformance="POPULATED" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>D:Drug Does Not Contain Indicator</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">An indication that a drug does not contain the</p>
+<p align="left">specified ingredient (active or inactive). A null value</p>
+<p align="left">indicates that the drug &ldquo;may contain&rdquo; the specified</p>
+<p align="left">ingredient.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p>PIN does not have this information.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="quantity" type="PQ.DRUG" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
@@ -644,6 +838,13 @@
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>Manufacturer Id</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">An identifier denoting a specific drug manufacturer.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p>PIN does not have this information.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="name" type="ST" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="3" length="200">
@@ -677,11 +878,31 @@
                <relationship name="name" type="ST" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="3" length="100">
                   <documentation>
                      <businessName>B:Drug Name</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">The name assigned to a drug. Up to two names are</p>
+<p align="left">supported: a 'search name' which is fully formed with</p>
+<p align="left">no abbreviations, and a 'display name' which may</p>
+<p align="left">contain abbreviations to fit within a smaller area on</p>
+<p align="left">the screen.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will only be returning one name &ndash; the &lsquo;search</p>
+<p>name&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="desc" type="ST" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="4" length="2000">
                   <documentation>
                      <businessName>C:Drug Description</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">A free form textual description of a drug.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">As PIN will not be returning custom compounds in</p>
+<p>this query, this field will never be returned.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="formCode" type="CV" structural="false" domainType="FDBDosageForm" domainSource="CODE_SYSTEM" conformance="REQUIRED" cardinality="0-1" sortOrder="5" codingStrength="CNE">
@@ -1453,9 +1674,17 @@
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="ACT" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVNINT.CRT" codingStrength="CNE"/>
-               <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
+               <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
                      <businessName>C:Record Identifier</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">The identifier of the prescription, dispense, nonprescribed drug or allergy for which the masking status is being changed.</p>
+</font></font></font>
+<p align="left">Although CeRx defines this as 0..1, PIN only supports the masking of a specific record so<br />
+requires this to be sent. If this identifier is not for a prescription,dispense, non-prescribed drug or allergy, then a BUS error issue will be returned</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="code" type="CV" structural="false" domainType="ActInformationCategoryCode" conformance="REQUIRED" cardinality="0-1" sortOrder="3" codingStrength="CNE">
@@ -2565,7 +2794,7 @@
                <relationship name="processingModeCode" type="CS" structural="false" domainType="ProcessingMode" conformance="MANDATORY" cardinality="1" sortOrder="7" fixedValue="T" codingStrength="CNE"/>
                <relationship name="acceptAckCode" type="CS" structural="false" domainType="AcknowledgementCondition" conformance="MANDATORY" cardinality="1" sortOrder="8" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Desired Acknowledgment Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Fixed to "NE".</strong></p>]]></text>
                      </annotation>
@@ -2904,7 +3133,7 @@
                <relationship name="processingModeCode" type="CS" structural="false" domainType="ProcessingMode" conformance="MANDATORY" cardinality="1" sortOrder="7" fixedValue="T" codingStrength="CNE"/>
                <relationship name="acceptAckCode" type="CS" structural="false" domainType="AcknowledgementCondition" conformance="MANDATORY" cardinality="1" sortOrder="8" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Desired Acknowledgment Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Fixed to "NE".</strong></p>]]></text>
                      </annotation>
@@ -4304,6 +4533,18 @@
                <relationship name="text" type="ED.DOCORREF" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="4">
                   <documentation>
                      <businessName>Monograph Content</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Includes either the full-blown content of the</p>
+<p align="left">monograph (as a PDF, HTML or HL7 CDA document),</p>
+<p align="left">or provides a reference to where the monograph can</p>
+<p align="left">be accessed on the network via HTTP or FTP.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will only return HTTP references to the</p>
+<p align="left">monograph documents and they will be HTML</p>
+<p>format.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="5" fixedValue="completed" codingStrength="CNE"/>
@@ -5364,7 +5605,7 @@
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="4" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Prescription Masking Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>As SK does not implement record-level masking, this must be "Normal" or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -5596,9 +5837,9 @@
                      <businessName>A:Prescription Number</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CV" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
+               <relationship name="code" type="CV" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Prescription Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -5606,7 +5847,7 @@
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>C:Prescription Status</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This denotes the state of the prescription. This will be "active" when submitting a new prescription and "new" when submitting a clinical pre-determination.</p>
 <p><strong>Any other code will cause a CODE_INVAL error issue to be returned.</strong></p>]]></text>
@@ -5615,7 +5856,7 @@
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Prescription Masking Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>As SK does not implement record-level masking, this must be "Normal" or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -5690,7 +5931,7 @@
                   <businessName>f:includes</businessName>
                </documentation>
                <relationship name="typeCode" type="CS" structural="true" domainType="ActRelationshipType" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="COMP" codingStrength="CNE"/>
-               <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ON" codingStrength="CNE"/>
+               <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ON" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="true"/>
                <relationship name="supplyRequest" type="PORX_MT010120CA.SupplyRequest" conformance="POPULATED" cardinality="1" sortOrder="3"/>
             </messagePart>
@@ -6003,7 +6244,7 @@
                </relationship>
                <relationship name="quantity" type="PQ.DRUG" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="4">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:Fill Quantity</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>The amount of medication to be dispensed to the patient for each normal fill (excluding trial or other special first fills). <strong>Although CeRx does not have this as mandatory, since PIN uses this value, it should be specified if at all possible.</strong></p>]]></text>
                      </annotation>
@@ -6011,7 +6252,7 @@
                </relationship>
                <relationship name="expectedUseTime" type="IVL.WIDTH&lt;TS.FULLDATE&gt;" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="5">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Days Supply</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>PIN will only use the Fill Quantity to determine the amount per fill. If it is not specified, PIN will not use the administration instructions and the Days Supply. Instead, it will not report Number of Fills Remaining in any query responses.</strong></p>]]></text>
                      </annotation>
@@ -6066,7 +6307,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="RQO" codingStrength="CNE"/>
                <relationship name="effectiveTime" type="IVL&lt;TS.FULLDATE&gt;" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Dispensing Allowed Period</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>If specified, this interval will be used to set the Prescription Effective Date and the Prescription Last Fill Expiry Date. If not specified, the Prescription Effective Date will be set to the effective date of the Control Act Event.</strong></p>]]></text>
                      </annotation>
@@ -6521,11 +6762,31 @@
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>A:Prescription Dispense Number</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Identifier assigned by the dispensing facility.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will record this as an external key against</p>
+<p>the event to allow for retrieval of this dispense using a given identifier.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>E:Prescription Masking Indicator</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">Communicates the intent that the dispense should</p>
+<p align="left">be masked if it is created.</p>
+</font></font></font></p>
+<p align="left"><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font face="Times New Roman">If the dispense is</font></font></font></font></b></p>
+<p align="left">masked, this implicitly makes the complete</p>
+<p align="left">prescription and all dispenses masked.</p>
+<p align="left">As SK does not implement record-level</p>
+<p align="left">masking, this must be &lsquo;Normal&rsquo; or a</p>
+<p>CODE_INVAL error issue will be returned.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="PORX_MT020060CA.Subject8" conformance="MANDATORY" cardinality="1" sortOrder="4"/>
@@ -6719,6 +6980,9 @@
                <relationship name="time" type="TS.FULLDATETIME" structural="false" conformance="POPULATED" cardinality="1" sortOrder="1">
                   <documentation>
                      <businessName>Prescription Order Date</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p>The date and time at which the drug was prescribed. This may differ for mthe date on which the prescription becomes effective.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="assignedPerson" type="COCT_MT090107CA.AssignedPerson" conformance="POPULATED" cardinality="1" sortOrder="2"/>
@@ -7047,9 +7311,9 @@
                      <businessName>A:Prescription Order Number</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Prescription Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN does not support SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -7518,7 +7782,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="DRUG" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Other Medication Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -7526,7 +7790,7 @@
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>C:Other Medication Status</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>Indicates the status of the other medication record. <strong>Only 'active' and 'completed' are allowed. Otherwise, a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -7539,7 +7803,7 @@
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Other Medication Masking Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>As SK does not implement record-level masking, this must be "Normal" or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -7547,7 +7811,7 @@
                </relationship>
                <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="MANDATORY" cardinality="1" sortOrder="6" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Route of Administration</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this element is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -7598,7 +7862,7 @@
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Other Medication Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -7624,7 +7888,7 @@
                </relationship>
                <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="MANDATORY" cardinality="1" sortOrder="7" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:Route</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this element is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -10418,7 +10682,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Prescription Dispense Number</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>The Prescription Dispense Number is a globally unique number assigned to a dispense (single fill) by PIN irrespective of the source of the dispense.</strong></p>]]></text>
                      </annotation>
@@ -10861,11 +11125,21 @@
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
                      <businessName>A:Prescription Order Number</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN&rsquo;s &lsquo;PIN Rx Number&rsquo; will be sent back as the Prescription Order Number.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
                      <businessName>Prescription Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN does not support SNOMED, this is fixed to &lsquo;DRUG&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" codingStrength="CNE">
@@ -11373,9 +11647,12 @@
                      <businessName>A:Administration Record Id</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
                      <businessName>Other Medication Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p>Because PIN does not support SNOMED, this is fixed to &quot;DRUG&quot;.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" codingStrength="CNE">
@@ -11393,9 +11670,15 @@
                      <businessName>D:Other Medication Masking Indicator</businessName>
                   </documentation>
                </relationship>
-               <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="OPTIONAL" cardinality="0-1" sortOrder="7" codingStrength="CNE">
+               <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="MANDATORY" cardinality="1" sortOrder="7" codingStrength="CNE">
                   <documentation>
                      <businessName>E:Route of Administration</businessName>
+                     <annotation annotationType="DESCRIPTION">
+                        <text><![CDATA[<p>This is the means by which the patient is takinig the medication.</p>]]></text>
+                     </annotation>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p>Because PIN does not support SNOMED, this element is &lt;b&gt;mandatory&lt;/b&gt;.</p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="PORX_MT060160CA.Subject10" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
@@ -12076,6 +12359,21 @@
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
                   <documentation>
                      <businessName>Prescription Dispensable Indicator</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">This generally mirrors the status for the</p>
+<p align="left">prescription, but in some circumstances may be</p>
+<p align="left">changed to 'aborted' while the prescription is still</p>
+<p align="left">active. When this occurs, it means the prescription</p>
+<p align="left">may no longer be dispensed, though it may still be</p>
+<p align="left">administered.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">When a Revoke Dispensing transaction has</p>
+<p align="left">been received against this prescription or the</p>
+<p align="left">prescription has been renewed, then this will</p>
+<p>be ABORTED otherwise</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="effectiveTime" type="IVL&lt;TS.FULLDATE&gt;" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="3">
@@ -12850,7 +13148,7 @@
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Other Medication Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This is an identifier assigned to a unique instance of an active medication record.<br /><strong>Because PIN does not support SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -12873,7 +13171,7 @@
                </relationship>
                <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="MANDATORY" cardinality="1" sortOrder="7" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Route of Administration</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN does not support SNOMED, this element is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -13385,9 +13683,9 @@
                      <businessName>A:Administration Record Id</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Other Medication Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN does not support SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -13410,7 +13708,7 @@
                </relationship>
                <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="MANDATORY" cardinality="1" sortOrder="7" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Route of Administration</businessName>
                      <annotation annotationType="DESCRIPTION">
                         <text><![CDATA[<p>This is the means by which the patient is taking the medication.</p>]]></text>
                      </annotation>
@@ -14007,9 +14305,9 @@
                      <businessName>A:Prescription Order Number</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DRUG" codingStrength="CNE" defaultValue="DRUG">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Prescription Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN does not support SNOMED, this is fixed to "DRUG".</strong></p>]]></text>
                      </annotation>
@@ -15422,18 +15720,18 @@
                      <businessName>A:Observation Identifier</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CWE">
+               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>B:Observation Type</businessName>
                   </documentation>
                </relationship>
-               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="completed" codingStrength="CNE"/>
+               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="" codingStrength="CNE"/>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
                   <documentation>
                      <businessName>D:Observation Masking Indicator</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CWE">
                   <documentation>
                      <businessName>C:Observation Value</businessName>
                   </documentation>
@@ -15569,9 +15867,14 @@
                      <businessName>A:Active Medication Record Number</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ActSubstanceAdministrationCode" conformance="POPULATED" cardinality="1" sortOrder="3" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActSubstanceAdministrationCode" domainSource="CODE_SYSTEM" conformance="POPULATED" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>Administration Type</businessName>
+                     <annotation annotationType="DESIGN_COMMENTS">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Must be &lsquo;DRUG&rsquo; or a CODE_INVAL error issue will be returned.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="REQUIRED" cardinality="0-1" sortOrder="4" codingStrength="CNE">
@@ -15847,18 +16150,18 @@
                      <businessName>A:Observation Identifier</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CWE">
+               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>B:Observation Type</businessName>
                   </documentation>
                </relationship>
-               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="completed" codingStrength="CNE"/>
+               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="" codingStrength="CNE"/>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
                   <documentation>
                      <businessName>D:Observation Masked Indicator</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CWE">
                   <documentation>
                      <businessName>C:Observation Value</businessName>
                   </documentation>
@@ -16014,7 +16317,7 @@
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ActSubstanceAdministrationCode" conformance="POPULATED" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Administration Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Must be "DRUG" or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -16297,18 +16600,18 @@
                      <businessName>A:Observation Identifier</businessName>
                   </documentation>
                </relationship>
-               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CWE">
+               <relationship name="code" type="CD" structural="false" domainType="ObservationIssueTriggerCodedObservationType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>B:Observation Type</businessName>
                   </documentation>
                </relationship>
-               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="completed" codingStrength="CNE"/>
+               <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="" codingStrength="CNE"/>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
                   <documentation>
                      <businessName>D:Observation Masking Indicator</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="IssueTriggerObservationValue" conformance="REQUIRED" cardinality="0-1" sortOrder="6" codingStrength="CWE">
                   <documentation>
                      <businessName>C:Observation Value</businessName>
                   </documentation>
@@ -16448,6 +16751,11 @@
                <relationship name="code" type="CD" structural="false" domainType="ActSubstanceAdministrationCode" conformance="POPULATED" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>Administration Type</businessName>
+                     <annotation annotationType="DESIGN_COMMENTS">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Must be &lsquo;DRUG&rsquo; or a CODE_INVAL error issue will be returned.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="REQUIRED" cardinality="0-1" sortOrder="4" codingStrength="CNE">
@@ -16619,6 +16927,18 @@
                <relationship name="effectiveTime" type="IVL&lt;TS.FULLDATE&gt;" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="4">
                   <documentation>
                      <businessName>A:Administration Period</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">The time period (begin and end dates) within</p>
+<p align="left">which the dispensed medication is to be</p>
+<p align="left">completely administered to/by the patient. May</p>
+<p align="left">differ from date prescription was issued.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Although the CeRx specification indicates that</p>
+<p align="left">only a width may be specified, PIN requires a</p>
+<p>full interval, i.e. two of start date, width, and</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="routeCode" type="CV" structural="false" domainType="RouteOfAdministration" conformance="OPTIONAL" cardinality="0-1" sortOrder="5" codingStrength="CNE">
@@ -17169,7 +17489,7 @@
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="5" fixedValue="completed" codingStrength="CNE"/>
                <relationship name="effectiveTime" type="IVL&lt;TS.FULLDATETIME&gt;" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="6">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>C:Consent Effective and End Time</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>CeRx defines this as 0..1 but the effective time is required in PIN so this is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -17220,14 +17540,14 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="OP" codingStrength="CNE"/>
                <relationship name="recipient" type="RCMR_MT010001CA.Recipient" conformance="POPULATED" cardinality="1" sortOrder="2">
                   <choice name="assignedPerson" type="COCT_MT090107CA.AssignedPerson"/>
-                  <choice name="serviceDeliveryLocation" type="COCT_MT240003CA.ServiceDeliveryLocation"/>
+                  <!-- choice name="serviceDeliveryLocation" type="COCT_MT240003CA.ServiceDeliveryLocation"/ -->
                </relationship>
             </messagePart>
          </entry>
          <entry name="RCMR_MT010001CA.Recipient">
             <messagePart name="RCMR_MT010001CA.Recipient" abstract="true">
                <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT240003CA.ServiceDeliveryLocation</specializationChild>
+               <!-- specializationChild>COCT_MT240003CA.ServiceDeliveryLocation</specializationChild -->
             </messagePart>
          </entry>
          <entry name="RCMR_MT010001CA.RecordType">
@@ -17365,7 +17685,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>B:Allergy Test Record Id</businessName>
                      <annotation annotationType="USAGE_NOTES">
                         <text><![CDATA[<p>This identifier references an external allergy test.<strong> PIN will simply store this value for information purposes. No validation of the id will be made.</strong></p>]]></text>
                      </annotation>
@@ -17384,7 +17704,7 @@
                </relationship>
                <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="MANDATORY" cardinality="1" sortOrder="6" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>C:Allergy Test Result</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>A code indicating result of the allergy test.<br /><strong>Because PIN is not using SNOMED, this attribute is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -17395,7 +17715,7 @@
          <entry name="REPC_MT000001CA.CausalityAssessment">
             <messagePart name="REPC_MT000001CA.CausalityAssessment" abstract="false">
                <documentation>
-                  <businessName></businessName>
+                  <businessName>Reported Reactions</businessName>
                   <annotation annotationType="DESCRIPTION">
                      <text><![CDATA[<p>This is a recording of a patient reaction that is believed to be associated with the allergy/intolerance.</p>]]></text>
                   </annotation>
@@ -17404,16 +17724,16 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="RXNASSESS" codingStrength="CNE" defaultValue="RXNASSESS">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Assessment Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to RXNASSESS.</strong></p>]]></text>
                      </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="completed" codingStrength="CNE"/>
-               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" conformance="POPULATED" cardinality="1" sortOrder="4" fixedValue="RELATED" codingStrength="CNE" defaultValue="RELATED">
+               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" conformance="MANDATORY" cardinality="1" sortOrder="4" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Relatedness Assessment</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to "RELATED"</strong></p>]]></text>
                      </annotation>
@@ -17442,7 +17762,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>B:Incidence Identifier</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>A KEY204 error issue will be returned if this record identifier is not found in PIN.</strong></p>]]></text>
                      </annotation>
@@ -17487,7 +17807,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="code" type="CD" structural="false" domainType="ObservationIntoleranceType" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Allergy/Intolerance Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This will indicate whether this is a drug allergy, a non- drug allergy, a drug intolerance, or a non-drug intolerance. <strong>CODE_INVAL error issue will be returned if non- leaf-level codes are sent, i.e. OINT is not allowed while EALG is.</strong></p>]]></text>
                      </annotation>
@@ -17500,7 +17820,7 @@
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Allergy/Intolerance Status</businessName>
                   </documentation>
                </relationship>
                <relationship name="effectiveTime" type="TS.DATE" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="5">
@@ -17510,7 +17830,7 @@
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="6" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>H:Allergy/Intolerance Masking Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>As SK does not implement record-level masking, this must be </strong><strong>NORMAL or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -17518,7 +17838,7 @@
                </relationship>
                <relationship name="uncertaintyCode" type="CV" structural="false" domainType="ActUncertainty" conformance="MANDATORY" cardinality="1" sortOrder="7" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Confirmed Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This can be 'N' or 'U'. <strong>CODE_INVAL error issue will be returned if not.</strong></p>]]></text>
                      </annotation>
@@ -17526,7 +17846,7 @@
                </relationship>
                <relationship name="value" type="CV" structural="false" domainType="IntoleranceValue" conformance="MANDATORY" cardinality="1" sortOrder="8" codingStrength="CWE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>B:Agent</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>PIN is extending the IntoleranceValue vocabulary to include FDB Allergen Group Codes and will not accept the ClinicalDrug child domain vocabulary. Because PIN is not using SNOMED, this attribute is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -17548,7 +17868,7 @@
                <relationship name="determinerCode" type="CS" structural="true" domainType="EntityDeterminer" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="KIND" codingStrength="CNE"/>
                <relationship name="code" type="CV" structural="false" domainType="ExposureAgentEntityType" conformance="POPULATED" cardinality="1" sortOrder="2" codingStrength="CWE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Exposed Material Type</businessName>
                      <annotation annotationType="USAGE_NOTES">
                         <text><![CDATA[<p>Indicates the type of agent that the patient was exposed to which caused the adverse reaction. This includes Drug, Food, Latex, Dust, etc. <strong>Send "UNK" if the material is unknown.</strong></p>]]></text>
                      </annotation>
@@ -17561,14 +17881,14 @@
                <documentation/>
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="OBS" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
-               <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
+               <!-- relationship name="id" type="II" structural="false" conformance="NOT_ALLOWED" cardinality="0" sortOrder="2">
                   <documentation>
                      <businessName>C:Reaction Record Id</businessName>
                   </documentation>
-               </relationship>
+               </relationship -->
                <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="DX" codingStrength="CNE" defaultValue="DX">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>Diagnosis Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this is fixed to "DX".</strong></p>]]></text>
                      </annotation>
@@ -17576,7 +17896,7 @@
                </relationship>
                <relationship name="negationInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="4">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:No reaction occurred</businessName>
                   </documentation>
                </relationship>
                <relationship name="text" type="ST" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="5" length="2000">
@@ -17635,7 +17955,7 @@
          <entry name="REPC_MT000001CA.StartsAfterStartOf">
             <messagePart name="REPC_MT000001CA.StartsAfterStartOf" abstract="false">
                <documentation>
-                  <businessName></businessName>
+                  <businessName>caused by exposure to</businessName>
                   <annotation annotationType="DESCRIPTION">
                      <text><![CDATA[<p>Indicates the agent that is believed to have caused the allergic reaction.</p>]]></text>
                   </annotation>
@@ -18065,7 +18385,7 @@
             <messagePart name="REPC_MT000004CA.AllergyIntoleranceType" abstract="false">
                <relationship name="value" type="CD" structural="false" domainType="ObservationIntoleranceType" conformance="MANDATORY" cardinality="1" sortOrder="0" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>H:Allergy/Intolerance Type</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>If a non-leaf code is specified, then all records whose type is in the specified code\'s hierarchy will be returned. Example: if ALG is specified, any DALG,</strong> <strong>EALG, or FALG will be returned.</strong></p>]]></text>
                      </annotation>
@@ -18117,7 +18437,7 @@
             <messagePart name="REPC_MT000004CA.PatientBirthDate" abstract="false">
                <relationship name="value" type="TS.DATE" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="0">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Patient Birth Date</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>This will be compared to the birthdate of the patient given by the ID. (See the External Registry ID section for details on the comparison and the error that may be raised.)</strong></p>]]></text>
                      </annotation>
@@ -18129,7 +18449,7 @@
             <messagePart name="REPC_MT000004CA.PatientGender" abstract="false">
                <relationship name="value" type="CV" structural="false" domainType="AdministrativeGender" conformance="MANDATORY" cardinality="1" sortOrder="0" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:Patient Gender</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>This will be compared to the gender of the patient given by the ID. (See the External Registry ID section for details on the comparison and the error that may be raised.)</strong></p>]]></text>
                      </annotation>
@@ -18141,7 +18461,7 @@
             <messagePart name="REPC_MT000004CA.PatientID" abstract="false">
                <relationship name="value" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="0">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>B:Patient ID</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>Identifier of the patient who is the subject of the allergy/intolerance query. Filter the result set to include only those records pertaining to the patient with this ID. <strong>A KEY204 error issue will be returned if this ID does not exist in the jurisdictional client registry.</strong></p>]]></text>
                      </annotation>
@@ -18153,7 +18473,7 @@
             <messagePart name="REPC_MT000004CA.PatientName" abstract="false">
                <relationship name="value" type="PN.BASIC" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="0">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>C:Patient Name</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>The name of the patient who is the subject of the allergy/intolerance query. <strong>This will be compared to the name of the patient given by the ID. (See the External Registry ID section on the comparison and the error that may be raised.)</strong></p>]]></text>
                      </annotation>
@@ -18165,7 +18485,7 @@
             <messagePart name="REPC_MT000004CA.ReactionType" abstract="false">
                <relationship name="value" type="CV" structural="false" domainType="SubjectReaction" conformance="MANDATORY" cardinality="1" sortOrder="0" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>I:Reaction</businessName>
                      <annotation annotationType="DESCRIPTION">
                         <text><![CDATA[<p>A coded value denoting a specific reaction. E.g. Code for 'rash'. The result set will be filtered to include only those allergy records or intolerance records pertaining to the specified reaction.</p>]]></text>
                      </annotation>
@@ -18196,6 +18516,12 @@
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>B:Allergy Test Record Id</businessName>
+                     <annotation annotationType="DESIGN_COMMENTS">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">This identifier references an external allergy test.</p>
+<p align="left"><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">PIN will simply store this value for information purposes. No validation of the id will be made.</font></font></font></b></p>
+</font></font></font></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ObservationAllergyTestType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
@@ -18209,9 +18535,16 @@
                      <businessName>D:Allergy Test Date</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="MANDATORY" cardinality="1" sortOrder="6" codingStrength="CNE">
                   <documentation>
                      <businessName>C:Allergy Test Result</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">A code indicating result of the allergy test.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this attribute is mandatory.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -18248,15 +18581,25 @@
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="OBS" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="RXNASSESS" codingStrength="CNE" defaultValue="RXNASSESS">
                   <documentation>
                      <businessName>Assessment Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixed to &lsquo;RXNASSESS</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="completed" codingStrength="CNE"/>
-               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="4" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="RELATED" codingStrength="CNE" defaultValue="RELATED">
                   <documentation>
                      <businessName>Relatedness Assessment</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixed to &lsquo;RELATED&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="REPC_MT000005CA.Subject6" conformance="MANDATORY" cardinality="1" sortOrder="5"/>
@@ -18321,7 +18664,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:Allergy/Intolerance Record Id</businessName>
                      <annotation annotationType="USAGE_NOTES">
                         <text><![CDATA[<p>This is the identifier of the allergy/intolerance record.</p>]]></text>
                      </annotation>
@@ -18329,7 +18672,7 @@
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ObservationIntoleranceType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>A:Allergy/Intolerance Type</businessName>
                      <annotation annotationType="DESCRIPTION">
                         <text><![CDATA[<p><strong>This will indicate whether this is a drug allergy, a non- drug allergy, a drug intolerance, or a non-drug intolerance.</strong></p>]]></text>
                      </annotation>
@@ -18360,7 +18703,7 @@
                      <businessName>F:Confirmed Indicator</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="IntoleranceValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="9" codingStrength="CWE">
+               <relationship name="value" type="CV" structural="false" domainType="IntoleranceValue" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="9" codingStrength="CWE">
                   <documentation>
                      <businessName>B:Agent</businessName>
                   </documentation>
@@ -19029,7 +19372,7 @@
             <messagePart name="REPC_MT000008CA.ConditionID" abstract="false">
                <relationship name="value" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="0">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Condition Identifier</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>A KEY204 error issue will be returned if this ID does exist in PIN.</strong></p>]]></text>
                      </annotation>
@@ -19143,11 +19486,23 @@
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>B:Allergy Test Record Id</businessName>
+                     <annotation annotationType="DESIGN_COMMENTS">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">This identifier references an external allergy test.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will simply store this value for information purposes. No validation of the id will be made.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ObservationAllergyTestType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
                   <documentation>
                      <businessName>A:Allergy Test Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">A coded value denoting the type of allergy test conducted.</p>
+</font></font></font></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="completed" codingStrength="CNE"/>
@@ -19156,9 +19511,16 @@
                      <businessName>D:Allergy Test Date</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="MANDATORY" cardinality="1" sortOrder="6" codingStrength="CNE">
                   <documentation>
                      <businessName>C:Allergy Test Result</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica"><font color="#000080" size="2" face="Helvetica">
+<p align="left">A code indicating result of the allergy test.</p>
+</font></font></font><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this attribute is mandatory.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -19200,15 +19562,25 @@
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="OBS" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="RXNASSESS" codingStrength="CNE" defaultValue="RXNASSESS">
                   <documentation>
                      <businessName>Assessment Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixed to &lsquo;RXNASSESS&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="completed" codingStrength="CNE"/>
-               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="4" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="RELATED" codingStrength="CNE" defaultValue="RELATED">
                   <documentation>
                      <businessName>Relatedness Assessment</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixedto &lsquo;RELATED&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="REPC_MT000009CA.Subject6" conformance="MANDATORY" cardinality="1" sortOrder="5"/>
@@ -19335,7 +19707,7 @@
                </relationship>
                <relationship name="value" type="CV" structural="false" domainType="IntoleranceValue" conformance="MANDATORY" cardinality="1" sortOrder="9" codingStrength="CWE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>B:Agent</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p><strong>Because PIN is not using SNOMED, this attribute is mandatory.</strong></p>]]></text>
                      </annotation>
@@ -20027,6 +20399,11 @@
                <relationship name="id" type="II" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="2">
                   <documentation>
                      <businessName>B:Allergy Test Record Id</businessName>
+                     <annotation annotationType="DESIGN_COMMENTS">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">PIN will simply store this value for information purposes. No validation of the id will be made.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="code" type="CD" structural="false" domainType="ObservationAllergyTestType" conformance="MANDATORY" cardinality="1" sortOrder="3" codingStrength="CNE">
@@ -20040,9 +20417,14 @@
                      <businessName>D:Allergy Test Date</businessName>
                   </documentation>
                </relationship>
-               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="6" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="AllergyTestValue" conformance="MANDATORY" cardinality="1" sortOrder="6" codingStrength="CNE">
                   <documentation>
                      <businessName>C:Allergy Test Result</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this attribute is mandatory.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
             </messagePart>
@@ -20054,15 +20436,25 @@
                </documentation>
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="OBS" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
-               <relationship name="code" type="CD" structural="false" domainType="ActCode" conformance="MANDATORY" cardinality="1" sortOrder="2" codingStrength="CNE">
+               <relationship name="code" type="CD" structural="false" domainType="ActCode" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="RXNASSESS" codingStrength="CNE">
                   <documentation>
                      <businessName>Assessment Type</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixed to &lsquo;RXNASSESS&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="completed" codingStrength="CNE"/>
-               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" conformance="OPTIONAL" cardinality="0-1" sortOrder="4" codingStrength="CNE">
+               <relationship name="value" type="CV" structural="false" domainType="ObservationValue" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="4" fixedValue="RELATED" codingStrength="CNE" defaultValue="RELATED">
                   <documentation>
                      <businessName>Relatedness Assessment</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">Because PIN is not using SNOMED, this is fixed to &lsquo;RELATED&rsquo;.</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="REPC_MT000013CA.Subject6" conformance="MANDATORY" cardinality="1" sortOrder="5"/>
@@ -20127,7 +20519,7 @@
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="EVN" codingStrength="CNE"/>
                <relationship name="id" type="II" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="2">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>D:Allergy/Intolerance Record Id</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This is the identifier of the allergy/intolerance record to update. <strong>A KEY204 error issue will be returned if this ID does not exist in PIN.</strong></p>]]></text>
                      </annotation>
@@ -20148,7 +20540,7 @@
                </relationship>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="5" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>E:Allergy/Intolerance Status</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This can be "active" or "completed". <strong>CODE_INVAL error issue will be returned if not.</strong></p>]]></text>
                      </annotation>
@@ -20161,7 +20553,7 @@
                </relationship>
                <relationship name="confidentialityCode" type="CV" structural="false" domainType="x_VeryBasicConfidentialityKind" conformance="OPTIONAL" cardinality="0-1" sortOrder="7" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>H:Allergy/Intolerance Masking Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This indicates whether the allergy should be masked or not. <strong>As SK does not implement record-level masking, this must be "Normal" or a CODE_INVAL error issue will be returned.</strong></p>]]></text>
                      </annotation>
@@ -20169,7 +20561,7 @@
                </relationship>
                <relationship name="uncertaintyCode" type="CV" structural="false" domainType="ActUncertainty" conformance="MANDATORY" cardinality="1" sortOrder="8" codingStrength="CNE">
                   <documentation>
-                     <businessName></businessName>
+                     <businessName>F:Confirmed Indicator</businessName>
                      <annotation annotationType="CONSTRAINT">
                         <text><![CDATA[<p>This can be N or U.<br /><strong>CODE_INVAL error issue will be returned if not.</strong></p>]]></text>
                      </annotation>
@@ -20962,6 +21354,13 @@
                <relationship name="value" type="PQ.BASIC" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="7">
                   <documentation>
                      <businessName>B:Observation Measurement Value</businessName>
+                     <annotation annotationType="CONSTRAINT">
+                        <text><![CDATA[<p><b><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold"><font color="#000080" size="2" face="Helvetica-Bold">
+<p align="left">This element will only be sent if the</p>
+<p align="left">Measurement Type is not &lsquo;18684-1&rsquo; (Blood</p>
+<p>Pressure).</p>
+</font></font></font></b></p>]]></text>
+                     </annotation>
                   </documentation>
                </relationship>
                <relationship name="subject" type="REPC_MT100002CA.Subject5" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
