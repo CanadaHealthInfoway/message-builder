@@ -140,6 +140,15 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
+	public void testParseValidMissingSpecializationTypeForAB() throws Exception {
+		Node node = createNode("<something root=\"rootValue\" extension=\"extensionValue\" />");
+		ParseContext context = createContext("II", SpecificationVersion.V02R02_AB);
+		II ii = (II) new IiElementParser().parse(context, node, this.result);
+		assertResultAsExpected(ii.getValue(), "rootValue", "extensionValue");
+		assertTrue(this.result.isValid());
+	}
+	
+	@Test
 	public void testParseValidSpecializationType() throws Exception {
 		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" specializationType=\"II.BUS\" use=\"BUS\" />");
 		II ii = (II) new IiElementParser().parse(createContext("II"), node, this.result);

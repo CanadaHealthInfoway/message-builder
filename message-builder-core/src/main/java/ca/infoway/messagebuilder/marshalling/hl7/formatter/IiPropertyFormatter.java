@@ -94,8 +94,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     	result.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
 
     	String type = context.getType();
-    	if (!SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version) 
-    			&& (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type))) {
+    	if (isSpecializationTypeAllowed(version, type)) {
     		StandardDataType dataType = bareAny.getDataType();
     		if (!abstractIiTypes.contains(dataType)) {
     			// only set a specialization type if we have a concrete II type supplied
@@ -126,5 +125,11 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         
         return result;
     }
+
+	private boolean isSpecializationTypeAllowed(VersionNumber version, String type) {
+		return !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)
+    		    && !(SpecificationVersion.isVersion(SpecificationVersion.V02R02_AB, version) && StandardDataType.II.getType().equals(type))
+    			&& (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type));
+	}
 
 }

@@ -81,6 +81,22 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
     }
 
 	@Test
+    public void testGetAttributeNameValuePairsAllFilledInExcludingSpecializationTypeForAB() throws Exception {
+        Identifier ii = new Identifier("rootString", "extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II);
+        
+        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V02R02_AB, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 2, result.size());
+        
+        assertKeyValuePairInMap(result, "root", "rootString");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+    }
+
+	@Test
     public void testGetAttributeNameValuePairsAllFilledInWithTypeId() throws Exception {
     	Identifier ii = new Identifier("rootString", "extensionString");
     	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
