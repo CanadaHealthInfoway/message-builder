@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.2.6
+                               Version 1.2.7
                                Release Notes
 
 INTRODUCTION:
@@ -28,8 +28,19 @@ INTRODUCTION:
 
 This document contains the release notes for this version of Infoway Message Builder, and highlights changes since the previous version.
 
-BUGS FIXED:
-===========
+
+BUGS FIXED in 1.2.7:
+===================
+
+The following is a list of the bugs fixed in this release, with their Redmine numbers:
+
+10965 Missing sender sub-elements in some complex cases (AB Session Management messages in particular)
+10983 Re-generate SK API
+10990 Relax II validation constraints for AB (SpecializationType no longer required for II fields)
+
+
+BUGS FIXED in 1.2.6:
+===================
 
 The following is a list of the bugs fixed in this release, with their Redmine numbers:
 
