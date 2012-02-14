@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
@@ -44,27 +45,62 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
 @DataTypeHandler({"TS.FULLDATETIME", "TS", "TS.DATETIME"})
 public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
+	public static final String DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME = "messagebuilder.date.format.override.";
+	
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSS0ZZZZZ";
     public final static String DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ = "yyyyMMddHHmmssZZZZZ";
 
     @Override
     protected String getValue(Date date, FormatContext context) {
-    	String datePattern = DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
-		if (context != null && context.getVersion() != null) {
-			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())) {
-				datePattern = DATE_FORMAT_YYYYMMDDHHMMSS;
-			} else if (SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, context.getVersion())) {
-				// FIXME - TM - temp code to allow transformation tests to pass; 
-				//            - these tests should be modified to work with the default date format
-				datePattern = DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
-			}
-    	}
-    	if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
-    		datePattern = ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
-    	}
+    	VersionNumber version = getVersion(context);
+    	String datePattern = determineDateFormat(date, version);
 		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
     }
+
+	String determineDateFormat(Date date, VersionNumber version) {
+		// date format precedence:
+		//    provided Date is a dateWithPattern
+		//    format has been overridden for this version
+		//    default format for version
+    	String datePattern = getPatternFromDateWithPattern(date);
+    	if (datePattern == null) {
+    		datePattern = getOverrideDatePattern(version);
+    		if (datePattern == null) {
+    			datePattern = getDefaultDatePattern(version);
+    		}
+    	}
+		return datePattern;
+	}
+
+	private String getOverrideDatePattern(VersionNumber version) {
+		if (version == null) {
+			return null;
+		}
+		return System.getProperty(DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral());
+	}
+
+	private String getPatternFromDateWithPattern(Date date) {
+		if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
+			return ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
+		}
+		return null;
+	}
+
+	private String getDefaultDatePattern(VersionNumber version) {
+		if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
+			return DATE_FORMAT_YYYYMMDDHHMMSS;
+		} else if (SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, version)) {
+			// FIXME - TM - temp code to allow transformation tests to pass; 
+			//            - these tests should be modified to work with the default date format
+			return DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
+		}
+		return DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
+	}
+
+	private VersionNumber getVersion(FormatContext context) {
+		return context == null ? null : context.getVersion();
+	}
 
 }

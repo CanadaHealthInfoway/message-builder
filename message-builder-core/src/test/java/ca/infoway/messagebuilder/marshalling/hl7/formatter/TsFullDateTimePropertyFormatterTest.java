@@ -20,6 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSS;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -32,7 +36,9 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class TsFullDateTimePropertyFormatterTest {
@@ -139,4 +145,50 @@ public class TsFullDateTimePropertyFormatterTest {
 	private FormatContextImpl createFormatContextWithTimeZone(TimeZone timeZone) {
 		return new FormatContextImpl("name", null, null, false, null, null, timeZone, true);
 	}
+	
+	@Test
+	public void testDateFormatPrecedence() throws Exception {
+		VersionNumber version = SpecificationVersion.V02R02_AB;
+		String dateWithPatternPattern = "test1_mmddyy";
+		String overridePattern = "test2_MMDDYY";
+
+		Date dateWithPattern = new DateWithPattern(new Date(), dateWithPatternPattern);
+		Date normalDate = new Date();
+		
+		TsFullDateTimePropertyFormatter formatter = new TsFullDateTimePropertyFormatter();
+		
+		assertEquals("Should use default format if nothing else provided", 
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, version));
+		assertEquals("Should use old default format if nothing else provided and version is CeRx", 
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3));
+		assertEquals("Should use old default format if nothing else provided and version is SK CeRx", 
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3_SK));
+		assertEquals("Should use old 'bad' default format if nothing else provided and version is NFLD", 
+				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.NEWFOUNDLAND));
+		
+		System.setProperty(
+				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral(),
+				overridePattern);
+		
+		assertEquals("Should use override format when provided", 
+				overridePattern, formatter.determineDateFormat(normalDate, version));
+		assertEquals("Should not use override format when provided version is only the base version of provided version", 
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.V02R02));
+		assertEquals("Should not use override format when provided version does not match", 
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3));
+		assertEquals("Should not use override format when provided version does not match", 
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3_SK));
+		assertEquals("Should not use override format when provided version does not match", 
+				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.NEWFOUNDLAND));
+		
+		assertEquals("Should use date with pattern always when provided", 
+				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, version));
+		assertEquals("Should use date with pattern always when provided even if version is CeRx", 
+				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.V01R04_3));
+		assertEquals("Should use date with pattern always when provided even if version is SK CeRx", 
+				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.V01R04_3_SK));
+		assertEquals("Should use date with pattern always when provided even if version is NFLD", 
+				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.NEWFOUNDLAND));
+	}
+	
 }
