@@ -47,11 +47,19 @@ import java.util.List;
 
 
 
+/**
+ * <p>Unfilled Prescription Query Parameters</p>
+ * 
+ * <p><p>Defines the set of parameters that may be used to 
+ * filter the query response.</p></p>
+ * 
+ * <p><p>Root class for query definition</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060240CA.ParameterList"})
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
@@ -63,6 +71,24 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>D:Administration Effective Period</p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the administration 
+     * period of interest for the retrieval. Useful for 
+     * constraining run-away queries.</p></p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
     public Interval<Date> getAdministrationEffectivePeriodValue() {
@@ -75,6 +101,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -87,6 +118,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -99,6 +135,15 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>B:Patient ID</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient Id. This is 
+     * a mandatory field because a patient must be specified for 
+     * the query to be valid</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -111,6 +156,20 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>C:Patient Name</p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * patient medication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * patient medication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient name. This 
+     * is a mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -123,6 +182,15 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>E:Prescription Statuses</p>
+     * 
+     * <p><p>Indicates that prescriptions of a specific statuses 
+     * are to be included in the result set. Allowable prescription 
+     * status codes are: 'ABORTED, ACTIVE', 'COMPLETED', and 
+     * 'SUSPENDED'.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of patient prescriptions and 
+     * dispenses based on the lifecycle state of the 
+     * prescription.</p></p>
      */
     @Hl7XmlMapping({"prescriptionStatus/value"})
     public List<ActStatus> getPrescriptionStatusValue() {
@@ -132,6 +200,14 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Rx Dispense Indicator</p>
+     * 
+     * <p><p>A coded value indicating the dispensing (fill) status 
+     * of the prescription to be included in the result set. The 
+     * only allowable Rx Dispense Indicators is N (Never 
+     * Dispensed).</p></p>
+     * 
+     * <p><p>Allows for finer sub-set of prescriptions to be 
+     * retrieved based on the fill status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public PrescriptionDispenseFilterCode getRxDispenseIndicatorValue() {
