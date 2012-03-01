@@ -43,11 +43,24 @@ import java.util.List;
 
 
 
+/**
+ * <p>Trigger Event</p>
+ * 
+ * <p><p>Identifies the action that resulted in this message 
+ * being sent.</p></p>
+ * 
+ * <p><p>Key to understanding what action a message 
+ * represents.</p></p>
+ * 
+ * <p><p>There may be constraints on the usage of the 
+ * reasonCode attribute in the definition of the interaction or 
+ * the trigger events which are conveyed with this wrapper.</p></p>
+ */
 @Hl7PartTypeMapping({"QUQI_MT020000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
@@ -62,6 +75,17 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
     /**
      * <p>B:Event Identifier</p>
+     * 
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
+     * 
+     * <p><p>Used for audit purposes and is therefore 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Queries cannot be retracted, so this event identifier 
+     * does not need to be locally persisted.</p></p>
+     * 
+     * <p><p>future transactions.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -74,6 +98,13 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
     /**
      * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     * 
+     * <p><p>event code associated with this interaction.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -86,6 +117,17 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
     /**
      * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific query occurred.</p></p>
+     * 
+     * <p><p>Allows identifying the reason for accessing 
+     * information via a query.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     * 
+     * <p><p>no reason is being sent.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -105,6 +147,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Recorded By</p>
+     * 
+     * <p><p>if different from the author.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"dataEnterer/assignedPerson"})
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
@@ -114,6 +161,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Recorded At</p>
+     * 
+     * <p><p>where the query occurred.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
@@ -132,6 +184,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Caused</p>
+     * 
+     * <p><p>as part of the current message.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
