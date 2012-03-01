@@ -51,11 +51,27 @@ import java.util.List;
 
 
 
+/**
+ * <p>Prescription</p>
+ * 
+ * <p><p>Id should not be specified if the order is being sent 
+ * by prescriber; Id is mandatory if the order is being sent by 
+ * the DIS</p></p>
+ * 
+ * <p><p>Information pertaining to a prescriber's authorization 
+ * for a drug to be dispensed to a patient, as well as the 
+ * instruction on when and how the drug is to be consumed by 
+ * the patient</p></p>
+ * 
+ * <p><p>This is a 'core' class of the medication model and is 
+ * important for understanding what drugs the patient is 
+ * intended to be receiving.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010120CA.CombinedMedicationRequest"})
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -77,6 +93,36 @@ public class PrescriptionBean extends MessagePartBean {
 
     /**
      * <p>A:Prescription Number</p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -89,6 +135,18 @@ public class PrescriptionBean extends MessagePartBean {
 
     /**
      * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'new' when submitting a clinical 
+     * pre-determination. Use 'active' when registering a new 
+     * prescription or converting a predetermination into a valid 
+     * prescription.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p></p>
      * 
      * <p><p><strong>Any other code will cause a CODE_INVAL error 
      * issue to be returned.</strong></p></p>
@@ -104,6 +162,24 @@ public class PrescriptionBean extends MessagePartBean {
 
     /**
      * <p>F:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Prescription.masked</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p><strong>As SK does not implement record-level masking, 
      * this must be "Normal" or a CODE_INVAL error issue will be 
@@ -136,6 +212,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>Documentation of why a prescriber has chosen 
+     * to&nbsp;prescribe the drug in the manner they 
+     * have.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
     public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
         return this.definitionSubstanceAdministrationDefinition;
@@ -151,12 +232,22 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>sent, &ldquo;Nulls&rdquo; are allowed if there are 
+     * no indications&nbsp;recorded against a 
+     * prescription.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>Non-authoritative Indicator</p>
+     * 
+     * <p><div>before the prescription can be dispensed.</div></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -166,6 +257,13 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Includes</p>
+     * 
+     * <p><p>&nbsp;This comprises the height and/or weight of 
+     * a&nbsp;patient as measured/observed/known by 
+     * the&nbsp;prescriber at the time of prescribing.</p></p>
+     */
     @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
     public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
         return this.pertinentInformationQuantityObservationEvent;
@@ -184,6 +282,10 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>Indicates that a prescription is part of a 
+     * Trial&nbsp;Program.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"component2"})
     public Component2Bean getComponent2() {
         return this.component2;
@@ -193,6 +295,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>&nbsp;Identifies the instructions for how the 
+     * prescribed&nbsp;medication should be dispensed to the 
+     * patient.</p></p>
+     */
     @Hl7XmlMapping({"component3"})
     public IncludesBean getComponent3() {
         return this.component3;
@@ -220,6 +327,9 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>prescription has been put.</div></p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public ClassifiesBean getComponentOf() {
         return this.componentOf;
