@@ -41,10 +41,20 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Dispense</p>
+ * 
+ * <p><p>Indicates a particular dispense event that resulted in 
+ * the issue.</p></p>
+ * 
+ * <p><p>Used when the issue pertains to the supply of the drug 
+ * rather than the drug itself. E.g. Duplicate pharmacy, refill 
+ * too soon, etc.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -55,6 +65,19 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
     /**
      * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>Unique identifier of the dispensed event that 
+     * triggered the issue.</p></p>
+     * 
+     * <p><p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p></p>
+     * 
+     * <p><p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -67,6 +90,17 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
     /**
      * <p>B:Dispense Status</p>
+     * 
+     * <p><p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -79,6 +113,25 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
     /**
      * <p>B:Dispensed Date</p>
+     * 
+     * <p><p>The date and time on which the product was issued to 
+     * the patient.</p></p>
+     * 
+     * <p><p>ZDU.4.5</p></p>
+     * 
+     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p></p>
+     * 
+     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p></p>
+     * 
+     * <p><p>Applications should specify a null flavor of &quot;Not 
+     * Applicable&quot; for dispenses that have not yet been picked 
+     * up.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -91,6 +144,18 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
     /**
      * <p>C:Dispense Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {

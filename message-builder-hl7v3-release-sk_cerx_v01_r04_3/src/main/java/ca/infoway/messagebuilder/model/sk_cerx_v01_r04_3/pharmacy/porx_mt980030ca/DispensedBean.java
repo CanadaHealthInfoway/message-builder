@@ -27,10 +27,23 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt220210ca.
 
 
 
+/**
+ * <p>*a:dispensed</p>
+ * 
+ * <p><p>Indicates the drug that was dispensed</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980030CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private DrugProductBean medication;
 
 
