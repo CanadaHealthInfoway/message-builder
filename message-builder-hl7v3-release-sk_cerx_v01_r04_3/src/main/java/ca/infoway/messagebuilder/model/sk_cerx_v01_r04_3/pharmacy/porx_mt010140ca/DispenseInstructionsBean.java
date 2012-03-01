@@ -32,11 +32,23 @@ import java.util.List;
 
 
 
+/**
+ * <p>Dispense Instructions</p>
+ * 
+ * <p><p>This is the information that describes the 
+ * authorization for a dispenser to dispense the 
+ * prescription.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyRequest"})
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private PatientBean subjectPatient;
     private RecordedAtBean location;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
@@ -52,6 +64,9 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>pharmacies.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -61,6 +76,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Remaining Dispenses</p>
+     * 
+     * <p><p>prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"fulfillment/supplyEvent"})
     public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
         return this.fulfillmentSupplyEvent;

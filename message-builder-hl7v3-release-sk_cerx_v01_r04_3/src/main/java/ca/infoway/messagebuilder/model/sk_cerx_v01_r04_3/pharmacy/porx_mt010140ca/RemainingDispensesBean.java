@@ -30,16 +30,37 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt220100ca.
 
 
 
+/**
+ * <p>Remaining Dispenses</p>
+ * 
+ * <p><p>Indicates dispenses yet to be made against the 
+ * prescription</p></p>
+ * 
+ * <p><p>Allows updating the quantity remaining to be 
+ * dispensed.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
 
     /**
      * <p>C:Remaining Quantity</p>
+     * 
+     * <p><p>Indicates the remaining quantity to be dispensed.</p></p>
+     * 
+     * <p><p>Used to adjust quantity asserted with the electronic 
+     * version of a prescription when fills have been issued by 
+     * non-electronic pharmacies. Particularly important when the 
+     * electronic version is being made 'authoritative' again.</p></p>
+     * 
+     * <p><p>The specified remaining fill quantity may never be 
+     * greater than the remaining quantity recorded in the 
+     * electronic system. If not specified, the quantity remaining 
+     * will be left unchanged.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
