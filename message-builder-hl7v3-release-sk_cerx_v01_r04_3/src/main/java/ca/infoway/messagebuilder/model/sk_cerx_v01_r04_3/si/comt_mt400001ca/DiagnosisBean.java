@@ -30,16 +30,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Diagnosis</p>
+ * 
+ * <p><p>If code is SNOMED, value must not be specified. 
+ * Otherwise value is mandatory and code must be DX</p></p>
+ * 
+ * <p><p>Conveys information about a diagnosis to be masked</p></p>
+ * 
+ * <p><p>Allows masking of items related to a particular 
+ * medical condition.</p></p>
+ */
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
 
     /**
      * <p>A:Diagnosis Type</p>
+     * 
+     * <p><p>Used to indicate that this observation is a diagnosis, 
+     * and for SNOMED, provides details of what the diagnosis 
+     * is.</p></p>
+     * 
+     * <p><p>Needed to convey the diagnosis information to be 
+     * masked, and attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -52,6 +70,14 @@ public class DiagnosisBean extends MessagePartBean {
 
     /**
      * <p>B:Diagnosis</p>
+     * 
+     * <p><p>The diagnosis whose associated records should be 
+     * masked.</p></p>
+     * 
+     * <p><p>Allows masking of all records (prescriptions, 
+     * dispenses, encounters, lab tests, etc.) associated with the 
+     * specified diagnosis. This element is optional because it is 
+     * not used for SNOMED.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
