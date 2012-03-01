@@ -40,11 +40,19 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Generic Query Parameters</p>
+ * 
+ * <p><p>Defines the set of parameters that may be used to 
+ * filter the query response.</p></p>
+ * 
+ * <p><p>Root class for query definition</p></p>
+ */
 @Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
     private II patientIDValue = new IIImpl();
@@ -54,6 +62,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -66,6 +79,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -78,6 +96,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>B:Patient ID</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient drug contraindication query. Filter the result set 
+     * to include only those records pertaining to the patient with 
+     * this Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient Id. This is 
+     * a mandatory field because a patient must be specified for 
+     * the query to be valid</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -90,6 +117,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>C:Patient Name</p>
+     * 
+     * <p><p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient name. This 
+     * is a mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -102,6 +143,19 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>Patient Note Category Code</p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p></p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of all patient notes 
+     * pertaining to a specific note category.</p></p>
      */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
     public ActPatientAnnotationCode getPatientNoteCategoryCodeValue() {
