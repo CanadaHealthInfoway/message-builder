@@ -27,20 +27,32 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
+/**
+ * <p>Information Access</p>
+ * 
+ * <p><p>Describes the type of information access being 
+ * consented to.</p></p>
+ * 
+ * <p><p>Allows fine-grained control over the types of 
+ * information access is granted to and who is granted 
+ * access.</p></p>
+ */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
+    /**
+     * <p><div>Provider or Service Location.</div></p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
@@ -52,6 +64,18 @@ public class InformationAccessBean extends MessagePartBean {
 
     /**
      * <p>B:Consent Information Types</p>
+     * 
+     * <p><p>The type of patient information that can be accessed 
+     * or modified.</p></p>
+     * 
+     * <p><p>Different consents may need access to different types 
+     * of patient information (e.g. demographics, medications, 
+     * allergies, lab results). Understanding the type of 
+     * information the consent applies to is critical to 
+     * controlling access, and therefore the attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Must be either ACALLG or ACMED.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {
