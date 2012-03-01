@@ -33,17 +33,125 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ReportedReactions</p>
+ * <p>REPC_MT000012CA.CausalityAssessment: Reaction Assessments</p>
  * 
- * <p>REPC_MT000001CA.CausalityAssessment: Reported Reactions</p>
+ * <p><p>If code is SNOMED, value is not permitted. Otherise 
+ * code must be RXNASSESS and value must be RELATED</p></p>
+ * 
+ * <p><p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p></p>
+ * 
+ * <p><p>Indicates both the product and how related they are 
+ * determined to be to the reaction.</p></p>
+ * 
+ * <p>REPC_MT000006CA.CausalityAssessment: Reaction Assessments</p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p></p>
+ * 
+ * <p><p>Indicates both the product and how related they are 
+ * determined to be to the reaction.</p></p>
+ * 
+ * <p>REPC_MT000013CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p><p>If code is SNOMED, value is not permitted otherwise 
+ * code must be RXNASSESS and value must be RELATED</p></p>
  * 
  * <p><p>This is a recording of a patient reaction that is 
  * believed to be associated with the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Helps providers to distinguish between proper 
+ * allergies and intolerances. Allows the provider recording 
+ * the allergy to assign appropriate severity to the allergy. 
+ * May give insight on how to mitigate an intolerance that is 
+ * likely to be triggered by administering a substance. (E.g. 
+ * If a given drug typically causes nausea in the patient, an 
+ * additional medication may be co-prescribed to manage the 
+ * nausea.)</p></p>
+ * 
+ * <p>REPC_MT000002CA.CausalityAssessment: Reaction Assessments</p>
+ * 
+ * <p><p>value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p></p>
+ * 
+ * <p><p>Indicates both the product and how related they are 
+ * determined to be to the reaction.</p></p>
+ * 
+ * <p>REPC_MT000001CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p><p>Value is required if not using SNOMED</p><p>Reaction 
+ * Assessment code must be fixed to RXNASSESS if not using 
+ * SNOMED</p></p>
+ * 
+ * <p><p>Value is required if not using SNOMED</p><p>Reaction 
+ * Assessment code must be fixed to RXNASSESS if not using 
+ * SNOMED</p></p>
+ * 
+ * <p><p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Helps providers to distinguish between proper 
+ * allergies and intolerances. Allows the provider recording 
+ * the allergy to assign appropriate severity to the allergy. 
+ * May give insight on how to mitigate an intolerance that is 
+ * likely to be triggered by administering a substance. (E.g. 
+ * If a given drug typically causes nausea in the patient, an 
+ * additional medication may be co-prescribed to manage the 
+ * nausea.)</p></p>
+ * 
+ * <p>REPC_MT000009CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p><p>Value is required if not using SNOME code must be 
+ * RXNASSESS if not SNOMED</p></p>
+ * 
+ * <p><p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Helps providers to distinguish between proper 
+ * allergies and intolerances. Allows the provider recording 
+ * the allergy to assign appropriate severity to the allergy. 
+ * May give insight on how to mitigate an intolerance that is 
+ * likely to be triggered by administering a substance. (E.g. 
+ * If a given drug typically causes nausea in the patient, an 
+ * additional medication may be co-prescribed to manage the 
+ * nausea.)</p></p>
+ * 
+ * <p>REPC_MT000005CA.CausalityAssessment: Reported Reactions</p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code must 
+ * be fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code must 
+ * be fixed to RXNASSESS if not using SNOMED</p></p>
+ * 
+ * <p><p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Helps providers to distinguish between proper 
+ * allergies and intolerances. Allows the provider recording 
+ * the allergy to assign appropriate severity to the allergy. 
+ * May give insight on how to mitigate an intolerance that is 
+ * likely to be triggered by administering a substance. (E.g. 
+ * If a given drug typically causes nausea in the patient, an 
+ * additional medication may be co-prescribed to manage the 
+ * nausea.)</p></p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment"})
 public class ReactionAssessmentsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
@@ -54,6 +162,28 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * <p>AssessmentType</p>
      * 
      * <p>Assessment Type</p>
+     * 
+     * <p><p>Indicates the type of assessment being made</p></p>
+     * 
+     * <p><p>Communicates the relatedness assessment of the 
+     * exposure to the reaction and is therefore mandatory. For 
+     * SNOMED this will communicate the full assessment. It is 
+     * expressed as a CD to allow for SNOMED post-coordination.</p></p>
+     * 
+     * <p><p>For SNOMED this will include the actual assessment. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p></p>
+     * 
+     * <p>Assessment Type</p>
+     * 
+     * <p><p>Indicates the type of assessment being made</p></p>
+     * 
+     * <p><p>Communicates the relatedness assessment of the 
+     * exposure to the reaction and is therefore mandatory. For 
+     * SNOMED this will communicate the full assessment. It is 
+     * expressed as a CD to allow for SNOMED post-coordination.</p></p>
+     * 
+     * <p><p>For SNOMED this will include the actual assessment. 
+     * For non-SNOMED, this should be fixed to RXNASSES.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -69,10 +199,34 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * 
      * <p>Relatedness Assessment</p>
      * 
-     * <p>Relatedness Assessment</p>
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
      * 
      * <p><p><strong>Because PIN is not using SNOMED, this is fixed 
      * to "RELATED"</strong></p></p>
+     * 
+     * <p>Relatedness Assessment</p>
+     * 
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public ObservationValue getValue() {
@@ -83,6 +237,11 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p></font></font></font></p></p>
+     */
     @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
     public ExposuresBean getStartsAfterStartOfExposureEvent() {
         return this.startsAfterStartOfExposureEvent;
@@ -92,6 +251,19 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     }
 
 
+    /**
+     * <p>ReactionRecord</p>
+     * 
+     * <p>Reaction Record</p>
+     * 
+     * <p><p>For the Reaction Record Identifier, 
+     * observationEvent.id: This will be the identifier of a 
+     * previously-created Adverse Drug Reaction record. Since PIN 
+     * does not currently support the creation of Adverse Drug 
+     * Reaction records, this field can not be populated with a 
+     * valid PIN identifier. <strong>If this field is sent, a 
+     * KEY204 error issue will be returned.</strong></p></p>
+     */
     @Hl7XmlMapping({"subject/observationEvent"})
     public ObservationEventBean getSubjectObservationEvent() {
         return this.subjectObservationEvent;

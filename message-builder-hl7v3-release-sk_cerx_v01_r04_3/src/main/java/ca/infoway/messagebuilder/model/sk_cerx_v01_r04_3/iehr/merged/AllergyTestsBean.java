@@ -38,10 +38,59 @@ import java.util.Date;
 
 
 
+/**
+ * <p>AllergyTests</p>
+ * 
+ * <p>REPC_MT000005CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p></p>
+ * 
+ * <p><p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Provides evidence for recording the 
+ * allergy/intolerance.</p></p>
+ * 
+ * <p>REPC_MT000001CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p><p>Value is required if not using SNOMED</p><p>At least 
+ * one of Id or Value must be specified.</p></p>
+ * 
+ * <p><p>Value is required if not using SNOMED</p><p>At least 
+ * one of Id or Value must be specified.</p></p>
+ * 
+ * <p><p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Provides evidence for recording the 
+ * allergy/intolerance.</p></p>
+ * 
+ * <p>REPC_MT000013CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p><p>If code is SNOMED, value is not permitted, otherwise 
+ * it is mandatory.</p></p>
+ * 
+ * <p><p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Provides evidence for recording the 
+ * allergy/intolerance.</p></p>
+ * 
+ * <p>REPC_MT000009CA.AllergyTestEvent: Allergy Tests</p>
+ * 
+ * <p><p>Value must not be present when using SNOMED, mandatory 
+ * otherwise</p></p>
+ * 
+ * <p><p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p></p>
+ * 
+ * <p><p>Provides evidence for recording the 
+ * allergy/intolerance.</p></p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -53,22 +102,46 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>B:Allergy Test Record Id</p>
      * 
-     * <p></font></font></font></b></p></p>
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
      * 
-     * <p>B:Allergy Test Record Id</p>
-     * 
-     * <p><p>This identifier references an external allergy 
-     * test.<strong> PIN will simply store this value for 
-     * information purposes. No validation of the id will be 
-     * made.</strong></p></p>
-     * 
-     * <p>B:Allergy Test Record Id</p>
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
      * 
      * <p></font></font></font></p></p>
      * 
      * <p>B:Allergy Test Record Id</p>
      * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
      * <p></font></font></font></b></p></p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
+     * <p><p>This identifier references an external allergy 
+     * test.<strong> PIN will simply store this value for 
+     * information purposes. No validation of the id will be 
+     * made.</strong></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -84,9 +157,23 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A:Allergy Test Type</p>
      * 
-     * <p>A:Allergy Test Type</p>
+     * <p><p>A coded value denoting the type of allergy test 
+     * conducted.</p></p>
+     * 
+     * <p><p>Allows different kinds of allergy/intolerance tests to 
+     * be distinguishable and is therefore mandatory. It uses the 
+     * CD type to support SNOMED post-coordination.</p></p>
      * 
      * <p></font></font></font></p></p>
+     * 
+     * <p>A:Allergy Test Type</p>
+     * 
+     * <p><p>A coded value denoting the type of allergy test 
+     * conducted.</p></p>
+     * 
+     * <p><p>Allows different kinds of allergy/intolerance tests to 
+     * be distinguishable and is therefore mandatory. It uses the 
+     * CD type to support SNOMED post-coordination.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationAllergyTestType getCode() {
@@ -101,6 +188,11 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>AllergyTestDate</p>
      * 
      * <p>D:Allergy Test Date</p>
+     * 
+     * <p><p>The date on which the allergy test was performed.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the currency of the 
+     * test.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -116,15 +208,39 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>C:Allergy Test Result</p>
      * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     * 
      * <p><p>A code indicating result of the allergy test.<br 
      * /><strong>Because PIN is not using SNOMED, this attribute is 
      * mandatory.</strong></p></p>
      * 
      * <p>C:Allergy Test Result</p>
      * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     * 
      * <p></font></font></font></b></p></p>
      * 
      * <p>C:Allergy Test Result</p>
+     * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
      * 
      * <p></font></font></font></b></p></p>
      */

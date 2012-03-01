@@ -35,10 +35,127 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Exposures</p>
+ * 
+ * <p>REPC_MT000005CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000006CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000001CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000012CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000009CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000013CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ * 
+ * <p>REPC_MT000002CA.ExposureEvent: Exposures</p>
+ * 
+ * <p><p>routeCode is required if not using SNOMED</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Incidence of the patient's exposure to (or contact 
+ * with) with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p></p>
+ * 
+ * <p><p>Communicates the cause of the adverse reaction.</p></p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CV routeCode = new CVImpl();
     private CV consumableAdministrableMaterialAdministerableMaterialKindCode = new CVImpl();
@@ -50,14 +167,25 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>B:Incidence Identifier</p>
      * 
+     * <p><p>Identifier of the record or order that caused the 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p></p>
+     * 
+     * <p><p>Allows for drilling down to retrieve further 
+     * information about the exposure</p></p>
+     * 
      * <p><p><strong>A KEY204 error issue will be returned if this 
      * record identifier is not found in PIN.</strong></p></p>
      * 
-     * <p><p>This is the identifier of the record or order that 
-     * caused the reaction. This could be for a prescription or 
-     * other active medication records.</p></p>
-     * 
      * <p>B:Incidence Identifier</p>
+     * 
+     * <p><p>Identifier of the exposure event that caused the 
+     * adverse reaction. This could be an identifier for a 
+     * prescription, immunization, or other active medication 
+     * record.</p></p>
+     * 
+     * <p><p>Allows for drilling down to retrieve further 
+     * information about the exposure</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -72,6 +200,11 @@ public class ExposuresBean extends MessagePartBean {
      * <p>ExposureMethod</p>
      * 
      * <p>C:Exposure Method</p>
+     * 
+     * <p><p>The method by which the patient was exposed to the 
+     * substance.</p></p>
+     * 
+     * <p><p>Helps evaluate the cause of the reaction.</p></p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -89,10 +222,35 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p><p>Indicates the type of agent that the patient was 
      * exposed to which caused the adverse reaction. This includes 
-     * Drug, Food, Latex, Dust, etc. <strong>Send "UNK" if the 
-     * material is unknown.</strong></p></p>
+     * Drug, Food, Latex, Dust, etc.</p></p>
+     * 
+     * <p><p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p></p>
      * 
      * <p>A:Exposed Material Type</p>
+     * 
+     * <p><p>Indicates the type of agent that the patient was 
+     * exposed to which caused the adverse reaction. This includes 
+     * Drug, Food, Latex, Dust, etc.</p></p>
+     * 
+     * <p><p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be coded. 
+     * Also, the code may sometimes be masked, in which case a 
+     * &quot;null flavor&quot; must be specified.</p></p>
+     * 
+     * <p><p>Indicates the type of agent that the patient was 
+     * exposed to which caused the adverse reaction. This includes 
+     * Drug, Food, Latex, Dust, etc. <strong>Send "UNK" if the 
+     * material is unknown.</strong></p></p>
      */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind/code","consumable/administrableMaterial/administerableMaterialKind/code"})
     @Hl7MapByPartTypes({
