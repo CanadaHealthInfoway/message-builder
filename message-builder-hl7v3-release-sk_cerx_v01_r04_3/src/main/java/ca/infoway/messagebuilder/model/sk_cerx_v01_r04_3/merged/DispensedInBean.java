@@ -32,20 +32,132 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>POME_MT010100CA.Content: dispensed in</p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ * 
+ * <p>COCT_MT220200CA.Content: drug dispensed in</p>
+ * 
+ * <p><p>Must specify at least one of Drug Package quantity and 
+ * Drug Container Type.</p></p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ * 
+ * <p>POME_MT010040CA.Content: dispensed in</p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ * 
+ * <p>COCT_MT220210CA.Content: drug dispensed in</p>
+ * 
+ * <p><p>Must specify at least one of Drug Package quantity and 
+ * Drug Container Type.</p></p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ * 
+ * <p>COCT_MT220110CA.Content: dispensed in</p>
+ * 
+ * <p><p>Must specify at least one of Drug Package quantity and 
+ * Drug Container Type;</p></p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ * 
+ * <p>COCT_MT220100CA.Content: dispensed in</p>
+ * 
+ * <p><p>Must specify at least one of Drug Package quantity and 
+ * Drug Container Type</p></p>
+ * 
+ * <p><p>Information about how the dispensed drug is or should 
+ * be contained</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May influence prescribing quantities, and also allows 
+ * conveying instructions with respect to special packaging 
+ * such as compliance packaging.</p></p>
+ */
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 
 
     /**
-     * <p>B:Drug Package Quantity</p>
-     * 
      * <p>Package Quantity</p>
      * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
      * <p>F:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -57,15 +169,55 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Container Type</p>
-     * 
      * <p>Container Type</p>
      * 
-     * <p>E:Drug Container Type</p>
+     * <p><p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p></p>
+     * 
+     * <p><p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p></p>
+     * 
+     * <p>Drug Container Type</p>
+     * 
+     * <p><p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p></p>
+     * 
+     * <p><p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p></p>
      * 
      * <p>A:Drug Container Type</p>
      * 
+     * <p><p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p></p>
+     * 
+     * <p><p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p></p>
+     * 
+     * <p>E:Drug Container Type</p>
+     * 
+     * <p><p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p></p>
+     * 
+     * <p><p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p></p>
+     * 
      * <p>H:Container Type</p>
+     * 
+     * <p><p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p></p>
+     * 
+     * <p><p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p></p>
      */
     @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
     public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {

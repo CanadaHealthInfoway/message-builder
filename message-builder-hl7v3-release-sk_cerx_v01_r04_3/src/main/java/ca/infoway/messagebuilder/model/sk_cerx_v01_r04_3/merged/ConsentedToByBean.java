@@ -31,10 +31,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>ConsentedToBy</p>
+ * 
+ * <p>COCT_MT470000CA.Author: b:consented to by</p>
+ * 
+ * <p><p>Indicates that the consent was provided by the patient 
+ * or representative.</p></p>
+ * 
+ * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * 
+ * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * 
+ * <p><p>Consent can be provided by the patient or 
+ * representative or the provider.</p></p>
+ * 
+ * <p>RCMR_MT010001CA.Author: b:consented to by</p>
+ * 
+ * <p><p>Indicates that the consent was provided by the patient 
+ * or representative.</p></p>
+ * 
+ * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * 
+ * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * 
+ * <p><p>Consent can be provided by the patient or 
+ * representative or be overridden by a provider. It is 
+ * important to know which occurred for audit purposes.</p></p>
+ */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV modeCode = new CVImpl();
     private ST signatureText = new STImpl();
     private Consenter consenter;
@@ -44,6 +72,12 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>PatientConsentMechanism</p>
      * 
      * <p>Patient Consent Mechanism</p>
+     * 
+     * <p><p>Indicates whether the patient's consent is written or 
+     * verbal.</p></p>
+     * 
+     * <p><p>Verbal consents may trigger a higher level of 
+     * auditing.</p></p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
@@ -58,6 +92,12 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Keyword</p>
      * 
      * <p>Keyword</p>
+     * 
+     * <p><p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p></p>
+     * 
+     * <p><p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {

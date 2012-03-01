@@ -39,11 +39,61 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.comt_mt301001ca.Anno
 
 
 
+/**
+ * <p>COMT_MT300001CA.Annotation: Comment</p>
+ * 
+ * <p><p>Identifies the comments to be recorded against a 
+ * Patient's record.</p></p>
+ * 
+ * <p><p>Allows comments to be attached to a Patient record. A 
+ * Patient record can pertain to demographic or clinical (Drug, 
+ * Condition, Lab, DI, Immunization, etc) information.</p></p>
+ * 
+ * <p>COMT_MT300003CA.Annotation: Comment</p>
+ * 
+ * <p><p>Identifies the comments to be recorded against a 
+ * Patient's record.</p></p>
+ * 
+ * <p><p>Allows comments to be attached to a Patient record. A 
+ * Patient record can pertain to demographic or clinical (Drug, 
+ * Condition, Lab, DI, etc) information.</p></p>
+ * 
+ * <p>COMT_MT301001CA.Annotation: Comment</p>
+ * 
+ * <p><p>Identifies the comments to be recorded against a 
+ * Patient's record.</p></p>
+ * 
+ * <p><p>Allows comments to be attached to a Patient record. A 
+ * Patient record can pertain to demographic or clinical (Drug, 
+ * Condition, Lab, DI, etc) information.</p></p>
+ * 
+ * <p>COCT_MT120600CA.Annotation: Notes</p>
+ * 
+ * <p><p>This is a list of comments made about the record by 
+ * providers. Information captured here includes the provider 
+ * making the comments; and excludes information that would 
+ * render the record invalid. This information will only be 
+ * seen when another provider reviews the record. Urgent or 
+ * targeted messages should be sent using a different mechanism 
+ * (e.g. phone).</p></p>
+ * 
+ * <p><p>Public Health requires all clinical notes to be 
+ * 'verified' by a responsible party if not created by 
+ * physician in charge. This model conveys the correct 
+ * semantics, but is inconsistent with other uses of 
+ * &quot;author&quot; participation in POIZ models. Any changes 
+ * here will have to be reconciled with other projects using 
+ * this same cmet.</p></p>
+ * 
+ * <p><p>Allows various Providers to attach comments to an 
+ * existing record, and thus improving cross-provider 
+ * communications.</p></p>
+ */
 @Hl7PartTypeMapping({"COCT_MT120600CA.Annotation","COMT_MT300001CA.Annotation","COMT_MT300003CA.Annotation","COMT_MT301001CA.Annotation"})
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
@@ -60,7 +110,27 @@ public class CommentBean extends MessagePartBean {
      * 
      * <p>A:Patient Note Category</p>
      * 
+     * <p><p>A coded value denoting the category of note being 
+     * attached to a Patient's record. Categories of note include: 
+     * General, Medication, Lab, DI, etc.</p></p>
+     * 
+     * <p><p>Allows patient notes of different purposes and use, to 
+     * be attached to a patient. Attribute is mandatory to ensure 
+     * that patient notes are categorized accordingly. This 
+     * attribute may also be used by DISs to enforce different 
+     * access control to different types of notes.</p></p>
+     * 
      * <p>Patient Note Category</p>
+     * 
+     * <p><p>A coded value denoting the category of note being 
+     * attached to a Patient's record. Categories of note include: 
+     * General, Medication, Lab, DI, Immunization, etc</p></p>
+     * 
+     * <p><p>Allows patient notes of different purposes and use, to 
+     * be attached to a patient. Attribute is mandatory to ensure 
+     * that patient notes are categorized accordingly. This 
+     * attribute may also be used by DISs to enforce different 
+     * access control to different types of notes.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActPatientAnnotationCode getCode() {
@@ -72,11 +142,35 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
+     * <p>C:Patient Note Text</p>
+     * 
+     * <p><p>Free textual description of the patient note.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
+     * content in the note.</p></p>
+     * 
      * <p>Note Text</p>
+     * 
+     * <p><p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p></p>
      * 
      * <p>C:Annotation Text</p>
      * 
-     * <p>C:Patient Note Text</p>
+     * <p><p>Free text comment to be attached to a record.</p></p>
+     * 
+     * <p><p>Allows a provider to attach arbitrary comments to 
+     * clinical records (prescription, dispenses, lab results, 
+     * allergies, etc) for communication. This attribute is 
+     * mandatory because there's no point in having an annotation 
+     * unless there's actually content in the note.</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -87,6 +181,14 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>CommentPertainsTo</p>
+     * 
+     * <p>Comment Pertains To</p>
+     * 
+     * <p><div>This uses COCT_MT050202CA &ndash; Patient 
+     * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
@@ -100,6 +202,18 @@ public class CommentBean extends MessagePartBean {
      * <p>PatientNoteId</p>
      * 
      * <p>B:Patient Note Id</p>
+     * 
+     * <p><p>Identifier of the patient note record.</p></p>
+     * 
+     * <p><p>Allows for the unique reference of a patient note and 
+     * is therefore mandatory.</p><p>Allows for referencing of a 
+     * particular patient note and thus allows for the removal of 
+     * the note.</p></p>
+     * 
+     * <p><p>Allows for the unique reference of a patient note and 
+     * is therefore mandatory.</p><p>Allows for referencing of a 
+     * particular patient note and thus allows for the removal of 
+     * the note.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -110,6 +224,13 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>SupervisedBy</p>
+     * 
+     * <p>Supervised By</p>
+     * 
+     * <p><div>for the actions of the author.</div></p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
@@ -119,6 +240,11 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>the note.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
@@ -141,6 +267,19 @@ public class CommentBean extends MessagePartBean {
      * <p>WrittenIn</p>
      * 
      * <p>Written in</p>
+     * 
+     * <p><p>A coded value denoting the language in which the note 
+     * is written.</p></p>
+     * 
+     * <p><p>Allows providers to write notes in the language of 
+     * their choice.</p><p>This attribute is marked as 'populated' 
+     * because the language of the note must always be 
+     * known/available or a null flavor must be specified.</p></p>
+     * 
+     * <p><p>Allows providers to write notes in the language of 
+     * their choice.</p><p>This attribute is marked as 'populated' 
+     * because the language of the note must always be 
+     * known/available or a null flavor must be specified.</p></p>
      * 
      * <p>D:Written in</p>
      */
