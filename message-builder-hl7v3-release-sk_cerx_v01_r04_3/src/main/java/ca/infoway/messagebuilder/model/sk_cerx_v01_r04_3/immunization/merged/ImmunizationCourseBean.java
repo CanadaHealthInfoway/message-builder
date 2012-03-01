@@ -26,10 +26,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>ImmunizationCourse</p>
+ * 
+ * <p>POIZ_MT060150CA.ImmunizationPlan: Immunization Course</p>
+ * 
+ * <p><p>Specifies whether there is more than 1 dose in the 
+ * course of immunizations.</p></p>
+ * 
+ * <p><p>Allows the system to record a specific immunization 
+ * event as one of several within a course of immunizations. 
+ * Allows tracking whether immunization plans have been 
+ * completed.</p></p>
+ * 
+ * <p>POIZ_MT030050CA.ImmunizationPlan: Immunization Course</p>
+ * 
+ * <p><p>Specifies whether there is more that 1 dose in the 
+ * course of immunizations.</p></p>
+ * 
+ * <p><p>Allows the system to record a specific immunization 
+ * event as one of several within a course of immunizations. 
+ * Allows tracking whether immunization plans have been 
+ * completed.</p></p>
+ * 
+ * <p>POIZ_MT030060CA.ImmunizationPlan: Immunization Course</p>
+ * 
+ * <p><p>Specifies whether there is more that 1 dose in the 
+ * course of immunizations.</p></p>
+ * 
+ * <p><p>Allows the system to record a specific immunization 
+ * event as one of several within a course of immunizations. 
+ * Allows tracking whether immunization plans have been 
+ * completed.</p></p>
+ */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationPlan","POIZ_MT030060CA.ImmunizationPlan","POIZ_MT060150CA.ImmunizationPlan"})
 public class ImmunizationCourseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private NextPlannedImmunizationBean fulfillmentNextPlannedImmunization;
     private NextImmunizationPlanBean successorNextImmunizationPlan;
 

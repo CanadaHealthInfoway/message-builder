@@ -28,10 +28,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>PartOf</p>
+ * 
+ * <p>POIZ_MT030050CA.InFulfillmentOf3: part of</p>
+ * 
+ * <p><p>Indicates the order of a specific immunization event 
+ * with a planned/expected number of immunizations.</p></p>
+ * 
+ * <p><p>Allows tracking against a therapy plan.</p></p>
+ * 
+ * <p>POIZ_MT060150CA.InFulfillmentOf3: part of</p>
+ * 
+ * <p><p>Indicates the order of a specific immunization event 
+ * with a planned/expected number of immunizations.</p></p>
+ * 
+ * <p><p>Allows tracking against a therapy plan.</p></p>
+ * 
+ * <p>POIZ_MT030060CA.InFulfillmentOf3: part of</p>
+ * 
+ * <p><p>Indicates the order of a specific immunization event 
+ * with a planned/expected number of immunizations.</p></p>
+ * 
+ * <p><p>Allows changing what dose was administered after the 
+ * fact.</p></p>
+ */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf3","POIZ_MT030060CA.InFulfillmentOf3","POIZ_MT060150CA.InFulfillmentOf3"})
 public class PartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private INT sequenceNumber = new INTImpl();
     private ImmunizationCourseBean immunizationPlan;
 
@@ -40,6 +65,27 @@ public class PartOfBean extends MessagePartBean {
      * <p>VaccineDoseNumber</p>
      * 
      * <p>Vaccine Dose Number</p>
+     * 
+     * <p><p>Indicates whether this is the initial immunization 
+     * (Dose Number = 1) or a specific booster (Dose Number = 2 
+     * means first booster, 3 means 2nd booster, etc.).</p></p>
+     * 
+     * <p><p>RXA.2</p></p>
+     * 
+     * <p><p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p></p>
+     * 
+     * <p>Vaccine Dose Number</p>
+     * 
+     * <p><p>Indicates whether this is the initial immunization 
+     * (Dose Number = 1) or a specific booster (Dose Number = 2 
+     * means first booster, 3 means 2nd booster, etc.).</p></p>
+     * 
+     * <p><p>RXA.2</p></p>
+     * 
+     * <p><p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy and is therefore marked as 
+     * &quot;populated&quot;.</p></p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
