@@ -39,16 +39,25 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.CombinedMedicationRequest_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.SupplyEventBean;
 
 
 
+/**
+ * <p>Dispense</p>
+ * 
+ * <p><p>Describes the issuing of a drug in response to an 
+ * authorizing prescription.</p></p>
+ * 
+ * <p><p>This is a 'core' class of the medication model and is 
+ * important for understanding what drugs the patient is 
+ * actually receiving.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060100CA.MedicationDispense"})
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -57,13 +66,28 @@ public class DispenseBean extends MessagePartBean {
     private RecordedAtBean location;
     private SupplyEventBean component1SupplyEvent;
     private ST component2AdministrationInstructionsText = new STImpl();
-    private CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest;
+    private DispensedBean fulfillment;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
     /**
      * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows dispense events to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
      * 
      * <p><p><strong>The Prescription Dispense Number is a globally 
      * unique number assigned to a dispense (single fill) by PIN 
@@ -80,6 +104,13 @@ public class DispenseBean extends MessagePartBean {
 
     /**
      * <p>C:Dispense Status</p>
+     * 
+     * <p><p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p></p>
+     * 
+     * <p><p>Indicates how far along the process the dispense event 
+     * is. It should always be known and is therefore 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -92,6 +123,46 @@ public class DispenseBean extends MessagePartBean {
 
     /**
      * <p>E:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -120,6 +191,9 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>was performed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -140,6 +214,42 @@ public class DispenseBean extends MessagePartBean {
 
     /**
      * <p>Rendered Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>For dosage instructions which cannot be summarized in 
+     * the space allocated, a string such as &quot;Complex 
+     * dose&quot; or &quot;Scaling dose&quot; or something similar 
+     * should be sent. Dosage instructions should never be 
+     * truncated.</p></p>
      */
     @Hl7XmlMapping({"component2/administrationInstructions/text"})
     public String getComponent2AdministrationInstructionsText() {
@@ -150,15 +260,25 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public CombinedMedicationRequest_1Bean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
+    /**
+     * <p><p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p></p>
+     */
+    @Hl7XmlMapping({"fulfillment"})
+    public DispensedBean getFulfillment() {
+        return this.fulfillment;
     }
-    public void setFulfillmentSubstanceAdministrationRequest(CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    public void setFulfillment(DispensedBean fulfillment) {
+        this.fulfillment = fulfillment;
     }
 
 
+    /**
+     * <p>Issue Indicator</p>
+     * 
+     * <p><div>associated with this record.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
@@ -168,6 +288,11 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Annotation Indicator</p>
+     * 
+     * <p><div>associated with the record.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
