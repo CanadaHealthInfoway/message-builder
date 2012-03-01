@@ -32,6 +32,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.pome_mt010040c
 @Hl7PartTypeMapping({"POME_IN010060CA"})
 public class DrugProductDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
 
 }

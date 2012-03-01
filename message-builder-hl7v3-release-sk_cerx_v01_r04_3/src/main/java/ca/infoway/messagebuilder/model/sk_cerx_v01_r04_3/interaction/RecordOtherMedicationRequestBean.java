@@ -31,6 +31,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.OtherMe
 @Hl7PartTypeMapping({"PORX_IN040020CA"})
 public class RecordOtherMedicationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
 
 }
