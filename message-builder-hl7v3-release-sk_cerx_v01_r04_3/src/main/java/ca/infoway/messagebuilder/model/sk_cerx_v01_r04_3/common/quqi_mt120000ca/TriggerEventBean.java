@@ -42,11 +42,24 @@ import java.util.List;
 
 
 
+/**
+ * <p>Trigger Event</p>
+ * 
+ * <p><p>Identifies the action that resulted in this message 
+ * being sent.</p></p>
+ * 
+ * <p><p>Key to understanding what action a message 
+ * represents.</p></p>
+ * 
+ * <p><p>There may be constraints on the usage of the 
+ * reasonCode attribute in the definition of the interaction or 
+ * the trigger events which are conveyed with this wrapper.</p></p>
+ */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -59,6 +72,13 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
     /**
      * <p>B:Event Identifier</p>
+     * 
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
+     * 
+     * <p><p>Used for audit purposes and therefore mandatory.</p></p>
+     * 
+     * <p><p>Event.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -71,6 +91,13 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
     /**
      * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     * 
+     * <p><div>&nbsp;</div></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -83,6 +110,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
     /**
      * <p>C:Event Effective Period</p>
+     * 
+     * <p><p>Indicates when the query was performed. If not 
+     * specified, the assumption is that the query was performed at 
+     * the same time the message was constructed.</p></p>
+     * 
+     * <p><p>Sometimes messages may be constructed and sent at a 
+     * significantly different time than the query was actually 
+     * processed.</p></p>
+     * 
+     * <p><p>received, this will not be populated by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -95,6 +132,13 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
     /**
      * <p>E:Event Reason</p>
+     * 
+     * <p><p>Indicates the reason for the response given</p></p>
+     * 
+     * <p><p>Usually used to indicate a reason why a query was 
+     * unsuccessful or was not processed.</p></p>
+     * 
+     * <p><p>the original request.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -111,6 +155,9 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>detectedIssueEvent processing the query.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
