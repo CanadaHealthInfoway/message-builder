@@ -25,9 +25,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Patient</p>
+ * 
+ * <p>RCMR_MT010002CA.Patient: Patient</p>
+ * 
+ * <p><p>Indicates that the keyword was changed by the patient 
+ * themselves.</p></p>
+ * 
+ * <p><p>Sometimes keywords are changed by the patient, 
+ * sometimes by a patient representative.</p></p>
+ * 
+ * <p>RCMR_MT010001CA.Patient: Patient</p>
+ * 
+ * <p><p>Indicates that consent was granted by the patient 
+ * themselves</p></p>
+ * 
+ * <p><p>Allows assertion of who issued the consent.</p></p>
+ */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Patient","RCMR_MT010002CA.Patient"})
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
 
 }
