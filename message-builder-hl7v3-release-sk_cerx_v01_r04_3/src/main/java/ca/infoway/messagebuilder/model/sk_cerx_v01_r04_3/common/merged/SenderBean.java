@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Sender","MCCI_MT000200CA.Sender","MCCI_MT000300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -58,6 +58,24 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingNetworkAddress</p>
      * 
      * <p>IB:Sending Network Address</p>
+     * 
+     * <p><p>The network address of the application which sent the 
+     * message.</p></p>
+     * 
+     * <p><p>May be important for sender validation. Usually also 
+     * the address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p></p>
+     * 
+     * <p>IB:Sending Network Address</p>
+     * 
+     * <p><p>The network address of the application which sent the 
+     * message.</p></p>
+     * 
+     * <p><p>May be important for sender validation. Usually also 
+     * the address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p></p>
+     * 
+     * <p><p>if sent, it is not used by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -72,6 +90,21 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingApplicationIdentifier</p>
      * 
      * <p>IA:Sending Application Identifier</p>
+     * 
+     * <p><p>The identifier of the system sending the message.</p></p>
+     * 
+     * <p><p>Because this is the key identifier of where the 
+     * message is coming from, this attribute is mandatory.</p></p>
+     * 
+     * <p><p>Used in message authorization.&nbsp;</p></p>
+     * 
+     * <p>IA:Sending Application Identifier</p>
+     * 
+     * <p><p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p></p>
+     * 
+     * <p><p>Because this is the key identifier of where the 
+     * message is intended to go, this attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
@@ -86,6 +119,21 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingApplicationName</p>
      * 
      * <p>IE:Sending Application Name</p>
+     * 
+     * <p><p>This is the name associated with the system or 
+     * application sending the message.</p></p>
+     * 
+     * <p><p>Provides useful information when debugging.</p></p>
+     * 
+     * <p>IE:Sending Application Name</p>
+     * 
+     * <p><p>This is the name associated with the system or 
+     * application sending the message.</p></p>
+     * 
+     * <p><p>Provides useful information when debugging.</p></p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
@@ -100,6 +148,25 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingApplicationConfigurationInformation</p>
      * 
      * <p>II:Sending Application Configuration Information</p>
+     * 
+     * <p><p>Provides additional information about the 
+     * configuration of the sending application. Useful when 
+     * debugging.</p></p>
+     * 
+     * <p><p>Provides additional information that may assist in 
+     * debugging interactions.</p></p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     * 
+     * <p><p>Provides additional information about the 
+     * configuration of the sending application. Useful when 
+     * debugging.</p></p>
+     * 
+     * <p><p>Provides additional information that may assist in 
+     * debugging interactions.</p></p>
      */
     @Hl7XmlMapping({"device/desc"})
     public String getDeviceDesc() {
@@ -114,6 +181,23 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingApplicationVersionDate</p>
      * 
      * <p>IH:Sending Application Version Date</p>
+     * 
+     * <p><p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p></p>
+     * 
+     * <p><p>Can help to isolate the source of a problem when 
+     * debugging.</p></p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     * 
+     * <p>IH:Sending Application Version Date</p>
+     * 
+     * <p><p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p></p>
+     * 
+     * <p><p>Can help to isolate the source of a problem when 
+     * debugging.</p></p>
      */
     @Hl7XmlMapping({"device/existenceTime"})
     public Interval<Date> getDeviceExistenceTime() {
@@ -128,6 +212,23 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingSoftwareVersionNumber</p>
      * 
      * <p>IG:Sending Software Version Number</p>
+     * 
+     * <p><p>Indicates the version number of the piece of software 
+     * used to construct the message.</p></p>
+     * 
+     * <p><p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p></p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     * 
+     * <p>IG:Sending Software Version Number</p>
+     * 
+     * <p><p>Indicates the version number of the piece of software 
+     * used to construct the message.</p></p>
+     * 
+     * <p><p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p></p>
      */
     @Hl7XmlMapping({"device/manufacturerModelName"})
     public String getDeviceManufacturerModelName() {
@@ -142,6 +243,23 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingApplicationSoftwareName</p>
      * 
      * <p>IF:Sending Application Software Name</p>
+     * 
+     * <p><p>Indicates the name of the software used to construct 
+     * the message.</p></p>
+     * 
+     * <p><p>May be used to filter messages based on sending 
+     * application compliance testing.</p></p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     * 
+     * <p>IF:Sending Application Software Name</p>
+     * 
+     * <p><p>Indicates the name of the software used to construct 
+     * the message.</p></p>
+     * 
+     * <p><p>May be used to filter messages based on sending 
+     * application compliance testing.</p></p>
      */
     @Hl7XmlMapping({"device/softwareName"})
     public String getDeviceSoftwareName() {
@@ -156,6 +274,15 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingOrganizationIdentifier</p>
      * 
      * <p>IC:Sending Organization Identifier</p>
+     * 
+     * <p><p>Uniquely identifies the legal entity responsible for 
+     * the content of the message.</p></p>
+     * 
+     * <p><p>May be used for routing/filtering purposes. Also 
+     * allows tracking of the original responsible party for 
+     * messages which may undergo multiple routing or translation 
+     * steps. This attribute is optional because not all 
+     * environments require communicating this information.</p></p>
      */
     @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
     public Identifier getDeviceAsAgentRepresentedOrganizationId() {
@@ -170,6 +297,23 @@ public class SenderBean extends MessagePartBean {
      * <p>SendingFacilityIdentifier</p>
      * 
      * <p>ICA:Sending Facility Identifier</p>
+     * 
+     * <p><p>The unique identifier of the hospital, clinic or other 
+     * facility which constructed the message.</p></p>
+     * 
+     * <p><p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p></p>
+     * 
+     * <p>ICA:Sending Facility Identifier</p>
+     * 
+     * <p><p>&nbsp;</p></p>
+     * 
+     * <p><p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p></p>
+     * 
+     * <p><p>Used in message authorization.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
     public Identifier getDeviceAsLocatedEntityLocationId() {

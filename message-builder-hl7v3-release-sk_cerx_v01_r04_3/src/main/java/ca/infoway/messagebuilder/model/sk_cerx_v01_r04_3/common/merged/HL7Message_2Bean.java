@@ -45,11 +45,28 @@ import java.util.Set;
 
 
 
+/**
+ * <p>HL7Message</p>
+ * 
+ * <p>MCCI_MT102001CA.Message: HL7 Message</p>
+ * 
+ * <p><p>The root class of all messages.</p></p>
+ * 
+ * <p><p>Conveys information about the interaction and how it 
+ * is to be processed</p></p>
+ * 
+ * <p>MCCI_MT000200CA.Message: HL7 Message</p>
+ * 
+ * <p><p>The root class of all messages.</p></p>
+ * 
+ * <p><p>Conveys information about the interaction and how it 
+ * is to be processed</p></p>
+ */
 @Hl7PartTypeMapping({"MCCI_MT000200CA.Message","MCCI_MT102001CA.Message"})
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -69,6 +86,23 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>MessageIdentifier</p>
      * 
      * <p>A:Message Identifier</p>
+     * 
+     * <p><p>A unique identifier for the message.</p></p>
+     * 
+     * <p><p>Allows detection of duplicate messages, and allows 
+     * tying acknowledgments to the message they are acknowledging. 
+     * The attribute is therefore mandatory.</p></p>
+     * 
+     * <p><p>PIN&rsquo;s unique identifier for this 
+     * message.&nbsp;</p></p>
+     * 
+     * <p>A:Message Identifier</p>
+     * 
+     * <p><p>A unique identifier for the message.</p></p>
+     * 
+     * <p><p>Allows detection of duplicate messages, and allows 
+     * tying acknowledgments to the message they are acknowledging. 
+     * The attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -83,6 +117,14 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>MessageTimestamp</p>
      * 
      * <p>G:Message Timestamp</p>
+     * 
+     * <p><p>Indicates the time this particular message instance 
+     * was constructed.</p></p>
+     * 
+     * <p><p>Allows identification of how current the information 
+     * in a message is. Also provides a baseline for identifying 
+     * the time-zone of other times within the message. As a 
+     * result, the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"creationTime"})
     public Date getCreationTime() {
@@ -97,6 +139,29 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>SecurityToken</p>
      * 
      * <p>H:Security Token</p>
+     * 
+     * <p><p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p></p>
+     * 
+     * <p><p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p></p>
+     * 
+     * <p>H:Security Token</p>
+     * 
+     * <p><p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p></p>
+     * 
+     * <p><p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p></p>
+     * 
+     * <p><p>PIN does not require this field so it will not be 
+     * sent.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"securityText"})
     public String getSecurityText() {
@@ -111,6 +176,24 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>HL7StandardVersion</p>
      * 
      * <p>C: HL7 Standard Version</p>
+     * 
+     * <p><p>Indicates the version of the messaging standard being 
+     * referenced.</p></p>
+     * 
+     * <p><p>Needed to know how to validate message definition, 
+     * CMET definition, vocabulary and other information and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     * 
+     * <p><p>Indicates the version of the messaging standard being 
+     * referenced.</p></p>
+     * 
+     * <p><p>Needed to know how to validate message definition, 
+     * CMET definition, vocabulary and other information and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>Fixed to &lsquo;V3-2005-12&rsquo;.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"versionCode"})
     public HL7StandardVersionCode getVersionCode() {
@@ -125,6 +208,24 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>InteractionType</p>
      * 
      * <p>B:Interaction Type</p>
+     * 
+     * <p><p>Indicates the interaction conveyed by this 
+     * message.</p></p>
+     * 
+     * <p><p>Identifies what the receiving application should do, 
+     * and how the message should be validated. The attribute is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>B:Interaction Type</p>
+     * 
+     * <p><p>Indicates the interaction conveyed by this 
+     * message.</p></p>
+     * 
+     * <p><p>Identifies what the receiving application should do, 
+     * and how the message should be validated. The attribute is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>Will match the XML root element.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"interactionId"})
     public Identifier getInteractionId() {
@@ -139,6 +240,25 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>ConformanceProfileIdentifiers</p>
      * 
      * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     * 
+     * <p><p>PIN does not require this field so it will not be 
+     * sent.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"profileId"})
     public Set<Identifier> getProfileId() {
@@ -150,6 +270,22 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>ProcessingCode</p>
      * 
      * <p>D:Processing Code</p>
+     * 
+     * <p><p>Indicates whether this message is intended to be 
+     * processed as production, test or debug message.</p></p>
+     * 
+     * <p><p>Indicates how the message should be handled and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>D:Processing Code</p>
+     * 
+     * <p><p>Indicates whether this message is intended to be 
+     * processed as production, test or debug message.</p></p>
+     * 
+     * <p><p>Indicates how the message should be handled and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>Production.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"processingCode"})
     public ProcessingID getProcessingCode() {
@@ -165,9 +301,23 @@ public class HL7Message_2Bean extends MessagePartBean {
      * 
      * <p>E:Desired Acknowledgment Type</p>
      * 
-     * <p>E:Desired Acknowledgment Type</p>
+     * <p><p>Indicates how the message is expected to be 
+     * acknowledged.</p></p>
+     * 
+     * <p><p>Provides support for immediate, deferred and polling 
+     * mode and distinguishes which mode is desired. The attribute 
+     * is therefore mandatory.</p></p>
      * 
      * <p><p><strong>Fixed to "NE".</strong></p></p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     * 
+     * <p><p>Indicates how the message is expected to be 
+     * acknowledged.</p></p>
+     * 
+     * <p><p>Provides support for immediate, deferred and polling 
+     * mode and distinguishes which mode is desired. The attribute 
+     * is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"acceptAckCode"})
     public AcknowledgementCondition getAcceptAckCode() {
@@ -178,6 +328,11 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>message.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ReceiverBean getReceiver() {
         return this.receiver;
@@ -187,6 +342,14 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RespondToSystem</p>
+     * 
+     * <p>Respond to system</p>
+     * 
+     * <p><p>PIN does not require this field so it will not be 
+     * sent.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"respondTo"})
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
@@ -196,6 +359,11 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>message.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"sender"})
     public SenderBean getSender() {
         return this.sender;
@@ -205,12 +373,25 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RoutingInstructionLine</p>
+     * 
+     * <p>Routing Instruction Line</p>
+     * 
+     * <p><p>PIN does not require this field so it will not be 
+     * sent.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"attentionLine"})
     public List<RoutingInstructionLinesBean> getAttentionLine() {
         return this.attentionLine;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>successfully processed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"acknowledgement"})
     public AcknowledgementBean getAcknowledgement() {
         return this.acknowledgement;

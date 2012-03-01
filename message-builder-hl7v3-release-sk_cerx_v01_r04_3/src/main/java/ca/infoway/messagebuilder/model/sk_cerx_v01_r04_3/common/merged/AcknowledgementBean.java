@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.Acknowledgement","MCCI_MT000300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CS typeCode = new CSImpl();
     private INT messageWaitingNumber = new INTImpl();
     private CV messageWaitingPriorityCode = new CVImpl();
@@ -54,6 +54,22 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>AcknowledgementCode</p>
      * 
      * <p>GA:Acknowledgement Code</p>
+     * 
+     * <p><p>Indicates whether the previous interaction was 
+     * successfully processed.</p></p>
+     * 
+     * <p><p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p></p>
+     * 
+     * <p><p>&lsquo;AR&rsquo; will never be sent.&nbsp;</p></p>
+     * 
+     * <p>GA:Acknowledgement Code</p>
+     * 
+     * <p><p>Indicates whether the previous interaction was 
+     * successfully processed.</p></p>
+     * 
+     * <p><p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"typeCode"})
     public AcknowledgementType getTypeCode() {
@@ -68,6 +84,23 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>NumberOfWaitingMessages</p>
      * 
      * <p>GC:Number of Waiting Messages</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Indicates to a system how many polled messages are 
+     * available without the need so send a separate query. The 
+     * element is optional because not all systems will support 
+     * polling.</p></p>
+     * 
+     * <p>GC:Number of Waiting Messages</p>
+     * 
+     * <p><p>For applications which support polling, indicates the 
+     * total number of messages waiting to be retrieved.</p></p>
+     * 
+     * <p><p>Indicates to a system how many polled messages are 
+     * available without the need so send a separate query. The 
+     * element is optional because not all systems will support 
+     * polling.</p></p>
      */
     @Hl7XmlMapping({"messageWaitingNumber"})
     public Integer getMessageWaitingNumber() {
@@ -82,6 +115,15 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>MessageWaitingPriority</p>
      * 
      * <p>GD:Message Waiting Priority</p>
+     * 
+     * <p><p>Indicates the priority of the highest-priority message 
+     * that is waiting on the poll queue for the system being 
+     * responded to.</p></p>
+     * 
+     * <p><p>The priority of the waiting message may influence how 
+     * quickly the polling system may choose to download queued 
+     * messages. The element is optional because not all systems 
+     * will support polling.</p></p>
      */
     @Hl7XmlMapping({"messageWaitingPriorityCode"})
     public MessageWaitingPriority getMessageWaitingPriorityCode() {
@@ -96,6 +138,13 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>AcknowledgedMessageId</p>
      * 
      * <p>BA:Acknowledged Message Id</p>
+     * 
+     * <p><p>References the identifier of the message this current 
+     * message is acknowledging.</p></p>
+     * 
+     * <p><p>Provides the necessary link to complete a conversation 
+     * for systems using communication technologies which are not 
+     * conversational. This attribute is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"targetMessage/id"})
     public Identifier getTargetMessageId() {
@@ -106,6 +155,11 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>go here.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"acknowledgementDetail"})
     public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
         return this.acknowledgementDetail;
