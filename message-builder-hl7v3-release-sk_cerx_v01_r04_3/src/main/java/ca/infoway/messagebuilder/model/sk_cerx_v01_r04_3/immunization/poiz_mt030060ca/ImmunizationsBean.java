@@ -51,11 +51,26 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Immunizations</p>
+ * 
+ * <p><p>approachSite must be required if not using 
+ * SNOMED</p><p>Route must be required if not using SNOMED</p></p>
+ * 
+ * <p><p>approachSite must be required if not using 
+ * SNOMED</p><p>Route must be required if not using SNOMED</p></p>
+ * 
+ * <p><p>A record of a patient's immunizations.</p></p>
+ * 
+ * <p><p>Necessary component of a person's overall medication 
+ * profile. Helps deal with outbreaks and also drug 
+ * contraindication checking.</p></p>
+ */
 @Hl7PartTypeMapping({"POIZ_MT030060CA.Immunization"})
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -74,6 +89,12 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>A:Immunization Record Id</p>
+     * 
+     * <p><p>This is an identifier assigned to a unique instance of 
+     * an immunization record.</p></p>
+     * 
+     * <p><p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -86,6 +107,14 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Immunization Type</p>
+     * 
+     * <p><p>Indicates what type of administration is being 
+     * performed.</p></p>
+     * 
+     * <p><p>Indicates that the type of administration is an 
+     * administration, and for SNOMED, also indicates the specific 
+     * type of administration. Thus the attribute is mandatory. The 
+     * datatype is CD to allow for SNOMED post-coordination.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -98,6 +127,15 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Not Immunized?</p>
+     * 
+     * <p><p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p></p>
+     * 
+     * <p><p>Tracking failures to be immunized is also important in 
+     * immunization reporting. The attribute is mandatory because 
+     * it is not meaningful to record an immunization where it is 
+     * unknown</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -110,6 +148,13 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Immunization Date</p>
+     * 
+     * <p><p>The date vaccination(s) was administered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important information for establishing the validity of 
+     * the immunization records, and therefore mandatory. Also used 
+     * in the scheduling of subsequent immunizations.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -122,6 +167,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Immunization masking Indicator</p>
+     * 
+     * <p><p>Denotes access restriction placed on the immunization 
+     * record. Methods for accessing masked immunization records 
+     * will be governed by each jurisdiction (e.g. court orders, 
+     * shared secret/consent, etc.). The default is 'NORMAL'.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -134,6 +194,13 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Immunization Refusal Reason</p>
+     * 
+     * <p><p>A coded value denoting a patient's reason for refusing 
+     * to be immunized. Typical reasons include: Parental decision, 
+     * Religious exemption, Patient decision, etc.</p></p>
+     * 
+     * <p><p>Useful information for planning future immunization 
+     * encounters for the patient.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActNoImmunizationReason getReasonCode() {
@@ -146,6 +213,17 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Route of Administration</p>
+     * 
+     * <p><p>This is the means by which the drug was administered 
+     * to the patient.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p></p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -158,6 +236,22 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Administration Site</p>
+     * 
+     * <p><p>A coded value denoting the body area where the 
+     * immunization was administered. This is also referred to as 
+     * the anatomical site of vaccination.</p></p>
+     * 
+     * <p><p>Some immunizations are intended to adjust from site to 
+     * site. (E.g. if first injection is given in right deltoid, 
+     * first booster should be given in left 
+     * deltoid.)</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p></p>
+     * 
+     * <p><p>Some immunizations are intended to adjust from site to 
+     * site. (E.g. if first injection is given in right deltoid, 
+     * first booster should be given in left 
+     * deltoid.)</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p></p>
      */
     @Hl7XmlMapping({"approachSiteCode"})
     public HumanSubstanceAdministrationSite getApproachSiteCode() {
@@ -170,6 +264,12 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Quantity Administered</p>
+     * 
+     * <p><p>The amount of the vaccine administered to/by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Useful for evaluating reaction and for checking 
+     * contraindication.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public PhysicalQuantity getDoseQuantity() {
