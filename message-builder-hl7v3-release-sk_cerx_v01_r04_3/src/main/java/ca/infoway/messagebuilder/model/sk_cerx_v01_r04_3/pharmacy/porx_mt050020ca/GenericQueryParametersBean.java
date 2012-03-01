@@ -40,11 +40,19 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Generic Query Parameters</p>
+ * 
+ * <p><p>Defines the set of parameters that may be used to 
+ * filter the query response.</p></p>
+ * 
+ * <p><p>Root class for query definition</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT050020CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV drugCodeValue = new CVImpl();
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
@@ -54,6 +62,59 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>E:Drug Code</p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those contraindications pertaining to the 
+     * specified drug.</p><p>The code may refer to an 
+     * administerable medication, an orderable medication or a 
+     * higher level drug classification.</p><p>The contraindication 
+     * records retrieve would comprise the drug-drug interactions 
+     * between this specified and each of the drugs on the 
+     * patient's profile, as well as drug-disease and drug-allergy 
+     * contraindications that might result (based on the 
+     * information on the patient's profile).</p></p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those contraindications pertaining to the 
+     * specified drug.</p><p>The code may refer to an 
+     * administerable medication, an orderable medication or a 
+     * higher level drug classification.</p><p>The contraindication 
+     * records retrieve would comprise the drug-drug interactions 
+     * between this specified and each of the drugs on the 
+     * patient's profile, as well as drug-disease and drug-allergy 
+     * contraindications that might result (based on the 
+     * information on the patient's profile).</p></p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those contraindications pertaining to the 
+     * specified drug.</p><p>The code may refer to an 
+     * administerable medication, an orderable medication or a 
+     * higher level drug classification.</p><p>The contraindication 
+     * records retrieve would comprise the drug-drug interactions 
+     * between this specified and each of the drugs on the 
+     * patient's profile, as well as drug-disease and drug-allergy 
+     * contraindications that might result (based on the 
+     * information on the patient's profile).</p></p>
+     * 
+     * <p><p>Allows for the retrieval of all potential 
+     * contraindications based on a specific medication being 
+     * introduced onto the patient's medication profile. 
+     * Contraindications can't be found without specifying the 
+     * medication, therefore this attribute is 
+     * mandatory.</p><p>This will most commonly be used by 
+     * providers to test the viability of prescribing/dispensing a 
+     * medication to a patient (in view of the patient's existing 
+     * medication profile).</p></p>
+     * 
+     * <p><p>Allows for the retrieval of all potential 
+     * contraindications based on a specific medication being 
+     * introduced onto the patient's medication profile. 
+     * Contraindications can't be found without specifying the 
+     * medication, therefore this attribute is 
+     * mandatory.</p><p>This will most commonly be used by 
+     * providers to test the viability of prescribing/dispensing a 
+     * medication to a patient (in view of the patient's existing 
+     * medication profile).</p></p>
      */
     @Hl7XmlMapping({"drugCode/value"})
     public ClinicalDrug getDrugCodeValue() {
@@ -66,6 +127,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>D:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -78,6 +144,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>C:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -90,6 +161,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>B:Patient ID</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient drug contraindication query. Filter the result set 
+     * to include only those records pertaining to the patient with 
+     * this Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient Id. This is 
+     * a mandatory field because a patient must be specified for 
+     * the query to be valid</p></p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -102,6 +182,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>C:Patient Name</p>
+     * 
+     * <p><p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient name. This 
+     * is a mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p></p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
