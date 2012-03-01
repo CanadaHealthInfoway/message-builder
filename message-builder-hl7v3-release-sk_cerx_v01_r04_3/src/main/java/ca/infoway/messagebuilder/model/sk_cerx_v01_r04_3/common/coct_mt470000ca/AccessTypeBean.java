@@ -27,16 +27,24 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
+/**
+ * <p>Access Type</p>
+ * 
+ * <p><p>Defines the types of information permission is being 
+ * granted to access.</p></p>
+ * 
+ * <p><p>Allows discrete control over different types of 
+ * information.</p></p>
+ */
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
@@ -52,6 +60,15 @@ public class AccessTypeBean extends MessagePartBean {
 
     /**
      * <p>B:Consent Information Types</p>
+     * 
+     * <p><p>The type of patient information that can be accessed 
+     * or modified.</p></p>
+     * 
+     * <p><p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p></p>
      */
     @Hl7XmlMapping({"subject/actDefinition/code"})
     public List<ActInformationAccessTypeCode> getSubjectActDefinitionCode() {
