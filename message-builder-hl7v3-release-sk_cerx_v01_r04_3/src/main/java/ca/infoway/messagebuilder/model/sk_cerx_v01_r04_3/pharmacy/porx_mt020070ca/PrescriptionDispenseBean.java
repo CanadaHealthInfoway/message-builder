@@ -42,11 +42,22 @@ import java.util.List;
 
 
 
+/**
+ * <p>Prescription Dispense</p>
+ * 
+ * <p><p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Dispensing is an integral part of the overall 
+ * medication process.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -60,6 +71,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
     /**
      * <p>A:Local Dispense Id</p>
+     * 
+     * <p><p>Identifier assigned by the dispensing facility.</p></p>
+     * 
+     * <p><p>Allows formal tracking of centrally recorded dispenses 
+     * to local records for audit and related purposes.</p></p>
      * 
      * <p><p><strong>SK PIN will record this as an external key 
      * against the event to allow for retrieval of this dispense 
@@ -76,6 +92,20 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
     /**
      * <p>E:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p></p>
+     * 
+     * <p><p>DispensedItem.masked</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p></p>
+     * 
+     * <p><p>If a dispense is masked, it implicitly masks the 
+     * prescription being dispensed. (There's no point in masking a 
+     * dispense if the prescription is unmasked.)</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -86,6 +116,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed For</p>
+     * 
+     * <p><p><strong>NOTE: The CeRx model allows for this field to 
+     * be an animal. PIN does not support animals and this field is 
+     * constrained to only allow Patients</strong></p></p>
+     * 
+     * <p><p>Indicates the patient the drug was dispensed for.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient1"})
     public Patient getSubjectPatient1() {
         return this.subjectPatient1;
@@ -127,6 +166,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Performs</p>
+     * 
+     * <p><div>made, if any.</div></p>
+     */
     @Hl7XmlMapping({"component1/substitutionMade"})
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;
