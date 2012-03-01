@@ -32,11 +32,20 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBe
 
 
 
+/**
+ * <p>Dispense Pickup</p>
+ * 
+ * <p><p>Captures information about what prescription was 
+ * picked up and who received it.</p></p>
+ * 
+ * <p><p>The root class for the message. The time of pickup is 
+ * specified on the ControlAct wrapper.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT020020CA.SupplyEvent"})
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
@@ -44,6 +53,13 @@ public class DispensePickupBean extends MessagePartBean {
 
     /**
      * <p>Dispense Id</p>
+     * 
+     * <p><p>Identity of prescription dispense that has been picked 
+     * up.</p></p>
+     * 
+     * <p><p>Allows dispenses to be uniquely identified. This 
+     * attribute is mandatory because the identity of the dispense 
+     * record must be known.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -54,6 +70,12 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed For</p>
+     * 
+     * <p><p>Identity of the Patient who is being dispensed 
+     * to.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
