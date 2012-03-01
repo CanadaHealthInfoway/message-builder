@@ -27,13 +27,47 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt220200ca.
 
 
 
+/**
+ * <p>Dispensed</p>
+ * 
+ * <p>PORX_MT980020CA.Product: *a:dispensed</p>
+ * 
+ * <p><p>Indicates the implicated drug that was dispensed.</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is only marked as 'populated' because it may be 
+ * masked.</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is only marked as 'populated' because it may be 
+ * masked.</p></p>
+ * 
+ * <p>PORX_MT980010CA.Product: *a:dispensed</p>
+ * 
+ * <p><p>Indicates the drug that was dispensed</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>DrugOrCompound</p>
+     * 
+     * <p>Drug or Compound</p>
+     * 
+     * <p><p>Indicates the drug that was dispensed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;

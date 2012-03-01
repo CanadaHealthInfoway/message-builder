@@ -36,10 +36,40 @@ import java.util.Date;
 
 
 
+/**
+ * <p>IssueDescription</p>
+ * 
+ * <p>PORX_MT980010CA.DetectedIssueDefinition: Issue 
+ * Description</p>
+ * 
+ * <p><p>This is the decision support rule that triggered the 
+ * issue.</p></p>
+ * 
+ * <p><p>Provides detailed background for providers in 
+ * evaluating the issue.</p></p>
+ * 
+ * <p>PORX_MT980020CA.DetectedIssueDefinition: Issue 
+ * Description</p>
+ * 
+ * <p><p>This is the decision support rule that triggered the 
+ * issue.</p></p>
+ * 
+ * <p><p>Provides detailed background for providers in 
+ * evaluating the issue.</p></p>
+ * 
+ * <p>PORX_MT980030CA.DetectedIssueDefinition: Issue 
+ * Description</p>
+ * 
+ * <p><p>This is the decision support rule that triggered the 
+ * issue.</p></p>
+ * 
+ * <p><p>Provides detailed background for providers in 
+ * evaluating the issue.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private ANY<Object> text = new ANYImpl<Object>();
     private TS authorTime = new TSImpl();
@@ -51,6 +81,34 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>IssueMonographId</p>
      * 
      * <p>A:Issue Monograph Id</p>
+     * 
+     * <p><p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p></p>
+     * 
+     * <p><p>Allows applications to match with local 
+     * Knowledge-bases and avoid displaying duplicate issues to 
+     * providers.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -65,6 +123,34 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>IssueDescription</p>
      * 
      * <p>C:Issue Description</p>
+     * 
+     * <p><p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Provides detailed clinical background on reasons for 
+     * issue.</p></p>
+     * 
+     * <p>C:Issue Description</p>
+     * 
+     * <p><p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Provides detailed clinical background on reasons for 
+     * issue.</p></p>
+     * 
+     * <p><p>monograph ID is not recognized by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"text"})
     public Object getText() {
@@ -79,6 +165,17 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>IssueMonographEffectiveDate</p>
      * 
      * <p>B:Issue Monograph Effective Date</p>
+     * 
+     * <p><p>The date and time on which the monograph becomes valid 
+     * and applicable.</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * 
+     * <p><p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p></p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -93,6 +190,17 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>KnowledgebaseVendorName</p>
      * 
      * <p>C:Knowledgebase Vendor Name</p>
+     * 
+     * <p><p>The name of a clinical knowledgebase vendor 
+     * organization.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
+     * 
+     * <p><p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p></p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
     public String getAuthorAssignedEntityAssignedOrganizationName() {
@@ -103,6 +211,15 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Reccomended Dosage</p>
+     * 
+     * <p><p>various age groups, weight classes, etc.&nbsp;</p></p>
+     * 
+     * <p>Recommended Dosage</p>
+     * 
+     * <p><div>various age groups, weight classes, etc.</div></p>
+     */
     @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
         return this.componentSubstanceAdministrationEventCriterion;

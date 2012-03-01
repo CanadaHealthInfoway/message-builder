@@ -34,10 +34,60 @@ import java.util.Date;
 
 
 
+/**
+ * <p>DispenseInstructions</p>
+ * 
+ * <p>PORX_MT060040CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p><p>At least one of &quot;Days Supply&quot; and &quot;Fill 
+ * Quantity&quot; must be identified.</p></p>
+ * 
+ * <p><p>Specification of how the prescribed device is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p></p>
+ * 
+ * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p><p>Specification of how the prescribed device is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p></p>
+ * 
+ * <p>PORX_MT020060CA.SupplyRequest: (no business name)</p>
+ * 
+ * <p><p>AT least one of Total Prescribed Quantity or Total 
+ * Days Supply must be specified</p></p>
+ * 
+ * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p><p>One of 'quantity' and 'expectedUseTime' must be 
+ * specified</p></p>
+ * 
+ * <p><p>Specification of how the prescribed device is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT020060CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private RecordedAtBean location;
@@ -50,13 +100,41 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p>Total Prescribed Quantity</p>
+     * <p><p>The overall number of devices to be dispensed under 
+     * this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p></p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p><p>Sets upper limit for device to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p></p>
      * 
      * <p><p><strong>Either this or the Total Days Supply must be 
      * specified or a MISSCOND error issue will be 
      * returned.</strong></p></p>
+     * 
+     * <p>Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall amount of device to be dispensed under 
+     * this prescription.</p></p>
+     * 
+     * <p><p>Allows determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall number of devices to be dispensed under 
+     * this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p></p>
+     * 
+     * <p><p>Sets upper limit for devices to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -70,15 +148,43 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>TotalDaysSupply</p>
      * 
-     * <p>Total Days Supply</p>
-     * 
      * <p>C:Total Days Supply</p>
      * 
-     * <p>C:Total Days Supply</p>
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p></p>
      * 
      * <p><p><strong>Either this or the Total Prescribed Quantity 
      * must be specified or a MISSCOND error issue will be 
      * returned.</strong></p></p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p></p>
+     * 
+     * <p>Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late').</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -89,6 +195,19 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>responsibility for dispensing the 
+     * prescription.&nbsp;</div></p>
+     * 
+     * <p><div>jurisdiction&rsquo;s list of pharmacies.</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>responsibility for dispensing the 
+     * prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;

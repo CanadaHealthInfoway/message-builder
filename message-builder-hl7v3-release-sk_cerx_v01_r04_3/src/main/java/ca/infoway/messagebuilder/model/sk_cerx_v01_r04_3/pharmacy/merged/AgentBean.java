@@ -29,10 +29,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>PORX_MT060090CA.Agent: (no business name)</p>
+ * 
+ * <p><p>The identifier must be either the patient identifier, 
+ * the prescriber identifier or the dispenser identifier</p></p>
+ * 
+ * <p>PORX_MT060340CA.Agent: (no business name)</p>
+ * 
+ * <p><p>The identifier must be either the patient identifier, 
+ * the prescriber identifier or the dispenser identifier</p></p>
+ * 
+ * <p>PORX_MT020070CA.Agent: (no business name)</p>
+ * 
+ * <p><p>invariant( x) { The identifier must be either the 
+ * patient identifier, the prescriber identifier or the 
+ * dispenser identifier. }</p></p>
+ * 
+ * <p>PORX_MT060160CA.Agent: (no business name)</p>
+ * 
+ * <p><p>The identifier must be either the patient identifier, 
+ * the prescriber identifier or the dispenser identifier</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT020070CA.Agent","PORX_MT060090CA.Agent","PORX_MT060160CA.Agent","PORX_MT060340CA.Agent"})
 public class AgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
 
 
@@ -42,12 +64,29 @@ public class AgentBean extends MessagePartBean {
      * <p>Substituting Person Identifier</p>
      * 
      * <p><p>Identity of the person who ultimately made the 
+     * substitution decision.</p></p>
+     * 
+     * <p><p>Provides a trace of responsibility for the 
+     * substitution.</p></p>
+     * 
+     * <p><p>Identity of the person who ultimately made the 
      * substitution decision. This must be either the patient's 
      * identifier, the prescriber identifier, or the dispenser 
      * identifier <strong>or a BUS error will be 
      * returned.</strong></p></p>
      * 
      * <p>Substituting Person Identifier</p>
+     * 
+     * <p><p>The identity of the person who was ultimately 
+     * responsible for the drug substitution.</p><p>This is either 
+     * the patient, the prescriber of the dispenser.</p></p>
+     * 
+     * <p><p>The identity of the person who was ultimately 
+     * responsible for the drug substitution.</p><p>This is either 
+     * the patient, the prescriber of the dispenser.</p></p>
+     * 
+     * <p><p>Provides a trace of responsibility for the dispensed 
+     * drug.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {

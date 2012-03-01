@@ -38,10 +38,25 @@ import java.util.Date;
 
 
 
+/**
+ * <p>DispenseInstructions</p>
+ * 
+ * <p>PORX_MT030040CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p><p>Specification of how the prescribed medication is to 
+ * be dispensed to the patient. Dispensed instruction 
+ * information includes the quantity to be dispensed, how often 
+ * the quantity is to be dispensed, etc.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
     private RecordedAtBean location;
@@ -51,7 +66,41 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     /**
      * <p>A:Prescription Dispensable Indicator</p>
      * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     * 
      * <p>A:Prescription Dispense Indicator</p>
+     * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -67,7 +116,49 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
+     * <p><p>The overall amount of amount medication to be 
+     * dispensed under this prescription. Includes any first fills 
+     * (trials, aligning quantities), the initial standard fill 
+     * plus all refills.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p></p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall amount of amount medication to be 
+     * dispensed under this prescription. Includes any first fills 
+     * (trials, aligning quantities), the initial standard fill 
+     * plus all refills.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p></p>
+     * 
      * <p>Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall amount of amount medication to be 
+     * dispensed under this prescription. Includes any first fills 
+     * (trials, aligning quantities), the initial standard fill 
+     * plus all refills.</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current. This also allows 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -78,6 +169,12 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>responsibility for dispensing the 
+     * prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -91,6 +188,15 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * <p>TotalDaysSupply</p>
      * 
      * <p>Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy').</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {

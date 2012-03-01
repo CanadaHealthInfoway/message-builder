@@ -48,11 +48,34 @@ import java.util.List;
 
 
 
+/**
+ * <p>PORX_MT010110CA.DeviceRequest: Prescription</p>
+ * 
+ * <p><p>Information pertaining to a prescriber's authorization 
+ * for a device to be dispensed to a patient, as well as the 
+ * instruction on when and how the device is to be used by the 
+ * patient</p></p>
+ * 
+ * <p><p>This is a 'core' class of the medication model and is 
+ * important for understanding what devices the patient is 
+ * intended to be receiving.</p></p>
+ * 
+ * <p>PORX_MT020060CA.DeviceRequest: Prescription Reference</p>
+ * 
+ * <p><p>The Prescriber Name must be specified only when the 
+ * Prescription ID is Null</p></p>
+ * 
+ * <p><p>Information pertaining to the prescription for which a 
+ * dispense is being created</p></p>
+ * 
+ * <p><p>Dispenses for electronically created prescriptions 
+ * must reference the prescription.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010110CA.DeviceRequest","PORX_MT020060CA.DeviceRequest"})
 @Hl7RootType
 public class DeviceRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -70,9 +93,153 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
+     * <p>D:Prescription Order Number</p>
+     * 
+     * <p><p>The identifier of the prescription for which a 
+     * dispense is beiing created.</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>The ID is only 'populated' because in some 
+     * cases the prescription will not yet exist 
+     * electronically.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>The ID is only 'populated' because in some 
+     * cases the prescription will not yet exist 
+     * electronically.</p></p>
+     * 
      * <p>A: Prescription Number</p>
      * 
-     * <p>D:Prescription Order Number</p>
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -87,6 +254,17 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>PrescriptionStatus</p>
      * 
      * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'active' when registering a new prescription 
+     * or converting a predetermination into a valid 
+     * prescription.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p></p>
      * 
      * <p><p>This will be "active" when submitting a new 
      * prescription. Any other code will cause a CODE_INVAL error 
@@ -105,6 +283,24 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>PrescriptionMaskingIndicator</p>
      * 
      * <p>F:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p></p>
+     * 
+     * <p><p>Prescription.masked</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their prescription data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their prescription data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p><p><strong>As SK does not implement record-level masking, 
      * this must be "Normal" or a CODE_INVAL error issue will be 
@@ -137,6 +333,11 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>renewed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
     public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
         return this.predecessorPriorDeviceRequest;
@@ -146,12 +347,31 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescribedBecauseOf</p>
+     * 
+     * <p>Prescribed Because Of</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>recorded against a prescription.&nbsp;&nbsp;&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>NonAuthoritativeIndicator</p>
+     * 
+     * <p>Non-authoritative Indicator</p>
+     * 
+     * <p><div>If present, indicates that the prescription is 
+     * nonauthoritative.&nbsp;I.e. A paper copy must be 
+     * viewed&nbsp;before the prescription can be 
+     * dispensed.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -176,6 +396,11 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>device should be dispensed to the patient.</div></p>
+     */
     @Hl7XmlMapping({"component","component2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
@@ -206,6 +431,14 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>or a MISSCOND error issue will be 
+     * returned.&nbsp;&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;

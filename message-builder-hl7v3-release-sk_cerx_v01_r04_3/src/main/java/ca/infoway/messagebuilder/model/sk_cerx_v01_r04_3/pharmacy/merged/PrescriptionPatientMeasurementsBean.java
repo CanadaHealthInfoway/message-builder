@@ -35,10 +35,43 @@ import java.util.Date;
 
 
 
+/**
+ * <p>PrescriptionPatientMeasurements</p>
+ * 
+ * <p>PORX_MT060340CA.QuantityObservationEvent: Prescription 
+ * Patient Measurements</p>
+ * 
+ * <p><p>This comprises the height and/or weight of a patient 
+ * as measured/observed/known by the prescriber at the time of 
+ * prescribing.</p></p>
+ * 
+ * <p><p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification</p></p>
+ * 
+ * <p>PORX_MT010120CA.QuantityObservationEvent: Prescription 
+ * Patient Measurements</p>
+ * 
+ * <p><p>This comprises the height and/or weight of a patient 
+ * as measured/observed/known by the prescriber at the time of 
+ * prescribing.</p></p>
+ * 
+ * <p><p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification;</p></p>
+ * 
+ * <p>PORX_MT060160CA.QuantityObservationEvent: Prescription 
+ * Patient Measurements</p>
+ * 
+ * <p><p>This comprises the height and/or weight of a patient 
+ * as measured/observed/known by the prescriber at the time of 
+ * prescribing.</p></p>
+ * 
+ * <p><p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -48,6 +81,34 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>PrescriptionPatientMeasurementType</p>
      * 
      * <p>Prescription Patient Measurement Type</p>
+     * 
+     * <p><p>Identification of the type of measurement/observation 
+     * that was made about the patient. The only two allowable 
+     * types are height and weight.</p></p>
+     * 
+     * <p><p>OBS.010-01 NCPDP:Clinical.495-H2</p></p>
+     * 
+     * <p><p>Distinguishes what kind of information is being 
+     * specified. Code is mandatory to ensure that 
+     * measurements/observations are distinguishable.</p></p>
+     * 
+     * <p>Prescription Patient Measurement Type</p>
+     * 
+     * <p><p>Identification of the type of observation that was 
+     * made about the patient. The only two allowable types are 
+     * height and weight.</p></p>
+     * 
+     * <p><p>OBS.010-01</p><p>Clinical.495-H2</p></p>
+     * 
+     * <p><p>OBS.010-01</p><p>Clinical.495-H2</p></p>
+     * 
+     * <p><p>Distinguishes height from weight.</p><p>Code is 
+     * mandatory to ensure that measurements/observations are 
+     * distinguishable.</p></p>
+     * 
+     * <p><p>Distinguishes height from weight.</p><p>Code is 
+     * mandatory to ensure that measurements/observations are 
+     * distinguishable.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public x_ActObservationHeightOrWeight getCode() {
@@ -61,7 +122,40 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Prescription Patient Measurement Time</p>
      * 
+     * <p><p>The date on which the measurement was made.</p></p>
+     * 
+     * <p><p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p></p>
+     * 
+     * <p><p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p></p>
+     * 
+     * <p><p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p></p>
+     * 
+     * <p><p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p></p>
+     * 
+     * <p><p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p></p>
+     * 
      * <p>Prescription Patient Measurement Timestamp</p>
+     * 
+     * <p><p>The date on which the measurement was made</p></p>
+     * 
+     * <p><p>OBS.010-04 NCPDP:Clinical.494-ZE 
+     * NCPDP:Clinical.495-H1</p></p>
+     * 
+     * <p><p>Allows providers to evaluate currency of the 
+     * information.</p><p>Because the date of measurement 
+     * determines the relevance of the information, this attribute 
+     * is defined as 'populated'.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate currency of the 
+     * information.</p><p>Because the date of measurement 
+     * determines the relevance of the information, this attribute 
+     * is defined as 'populated'.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -76,6 +170,87 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Prescription Patient Measured Value</p>
+     * 
+     * <p><p>The amount (quantity and unit) that has been recorded 
+     * for the patient's height and/or weight. E.g. height in 
+     * meters, weight in kilograms, etc.</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
+     * 
+     * <p><p>from a secondary source (e.g. dispensing 
+     * data).&nbsp;</p></p>
+     * 
+     * <p>Prescription Patient Measured Value</p>
+     * 
+     * <p><p>The amount (quantity and unit) that has been recorded 
+     * for the specific type of observation. E.g. height in meters, 
+     * weight in kilograms.</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity) eScript:OBS.010-03 (unit) 
+     * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>Attribute is defined as 
+     * 'mandatory' to ensure that a value is supplied, if there is 
+     * a measurement.</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>Attribute is defined as 
+     * 'mandatory' to ensure that a value is supplied, if there is 
+     * a measurement.</p></p>
+     * 
+     * <p>Prescription Patient Measured Value</p>
+     * 
+     * <p><p>The amount (quantity and unit) that has been recorded 
+     * for the patient's height and/or weight. E.g. height in 
+     * meters, weight in kilograms, etc.</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {

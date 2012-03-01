@@ -46,11 +46,32 @@ import java.util.List;
 
 
 
+/**
+ * <p>Prescription</p>
+ * 
+ * <p>PORX_MT030040CA.CombinedMedicationRequest: Prescription</p>
+ * 
+ * <p><p>Where the prescription is for a combination of drugs 
+ * (e.g. 10mg tablets + 40mg tablets) repeatNumber cannot be 
+ * populated and quantity must be expressed in mg.</p></p>
+ * 
+ * <p><p>This is a 'core' class of the medication model and is 
+ * important for understanding what drugs the patient is 
+ * intended to be receiving.</p></p>
+ * 
+ * <p>PORX_MT060100CA.SubstanceAdministrationRequest: 
+ * Prescription</p>
+ * 
+ * <p><p>Indicates the order being dispensed</p></p>
+ * 
+ * <p><p>Provides a drill-down link from the prescription to 
+ * its corresponding order.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT030040CA.CombinedMedicationRequest","PORX_MT060100CA.SubstanceAdministrationRequest"})
 @Hl7RootType
 public class CombinedMedicationRequest_1Bean extends MessagePartBean implements Prescription_1 {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -76,7 +97,150 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>A:Prescription Identifier</p>
      * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Links the dispense to the prescription it 
+     * fulfilled.</p></p>
+     * 
      * <p>A:Prescription Order Number</p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globa
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -91,6 +255,31 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>PrescriptionStatus</p>
      * 
      * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: NEW, 
+     * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
+     * NULLIFIED.</p></p>
+     * 
+     * <p><p>Prescription.state (cannot distinguish between 
+     * 'Filled' and 'Unfilled', must look at amounts dispensed to 
+     * distniguish between those; and also cannot distinguish 
+     * modified, need to look at event history).</p><p>Prescription 
+     * Status</p></p>
+     * 
+     * <p><p>Prescription.state (cannot distinguish between 
+     * 'Filled' and 'Unfilled', must look at amounts dispensed to 
+     * distniguish between those; and also cannot distinguish 
+     * modified, need to look at event history).</p><p>Prescription 
+     * Status</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -105,6 +294,48 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>PrescriptionMaskingIndicator</p>
      * 
      * <p>F:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Prescription.masked</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -142,6 +373,16 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>to be dispensed to the patient.&nbsp;</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates the prescriber of the 
+     * prescription.</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
         return this.author;
@@ -151,12 +392,22 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>recorded against a prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>before the prescription can be dispensed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -166,6 +417,12 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>from a secondary source (e.g. dispensing 
+     * data).</div></p>
+     */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
@@ -179,6 +436,36 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>RenderedDosageInstruction</p>
      * 
      * <p>Rendered Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"component1/administrationInstructions/text"})
     public String getComponent1AdministrationInstructionsText() {
@@ -189,6 +476,12 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>medication should be dispensed to the 
+     * patient.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component2"})
     public Component2_2Bean getComponent2() {
         return this.component2;
@@ -234,6 +527,11 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>associated with the drug prescription.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
@@ -243,6 +541,12 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>have been recorded against the drug 
+     * prescription.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
         return this.subjectOf2DetectedIssueIndicator.getValue();
@@ -252,12 +556,23 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>dispenser refusing to fill the subject 
+     * prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf3/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
         return this.subjectOf3RefusalToFill;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>prescription has been put.</div></p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public ClassifiesBean getComponentOf() {
         return this.componentOf;

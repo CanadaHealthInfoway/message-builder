@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ProcedureRequest","PORX_MT020060CA.ProcedureRequest","PORX_MT060010CA.ProcedureRequest","PORX_MT060040CA.ProcedureRequest","PORX_MT060060CA.ProcedureRequest"})
 public class ProcedureRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private ST text = new STImpl();
 
 
@@ -39,6 +39,42 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>UsageInstructions</p>
      * 
      * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the prescribed device is intended to be 
+     * used.</p></p>
+     * 
+     * <p><p>Instructions for use are a key part of any 
+     * prescription</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the patient is expected to use the 
+     * device.</p></p>
+     * 
+     * <p><p>Communicates to other providers how the patient is 
+     * expected to use the dispensed device</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the device is intended to be used.</p></p>
+     * 
+     * <p><p>Shows other providers the usage instructions provided 
+     * to the patient.</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the device should be used by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Instructions are a key part of the prescription.</p></p>
+     * 
+     * <p>Usage Instructions</p>
+     * 
+     * <p><p>Indicates how the prescribed device is intended to be 
+     * used.</p></p>
+     * 
+     * <p><p>Usage instructions are a critical part of a 
+     * prescription.</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {

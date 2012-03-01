@@ -36,10 +36,107 @@ import java.util.List;
 
 
 
+/**
+ * <p>PORX_MT060340CA.RefusalToFill: Refusal to Fills</p>
+ * 
+ * <p><p>One of 'Refusal to Fill Reason' or an 'Issue' must be 
+ * specified but not both</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p>PORX_MT060060CA.RefusalToFill: Refusal To Fills</p>
+ * 
+ * <p><p>One of 'Refusal To Fill Reason' or Issue must be 
+ * specified but not both</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p>PORX_MT030040CA.RefusalToFill: Refusal to Fills</p>
+ * 
+ * <p><p>One of 'Refusal To Fill Reason' or 'Issue' must be 
+ * specified, but not both.</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p>PORX_MT060190CA.RefusalToFill: Refusal To Fills</p>
+ * 
+ * <p><p>One of 'Refusal To Fill Reason' or Issue must be 
+ * specified but not both</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p>PORX_MT060040CA.RefusalToFill: Refusals To Fills</p>
+ * 
+ * <p><p>One of 'Refusal To Fill Reason' or Issue must be 
+ * specified but not both</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription. .</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p>PORX_MT060160CA.RefusalToFill: Fill Refusals</p>
+ * 
+ * <p><p>One of 'Refusal to Fill Reason' or an Issue must be 
+ * specified but no both</p></p>
+ * 
+ * <p><p>Indicates that the identified issue resulted in a 
+ * dispenser refusing to fill the subject prescription.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ * 
+ * <p><p>Exposes in the model that this issue is associated 
+ * with a refusal to dispense.</p><p>An indication of 'refusal 
+ * to fill' must be indicated, thus attribute is mandatory.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
     private RefusedByBean author;
@@ -66,7 +163,56 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Refusal To Fill Reason</p>
      * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. Set as CWE to allow 
+     * non-coded reasons.</p></p>
+     * 
      * <p>Refusal to Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. Set to CWE to allow 
+     * non-coded reasons.</p></p>
+     * 
+     * <p>Refusal To Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. The element is CWE to 
+     * allow for non-coded reasons.</p></p>
+     * 
+     * <p>Refusal to Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill. Allows CWE for non-coded reasons.</p></p>
+     * 
+     * <p>Refusal To Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. Set to CWE to allow 
+     * non-coded reasons.</p></p>
+     * 
+     * <p>Refusal To Fill Reason</p>
+     * 
+     * <p><p>Indicates a non-clinical-issue based reason for 
+     * refusing to fill.</p></p>
+     * 
+     * <p><p>Supports capture of reasons such as 'moral objection' 
+     * which are not tied to specific issues. Set as CWE to allow 
+     * for non-coded reasons.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActSupplyFulfillmentRefusalReason getReasonCode() {
@@ -77,6 +223,17 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates who refused to fulfill the 
+     * prescription</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates who refused to fulfill the 
+     * prescription.</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
@@ -86,6 +243,12 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>Identifies the location where the refusal 
+     * occurred.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;

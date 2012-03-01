@@ -41,14 +41,33 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt060020ca.DispensedPrescriptionReferenceBean;
 
 
 
+/**
+ * <p>PORX_MT020060CA.DeviceDispense: Prescription Dispense</p>
+ * 
+ * <p><p>This is the detailed information about a device 
+ * dispense that has been performed on behalf a patient</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>Dispensing is an integral part of the overall 
+ * prescription process.</p></p>
+ * 
+ * <p>PORX_MT060020CA.DeviceDispense: Dispense</p>
+ * 
+ * <p><p>Represents the dispensing of a device to a 
+ * patient.</p></p>
+ * 
+ * <p><p>Communicates an overview of a patient's dispenses.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceDispense","PORX_MT060020CA.DeviceDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -61,7 +80,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
     private RecordedAtBean location;
-    private SupplyOrderBean fulfillmentSupplyRequest;
+    private DispensedPrescriptionReferenceBean fulfillment;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -71,9 +90,36 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
+     * <p><p>Identifier assigned by the dispensing facility.</p></p>
+     * 
+     * <p><p>Allows formal tracking of centrally recorded dispenses 
+     * to local records for audit and related purposes.</p></p>
+     * 
      * <p></font></font></font></b></p></p>
      * 
      * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -89,9 +135,68 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>E:Prescription Masking Indicator</p>
      * 
-     * <p><p>CODE_INVAL error issue will be returned.</p></p>
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Communicates the intent of the patient to restrict 
+     * access to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their medication data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
      * 
      * <p>E:Prescription Masking Indicator</p>
+     * 
+     * <p><p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p></p>
+     * 
+     * <p><p>DispensedItem.masked</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Can be used to set a mask for a new dispense, if 
+     * present in a new dispense request.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>If a dispense is masked, it implicitly masks the 
+     * prescription being dispensed. (There's no point in masking a 
+     * dispense if the prescription is unmasked.)</p></p>
+     * 
+     * <p><p>CODE_INVAL error issue will be returned.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -165,6 +270,17 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>DispenseStatus</p>
      * 
      * <p>C:Dispense Status</p>
+     * 
+     * <p><p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -193,6 +309,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>was performed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -202,15 +323,31 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>Indicates the prescription that was dispensed.</p></p>
+     * 
+     * <p><p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p></p>
+     */
+    @Hl7XmlMapping({"fulfillment"})
+    public DispensedPrescriptionReferenceBean getFulfillment() {
+        return this.fulfillment;
     }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    public void setFulfillment(DispensedPrescriptionReferenceBean fulfillment) {
+        this.fulfillment = fulfillment;
     }
 
 
+    /**
+     * <p>IssueIndicator</p>
+     * 
+     * <p>Issue Indicator</p>
+     * 
+     * <p><div>issues.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
@@ -220,6 +357,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>AnnotationIndicator</p>
+     * 
+     * <p>Annotation Indicator</p>
+     * 
+     * <p><p>notes were not to be included and there are 
+     * notes.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();

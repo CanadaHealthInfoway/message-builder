@@ -33,10 +33,31 @@ import java.util.Date;
 
 
 
+/**
+ * <p>LastDispenseInformation</p>
+ * 
+ * <p>PORX_MT060060CA.SupplyEventLastSummary: Last Dispense 
+ * Information</p>
+ * 
+ * <p><p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p></p>
+ * 
+ * <p><p>Useful in understanding the status of a prescription 
+ * and in planning for renewals.</p></p>
+ * 
+ * <p>PORX_MT060040CA.SupplyEventLastSummary: Last Dispense 
+ * Information</p>
+ * 
+ * <p><p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p></p>
+ * 
+ * <p><p>Useful in understanding the status of a prescription 
+ * and in planning for renewals.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
 
@@ -44,9 +65,23 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>LastDispensePickupDate</p>
      * 
+     * <p>A:Last Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates the most recent date on which a dispense on 
+     * the prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in determining when a prescription will next 
+     * need to be dispensed. Also provides an indication of 
+     * compliance.</p></p>
+     * 
      * <p>Last Dispense Pickup Date</p>
      * 
-     * <p>A:Last Dispense Pickup Date</p>
+     * <p><p>Indicates the most recent date on which a dispense on 
+     * the prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in determining when a prescription will next 
+     * need to be dispensed. Also provides an indication of 
+     * compliance.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -60,9 +95,37 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>LastQuantityDispensed</p>
      * 
+     * <p>Last Quantity Dispensed</p>
+     * 
+     * <p><p>Indicates the most recent quantity of the drug that 
+     * was picked up for the prescription.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p></p>
+     * 
      * <p>B:Last Quantity Dispensed</p>
      * 
-     * <p>Last Quantity Dispensed</p>
+     * <p><p>Indicates the most recent quantity of the drug that 
+     * was picked up for the prescription.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {

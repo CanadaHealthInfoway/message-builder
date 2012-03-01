@@ -35,11 +35,41 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBe
 
 
 
+/**
+ * <p>ReferencedRecord</p>
+ * 
+ * <p>PORX_MT990020CA.ActRequest: Referenced Record</p>
+ * 
+ * <p><p>References an existing Request or Order record by 
+ * identifier.</p></p>
+ * 
+ * <p><p>As a request message, refers to the order record to be 
+ * acted upon or which has been acted upon.</p><p>As a 
+ * response, may be used to indicate the identifier assigned to 
+ * a created object.</p></p>
+ * 
+ * <p><p>As a request message, refers to the order record to be 
+ * acted upon or which has been acted upon.</p><p>As a 
+ * response, may be used to indicate the identifier assigned to 
+ * a created object.</p></p>
+ * 
+ * <p>PORX_MT990010CA.ActEvent: Referenced Record</p>
+ * 
+ * <p><p>References an existing event record by identifier.</p></p>
+ * 
+ * <p><p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p></p>
+ * 
+ * <p><p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010140CA.ActRequest","PORX_MT990010CA.ActEvent","PORX_MT990020CA.ActRequest"})
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private PatientBean recordTargetPatient;
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
@@ -48,7 +78,152 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Record Id</p>
      * 
+     * <p><p>The identifier assigned by the central system (EHR) to 
+     * the Request or Order record being referred to.</p></p>
+     * 
+     * <p><p>Allows the order record to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
+     * 
+     * <p><div>reference to this order.</div></p>
+     * 
+     * <p>Record Id</p>
+     * 
+     * <p><p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p></p>
+     * 
+     * <p><p>Allows the event record to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
+     * 
      * <p>A:Prescription Order Number</p>
+     * 
+     * <p><p>This is an identifier assigned to a specific 
+     * medication order. The number remains constant across the 
+     * lifetime of the order, regardless of the number of providers 
+     * or pharmacies involved in fulfilling the order.</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
+     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
+     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
+     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
+     * (route)</p><p>Claim.402-D2 
+     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced. 
+     * Multiple identifiers are allowed to support assigning of 
+     * prescription ids by the prescriber, EHR, and potentially 
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -59,6 +234,13 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PertainsTo</p>
+     * 
+     * <p>Pertains To</p>
+     * 
+     * <p><p>Identity of the patient who was acted on.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"recordTarget/patient","subject/patient"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="recordTarget", type="PORX_MT990010CA.RecordTarget"),
@@ -73,6 +255,13 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>NonAuthoritative</p>
+     * 
+     * <p>Non-Authoritative</p>
+     * 
+     * <p><div>is non-authoritative.</div></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();

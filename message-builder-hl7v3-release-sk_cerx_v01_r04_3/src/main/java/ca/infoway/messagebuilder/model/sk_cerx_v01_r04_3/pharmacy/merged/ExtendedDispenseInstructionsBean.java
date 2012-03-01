@@ -37,10 +37,41 @@ import java.util.Date;
 
 
 
+/**
+ * <p>PORX_MT060160CA.SupplyRequestItem: Dispense Instruction 
+ * Details</p>
+ * 
+ * <p><p>Specification of how the prescribed medication is to 
+ * be dispensed to the patient. Dispensed instruction 
+ * information includes the quantity to be dispensed, how often 
+ * the quantity is to be dispensed, etc.</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the 
+ * patient.</p><p>Allows dispensing instructions to be given at 
+ * specific dispensable drug level for an overall prescribed 
+ * drug.</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the 
+ * patient.</p><p>Allows dispensing instructions to be given at 
+ * specific dispensable drug level for an overall prescribed 
+ * drug.</p></p>
+ * 
+ * <p>PORX_MT060340CA.SupplyRequestItem: Extended Dispense 
+ * Instructions</p>
+ * 
+ * <p><p>Specification of the overall use duration of the 
+ * prescrbed medication and/or overall quantity to be 
+ * dispensed.</p></p>
+ * 
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -52,6 +83,25 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>TotalPrescribedQuantity</p>
      * 
      * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall amount of amount medication to be 
+     * dispensed under this prescription. Includes any first fills 
+     * (trials, aligning quantities), the initial standard fill 
+     * plus all refills.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -66,6 +116,18 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * <p>TotalDaysSupply</p>
      * 
      * <p>A:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed. This attribute is mandatory because 
+     * the prescriber (in discussion with the patient) has a better 
+     * understanding of the days supply needed by the patient.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -85,6 +147,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>of medication to a patient.</div></p>
+     */
     @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
@@ -99,6 +166,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>subsequent to the first fill.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),

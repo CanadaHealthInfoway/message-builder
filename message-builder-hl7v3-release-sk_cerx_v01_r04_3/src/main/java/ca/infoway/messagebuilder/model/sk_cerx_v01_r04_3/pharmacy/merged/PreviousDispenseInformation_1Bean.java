@@ -31,22 +31,100 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>PreviousDispenseInformation</p>
+ * 
+ * <p>PORX_MT060190CA.SupplyEventPastSummary: Previous Dispense 
+ * Information</p>
+ * 
+ * <p><p>At least one of quantity and repeatNumber must be 
+ * specified.</p></p>
+ * 
+ * <p><p>Summarizes the dispenses that have happened against 
+ * the prescription to date.</p></p>
+ * 
+ * <p><p>Helps in understanding the status of the prescription 
+ * and evaluating compliance.</p></p>
+ * 
+ * <p>PORX_MT060340CA.SupplyEventPastSummary: Previous Dispense 
+ * Information</p>
+ * 
+ * <p><p>At least one of quantity and repeatNumber must be 
+ * specified.</p></p>
+ * 
+ * <p><p>Summarizes the dispenses that have happened against 
+ * the prescription to date.</p></p>
+ * 
+ * <p><p>Helps in understanding the status of the prescription 
+ * and evaluating compliance.</p></p>
+ * 
+ * <p>PORX_MT060160CA.SupplyEventPastSummary: Previous Dispense 
+ * Information</p>
+ * 
+ * <p><p>At least one of quantity and repeatNumber must be 
+ * specified.</p></p>
+ * 
+ * <p><p>Summarizes the dispenses that have happened against 
+ * the prescription to date.</p></p>
+ * 
+ * <p><p>Helps in understanding the status of the prescription 
+ * and evaluating compliance.</p></p>
+ * 
+ * <p>PORX_MT030040CA.SupplyEventPastSummary: Previous Dispense 
+ * Information</p>
+ * 
+ * <p><p>At least one of quantity and repeatNumber must be 
+ * specified.</p></p>
+ * 
+ * <p><p>Summarizes the dispenses that have happened against 
+ * the prescription to date.</p></p>
+ * 
+ * <p><p>Helps in understanding the status of the prescription 
+ * and evaluating compliance.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventPastSummary","PORX_MT060160CA.SupplyEventPastSummary","PORX_MT060190CA.SupplyEventPastSummary","PORX_MT060340CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
 
 
     /**
+     * <p>Number of Fills Made Against Rx</p>
+     * 
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
+     * 
+     * <p><p>Useful in tracking the progress of a prescription in 
+     * prescription.</p></p>
+     * 
      * <p>A:Dispensed Fills To-date</p>
+     * 
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
+     * 
+     * <p><p>Useful in tracking the progress of a prescription in 
+     * prescription.</p></p>
+     * 
+     * <p>A:Number of Fills Made Against Rx</p>
+     * 
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
+     * 
+     * <p><p>Useful in tracking the progress of a prescription.</p></p>
      * 
      * <p>A:Number of Fill Made Against Rx</p>
      * 
-     * <p>Number of Fills Made Against Rx</p>
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
      * 
-     * <p>A:Number of Fills Made Against Rx</p>
+     * <p><p>Useful in tracking the progress of a prescription in 
+     * prescription.</p></p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -58,11 +136,29 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Total Supplied Amount</p>
+     * <p>B:Total Supplied Amount</p>
+     * 
+     * <p><p>Indicates the amount of the prescribed medication that 
+     * has been dispensed to-date.</p></p>
+     * 
+     * <p><p>Useful for tracking the progress of a prescription</p></p>
      * 
      * <p>B:Dispensed Quantity To-date</p>
      * 
-     * <p>B:Total Supplied Amount</p>
+     * <p><p>Depending on the Dispense Aggregate Information Type, 
+     * this field would contain one of Remaining Total Quantity, 
+     * First Quantity Dispensed, Last Quantity Dispensed, or Total 
+     * Supplied Amount.</p></p>
+     * 
+     * <p><p>Useful for tracking the progress of a prescription</p></p>
+     * 
+     * <p>Total Supplied Amount</p>
+     * 
+     * <p><p>Indicates the amount of medication that has been 
+     * dispensed to date.</p></p>
+     * 
+     * <p><p>Useful for tracking the progress of a 
+     * prescription.</p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {

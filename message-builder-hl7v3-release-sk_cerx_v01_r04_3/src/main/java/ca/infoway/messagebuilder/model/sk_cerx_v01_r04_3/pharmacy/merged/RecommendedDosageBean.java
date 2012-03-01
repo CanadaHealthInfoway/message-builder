@@ -38,10 +38,46 @@ import java.util.List;
 
 
 
+/**
+ * <p>RecommendedDosage</p>
+ * 
+ * <p>PORX_MT980030CA.SubstanceAdministrationEventCriterion: 
+ * Recommended Dosage</p>
+ * 
+ * <p><p>Identifies the outer dosage boundaries that were 
+ * exceeded and triggered the issue. Included in this 
+ * information are the drug-specific recommended dosage ranges 
+ * for various age groups and weight classes.</p></p>
+ * 
+ * <p><p>Provides a reference for calculating optimum dose of 
+ * medication for patients.</p></p>
+ * 
+ * <p>PORX_MT980020CA.SubstanceAdministrationEventCriterion: 
+ * Recommended Dosage</p>
+ * 
+ * <p><p>Identifies the outer dosage boundaries that were 
+ * exceeded and triggered the issue. Included in this 
+ * information are the drug-specific recommended dosage ranges 
+ * for various age groups, weight classes, etc.</p></p>
+ * 
+ * <p><p>Provides a reference for calculating optimum dose of 
+ * medication for patients.</p></p>
+ * 
+ * <p>PORX_MT980010CA.SubstanceAdministrationEventCriterion: 
+ * Recommended Dosage</p>
+ * 
+ * <p><p>Identifies the outer dosage boundaries that were 
+ * exceeded and triggered the issue. Included in this 
+ * information are the drug-specific recommended dosage ranges 
+ * for various age groups and weight classes.</p></p>
+ * 
+ * <p><p>Provides a reference for calculating optimum dose of 
+ * medication for patients.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministrationEventCriterion","PORX_MT980020CA.SubstanceAdministrationEventCriterion","PORX_MT980030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
@@ -51,6 +87,13 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>DoseDuration</p>
      * 
      * <p>A:Dose Duration</p>
+     * 
+     * <p><p>Indicates the recommended duration for drug therapy 
+     * that was exceeded or not met.</p></p>
+     * 
+     * <p><p>Recommended Duration (width)</p></p>
+     * 
+     * <p><p>Allows calculation of amount under or over.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -65,6 +108,21 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>DosageRange</p>
      * 
      * <p>B:Dosage Range</p>
+     * 
+     * <p><p>This is a specification of the range of quantity of 
+     * medication (Min/Max figures) that is recommended for the 
+     * drug to avoid triggering of dosage issues.</p></p>
+     * 
+     * <p><p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p></p>
+     * 
+     * <p><p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p></p>
+     * 
+     * <p><p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p></p>
+     * 
+     * <p><p>Allows calculation of amount over/under.</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public UncertainRange<PhysicalQuantity> getDoseQuantity() {

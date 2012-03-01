@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private ST underwritingOrganizationName = new STImpl();
 
@@ -42,9 +42,23 @@ public class UnderwriterBean extends MessagePartBean {
     /**
      * <p>PayorIdentifier</p>
      * 
+     * <p>Payor Identifier</p>
+     * 
+     * <p><p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p></p>
+     * 
+     * <p><p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p></p>
+     * 
      * <p>B:Payor Identifier</p>
      * 
-     * <p>Payor Identifier</p>
+     * <p><p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p></p>
+     * 
+     * <p><p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -60,7 +74,17 @@ public class UnderwriterBean extends MessagePartBean {
      * 
      * <p>C:Payor Name</p>
      * 
+     * <p><p>The name of the organization responsible for issuing 
+     * the coverage extension</p></p>
+     * 
+     * <p><p>Mandatory for display purposes.</p></p>
+     * 
      * <p>Payor Name</p>
+     * 
+     * <p><p>The name of the organization responsible for issuing 
+     * the coverage extension.</p></p>
+     * 
+     * <p><p>Mandatory for display purposes.</p></p>
      */
     @Hl7XmlMapping({"underwritingOrganization/name"})
     public String getUnderwritingOrganizationName() {

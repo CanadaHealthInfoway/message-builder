@@ -26,13 +26,85 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Includes</p>
+ * 
+ * <p>PORX_MT060060CA.Component6: f:includes</p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p></p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p><p>An 
+ * essential part of most prescriptions is the authorization to 
+ * dispense.</p><p>The association is marked as Populated 
+ * because the authorization to dispense is a critical portion 
+ * of a prescription. However the association is allowed to be 
+ * 'null' when the order is for a device which requires no 
+ * dispense authorization, or when the patient already has 
+ * sufficient supply of the device on hand to complete the 
+ * therapy.</p></p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p><p>An 
+ * essential part of most prescriptions is the authorization to 
+ * dispense.</p><p>The association is marked as Populated 
+ * because the authorization to dispense is a critical portion 
+ * of a prescription. However the association is allowed to be 
+ * 'null' when the order is for a device which requires no 
+ * dispense authorization, or when the patient already has 
+ * sufficient supply of the device on hand to complete the 
+ * therapy.</p></p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p><p>An 
+ * essential part of most prescriptions is the authorization to 
+ * dispense.</p><p>The association is marked as Populated 
+ * because the authorization to dispense is a critical portion 
+ * of a prescription. However the association is allowed to be 
+ * 'null' when the order is for a device which requires no 
+ * dispense authorization, or when the patient already has 
+ * sufficient supply of the device on hand to complete the 
+ * therapy.</p></p>
+ * 
+ * <p>PORX_MT020060CA.Component2: (no business name)</p>
+ * 
+ * <p><p>Component must be specified if the id is null and can 
+ * not be specified if the id is not null.</p></p>
+ * 
+ * <p>PORX_MT060040CA.Component6: f:includes</p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p></p>
+ * 
+ * <p><p>An essential part of most prescriptions is the 
+ * authorization to dispense.</p></p>
+ * 
+ * <p>PORX_MT010110CA.Component6: f:includes</p>
+ * 
+ * <p><p>Identifies the instructions for how the prescribed 
+ * device should be dispensed to the patient.</p></p>
+ * 
+ * <p><p>An essential part of most prescriptions is the 
+ * authorization to dispense.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Component6","PORX_MT020060CA.Component2","PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component2_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private DispenseInstructions_1Bean supplyRequest;
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>component2.supplyRequest dispensed to the 
+     * patient.&nbsp;</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><div>dispensed to the patient.</div></p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public DispenseInstructions_1Bean getSupplyRequest() {
         return this.supplyRequest;

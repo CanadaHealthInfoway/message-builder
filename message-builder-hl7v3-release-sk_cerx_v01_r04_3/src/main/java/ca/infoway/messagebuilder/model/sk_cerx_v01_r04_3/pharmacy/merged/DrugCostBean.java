@@ -29,10 +29,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>DrugCost</p>
+ * 
+ * <p>POME_MT010100CA.PotentialCharge: I:Drug Cost</p>
+ * 
+ * <p><p>Suggested cost of a drug (unit cost).</p></p>
+ * 
+ * <p><p>Allows providers to evaluate patient's affordability 
+ * status before prescribing a drug.</p></p>
+ * 
+ * <p>POME_MT010040CA.PotentialCharge: Drug Cost</p>
+ * 
+ * <p><p>Suggested cost of a drug (unit cost).</p></p>
+ * 
+ * <p><p>Allows providers to evaluate patient's affordability 
+ * status before prescribing a drug.</p></p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private MO unitPriceAmt = new MOImpl();
 
 
@@ -41,7 +58,21 @@ public class DrugCostBean extends MessagePartBean {
      * 
      * <p>Drug Cost</p>
      * 
+     * <p><p>The average unit dose cost of the drug.</p></p>
+     * 
+     * <p><p>ZPJ2.2</p></p>
+     * 
+     * <p><p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p></p>
+     * 
      * <p>I:Drug Cost</p>
+     * 
+     * <p><p>The average unit dose cost of the drug.</p></p>
+     * 
+     * <p><p>ZPJ2.2</p></p>
+     * 
+     * <p><p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p></p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Money getUnitPriceAmt() {

@@ -31,10 +31,46 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>AllowedSubstitution</p>
+ * 
+ * <p>PORX_MT060340CA.SubstitutionPermission: Allowed 
+ * Substitution</p>
+ * 
+ * <p><p>A prescriber's instruction that a specific prescribed 
+ * product be dispensed as is, or not.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May have financial and therapeutic conformance 
+ * ramifications for a patient.</p></p>
+ * 
+ * <p>PORX_MT010120CA.SubstitutionPermission: Allowed 
+ * Substitution</p>
+ * 
+ * <p><p>A prescriber's instruction that a specific prescribed 
+ * product be dispensed as is, or not.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May have financial and therapeutic conformance 
+ * ramifications for a patient.</p></p>
+ * 
+ * <p>PORX_MT060160CA.SubstitutionPermission: Allowed 
+ * Substitution</p>
+ * 
+ * <p><p>A prescriber's instruction that a specific prescribed 
+ * product be dispensed as is, or not.</p></p>
+ * 
+ * <p><p>A_BillablePharmacyDispense</p></p>
+ * 
+ * <p><p>May have financial and therapeutic conformance 
+ * ramifications for a patient.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
 
@@ -43,6 +79,29 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>SubstitutionNotAllowedIndicator</p>
      * 
      * <p>A:Substitution Not Allowed Indicator</p>
+     * 
+     * <p><p>If true, indicates that the drug must be dispensed 
+     * exactly as prescribed</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution.</p><p>The attribute is mandatory because 
+     * it must be known whether the indicator is true or false.</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution.</p><p>The attribute is mandatory because 
+     * it must be known whether the indicator is true or false.</p></p>
+     * 
+     * <p>A:Substitution Not Allowed Indicator</p>
+     * 
+     * <p><p>If true, indicates that the drug must be dispensed 
+     * exactly as prescribed</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution. The element is mandatory because it must 
+     * be explicitly true or false.</p></p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -56,7 +115,37 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     /**
      * <p>B:Substitution Not Allowed Reason</p>
      * 
+     * <p><p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution. The field is marked as 
+     * 'Populated' because the reason for substitution is important 
+     * to understanding the decision. However when a prescription 
+     * is being recorded in the pharmacy, the information may not 
+     * be available.</p></p>
+     * 
+     * <p><p>&nbsp;May be marked as &lsquo;UNK&rsquo; if the reason 
+     * is&nbsp;unknown.</p></p>
+     * 
      * <p>Not Allowed Reason</p>
+     * 
+     * <p><p>The reason why the prescriber has indicated that 
+     * substitution is not allowed by the dispensing pharmacy.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution.</p><p>The field is 
+     * marked as 'Populated' because the reason for substitution is 
+     * important to understanding the decision. However when a 
+     * prescription is being recorded in the pharmacy, the 
+     * information may not be available.</p></p>
+     * 
+     * <p><p>Some jurisdictions demand that a prescriber gives a 
+     * reason for prohibiting substitution.</p><p>The field is 
+     * marked as 'Populated' because the reason for substitution is 
+     * important to understanding the decision. However when a 
+     * prescription is being recorded in the pharmacy, the 
+     * information may not be available.</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionNotAllowedReason getReasonCode() {
