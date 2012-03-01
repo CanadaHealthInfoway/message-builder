@@ -32,10 +32,28 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Assigne
 
 
 
+/**
+ * <p>Monitoring Programs</p>
+ * 
+ * <p><p>A system of additional business rules, documentation 
+ * or reporting associated with a particular drug or group of 
+ * drugs. These are typically instituted to detect potential 
+ * abuse, or to monitor prescribing and/or dispensing patterns 
+ * of a sensitive class of medications. Examples include 
+ * triplicate programs, antibiotic monitoring programs, 
+ * etc.</p></p>
+ * 
+ * <p><p>DrugProduct.triplicate</p><p>Prescription.triplicate</p></p>
+ * 
+ * <p><p>DrugProduct.triplicate</p><p>Prescription.triplicate</p></p>
+ * 
+ * <p><p>Allows association of additional business requirements 
+ * with a particular drug</p></p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
@@ -43,6 +61,20 @@ public class MonitoringProgramsBean extends MessagePartBean {
 
     /**
      * <p>Program Type</p>
+     * 
+     * <p><p>A coded value denoting a specific kind of monitoring 
+     * program. For example, &quot;Drugs of potential abuse&quot;, 
+     * &quot;Antibiotics&quot;, etc.</p></p>
+     * 
+     * <p><p>DispensedItem.triplicate</p></p>
+     * 
+     * <p><p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p></p>
+     * 
+     * <p><p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActMonitoringProtocolCode getCode() {
@@ -55,6 +87,12 @@ public class MonitoringProgramsBean extends MessagePartBean {
 
     /**
      * <p>Program Name</p>
+     * 
+     * <p><p>A user-friendly label assigned to the monitoring 
+     * program.</p></p>
+     * 
+     * <p><p>Provides a provider-recognizable label for the 
+     * program.</p></p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {

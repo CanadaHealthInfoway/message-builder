@@ -29,15 +29,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Patient</p>
+ * 
+ * <p><p>Indicates the type of patient for whom the dosage 
+ * instruction applies.</p></p>
+ * 
+ * <p><p>Important for qualifying and filtering dosage 
+ * specifications.</p></p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
      * <p>Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender of patient to whom the dosage 
+     * specification applies.</p></p>
+     * 
+     * <p><p>Some dosage specifications are gender-specific.</p></p>
      */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
     public AdministrativeGender getPatientLivingSubjectKindAdministrativeGenderCode() {

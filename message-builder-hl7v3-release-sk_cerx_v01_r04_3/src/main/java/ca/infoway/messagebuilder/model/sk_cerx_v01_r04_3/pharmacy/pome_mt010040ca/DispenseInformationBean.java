@@ -26,10 +26,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Dispense Information</p>
+ * 
+ * <p><p>At least one of the 2 components of SupplyDefinition3 
+ * First Fill Period or Refill Period must be specified.</p></p>
+ * 
+ * <p><p>Indicates how the drug should be supplied and/or who 
+ * can dispense it.</p></p>
+ * 
+ * <p><p>Needed to understand limits on how dispenses can be 
+ * performed.</p></p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private SubsequentDispenseBean component1SubsequentDispense;
     private DrugValidityPeriodBean component2InitialDispense;
 

@@ -32,10 +32,20 @@ import java.util.List;
 
 
 
+/**
+ * <p>Recommended Administration Instructions</p>
+ * 
+ * <p><p>This comprises the route of administration, 
+ * maximum/minimum daily dose, and overall use instructions for 
+ * the drug.</p></p>
+ * 
+ * <p><p>Gives guidance to prescribers on how the drug might 
+ * be/should be used</p></p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private PatientBean subjectPatient;
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -43,6 +53,11 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
+    /**
+     * <p>Patient Gender</p>
+     * 
+     * <p><div>specification applies.</div></p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
@@ -54,6 +69,13 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
     /**
      * <p>Recommending Authority Name</p>
+     * 
+     * <p><p>Indicates the name of the organization or agency that 
+     * created the dosage recommendation</p></p>
+     * 
+     * <p><p>The source of a recommendation may influence 
+     * prescriber's willingness to use the recommended dose and is 
+     * therefore mandatory</p></p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
     public String getAuthorAssignedEntityAssignedOrganizationName() {
