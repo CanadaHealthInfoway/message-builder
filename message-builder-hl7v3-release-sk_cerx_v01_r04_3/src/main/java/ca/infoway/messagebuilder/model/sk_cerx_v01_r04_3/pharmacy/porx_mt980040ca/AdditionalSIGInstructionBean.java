@@ -31,16 +31,62 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Additional SIG Instruction</p>
+ * 
+ * <p><p>- moodCode must be DEFN for drug definitions (such as 
+ * as monographs) - moodCode must be RQO for orders; - moodCode 
+ * must be EVN for dispenses and recording of other medications 
+ * { x.; }</p></p>
+ * 
+ * <p><p>This is a modifier for a specific dosage line or for 
+ * the entire SIG. Examples are: On empty stomach, At 
+ * breakfast, before bedtime, etc.</p></p>
+ * 
+ * <p><p>Adds further constraint or flexibility to the primary 
+ * administration instruction.</p></p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980040CA.SupplementalInstruction"})
 public class AdditionalSIGInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
 
 
     /**
      * <p>Dosage Usage Context</p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Puts the class in context, and is therefore 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodDefEvnRqo getMoodCode() {
@@ -53,6 +99,23 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
 
     /**
      * <p>F:Additional Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual description of extended 
+     * instruction regarding the administration of the drug.</p></p>
+     * 
+     * <p><p>ZDP.13.8</p></p>
+     * 
+     * <p><p>Allows for expression of non-codable qualifiers such 
+     * as: 'on an empty stomach', 'add water' etc; which do not 
+     * affect calculations of frequencies or quantity.</p><p>This 
+     * attribute is marked as 'mandatory' as it is the only 
+     * information that can be specified here.</p></p>
+     * 
+     * <p><p>Allows for expression of non-codable qualifiers such 
+     * as: 'on an empty stomach', 'add water' etc; which do not 
+     * affect calculations of frequencies or quantity.</p><p>This 
+     * attribute is marked as 'mandatory' as it is the only 
+     * information that can be specified here.</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
