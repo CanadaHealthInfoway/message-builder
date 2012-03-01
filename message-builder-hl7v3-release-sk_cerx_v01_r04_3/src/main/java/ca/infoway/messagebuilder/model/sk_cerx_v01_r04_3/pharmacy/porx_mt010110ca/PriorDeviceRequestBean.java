@@ -32,12 +32,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.PriorDeviceRequest"})
 public class PriorDeviceRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
 
 
     /**
      * <p>B:Previous Prescription Order Number</p>
+     * 
+     * <p><p>A reference to a previous prescription which the 
+     * current prescription replaces.</p></p>
+     * 
+     * <p><p>New or Repeat (if present, then Repeat)</p></p>
+     * 
+     * <p><p>Allows a prescription renewal (this prescription) to 
+     * note the previous prescription id that was 
+     * renewed;</p><p>Allows tracking a therapy across multiple 
+     * renewal prescriptions.</p></p>
+     * 
+     * <p><p>Allows a prescription renewal (this prescription) to 
+     * note the previous prescription id that was 
+     * renewed;</p><p>Allows tracking a therapy across multiple 
+     * renewal prescriptions.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
