@@ -56,11 +56,28 @@ import java.util.List;
 
 
 
+/**
+ * <p>Medical Condition</p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p></p>
+ * 
+ * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p></p>
+ * 
+ * <p><p>A record of a patient's medical condition. Includes 
+ * diseases, disabilities, pregnancy, lactation and other 
+ * clinical conditions of interest.</p></p>
+ * 
+ * <p><p>Necessary component of a person's overall medication 
+ * and clinical profile. Helps with contraindication 
+ * checking.</p></p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000010CA.MedicalCondition"})
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120130L;
+    private static final long serialVersionUID = 20120301L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -80,6 +97,12 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>A:Medical Condition Record Id</p>
+     * 
+     * <p><p>Unique identifier for medical condition record.</p></p>
+     * 
+     * <p><p>Allows for direct referencing of a medical condition 
+     * record when querying or updating and is therefore 
+     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -92,6 +115,18 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>Condition Type</p>
+     * 
+     * <p><p>Indicates what kind of condition is being 
+     * reported.</p></p>
+     * 
+     * <p><p>Identifies this observation as reporting a medical 
+     * condition and is therefore mandatory. When using SNOMED, the 
+     * actual condition may be post-coordinated into this 
+     * attribute, thus CD is used.</p></p>
+     * 
+     * <p><p>If SNOMED is used, the diagnosis will appear here. 
+     * Otherwise, a fixed value of &quot;DX&quot; should be 
+     * sent.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -104,6 +139,16 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>D:Condition Status</p>
+     * 
+     * <p><p>A coded value that indicates whether the condition is 
+     * still impacting the patient. 'ACTIVE' means the condition is 
+     * still affecting the patient. 'COMPLETE' means the condition 
+     * no longer holds</p></p>
+     * 
+     * <p><p>Essential to evaluating the relevance of the condition 
+     * record. In some cases, it may not be known whether the 
+     * condition still exists or not. Therefore the status is 
+     * treated as 'populated'.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -116,6 +161,30 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>E:Condition Time Period</p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the period of relevance 
+     * for the medical condition.</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -128,6 +197,28 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>F:Condition Masking Indicator</p>
+     * 
+     * <p><p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p></p>
+     * 
+     * <p><p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -140,6 +231,14 @@ public class MedicalConditionBean extends MessagePartBean {
 
     /**
      * <p>C:Condition</p>
+     * 
+     * <p><p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p></p>
+     * 
+     * <p><p>This is the central piece of information in recording 
+     * a condition. However because when using SNOMED the actual 
+     * diagnosis will be sent in the 'code' attribute, this element 
+     * is optional.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
