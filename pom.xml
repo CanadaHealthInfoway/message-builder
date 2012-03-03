@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.2.8-SNAPSHOT</version>
+	<version>1.2.8</version>
 	<name>Message Builder Parent</name>
 <!--
 	<issueManagement>
@@ -74,11 +74,11 @@
 	</scm>
 -->
         <scm>
-		<connection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<connection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.2.8
 		</connection>
-		<developerConnection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<developerConnection>scm:svn:https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.2.8
 		</developerConnection>
-		<url>https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
+		<url>https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.2.8
 		</url>
 	</scm>
 	<modules>
