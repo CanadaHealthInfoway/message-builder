@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -247,14 +248,18 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	private void createChoice(MessageSet messageSet, MessagePart part,
-			Element element) throws GeneratorException {
+	private void createChoice(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
+		ConformanceLevel conformance = createConformance(targetConnection);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		choice.setCardinality(createCardinality(targetConnection));
 		choice.setUpdateMode(createUpdateMode(targetConnection));
-		choice.setConformance(createConformance(targetConnection));
+		choice.setConformance(conformance);
 		choice.setType(determineType(targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
 
 		addChoiceItems(messageSet, targetConnection, choice);
@@ -301,11 +306,15 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	private void createStandardAssociation(MessageSet messageSet,
-			MessagePart part, Element element) throws GeneratorException {
+	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
+		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
+		ConformanceLevel conformance = createConformance(targetConnection);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
-		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
 		relationship.setName(targetConnection.getAttribute("name"));
 		
 		if (isTemplateParameter(targetConnection)) {
@@ -325,13 +334,18 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));
-		relationship.setConformance(createConformance(targetConnection));
+		relationship.setConformance(conformance);
 		relationship.setUpdateMode(createUpdateMode(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
 
 	private void createAttribute(MessagePart part, Element element) {
+		ConformanceLevel conformance = createConformance(element);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(element.getAttribute("name"));
@@ -344,13 +358,12 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				: null);
 		relationship.setUpdateMode(createUpdateMode(element));	
 		relationship.setCardinality(createCardinality(element));
-		relationship.setConformance(createConformance(element));
+		relationship.setConformance(conformance);
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
 			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
 			relationship.setDomainSource(Mif2XPathHelper.getDomainSource(element));
 		}
-		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
 	}

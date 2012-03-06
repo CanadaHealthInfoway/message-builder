@@ -35,6 +35,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -172,9 +173,13 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	private void createChoice(MessageSet messageSet, MessagePart part,
-			Element element) {
+	private void createChoice(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = MifXPathHelper.getTargetConnection(element);
+		ConformanceLevel conformance = createConformance(targetConnection);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+		
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		
@@ -182,7 +187,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setType(strategy.getHighLevelType(messageSet));
 		choice.setCardinality(createCardinality(targetConnection));
 		choice.setUpdateMode(createUpdateMode(targetConnection));		
-		choice.setConformance(createConformance(targetConnection));
+		choice.setConformance(conformance);
 		
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
 		for (ChoiceOption choiceOption : choiceOptions) {
@@ -203,11 +208,15 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		part.getRelationships().add(choice);
 	}
 
-	private void createStandardAssociation(MessageSet messageSet,
-			MessagePart part, Element element) {
+	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
+		Element targetConnection = MifXPathHelper.getTargetConnection(element);
+		ConformanceLevel conformance = createConformance(targetConnection);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+		
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
-		Element targetConnection = MifXPathHelper.getTargetConnection(element);
 		relationship.setName(targetConnection.getAttribute("name"));
 		
 		relationship.setType(determineType(messageSet, targetConnection));
@@ -216,12 +225,17 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));
-		relationship.setConformance(createConformance(targetConnection));
+		relationship.setConformance(conformance);
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
 
 	private void createAttribute(MessagePart part, Element element) {
+		ConformanceLevel conformance = createConformance(element);
+		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
+			return;
+		}
+		
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(element.getAttribute("name"));
@@ -234,14 +248,13 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		relationship.setUpdateMode(createUpdateMode(element));
 		relationship.setCardinality(createCardinality(element));
-		relationship.setConformance(createConformance(element));
+		relationship.setConformance(conformance);
 		
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
 			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
 			relationship.setDomainSource(MifXPathHelper.getDomainSource(element));
 		}
-		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
 	}

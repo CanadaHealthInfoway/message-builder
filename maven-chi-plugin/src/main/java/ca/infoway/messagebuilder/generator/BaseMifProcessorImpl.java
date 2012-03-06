@@ -168,6 +168,8 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 			return ConformanceLevel.POPULATED;
 		} else if ("R".equals(conformanceString)) {
 			return ConformanceLevel.REQUIRED;
+		} else if ("NP".equals(conformanceString)) {
+			return ConformanceLevel.NOT_ALLOWED;
 		} else if (Integer.valueOf(minimumMultiplicityString) == 0) {
 			return ConformanceLevel.OPTIONAL;
 		} else {
