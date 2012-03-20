@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.V01R04_3_SK;
+import static ca.infoway.messagebuilder.SpecificationVersion.V01R04_2_SK;
 import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -95,7 +95,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 		 		"    </frequency>" +
 				"  </comp>" +
 				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V01R04_3_SK, null, null, ConformanceLevel.MANDATORY);
+		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V01R04_2_SK, null, null, ConformanceLevel.MANDATORY);
 		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult).getBareValue();
 		
 		assertNotNull("result", result);

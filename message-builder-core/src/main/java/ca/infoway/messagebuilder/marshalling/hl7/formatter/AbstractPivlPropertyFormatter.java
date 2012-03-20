@@ -94,7 +94,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 			break;
 		case FREQUENCY:
 			// Change for Saskatchewan
-			boolean isSask = SpecificationVersion.isVersion(SpecificationVersion.V01R04_3_SK, context != null ? context.getVersion() : null);
+			boolean isSask = SpecificationVersion.isVersion(SpecificationVersion.V01R04_2_SK, context != null ? context.getVersion() : null);
 			if (isSask) {
 				if (value instanceof PeriodicIntervalTimeSk) {
 					buffer.append(createElementSk(FREQUENCY, value.getRepetitions(), ((PeriodicIntervalTimeSk) value).getQuantitySk(), indentLevel, context));

@@ -164,7 +164,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowWidth(DateUtil.getDate(1969, 11, 31), new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))), 
 				PeriodicIntervalTimeSk.createFrequencySk(3, createQuantity("3", DefaultTimeUnit.MINUTE), createQuantity("10", DefaultTimeUnit.MINUTE)));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3_SK, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_2_SK, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +

@@ -60,9 +60,13 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion NEWFOUNDLAND = new SpecificationVersion("NEWFOUNDLAND", "Newfoundland and Labrador (mixed V01R04.3 / V02R02)");
 	
 	/**
-	 * Saskatchewan (V01R04.3).
+	 * Saskatchewan (V01R04.2)
+	 * 
+	 * Base version should technically be V01R04_2 (which isn't a MB HL7v3 release), but the value 
+	 * is really only used to determine the main release (CeRx, in this case) so we should be ok to use V01R04_3.
+	 * 
 	 */
-	public static final SpecificationVersion V01R04_3_SK = new SpecificationVersion("V01R04_3_SK", "Saskatchewan (V01R04.3)", SpecificationVersion.V01R04_3);
+	public static final SpecificationVersion V01R04_2_SK = new SpecificationVersion("V01R04_2_SK", "Saskatchewan (V01R04.2)", SpecificationVersion.V01R04_3);
 	
 	/**
 	 * Alberta (V02R02).
