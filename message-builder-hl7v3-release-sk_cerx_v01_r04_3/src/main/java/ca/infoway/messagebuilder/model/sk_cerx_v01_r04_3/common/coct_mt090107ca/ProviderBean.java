@@ -56,12 +56,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * an important piece of identifying information, not all 
  * providers will have identifiers, thus this attribute is only 
  * 'populated'.</p></p>
+ * 
+ * <p><p>provider in the jurisdiction&rsquo;s Provider 
+ * Registry. The Provider Type is not used in PIN for 
+ * authorization purposes so it will be ignored.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT090107CA.AssignedPerson"})
 @Hl7RootType
-public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
+public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN representedPersonName = new PNImpl();
@@ -502,6 +506,8 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * 
      * <p><p>If a provider possesses multiple licenses, this is the 
      * license that applies to the current action.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
     public Identifier getRepresentedPersonAsLicensedEntityId() {

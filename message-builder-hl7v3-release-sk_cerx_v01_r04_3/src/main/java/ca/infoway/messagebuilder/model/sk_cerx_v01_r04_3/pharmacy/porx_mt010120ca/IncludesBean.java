@@ -48,10 +48,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.Component6"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private DispenseInstructionsBean supplyRequest;
 
 
+    /**
+     * <p><p>&nbsp;Specification of how the prescribed medication 
+     * is&nbsp;to be dispensed to the patient.</p></p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public DispenseInstructionsBean getSupplyRequest() {
         return this.supplyRequest;

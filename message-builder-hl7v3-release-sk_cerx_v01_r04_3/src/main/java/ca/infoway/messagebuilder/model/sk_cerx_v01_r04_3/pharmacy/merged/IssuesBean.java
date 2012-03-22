@@ -132,7 +132,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
@@ -406,12 +406,30 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>CausalActs</p>
+     * 
+     * <p>Causal Acts</p>
+     * 
+     * <p><p>from PIN, although they can be sent to PIN.&nbsp;</p></p>
+     * 
+     * <p>Causal Acts</p>
+     * 
+     * <p><p>from PIN, although they can be sent to PIN.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
         return this.subjectCausalActs;
     }
 
 
+    /**
+     * <p>IssueDescription</p>
+     * 
+     * <p>Issue Description</p>
+     * 
+     * <p><p>the issue.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
     public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
         return this.instantiationDetectedIssueDefinition;
@@ -421,6 +439,17 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ManagedBy</p>
+     * 
+     * <p>Managed By</p>
+     * 
+     * <p><div>information already in the patient's record.</div></p>
+     * 
+     * <p>Managed By</p>
+     * 
+     * <p><p>information already in the patient's record.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
     public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
         return this.mitigatedByDetectedIssueManagement;
@@ -527,6 +556,11 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>detected issue needs to be managed.</div></p>
+     */
     @Hl7XmlMapping({"triggerFor/actRequest"})
     public Boolean getTriggerForActRequest() {
         return this.triggerForActRequest.getValue();
@@ -536,6 +570,11 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>part of the patient's record.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/storageIntent"})
     public Boolean getSubjectOf1StorageIntent() {
         return this.subjectOf1StorageIntent.getValue();

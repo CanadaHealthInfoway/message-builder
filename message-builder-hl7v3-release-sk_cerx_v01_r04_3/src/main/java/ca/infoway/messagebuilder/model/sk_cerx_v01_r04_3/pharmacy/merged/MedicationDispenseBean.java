@@ -108,7 +108,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -288,6 +288,8 @@ public class MedicationDispenseBean extends MessagePartBean {
      * record.</p><p>Identifier for a dispensed record is needed so 
      * that dispenses may be uniquely referenced. Thus the 
      * mandatory requirement.</p></p>
+     * 
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -367,6 +369,11 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>was performed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -388,6 +395,11 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>any.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component2", type="PORX_MT060090CA.Component13"),
@@ -439,6 +451,11 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>issues.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060160CA.Subject13"),
@@ -468,6 +485,12 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>notes were not to be included and there are 
+     * notes.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160CA.Subject12"),

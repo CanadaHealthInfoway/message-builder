@@ -102,7 +102,7 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private RecordedAtBean location;
@@ -129,6 +129,10 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * to the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p></p>
+     * 
+     * <p><p><strong>Either this or the Total Days Supply must be 
+     * specified or a MISSCOND error issue will be 
+     * returned.</strong></p></p>
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
@@ -166,6 +170,22 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
      * the quantity prescribed.</p></p>
+     * 
+     * <p><p><strong>Either this or the Total Prescribed Quantity 
+     * must be specified or a MISSCOND error issue will be 
+     * returned.</strong></p></p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -176,6 +196,23 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>responsibility for dispensing the 
+     * prescription.&nbsp;</div></p>
+     * 
+     * <p><div>jurisdiction&rsquo;s list of pharmacies.</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>responsibility for dispensing the 
+     * prescription.&nbsp;</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>pharmacies.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -221,6 +258,13 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RemainingDispenses</p>
+     * 
+     * <p>Remaining Dispenses</p>
+     * 
+     * <p><p>prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"fulfillment/supplyEvent"})
     public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
         return this.fulfillmentSupplyEvent;

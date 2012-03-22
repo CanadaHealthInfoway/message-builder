@@ -71,7 +71,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -147,6 +147,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>of medication to a patient.</div></p>
+     */
     @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
@@ -161,6 +166,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>subsequent to the first fill.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),

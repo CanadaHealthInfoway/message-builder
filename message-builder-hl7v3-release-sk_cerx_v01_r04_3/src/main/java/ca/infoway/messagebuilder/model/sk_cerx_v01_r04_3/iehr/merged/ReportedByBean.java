@@ -151,7 +151,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000007CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private TS time = new TSImpl();
     private Party party;
     private Consenter consenter;
@@ -169,6 +169,14 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>Reported Date</p>
      * 
+     * <p></p></p>
+     * 
+     * <p><p>Allows for establishment of timelines between onset 
+     * date, reported date and recorded date, and is therefore 
+     * mandatory.</p></p>
+     * 
+     * <p>Reported Date</p>
+     * 
      * <p><p>The date on which the adverse reaction was 
      * reported.</p></p>
      * 
@@ -189,6 +197,15 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p><p>The date on which the medical condition was 
      * reported.</p></p>
+     * 
+     * <p><p>Allows for establishment of timelines between onset 
+     * date, reported date and recorded date, and is therefore 
+     * mandatory.</p></p>
+     * 
+     * <p>Reported Date</p>
+     * 
+     * <p><p>This is the date&nbsp;when&nbsp;the recorded 
+     * allergy/intolerance was reported.</p></p>
      * 
      * <p><p>Allows for establishment of timelines between onset 
      * date, reported date and recorded date, and is therefore 
@@ -221,6 +238,32 @@ public class ReportedByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>It can be the patient, the patient&rsquo;s 
+     * representative, or a&nbsp;health-care provider.&nbsp;</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><div>This is the party that reported the 
+     * allergy/intolerance.&nbsp;It can be the patient, the 
+     * patient&rsquo;s representative, or a&nbsp;health-care 
+     * provider.&nbsp;</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>This is the party that reported the 
+     * alleryg/intolerance. It can be the patient, the patient's 
+     * representative, or a healthcare provider.<strong> If a 
+     * Patient is specified here, it must match the patient 
+     * specified in IntoleranceCondition.subject or a BUS error 
+     * issue will be returned.</strong></p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><div>health-care provider.</div></p>
+     */
     @Hl7XmlMapping({"party"})
     public Party getParty() {
         return this.party;

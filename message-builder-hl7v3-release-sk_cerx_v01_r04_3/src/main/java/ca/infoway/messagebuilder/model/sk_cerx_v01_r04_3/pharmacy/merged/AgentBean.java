@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.Agent","PORX_MT060090CA.Agent","PORX_MT060160CA.Agent","PORX_MT060340CA.Agent"})
 public class AgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
 
 
@@ -68,6 +68,12 @@ public class AgentBean extends MessagePartBean {
      * 
      * <p><p>Provides a trace of responsibility for the 
      * substitution.</p></p>
+     * 
+     * <p><p>Identity of the person who ultimately made the 
+     * substitution decision. This must be either the patient's 
+     * identifier, the prescriber identifier, or the dispenser 
+     * identifier <strong>or a BUS error will be 
+     * returned.</strong></p></p>
      * 
      * <p>Substituting Person Identifier</p>
      * 

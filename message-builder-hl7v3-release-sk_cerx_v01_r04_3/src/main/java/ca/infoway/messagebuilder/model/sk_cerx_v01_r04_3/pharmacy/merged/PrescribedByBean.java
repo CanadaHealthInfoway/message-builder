@@ -80,7 +80,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -270,6 +270,20 @@ public class PrescribedByBean extends MessagePartBean {
 
     /**
      * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     * 
+     * <p><p>An electronic signature of the prescription by the 
+     * prescriber.</p></p>
+     * 
+     * <p><p>Signature</p></p>
+     * 
+     * <p><p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p></p>
+     * 
+     * <p><p>signatures. This field will be ignored if it is 
+     * sent.&nbsp;</p></p>
      * 
      * <p>Signature</p>
      * 

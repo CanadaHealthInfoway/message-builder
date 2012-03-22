@@ -29,6 +29,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.HL7Messag
 @Hl7PartTypeMapping({"MCCI_IN102002CA"})
 public class RequestPollQueueStatusBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
 
 }

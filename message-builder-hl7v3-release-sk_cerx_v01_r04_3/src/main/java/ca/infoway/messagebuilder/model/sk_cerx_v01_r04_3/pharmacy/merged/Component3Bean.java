@@ -68,10 +68,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component3","PORX_MT060340CA.Component3"})
 public class Component3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private ExtendedDispenseInstructionsBean supplyRequestItem;
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>dispensed.</div></p>
+     */
     @Hl7XmlMapping({"supplyRequestItem"})
     public ExtendedDispenseInstructionsBean getSupplyRequestItem() {
         return this.supplyRequestItem;

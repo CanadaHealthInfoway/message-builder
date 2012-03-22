@@ -64,6 +64,10 @@ import java.util.List;
  * only apply to the current prescription/dispense/lab order 
  * etc.</p></p>
  * 
+ * <p><p>In that case, the business rules specified below might 
+ * be relaxed since PIN will not be expected to validate the 
+ * patient details.</p></p>
+ * 
  * <p>COCT_MT050202CA.Patient: Patient</p>
  * 
  * <p><p>A person who is receiving or may receive healthcare 
@@ -76,12 +80,16 @@ import java.util.List;
  * should be stored separately. I.e. the address/phone/email 
  * only apply to the current prescription/dispense/lab order 
  * etc.</p></p>
+ * 
+ * <p><p align="left">In that case, the business rules 
+ * specified below might be relaxed since PIN will not be 
+ * expected to validate the patient details.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient","COCT_MT050203CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -232,6 +240,78 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * humans, the attribute is mandatory. If an identifier is not 
      * known, it should be looked up using the 'client registry' 
      * capabilities of the EHR application.</p></p>
+     * 
+     * <p><p>issue will be returned.</p></p>
+     * 
+     * <p>Patient ID</p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+  
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -580,6 +660,8 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * identity.</p><p>Important for following up with patient but 
      * not always available, and therefore only marked as 
      * 'populated'.</p></p>
+     * 
+     * <p><p>registry.</p></p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -827,6 +909,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * identification of the patient in the jurisdictional client 
      * registry.</p></p>
      * 
+     * <p><p><font color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" 
+     * face="Helvetica">.</font></font></font></p></p>
+     * 
      * <p>F:Patient Gender</p>
      * 
      * <p><p>Indicates the gender (sex) of the patient. Complex 
@@ -844,6 +931,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * the patient's gender is necessary for positive 
      * identification of the patient in the jurisdictional client 
      * registry.</p></p>
+     * 
+     * <p><p><font color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" 
+     * face="Helvetica">.</font></font></font></p></p>
      */
     @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
     public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
@@ -861,20 +953,6 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p><p>Indicates the date on which the patient was born.</p></p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
      * <p><p>Used to confirm patient identity.</p><p>May also 
      * influence dosage and therapy appropriateness.</p><p>Element 
      * is mandatory because the patient's birth date is necessary 
@@ -892,16 +970,26 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * is mandatory because the patient's birth date is necessary 
      * for positive identification of the patient in the 
      * jurisdictional client registry.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      * 
      * <p>E:Patient Birth Date</p>
      * 
      * <p><p>Indicates the date on which the patient was born.</p></p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence dosage and therapy appropriateness.</p><p>Element 
-     * is mandatory because the patient's birth date is necessary 
-     * for positive identification of the patient in the 
-     * jurisdictional client registry.</p></p>
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
      * 
      * <p><p>Used to confirm patient identity.</p><p>May also 
      * influence dosage and therapy appropriateness.</p><p>Element 
@@ -914,6 +1002,14 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * is mandatory because the patient's birth date is necessary 
      * for positive identification of the patient in the 
      * jurisdictional client registry.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence dosage and therapy appropriateness.</p><p>Element 
+     * is mandatory because the patient's birth date is necessary 
+     * for positive identification of the patient in the 
+     * jurisdictional client registry.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"patientPerson/birthTime"})
     public Date getPatientPersonBirthTime() {

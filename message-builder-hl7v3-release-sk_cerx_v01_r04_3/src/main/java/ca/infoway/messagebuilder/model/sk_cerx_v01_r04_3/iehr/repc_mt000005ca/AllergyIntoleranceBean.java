@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -100,6 +100,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p><p>Allows for direct referencing of an 
      * allergy/intolerance record when querying or performing 
      * updates and is therefore mandatory.</p></p>
+     * 
+     * <p><p>This is the identifier of the allergy/intolerance 
+     * record.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -178,8 +181,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>I:Allergy/Intolerance Date</p>
      * 
-     * <p><p>The date on which the recorded allergy is considered 
-     * active.</p></p>
+     * <p></p></p>
      * 
      * <p><p>Allows providers to evaluate the period of relevance 
      * for the allergy/intolerance record.</p></p>
@@ -196,11 +198,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>H:Allergy/Intolerance Masking Indicator</p>
      * 
-     * <p><p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.). The default 
-     * confidentiality level is 'NORMAL'.</p></p>
+     * <p><p>This indicates whether the allergy is masked or 
+     * not.</p></p>
      * 
      * <p><p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
@@ -320,6 +319,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * contraindications.</p><p>Attribute is mandatory because an 
      * allergy or intolerance record must be tagged as either 
      * 'confirmed' or 'suspected'.</p></p>
+     * 
+     * <p><p>&nbsp;This can be &lsquo;N&rsquo; or 
+     * &lsquo;U&rsquo;.</p></p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -339,6 +341,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p><p>Critical for identifying the allergy or intolerance. 
      * Because it is not used for SNOMED, this element is 
      * optional.</p></p>
+     * 
+     * <p><p>&nbsp;Because PIN is not using SNOMED, this 
+     * attribute&nbsp;is mandatory.</p></p>
      */
     @Hl7XmlMapping({"value"})
     public IntoleranceValue getValue() {
@@ -349,6 +354,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Suffered By</p>
+     * 
+     * <p><p>&nbsp;Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
@@ -358,6 +369,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Supervised By</p>
+     * 
+     * <p><p>&nbsp;Identifies the provider who is taking 
+     * responsibility for&nbsp;the actions of the author.</p></p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
@@ -376,6 +393,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Reported by</p>
+     * 
+     * <p><div>Indicates where the information that led to 
+     * the&nbsp;recording of this information came 
+     * from.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
@@ -415,6 +439,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>This will only be present if the query indicated 
+     * that&nbsp;notes were not to be returned and there are 
+     * notes.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
     public Boolean getSubjectOf3AnnotationIndicator() {
         return this.subjectOf3AnnotationIndicator.getValue();

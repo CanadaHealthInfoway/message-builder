@@ -57,10 +57,17 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt220200ca.
 @Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>DrugOrCompound</p>
+     * 
+     * <p>Drug or Compound</p>
+     * 
+     * <p><p>Indicates the drug that was dispensed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;

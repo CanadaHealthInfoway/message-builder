@@ -92,7 +92,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -245,6 +245,8 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p><p>Provides standard representation of the measurement. 
      * May be used in calculations.</p></p>
      * 
+     * <p></font></font></font></b></p></p>
+     * 
      * <p>B:Observation Measurement Value</p>
      * 
      * <p><p>The amount (quantity and unit) that has been recorded 
@@ -284,6 +286,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>SupervisedBy</p>
+     * 
+     * <p>Supervised By</p>
+     * 
+     * <p><div>for the actions of the author.</div></p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
@@ -311,12 +320,23 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>and diastolic) of a blood pressure 
+     * measurement.</div></p>
+     */
     @Hl7XmlMapping({"component/subObservationEvent"})
     public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
         return this.componentSubObservationEvent;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>associated with the common observation.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
@@ -326,6 +346,11 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>have recorded about this common observation.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000018CA.Subject"),

@@ -71,7 +71,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -168,6 +168,39 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
     /**
      * <p>PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Prescription Patient Measured Value</p>
+     * 
+     * <p><p>The amount (quantity and unit) that has been recorded 
+     * for the patient's height and/or weight. E.g. height in 
+     * meters, weight in kilograms, etc.</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>OBS.010-02 (quantity)</p><p>OBS.010-03 
+     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
+     * (unit)</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
+     * 
+     * <p><p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p></p>
+     * 
+     * <p><p>from a secondary source (e.g. dispensing 
+     * data).&nbsp;</p></p>
      * 
      * <p>Prescription Patient Measured Value</p>
      * 

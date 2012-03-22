@@ -24,19 +24,16 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -74,9 +71,8 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean implements Prescription {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
-    private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private DrugProductBean directTargetMedication;
@@ -256,32 +252,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>PrescriptionType</p>
-     * 
-     * <p>Prescription Type</p>
-     * 
-     * <p><p>Indicates that this is a prescription for a drug as 
-     * opposed to an immunization. For SNOMED, may also contain 
-     * information regarding drug and route.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getCode() {
-        return (ActCode) this.code.getValue();
-    }
-    public void setCode(ActCode code) {
-        this.code.setValue(code);
-    }
-
-
-    /**
      * <p>PrescriptionStatus</p>
      * 
      * <p>C:Prescription Status</p>
@@ -403,6 +373,16 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>to be dispensed to the patient.&nbsp;</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates the prescriber of the 
+     * prescription.</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
         return this.author;
@@ -412,12 +392,22 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>recorded against a prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>before the prescription can be dispensed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -427,6 +417,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>from a secondary source (e.g. dispensing 
+     * data).</div></p>
+     */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
@@ -480,6 +476,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>medication should be dispensed to the 
+     * patient.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component2"})
     public Component2Bean getComponent2() {
         return this.component2;
@@ -525,6 +527,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>associated with the drug prescription.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
@@ -534,6 +541,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>have been recorded against the drug 
+     * prescription.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
         return this.subjectOf2DetectedIssueIndicator.getValue();
@@ -543,12 +556,23 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>dispenser refusing to fill the subject 
+     * prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf3/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
         return this.subjectOf3RefusalToFill;
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>prescription has been put.</div></p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public ClassifiesBean getComponentOf() {
         return this.componentOf;

@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -107,6 +107,8 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * mandatory.</p><p>The identifier is mandatory because it is 
      * the principal mechanism for uniquely identifying the 
      * facility.</p></p>
+     * 
+     * <p><div>error issue will be returned.</div></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {

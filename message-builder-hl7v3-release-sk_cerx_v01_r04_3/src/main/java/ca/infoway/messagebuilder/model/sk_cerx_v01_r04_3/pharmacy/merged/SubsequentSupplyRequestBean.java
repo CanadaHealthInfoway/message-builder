@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
@@ -176,6 +176,27 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * patient for each normal fill (excluding trial or other 
      * special first fills).</p></p>
      * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p></p>
+     * 
+     * <p><p>Limits the quantity of medication in patient's 
+     * possession at a time. Used in compliance checking</p></p>
+     * 
+     * <p>D:Fill Quantity</p>
+     * 
+     * <p><p>The amount of medication to be dispensed to the 
+     * patient for each normal fill (excluding trial or other 
+     * special first fills).</p></p>
+     * 
      * <p><p>Quantity</p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
      * (when SupplyRequest.effectiveTime id populated with an 
      * interval)</p></p>
@@ -191,26 +212,11 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p><p>Limits the quantity of medication in patient's 
      * possession at a time. Used in compliance checking.</p></p>
      * 
-     * <p>D:Fill Quantity</p>
-     * 
      * <p><p>The amount of medication to be dispensed to the 
      * patient for each normal fill (excluding trial or other 
-     * special first fills).</p></p>
-     * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
-     * (when SupplyRequest.effectiveTime id populated with an 
-     * interval)</p><p>Quantity</p></p>
-     * 
-     * <p><p>Limits the quantity of medication in patient's 
-     * possession at a time. Used in compliance checking</p></p>
+     * special first fills). <strong>Although CeRx does not have 
+     * this as mandatory, since PIN uses this value, it should be 
+     * specified if at all possible.</strong></p></p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -231,21 +237,6 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * instructions together with the Days Supply to calculate the 
      * total quantity to dispense per fill. May be specified in 
      * addition to quantity to indicate the length of time a 
-     * quantity of 'as needed' medication is expected to last.</p></p>
-     * 
-     * <p><p>Useful in determining and managing certain 
-     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
-     * 'Duration of Therapy'). Also provides guidance to the 
-     * pharmacy on how much to dispense. Also useful in 
-     * research.</p></p>
-     * 
-     * <p>E:Days Supply</p>
-     * 
-     * <p><p>The number of days that each standard fill is expected 
-     * to last. The dispenser must use the administration 
-     * instructions together with the Days Supply to calculate the 
-     * total quantity to dispense per fill. May be specified in 
-     * addition to quantity to indicate the length of time a 
      * quantity of &quot;as needed&quot; medication is expected to 
      * last.</p></p>
      * 
@@ -254,6 +245,27 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * 'Duration of Therapy'). Also provides guidance to the 
      * pharmacy on how much to dispense. Also useful in 
      * research</p></p>
+     * 
+     * <p><p><strong>PIN will only use the Fill Quantity to 
+     * determine the amount per fill. If it is not specified, PIN 
+     * will not use the administration instructions and the Days 
+     * Supply. Instead, it will not report Number of Fills 
+     * Remaining in any query responses.</strong></p></p>
+     * 
+     * <p>E:Days Supply</p>
+     * 
+     * <p><p>The number of days that each standard fill is expected 
+     * to last. The dispenser must use the administration 
+     * instructions together with the Days Supply to calculate the 
+     * total quantity to dispense per fill. May be specified in 
+     * addition to quantity to indicate the length of time a 
+     * quantity of 'as needed' medication is expected to last.</p></p>
+     * 
+     * <p><p>Useful in determining and managing certain 
+     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
+     * 'Duration of Therapy'). Also provides guidance to the 
+     * pharmacy on how much to dispense. Also useful in 
+     * research.</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {

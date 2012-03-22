@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -76,6 +76,10 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p><p>Allows formal tracking of centrally recorded dispenses 
      * to local records for audit and related purposes.</p></p>
+     * 
+     * <p><p><strong>SK PIN will record this as an external key 
+     * against the event to allow for retrieval of this dispense 
+     * using the given identifier.</strong></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -112,6 +116,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed For</p>
+     * 
+     * <p><p><strong>NOTE: The CeRx model allows for this field to 
+     * be an animal. PIN does not support animals and this field is 
+     * constrained to only allow Patients</strong></p></p>
+     * 
+     * <p><p>Indicates the patient the drug was dispensed for.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient1"})
     public Patient getSubjectPatient1() {
         return this.subjectPatient1;
@@ -153,6 +166,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Performs</p>
+     * 
+     * <p><div>made, if any.</div></p>
+     */
     @Hl7XmlMapping({"component1/substitutionMade"})
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;

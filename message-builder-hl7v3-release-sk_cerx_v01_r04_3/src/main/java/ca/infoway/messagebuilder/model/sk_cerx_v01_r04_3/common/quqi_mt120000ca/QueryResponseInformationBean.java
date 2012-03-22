@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -64,6 +64,8 @@ public class QueryResponseInformationBean extends MessagePartBean {
      * <p><p>A single query may involve multiple messages. 
      * (Multiple continuations.). This attribute links all messages 
      * related to the same query and is therefore mandatory.</p></p>
+     * 
+     * <p><p>Query Identifier.)&nbsp;</p></p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -114,8 +116,7 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>P:Query Items Returned</p>
      * 
-     * <p><p>The number of item repetitions returned in the current 
-     * response.</p></p>
+     * <p><p>This is how many items are returned in this query.</p></p>
      * 
      * <p><p>Provides a quick overview of the number of items 
      * without having to go through and count the data and is 

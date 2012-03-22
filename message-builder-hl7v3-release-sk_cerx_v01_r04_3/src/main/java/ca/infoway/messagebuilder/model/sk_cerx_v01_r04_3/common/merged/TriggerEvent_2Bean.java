@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -129,6 +129,15 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p><p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p></p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     * 
+     * <p><p>with the response.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -152,6 +161,8 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * the time the event is recorded. (I.e. it may be in the 
      * future or the past). For changes such as 'suspend', an 
      * intended end date may also be indicated.</p></p>
+     * 
+     * <p><p>This will not be populated by PIN.&nbsp;</p></p>
      * 
      * <p>C:Event Effective Period</p>
      * 
@@ -188,6 +199,22 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * <p><p>The domain associated with this attribute will vary 
      * for each interaction and will be noted as part of the 
      * interaction description.</p></p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific query, modification 
+     * request, or modification occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold'. Also allows identifying reason 
+     * for accessing information for a query.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     * 
+     * <p><p>by Infoway for reject responses does not 
+     * exist.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -243,6 +270,13 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Payload</p>
+     * 
+     * <p>Payload</p>
+     * 
+     * <p></p></p>
+     */
     @Hl7XmlMapping({"subject"})
     public RefersToBean<ACT> getSubject() {
         return this.subject;

@@ -69,12 +69,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
 
     /**
+     * <p>Manufacturer Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p>Manufacturer Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     * 
+     * <p><p>&nbsp;PIN does not have this information.</p></p>
+     * 
      * <p>Manufacturer Id</p>
      * 
      * <p><p>An identifier denoting a specific drug 

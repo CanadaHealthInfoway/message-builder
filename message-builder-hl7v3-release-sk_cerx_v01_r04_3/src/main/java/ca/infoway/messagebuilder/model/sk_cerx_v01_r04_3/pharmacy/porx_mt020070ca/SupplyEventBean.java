@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
@@ -361,6 +361,8 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p></p>
+     * 
+     * <p><p>is unknown, eg. for PRN dispenses.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {

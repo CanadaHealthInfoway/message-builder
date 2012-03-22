@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
-import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
+import ca.infoway.messagebuilder.domainvalue.FDBDosageForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.DispensedInBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.DrugContainsBean;
@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -391,6 +391,8 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * 
      * <p><p>Allows description of compound ingredients and/or 
      * recipe in free text form.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"player/desc"})
     public String getPlayerDesc() {
@@ -475,14 +477,19 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * Drug Form.</p></p>
      */
     @Hl7XmlMapping({"player/formCode"})
-    public OrderableDrugForm getPlayerFormCode() {
-        return (OrderableDrugForm) this.playerFormCode.getValue();
+    public FDBDosageForm getPlayerFormCode() {
+        return (FDBDosageForm) this.playerFormCode.getValue();
     }
-    public void setPlayerFormCode(OrderableDrugForm playerFormCode) {
+    public void setPlayerFormCode(FDBDosageForm playerFormCode) {
         this.playerFormCode.setValue(playerFormCode);
     }
 
 
+    /**
+     * <p>Manufactured By</p>
+     * 
+     * <p><p>drug product.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
         return this.playerAsManufacturedProductManufacturer;
@@ -492,6 +499,13 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Dispensed in</p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p><div>specified.</div></p>
+     */
     @Hl7XmlMapping({"player/asContent"})
     public DispensedInBean getPlayerAsContent() {
         return this.playerAsContent;
@@ -501,6 +515,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Drug Contains</p>
+     * 
+     * <p><p>respective quantities.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;

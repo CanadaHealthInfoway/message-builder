@@ -62,7 +62,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -154,6 +154,8 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * Because the medication can be masked, this element is only 
      * marked as 'populated'.</p><p>The element allows a full 'CD' 
      * type to support SNOMED implementations.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdministrationCode getCode() {

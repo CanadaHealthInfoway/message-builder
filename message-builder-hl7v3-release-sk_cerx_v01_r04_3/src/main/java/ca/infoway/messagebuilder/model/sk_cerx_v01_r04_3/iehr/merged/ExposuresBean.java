@@ -155,7 +155,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV routeCode = new CVImpl();
     private CV consumableAdministrableMaterialAdministerableMaterialKindCode = new CVImpl();
@@ -173,6 +173,9 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p><p>Allows for drilling down to retrieve further 
      * information about the exposure</p></p>
+     * 
+     * <p><p><strong>A KEY204 error issue will be returned if this 
+     * record identifier is not found in PIN.</strong></p></p>
      * 
      * <p>B:Incidence Identifier</p>
      * 
@@ -243,6 +246,11 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be coded. 
      * Also, the code may sometimes be masked, in which case a 
      * &quot;null flavor&quot; must be specified.</p></p>
+     * 
+     * <p><p>Indicates the type of agent that the patient was 
+     * exposed to which caused the adverse reaction. This includes 
+     * Drug, Food, Latex, Dust, etc. <strong>Send "UNK" if the 
+     * material is unknown.</strong></p></p>
      */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind/code","consumable/administrableMaterial/administerableMaterialKind/code"})
     @Hl7MapByPartTypes({

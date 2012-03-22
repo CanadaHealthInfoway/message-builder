@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActMedicationDocumentCode;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
-import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
+import ca.infoway.messagebuilder.domainvalue.FDBDrugRoute;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.SymptomValue;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV drugCodeValue = new CVImpl();
     private II medicationDocumentIDValue = new IIImpl();
     private CV medicationDocumentTypeValue = new CVImpl();
@@ -245,6 +245,15 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>HasCharacteristic</p>
+     * 
+     * <p>Has Characteristic</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>used in the search.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"drugCharacteristics"})
     public List<HasCharacteristicBean> getDrugCharacteristics() {
         return this.drugCharacteristics;
@@ -264,10 +273,10 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * retrieval.</p></p>
      */
     @Hl7XmlMapping({"drugForm/value"})
-    public OrderableDrugForm getDrugFormValue() {
-        return (OrderableDrugForm) this.drugFormValue.getValue();
+    public FDBDrugRoute getDrugFormValue() {
+        return (FDBDrugRoute) this.drugFormValue.getValue();
     }
-    public void setDrugFormValue(OrderableDrugForm drugFormValue) {
+    public void setDrugFormValue(FDBDrugRoute drugFormValue) {
         this.drugFormValue.setValue(drugFormValue);
     }
 

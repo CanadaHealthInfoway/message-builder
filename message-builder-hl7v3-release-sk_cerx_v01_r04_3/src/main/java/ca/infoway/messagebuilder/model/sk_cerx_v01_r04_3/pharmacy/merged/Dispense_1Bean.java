@@ -65,7 +65,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class Dispense_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -164,6 +164,8 @@ public class Dispense_1Bean extends MessagePartBean implements CausalActs {
      * <p><p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
      * up.</p></p>
+     * 
+     * <p><div>will be set to &lsquo;NA&rsquo;.</div></p>
      * 
      * <p>B:Dispensed Date</p>
      * 

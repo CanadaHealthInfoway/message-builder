@@ -31,6 +31,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Prescri
 @Hl7PartTypeMapping({"PORX_IN010940CA"})
 public class DevicePrescrFulfillRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_2Bean<PrescriptionReferenceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
 
 }

@@ -90,7 +90,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -107,6 +107,41 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p><p>Allows an allergy/intolerance test record to be 
      * directly referenced.</p></p>
+     * 
+     * <p></font></font></font></p></p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p>B:Allergy Test Record Id</p>
+     * 
+     * <p><p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p></p>
+     * 
+     * <p><p>Allows an allergy/intolerance test record to be 
+     * directly referenced.</p></p>
+     * 
+     * <p><p>This identifier references an external allergy 
+     * test.<strong> PIN will simply store this value for 
+     * information purposes. No validation of the id will be 
+     * made.</strong></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -119,6 +154,17 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
     /**
      * <p>AllergyTestType</p>
+     * 
+     * <p>A:Allergy Test Type</p>
+     * 
+     * <p><p>A coded value denoting the type of allergy test 
+     * conducted.</p></p>
+     * 
+     * <p><p>Allows different kinds of allergy/intolerance tests to 
+     * be distinguishable and is therefore mandatory. It uses the 
+     * CD type to support SNOMED post-coordination.</p></p>
+     * 
+     * <p></font></font></font></p></p>
      * 
      * <p>A:Allergy Test Type</p>
      * 
@@ -169,6 +215,34 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * with an allergy or intolerance however the element is 
      * optional because this information may be post-coordinated in 
      * the 'code' attribute using SNOMED.</p></p>
+     * 
+     * <p><p>A code indicating result of the allergy test.<br 
+     * /><strong>Because PIN is not using SNOMED, this attribute is 
+     * mandatory.</strong></p></p>
+     * 
+     * <p>C:Allergy Test Result</p>
+     * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
+     * 
+     * <p>C:Allergy Test Result</p>
+     * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"value"})
     public AllergyTestValue getValue() {

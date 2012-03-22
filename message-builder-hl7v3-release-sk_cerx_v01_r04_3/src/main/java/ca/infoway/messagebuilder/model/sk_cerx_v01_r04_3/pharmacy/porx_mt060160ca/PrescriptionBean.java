@@ -23,17 +23,14 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt060160
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -90,9 +87,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
-    private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private DrugProductBean directTargetMedication;
@@ -266,6 +262,8 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p><p>Allows prescriptions to be uniquely 
      * referenced.</p><p>The number is mandatory to allow every 
      * prescription record to be uniquely identified.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -273,30 +271,6 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Prescription Type</p>
-     * 
-     * <p><p>Indicates that this is a prescription for a drug as 
-     * opposed to an immunization. For SNOMED, may also contain 
-     * information regarding drug and route.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getCode() {
-        return (ActCode) this.code.getValue();
-    }
-    public void setCode(ActCode code) {
-        this.code.setValue(code);
     }
 
 
@@ -511,6 +485,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p></font></font></font></b></p></p>
+     */
     @Hl7XmlMapping({"fulfillment1/medicationDispense"})
     public List<MedicationDispenseBean> getFulfillment1MedicationDispense() {
         return this.fulfillment1MedicationDispense;

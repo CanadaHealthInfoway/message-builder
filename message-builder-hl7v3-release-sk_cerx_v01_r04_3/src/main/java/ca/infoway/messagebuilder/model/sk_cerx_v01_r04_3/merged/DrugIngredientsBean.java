@@ -118,15 +118,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Substance","COCT_MT220110CA.Substance","COCT_MT220200CA.Substance","COCT_MT220210CA.Substance","POME_MT010040CA.Substance","POME_MT010100CA.Substance"})
 public class DrugIngredientsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
 
     /**
-     * <p>DrugIngredientIdentifier</p>
-     * 
-     * <p>A:Drug Ingredient Identifier</p>
+     * <p>Drug Ingredient Code</p>
      * 
      * <p><p>The unique identifier for the drug or chemical.</p></p>
      * 
@@ -182,15 +180,19 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p><p>Allows un-ambiguous identification of the ingredients 
      * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p></p>
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p></p>
      * 
      * <p><p>Allows un-ambiguous identification of the ingredients 
      * of a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p></p>
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p></p>
      * 
-     * <p>A:Drug Ingredient Identifier</p>
+     * <p><p>The unique identifier for the drug or chemical.<br 
+     * /><strong>This will be the FDB HIC of the 
+     * ingredient.</strong></p></p>
+     * 
+     * <p>A:Drug Ingredient Code</p>
      * 
      * <p><p>The unique identifier for the drug or chemical.</p></p>
      * 
@@ -240,9 +242,7 @@ public class DrugIngredientsBean extends MessagePartBean {
      * name)</p><p>ZCP.2</p></p>
      * 
      * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
- 
+     * system)</p><p>ZPB3.6(mnemo
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})

@@ -113,7 +113,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -160,6 +160,9 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p><p>Most consents are not open-ended, to ensure the 
      * patient retains a level of control</p></p>
+     * 
+     * <p><p><strong>CeRx defines this as 0..1 but the effective 
+     * time is required in PIN so this is mandatory.</strong></p></p>
      * 
      * <p>C:Consent Effective and End Time</p>
      * 
@@ -218,6 +221,12 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
+     * Person&nbsp;Identified Confirmable.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient","subject1/patient"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subject", type="RCMR_MT010001CA.Subject"),
@@ -232,6 +241,15 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>OverriddenBy</p>
+     * 
+     * <p>Overridden By</p>
+     * 
+     * <p><div>by a provider rather than a patient.</div></p>
+     * 
+     * <p><div>returned.</div></p>
+     */
     @Hl7XmlMapping({"author1","author2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="author1", type="COCT_MT470000CA.Author2"),
@@ -244,6 +262,15 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ConsentedToBy</p>
+     * 
+     * <p>Consented To By</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>returned.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author1","author2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="author1", type="RCMR_MT010001CA.Author"),
@@ -320,6 +347,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ConsentsTo</p>
+     * 
+     * <p>Consents to</p>
+     * 
+     * <p><div>consented to.</div></p>
+     */
     @Hl7XmlMapping({"component/permissionToInform"})
     public InformationAccessBean getComponentPermissionToInform() {
         return this.componentPermissionToInform;

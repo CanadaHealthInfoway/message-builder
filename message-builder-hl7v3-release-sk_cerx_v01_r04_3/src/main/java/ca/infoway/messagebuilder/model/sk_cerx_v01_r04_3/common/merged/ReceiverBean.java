@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Receiver","MCCI_MT000200CA.Receiver","MCCI_MT000300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
@@ -52,6 +52,16 @@ public class ReceiverBean extends MessagePartBean {
      * <p><p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
      * addresses.</p></p>
+     * 
+     * <p>JB:Receiver Network Address</p>
+     * 
+     * <p><p>The address to which this message is being sent.</p></p>
+     * 
+     * <p><p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p></p>
+     * 
+     * <p><p>if sent, it is not used by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -74,6 +84,18 @@ public class ReceiverBean extends MessagePartBean {
      * this message is intended for me.&quot; This is mandatory 
      * because it is the key identifier of the receiving 
      * application.</p></p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     * 
+     * <p><p>The unique identifier of the application to which the 
+     * message is being sent.</p></p>
+     * 
+     * <p><p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p></p>
+     * 
+     * <p><p>for PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {

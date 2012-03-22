@@ -63,7 +63,7 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
@@ -186,6 +186,8 @@ public class MonographsBean extends MessagePartBean {
      * 
      * <p><p>Allows delivery of the monograph information to the 
      * provider either embedded or by reference</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {

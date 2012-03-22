@@ -74,7 +74,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ManagedByBean author;
@@ -259,6 +259,13 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ManagedBy</p>
+     * 
+     * <p>Managed By</p>
+     * 
+     * <p><p>management of the issue.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public ManagedByBean getAuthor() {
         return this.author;

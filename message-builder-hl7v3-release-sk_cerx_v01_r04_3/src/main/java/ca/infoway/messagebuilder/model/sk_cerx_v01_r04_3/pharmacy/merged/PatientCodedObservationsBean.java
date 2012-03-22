@@ -23,12 +23,15 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.IssueTriggerObservationValue;
 import ca.infoway.messagebuilder.domainvalue.ObservationIssueTriggerCodedObservationType;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
@@ -68,13 +71,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p><p>Useful for determining appropriate management and for 
  * drilling down for more information.</p></p>
+ * 
+ * <p><p>allergy/intolerance.&nbsp;</p></p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
+    private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
     private CV value = new CVImpl();
 
@@ -92,6 +98,8 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * allergy, medical condition, pregnancy status, etc) for 
      * additional details when evaluating appropriateness of issue 
      * management.</p></p>
+     * 
+     * <p><p>issue will be raised.&nbsp;</p></p>
      * 
      * <p>A:Observation Identifier</p>
      * 
@@ -142,6 +150,35 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * referenced. The attribute is mandatory because it is 
      * essential to interpreting the rest of the information on the 
      * class.</p></p>
+     * 
+     * <p><p>issue is detected by PIN.&nbsp;</p></p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Distinguishes the kinds of coded observation that 
+     * could be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p></p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationIssueTriggerCodedObservationType getCode() {
@@ -149,6 +186,22 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setCode(ObservationIssueTriggerCodedObservationType code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>ObservationStatus</p>
+     * 
+     * <p>Observation Status</p>
+     * 
+     * <p><p>The status of the observation.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 

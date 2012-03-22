@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
@@ -151,6 +151,8 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p><p>This field must not be used for components of the 
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p></p>
+     * 
+     * <p><p>returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -272,6 +274,8 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p><p>Together with the dose quantity, indicates the overall 
      * quantity of drug.</p></p>
+     * 
+     * <p><p>be returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public GeneralTimingSpecification getEffectiveTime() {
@@ -301,6 +305,8 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p><p>Where no range is needed, sending the same value in 
      * both the low and the high is the preferred solution.</p></p>
+     * 
+     * <p><p>error issue will be returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public UncertainRange<PhysicalQuantity> getDoseQuantity() {
@@ -320,6 +326,8 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * Dosage rate.</p></p>
      * 
      * <p><p>Required for intravenous administration</p></p>
+     * 
+     * <p><p>be returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"rateQuantity"})
     public UncertainRange<PhysicalQuantity> getRateQuantity() {
@@ -330,6 +338,9 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>null flavor for the Dosage Condition.</div></p>
+     */
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
         return this.triggerActEventCriterion;
@@ -339,6 +350,10 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>&nbsp;This is a modifier for this specific dosage 
+     * line.</p></p>
+     */
     @Hl7XmlMapping({"component/supplementalInstruction"})
     public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
         return this.componentSupplementalInstruction;

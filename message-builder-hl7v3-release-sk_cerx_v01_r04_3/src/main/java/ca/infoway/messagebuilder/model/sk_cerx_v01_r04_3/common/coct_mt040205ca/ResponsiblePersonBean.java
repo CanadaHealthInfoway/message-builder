@@ -59,9 +59,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT040205CA.ResponsibleParty"})
 @Hl7RootType
-public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
+public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -287,6 +287,8 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * perform certain actions. E.g. A 'friend' may not be able to 
      * make consent decisions, but may be able to pick up 
      * dispenses.</p></p>
+     * 
+     * <p><p>messages.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"code"})
     public x_SimplePersonalRelationship getCode() {
@@ -384,6 +386,8 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * care of(PartType=CARE)</p></p>
      * 
      * <p><p>Used to contact the responsible person.</p></p>
+     * 
+     * <p><p>messages.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -461,6 +465,8 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * Number</p></p>
      * 
      * <p><p>Used to contact the responsible person.</p></p>
+     * 
+     * <p><p>messages.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TNImpl;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
-import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
+import ca.infoway.messagebuilder.domainvalue.FDBDosageForm;
 import ca.infoway.messagebuilder.domainvalue.RoleStatusNormal;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.DispensedInBean;
@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV playerCode = new CVImpl();
     private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST playerDesc = new STImpl();
@@ -151,10 +151,10 @@ public class MedicationBean extends MessagePartBean {
      * the patient.</p></p>
      */
     @Hl7XmlMapping({"player/formCode"})
-    public OrderableDrugForm getPlayerFormCode() {
-        return (OrderableDrugForm) this.playerFormCode.getValue();
+    public FDBDosageForm getPlayerFormCode() {
+        return (FDBDosageForm) this.playerFormCode.getValue();
     }
-    public void setPlayerFormCode(OrderableDrugForm playerFormCode) {
+    public void setPlayerFormCode(FDBDosageForm playerFormCode) {
         this.playerFormCode.setValue(playerFormCode);
     }
 
@@ -187,6 +187,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed In</p>
+     * 
+     * <p><div>be contained.</div></p>
+     */
     @Hl7XmlMapping({"player/asContent"})
     public DispensedInBean getPlayerAsContent() {
         return this.playerAsContent;
@@ -196,12 +201,24 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Grouped Within</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>returned.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/asSpecializedKind"})
     public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
         return this.playerAsSpecializedKind;
     }
 
 
+    /**
+     * <p>Drug Contains</p>
+     * 
+     * <p><div>respective quantities.</div></p>
+     */
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;

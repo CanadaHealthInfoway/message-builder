@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
@@ -83,6 +83,8 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * on hand, but don't get any more.&quot;</p><p>Because the 
      * status should always be known, this element is 
      * mandatory.</p></p>
+     * 
+     * <p><p>the prescription status.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -207,6 +209,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>responsibility for dispensing the 
+     * prescription.</div></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -225,6 +231,9 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>100 x 20mg tablets and 50 x 10mg tablets.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component"})
     public List<Component3Bean> getComponent() {
         return this.component;

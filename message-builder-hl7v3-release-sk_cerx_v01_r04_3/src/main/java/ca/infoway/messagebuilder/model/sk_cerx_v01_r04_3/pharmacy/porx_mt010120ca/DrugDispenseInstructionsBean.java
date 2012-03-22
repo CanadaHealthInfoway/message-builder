@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -132,6 +132,10 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>&nbsp;Dispensing instruction for all dispenses 
+     * subsequent to the first fill.</p></p>
+     */
     @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
     public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
         return this.component1SubsequentSupplyRequest;
@@ -141,6 +145,10 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>&nbsp;Special instructions regarding the very first 
+     * supply&nbsp;of medication to a patient.</p></p>
+     */
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
         return this.component2InitialSupplyRequest;

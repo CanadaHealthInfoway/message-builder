@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +45,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
+    /**
+     * <p><div>Provider or Service Location.</div></p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
@@ -72,6 +74,8 @@ public class InformationAccessBean extends MessagePartBean {
      * information the consent applies to is critical to 
      * controlling access, and therefore the attribute is 
      * mandatory.</p></p>
+     * 
+     * <p><p>Must be either ACALLG or ACMED.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {

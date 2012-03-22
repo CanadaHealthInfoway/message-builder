@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CE playerCode = new CEImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -516,11 +516,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>F:Drug Expiry Date</p>
      * 
-     * <p><p>Indicates either the length of time a drug product can 
-     * remain viable (when talking about a drug in general terms), 
-     * or the date on which the drug product is no longer 
-     * considered viable (when talking about a specific medication 
-     * that has been dispensed).</p></p>
+     * <p></p></p>
      * 
      * <p><p>DispensedItem.expiryDate</p><p>Drug Expiry 
      * Date</p><p>C7</p></p>
@@ -550,6 +546,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Manufactured By</p>
+     * 
+     * <p><p>drug product.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
         return this.playerAsManufacturedProductManufacturer;
@@ -559,6 +560,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Drug Dispensed In</p>
+     * 
+     * <p><p>specified.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/asContent"})
     public DispensedInBean getPlayerAsContent() {
         return this.playerAsContent;
@@ -568,6 +574,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p><p>respective quantities.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;

@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
@@ -84,6 +84,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p><p>Queries cannot be retracted, so this event identifier 
      * does not need to be locally persisted.</p></p>
+     * 
+     * <p><p>future transactions.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -101,6 +103,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p><p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p></p>
+     * 
+     * <p><p>event code associated with this interaction.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -122,6 +126,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p><p>The domain associated with this attribute will vary 
      * for each interaction and will be noted as part of the 
      * interaction description.</p></p>
+     * 
+     * <p><p>no reason is being sent.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -141,6 +147,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Recorded By</p>
+     * 
+     * <p><p>if different from the author.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"dataEnterer/assignedPerson"})
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
@@ -150,6 +161,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Recorded At</p>
+     * 
+     * <p><p>where the query occurred.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
@@ -168,6 +184,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Caused</p>
+     * 
+     * <p><p>as part of the current message.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;

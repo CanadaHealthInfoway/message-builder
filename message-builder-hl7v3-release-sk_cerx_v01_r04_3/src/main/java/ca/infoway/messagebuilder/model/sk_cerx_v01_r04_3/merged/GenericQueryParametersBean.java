@@ -200,7 +200,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -431,6 +431,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p><p>Used to confirm the identity of the patient for the 
      * query and is therefore mandatory.</p></p>
      * 
+     * <p><p><strong>This will be compared to the birthdate of the 
+     * patient given by the ID. (See the External Registry ID 
+     * section for details on the comparison and the error that may 
+     * be raised.)</strong></p></p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
+     * 
      * <p>E:Patient Birth Date</p>
      * 
      * <p><p>Indicates the gender of the patient.</p></p>
@@ -456,6 +468,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>PatientGender</p>
+     * 
+     * <p>D:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query and is therefore mandatory.</p></p>
+     * 
+     * <p><p><strong>This will be compared to the gender of the 
+     * patient given by the ID. (See the External Registry ID 
+     * section for details on the comparison and the error that may 
+     * be raised.)</strong></p></p>
      * 
      * <p>D:Patient Gender</p>
      * 
@@ -489,6 +513,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     /**
      * <p>PatientID</p>
+     * 
+     * <p>B:Patient ID</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * allergy/intolerance query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient Id. This is 
+     * a mandatory field because a patient must be specified for 
+     * the query to be valid.</p></p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * allergy/intolerance query. Filter the result set to include 
+     * only those records pertaining to the patient with this ID. 
+     * <strong>A KEY204 error issue will be returned if this ID 
+     * does not exist in the jurisdictional client 
+     * registry.</strong></p></p>
      * 
      * <p>B:Patient ID</p>
      * 
@@ -532,17 +574,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p><p>Allows filtering of result set by patient Id. This is 
      * a mandatory field because a patient must be specified for 
      * the query to be valid</p></p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p><p>Identifier of the patient who is the subject of the 
-     * allergy/intolerance query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p></p>
-     * 
-     * <p><p>Allows filtering of result set by patient Id. This is 
-     * a mandatory field because a patient must be specified for 
-     * the query to be valid.</p></p>
      * 
      * <p>B:Patient ID</p>
      * 
@@ -617,6 +648,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p><p>Allows filtering of result set by patient name. This 
      * is a mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p></p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * allergy/intolerance query. <strong>This will be compared to 
+     * the name of the patient given by the ID. (See the External 
+     * Registry ID section on the comparison and the error that may 
+     * be raised.)</strong></p></p>
      * 
      * <p>C:Patient Name</p>
      * 
@@ -1950,6 +1987,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p><p>Allows allergy/intolerance records to be selectively 
      * searched and retrieved.</p></p>
+     * 
+     * <p><p><strong>If a non-leaf code is specified, then all 
+     * records whose type is in the specified code\'s hierarchy 
+     * will be returned. Example: if ALG is specified, any 
+     * DALG,</strong> <strong>EALG, or FALG will be 
+     * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"allergyIntoleranceType/value"})
     public ObservationIntoleranceType getAllergyIntoleranceTypeValue() {
@@ -2099,6 +2142,9 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p><p>Identifies the specific condition record to retrieve 
      * and is therefore mandatory.</p></p>
+     * 
+     * <p><p><strong>A KEY204 error issue will be returned if this 
+     * ID does exist in PIN.</strong></p></p>
      */
     @Hl7XmlMapping({"conditionID/value"})
     public Identifier getConditionIDValue() {

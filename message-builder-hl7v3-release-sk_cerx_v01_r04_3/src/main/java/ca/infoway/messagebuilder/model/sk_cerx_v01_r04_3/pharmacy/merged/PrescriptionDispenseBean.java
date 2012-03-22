@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.porx_mt060020ca.DispensedPrescriptionReferenceBean;
 
 
 
@@ -66,7 +67,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -79,7 +80,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
     private RecordedAtBean location;
-    private SupplyOrderBean fulfillmentSupplyRequest;
+    private DispensedPrescriptionReferenceBean fulfillment;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -93,6 +94,8 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p><p>Allows formal tracking of centrally recorded dispenses 
      * to local records for audit and related purposes.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
@@ -192,6 +195,8 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p><p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p></p>
+     * 
+     * <p><p>CODE_INVAL error issue will be returned.</p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -304,6 +309,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>was performed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -313,15 +323,31 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>Indicates the prescription that was dispensed.</p></p>
+     * 
+     * <p><p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p></p>
+     */
+    @Hl7XmlMapping({"fulfillment"})
+    public DispensedPrescriptionReferenceBean getFulfillment() {
+        return this.fulfillment;
     }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    public void setFulfillment(DispensedPrescriptionReferenceBean fulfillment) {
+        this.fulfillment = fulfillment;
     }
 
 
+    /**
+     * <p>IssueIndicator</p>
+     * 
+     * <p>Issue Indicator</p>
+     * 
+     * <p><div>issues.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
@@ -331,6 +357,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>AnnotationIndicator</p>
+     * 
+     * <p>Annotation Indicator</p>
+     * 
+     * <p><p>notes were not to be included and there are 
+     * notes.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();

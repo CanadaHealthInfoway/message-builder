@@ -85,7 +85,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -383,6 +383,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><p>to be dispensed to the patient.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
         return this.author;
@@ -392,6 +395,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><p>issued the prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -401,6 +407,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><div>renewed.</div></p>
+     */
     @Hl7XmlMapping({"predecessor/priorSupplyRequest"})
     public ParentPrescriptionBean getPredecessorPriorSupplyRequest() {
         return this.predecessorPriorSupplyRequest;
@@ -410,12 +419,20 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><p>recorded against a prescription.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>Non Authoritive</p>
+     * 
+     * <p><p>before the prescription can be dispensed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -425,6 +442,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Derived From</p>
+     * 
+     * <p><p>from a secondary source (e.g. dispensing 
+     * data).&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
@@ -449,6 +472,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><p>device should be dispensed to the patient.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"component2"})
     public IncludesBean getComponent2() {
         return this.component2;
@@ -494,6 +520,9 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><div>is different.</div></p>
+     */
     @Hl7XmlMapping({"fulfillment5/deviceDispense"})
     public List<DeviceDispenseBean> getFulfillment5DeviceDispense() {
         return this.fulfillment5DeviceDispense;
@@ -518,12 +547,21 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p><div>dispenser refusing to fill the subject 
+     * prescription.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf4/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf4RefusalToFill() {
         return this.subjectOf4RefusalToFill;
     }
 
 
+    /**
+     * <p>Issue Indicator</p>
+     * 
+     * <p><p>issues.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf5/detectedIssueIndicator"})
     public Boolean getSubjectOf5DetectedIssueIndicator() {
         return this.subjectOf5DetectedIssueIndicator.getValue();
@@ -533,6 +571,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Notes Indicator</p>
+     * 
+     * <p><p>notes were not to be returned and there are 
+     * notes.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf6/annotationIndicator"})
     public Boolean getSubjectOf6AnnotationIndicator() {
         return this.subjectOf6AnnotationIndicator.getValue();

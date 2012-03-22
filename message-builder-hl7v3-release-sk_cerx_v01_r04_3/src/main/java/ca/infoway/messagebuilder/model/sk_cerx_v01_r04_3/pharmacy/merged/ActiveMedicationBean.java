@@ -62,6 +62,8 @@ import java.util.Date;
  * <p><p>Allows providers to identify the implicated drugs when 
  * determining their management approach.</p></p>
  * 
+ * <p><p>non-prescribed drug.&nbsp;</p></p>
+ * 
  * <p>PORX_MT980010CA.SubstanceAdministration: Active 
  * Medication</p>
  * 
@@ -76,7 +78,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministration","PORX_MT980020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -99,6 +101,9 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p><p>Knowing whether a drug is prescribed or not can 
      * influence actions taken to mitigate an issue. The element is 
      * therefore mandatory.</p></p>
+     * 
+     * <p><div>record or &lsquo;EVN&rsquo; for an Other Medication 
+     * record.</div></p>
      * 
      * <p>Other Medication Indicator</p>
      * 
@@ -219,6 +224,27 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * Because the medication can be masked, this element is only 
      * marked as 'populated'.</p><p>The element allows a full 'CD' 
      * type to support SNOMED implementations.</p></p>
+     * 
+     * <p><p><strong>Must be "DRUG" or a CODE_INVAL error issue 
+     * will be returned.</strong></p></p>
+     * 
+     * <p>Administration Type</p>
+     * 
+     * <p><p>Identifies whether the interaction is with a drug or a 
+     * vaccine. For SNOMED, may also indicate the specific drug or 
+     * vaccine at issue.</p></p>
+     * 
+     * <p><p>Needed to determine what to do about the issue. 
+     * Because the medication can be masked, this element is only 
+     * marked as 'populated'.</p><p>The element allows a full 'CD' 
+     * type to support SNOMED implementations.</p></p>
+     * 
+     * <p><p>Needed to determine what to do about the issue. 
+     * Because the medication can be masked, this element is only 
+     * marked as 'populated'.</p><p>The element allows a full 'CD' 
+     * type to support SNOMED implementations.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdministrationCode getCode() {
@@ -357,6 +383,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Identification of the drug that caused the 
+     * issue.</p></p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;

@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.merged.PatientBe
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
@@ -71,6 +71,8 @@ public class MaskableRecordBean extends MessagePartBean {
      * automatic masking of the parent. For example, masking a 
      * dispense record may cause the prescription to become masked 
      * as well.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {

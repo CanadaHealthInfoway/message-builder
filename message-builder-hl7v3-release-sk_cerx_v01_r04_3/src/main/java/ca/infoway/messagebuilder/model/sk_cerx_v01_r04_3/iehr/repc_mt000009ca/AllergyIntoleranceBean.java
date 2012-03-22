@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -323,6 +323,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * contraindications.</p><p>Attribute is mandatory because an 
      * allergy or intolerance record must be tagged as either 
      * 'confirmed' or 'suspected'.</p></p>
+     * 
+     * <p><p>&nbsp;This can be &lsquo;N&rsquo; or 
+     * &lsquo;U&rsquo;.</p></p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -342,6 +345,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p><p>Critical for identifying the allergy or intolerance. 
      * However, because the attribute is not used for SNOMED, it is 
      * optional.</p></p>
+     * 
+     * <p><p><strong>Because PIN is not using SNOMED, this 
+     * attribute is mandatory.</strong></p></p>
      */
     @Hl7XmlMapping({"value"})
     public IntoleranceValue getValue() {
@@ -352,6 +358,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Suffered By</p>
+     * 
+     * <p><p>&nbsp;Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
@@ -361,6 +373,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Supervised By</p>
+     * 
+     * <p><p>&nbsp;Identifies the provider who is taking 
+     * responsibility for&nbsp;the actions of the author.</p></p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
@@ -379,6 +397,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Reported By</p>
+     * 
+     * <p><p>&nbsp;Indicates where the information that led to 
+     * the&nbsp;recording of this information came from.</p></p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
@@ -397,6 +421,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>of change.</div></p>
+     * 
+     * <p><div>History section.</div></p>
+     */
     @Hl7XmlMapping({"replacementOf/intoleranceCondition"})
     public AllergyIntoleranceBean getReplacementOfIntoleranceCondition() {
         return this.replacementOfIntoleranceCondition;
@@ -412,12 +441,27 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Allergy Intolerance Status Change</p>
+     * 
+     * <p><p>This records the history of changes that have 
+     * been&nbsp;made to the allergy/intolerance, including why 
+     * the&nbsp;changes were made, who made them and when.</p></p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<VersionInformationBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
 
+    /**
+     * <p>Annotation</p>
+     * 
+     * <p><p><strong>Annotations will only be returned on the 
+     * current allergy/intolerance record. They will not be present 
+     * on the IntoleranceCondition objects that represent 
+     * history.</strong></p></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<CommentBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;

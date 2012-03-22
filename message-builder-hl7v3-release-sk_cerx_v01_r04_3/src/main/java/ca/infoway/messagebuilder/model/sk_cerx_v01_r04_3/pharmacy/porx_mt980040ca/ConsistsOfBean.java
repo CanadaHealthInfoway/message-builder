@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.Component17"})
 public class ConsistsOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private INT sequenceNumber = new INTImpl();
     private StructuredDosageLinesBean dosageLine;
 
@@ -80,6 +80,9 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>structured dosage instruction.</div></p>
+     */
     @Hl7XmlMapping({"dosageLine"})
     public StructuredDosageLinesBean getDosageLine() {
         return this.dosageLine;

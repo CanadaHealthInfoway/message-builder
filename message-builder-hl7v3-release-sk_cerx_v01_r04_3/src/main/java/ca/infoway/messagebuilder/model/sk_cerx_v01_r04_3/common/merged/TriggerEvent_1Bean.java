@@ -82,7 +82,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -105,6 +105,18 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p><p>A unique identifier for this particular event assigned 
      * by the system in which the event occurred.</p></p>
      * 
+     * <p><p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. The attribute is therefore 
+     * mandatory.</p></p>
+     * 
+     * <p><p>future transactions, eg. Retract.&nbsp;</p></p>
+     * 
+     * <p>B:Event Identifier</p>
+     * 
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
+     * 
      * <p><p>Allows the event to be referenced (for retractions) 
      * and also indicates whether multiple interactions were caused 
      * by the same triggering event. The attribute is therefore 
@@ -116,16 +128,6 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * event. For example, a system should be able to show the list 
      * of trigger event identifiers for the actions that have been 
      * recorded against a particular prescription.</p></p>
-     * 
-     * <p>B:Event Identifier</p>
-     * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
-     * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
-     * indicates whether multiple interactions were caused by the 
-     * same triggering event. The attribute is therefore 
-     * mandatory.</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -145,6 +147,15 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p><p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p></p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     * 
+     * <p><p>with this interaction.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -169,6 +180,8 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * the time the event is recorded. (I.e. it may be in the 
      * future or the past). For changes such as 'suspend', an 
      * intended end date may also be indicated.</p></p>
+     * 
+     * <p><div>issue will be returned.</div></p>
      * 
      * <p>C:Event Effective Period</p>
      * 
@@ -214,6 +227,10 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * such as 'reason for hold'. Also allows identifying reason 
      * for accessing information for a query.</p></p>
      * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     * 
      * <p>E:Event Reason</p>
      * 
      * <p><p>Identifies why this specific query, modification 
@@ -223,9 +240,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * such as 'reason for hold'. Also allows identifying reason 
      * for accessing information for a query.</p></p>
      * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
+     * <p><p>comes from the specified domain.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -254,6 +269,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>EnteredBy</p>
+     * 
+     * <p>Entered By</p>
+     * 
+     * <p><div>specified if different from the author.</div></p>
+     */
     @Hl7XmlMapping({"dataEnterer/assignedPerson"})
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
@@ -272,6 +294,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RecordedAt</p>
+     * 
+     * <p>Recorded At</p>
+     * 
+     * <p><p>where the event occurred.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
@@ -290,6 +319,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Caused</p>
+     * 
+     * <p>Caused</p>
+     * 
+     * <p><p>as part of the current message.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf1/detectedIssueEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="MCAI_MT700211CA.Subject"),

@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -77,6 +77,8 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * by the system in which the event occurred.</p></p>
      * 
      * <p><p>Used for audit purposes and therefore mandatory.</p></p>
+     * 
+     * <p><p>Event.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -94,6 +96,8 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * 
      * <p><p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p></p>
+     * 
+     * <p><div>&nbsp;</div></p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -114,6 +118,8 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * <p><p>Sometimes messages may be constructed and sent at a 
      * significantly different time than the query was actually 
      * processed.</p></p>
+     * 
+     * <p><p>received, this will not be populated by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -131,6 +137,8 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      * 
      * <p><p>Usually used to indicate a reason why a query was 
      * unsuccessful or was not processed.</p></p>
+     * 
+     * <p><p>the original request.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -147,6 +155,9 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>detectedIssueEvent processing the query.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;

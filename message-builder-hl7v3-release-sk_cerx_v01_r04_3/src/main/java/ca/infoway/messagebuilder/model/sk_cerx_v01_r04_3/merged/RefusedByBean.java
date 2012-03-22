@@ -302,7 +302,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT120600CA.Author","COCT_MT130001CA.Author3","COMT_MT300003CA.Author","MCAI_MT700210CA.Author","MCAI_MT700221CA.Author","MCAI_MT700223CA.Author","POIZ_MT060150CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","QUQI_MT020000CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000007CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT000017CA.Author","REPC_MT100001CA.Author","REPC_MT100002CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private TS time = new TSImpl();
     private ProviderBean assignedPerson;
     private CV modeCode = new CVImpl();
@@ -344,6 +344,20 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p><p>If not specified, the author time of the overall order 
      * will be assumed.</p></p>
+     * 
+     * <p>CreateTimestamp</p>
+     * 
+     * <p><p>The date and time at which the note was posted.</p></p>
+     * 
+     * <p><p>Identifies timing of the annotation for sorting and 
+     * for audit purposes.</p><p>This attribute is mandatory 
+     * because the time of creation of the annotation will always 
+     * be known.</p></p>
+     * 
+     * <p><p>Identifies timing of the annotation for sorting and 
+     * for audit purposes.</p><p>This attribute is mandatory 
+     * because the time of creation of the annotation will always 
+     * be known.</p></p>
      * 
      * <p>Create Timestamp</p>
      * 
@@ -456,19 +470,28 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p></p>
      * 
-     * <p>Note Timestamp</p>
+     * <p>D:Time of Creation</p>
      * 
-     * <p><p>The date and time at which the note was posted.</p></p>
+     * <p><p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p></p>
      * 
-     * <p><p>Identifies timing of the annotation for sorting and 
-     * for audit purposes.</p><p>This attribute is mandatory 
-     * because the time of creation of the annotation will always 
-     * be known.</p></p>
+     * <p><p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p></p>
      * 
-     * <p><p>Identifies timing of the annotation for sorting and 
-     * for audit purposes.</p><p>This attribute is mandatory 
-     * because the time of creation of the annotation will always 
-     * be known.</p></p>
+     * <p><p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p></p>
+     * 
+     * <p><p>was constructed.&nbsp;</p></p>
      * 
      * <p>Create Timestamp</p>
      * 
@@ -502,20 +525,16 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Prescription Order Date</p>
      * 
-     * <p><p>The calendar date on which the device was prescribed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p></p>
+     * <p><p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p></p>
      * 
      * <p><p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p></p>
-     * 
-     * <p><p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p></p>
+     * shall always 
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -526,6 +545,30 @@ public class RefusedByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Authored By</p>
+     * 
+     * <p><p>&nbsp;Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.</p></p>
+     * 
+     * <p>Authored By</p>
+     * 
+     * <p><div>Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.&nbsp;</div></p>
+     * 
+     * <p>Created By</p>
+     * 
+     * <p><p>are allowed to do the specified interaction.&nbsp;</p></p>
+     * 
+     * <p>Created By</p>
+     * 
+     * <p><p>specified interaction.&nbsp;</p></p>
+     * 
+     * <p>Authored By</p>
+     * 
+     * <p><p>&nbsp;Identifies the provider who reported the 
+     * note.</p></p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ProviderBean getAssignedPerson() {
         return this.assignedPerson;
@@ -575,6 +618,18 @@ public class RefusedByBean extends MessagePartBean {
      * message content. The attribute is marked as optional because 
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p></p>
+     * 
+     * <p>G:Digital Signature</p>
+     * 
+     * <p><p>Indicates the formal digital signature of the message 
+     * content.</p></p>
+     * 
+     * <p><p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p></p>
+     * 
+     * <p><p>This field will be ignored if it is sent.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {

@@ -23,20 +23,17 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
@@ -95,9 +92,8 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
-    private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV routeCode = new CVImpl();
@@ -109,9 +105,9 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationId</p>
+     * <p>AdministrationRecordID</p>
      * 
-     * <p>A:Other Medication Id</p>
+     * <p>Administration Record ID</p>
      * 
      * <p><p>Identifier of the Other Medication record that needs 
      * to be updated.</p></p>
@@ -129,60 +125,7 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationType</p>
-     * 
-     * <p>Other Medication Type</p>
-     * 
-     * <p><p>Must be 'DRUG' unless using SNOMED</p></p>
-     * 
-     * <p><p>Indicates that the record is a drug administration 
-     * rather than an immunization or other type of administration. 
-     * For SNOMED, may also include route, drug and other 
-     * information.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getCode() {
-        return (ActCode) this.code.getValue();
-    }
-    public void setCode(ActCode code) {
-        this.code.setValue(code);
-    }
-
-
-    /**
-     * <p>B:Medication Status</p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
+     * <p>OtherMedicationStatus</p>
      * 
      * <p>C:Other Medication Status</p>
      * 
@@ -209,6 +152,40 @@ public class OtherMedicationBean extends MessagePartBean {
      * the medication could be set to 'COMPLETED' by the provider 
      * without necessarily setting an End Date on the medication 
      * record.</p></p>
+     * 
+     * <p><p>Indicates the status of the other medication record. 
+     * <strong>Only 'active' and 'completed' are allowed. 
+     * Otherwise, a CODE_INVAL error issue will be 
+     * returned.</strong></p></p>
+     * 
+     * <p>Other Medication Status</p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p><p>If not active or completed, a CODE_INVAL error issue 
+     * will be returned.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -260,6 +237,21 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>RouteOfAdministration</p>
+     * 
+     * <p>E:Route of Administration</p>
+     * 
+     * <p><p>This is the means by which the patient is taking the 
+     * other medication.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of routes. Provides 
+     * potential for cross-checking dosage form and route. Because 
+     * this information is pre-coordinated into 'code' for SNOMED, 
+     * it is marked as optional.</p></p>
+     * 
+     * <p><p><strong>Because PIN is not using SNOMED, this element 
+     * is mandatory.</strong></p></p>
+     * 
      * <p>F:Route of Administration</p>
      * 
      * <p><p>This is the means by which the patient is taking the 
@@ -272,15 +264,8 @@ public class OtherMedicationBean extends MessagePartBean {
      * this information is pre-coordinated into 'code' for SNOMED, 
      * it is marked as optional.</p></p>
      * 
-     * <p>D:Route</p>
-     * 
-     * <p><p>This is the means by which the patient is taking the 
-     * other medication.</p></p>
-     * 
-     * <p><p>Ensures consistency in description of routes. Provides 
-     * potential for cross-checking dosage form and route. Because 
-     * this information is pre-coordinated into 'code' for SNOMED, 
-     * it is marked as optional.</p></p>
+     * <p><p><strong>Because PIN is not using SNOMED, this element 
+     * is mandatory.</strong></p></p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -291,6 +276,16 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>product.</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates the patient who is taking the 
+     * drug&nbsp;product.</p></p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
@@ -319,6 +314,10 @@ public class OtherMedicationBean extends MessagePartBean {
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p></p>
+     * 
+     * <p><p><strong>As SK does not implement record-level masking, 
+     * this must be "Normal" or a CODE_INVAL error issue will be 
+     * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {

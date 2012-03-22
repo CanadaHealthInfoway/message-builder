@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.SubstanceAdministrationRequestBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.SupplyEvent_1Bean;
 
 
@@ -58,7 +57,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.pharmacy.merged.SupplyE
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -67,7 +66,7 @@ public class DispenseBean extends MessagePartBean {
     private RecordedAtBean location;
     private SupplyEvent_1Bean component1SupplyEvent;
     private ST component2AdministrationInstructionsText = new STImpl();
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private DispensedBean fulfillment;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -89,6 +88,10 @@ public class DispenseBean extends MessagePartBean {
      * 
      * <p><p>Allows dispense events to be uniquely referenced and 
      * is therefore mandatory.</p></p>
+     * 
+     * <p><p><strong>The Prescription Dispense Number is a globally 
+     * unique number assigned to a dispense (single fill) by PIN 
+     * irrespective of the source of the dispense.</strong></p></p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -188,6 +191,9 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>was performed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -254,15 +260,25 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
+    /**
+     * <p><p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p></p>
+     */
+    @Hl7XmlMapping({"fulfillment"})
+    public DispensedBean getFulfillment() {
+        return this.fulfillment;
     }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    public void setFulfillment(DispensedBean fulfillment) {
+        this.fulfillment = fulfillment;
     }
 
 
+    /**
+     * <p>Issue Indicator</p>
+     * 
+     * <p><div>associated with this record.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
@@ -272,6 +288,11 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Annotation Indicator</p>
+     * 
+     * <p><div>associated with the record.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();

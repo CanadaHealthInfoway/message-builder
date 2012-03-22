@@ -69,7 +69,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private ANY<Object> text = new ANYImpl<Object>();
     private TS authorTime = new TSImpl();
@@ -135,6 +135,22 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p><p>Provides detailed clinical background on reasons for 
      * issue.</p></p>
+     * 
+     * <p>C:Issue Description</p>
+     * 
+     * <p><p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Monograph URI (Reference)</p><p>Monograph 
+     * description</p></p>
+     * 
+     * <p><p>Provides detailed clinical background on reasons for 
+     * issue.</p></p>
+     * 
+     * <p><p>monograph ID is not recognized by PIN.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"text"})
     public Object getText() {
@@ -195,6 +211,15 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Reccomended Dosage</p>
+     * 
+     * <p><p>various age groups, weight classes, etc.&nbsp;</p></p>
+     * 
+     * <p>Recommended Dosage</p>
+     * 
+     * <p><div>various age groups, weight classes, etc.</div></p>
+     */
     @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
         return this.componentSubstanceAdministrationEventCriterion;

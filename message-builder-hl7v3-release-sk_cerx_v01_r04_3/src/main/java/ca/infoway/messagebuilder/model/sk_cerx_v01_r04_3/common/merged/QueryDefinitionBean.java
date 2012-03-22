@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
     private CV initialQuantityCode = new CVImpl();
@@ -74,6 +74,15 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p><p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p></p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Unique number for this particular query.</p></p>
+     * 
+     * <p><p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p></p>
+     * 
+     * <p><p>PIN will ignore the contents of this field.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -126,6 +135,18 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>QueryLimit</p>
+     * 
+     * <p>Query Limit</p>
+     * 
+     * <p><div>error issue will be returned..</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>If Query Limit is specified, this will be set to 
+     * &lsquo;RD&rsquo;.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"initialQuantityCode"})
     public QueryRequestLimit getInitialQuantityCode() {
         return (QueryRequestLimit) this.initialQuantityCode.getValue();
@@ -135,6 +156,17 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ParameterList</p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>original query.&nbsp;</p></p>
+     * 
+     * <p>Parameter List</p>
+     * 
+     * <p><div>specified.</div></p>
+     */
     @Hl7XmlMapping({"parameterList"})
     public PL getParameterList() {
         return this.parameterList;

@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private DrugOrCompoundBean player;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;
@@ -58,6 +58,9 @@ public class MedicationBean extends MessagePartBean {
     private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
 
 
+    /**
+     * <p></font></font></font></b></p></p>
+     */
     @Hl7XmlMapping({"player"})
     public DrugOrCompoundBean getPlayer() {
         return this.player;
@@ -88,6 +91,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Subject To</p>
+     * 
+     * <p><div>of drugs.</div></p>
+     */
     @Hl7XmlMapping({"subjectOf4/monitoringProgram"})
     public List<MonitoringProgramsBean> getSubjectOf4MonitoringProgram() {
         return this.subjectOf4MonitoringProgram;
@@ -103,12 +111,19 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>instructions for the drug.</div></p>
+     */
     @Hl7XmlMapping({"consumedIn/administrationGuideline"})
     public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
         return this.consumedInAdministrationGuideline;
     }
 
 
+    /**
+     * <p><p>&nbsp;Either component1 or component2 must be 
+     * filled.</p></p>
+     */
     @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
     public DispenseInformationBean getProductOf1DispenseGuidelines() {
         return this.productOf1DispenseGuidelines;
@@ -118,6 +133,9 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><p>Either id or title must be specified.</p></p>
+     */
     @Hl7XmlMapping({"productOf2/potentialSupply"})
     public List<FormulariesBean> getProductOf2PotentialSupply() {
         return this.productOf2PotentialSupply;

@@ -76,7 +76,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
@@ -130,23 +130,6 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Product Selection Reason Code</p>
      * 
-     * <p><p>Indicates the reason for the substitution of (or lack 
-     * of substitution) from what was prescribed.</p></p>
-     * 
-     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
-     * 
-     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
-     * 
-     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
-     * 
-     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
-     * 
-     * <p><p>Standardized reasons for substitution performed (or 
-     * not performed). Useful in analysis of dispensing 
-     * patterns.</p></p>
-     * 
-     * <p>Product Selection Reason Code</p>
-     * 
      * <p><p>Indicates the reason for the substitution of (or 
      * failure to substitute) the medication from what was 
      * prescribed.</p></p>
@@ -162,6 +145,30 @@ public class SubstitutionBean extends MessagePartBean {
      * <p><p>Standardized reasons for substitution performed (or 
      * not performed). Useful in analysis of dispensing 
      * patterns.</p></p>
+     * 
+     * <p><div>prescriber identifier, or the dispenser 
+     * identifier.</div></p>
+     * 
+     * <p>Product Selection Reason Code</p>
+     * 
+     * <p><p>Indicates the reason for the substitution of (or lack 
+     * of substitution) from what was prescribed.</p></p>
+     * 
+     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p></p>
+     * 
+     * <p><p>Standardized reasons for substitution performed (or 
+     * not performed). Useful in analysis of dispensing 
+     * patterns.</p></p>
+     * 
+     * <p><p><strong>If the Substitution Code is not "N", then this 
+     * must be present or a MISSCOND error will be 
+     * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getReasonCode() {

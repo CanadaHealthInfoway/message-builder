@@ -100,7 +100,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -295,6 +295,10 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p><p>Indicates what actions are allowed to be performed 
      * against a prescription. This is a mandatory field because 
      * every prescription needs to be in some state.</p></p>
+     * 
+     * <p><p>This will be "active" when submitting a new 
+     * prescription. Any other code will cause a CODE_INVAL error 
+     * issue to be returned.</p></p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -327,6 +331,10 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p><p>Allows the patient to have discrete control over 
      * access to their prescription data.</p><p>The attribute is 
      * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p><strong>As SK does not implement record-level masking, 
+     * this must be "Normal" or a CODE_INVAL error issue will be 
+     * returned.</strong></p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -355,6 +363,11 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>renewed.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
     public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
         return this.predecessorPriorDeviceRequest;
@@ -364,12 +377,31 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescribedBecauseOf</p>
+     * 
+     * <p>Prescribed Because Of</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>recorded against a prescription.&nbsp;&nbsp;&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>NonAuthoritativeIndicator</p>
+     * 
+     * <p>Non-authoritative Indicator</p>
+     * 
+     * <p><div>If present, indicates that the prescription is 
+     * nonauthoritative.&nbsp;I.e. A paper copy must be 
+     * viewed&nbsp;before the prescription can be 
+     * dispensed.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
@@ -394,6 +426,11 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>device should be dispensed to the patient.</div></p>
+     */
     @Hl7XmlMapping({"component2"})
     public IncludesBean getComponent2() {
         return this.component2;
@@ -421,6 +458,32 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>PrescribedBy</p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>Indicates the prescriber of the 
+     * prescription.&nbsp;</p></p>
+     * 
+     * <p>Prescribed By</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>or a MISSCOND error issue will be returned.&nbsp;</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><div>&nbsp;</div></p>
+     * 
+     * <p><p>or a MISSCOND error issue will be 
+     * returned.&nbsp;&nbsp;</p></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>&nbsp;Indicates the prescriber of the 
+     * prescription.</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
@@ -430,6 +493,11 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>or a MISSCOND error issue will be returned.</div></p>
+     */
     @Hl7XmlMapping({"component"})
     public Component2Bean getComponent() {
         return this.component;

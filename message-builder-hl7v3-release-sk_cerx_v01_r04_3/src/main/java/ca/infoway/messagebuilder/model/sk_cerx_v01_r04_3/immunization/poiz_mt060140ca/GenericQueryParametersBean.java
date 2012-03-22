@@ -59,7 +59,7 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private IVL<TS, Interval<Date>> immunizationPeriodValue = new IVLImpl<TS, Interval<Date>>();
     private BL includeIssuesIndicatorValue = new BLImpl();
     private BL includeNotesIndicatorValue = new BLImpl();

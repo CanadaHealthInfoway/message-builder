@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -85,6 +85,16 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
     /**
      * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     * 
+     * <p><p>A unique identifier for the message.</p></p>
+     * 
+     * <p><p>Allows detection of duplicate messages, and allows 
+     * tying acknowledgments to the message they are acknowledging. 
+     * The attribute is therefore mandatory.</p></p>
+     * 
+     * <p><p>Used in duplicate message processing.&nbsp;</p></p>
      * 
      * <p>A:Message Identifier</p>
      * 
@@ -138,6 +148,19 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * authentication and session information. The attribute is 
      * optional because not all jurisdictions will require this 
      * capability.</p></p>
+     * 
+     * <p><p>ignored if sent.&nbsp;</p></p>
+     * 
+     * <p>H:Security Token</p>
+     * 
+     * <p><p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p></p>
+     * 
+     * <p><p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p></p>
      */
     @Hl7XmlMapping({"securityText"})
     public String getSecurityText() {
@@ -150,6 +173,18 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
     /**
      * <p>HL7StandardVersion</p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     * 
+     * <p><p>Indicates the version of the messaging standard being 
+     * referenced.</p></p>
+     * 
+     * <p><p>Needed to know how to validate message definition, 
+     * CMET definition, vocabulary and other information and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>A SYN103 error issue will be returned 
+     * otherwise.&nbsp;</p></p>
      * 
      * <p>C: HL7 Standard Version</p>
      * 
@@ -180,6 +215,17 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * <p><p>Identifies what the receiving application should do, 
      * and how the message should be validated. The attribute is 
      * therefore mandatory.</p></p>
+     * 
+     * <p>B:Interaction Type</p>
+     * 
+     * <p><p>Indicates the interaction conveyed by this 
+     * message.</p></p>
+     * 
+     * <p><p>Identifies what the receiving application should do, 
+     * and how the message should be validated. The attribute is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>issue will be returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"interactionId"})
     public Identifier getInteractionId() {
@@ -192,6 +238,17 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
     /**
      * <p>ConformanceProfileIdentifiers</p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     * 
+     * <p><p>PIN does not use this field.&nbsp;</p></p>
      * 
      * <p>F:Conformance Profile Identifiers</p>
      * 
@@ -218,6 +275,16 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p><p>Indicates how the message should be handled and is 
      * therefore mandatory.</p></p>
+     * 
+     * <p>D:Processing Code</p>
+     * 
+     * <p><p>Indicates whether this message is intended to be 
+     * processed as production, test or debug message.</p></p>
+     * 
+     * <p><p>Indicates how the message should be handled and is 
+     * therefore mandatory.</p></p>
+     * 
+     * <p><p>code is returned for the environment..&nbsp;</p></p>
      */
     @Hl7XmlMapping({"processingCode"})
     public ProcessingID getProcessingCode() {
@@ -239,6 +306,20 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * <p><p>Provides support for immediate, deferred and polling 
      * mode and distinguishes which mode is desired. The attribute 
      * is therefore mandatory.</p></p>
+     * 
+     * <p><p>A SYN103 error issue will be returned 
+     * otherwise.&nbsp;</p></p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     * 
+     * <p><p>Indicates how the message is expected to be 
+     * acknowledged.</p></p>
+     * 
+     * <p><p>Provides support for immediate, deferred and polling 
+     * mode and distinguishes which mode is desired. The attribute 
+     * is therefore mandatory.</p></p>
+     * 
+     * <p><p><strong>Fixed to "NE".</strong></p></p>
      */
     @Hl7XmlMapping({"acceptAckCode"})
     public AcknowledgementCondition getAcceptAckCode() {
@@ -258,6 +339,14 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RespondToSystem</p>
+     * 
+     * <p>Respond To System</p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"respondTo"})
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
@@ -276,6 +365,14 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>RoutingInstructionLines</p>
+     * 
+     * <p>Routing Instruction Lines</p>
+     * 
+     * <p><p>PIN does not use this field and it will be 
+     * ignored.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"attentionLine"})
     public List<RoutingInstructionLinesBean> getAttentionLine() {
         return this.attentionLine;
@@ -291,6 +388,13 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>TriggerEvent</p>
+     * 
+     * <p>Trigger Event</p>
+     * 
+     * <p><p>the message interaction being sent.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"controlActProcess"})
     public CAP getControlActProcess() {
         return this.controlActProcess;

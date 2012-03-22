@@ -93,7 +93,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.si.comt_mt301001ca.Anno
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
@@ -181,6 +181,14 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>CommentPertainsTo</p>
+     * 
+     * <p>Comment Pertains To</p>
+     * 
+     * <p><div>This uses COCT_MT050202CA &ndash; Patient 
+     * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
@@ -216,6 +224,13 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>SupervisedBy</p>
+     * 
+     * <p>Supervised By</p>
+     * 
+     * <p><div>for the actions of the author.</div></p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
@@ -225,6 +240,11 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>the note.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;

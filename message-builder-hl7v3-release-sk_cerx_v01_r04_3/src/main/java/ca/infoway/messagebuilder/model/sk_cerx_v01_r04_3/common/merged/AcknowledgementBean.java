@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.Acknowledgement","MCCI_MT000300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CS typeCode = new CSImpl();
     private INT messageWaitingNumber = new INTImpl();
     private CV messageWaitingPriorityCode = new CVImpl();
@@ -52,6 +52,16 @@ public class AcknowledgementBean extends MessagePartBean {
 
     /**
      * <p>AcknowledgementCode</p>
+     * 
+     * <p>GA:Acknowledgement Code</p>
+     * 
+     * <p><p>Indicates whether the previous interaction was 
+     * successfully processed.</p></p>
+     * 
+     * <p><p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p></p>
+     * 
+     * <p><p>&lsquo;AR&rsquo; will never be sent.&nbsp;</p></p>
      * 
      * <p>GA:Acknowledgement Code</p>
      * 
@@ -72,6 +82,15 @@ public class AcknowledgementBean extends MessagePartBean {
 
     /**
      * <p>NumberOfWaitingMessages</p>
+     * 
+     * <p>GC:Number of Waiting Messages</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Indicates to a system how many polled messages are 
+     * available without the need so send a separate query. The 
+     * element is optional because not all systems will support 
+     * polling.</p></p>
      * 
      * <p>GC:Number of Waiting Messages</p>
      * 
@@ -136,6 +155,11 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><p>go here.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"acknowledgementDetail"})
     public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
         return this.acknowledgementDetail;

@@ -70,22 +70,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubstitutionPermission","PORX_MT060160CA.SubstitutionPermission","PORX_MT060340CA.SubstitutionPermission"})
 public class AllowedSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
 
 
     /**
-     * <p>A:Substitution Not Allowed?</p>
-     * 
-     * <p><p>If true, indicates that the prescriber has prohibited 
-     * substitution. Default is that substitution is allowed.</p></p>
-     * 
-     * <p><p>Prescription.substitutionAllowed</p></p>
-     * 
-     * <p><p>Indicates whether substitutions are allowed. The 
-     * attribute is mandatory because whether substitution is 
-     * allowed must be declared.</p></p>
+     * <p>SubstitutionNotAllowedIndicator</p>
      * 
      * <p>A:Substitution Not Allowed Indicator</p>
      * 
@@ -133,6 +124,9 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * to understanding the decision. However when a prescription 
      * is being recorded in the pharmacy, the information may not 
      * be available.</p></p>
+     * 
+     * <p><p>&nbsp;May be marked as &lsquo;UNK&rsquo; if the reason 
+     * is&nbsp;unknown.</p></p>
      * 
      * <p>Not Allowed Reason</p>
      * 

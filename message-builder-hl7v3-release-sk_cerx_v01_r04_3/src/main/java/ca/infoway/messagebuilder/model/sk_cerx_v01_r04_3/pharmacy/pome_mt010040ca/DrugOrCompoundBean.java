@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
@@ -395,6 +395,9 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * 
      * <p><p>Allows description of compound ingredients and/or 
      * recipe in free text form.</p></p>
+     * 
+     * <p><p>this query, this field will never be 
+     * returned.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -512,6 +515,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Dispensed In</p>
+     * 
+     * <p><p>&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"asContent"})
     public DispensedInBean getAsContent() {
         return this.asContent;
@@ -521,12 +529,21 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Group Within</p>
+     * 
+     * <p><div>or duplicate therapy between closely-related 
+     * drugs.</div></p>
+     */
     @Hl7XmlMapping({"asSpecializedKind"})
     public List<GroupedWithinBean> getAsSpecializedKind() {
         return this.asSpecializedKind;
     }
 
 
+    /**
+     * <p><div>respective quantities.</div></p>
+     */
     @Hl7XmlMapping({"ingredient"})
     public List<DrugContainsBean> getIngredient() {
         return this.ingredient;

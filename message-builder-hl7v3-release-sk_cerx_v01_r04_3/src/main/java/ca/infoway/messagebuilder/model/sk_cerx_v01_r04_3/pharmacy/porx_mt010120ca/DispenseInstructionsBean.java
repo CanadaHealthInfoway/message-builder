@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
@@ -128,6 +128,12 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * jurisdictions place a 'stale date' on prescriptions that 
      * cause them to become invalid a certain amount of time after 
      * they are written. This time may vary by medication.</p></p>
+     * 
+     * <p><p><strong>If specified, this interval will be used to 
+     * set the Prescription Effective Date and the Prescription 
+     * Last Fill Expiry Date. If not specified, the Prescription 
+     * Effective Date will be set to the effective date of the 
+     * Control Act Event.</strong></p></p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -144,6 +150,14 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>responsibility for dispensing the 
+     * prescription.&nbsp;</div></p>
+     * 
+     * <p><div>assigned to a pharmacy outside of the&nbsp;PIN CeRx 
+     * Business Requirements&nbsp;jurisdiction&rsquo;s list of 
+     * pharmacies.&nbsp;</div></p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
@@ -162,6 +176,9 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p><div>dispensed.</div></p>
+     */
     @Hl7XmlMapping({"component/supplyRequestItem"})
     public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
         return this.componentSupplyRequestItem;

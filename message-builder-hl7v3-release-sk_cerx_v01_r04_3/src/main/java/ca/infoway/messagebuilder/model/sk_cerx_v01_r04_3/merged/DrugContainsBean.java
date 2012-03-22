@@ -115,13 +115,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120320L;
+    private static final long serialVersionUID = 20120322L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private DrugIngredientsBean ingredient;
 
 
     /**
+     * <p>Does Not Contain Indicator</p>
+     * 
+     * <p><p>An indication that a drug does not contain the 
+     * specified ingredient (active or inactive).</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p><p>Useful for filtering searches. Allows providers to 
+     * search for drugs not containing a specific active 
+     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p></p>
+     * 
+     * <p><p>&nbsp;PIN does not have this information.</p></p>
+     * 
      * <p>D:Drug Does Not Contain Indicator</p>
      * 
      * <p><p>An indication that a drug does not contain the 
@@ -183,7 +204,7 @@ public class DrugContainsBean extends MessagePartBean {
      * herbals) occasionally use the phrase &quot;may 
      * contain&quot;, this attribute allows null values.</p></p>
      * 
-     * <p>Does Not Contain Indicator</p>
+     * <p>D:Drug Does Not Contain Indicator</p>
      * 
      * <p><p>An indication that a drug does not contain the 
      * specified ingredient (active or inactive).</p></p>
@@ -191,16 +212,22 @@ public class DrugContainsBean extends MessagePartBean {
      * <p><p>Useful for filtering searches. Allows providers to 
      * search for drugs not containing a specific active 
      * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * etc.</p><p>The attribute is 'populated' because the 
+     * distinction between &quot;does/must contain&quot; and 
+     * &quot;does/must not contain&quot; is essential, however in 
+     * some circumstances it is necessary to say &quot;may 
+     * contain&quot;.</p></p>
      * 
      * <p><p>Useful for filtering searches. Allows providers to 
      * search for drugs not containing a specific active 
      * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>Because product descriptions (particularly 
-     * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * etc.</p><p>The attribute is 'populated' because the 
+     * distinction between &quot;does/must contain&quot; and 
+     * &quot;does/must not contain&quot; is essential, however in 
+     * some circumstances it is necessary to say &quot;may 
+     * contain&quot;.</p></p>
+     * 
+     * <p></font></font></font></b></p></p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -306,7 +333,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p></p>
      * 
-     * <p>Ingredient Quantity</p>
+     * <p>C:Drug Ingredient Quantity</p>
      * 
      * <p><p>The quantity of the ingredient in a drug. This is 
      * represented/measured in various forms/units including: mg, 
@@ -392,7 +419,6 @@ public class DrugContainsBean extends MessagePartBean {
      * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"quantity"})
@@ -404,6 +430,15 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p><div>a manufactured drug or a custom compound.</div></p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p><p>a manufactured drug or a custom compound.&nbsp;</p></p>
+     */
     @Hl7XmlMapping({"ingredient"})
     public DrugIngredientsBean getIngredient() {
         return this.ingredient;
