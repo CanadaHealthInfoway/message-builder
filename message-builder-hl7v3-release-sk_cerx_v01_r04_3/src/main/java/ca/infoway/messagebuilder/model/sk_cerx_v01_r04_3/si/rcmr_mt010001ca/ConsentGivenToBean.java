@@ -24,8 +24,6 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_3.merged.Recipient;
-import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -42,10 +40,10 @@ import java.util.List;
 public class ConsentGivenToBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20120322L;
-    private List<Recipient> recipient = new ArrayList<Recipient>();
+    private Recipient recipient;
 
 
-    /**
+	/**
      * <p><p><strong>NOTE: Although the CeRx specification allows 
      * for a Service Delivery Location to be specified, in SK, 
      * consent can only be given to a specific provider, so this 
@@ -58,8 +56,13 @@ public class ConsentGivenToBean extends MessagePartBean {
      * who work at that facility.</p></p>
      */
     @Hl7XmlMapping({"recipient"})
-    public List<Recipient> getRecipient() {
+    public Recipient getRecipient() {
         return this.recipient;
     }
+
+    public void setRecipient(Recipient recipient) {
+		this.recipient = recipient;
+	}
+
 
 }
