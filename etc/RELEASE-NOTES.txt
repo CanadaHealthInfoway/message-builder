@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.2.8
+                               Version 1.2.9
                                Release Notes
 
 INTRODUCTION:
@@ -28,6 +28,11 @@ INTRODUCTION:
 
 This document contains the release notes for this version of Infoway Message Builder, and highlights changes since the previous version.
 
+
+BUGS FIXED in 1.2.9:
+===================
+
+      - Re-generate SK API using v01r04.2 (hotfix2)
 
 BUGS FIXED in 1.2.8:
 ===================
