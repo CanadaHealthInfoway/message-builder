@@ -25,6 +25,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.apache.commons.lang.ObjectUtils;
+
 /**
  * <p>A math utility class for operations on various datatypes.
  * 
@@ -70,15 +72,20 @@ class GenericMath {
 	}
 	
 	private static PhysicalQuantity addPhysicalQuantity(PhysicalQuantity q1, PhysicalQuantity q2) {
-		if (q1.getUnit().equals(q2.getUnit())) {
-			return new PhysicalQuantity(addBigDecimal(q1.getQuantity(), q2.getQuantity()), q1.getUnit());
+		// Units must be the same in order to be added (though an argument can be made that we 
+		// could be smart about unit types that can be converted to each other).
+		
+		// Redmine 11271 - special case: if both units are null then the add will be allowed to go through as if the two values had the same units
+		
+		if (ObjectUtils.equals(q1.getUnit(), q2.getUnit())) { // (null, null) = true
+			return new PhysicalQuantity(add(q1.getQuantity(), q2.getQuantity()), q1.getUnit());
 		} else {
 			throw new IllegalArgumentException(
 					"Can't add two quantities of different units: " + q1.getUnit() + 
 					" and " +q2.getUnit());
 		}
 	}
-
+	
 	/**
 	 * <p>Averages two values of the same type. 
 	 * 
@@ -121,9 +128,9 @@ class GenericMath {
 	}
 	
 	private static Diff<PhysicalQuantity> diffPhysicalQuantity(PhysicalQuantity q1, PhysicalQuantity q2) {
-		if (q1.getUnit().equals(q2.getUnit())) {
-			return new Diff<PhysicalQuantity>(new PhysicalQuantity(
-					diffBigDecimal(q1.getQuantity(), q2.getQuantity()).getValue(), q1.getUnit()));
+		if (ObjectUtils.equals(q1.getUnit(), q2.getUnit())) { // (null, null) = true
+			Diff<BigDecimal> diff = diff(q1.getQuantity(), q2.getQuantity());
+			return diff == null ? null : new Diff<PhysicalQuantity>(new PhysicalQuantity(diff.getValue(), q1.getUnit()));
 		} else {
 			throw new IllegalArgumentException(
 					"Can't diff two quantities of different units: " + q1.getUnit() + 
@@ -176,7 +183,9 @@ class GenericMath {
 	}
 
 	private static PhysicalQuantity half(PhysicalQuantity value) {
-		return new PhysicalQuantity(value.getQuantity().multiply(new BigDecimal("0.5")), value.getUnit());
+		BigDecimal quantity = value.getQuantity();
+		BigDecimal newValue = quantity == null ? null : quantity.multiply(new BigDecimal("0.5"));
+		return new PhysicalQuantity(newValue, value.getUnit());
 	}
 	
 	private static Long half(Long value) {
@@ -202,8 +211,11 @@ class GenericMath {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T add(T low, Diff<T> width) {
-		
-		if (low instanceof Date && width instanceof DateDiff) {
+		if (width == null || width.getValue() == null) {
+			return low;
+		} else if (low == null) {
+			return width.getValue();
+		} else if (low instanceof Date && width instanceof DateDiff) {
 			return (T) addDate((Date) low, (DateDiff) width);
 		} else if (low instanceof Date) {
 			return (T) addDate((Date) low, (Diff<Date>) width);
