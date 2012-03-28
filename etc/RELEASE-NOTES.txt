@@ -33,6 +33,7 @@ BUGS FIXED in 1.2.9:
 ===================
 
       - Re-generate SK API using v01r04.2 (hotfix2)
+11271 - fixed PQ NPE problems with GenericMath class (PATCH)
 
 BUGS FIXED in 1.2.8:
 ===================
