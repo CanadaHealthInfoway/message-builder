@@ -114,10 +114,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         } else if (StringUtils.equals(II_PUBLIC.getType(), type)) {
             result.put("displayable", "true");
             if (version != null) {
-				if (!SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version) &&
-					!SpecificationVersion.isVersion(SpecificationVersion.V02R01, version) &&
-					!SpecificationVersion.isVersion(SpecificationVersion.V02R02, version) && 
-					!SpecificationVersion.isVersion(SpecificationVersion.NEWFOUNDLAND, version)) {
+				if (isMR2009(version)) {
 					result.put("use", "BUS");
 	            }
             }
@@ -125,6 +122,11 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         
         return result;
     }
+
+	private boolean isMR2009(VersionNumber version) {
+		return SpecificationVersion.isVersion(SpecificationVersion.R02_04_02, version) 
+				|| SpecificationVersion.isVersion(SpecificationVersion.R02_04_03, version);
+	}
 
 	private boolean isSpecializationTypeAllowed(VersionNumber version, String type) {
 		return !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)

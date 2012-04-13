@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -113,6 +114,12 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		} else if (II_PUBLIC.equals(type)) {
 			validateRootAsOid(root, element, xmlToModelResult);
 			validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
+			// Redmine 11293 - TM - must have use=BUS, but not for MR2007 (use is not permitted in this case)
+			if (isMR2009(context.getVersion())) {
+				validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
+			} else {
+				validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			}
 		} else if (II_VER.equals(type)) {
 			validateRootAsUuid(element, root, xmlToModelResult);
 			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
@@ -121,6 +128,11 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		}
 		validateUnallowedAttributes(type, element, xmlToModelResult, "assigningAuthorityName");
 		return new Identifier(root, extension);
+	}
+
+	private boolean isMR2009(VersionNumber version) {
+		return SpecificationVersion.isVersion(SpecificationVersion.R02_04_02, version) 
+				|| SpecificationVersion.isVersion(SpecificationVersion.R02_04_03, version);
 	}
 
 	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {

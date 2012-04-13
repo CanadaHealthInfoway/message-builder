@@ -156,6 +156,47 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.result.isValid());
 	}
 	
+	@Test
+	public void testParseValidIiPublicForMr2007() throws Exception {
+		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" displayable=\"true\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II.PUBLIC"), node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.2.3.4", "extensionValue");
+		assertTrue(this.result.isValid());
+	}
+	
+	@Test
+	public void testParseInvalidIiPublicForMr2007() throws Exception {
+		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" displayable=\"true\" use=\"BUS\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II.PUBLIC"), node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.2.3.4", "extensionValue");
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("should not include"));
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("'use'"));
+	}
+	
+	@Test
+	public void testParseValidIiPublicForMr2009() throws Exception {
+		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" displayable=\"true\" use=\"BUS\" />");
+		ParseContext context = createContext("II.PUBLIC", SpecificationVersion.R02_04_03);
+		II ii = (II) new IiElementParser().parse(context, node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.2.3.4", "extensionValue");
+		assertTrue(this.result.isValid());
+	}
+	
+	@Test
+	public void testParseInvalidIiPublicForMr2009() throws Exception {
+		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" displayable=\"true\" />");
+		ParseContext context = createContext("II.PUBLIC", SpecificationVersion.R02_04_03);
+		II ii = (II) new IiElementParser().parse(context, node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.2.3.4", "extensionValue");
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("requires the attribute use=\"BUS\""));
+	}
+	
 	private void assertResultAsExpected(Identifier result, String rootValue, String extensionValue) {
 		assertNotNull("populated result returned", result);
 		

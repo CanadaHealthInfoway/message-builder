@@ -65,6 +65,41 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
     }
 
 	@Test
+    public void testGetAttributeNameValuePairsAllFilledInForIiPublicInMr2007() throws Exception {
+        Identifier ii = new Identifier("rootString", "extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_PUBLIC);
+        
+        FormatContextImpl context = new FormatContextImpl("name", "II.PUBLIC", null, true, SpecificationVersion.V02R02, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 3, result.size());
+        
+        assertKeyValuePairInMap(result, "root", "rootString");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+        assertKeyValuePairInMap(result, "displayable", "true");
+    }
+
+	@Test
+    public void testGetAttributeNameValuePairsAllFilledInForIiPublicInMr2009() throws Exception {
+        Identifier ii = new Identifier("rootString", "extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_PUBLIC);
+        
+        FormatContextImpl context = new FormatContextImpl("name", "II.PUBLIC", null, true, SpecificationVersion.R02_04_03, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 4, result.size());
+        
+        assertKeyValuePairInMap(result, "root", "rootString");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+        assertKeyValuePairInMap(result, "displayable", "true");
+        assertKeyValuePairInMap(result, "use", "BUS");
+    }
+
+	@Test
     public void testGetAttributeNameValuePairsAllFilledInExcludingSpecializationTypeForCeRx() throws Exception {
         Identifier ii = new Identifier("rootString", "extensionString");
         
