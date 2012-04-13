@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceRequestBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ClinicalDeviceBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.DeviceDispenseInstructionsBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ReasonBeanBuilder;

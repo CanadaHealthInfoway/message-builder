@@ -52,7 +52,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	}
     
 	private ParseContext createContext() {
-		return ParserContextImpl.create("SC", CodedString.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("SC", CodedString.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

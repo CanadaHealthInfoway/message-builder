@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUncond
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ResponsiblePartyBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseInstructionsBean;
 
 public class DispenseInstructionsBeanBuilder extends
 		BaseBeanBuilder<DispenseInstructionsBean> {

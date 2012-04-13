@@ -20,8 +20,15 @@
 
 package ca.infoway.messagebuilder.acceptance.runner;
 
+import ca.infoway.messagebuilder.VersionNumber;
+
 public interface AcceptanceTestRunner {
 	
+	public static final VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
+		public String getVersionLiteral() {return "NEWFOUNDLAND";}
+		public VersionNumber getBaseVersion() {return null;}
+	};
+
 	public void run(AcceptanceTestResultCallback resultCallback);
 
 }

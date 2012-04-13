@@ -55,11 +55,6 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion R02_04_03 = new SpecificationVersion("R02_04_03", "R02.04.03");
 
 	/**
-	 * Newfoundland and Labrador (mixed V01R04.3 / V02R02).
-	 */
-	public static final SpecificationVersion NEWFOUNDLAND = new SpecificationVersion("NEWFOUNDLAND", "Newfoundland and Labrador (mixed V01R04.3 / V02R02)");
-	
-	/**
 	 * Saskatchewan (V01R04.2)
 	 * 
 	 * Base version should technically be V01R04_2 (which isn't a MB HL7v3 release), but the value 
@@ -73,23 +68,19 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", SpecificationVersion.V02R02);
 	
-	public static final SpecificationVersion NA = new SpecificationVersion("NA", "", null, true);
+
+	
 	
 	private final String description;
-	private final boolean unknown;
 	private final VersionNumber baseVersion;
 	
 	private SpecificationVersion(String name, String description) {
 		this(name, description, null);
 	}
 	private SpecificationVersion(String name, String description, VersionNumber baseVersion) {
-		this(name, description, baseVersion, false);
-	}
-	private SpecificationVersion(String name, String description, VersionNumber baseVersion, boolean unknown) {
 		super(name);
 		this.description = description;
 		this.baseVersion = baseVersion;
-		this.unknown = unknown;
 	}
 
 	/**
@@ -97,15 +88,6 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public String getVersionLiteral() {
 		return name();
-	}
-	
-	/**
-	 * <p>Checks if is unknown.
-	 *
-	 * @return true, if is unknown
-	 */
-	public boolean isUnknown() {
-		return this.unknown;
 	}
 	
 	/**

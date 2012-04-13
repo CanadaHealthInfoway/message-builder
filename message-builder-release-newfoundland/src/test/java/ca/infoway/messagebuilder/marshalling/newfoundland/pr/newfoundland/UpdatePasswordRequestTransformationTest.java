@@ -27,11 +27,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTealMlTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ActEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedDeviceBean;
@@ -54,7 +54,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
 		String xml = this.transformer.transformToHl7(
-				SpecificationVersion.NEWFOUNDLAND,
+				BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK,
 				createRequest());
 		assertNotNull("result", xml);
 	}
@@ -62,7 +62,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		UpdatePasswordRequestMessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE)), actual);
 	}
@@ -70,15 +70,15 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		Assert.assertTrue("type", xmlToJavaResult.getMessageObject() instanceof UpdatePasswordRequestMessageBean);		
 	}
 	
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
-		String xmlString = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
+		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -104,7 +104,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		UpdatePasswordRequestAcceptedMessageBean model = createAcceptedBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				ACCEPTED_MESSAGE_FILE)), actual);
@@ -134,7 +134,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		UpdatePasswordRequestRefusedMessageBean model = createRefusedBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				REFUSED_MESSAGE_FILE)), actual);

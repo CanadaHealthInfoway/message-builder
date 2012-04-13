@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.newfoundland;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.model.newfoundland.CustodianBean;
 
 
 public class CustodianBeanBuilder extends BaseBeanBuilder<CustodianBean> {

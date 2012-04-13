@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActiveIngredientDrugEntityType;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DrugIngredientBean;
 
 public class DrugIngredientBeanBuilder extends BaseBeanBuilder<DrugIngredientBean> {
 

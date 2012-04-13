@@ -31,7 +31,6 @@ import org.springframework.core.io.Resource;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.junit.XmlAssert;
@@ -44,8 +43,6 @@ import ca.infoway.messagebuilder.util.xml.InputStreamResource;
 
 
 public class MarshallingAcceptanceTestRunner implements AcceptanceTestRunner {
-	
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND; // R02_04_00;
 	
 	private final Log log = LogFactory.getLog(getClass());
 	
@@ -85,9 +82,9 @@ public class MarshallingAcceptanceTestRunner implements AcceptanceTestRunner {
 				}
 			});
 			
-			XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
+			XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 			
-			String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+			String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 			XmlAssert.assertTreeEquals(message, this.factory.createFromString(xmlString));
 			
 			resultCallback.done(resource.getFilename(),	1, 1, Collections.<String>emptyList());

@@ -31,7 +31,6 @@ import java.util.Date;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -61,7 +60,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createRequest());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequest());
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -69,7 +68,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE)), actual);
 	}
@@ -77,7 +76,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE));
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		assertEquals("type", RecordSupplyEventMessageBean.class, result.getMessageObject().getClass());
 		
 		RecordSupplyEventMessageBean messageObject = (RecordSupplyEventMessageBean) result.getMessageObject();
@@ -108,7 +107,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	@Test
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		RecordSupplyEventAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 	}
 
 	private RecordSupplyEventAcceptedMessageBean createAcceptedResponseBean() {

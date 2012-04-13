@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.model.newfoundland.ResponsiblePartyBean;
 
 public class ResponsiblePartyBeanBuilder extends BaseBeanBuilder<ResponsiblePartyBean> {
 

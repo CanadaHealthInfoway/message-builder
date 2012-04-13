@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.SupplementalInstructionBean;
 
 public class SupplementalInstructionBeanBuilder extends BaseBeanBuilder<SupplementalInstructionBean> {
 

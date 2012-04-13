@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.domainvalue.transport;
 
 import ca.infoway.messagebuilder.Describable;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.util.DescribableUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
@@ -290,10 +289,11 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 	
 	/* Location Registry */
 	// BCH: These seem to vary from version to version
-	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY", "PRLO_TE202010CA", SpecificationVersion.NEWFOUNDLAND.getVersionLiteral());
-	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY_RESPONSE = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY_RESPONSE", "PRLO_TE202011CA", SpecificationVersion.NEWFOUNDLAND.getVersionLiteral());
-	public static final HL7TriggerEventCode LOCATION_DETAILS_QUERY = new HL7TriggerEventCode("LOCATION_DETAILS_QUERY", "PRLO_TE202012CA", SpecificationVersion.NEWFOUNDLAND.getVersionLiteral());
-	public static final HL7TriggerEventCode LOCATION_DETAILS_QUERY_RESPONSE = new HL7TriggerEventCode("LOCATION_DETAILS_QUERY_RESPONSE", "PRLO_TE202013CA", SpecificationVersion.NEWFOUNDLAND.getVersionLiteral());
+	// TODO - TM - NEWFOUNDLAND TEST HACK
+	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY", "PRLO_TE202010CA", "NEWFOUNDLAND");
+	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY_RESPONSE = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY_RESPONSE", "PRLO_TE202011CA", "NEWFOUNDLAND");
+	public static final HL7TriggerEventCode LOCATION_DETAILS_QUERY = new HL7TriggerEventCode("LOCATION_DETAILS_QUERY", "PRLO_TE202012CA", "NEWFOUNDLAND");
+	public static final HL7TriggerEventCode LOCATION_DETAILS_QUERY_RESPONSE = new HL7TriggerEventCode("LOCATION_DETAILS_QUERY_RESPONSE", "PRLO_TE202013CA", "NEWFOUNDLAND");
 	
 	/* iEHR */
 	public static final HL7TriggerEventCode PATIENT_CARE_COMPOSITION_SUMMARIES_QUERY = new HL7TriggerEventCode("PATIENT_CARE_COMPOSITION_SUMMARIES_QUERY", "REPC_TE041100UV");

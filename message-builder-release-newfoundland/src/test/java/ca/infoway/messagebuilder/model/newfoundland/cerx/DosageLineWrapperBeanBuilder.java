@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.newfoundland.cerx;
 
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DosageLineWrapperBean;
 
 public class DosageLineWrapperBeanBuilder extends BaseBeanBuilder<DosageLineWrapperBean> {
 

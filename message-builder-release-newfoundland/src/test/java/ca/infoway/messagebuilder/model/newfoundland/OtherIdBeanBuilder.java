@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.OtherIdentifierRoleType;
-import ca.infoway.messagebuilder.model.newfoundland.OtherIdentifiersBean;
 
 public class OtherIdBeanBuilder extends BaseBeanBuilder<OtherIdentifiersBean> {
 	

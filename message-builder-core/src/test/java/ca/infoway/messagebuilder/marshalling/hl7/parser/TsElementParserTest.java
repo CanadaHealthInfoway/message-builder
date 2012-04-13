@@ -55,7 +55,7 @@ public class TsElementParserTest extends MarshallingTestCase {
     }
 
     private ParseContext createContext() {
-		return ParserContextImpl.create("TS", Date.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("TS", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

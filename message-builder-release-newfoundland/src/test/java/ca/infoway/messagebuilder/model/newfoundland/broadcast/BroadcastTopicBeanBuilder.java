@@ -26,7 +26,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.SubscriptionStatus;
 import ca.infoway.messagebuilder.domainvalue.payload.TopicPriority;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.broadcast.BroadcastTopicBean;
 
 
 public class BroadcastTopicBeanBuilder extends BaseBeanBuilder<BroadcastTopicBean> {

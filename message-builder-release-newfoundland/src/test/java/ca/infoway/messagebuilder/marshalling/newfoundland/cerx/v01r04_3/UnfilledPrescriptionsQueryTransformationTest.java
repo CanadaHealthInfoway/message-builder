@@ -38,7 +38,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -100,7 +99,7 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -108,7 +107,7 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE)), actual);
 	}
@@ -116,7 +115,7 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE));
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		assertEquals("type", UnfilledPrescriptionQueryMessageBean.class, result.getMessageObject().getClass());
 		
 		UnfilledPrescriptionQueryMessageBean messageObject = (UnfilledPrescriptionQueryMessageBean) result.getMessageObject();
@@ -125,11 +124,11 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
 		Document message = this.factory.createFromString(xml);
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 	
@@ -165,9 +164,9 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 	@Test @Ignore
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		UnfilledPrescriptionQueryResponseMessageBean model = createResponseBean();
-		String xml1 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, this.factory.createFromString(xml1));
-		String xml2 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xml1 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, this.factory.createFromString(xml1));
+		String xml2 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 		assertValidHl7Message(xml2);
 		Assert.assertFalse("Response should not have warnings", xml2.contains("<!-- WARNING:"));
 		Assert.assertEquals(xml1, xml2);
@@ -250,7 +249,7 @@ public class UnfilledPrescriptionsQueryTransformationTest extends BaseTransforme
 	
 	@Override // we want to use v01r04_3 hotfix 2 rather than NEWFOUNDLAND
 	protected void assertValidHl7Message(Document actual) {
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, actual);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, actual);
 		Hl7Error found = null;
 		for (Hl7Error error : result.getHl7Errors()) {
 			found = error;

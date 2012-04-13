@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest2Bean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.dispense.RecordDeviceDispenseProcessingRequestMessageBean;
 
 public class RecordDeviceDispenseProcessingRequestMessageBeanBuilder extends BaseBeanBuilder<RecordDeviceDispenseProcessingRequestMessageBean> {

@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * <p>A class that provides some utilities for date manipulation.
@@ -86,10 +87,18 @@ public class DateUtil {
      * @return - the date.
      */
     public static Date getDate(int year, int zeroBasedMonth, int day, int hour, int minute, int second, int subsecond) {
+		return getDate(year, zeroBasedMonth, day, hour, minute, second, subsecond, null);
+    }
+    
+    public static Date getDate(int year, int zeroBasedMonth, int day, int hour, int minute, int second, int subsecond, TimeZone timeZone) {
     	GregorianCalendar calendar = new GregorianCalendar(year, zeroBasedMonth, day, hour, minute, second);
         calendar.set(Calendar.MILLISECOND, subsecond);
+        if (timeZone != null) {
+        	calendar.setTimeZone(timeZone);
+        }
 		return calendar.getTime();
     }
+    
     /**
      * <p>Get the very last millisecond of the day.
      * @param date - the day

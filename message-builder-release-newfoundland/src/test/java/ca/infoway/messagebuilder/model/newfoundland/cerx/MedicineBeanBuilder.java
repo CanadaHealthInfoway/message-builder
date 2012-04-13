@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicineBean;
 
 public class MedicineBeanBuilder extends BaseBeanBuilder<MedicineBean> {
 

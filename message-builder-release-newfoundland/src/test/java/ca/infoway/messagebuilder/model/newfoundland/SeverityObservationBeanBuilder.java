@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
-import ca.infoway.messagebuilder.model.newfoundland.SeverityObservationBean;
 
 public class SeverityObservationBeanBuilder extends BaseBeanBuilder<SeverityObservationBean> {
 

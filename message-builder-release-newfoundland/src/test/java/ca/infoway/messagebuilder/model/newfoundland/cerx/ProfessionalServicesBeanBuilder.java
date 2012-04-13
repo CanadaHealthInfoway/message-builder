@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.PerformerBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.professionalservice.ProfessionalServiceRecord;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 

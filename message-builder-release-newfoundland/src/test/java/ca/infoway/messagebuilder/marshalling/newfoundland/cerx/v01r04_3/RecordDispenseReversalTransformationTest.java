@@ -27,7 +27,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
@@ -55,7 +55,7 @@ public class RecordDispenseReversalTransformationTest extends BaseTransformerTes
 	private static final String REQUEST_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequest.xml";
 	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestAccepted.xml";
 	private static final String REFUSED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestRefused.xml";
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {

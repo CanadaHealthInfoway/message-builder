@@ -30,7 +30,7 @@ import java.util.Calendar;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -76,7 +76,7 @@ import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public abstract class BaseMedicalConditionTransformationTest extends BaseTransformerTestCase {
 	
-	protected static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	protected static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 
 	protected abstract String getRequestMessageFile(); 
 	protected abstract String getAcceptedMessageFile(); 

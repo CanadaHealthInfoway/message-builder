@@ -48,7 +48,7 @@ public class RtoQtyQtyElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("RTO<QTY,QTY>", Ratio.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("RTO<QTY,QTY>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

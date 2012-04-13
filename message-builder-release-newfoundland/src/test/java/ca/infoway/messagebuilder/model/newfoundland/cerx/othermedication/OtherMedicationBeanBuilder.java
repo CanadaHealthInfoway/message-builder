@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.othermedication.OtherMedicationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class OtherMedicationBeanBuilder extends BaseBeanBuilder<OtherMedicationBean> {

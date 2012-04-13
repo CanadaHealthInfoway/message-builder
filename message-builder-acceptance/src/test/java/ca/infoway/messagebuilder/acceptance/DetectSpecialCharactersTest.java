@@ -90,14 +90,10 @@ public class DetectSpecialCharactersTest {
 
 	private byte[] getFileAsBytes(File file) throws IOException {
 		InputStream input = new FileInputStream(file);
-		if (input == null) {
-			return null;
-		} else {
-			try {
-				return IOUtils.toByteArray(input);
-			} finally {
-				IOUtils.closeQuietly(input);
-			}
+		try {
+			return IOUtils.toByteArray(input);
+		} finally {
+			IOUtils.closeQuietly(input);
 		}
 	}
 

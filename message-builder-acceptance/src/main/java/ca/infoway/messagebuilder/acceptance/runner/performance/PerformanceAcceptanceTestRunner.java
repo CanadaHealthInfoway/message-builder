@@ -29,8 +29,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.apache.commons.lang.time.StopWatch;
 import org.apache.commons.logging.Log;
@@ -39,7 +39,6 @@ import org.springframework.core.io.Resource;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestResultCallback;
 import ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestRunner;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
@@ -54,7 +53,6 @@ public class PerformanceAcceptanceTestRunner implements AcceptanceTestRunner {
 	
 	private static final int NUM_REPEATS = 1000;
 	
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND; // R02_04_00;
 	private final Log log = LogFactory.getLog(getClass());
 	private final StopWatch timer = new StopWatch();
 	private final List<Long> timeChecks = Arrays.asList(1000L, 500L, 250L, 100L, 50L, 25L, 20L, 15L, 10L);
@@ -163,8 +161,8 @@ public class PerformanceAcceptanceTestRunner implements AcceptanceTestRunner {
 	@SuppressWarnings("unused")
 	private void doRun(Document message) {
 		// would be ideal to ensure the initial xml and final xml were the same, but this acceptance test isn't worried about correctness
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
+		String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 	}
 	
 }

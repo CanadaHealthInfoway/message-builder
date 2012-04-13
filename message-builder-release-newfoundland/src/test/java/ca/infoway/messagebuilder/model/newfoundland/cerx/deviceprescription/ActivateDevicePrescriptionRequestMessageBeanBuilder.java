@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceRequestBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.DeviceRequestBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ActivateDevicePrescriptionRequestMessageBean;
 
 public class ActivateDevicePrescriptionRequestMessageBeanBuilder extends BaseBeanBuilder<ActivateDevicePrescriptionRequestMessageBean> {
 

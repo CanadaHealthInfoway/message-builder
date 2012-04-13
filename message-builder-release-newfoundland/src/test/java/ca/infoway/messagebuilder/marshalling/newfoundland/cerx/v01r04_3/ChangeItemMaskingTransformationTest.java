@@ -31,7 +31,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
@@ -63,7 +63,7 @@ public class ChangeItemMaskingTransformationTest extends BaseTransformerTestCase
 	private static final String REQUEST_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/changeItemMaskingRequest.xml";
 	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/changeItemMaskingRequestAccepted.xml";
 	private static final String REFUSED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/changeItemMaskingRequestRefused.xml";
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {

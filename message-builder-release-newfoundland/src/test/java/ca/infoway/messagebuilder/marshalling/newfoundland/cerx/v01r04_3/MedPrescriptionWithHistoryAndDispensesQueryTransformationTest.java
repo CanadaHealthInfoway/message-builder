@@ -34,7 +34,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -88,7 +87,7 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -96,7 +95,7 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		ClasspathResource classpathResource = new ClasspathResource(getClass(), QUERY_MESSAGE_FILE);
 		Document createFromResource = this.factory.createFromResource(classpathResource);
@@ -106,7 +105,7 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE));
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		assertEquals("type", MedPrescriptionWithHistoryAndDispensesQueryMessageBean.class, result.getMessageObject().getClass());
 		
 		MedPrescriptionWithHistoryAndDispensesQueryMessageBean messageObject = (MedPrescriptionWithHistoryAndDispensesQueryMessageBean) result.getMessageObject();
@@ -115,11 +114,11 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
 		Document message = this.factory.createFromString(xml);
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 	
@@ -156,7 +155,7 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	@Test
 	public void shouldMatchKnownResponse() throws Exception {
 		MedPrescriptionWithHistoryAndDispensesQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		System.out.println(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE)), actual);
@@ -225,7 +224,7 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	
 	@Override // we want to use v01r04_3 hotfix 2 rather than NEWFOUNDLAND
 	protected void assertValidHl7Message(Document actual) {
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, actual);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, actual);
 		Hl7Error found = null;
 		for (Hl7Error error : result.getHl7Errors()) {
 			found = error;

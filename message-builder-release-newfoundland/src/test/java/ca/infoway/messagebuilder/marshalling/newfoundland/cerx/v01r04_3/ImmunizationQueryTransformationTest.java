@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase {
 	
 	
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 	private static final String QUERY_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQuery.xml";
 	private static final String QUERY_RESPONSE_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQueryResponse.xml";
 

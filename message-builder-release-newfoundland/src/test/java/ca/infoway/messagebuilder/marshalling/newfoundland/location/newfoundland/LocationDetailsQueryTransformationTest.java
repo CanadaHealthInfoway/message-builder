@@ -27,7 +27,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationPlaceType;
@@ -56,7 +55,7 @@ public class LocationDetailsQueryTransformationTest extends BaseTransformerTestC
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = toHl7UsingNewRenderer(createQuery(), SpecificationVersion.NEWFOUNDLAND);
+		String xml = toHl7UsingNewRenderer(createQuery(), BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -73,7 +72,7 @@ public class LocationDetailsQueryTransformationTest extends BaseTransformerTestC
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE));
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		assertEquals("type", LocationDetailsQueryMessageBean.class, result.getMessageObject().getClass());
 		
 		LocationDetailsQueryMessageBean messageBean = (LocationDetailsQueryMessageBean) result.getMessageObject();

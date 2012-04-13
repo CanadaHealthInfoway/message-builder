@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.SupplyRequestBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.revise.DispenseAuthorizationBean;
 
 public class DispenseAuthorizationBeanBuilder extends BaseBeanBuilder<DispenseAuthorizationBean> {
 	

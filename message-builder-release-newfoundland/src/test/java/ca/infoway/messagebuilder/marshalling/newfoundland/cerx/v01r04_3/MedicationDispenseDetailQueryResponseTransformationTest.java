@@ -29,7 +29,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
@@ -53,14 +52,14 @@ public class MedicationDispenseDetailQueryResponseTransformationTest extends Bas
 	@Test
 	@Ignore // BCH: looks like a bad mapping
 	public void shouldProduceSomeQuery() throws Exception {
-		assertNotNull("query", this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQueryResponseBean()));
+		assertNotNull("query", this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQueryResponseBean()));
 	}
 
 	@Test
 	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownQuery() throws Exception {
 		MedicationDispenseDetailQueryResponseMessageBean model = createQueryResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), actual);
 	}
@@ -89,7 +88,7 @@ public class MedicationDispenseDetailQueryResponseTransformationTest extends Bas
 	@Test @Ignore
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
-		XmlToModelResult result = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) result.getMessageObject(); 
 		assertTrue("type", messageObject instanceof MedicationDispenseDetailQueryResponseMessageBean);
 

@@ -129,7 +129,7 @@ public class Hl7SourceMapperNullFlavorTest {
 //	@Test
 //	public void shouldMapAssociationWithNullFlavor() throws Exception {
 //		DispenseInstructionsBean bean = (DispenseInstructionsBean) mapPartSourceToTeal(
-//				SpecificationVersion.NEWFOUNDLAND, 
+//				SpecificationVersion.V02R02, 
 //				"activatePrescriptionRequestWithNullFlavor.xml", 
 //				"./x:controlActEvent/x:subject/x:combinedMedicationRequest/x:component3/x:supplyRequest", 
 //				"PORX_MT010120CA.SupplyRequest");
@@ -142,7 +142,7 @@ public class Hl7SourceMapperNullFlavorTest {
 //	@Test
 //	public void shouldMapCollapsedAssociationWithNullFlavor() throws Exception {
 //		CombinedMedication2Bean bean = (CombinedMedication2Bean) mapPartSourceToTeal(
-//				SpecificationVersion.NEWFOUNDLAND, 
+//				SpecificationVersion.V02R02, 
 //				"activatePrescriptionRequestWithNullFlavor.xml", 
 //				"./x:controlActEvent/x:subject/x:combinedMedicationRequest", 
 //				"PORX_MT060160CA.CombinedMedicationRequest");
@@ -170,7 +170,7 @@ public class Hl7SourceMapperNullFlavorTest {
 //		Document document1 = new DocumentFactory().createFromResource(
 //				new ClasspathResource(this.getClass(), "findCandidatesQuery_withNullFlavor.xml"));
 //		
-//		Hl7MessageSource rootPartSource1 = new Hl7MessageSource(SpecificationVersion.NEWFOUNDLAND.getVersionLiteral(), 
+//		Hl7MessageSource rootPartSource1 = new Hl7MessageSource(SpecificationVersion.V02R02.getVersionLiteral(), 
 //				document1, 
 //				this.service);
 //		

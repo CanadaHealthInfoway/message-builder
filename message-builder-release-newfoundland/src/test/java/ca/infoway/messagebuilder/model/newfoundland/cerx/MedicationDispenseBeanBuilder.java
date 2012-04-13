@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicationDispenseBean;
 
 public class MedicationDispenseBeanBuilder extends BaseBeanBuilder<MedicationDispenseBean> {
 

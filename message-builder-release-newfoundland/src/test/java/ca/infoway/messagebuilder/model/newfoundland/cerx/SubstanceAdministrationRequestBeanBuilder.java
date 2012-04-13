@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.model.newfoundland.cerx;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstanceAdministrationRequestBean;
 
 public class SubstanceAdministrationRequestBeanBuilder extends BaseBeanBuilder<SubstanceAdministrationRequestBean> {
 

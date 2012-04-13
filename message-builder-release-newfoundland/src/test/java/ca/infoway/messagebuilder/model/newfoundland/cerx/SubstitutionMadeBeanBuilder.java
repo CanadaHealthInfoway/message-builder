@@ -26,7 +26,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdminSubstitutionCode;
 import ca.infoway.messagebuilder.domainvalue.SubstanceAdminSubstitutionReason;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstitutionMadeBean;
 
 public class SubstitutionMadeBeanBuilder extends BaseBeanBuilder<SubstitutionMadeBean> {
 

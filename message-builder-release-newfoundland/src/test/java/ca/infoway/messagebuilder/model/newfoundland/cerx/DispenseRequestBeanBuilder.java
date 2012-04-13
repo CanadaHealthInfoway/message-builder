@@ -27,9 +27,6 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.NoteBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.BaseDispenseRequestBean;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest1Bean;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest2Bean;
 
 public class DispenseRequestBeanBuilder extends BaseBeanBuilder<BaseDispenseRequestBean> {
 	

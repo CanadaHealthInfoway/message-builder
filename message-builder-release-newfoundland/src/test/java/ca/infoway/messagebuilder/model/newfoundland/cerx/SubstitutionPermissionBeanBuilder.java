@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.domainvalue.SubstanceAdminSubstitutionNotAllowedReason;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.SubstitutionPermissionBean;
 
 public class SubstitutionPermissionBeanBuilder extends BaseBeanBuilder<SubstitutionPermissionBean> {
 	

@@ -37,7 +37,6 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.j5goodies.ClassFileUtil;
 import ca.infoway.messagebuilder.junit.ModelClassFinder;
-import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
 
 public class ModelTest {
 	

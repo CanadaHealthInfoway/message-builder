@@ -47,7 +47,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type) {
-		return ParserContextImpl.create(type, BigDecimal.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create(type, BigDecimal.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

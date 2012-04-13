@@ -26,7 +26,6 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.InformationAccessTypeBean;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.InformationAccessBean;
 
 public class InformationAccessBeanBuilder extends BaseBeanBuilder<InformationAccessBean> {
 	

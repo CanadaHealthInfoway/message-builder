@@ -35,8 +35,6 @@ import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.ResponsiblePartyBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.ConsentBean;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.consent.RecordConsentOrOverrideRequestMessageBean;
 
 public class RecordConsentOrOverrideRequestMessageBeanBuilder extends BaseBeanBuilder<RecordConsentOrOverrideRequestMessageBean> {
 	

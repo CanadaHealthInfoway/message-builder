@@ -30,7 +30,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
@@ -60,18 +59,18 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 
 	@Test
 	public void consentShouldProduceSomeResult() throws Exception {
-		assertNotNull("result", this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createConsentRequestBean()));
+		assertNotNull("result", this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createConsentRequestBean()));
 	}
 
 	@Test
 	public void overrideShouldProduceSomeResult() throws Exception {
-		assertNotNull("result", this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createOverrideRequestBean()));
+		assertNotNull("result", this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createOverrideRequestBean()));
 	}
 
 	@Test
 	public void shouldMatchKnownConsentRequest() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createConsentRequestBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE)), actual);
 	}
@@ -79,7 +78,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownOverrideRequest() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createOverrideRequestBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(OVERRIDE_MESSAGE_FILE)), actual);
 	}
@@ -87,7 +86,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordConsentOrOverrideRequestAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RESPONSE_ACCEPTED_MESSAGE_FILE)), actual);
 	}
@@ -95,7 +94,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		RecordConsentOrOverrideRequestRefusedMessageBean model = createRefusedResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RESPONSE_REFUSED_MESSAGE_FILE)), actual);
 	}
@@ -103,7 +102,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test @Ignore
 	public void shouldParseConsentMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();
 		assertTrue("type", messageObject instanceof RecordConsentOrOverrideRequestMessageBean);
 	}
@@ -111,7 +110,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test @Ignore
 	public void shouldParseOverrideMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(OVERRIDE_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();
 		assertTrue("type", messageObject instanceof RecordConsentOrOverrideRequestMessageBean);
 	}
@@ -119,21 +118,21 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test @Ignore
 	public void consentShouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();
 		assertTreeEquals(
 				this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE)), 
-				this.factory.createFromString(this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject)));
+				this.factory.createFromString(this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject)));
 	}
 	
 	@Test @Ignore
 	public void overrideShouldTransformBackAndForthWithoutLosingData() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createOverrideRequestBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document message = this.factory.createFromString(xml);
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();
-		assertEquals(this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject), xml);
+		assertEquals(this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject), xml);
 	}
 	
 	private RecordConsentOrOverrideRequestMessageBean createConsentRequestBean() {

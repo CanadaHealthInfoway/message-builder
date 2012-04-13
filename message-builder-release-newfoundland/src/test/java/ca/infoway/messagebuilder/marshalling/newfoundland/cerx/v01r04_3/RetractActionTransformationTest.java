@@ -28,7 +28,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -61,7 +61,7 @@ public class RetractActionTransformationTest extends BaseTransformerTestCase {
 	private static final String RETRACT_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequest.xml";
 	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestAccepted.xml";
 	private static final String REFUSED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestRefused.xml";
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {

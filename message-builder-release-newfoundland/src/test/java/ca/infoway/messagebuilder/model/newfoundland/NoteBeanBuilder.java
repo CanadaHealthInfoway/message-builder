@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActPatientAnnotationCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
-import ca.infoway.messagebuilder.model.newfoundland.NoteBean;
 
 public class NoteBeanBuilder extends BaseBeanBuilder<NoteBean> {
 

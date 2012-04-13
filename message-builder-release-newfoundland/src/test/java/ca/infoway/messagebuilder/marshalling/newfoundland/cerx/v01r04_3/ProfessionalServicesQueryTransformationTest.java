@@ -27,7 +27,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
@@ -49,7 +48,7 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 	
 	@Test
 	public void shouldProduceSomeQuery() throws Exception {
-		String xml = toHl7UsingNewRenderer(createQueryBean(), SpecificationVersion.NEWFOUNDLAND);
+		String xml = toHl7UsingNewRenderer(createQueryBean(), BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 		assertNotNull("query", xml);
 		assertValidHl7Message(xml);
 	}
@@ -57,7 +56,7 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 	@Test
 	public void shouldMatchKnownQuery() throws Exception {
 		ProfessionalServicesQueryMessageBean model = createQueryBean();
-		String xml = toHl7UsingNewRenderer(model, SpecificationVersion.NEWFOUNDLAND);
+		String xml = toHl7UsingNewRenderer(model, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(
 				this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), 
@@ -88,7 +87,7 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 	@Test
 	public void shouldParseMessage() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
-		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message).getMessageObject();
+		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message).getMessageObject();
 		assertTrue("type", messageObject instanceof ProfessionalServicesQueryMessageBean);
 		
 		ProfessionalServicesQueryMessageBean bean = (ProfessionalServicesQueryMessageBean) messageObject;
@@ -98,9 +97,9 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 	@Test
 	public void shouldTransformBackAndForthWioutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
-		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message).getMessageObject();
+		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message).getMessageObject();
 		
-		String xml = toHl7UsingNewRenderer(messageObject, SpecificationVersion.NEWFOUNDLAND);
+		String xml = toHl7UsingNewRenderer(messageObject, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 		
 		assertTreeEquals(
 				this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), 

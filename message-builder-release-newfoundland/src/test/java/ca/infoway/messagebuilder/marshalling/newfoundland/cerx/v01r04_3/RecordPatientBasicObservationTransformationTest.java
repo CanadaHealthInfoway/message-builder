@@ -28,7 +28,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -63,7 +63,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	private static final String RECORD_TWO_VALUES_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordPatientBasicObservationRequestTwoValues.xml";
 	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordPatientBasicObservationRequestAccepted.xml";
 	private static final String REFUSED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordPatientBasicObservationRequestRefused.xml";
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {

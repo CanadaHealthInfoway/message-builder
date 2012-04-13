@@ -28,7 +28,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -49,7 +48,7 @@ public class ActivateDevicePrescriptionTransformationTest extends BaseTransforme
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xmlString = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createRequestBean());
+		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
 		assertNotNull("result", xmlString);
 	}
 
@@ -57,18 +56,18 @@ public class ActivateDevicePrescriptionTransformationTest extends BaseTransforme
 	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
 		ActivateDevicePrescriptionRequestMessageBean model = createRequestBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE)), actual);
 	}
 	
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createRequestBean());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
 		Document message = this.factory.createFromString(xml);
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 
@@ -79,7 +78,7 @@ public class ActivateDevicePrescriptionTransformationTest extends BaseTransforme
 	@Test
 	public void shouldFormatAcceptedResponse() throws Exception {
 		ActivateDevicePrescriptionRequestAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 	}
 

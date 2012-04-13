@@ -49,22 +49,6 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType;
-import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBean;
-import ca.infoway.messagebuilder.model.newfoundland.AuthorBean;
-import ca.infoway.messagebuilder.model.newfoundland.ControlActEventBean;
-import ca.infoway.messagebuilder.model.newfoundland.DetectedIssueBean;
-import ca.infoway.messagebuilder.model.newfoundland.IndeterminatePersonBean;
-import ca.infoway.messagebuilder.model.newfoundland.MessageAttributesBean;
-import ca.infoway.messagebuilder.model.newfoundland.NewQueryResponseMessageBean;
-import ca.infoway.messagebuilder.model.newfoundland.QueryControlActEventBean;
-import ca.infoway.messagebuilder.model.newfoundland.QueryCriteria;
-import ca.infoway.messagebuilder.model.newfoundland.QueryResponseControlActEventBean;
-import ca.infoway.messagebuilder.model.newfoundland.QueryResultsSummaryBean;
-import ca.infoway.messagebuilder.model.newfoundland.Receiver;
-import ca.infoway.messagebuilder.model.newfoundland.ResponseMessageAttributesBean;
-import ca.infoway.messagebuilder.model.newfoundland.Sender;
-import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBean;
-import ca.infoway.messagebuilder.model.newfoundland.SeverityObservationBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class MessageBeanBuilderSupport {

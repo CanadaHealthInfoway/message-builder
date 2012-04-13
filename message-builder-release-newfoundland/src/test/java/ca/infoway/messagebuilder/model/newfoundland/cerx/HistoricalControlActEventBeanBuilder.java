@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.HistoricalControlActEventBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class HistoricalControlActEventBeanBuilder extends

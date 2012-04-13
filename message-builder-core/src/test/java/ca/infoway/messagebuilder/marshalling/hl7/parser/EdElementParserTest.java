@@ -54,7 +54,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ed.getNullFlavor());
 	}
 	private ParseContext createContext() {
-		return ParserContextImpl.create("ED", EncapsulatedData.class, SpecificationVersion.NEWFOUNDLAND, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("ED", EncapsulatedData.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test

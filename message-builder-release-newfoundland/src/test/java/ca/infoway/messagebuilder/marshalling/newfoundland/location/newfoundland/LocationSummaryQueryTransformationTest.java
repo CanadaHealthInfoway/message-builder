@@ -28,7 +28,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationPlaceType;
@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class LocationSummaryQueryTransformationTest extends BaseTransformerTestCase {
 	
-	private static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 	private static final String QUERY_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/location/newfoundland/locationSummaryQuery.xml";
 	private static final String QUERY_BY_NAME_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/location/newfoundland/locationSummaryQuery_byName.xml";
 
@@ -121,7 +121,7 @@ public class LocationSummaryQueryTransformationTest extends BaseTransformerTestC
 		
 		// TE/SPD: MANDATORY_FIELD_NOT_PROVIDED > Expected populated association "detectedIssueEvent" for element (<subjectOf/>)
 		// we're commenting out validation for now
-//		assertPassesMessageValidation(xml, SpecificationVersion.NEWFOUNDLAND);
+//		assertPassesMessageValidation(xml, BaseTransformerTestCase.NEWFOUNDLAND);
 	}
 
 	private LocationSummaryQueryResponseMessageBean createResponseBean() {

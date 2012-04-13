@@ -43,6 +43,12 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class TsFullDateTimePropertyFormatterTest {
 
+	// a hack to make sure our legacy NEWFOUNDLAND tests work
+	private static final VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
+		public String getVersionLiteral() {return "NEWFOUNDLAND";}
+		public VersionNumber getBaseVersion() {return null;}
+	};
+
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception  {
 		Map<String,String>  result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
@@ -164,7 +170,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("Should use old default format if nothing else provided and version is SK CeRx", 
 				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should use old 'bad' default format if nothing else provided and version is NFLD", 
-				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.NEWFOUNDLAND));
+				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		System.setProperty(
 				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral(),
@@ -179,7 +185,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("Should not use override format when provided version does not match", 
 				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should not use override format when provided version does not match", 
-				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.NEWFOUNDLAND));
+				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		assertEquals("Should use date with pattern always when provided", 
 				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, version));
@@ -188,7 +194,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("Should use date with pattern always when provided even if version is SK CeRx", 
 				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should use date with pattern always when provided even if version is NFLD", 
-				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.NEWFOUNDLAND));
+				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 	}
 	
 }

@@ -26,7 +26,6 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
@@ -65,7 +64,7 @@ public class ProfessionalServicesQueryResponseTransformationTest extends BaseTra
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
-		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message).getMessageObject();
+		MessageBean messageObject = (MessageBean) this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message).getMessageObject();
 		
 		String xml = toHl7(messageObject);
 		assertTreeEquals(

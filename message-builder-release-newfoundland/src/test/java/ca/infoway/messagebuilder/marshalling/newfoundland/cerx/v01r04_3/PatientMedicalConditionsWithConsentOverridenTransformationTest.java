@@ -28,7 +28,6 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -71,7 +70,7 @@ public class PatientMedicalConditionsWithConsentOverridenTransformationTest
 
 	@Test
 	public void shouldProduceSomeResultWithConsentEvent() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createQueryWithConsentOverriden());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQueryWithConsentOverriden());
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}

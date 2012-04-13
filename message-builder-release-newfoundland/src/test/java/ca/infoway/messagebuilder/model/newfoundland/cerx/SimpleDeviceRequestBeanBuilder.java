@@ -24,7 +24,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.SimpleDeviceRequestBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.DeviceDispenseInstructionsBeanBuilder;
 
 public class SimpleDeviceRequestBeanBuilder extends BaseBeanBuilder<SimpleDeviceRequestBean> {

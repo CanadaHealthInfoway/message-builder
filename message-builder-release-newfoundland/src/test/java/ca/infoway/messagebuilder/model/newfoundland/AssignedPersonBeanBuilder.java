@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
-import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
 
 public class AssignedPersonBeanBuilder extends BaseBeanBuilder<AssignedPersonBean> {
 

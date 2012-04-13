@@ -28,7 +28,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
@@ -47,7 +47,7 @@ public class ReviseAssignedDispenseResponsibilityRequestTransformationTest exten
 	
 	private static final String MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cerx/v01r04_3/reviseAssignedDispenseResponsibilityRequest.xml";
 	private static final String RESPONSE_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cerx/v01r04_3/reviseAssignedDispenseResponsibilityRequestAccepted.xml";
-	protected static final SpecificationVersion VERSION = SpecificationVersion.NEWFOUNDLAND;
+	protected static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
@@ -104,11 +104,11 @@ public class ReviseAssignedDispenseResponsibilityRequestTransformationTest exten
 //	SPD: not important since we are only creating xml from response beans and not the other way around.
 //	@Test
 //	public void shouldTransformResponseBackAndForthWithoutLosingData() throws Exception {
-//		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createResponseMessageBean());
+//		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND, createResponseMessageBean());
 //		Document message = this.factory.createFromString(xml);
-//		XmlToJavaResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, message);
+//		XmlToJavaResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND, message);
 //		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-//		String transformedBackToHl7Xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, messageObject);
+//		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND, messageObject);
 //		assertEquals(xml, transformedBackToHl7Xml);
 //	}
 	

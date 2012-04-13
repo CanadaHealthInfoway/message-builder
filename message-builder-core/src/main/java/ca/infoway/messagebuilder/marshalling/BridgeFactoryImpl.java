@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.NEWFOUNDLAND;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
 import java.util.ArrayList;
@@ -28,13 +27,14 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
 import ca.infoway.messagebuilder.model.InteractionBean;
@@ -305,7 +305,13 @@ class BridgeFactoryImpl implements BridgeFactory {
 	}
 
 	private boolean requiresNewfoundlandHack(Relationship relationship) {
-		return SpecificationVersion.isVersion(NEWFOUNDLAND, this.version) && relationship.isChoice() && relationship.getType() == null;
+		return isNewfoundland(this.version) && relationship.isChoice() && relationship.getType() == null;
+	}
+	
+	private boolean isNewfoundland(VersionNumber version) {
+		// this version is not currently supported by MB and is not in the SpecificationVersion enum
+		// TODO - TM - NEWFOUNDLAND TEST HACK
+		return version != null && StringUtils.equals(version.getVersionLiteral(), "NEWFOUNDLAND");
 	}
 	
 	private String[] getTypes(Object value) {

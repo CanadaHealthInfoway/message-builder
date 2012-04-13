@@ -29,7 +29,6 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
@@ -69,7 +68,7 @@ public class OtherMedicationDetailsQueryTest extends BaseTransformerTestCase {
 	
 	@Test
 	public void shouldProduceValidResponse() throws Exception {
-		String xml = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, createResponse());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createResponse());
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}

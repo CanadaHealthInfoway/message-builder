@@ -31,7 +31,6 @@ import org.junit.Before;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
@@ -54,6 +53,11 @@ import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
 
 public abstract class BaseTransformerTestCase {
+	
+	public static VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
+		public String getVersionLiteral() {return "NEWFOUNDLAND";}
+		public VersionNumber getBaseVersion() {return null;}
+	};
 	
 	protected MessageBeanTransformerImpl transformer;
 	protected DocumentFactory factory;
@@ -86,17 +90,17 @@ public abstract class BaseTransformerTestCase {
 	}
 
 	protected void assertValidHl7Message(String xml) throws SAXException {
-		assertValidHl7Message(xml, SpecificationVersion.NEWFOUNDLAND);
+		assertValidHl7Message(xml, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 	}
-	protected void assertValidHl7Message(String xml, SpecificationVersion version) throws SAXException {
+	protected void assertValidHl7Message(String xml, VersionNumber version) throws SAXException {
 		Document actual = this.factory.createFromString(xml);
 		assertValidHl7Message(actual, version);
 	}
 
 	protected void assertValidHl7Message(Document actual) {
-		assertValidHl7Message(actual, SpecificationVersion.NEWFOUNDLAND);
+		assertValidHl7Message(actual, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 	}
-	protected void assertValidHl7Message(Document actual, SpecificationVersion version) {
+	protected void assertValidHl7Message(Document actual, VersionNumber version) {
 		XmlToModelResult result = this.transformer.transformFromHl7(version, actual);
 //		MessageValidatorResult result = validate(version, actual);
 
@@ -115,7 +119,7 @@ public abstract class BaseTransformerTestCase {
 		assertNull(ObjectUtils.toString(found), found);
 	}
 
-	protected void assertPassesMessageValidation(String xml, SpecificationVersion version) throws Exception {
+	protected void assertPassesMessageValidation(String xml, VersionNumber version) throws Exception {
 		Document document = this.factory.createFromString(xml);
 		MessageValidatorResult result = validate(version, document);
 
@@ -129,17 +133,17 @@ public abstract class BaseTransformerTestCase {
 	}
 
 	protected MessageBean fromtHl7(Document document) {
-		return fromHl7(document, SpecificationVersion.NEWFOUNDLAND);
+		return fromHl7(document, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 	}
 	protected MessageBean fromHl7(Document document, VersionNumber version) {
 		return (MessageBean) this.transformer.transformFromHl7(version, document).getMessageObject();
 	}
 
 	protected String toHl7(MessageBean messageBean) {
-		return toHl7UsingNewRenderer(messageBean, SpecificationVersion.NEWFOUNDLAND);
+		return toHl7UsingNewRenderer(messageBean, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 	}
 	
-	protected String toHl7UsingNewRenderer(MessageBean messageBean, SpecificationVersion version) {
+	protected String toHl7UsingNewRenderer(MessageBean messageBean, VersionNumber version) {
 		return this.transformer.transformToHl7(version, messageBean);
 	}
 }
