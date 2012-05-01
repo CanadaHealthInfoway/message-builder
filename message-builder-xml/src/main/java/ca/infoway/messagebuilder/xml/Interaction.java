@@ -45,8 +45,10 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
+	@SuppressWarnings("unused")
 	@Element(required=false)
-	private String businessName;
+	@Deprecated
+	private String businessName;  // this field no longer used; setter/getter delegates to documentation property 
 	@Attribute
 	private String superTypeName;
 	@ElementList(inline=true,required=false)
@@ -104,14 +106,17 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	 * @return the business name
 	 */
 	public String getBusinessName() {
-		return this.businessName;
+		return this.documentation == null ? null : this.documentation.getBusinessName();
 	}
 	/**
 	 * <p>Set the business name.
 	 * @param businessName - the new business name.
 	 */
 	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
+		if (this.documentation == null) {
+			this.documentation = new Documentation();
+		}
+		this.documentation.setBusinessName(businessName);
 	}
 	/**
 	 * <p>Get the documentation.
