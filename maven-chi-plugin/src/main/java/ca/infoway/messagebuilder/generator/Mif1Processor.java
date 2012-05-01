@@ -106,6 +106,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		processSpecializedClasses(messageSet, result, qualifier, MifXPathHelper.getParticipantClasses(ownedEntryPoint));
 		
 		for (MessagePart messagePart : result) {
+			this.outputUI.log(LogLevel.DEBUG, "Adding message part: " + messagePart.getName());
 			messageSet.addMessagePart(messagePart);
 		}
 		

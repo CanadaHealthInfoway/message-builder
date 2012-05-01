@@ -82,7 +82,9 @@ class DmifProcessor {
 		List<Interaction> result = new ArrayList<Interaction>();
 		NodeList list = dmif.getElementsByTagNameNS(Namespaces.MIF_NAMESPACE.getNamespace(), "hl7Interaction");
 		for (int i = 0, length = list == null ? 0 : list.getLength(); i < length; i++) {
-			result.add(extractInteraction(messageSet, name, (Element) list.item(i)));
+			Element item = (Element) list.item(i);
+			this.outputUI.log(DEBUG, "Extracting interaction: " + item.getAttribute("name") + "/" + item.getAttribute("title"));
+			result.add(extractInteraction(messageSet, name, item));
 		}
 		return result;
 	}
@@ -167,9 +169,14 @@ class DmifProcessor {
 				Mif mif = this.registry.getMif(packageName);
 				String referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), className);
 				if (referenceType == null) {
-					referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), i);
-					mif = this.registry.getMif(referenceType);
-					type = referenceType + "." + className;
+					try {
+						referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), i);
+						mif = this.registry.getMif(referenceType);
+						type = referenceType + "." + className;
+					} catch (MifProcessingException e) {
+						this.outputUI.log(ERROR, e.getMessage());
+						type = null;
+					}
 				} else {
 					type = messageSet.getPackageLocationRootType(referenceType);
 				}
