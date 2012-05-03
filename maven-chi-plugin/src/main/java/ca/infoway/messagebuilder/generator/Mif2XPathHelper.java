@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.generator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -118,9 +119,29 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	}
 	
 	List<Annotation> getDocumentation(Element classElement) {
-		return getDocumentation(classElement, "./mif2:annotations//mif2:", "//mif2:text/html:p");
+		return getDocumentation(classElement, "./mif2:annotations//mif2:", ".//mif2:text/html:p");
 	}
 	
+	List<Annotation> getDocumentationForInteraction(Element classElement) {
+		// this leaves text wrapped in <text>
+		List<Annotation> result = getDocumentation(classElement, "./mif2:annotations//mif:", ".//mif2:text");
+		if (result.isEmpty()) {
+			// pre-MR2009 MIFs didn't even use a text element
+			// the following leaves text wrapped in annotation type elements, mainly <description> (but could be others) 
+			result = getDocumentation(classElement, "./mif2:annotations//mif2:", ".");
+		}
+		for (Iterator<Annotation> iterator = result.iterator(); iterator.hasNext();) {
+			Annotation annotation = iterator.next();
+			String newText = cleanInteractionAnnotationText(annotation.getText(), annotation.getAnnotationType());
+			if (newText == null) {
+				iterator.remove();
+			} else {
+				annotation.setText(newText);
+			}
+		}
+		return result;
+	}
+
 	public static String getAttributeType(Element attribute) {
 		Element element = getSingleElement(attribute, "./mif2:type");
 		String type = element.getAttribute("name");

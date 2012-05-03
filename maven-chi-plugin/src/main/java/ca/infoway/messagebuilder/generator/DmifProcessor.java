@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
-import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -103,7 +102,7 @@ class DmifProcessor {
 		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
 		interaction.setBusinessName(businessName);
 		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
-			interaction.setDocumentation(new Documentation(documentationForInteraction));
+			interaction.getDocumentation().setAnnotations(documentationForInteraction);
 		}
 		
 		List<Argument> arguments = getArguments(messageSet, parameterTypeModel);

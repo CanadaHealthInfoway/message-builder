@@ -38,6 +38,7 @@ import org.xml.sax.SAXException;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
@@ -77,6 +78,10 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			
 			Element interactionName = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:businessName", MIF2_NAMESPACE);
 			interaction.setBusinessName(interactionName.getAttribute("name"));
+			
+			Element interactionElement = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction", MIF2_NAMESPACE);
+			List<Annotation> annotations = new Mif2XPathHelper().getDocumentationForInteraction(interactionElement);
+			interaction.getDocumentation().setAnnotations(annotations);
 			
 			addArguments(interaction, interaction.getArguments(), message, resolver);
 			

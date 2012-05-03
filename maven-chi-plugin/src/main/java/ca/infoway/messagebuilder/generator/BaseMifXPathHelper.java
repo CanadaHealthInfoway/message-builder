@@ -28,6 +28,7 @@ import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -96,37 +97,44 @@ abstract class BaseMifXPathHelper {
 	
 	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String postMifAnnotationPath) {
 		List<Annotation> result = new ArrayList<Annotation>();
+		// for every annotation type
 		for (AnnotationType annotationType : (List<AnnotationType>) EnumPattern.values(AnnotationType.class)) {
 			String[] elementNames = annotationType.getMifElementNames();
+			// for every different way for MIFs to describe the given annotation type
 			for (String elementName : elementNames) {
-				List<Element> elements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName+postMifAnnotationPath));
-				List<Annotation> annotations = new ArrayList<Annotation>();
-				if (!elements.isEmpty()) {
-					Annotation annotation = new Annotation();
-					annotation.setAnnotationTypeAsEnum(annotationType);
-					for (Element paragraph : elements) {
-						recurisvelyClearMifPrefix(paragraph);
-						try {
-							String text = StringUtils.trim(removeNonAsciiCharacters(DOMWriter.renderAsString(paragraph)));
-							if (StringUtils.isNotBlank(text)) {
-								annotation.setText((annotation.getText()!=null)?annotation.getText()+text:text);
-							}
-							String sourceName = paragraph.getAttribute("sourceName");
-							if (StringUtils.isNotBlank(sourceName)) {
-								annotation.setSourceName(sourceName);
-							}
-							String otherType = paragraph.getAttribute("type");
-							if (StringUtils.isNotBlank(otherType)) {
-								annotation.setOtherAnnotationType(otherType);
-							}
-						} catch (IOException e) {
-							throw new MifProcessingException(e);
+				List<Element> annotationElements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName));
+				// for every high-level annotation element (<mif:description>, for example)
+				for (Element annotationElement : annotationElements) {
+					List<Element> paragraphElements = toElementList(getNodes(annotationElement, postMifAnnotationPath));
+					if (!paragraphElements.isEmpty()) {
+						Annotation annotation = new Annotation();
+						
+						annotation.setAnnotationTypeAsEnum(annotationType);
+						String sourceName = annotationElement.getAttribute("sourceName");
+						if (StringUtils.isNotBlank(sourceName)) {
+							annotation.setSourceName(sourceName);
 						}
-						annotations.add(annotation);
+						// TM - I have not seen this case in any MIF, so I'm not certain that this is the correct way to pull out "type"
+						String otherType = annotationElement.getAttribute("type");
+						if (StringUtils.isNotBlank(otherType)) {
+							annotation.setOtherAnnotationType(otherType);
+						}
+						// for every paragraph of text within the annotation
+						for (Element paragraphElement : paragraphElements) {
+							recurisvelyClearMifPrefix(paragraphElement);
+							try {
+								String text = StringUtils.trim(removeNonAsciiCharacters(DOMWriter.renderAsString(paragraphElement)));
+								if (StringUtils.isNotBlank(text)) {
+									annotation.setText( (annotation.getText() == null) ? text : annotation.getText() + text);
+								}
+							} catch (IOException e) {
+								throw new MifProcessingException(e);
+							}
+						}
+						if (StringUtils.isNotBlank(annotation.getText())) {
+							result.add(annotation);
+						}
 					}
-				}
-				if (!annotations.isEmpty()) {
-					result.addAll(annotations);
 				}
 			}
 		}
@@ -150,6 +158,17 @@ abstract class BaseMifXPathHelper {
 			result = string.replaceAll("[^\\p{ASCII}]", "");
 		}
 		return result;
+	}
+	
+	String cleanInteractionAnnotationText(String annotationText, String annotationTypeAsString) {
+		AnnotationType annotationType = AnnotationType.valueOf(AnnotationType.class, annotationTypeAsString);
+		Object[] tagsToRemove = ArrayUtils.add(annotationType.getMifElementNames(), "text");
+		for (Object tagToRemove : tagsToRemove) {
+			annotationText = StringUtils.remove(annotationText, "<" + tagToRemove + ">");
+			annotationText = StringUtils.remove(annotationText, "</" + tagToRemove + ">");
+		}
+		annotationText = StringUtils.trim(annotationText);
+		return StringUtils.isBlank(annotationText) ? null : "<p>" + annotationText + "</p>";
 	}
 	
 	abstract String getOwnedEntryPoint(Document document);
