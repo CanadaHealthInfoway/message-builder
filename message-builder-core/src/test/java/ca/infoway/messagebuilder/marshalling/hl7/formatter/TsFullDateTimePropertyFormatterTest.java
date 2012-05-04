@@ -29,6 +29,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
@@ -50,6 +51,10 @@ public class TsFullDateTimePropertyFormatterTest {
 		public VersionNumber getBaseVersion() {return null;}
 	};
 
+	public TsFullDateTimePropertyFormatterTest() {
+	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
+	}
+	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception  {
 		Map<String,String>  result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
