@@ -24,10 +24,10 @@ import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TimeZone;
 
 import org.junit.Test;
 
@@ -39,6 +39,10 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
+	public SetTsPropertyFormatterTest() {
+	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
+	}
+	
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
@@ -58,6 +62,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 				new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
 				set);
 		
+	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
 		String currentTimeZone = tzformat.format(new Date());		
 		String expectedValue1 = "19990101122959.0000" + currentTimeZone;
