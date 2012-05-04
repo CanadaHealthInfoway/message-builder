@@ -28,6 +28,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
@@ -68,7 +69,8 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
-		assertEquals("value as expected", "19990423101112.0000-0400", result.get("value"));
+		String expectedValue = "19990423101112.0000" + getCurrentTimeZone();
+		assertEquals("value as expected", expectedValue, result.get("value"));
 	}
 
 	@Test
@@ -114,12 +116,14 @@ public class TsFullDateTimePropertyFormatterTest {
 	
 	@Test
 	public void testVersionDefault() throws Exception  {
-		handleVersion((SpecificationVersion) null, "19990423101112.0000-0400");
+		String value = "19990423101112.0000" + getCurrentTimeZone();
+		handleVersion((SpecificationVersion) null, value);
 	}
 
 	@Test
 	public void testVersionNew() throws Exception  {
-		handleVersion(SpecificationVersion.R02_04_02, "19990423101112.0000-0400");
+		String value = "19990423101112.0000" + getCurrentTimeZone();
+		handleVersion(SpecificationVersion.R02_04_02, value);
 	}
 	
 	@Test
@@ -197,4 +201,9 @@ public class TsFullDateTimePropertyFormatterTest {
 				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 	}
 	
+	private String getCurrentTimeZone() {
+		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
+		String currentTimeZone = tzformat.format(new Date());
+		return currentTimeZone;
+	}
 }

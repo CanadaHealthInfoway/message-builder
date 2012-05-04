@@ -22,10 +22,12 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.junit.Test;
 
@@ -45,7 +47,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
     }
     
 	@Test
-    public void testFormatValueNonNull() throws Exception {
+    public void testFormatValueNonNull() throws Exception {			
         Date calendar1 = DateUtil.getDate(1999, 0, 1, 12, 29, 59, 0);
         Date calendar2 = DateUtil.getDate(2001, 1, 3, 13, 30, 00, 0);
         
@@ -56,7 +58,12 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 				new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
 				set);
 		
-        assertXml("non null", "<blah value=\"19990101122959.0000-0500\"/><blah value=\"20010203133000.0000-0500\"/>", result);
+		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
+		String currentTimeZone = tzformat.format(new Date());		
+		String expectedValue1 = "19990101122959.0000" + currentTimeZone;
+		String expectedValue2 = "20010203133000.0000" + currentTimeZone;
+		
+        assertXml("non null", "<blah value=\"" + expectedValue1 + "\"/><blah value=\"" + expectedValue2 + "\"/>", result);
     }
 
     private Set<Date> makeSet(Date... dates) {

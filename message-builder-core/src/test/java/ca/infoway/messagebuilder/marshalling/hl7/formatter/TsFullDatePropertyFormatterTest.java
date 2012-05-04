@@ -24,11 +24,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -62,9 +65,12 @@ public class TsFullDatePropertyFormatterTest {
 	 */
 	@Test
 	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
-		Date calendar = DateUtil.getDate(1999, 3, 23);
-		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(calendar, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")));
-		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(calendar, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		format.setTimeZone(TimeZone.getTimeZone("Canada/Ontario"));
+		Date date = format.parse("1999-02-01");
+		
+		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")));
+		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")));
 		assertFalse(StringUtils.equals(gmtSixValue, gmtFiveValue));
 	}
 

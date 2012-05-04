@@ -26,6 +26,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -98,7 +100,8 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
-		Node node = createNode("<something extra=\"extra\" value=\"20080331155857.8620-0400\" />");
+		String value = "20080331155857.8620" + getCurrentTimeZone();
+		Node node = createNode("<something extra=\"extra\" value=\"" + value + "\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				calendar, 
 				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
@@ -106,7 +109,11 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
     
 	@Test
     public void testParseValidValueAttributeWithTimeZonePlus() throws Exception {
-		Date expectedCalendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862);
+		//Date expectedCalendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
+		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+		Date expectedCalendar = format.parse("2008-03-31_10:58:57.862");
+		
 		Node node = createNode("<something extra=\"extra\" value=\"20080331155857.8620+0100\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				expectedCalendar, 
@@ -140,5 +147,11 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	
 	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
 		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null);
+	}
+	
+	private String getCurrentTimeZone() {
+		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
+		String currentTimeZone = tzformat.format(new Date());
+		return currentTimeZone;
 	}
 }
