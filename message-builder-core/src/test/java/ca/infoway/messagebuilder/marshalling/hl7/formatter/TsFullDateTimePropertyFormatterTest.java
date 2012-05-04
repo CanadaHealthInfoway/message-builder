@@ -51,10 +51,6 @@ public class TsFullDateTimePropertyFormatterTest {
 		public VersionNumber getBaseVersion() {return null;}
 	};
 
-	public TsFullDateTimePropertyFormatterTest() {
-	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
-	}
-	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception  {
 		Map<String,String>  result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
