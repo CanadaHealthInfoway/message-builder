@@ -38,12 +38,12 @@ public class AnnotationType extends EnumPattern {
 	
 	private static final long serialVersionUID = 3066114109382422542L;
 	
-	public static final AnnotationType CONSTRAINT = new AnnotationType("CONSTRAINT", "CONSTRAINT", "constraint");//id in mif2 
+	public static final AnnotationType CONSTRAINT = new AnnotationType("CONSTRAINT", "CONSTRAINT", "constraint", "formalConstraint"); 
 	public static final AnnotationType DESCRIPTION = new AnnotationType("DESCRIPTION", "DESCRIPTION / DEFINITION", "description", "definition"); 
 	public static final AnnotationType DESIGN_COMMENTS = new AnnotationType("DESIGN_COMMENTS", "DESIGN COMMENTS", "designComments"); 
-	public static final AnnotationType MAPPING = new AnnotationType("MAPPING", "MAPPING", "mapping"); //sourceName
+	public static final AnnotationType MAPPING = new AnnotationType("MAPPING", "MAPPING", "mapping");
 	public static final AnnotationType OPEN_ISSUE = new AnnotationType("OPEN_ISSUE", "OPEN ISSUE", "openIssues", "openIssue"); 
-	public static final AnnotationType OTHER_NOTES = new AnnotationType("OTHER_NOTES", "OTHER NOTES", "otherAnnotation", "otherAnnotation");
+	public static final AnnotationType OTHER_NOTES = new AnnotationType("OTHER_NOTES", "OTHER NOTES", "otherAnnotation");
 	public static final AnnotationType RATIONALE = new AnnotationType("RATIONALE", "RATIONALE", "rationale"); 
 	public static final AnnotationType USAGE_NOTES = new AnnotationType("USAGE_NOTES", "USAGE NOTES", "usageNotes"); 
 	

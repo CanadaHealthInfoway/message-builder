@@ -27,6 +27,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Hashtable;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Attr;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -297,8 +298,13 @@ public class DOMWriter {
                 Attr attrs[] = sortAttributes(node.getAttributes());
                 for ( int i = 0; i < attrs.length; i++ ) {
                     Attr attr = attrs[i];
+                    String nodeName = attr.getNodeName();
+                    // TM - our only usage of this class is when creating annotations; let's skip namespace attributes
+                    if (StringUtils.startsWith(nodeName, "xmlns:")) {
+                    	continue;
+                    }
                     out.print(' ');
-                    out.print(attr.getNodeName());
+					out.print(nodeName);
                     out.print("=\"");
                     out.print(this.needNormalize? normalize(attr.getNodeValue()) : attr.getNodeValue());
                     out.print('"');
