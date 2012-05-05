@@ -39,10 +39,6 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
-	public SetTsPropertyFormatterTest() {
-	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
-	}
-	
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
