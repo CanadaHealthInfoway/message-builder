@@ -86,7 +86,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
-		String expectedValue = "20080331155857.8620" + getCurrentTimeZone();
+		String expectedValue = "20080331155857.8620" + getCurrentTimeZone(calendar);
 		
         assertValidValueAttribute(calendar, expectedValue);
     }
@@ -96,7 +96,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
 		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		Date calendar = format.parse("2008-03-31_10:58:57.862");
-				
+
 		String value = "20080331155857.8620+0100";
 		assertValidValueAttribute(calendar, value);
         Node node = createNode("<something value=\"" + value + "\" />");
@@ -127,7 +127,7 @@ public class TsElementParserTest extends MarshallingTestCase {
     public void testParseValidDateForExceptionCase() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
 		
-		String value = "20080625141610" + getCurrentTimeZone();
+		String value = "20080625141610" + getCurrentTimeZone(expectedResult);
         Node node = createNode("<something value=\"" + value + "\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
@@ -142,7 +142,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseNoFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
-		String value = "20080625141610" + getCurrentTimeZone();
+		String value = "20080625141610" + getCurrentTimeZone(expectedResult);
         Node node = createNode("<something value=\"" + value + "\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
@@ -187,7 +187,7 @@ public class TsElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
-		String value = "20080625141610" + getCurrentTimeZone();
+		String value = "20080625141610" + getCurrentTimeZone(expectedResult);
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATETIME\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
@@ -198,14 +198,14 @@ public class TsElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidFullDateTimeButWithFullDateSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
-		String value = "20080625141610" + getCurrentTimeZone();
+		String value = "20080625141610" + getCurrentTimeZone(expectedResult);
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
         assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
         assertEquals("one error", 1, this.xmlResult.getHl7Errors().size());
         String expectedErrorMsg = "The timestamp element <something specializationType=\"TS.FULLDATE\" " 
-        								+ "value=\"20080625141610" + getCurrentTimeZone() 
+        								+ "value=\"20080625141610" + getCurrentTimeZone(expectedResult) 
         								+ "\"/> appears to be formatted as type TS.FULLDATETIME, " 
         								+ "but should be TS.FULLDATE.";
         assertTrue("specialization type error", this.xmlResult.getHl7Errors().get(0).getMessage().equals(expectedErrorMsg));
@@ -261,9 +261,9 @@ public class TsElementParserTest extends MarshallingTestCase {
 		System.out.println(date);
 	}
 	
-	private String getCurrentTimeZone() {
+	private String getCurrentTimeZone(Date calendar) {
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(new Date());
+		String currentTimeZone = tzformat.format(calendar);
 		return currentTimeZone;
 	}
 }

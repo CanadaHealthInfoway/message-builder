@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -47,9 +46,10 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
     }
     
 	@Test
-    public void testFormatValueNonNull() throws Exception {			
+    public void testFormatValueNonNull() throws Exception {
         Date calendar1 = DateUtil.getDate(1999, 0, 1, 12, 29, 59, 0);
         Date calendar2 = DateUtil.getDate(2001, 1, 3, 13, 30, 00, 0);
+
         
         SETImpl<TS, Date> set = new SETImpl<TS, Date>(TSImpl.class);
         set.rawSet().addAll(makeSet(calendar1, calendar2));
@@ -58,11 +58,12 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 				new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
 				set);
 		
-	    System.setProperty("user.timezone", Calendar.getInstance().getTimeZone().getDisplayName());
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(new Date());		
-		String expectedValue1 = "19990101122959.0000" + currentTimeZone;
-		String expectedValue2 = "20010203133000.0000" + currentTimeZone;
+		String currentTimeZone1 = tzformat.format(calendar1);
+		String currentTimeZone2 = tzformat.format(calendar2);
+		
+		String expectedValue1 = "19990101122959.0000" + currentTimeZone1;
+		String expectedValue2 = "20010203133000.0000" + currentTimeZone2;
 		
         assertXml("non null", "<blah value=\"" + expectedValue1 + "\"/><blah value=\"" + expectedValue2 + "\"/>", result);
     }

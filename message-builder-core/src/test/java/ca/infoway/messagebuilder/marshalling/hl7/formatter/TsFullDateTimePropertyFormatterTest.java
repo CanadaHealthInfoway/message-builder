@@ -69,7 +69,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
-		String expectedValue = "19990423101112.0000" + getCurrentTimeZone();
+		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);
 		assertEquals("value as expected", expectedValue, result.get("value"));
 	}
 
@@ -116,29 +116,31 @@ public class TsFullDateTimePropertyFormatterTest {
 	
 	@Test
 	public void testVersionDefault() throws Exception  {
-		String value = "19990423101112.0000" + getCurrentTimeZone();
-		handleVersion((SpecificationVersion) null, value);
+		String value = "19990423101112.0000";
+		handleVersion((SpecificationVersion) null, value, true);
 	}
 
 	@Test
 	public void testVersionNew() throws Exception  {
-		String value = "19990423101112.0000" + getCurrentTimeZone();
-		handleVersion(SpecificationVersion.R02_04_02, value);
+		String value = "19990423101112.0000";
+		handleVersion(SpecificationVersion.R02_04_02, value, true);
 	}
 	
 	@Test
 	public void testVersionOld() throws Exception  {
-		handleVersion(SpecificationVersion.V01R04_3, "19990423101112");
+		handleVersion(SpecificationVersion.V01R04_3, "19990423101112", false);
 	}
 	
-	private void handleVersion(SpecificationVersion version, String expected)	throws ModelToXmlTransformationException {
+	private void handleVersion(SpecificationVersion version, String expected, boolean withTimeZone)	throws ModelToXmlTransformationException {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null, false, version, null, null), calendar);
 		assertEquals("map size", 1, result.size());
 		
+		String expectedValue = withTimeZone?expected+getCurrentTimeZone(calendar):expected;
+		
 		assertTrue("key as expected", result.containsKey("value"));
-		assertEquals("value as expected", expected, result.get("value"));
+		assertEquals("value as expected", expectedValue, result.get("value"));
 	}
 	
 	/**
@@ -201,9 +203,9 @@ public class TsFullDateTimePropertyFormatterTest {
 				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 	}
 	
-	private String getCurrentTimeZone() {
+	private String getCurrentTimeZone(Date calendar) {
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(new Date());
+		String currentTimeZone = tzformat.format(calendar);
 		return currentTimeZone;
 	}
 }

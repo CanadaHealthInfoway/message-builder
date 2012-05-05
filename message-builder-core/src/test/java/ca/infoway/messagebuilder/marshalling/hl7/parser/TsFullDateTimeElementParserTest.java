@@ -100,7 +100,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
-		String value = "20080331155857.8620" + getCurrentTimeZone();
+		String value = "20080331155857.8620" + getCurrentTimeZone(calendar);
 		Node node = createNode("<something extra=\"extra\" value=\"" + value + "\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
 				calendar, 
@@ -149,9 +149,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null);
 	}
 	
-	private String getCurrentTimeZone() {
+	private String getCurrentTimeZone(Date calendar) {
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(new Date());
+		String currentTimeZone = tzformat.format(calendar);
 		return currentTimeZone;
 	}
 }
