@@ -35,6 +35,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
@@ -134,6 +135,18 @@ public class CvElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something><originalText></originalText></something>");
 		CV cv = (CV) this.parser.parse(
 				createContext("CV", MockCharacters.class, V02R02, OPTIONAL, CWE), 
+				node, this.xmlResult);
+		
+		assertFalse("valid", this.xmlResult.isValid());
+		assertNull("empty node returns null", cv.getValue());
+	}
+	
+	@Test
+	@Ignore  //FIXME
+	public void testParseCNEMustHaveNonEmptyCodeAndCodeSystem() throws Exception {
+		Node node = createNode("<something code=\"\" codeSystem=\"\" />");
+		CV cv = (CV) this.parser.parse(
+				createContext("CV", MockCharacters.class, V02R02, OPTIONAL, CNE), 
 				node, this.xmlResult);
 		
 		assertFalse("valid", this.xmlResult.isValid());

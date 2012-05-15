@@ -26,8 +26,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -97,6 +99,19 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	public void testNoValueAndMandatory() throws Exception {
 		CDImpl cd = new CDImpl(null);
 		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cd);
+		String lineBreak = System.getProperty("line.separator");
+		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));
+	}
+	
+	@Test
+	@Ignore  //FIXME
+	public void testNoInternalValuesAndMandatory() throws Exception {
+		CDImpl cd = new CDImpl(new Code() {
+			public String getCodeValue() {return null;}
+			public String getCodeSystem() {return null;}
+		});
+		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cd);
+		System.out.println(result);
 		String lineBreak = System.getProperty("line.separator");
 		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));
 	}
