@@ -59,6 +59,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
     		builder.append(formatter.format(subContext, null, indentLevel));
     	} else {
 	        for (BareANY element : EmptyIterable.<BareANY>nullSafeIterable(collection)) {
+	        	// FIXME - SPECIALIZATION_TYPE - compare "element" type with subcontext datatype - if different, need to re-build a subcontext
 				builder.append(formatter.format(subContext, (BareANY) element, indentLevel));
 	        }
     	}

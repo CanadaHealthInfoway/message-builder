@@ -238,6 +238,8 @@ class XmlRenderingVisitor implements Visitor {
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
+//				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
+				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
 				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
