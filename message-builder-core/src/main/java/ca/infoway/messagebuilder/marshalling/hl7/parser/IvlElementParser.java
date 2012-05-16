@@ -118,6 +118,7 @@ abstract class IvlElementParser<T> extends AbstractIvlElementParser<T> {
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 
+					// TODO - TM - it might be legitimate for units to sometimes be null. Fix this here?
 					if (quantity != null && quantity.getQuantity() != null && quantity.getUnit() != null) {
 						result = new DateDiff(quantity);
 					}

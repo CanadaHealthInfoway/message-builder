@@ -52,7 +52,10 @@ public class RtoPqPqPropertyFormatter extends AbstractRtoPropertyFormatter<Physi
     private Map<String, String> getAttributeMap(PhysicalQuantity value) {
         Map<String, String> result = new HashMap<String, String>();
         result.put("value", value.getQuantity().toString());
-        result.put("unit", value.getUnit().getCodeValue());
+        // TM - Redmine 11455 - need to account for units being null
+        if (value.getUnit() != null) {
+        	result.put("unit", value.getUnit().getCodeValue());
+        }
         result.put("xsi:type", "PQ");
         return result;
     }

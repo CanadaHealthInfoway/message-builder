@@ -93,7 +93,10 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
     private Map<String, String> toStringMap(PhysicalQuantity quantity) {
         Map<String,String> map = new HashMap<String,String>();
         map.put(VALUE, quantity.getQuantity().toString());
-        map.put(UNIT, quantity.getUnit().getCodeValue());
+        // TM - Redmine 11455 - need to account for units being null
+        if (quantity.getUnit() != null) {
+        	map.put(UNIT, quantity.getUnit().getCodeValue());
+        }
         return map;
     }
 }
