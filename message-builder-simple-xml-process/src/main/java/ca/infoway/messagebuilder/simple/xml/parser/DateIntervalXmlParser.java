@@ -81,7 +81,8 @@ public class DateIntervalXmlParser extends AbstractSimpleXmlParser<IVL<TS,Interv
 		 || Representation.WIDTH.equals(value.getRepresentation()))) {
 			DateDiff diff = (DateDiff) value.getWidth();
 			PhysicalQuantity pq = diff.getValueAsPhysicalQuantity();
-			builder.append(format("<duration value=\"%s\" unit=\"%s\"/>", pq.getQuantity(), pq.getUnit().getCodeValue()));
+			// should the unit attribute be displayed if the unit property is null?
+			builder.append(format("<duration value=\"%s\" unit=\"%s\"/>", pq.getQuantity(), pq.getUnit() == null ? "" : pq.getUnit().getCodeValue()));
 		}
 	}
 
