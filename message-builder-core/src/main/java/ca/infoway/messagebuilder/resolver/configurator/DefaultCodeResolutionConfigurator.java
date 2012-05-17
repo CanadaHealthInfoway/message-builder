@@ -32,6 +32,8 @@ import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.domainvalue.ActReason;
 import ca.infoway.messagebuilder.domainvalue.ActRelationshipSubset;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationImmunizationCode;
+import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationImmunizationType;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.Country;
@@ -100,6 +102,10 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.ActRelationshipSubset.class));
 		CodeResolverRegistry.registerResolver(ActStatus.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActStatus.class));
+		CodeResolverRegistry.registerResolver(ActSubstanceAdministrationImmunizationCode.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActSubstanceAdministrationImmunizationCode.class));
+		CodeResolverRegistry.registerResolver(ActSubstanceAdministrationImmunizationType.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActSubstanceAdministrationImmunizationType.class));
 		CodeResolverRegistry.registerResolver(AdministrativeGender.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender.class));
 		CodeResolverRegistry.registerResolver(Confidentiality.class, 
