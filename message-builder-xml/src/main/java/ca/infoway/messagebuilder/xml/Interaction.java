@@ -45,10 +45,11 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
-	@SuppressWarnings("unused")
+	// businessName field no longer used; setter/getter delegates to documentation property
+	// however, older message sets, when read in, will have this field populated 
 	@Element(required=false)
 	@Deprecated
-	private String businessName;  // this field no longer used; setter/getter delegates to documentation property 
+	private String businessName;   
 	@Attribute
 	private String superTypeName;
 	@ElementList(inline=true,required=false)
@@ -106,17 +107,30 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	 * @return the business name
 	 */
 	public String getBusinessName() {
-		return this.documentation == null ? null : this.documentation.getBusinessName();
+		// first pull out proper value
+		String docBusinessName = this.documentation == null ? null : this.documentation.getBusinessName();
+		// if no proper value, but we have a deprecated field value, return the deprecated field value and set it in the correct field
+		if (docBusinessName == null && this.businessName != null) {
+			docBusinessName = this.businessName;
+			setBusinessName(this.businessName);
+		}
+		// side effect: clear out the deprecated field regardless, in case it was populated from an older message set
+		this.businessName = null;
+		return docBusinessName;
 	}
 	/**
 	 * <p>Set the business name.
 	 * @param businessName - the new business name.
 	 */
 	public void setBusinessName(String businessName) {
-		if (this.documentation == null) {
+		// side effect: clear out the deprecated field regardless, in case it was populated from an older message set
+		this.businessName = null;
+		if (this.documentation == null && businessName != null) {
 			this.documentation = new Documentation();
 		}
-		this.documentation.setBusinessName(businessName);
+		if (this.documentation != null) {
+			this.documentation.setBusinessName(businessName);
+		}
 	}
 	/**
 	 * <p>Get the documentation.
