@@ -265,9 +265,10 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return - the message parts
 	 */
 	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
+		String versionLiteral = version.getVersionLiteral();
 		List<MessagePart> allRootParts = new ArrayList<MessagePart>();
 		for (MessageSet messageSet : getMessageSets()) {
-			if (version.equals(messageSet.getVersion())) {
+			if (versionLiteral.equals(messageSet.getVersion())) {
 				for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
 					for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
 						if (packageLocation.getRootType().equals(messagePart.getName())) {
