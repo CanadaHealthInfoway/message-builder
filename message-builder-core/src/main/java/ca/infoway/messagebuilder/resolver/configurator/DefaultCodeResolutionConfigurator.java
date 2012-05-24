@@ -74,6 +74,7 @@ public class DefaultCodeResolutionConfigurator {
 	/**
 	 * <p>Configure code resolvers with trivial default.
 	 */
+	@SuppressWarnings("deprecation")
 	public static void configureCodeResolversWithTrivialDefault() {
 		
 		CodeResolverRegistry.registerResolver(Country.class, 
