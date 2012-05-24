@@ -24,13 +24,16 @@ import ca.infoway.messagebuilder.domainvalue.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailType;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementType;
+import ca.infoway.messagebuilder.domainvalue.ActClass;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
+import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.domainvalue.ActReason;
 import ca.infoway.messagebuilder.domainvalue.ActRelationshipSubset;
+import ca.infoway.messagebuilder.domainvalue.ActSpecimenTransportationCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationImmunizationCode;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationImmunizationType;
@@ -43,12 +46,14 @@ import ca.infoway.messagebuilder.domainvalue.IssueFilterCode;
 import ca.infoway.messagebuilder.domainvalue.MessageWaitingPriority;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.ObservationQueryMatchType;
+import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ProcessingMode;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.QueryResponse;
 import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 import ca.infoway.messagebuilder.domainvalue.RoleClass;
+import ca.infoway.messagebuilder.domainvalue.RoleCode;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.RoleStatusNormal;
 import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
@@ -72,13 +77,11 @@ import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 public class DefaultCodeResolutionConfigurator {
 	
 	/**
-	 * <p>Configure code resolvers with trivial default.
+	 * <p>Configure code resolvers with enum-based and trivial defaults.
 	 */
 	@SuppressWarnings("deprecation")
 	public static void configureCodeResolversWithTrivialDefault() {
 		
-		CodeResolverRegistry.registerResolver(Country.class, 
-				new EnumBasedCodeResolver(Iso3166Alpha2Country.class));
 		CodeResolverRegistry.registerResolver(AcknowledgementCondition.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.class));
 		CodeResolverRegistry.registerResolver(AcknowledgementDetailCode.class, 
@@ -87,6 +90,8 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailType.class));
 		CodeResolverRegistry.registerResolver(AcknowledgementType.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType.class));
+		CodeResolverRegistry.registerResolver(ActClass.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActClass.class));
 		CodeResolverRegistry.registerResolver(ActCode.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActCode.class));
 		CodeResolverRegistry.registerResolver(ActConsentInformationAccessReason.class, 
@@ -95,12 +100,16 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActDetectedIssueCode.class));
 		CodeResolverRegistry.registerResolver(ActIssuePriority.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActIssuePriority.class));
+		CodeResolverRegistry.registerResolver(ActMood.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActMood.class));
 		CodeResolverRegistry.registerResolver(ActPharmacySupplyType.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.ActPharmacySupplyType.class));
 		CodeResolverRegistry.registerResolver(ActReason.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.ActReason.class));
 		CodeResolverRegistry.registerResolver(ActRelationshipSubset.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.ActRelationshipSubset.class));
+		CodeResolverRegistry.registerResolver(ActSpecimenTransportationCode.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActSpecimenTransportationCode.class));
 		CodeResolverRegistry.registerResolver(ActStatus.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActStatus.class));
 		CodeResolverRegistry.registerResolver(ActSubstanceAdministrationImmunizationCode.class, 
@@ -111,6 +120,8 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender.class));
 		CodeResolverRegistry.registerResolver(Confidentiality.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.Confidentiality.class));
+		CodeResolverRegistry.registerResolver(Country.class, 
+				new EnumBasedCodeResolver(Iso3166Alpha2Country.class));
 		CodeResolverRegistry.registerResolver(HL7StandardVersionCode.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.HL7StandardVersionCode.class));
 		CodeResolverRegistry.registerResolver(HL7TriggerEventCode.class, 
@@ -123,6 +134,8 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.class));
 		CodeResolverRegistry.registerResolver(ObservationQueryMatchType.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.ProbabilityMatchCode.class));
+		CodeResolverRegistry.registerResolver(ParticipationMode.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ParticipationMode.class));
 		CodeResolverRegistry.registerResolver(ProcessingID.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.ProcessingID.class));
 		CodeResolverRegistry.registerResolver(ProcessingMode.class, 
@@ -135,6 +148,8 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.ResponseMode.class));
 		CodeResolverRegistry.registerResolver(RoleClass.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.RoleClass.class));
+		CodeResolverRegistry.registerResolver(RoleCode.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.RoleCode.class));
 		CodeResolverRegistry.registerResolver(RoleStatus.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.RoleStatus.class));
 		CodeResolverRegistry.registerResolver(RoleStatusNormal.class, 
