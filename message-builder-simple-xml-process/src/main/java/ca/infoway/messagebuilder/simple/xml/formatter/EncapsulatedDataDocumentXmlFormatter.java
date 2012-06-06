@@ -102,7 +102,7 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	private String parseReference(Element element, FormatContext context) throws FormatterException {
 		if (element.hasAttribute(ATTRIBUTE_REFERENCE)) {
 			return element.getAttribute(ATTRIBUTE_REFERENCE);
-		} else if (context.matchesType(StandardDataType.ED_DOC_REF)) {
+		} else if (context.matchesType(StandardDataType.ED_DOC_REF) || context.matchesType(StandardDataType.ED_REF)) {
 			processError(context, "Reference type requires reference attribute", element);
 		}
 		return null;

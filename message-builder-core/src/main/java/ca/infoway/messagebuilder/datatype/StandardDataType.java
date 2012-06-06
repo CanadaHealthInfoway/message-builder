@@ -104,6 +104,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType ED = new StandardDataType("ED", "ED"); 
 	public static final StandardDataType ED_DOC = new StandardDataType("ED_DOC", "ED.DOC", "EncapsulatedDocumentType"); 
 	public static final StandardDataType ED_DOC_OR_REF = new StandardDataType("ED_DOC_OR_REF", "ED.DOCORREF", "EncapsulatedDocumentOrReference"); 
+	public static final StandardDataType ED_REF = new StandardDataType("ED_REF", "ED.REF", "EncapsulatedReferenceType"); //CeRx only
 	public static final StandardDataType ED_DOC_REF = new StandardDataType("ED_DOC_REF", "ED.DOCREF", "EncapsulatedReferenceType");
 	public static final StandardDataType ED_SIGNATURE = new StandardDataType("ED_SIGNATURE", "ED.SIGNATURE", "EncapsulatedSignatureType");
 	

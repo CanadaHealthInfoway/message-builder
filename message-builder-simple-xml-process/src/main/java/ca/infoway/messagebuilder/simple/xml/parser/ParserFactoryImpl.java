@@ -67,6 +67,7 @@ public class ParserFactoryImpl implements ParserFactory {
 		this.map.put(StandardDataType.ED_SIGNATURE, EncapsulatedDataSignatureXmlParser.class);
 		this.map.put(StandardDataType.ED_DOC, EncapsulatedDataDocumentXmlParser.class);
 		this.map.put(StandardDataType.ED_DOC_REF, EncapsulatedDataDocumentXmlParser.class);
+		this.map.put(StandardDataType.ED_REF, EncapsulatedDataDocumentXmlParser.class);
 		this.map.put(StandardDataType.PIVL_TS_DATETIME, PeriodicIntervalOfTimeXmlParser.class);
 		this.map.put(StandardDataType.GTS, BoundedPeriodicIntervalOfTimeXmlParser.class);
 		this.map.put(StandardDataType.GTS_BOUNDEDPIVL, BoundedPeriodicIntervalOfTimeXmlParser.class);
