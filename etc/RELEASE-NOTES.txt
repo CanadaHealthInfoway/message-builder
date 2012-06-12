@@ -29,6 +29,23 @@ INTRODUCTION:
 This document contains the release notes for this version of Infoway Message Builder, and highlights changes since the previous version.
 
 
+BUGS FIXED in 1.3.2:
+===================
+
+11463 - code modifications and manual message set changes for SK message set to work with SK Sandbox gaps
+misc  - added some additional code types tp the code configurator
+misc  - fixed a small bug where a version literal was being comapred to a version object
+misc  - fixed some issues around the old/deprecated interaction business name handling
+misc  - MR2009 (R02.04.03) had an incorrect version literal in message set
+misc  - added an older (CeRx) datatype (ED.REF) to StandardDatatype enum
+
+
+BUGS FIXED in 1.3.1:
+===================
+
+11455 - NullPointerException if unit of measure is null from code-to-XML
+
+
 BUGS FIXED in 1.3.0:
 ===================
 
