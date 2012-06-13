@@ -52,6 +52,7 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 	public static final String ATTRIBUTE_REPRESENTATION = "representation";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
 	public static final String ATTRIBUTE_REFERENCE = "reference";
+	public static final String ATTRIBUTE_VALUE = "value"; // for newer format of "reference" usage
 
 	@Override
 	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) throws ModelToXmlTransformationException {

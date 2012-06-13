@@ -46,6 +46,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 
 	private static final String TEXT_SIMPLE = Base64.encodeBase64String("This is a test".getBytes());
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
@@ -139,7 +140,6 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("content", "<xml>foo</xml>", BytesUtil.asString(data.getUncompressedContent()));
 	}
 	
-	@SuppressWarnings("deprecation")
 	private ParseContext createEdContext() {
 		return ParserContextImpl.create("ED.DOCORREF", String.class, SpecificationVersion.V02R02, null, null, null);
 	}
@@ -155,9 +155,20 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseTextNodeWithAttributes() throws Exception {
-		Node node = createNode("<something mediaType=\"text/plain\">text value</something>");
+		Node node = createNode("<something mediaType=\"text/plain\" reference=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\">text value</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createEdContext(), node, null).getBareValue();
 		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", MediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+	
+	@Test
+	public void testParseReferenceTypeUsingNewerReferenceFormat() throws Exception {
+		Node node = createNode("<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createEdContext(), node, null).getBareValue();
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", MediaType.HTML_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
 	
 }

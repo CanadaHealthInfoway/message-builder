@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyForm
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_MEDIA_TYPE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_REFERENCE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_REPRESENTATION;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_VALUE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.REPRESENTATION_B64;
 
 import java.lang.reflect.Type;
@@ -32,6 +33,7 @@ import java.lang.reflect.Type;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
@@ -114,6 +116,15 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 	private String parseReference(Element element) {
 		if (element.hasAttribute(ATTRIBUTE_REFERENCE)) {
 			return element.getAttribute(ATTRIBUTE_REFERENCE);
+		} else {
+			// look for newer format for providing reference within a "value" attribute of a "reference" element
+			NodeList elements = element.getElementsByTagName(ATTRIBUTE_REFERENCE);
+			if (elements.getLength() == 1) {
+				Element reference = (Element) elements.item(0);
+				if (reference.hasAttribute(ATTRIBUTE_VALUE)) {
+					return reference.getAttribute(ATTRIBUTE_VALUE);
+				}
+			}
 		}
 		return null;
 	}
