@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import static ca.infoway.messagebuilder.datatype.lang.CompressedData.LANGUAGE_ENGLISH;
 import static ca.infoway.messagebuilder.datatype.lang.Compression.GZIP;
 import static ca.infoway.messagebuilder.datatype.lang.Compression.gunzip;
+import static ca.infoway.messagebuilder.datatype.lang.MediaType.HTML_TEXT;
 import static ca.infoway.messagebuilder.datatype.lang.MediaType.PLAIN_TEXT;
 import static ca.infoway.messagebuilder.datatype.lang.MediaType.XML_TEXT;
 import static ca.infoway.messagebuilder.platform.Base64.decodeBase64String;
@@ -142,4 +143,12 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	
+	@Test
+	public void testReferenceForSKBug() throws Exception {
+		String expectedResult = "<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>";
+		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", null);
+		String result = new EdPropertyFormatter().format(getContext("text"), new EDImpl<EncapsulatedData>(data));
+		assertEquals("something in text node", expectedResult, clearPayload(result));
+	}
+
 }
