@@ -23,9 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_COMPRESSION;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_LANGUAGE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_MEDIA_TYPE;
-import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_REFERENCE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_REPRESENTATION;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ATTRIBUTE_VALUE;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.ELEMENT_REFERENCE;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter.REPRESENTATION_B64;
 
 import java.lang.reflect.Type;
@@ -114,11 +114,12 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 	}
 
 	private String parseReference(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_REFERENCE)) {
-			return element.getAttribute(ATTRIBUTE_REFERENCE);
+		if (element.hasAttribute(ELEMENT_REFERENCE)) {
+			// this format of ED is no longer correct (for any HL7v3 version), contrary to what V01R04.3 and V02R02 data type specifications state
+			return element.getAttribute(ELEMENT_REFERENCE);
 		} else {
 			// look for newer format for providing reference within a "value" attribute of a "reference" element
-			NodeList elements = element.getElementsByTagName(ATTRIBUTE_REFERENCE);
+			NodeList elements = element.getElementsByTagName(ELEMENT_REFERENCE);
 			if (elements.getLength() == 1) {
 				Element reference = (Element) elements.item(0);
 				if (reference.hasAttribute(ATTRIBUTE_VALUE)) {

@@ -73,9 +73,9 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueCompressedXmlData() throws Exception {
-		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" reference=\"http://www.i-proving.ca\" representation=\"B64\">" +
+		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  "http://www.i-proving.ca", "<xml>foo</xml>".getBytes(), GZIP, LANGUAGE_ENGLISH);
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "<xml>foo</xml>".getBytes(), GZIP, LANGUAGE_ENGLISH);
 		String result = new EdPropertyFormatter().format(getContext("name"), new EDImpl<EncapsulatedData>(data));
 		
 		
@@ -85,9 +85,9 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueCompressedXmlDataEmptyContent() throws Exception {
-		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" reference=\"http://www.i-proving.ca\" representation=\"B64\">" +
+		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAAAMAAAAAAAAAAAA=</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  "http://www.i-proving.ca", "".getBytes(), GZIP, LANGUAGE_ENGLISH);
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "".getBytes(), GZIP, LANGUAGE_ENGLISH);
 		String result = new EdPropertyFormatter().format(getContext("name"), new EDImpl<EncapsulatedData>(data));
 		
 		assertEquals("element", clearPayload(expectedResult), clearPayload(result));
@@ -96,19 +96,19 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueCompressedXmlDataNullContent() throws Exception {
-		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" reference=\"http://www.i-proving.ca\" representation=\"B64\"></name>" + LINE_SEPARATOR;
+		String expectedResult = "<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\"><reference value=\"http://www.i-proving.ca\"/></name>";
 		EncapsulatedData data = new CompressedData(XML_TEXT,  "http://www.i-proving.ca", null, GZIP, LANGUAGE_ENGLISH);
 		String result = new EdPropertyFormatter().format(getContext("name"), new EDImpl<EncapsulatedData>(data));
-		assertEquals("something in text node", expectedResult, result);
+		assertEquals("something in text node", expectedResult, clearPayload(result));
 	}
 
 	@Test
 	public void testFormatValueCompressedTextData() throws Exception {
 		String expectedResult = 
-			"<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/plain\" reference=\"http://www.i-proving.ca\" representation=\"B64\">" +
+			"<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/plain\" representation=\"B64\">" +
 			"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
 		
-		EncapsulatedData data = new CompressedData(PLAIN_TEXT,  "http://www.i-proving.ca", "<xml>foo</xml>".getBytes(), GZIP, LANGUAGE_ENGLISH);
+		EncapsulatedData data = new CompressedData(PLAIN_TEXT, null, "<xml>foo</xml>".getBytes(), GZIP, LANGUAGE_ENGLISH);
 		String result = new EdPropertyFormatter().format(getContext("name"), new EDImpl<EncapsulatedData>(data));
 		
 		assertEquals("element", clearPayload(expectedResult), clearPayload(result));
@@ -134,7 +134,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private String clearPayload(String result) {
-		return result.replaceAll(">.*<", "><");
+		return result.replaceAll("\n", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll(">.+?<", "><");
 	}
 
 	private String extractPayload(String result) {

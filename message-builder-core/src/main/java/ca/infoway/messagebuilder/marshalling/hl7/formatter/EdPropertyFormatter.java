@@ -51,7 +51,7 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 	public static final String ATTRIBUTE_LANGUAGE = "language";
 	public static final String ATTRIBUTE_REPRESENTATION = "representation";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
-	public static final String ATTRIBUTE_REFERENCE = "reference";
+	public static final String ELEMENT_REFERENCE = "reference";
 	public static final String ATTRIBUTE_VALUE = "value"; // for newer format of "reference" usage
 
 	@Override
@@ -64,6 +64,23 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 		boolean base64 = isBase64(data, content);
 		addEncapsulatedDataAttributes(data, attributes, base64);
 		buffer.append(createElement(context, attributes, indentLevel, false, false));
+		writeReference(data, buffer, indentLevel + 1);
+		writeContent(data, buffer, content, base64);
+		buffer.append(createElementClosure(context, 0, true));
+		return buffer.toString();
+	}
+
+	// FIXME - TM - Need to restrict this formatter based on actual data type - references only allowed in ED.REF/ED.DOCREF (similar restrictions on content, but only for ED.DOC)
+	private void writeReference(EncapsulatedData data, StringBuffer buffer, int indentLevel) {
+		if (data != null && data.getReference() != null) {
+			Map<String, String> attributes = new HashMap<String, String>();
+			attributes.put(ATTRIBUTE_VALUE, data.getReference());
+			// attributes.put("specializationType", "TEL.URI");  // is this necessary? 
+			buffer.append("\n").append(createElement(ELEMENT_REFERENCE, attributes, indentLevel, true, true));
+		}
+	}
+
+	private void writeContent(EncapsulatedData data, StringBuffer buffer, byte[] content, boolean base64) {
 		if (data != null && content != null && base64) {
 			buffer.append(Base64.encodeBase64String(content));
 		} else if (data != null && content != null && data instanceof EncapsulatedString) {
@@ -71,8 +88,6 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 		} else if (data != null && content != null) {
 			buffer.append(XmlStringEscape.escape(new String(content)));
 		}
-		buffer.append(createElementClosure(context, 0, true));
-		return buffer.toString();
 	}
 
 	private void addEncapsulatedDataAttributes(EncapsulatedData data, Map<String, String> attributes, boolean base64) {
@@ -82,10 +97,6 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 			} else if (data.getMediaType() != PLAIN_TEXT) {
 				attributes.put(ATTRIBUTE_MEDIA_TYPE, data.getMediaType().getCodeValue());
 			}
-		}
-
-		if (data != null && data.getReference() != null) {
-			attributes.put(ATTRIBUTE_REFERENCE, data.getReference());
 		}
 
 		if (base64 == true) {
