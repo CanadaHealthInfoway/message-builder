@@ -20,13 +20,19 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.3.3
+                               Version 1.3.4
                                Release Notes
 
 INTRODUCTION:
 ============
 
 This document contains the release notes for this version of Infoway Message Builder, and highlights changes since the previous version.
+
+
+BUGS FIXED in 1.3.4:
+===================
+
+11543 - modified the ED.REF formatter to accommodate the latest (MR2009) xml format for the reference value
 
 
 BUGS FIXED in 1.3.3:
