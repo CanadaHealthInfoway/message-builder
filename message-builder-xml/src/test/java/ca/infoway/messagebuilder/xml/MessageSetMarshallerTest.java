@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.xml;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -40,6 +41,13 @@ public class MessageSetMarshallerTest {
 	@Before
 	public void setUp() throws Exception {
 		this.marshaller = new MessageSetMarshaller();
+	}
+	
+	@Test
+	public void testShouldReadSampleXmlWithBreadcrumbHistory() throws Exception {
+		MessageSet testset = getMessageSet("sample_with_breadcrumbs.xml");
+		assertTrue(testset.getRemixHistory().size() > 0);
+		assertEquals(testset.getRemixHistory().get(0).getValue(), "R02_04_02");
 	}
 	
 	@Test

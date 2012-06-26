@@ -28,6 +28,7 @@ import java.util.TreeMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 
@@ -44,6 +45,9 @@ public class MessageSet implements MessagePartResolver {
 	
 	@Attribute(required=false)
 	private String component;
+	
+	@ElementList(name="remixHistory",required=false,inline=true,entry="remixHistoryEntry") 
+	private List<MessageSetHistory> remixHistory = new ArrayList<MessageSetHistory>();
 	
 	@ElementMap(name="packageLocation",key="name",required=false,inline=true,attribute=true,entry="packageEntry")
 	private Map<String,PackageLocation> packageLocations = new TreeMap<String,PackageLocation>();
@@ -176,5 +180,13 @@ public class MessageSet implements MessagePartResolver {
 	 */
 	public void setComponent(String component) {
 		this.component = component;
+	}
+
+	public List<MessageSetHistory> getRemixHistory() {
+		return remixHistory;
+	}
+
+	public void setRemixHistory(List<MessageSetHistory> remixHistory) {
+		this.remixHistory = remixHistory;
 	}
 }
