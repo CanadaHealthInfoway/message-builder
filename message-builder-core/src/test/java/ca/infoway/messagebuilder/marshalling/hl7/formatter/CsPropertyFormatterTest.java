@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public class CsPropertyFormatterTest extends FormatterTestCase {
@@ -52,7 +53,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
 
     @Test
     public void testGetAttributeNameValuePairsNullValue() throws Exception {
-        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
+        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
         assertEquals("map size", 0, result.size());
     }
 
@@ -60,7 +61,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     public void testGetAttributeNameValuePairsEnum() throws Exception {
         // used as expected: an enumerated object is passed in
         Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
-        		new FormatContextImpl("name", null, null), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), 
         		CeRxDomainTestValues.CENTIMETRE);
         assertEquals("map size", 1, result.size());
         
@@ -71,7 +72,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testGetAttributeNameValuePairsWithoutCodeSystem() throws Exception {
         Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
-        		new FormatContextImpl("name", null, null), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), 
         		new MockCodeImpl("fred", "The Flintstones"));
 
         assertEquals("map size", 1, result.size());

@@ -23,9 +23,12 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public interface FormatContext {
+	public ModelToXmlResult getModelToXmlResult();
+	public String getPropertyPath();
 	public String getElementName();
 	public String getType();
 	public boolean isSpecializationType();

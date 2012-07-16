@@ -109,7 +109,7 @@ public class Hl7Error {
     public String toString() {
     	StringBuilder sb = new StringBuilder();
     	sb.append(this.hl7ErrorCode);
-    	sb.append(" > ");
+    	sb.append(" : ");
     	sb.append(this.message);
     	if (this.path != null) {
     		sb.append(" (");

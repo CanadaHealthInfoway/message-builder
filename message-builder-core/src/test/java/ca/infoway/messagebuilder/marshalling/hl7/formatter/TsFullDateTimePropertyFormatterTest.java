@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class TsFullDateTimePropertyFormatterTest {
 
@@ -52,7 +53,7 @@ public class TsFullDateTimePropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception  {
-		Map<String,String>  result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
+		Map<String,String>  result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
 		
 		// a null value for TS elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -65,7 +66,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	public void testGetAttributeNameValuePairsDate() throws Exception  {
 		// used as expected: a date object is passed in
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), calendar1);
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), calendar1);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -78,7 +79,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(
-				new FormatContextImpl("name", null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), 
 				new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(calendar1, "yyyyMMddHHmmss"));
 		assertEquals("map size", 1, result.size());
 		
@@ -91,7 +92,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(
-				new FormatContextImpl("name", null, null, false, SpecificationVersion.R02_04_02, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, SpecificationVersion.R02_04_02, null, null), 
 				new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(calendar, "yyyyMMddHHmmss.SSSZZZZZ"));
 		assertEquals("map size", 1, result.size());
 		
@@ -105,7 +106,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		String resultXml = new TsFullDateTimePropertyFormatter().format(
-				new FormatContextImpl("name", null, null, false, SpecificationVersion.R02_04_02, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, SpecificationVersion.R02_04_02, null, null), 
 				new TSImpl(calendar)
 		);
 		String result = resultXml.substring("<name value=\"".length(), resultXml.indexOf("\"/>"));
@@ -134,7 +135,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	private void handleVersion(SpecificationVersion version, String expected, boolean withTimeZone)	throws ModelToXmlTransformationException {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null, false, version, null, null), calendar);
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, version, null, null), calendar);
 		assertEquals("map size", 1, result.size());
 		
 		String expectedValue = withTimeZone?expected+getCurrentTimeZone(calendar):expected;
@@ -155,7 +156,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	}
 
 	private FormatContextImpl createFormatContextWithTimeZone(TimeZone timeZone) {
-		return new FormatContextImpl("name", null, null, false, null, null, timeZone, true);
+		return new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, null, null, timeZone, true);
 	}
 	
 	@Test

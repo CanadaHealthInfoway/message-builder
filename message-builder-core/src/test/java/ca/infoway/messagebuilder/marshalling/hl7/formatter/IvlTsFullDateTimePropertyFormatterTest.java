@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 	
@@ -72,6 +73,6 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
     
     @Override
     protected FormatContext getContext(String name) {
-    	return new FormatContextImpl(name, "IVL<TS.FULLDATETIME>", null);
+    	return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS.FULLDATETIME>", null);
     }
 }

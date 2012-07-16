@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IvlPqPropertyFormatterTest extends FormatterTestCase {
@@ -50,7 +51,7 @@ public class IvlPqPropertyFormatterTest extends FormatterTestCase {
 
 	@Override
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(name, "IVL<PQ>", ConformanceLevel.POPULATED);
+		return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<PQ>", ConformanceLevel.POPULATED);
 	}
 
 	@Test

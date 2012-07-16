@@ -218,7 +218,6 @@ class XmlRenderingVisitor implements Visitor {
 			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
 		}
 		this.propertyPathNames.pop();
-		// remove(this.propertyPathNames.size() - 1);
 	}
 
 	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
@@ -227,6 +226,7 @@ class XmlRenderingVisitor implements Visitor {
 		if (formatter == null) {
 			throw new RenderingException("Cannot support properties of type " + type);
 		} else {
+			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 			try {
 				BareANY any;
 				
@@ -240,10 +240,9 @@ class XmlRenderingVisitor implements Visitor {
 				
 //				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
 				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
-				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				String xmlFragment = formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
-				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);
 			}

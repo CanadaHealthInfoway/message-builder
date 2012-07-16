@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 /**
  * @sharpen.ignore
@@ -62,7 +63,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriod(new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
@@ -78,7 +79,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriod(new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
@@ -94,7 +95,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriod(new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
@@ -128,7 +129,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowWidth(DateUtil.getDate(1969, 11, 31), new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))), 
 				PeriodicIntervalTime.createFrequency(3, createQuantity("3", DefaultTimeUnit.MINUTE)));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
@@ -146,7 +147,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowWidth(DateUtil.getDate(1969, 11, 31), new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))), 
 				PeriodicIntervalTime.createFrequency(3, createQuantity("3", DefaultTimeUnit.MINUTE)));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
@@ -164,7 +165,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowWidth(DateUtil.getDate(1969, 11, 31), new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))), 
 				PeriodicIntervalTimeSk.createFrequencySk(3, createQuantity("3", DefaultTimeUnit.MINUTE), createQuantity("10", DefaultTimeUnit.MINUTE)));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_2_SK, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_2_SK, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
@@ -201,7 +202,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriodPhase(new DateDiff(new Date(0)), IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
@@ -217,7 +218,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriodPhase(new DateDiff(new Date(0)), IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
@@ -249,7 +250,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)),  
 				PeriodicIntervalTime.createPhase(IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
@@ -265,7 +266,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)),  
 				PeriodicIntervalTime.createPhase(IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
@@ -284,13 +285,13 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testNullCaseAsMR2009() throws Exception {
-		String result = new UrgPqPropertyFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), new URGImpl<PQ, PhysicalQuantity>());
+		String result = new UrgPqPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), new URGImpl<PQ, PhysicalQuantity>());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}
 	
 	@Test
 	public void testNullCaseAsCeRx() throws Exception {
-		String result = new UrgPqPropertyFormatter().format(new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), new URGImpl<PQ, PhysicalQuantity>());
+		String result = new UrgPqPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, null, null), new URGImpl<PQ, PhysicalQuantity>());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}
 	
@@ -306,9 +307,8 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 
 		
 		String result = new GtsBoundedPivlFormatter().format(
-				new FormatContextImpl("name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, TimeZone.getTimeZone("GMT-7:00"), null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.V01R04_3, TimeZone.getTimeZone("GMT-7:00"), null), 
 				new GTSImpl(gts));
-		System.out.println(result);
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
 				"<comp operator=\"I\" xsi:type=\"IVL_TS\">" +
 				"<low value=\"19691230\"/>" +

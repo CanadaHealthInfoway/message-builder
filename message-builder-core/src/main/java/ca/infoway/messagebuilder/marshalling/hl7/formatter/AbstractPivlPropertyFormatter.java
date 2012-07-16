@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -79,7 +80,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 	private void appendIntervalBounds(PeriodicIntervalTime value, StringBuffer buffer, int indentLevel, FormatContext context)
 			throws ModelToXmlTransformationException {
 		String period = createElement(PERIOD, value.getPeriod(), indentLevel);
-		String phase = createElement(PHASE, value.getPhase(), indentLevel);
+		String phase = createElement(context.getModelToXmlResult(), context.getPropertyPath(), PHASE, value.getPhase(), indentLevel);
 
 		switch (value.getRepresentation()) {
 		case PERIOD:
@@ -131,10 +132,10 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		
 		if (intFormatter != null && ivlPqFormatter != null) {
 			buffer.append(intFormatter.format(
-					new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
+					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
 			IVLImpl<PQ, Interval<PhysicalQuantity>> ivlImpl = new IVLImpl<PQ, Interval<PhysicalQuantity>>(quantity);
 			buffer.append(ivlPqFormatter.format(
-					new FormatContextImpl("denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), ivlImpl, indentLevel));
+					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), ivlImpl, indentLevel));
 		} else {
 			throw new ModelToXmlTransformationException("No formatter found for " + (type == null ? type : ivlPqType));
 		}
@@ -159,9 +160,9 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
     		buffer.append(formatter.format(
-    				new FormatContextImpl("numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
+    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
     		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity)), UNIT, getUnits(new DateDiff(quantity)));
-    		buffer.append(createElement(new FormatContextImpl("denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), attributes, indentLevel, true, true));
+    		buffer.append(createElement(new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), attributes, indentLevel, true, true));
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}
@@ -175,11 +176,11 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		return null;
 	}
 
-	private String createElement(String name, Interval<Date> phase, int indentLevel)
+	private String createElement(ModelToXmlResult result, String propertyPath, String name, Interval<Date> phase, int indentLevel)
 			throws ModelToXmlTransformationException {
 		if (phase != null) {
 			return new IvlTsPropertyFormatter().format(
-					new FormatContextImpl(name, "IVL<TS.FULLDATE>", null),
+					new FormatContextImpl(result, propertyPath, name, "IVL<TS.FULLDATE>", null),
 					new IVLImpl<TS, Interval<Date>>(phase), 
 					indentLevel);
 		}

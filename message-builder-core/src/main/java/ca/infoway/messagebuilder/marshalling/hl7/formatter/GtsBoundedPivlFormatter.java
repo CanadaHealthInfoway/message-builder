@@ -68,6 +68,8 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		PeriodicIntervalTime frequency = value.getFrequency();
 		buffer.append(formatter.format(
 				new FormatContextImpl(
+						context == null ? null : context.getModelToXmlResult(), 
+						context == null ? null : context.getPropertyPath(), 
 						"comp", 
 						"IVL<TS.FULLDATE>", 
 						ConformanceLevel.MANDATORY, 
@@ -81,6 +83,8 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 			);
 		buffer.append(createElement(
 				new FormatContextImpl(
+						context == null ? null : context.getModelToXmlResult(), 
+						context == null ? null : context.getPropertyPath(), 
 						"comp", 
 						"PIVL<TS.DATETIME>", 
 						ConformanceLevel.MANDATORY, 

@@ -33,12 +33,13 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class AbstractCerxPqPropertyFormatterTest {
     
 	@Test
 	public void testFormatPhysicalQuantityNull() throws Exception {
-        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
         
         // a null value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -49,7 +50,7 @@ public class AbstractCerxPqPropertyFormatterTest {
     
 	@Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), new PhysicalQuantity());
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new PhysicalQuantity());
         
         // an empty value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -67,7 +68,7 @@ public class AbstractCerxPqPropertyFormatterTest {
         physicalQuantity.setUnit(MILLIGRAM);
         
         try {
-            formatter.getAttributeNameValuePairs(new FormatContextImpl("name", null, null), physicalQuantity);
+            formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity);
             fail("expected exception");
         } catch (ModelToXmlTransformationException e) {
             assertEquals("exception message null quantity", "PhysicalQuantity must define quantity", e.getMessage());
@@ -83,7 +84,7 @@ public class AbstractCerxPqPropertyFormatterTest {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), physicalQuantity);
+        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));

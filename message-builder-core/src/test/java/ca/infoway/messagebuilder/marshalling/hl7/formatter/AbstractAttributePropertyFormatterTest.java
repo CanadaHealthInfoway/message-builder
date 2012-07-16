@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
@@ -80,7 +79,4 @@ public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
 		assertEquals("named null format", addLineSeparator("    <name nullFlavor=\"NI\"/>"), result);
 	}
 	
-	private String addLineSeparator(String value) {
-		return value + LINE_SEPARATOR;
-	}
 }

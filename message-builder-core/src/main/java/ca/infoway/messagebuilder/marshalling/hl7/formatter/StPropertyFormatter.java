@@ -21,15 +21,19 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 /**
  * ST - String
@@ -58,16 +62,42 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
 	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel)	throws ModelToXmlTransformationException {
         StringBuffer buffer = new StringBuffer();
     	Map<String, String> attributes = new HashMap<String, String>();
-    	if (dataType instanceof ST && "ST.LANG".equals(context.getType())) {
+    	boolean isStLang = dataType instanceof ST && "ST.LANG".equals(context.getType());
+    	validate(buffer, indentLevel, context, isStLang, dataType);
+		if (isStLang) {
     		ST st = (ST) dataType;
     		String language = st.getLanguage();
-			attributes.put("language", StringUtils.isBlank(language) ? "en-CA" : language);
+			attributes.put("language", !STImpl.ALLOWED_LANGUAGES.contains(language) ? "en-CA" : language);
     	}
         buffer.append(createElement(context, attributes, indentLevel, false, false));
         Object bareValue = dataType.getBareValue();
 		buffer.append(XmlStringEscape.escape(bareValue == null ? "" : bareValue.toString()));
         buffer.append(createElementClosure(context, 0, true));
         return buffer.toString();
+	}
+
+	private void validate(StringBuffer buffer, int indentLevel, FormatContext context, boolean isStLang, BareANY dataType) {
+		// ST.LANG not allowed for CeRx; not checking as this should be controlled by the message set
+		// is ST allowed to be 0 length or only whitespace???
+		ModelToXmlResult result = context.getModelToXmlResult();
+		String language = ((ST) dataType).getLanguage();
+		if (isStLang) {
+			if (!STImpl.ALLOWED_LANGUAGES.contains(language)) {
+				Hl7Error hl7Error = new Hl7Error(
+	    				Hl7ErrorCode.DATA_TYPE_ERROR, 
+	    				MessageFormat.format("The language attribute content ({0}) is not an allowed value. Using en-CA instead.", language),
+	    				context.getPropertyPath());
+				result.addHl7Error(hl7Error);
+				buffer.append(new XmlWarningRenderer().createWarning(indentLevel, hl7Error.toString()));
+			}
+		} else if (language != null) {
+    		Hl7Error hl7Error = new Hl7Error(
+    				Hl7ErrorCode.DATA_TYPE_ERROR, 
+    				MessageFormat.format("The language attribute ({0}) is not allowed for ST element types", language),
+    				context.getPropertyPath());
+			result.addHl7Error(hl7Error);
+			buffer.append(new XmlWarningRenderer().createWarning(indentLevel, hl7Error.toString()));
+		}
 	}
 	
 }

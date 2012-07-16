@@ -27,11 +27,13 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+
 public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
+		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -42,7 +44,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanTrue() throws Exception  {
-		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), Boolean.TRUE);
+		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), Boolean.TRUE);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -51,7 +53,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanFalse() throws Exception  {
-		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), Boolean.FALSE);
+		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), Boolean.FALSE);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));

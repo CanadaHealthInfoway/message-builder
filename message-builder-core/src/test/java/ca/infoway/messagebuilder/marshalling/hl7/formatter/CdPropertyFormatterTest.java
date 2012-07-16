@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -44,14 +45,14 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
+		Map<String,String>  result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
 		assertEquals("map size", 0, result.size());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairs() throws Exception {
 		// used as expected: an enumerated object is passed in
-		Map<String, String> result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), CeRxDomainTestValues.CENTIMETRE);
+		Map<String, String> result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), CeRxDomainTestValues.CENTIMETRE);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("code"));
@@ -91,14 +92,14 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndOptional() throws Exception {
 		CDImpl cd = new CDImpl(null);
-		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.OPTIONAL), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.OPTIONAL), cd);
 		assertEquals("result", "", StringUtils.trim(result));
 	}
 
 	@Test
 	public void testNoValueAndMandatory() throws Exception {
 		CDImpl cd = new CDImpl(null);
-		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.MANDATORY), cd);
 		String lineBreak = System.getProperty("line.separator");
 		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));
 	}
@@ -110,7 +111,7 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 			public String getCodeValue() {return null;}
 			public String getCodeSystem() {return null;}
 		});
-		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.MANDATORY), cd);
 		System.out.println(result);
 		String lineBreak = System.getProperty("line.separator");
 		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));

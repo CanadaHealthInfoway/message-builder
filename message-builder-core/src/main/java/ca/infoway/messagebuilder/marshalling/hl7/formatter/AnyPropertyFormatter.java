@@ -48,7 +48,7 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 			throw new ModelToXmlTransformationException(errorText);
 		} else {
 			return formatter.format(
-					new FormatContextImpl(formatContext.getElementName(), type, formatContext.getConformanceLevel(), true, null, null, null), 
+					new FormatContextImpl(formatContext.getModelToXmlResult(), formatContext.getPropertyPath(), formatContext.getElementName(), type, formatContext.getConformanceLevel(), true, null, null, null), 
 					hl7Value, indentLevel);
 		}
 	}

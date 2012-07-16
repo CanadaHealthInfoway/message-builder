@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.impl.ONImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class ListOnPropertyFormatterTest extends FormatterTestCase {
@@ -44,7 +45,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl("name", "LIST<ON>", OPTIONAL), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", OPTIONAL), 
 				new LISTImpl<ON, OrganizationName>(ONImpl.class));
 		assertXml("null", "", result);
 	}
@@ -52,7 +53,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNullMandatory() throws Exception {
         String result = new ListPropertyFormatter().format(
-        		new FormatContextImpl("blah", "LIST<ON>", ConformanceLevel.MANDATORY), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<ON>", ConformanceLevel.MANDATORY), 
 				(BareANY) new LISTImpl<ON, OrganizationName>(ONImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -60,7 +61,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl("name", "LIST<ON>", MANDATORY),
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY),
 				LISTImpl.<ON, OrganizationName>create(ONImpl.class, createOrganizationNameList()));
 		
 		assertEquals("non null", 

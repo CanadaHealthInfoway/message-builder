@@ -26,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class EdSignaturePropertyFormatterTest extends FormatterTestCase {
@@ -34,7 +35,7 @@ public class EdSignaturePropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNullWithConformanceOptional() throws Exception {
 		String expectedResult = "";
 			
-		FormatContext context = new FormatContextImpl("name", null, ConformanceLevel.OPTIONAL);
+		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.OPTIONAL);
 		String result = new EdSignaturePropertyFormatter().format(context, null);
 		assertEquals("named null format", expectedResult, result);
 	}

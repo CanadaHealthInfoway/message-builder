@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
@@ -49,7 +50,7 @@ public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
 
 	@Override
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(name, "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED);
+		return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED);
 	}
 
 	@Test
@@ -114,7 +115,7 @@ public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.TS_FULLDATEWITHTIME);
 		
-		String result = this.formatter.format(new FormatContextImpl("name", "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED, true, null, null, null), 
+		String result = this.formatter.format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "IVL<TS.FULLDATE>", ConformanceLevel.POPULATED, true, null, null, null), 
 				hl7DataType);
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATE\" value=\"20061225\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATE\" value=\"20070102\" xsi:type=\"TS\"/></name>", result);
 	}

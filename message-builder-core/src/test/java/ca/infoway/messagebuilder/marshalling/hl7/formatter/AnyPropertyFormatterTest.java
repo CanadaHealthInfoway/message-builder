@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 
 public class AnyPropertyFormatterTest extends FormatterTestCase {
@@ -39,7 +40,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		UncertainRange<PhysicalQuantity> urg = UncertainRange.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIMETER));
 		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>(urg);
 		urgImpl.setDataType(StandardDataType.URG_PQ);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl("name", "ANY.LAB", null), urgImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null), urgImpl, 0);
 		assertXml("result", "<name specializationType=\"URG_PQ\" xsi:type=\"URG_PQ\"><low unit=\"mm\" value=\"55\"/><high unit=\"mm\" value=\"60\"/></name>", result);
 	}
 
@@ -47,7 +48,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testNullCase() throws Exception {
 		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>();
 		urgImpl.setDataType(StandardDataType.URG_PQ);		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl("name", "ANY.LAB", null), 
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null), 
 				urgImpl, 0);
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}

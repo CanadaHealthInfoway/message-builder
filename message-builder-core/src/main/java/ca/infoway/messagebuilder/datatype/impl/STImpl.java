@@ -49,6 +49,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class STImpl extends EDImpl<String> implements ST {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 9117867441166259585L;
 
 	public static List<String> ALLOWED_LANGUAGES = Arrays.asList("en-CA", "fr-CA");

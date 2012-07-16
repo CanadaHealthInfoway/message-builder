@@ -33,13 +33,14 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class IiPropertyFormatterTest extends MarshallingTestCase {
 
 	@Test
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("rootString", "extensionString");
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");
@@ -53,7 +54,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II_BUS);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II.BUS_AND_VER", null, true, SpecificationVersion.R02_04_02, null, null);
+        FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II.BUS_AND_VER", null, true, SpecificationVersion.R02_04_02, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 4, result.size());
@@ -71,7 +72,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II_PUBLIC);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II.PUBLIC", null, true, SpecificationVersion.V02R02, null, null);
+        FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II.PUBLIC", null, true, SpecificationVersion.V02R02, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 3, result.size());
@@ -88,7 +89,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II_PUBLIC);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II.PUBLIC", null, true, SpecificationVersion.R02_04_03, null, null);
+        FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II.PUBLIC", null, true, SpecificationVersion.R02_04_03, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 4, result.size());
@@ -106,7 +107,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V01R04_3, null, null);
+        FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II", null, true, SpecificationVersion.V01R04_3, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());
@@ -122,7 +123,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         iiHl7.setDataType(StandardDataType.II);
         
-        FormatContextImpl context = new FormatContextImpl("name", "II", null, true, SpecificationVersion.V02R02_AB, null, null);
+        FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II", null, true, SpecificationVersion.V02R02_AB, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());
@@ -134,7 +135,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledInWithTypeId() throws Exception {
     	Identifier ii = new Identifier("rootString", "extensionString");
-    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
+    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
     	assertEquals("map size", 2, result.size());
     	
     	assertKeyValuePairInMap(result, "root", "rootString");
@@ -144,14 +145,14 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsRootNotFilled() throws Exception {
         Identifier ii = new Identifier((String) null, "extension");
-        String format = new IiPropertyFormatter().format(new FormatContextImpl("name", null, null), new IIImpl(ii));
+        String format = new IiPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new IIImpl(ii));
         assertTrue("result: " + format, format.contains("<!-- WARNING:"));
     }
 
 	@Test
     public void testGetAttributeNameValuePairsExtensionNotFilled() throws Exception {
         Identifier ii = new Identifier("rootString", null);
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
         assertEquals("map size", 1, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");

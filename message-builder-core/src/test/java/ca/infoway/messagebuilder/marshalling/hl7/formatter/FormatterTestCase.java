@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
@@ -36,6 +37,7 @@ import org.apache.commons.lang.time.DateUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public abstract class FormatterTestCase {
 
@@ -53,7 +55,7 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(name, null, null);
+		return new FormatContextImpl(new ModelToXmlResult(), null, name, null, null);
 	}
 
 	
@@ -74,6 +76,14 @@ public abstract class FormatterTestCase {
 			result.add(address);
 		}
 		return result;
+	}
+
+	protected String addLineSeparator(String value) {
+		return value + LINE_SEPARATOR;
+	}
+
+	protected String removeErrorComments(String result) {
+		return result.replaceAll("<!--(.*?)-->" + LINE_SEPARATOR, "");
 	}
 	
 }
