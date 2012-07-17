@@ -61,6 +61,8 @@ class XmlRenderingVisitor implements Visitor {
 		private final int indent;
 		private String warning;
 
+		private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
+		
 		public Buffer(String name, int indent) {
 			this.name = name;
 			this.indent = indent;
@@ -80,7 +82,7 @@ class XmlRenderingVisitor implements Visitor {
 		public String toXml() {
 			StringBuilder builder = new StringBuilder();
 			if (StringUtils.isNotBlank(this.warning)) {
-				builder.append(new XmlWarningRenderer().createWarning(this.indent, this.warning));
+				builder.append(this.xmlWarningRenderer.createWarning(this.indent, this.warning));
 			}
 			Indenter.indentBuilder(builder, this.indent);
 			

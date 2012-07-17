@@ -31,7 +31,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
@@ -40,7 +39,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.util.text.Indenter;
+import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 @DataTypeHandler("II")
 class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier> {
@@ -49,6 +48,8 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 			StandardDataType.II, 
 			StandardDataType.II_BUS_AND_VER));
 	
+	private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
+	
 	@Override
 	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
 		
@@ -56,14 +57,11 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 		
     	StringBuilder builder = new StringBuilder();
         if (StringUtils.isBlank(ii.getValue().getRoot())) {
-        	Indenter.indentBuilder(builder, indentLevel);
-        	builder.append("<!-- WARNING: ")
-        			.append("Property root on oid property ")
-        			.append(context.getElementName())
-        			.append(" cannot be null: ")
-        			.append(ii)
-        			.append(" -->");
-        	builder.append(SystemUtils.LINE_SEPARATOR);
+        	StringBuilder warningText = new StringBuilder("Property root on oid property ")
+								        	.append(context.getElementName())
+								        	.append(" cannot be null: ")
+								        	.append(ii);
+			builder.append(this.xmlWarningRenderer.createWarning(indentLevel, warningText.toString()));
         }
         builder.append(super.formatNonNullDataType(context, ii, indentLevel));
 		return builder.toString();
