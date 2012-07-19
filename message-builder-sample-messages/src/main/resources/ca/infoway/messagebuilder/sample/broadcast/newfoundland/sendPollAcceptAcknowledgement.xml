@@ -23,7 +23,7 @@
 <MCCI_IN100003CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <responseModeCode code="I"/>
     <versionCode code="V3-2007-05"/>
     <interactionId specializationType="II.PUBLIC" displayable="true" extension="MCCI_IN100003CA" root="2.16.840.1.113883.1.6"/>

@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -67,20 +68,21 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private final Map<StandardDataType, List<String>> formats;
 	private final Map<String, String> expandedFormats;
 	private final Map<VersionNumber, Map<StandardDataType, List<String>>> versionFormatExceptions;
+	private final List<String> datetimeFormatsRequiringWarning;
 
 	public TsElementParser() {
 		Map<StandardDataType, List<String>> map = new LinkedHashMap<StandardDataType,List<String>>();
 		map.put(StandardDataType.TS_FULLDATETIME, Arrays.asList(
-				"yyyyMMddHHmmss.SSSZZZZZ",
+				"yyyyMMddHHmmss.SSSZZZZZ", // also implicitly covers "yyyyMMddHHmmss.SSSSZZZZZ" (for all occurrences of "yyyyMMddHHmmss.SSSZZZZZ")
 				"yyyyMMddHHmmssZZZZZ"
 				));
-		// this is an abstract type and these formats are only used after issuing a warning (there should be a specializationType)
+		map.put(StandardDataType.TS_FULLDATE, Arrays.asList(
+				"yyyyMMdd"
+				));
+		// this is an abstract type and these formats are only used after issuing a warning (there should be a specializationType); only defined in MR2009
 		map.put(StandardDataType.TS_FULLDATEWITHTIME, Arrays.asList(
 				"yyyyMMddHHmmss.SSSZZZZZ",
 				"yyyyMMddHHmmssZZZZZ",
-				"yyyyMMdd"
-				));
-		map.put(StandardDataType.TS_FULLDATE, Arrays.asList(
 				"yyyyMMdd"
 				));
 		map.put(StandardDataType.TS_DATE, Arrays.asList(
@@ -89,13 +91,13 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				"yyyy"));
 		map.put(StandardDataType.TS_DATETIME, Arrays.asList(
 				"yyyyMMddHHmmss.SSSZZZZZ",
-				"yyyyMMddHHmmss.SSS",
+				"yyyyMMddHHmmss.SSS",       // not allowed if non-CeRx
 				"yyyyMMddHHmmssZZZZZ",
-				"yyyyMMddHHmmss",
+				"yyyyMMddHHmmss",           // not allowed if non-CeRx
 				"yyyyMMddHHmmZZZZZ",
-				"yyyyMMddHHmm",
+				"yyyyMMddHHmm",             // not allowed if non-CeRx
 				"yyyyMMddHHZZZZZ",
-				"yyyyMMddHH",
+				"yyyyMMddHH",               // not allowed if non-CeRx
 				"yyyyMMddZZZZZ",
 				"yyyyMMdd",
 				"yyyyMMZZZZZ",
@@ -106,6 +108,14 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				map.get(StandardDataType.TS_DATETIME));
 
 		this.formats = Collections.unmodifiableMap(map);
+		
+		this.datetimeFormatsRequiringWarning = Arrays.asList(
+				"yyyyMMddHHmmss.SSS0",
+				"yyyyMMddHHmmss.SSS",
+				"yyyyMMddHHmmss",
+				"yyyyMMddHHmm",
+				"yyyyMMddHH"
+				);
 
 		this.expandedFormats = new HashMap<String, String>();
 		this.expandedFormats.put("yyyyMMddHHmmss.SSSZZZZZ", "yyyyMMddHHmmss.SSS0ZZZZZ");
@@ -113,13 +123,17 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
 		// some older versions have slightly different rules for allowable time formats
 
+		Map<StandardDataType, List<String>> exceptionMapMR2007 = new LinkedHashMap<StandardDataType,List<String>>();
+		exceptionMapMR2007.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
+
 		Map<StandardDataType, List<String>> exceptionMapV02R01 = new LinkedHashMap<StandardDataType,List<String>>();
 		exceptionMapV02R01.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
 
-		Map<StandardDataType, List<String>> exceptionMapV01R04_3 = new LinkedHashMap<StandardDataType,List<String>>();
-		exceptionMapV01R04_3.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
-		exceptionMapV01R04_3.put(StandardDataType.TS_FULLDATETIME, Arrays.asList("yyyyMMddHHmmss"));
-		exceptionMapV01R04_3.put(StandardDataType.TS_DATETIME, Arrays.asList(
+		Map<StandardDataType, List<String>> exceptionMapCeRx = new LinkedHashMap<StandardDataType,List<String>>();
+		exceptionMapCeRx.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
+		exceptionMapCeRx.put(StandardDataType.TS_FULLDATETIME, Arrays.asList("yyyyMMddHHmmss"));
+		exceptionMapCeRx.put(StandardDataType.TS_DATETIME, Arrays.asList(
+				"yyyyMMddHHmmss.SSS",
 				"yyyyMMddHHmmss",
 				"yyyyMMddHHmm",
 				"yyyyMMddHH",
@@ -128,8 +142,9 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				"yyyy"));
 
 		Map<VersionNumber, Map<StandardDataType, List<String>>> versionMap = new HashMap<VersionNumber, Map<StandardDataType,List<String>>>();
+		versionMap.put(SpecificationVersion.V02R02, Collections.unmodifiableMap(exceptionMapMR2007));
 		versionMap.put(SpecificationVersion.V02R01, Collections.unmodifiableMap(exceptionMapV02R01));
-		versionMap.put(SpecificationVersion.V01R04_3, Collections.unmodifiableMap(exceptionMapV01R04_3));
+		versionMap.put(SpecificationVersion.V01R04_3, Collections.unmodifiableMap(exceptionMapCeRx));
 
 		this.versionFormatExceptions = Collections.unmodifiableMap(versionMap);
 	}
@@ -145,13 +160,15 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
 		if (specializationType == null) {
-			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS types
+			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS type TS_FULLDATEWITHTIME
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
+			//    - (update: perhaps the real issue is that this was an IVL<TS.FULLDATEWITHTIME> and MB has a bug where inner types can't have specializationType set??)
 			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 			// xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
-		} else if (isValidType(specializationType)) {
+		} else if (isValidSpecializationType(specializationType)) {
 			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), null, null);
 		} else {
+			// log error - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 		    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 		    		"Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement((Element) node)
 		    		+ ")", (Element) node));
@@ -159,7 +176,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		return context;
 	}
 
-	private boolean isValidType(String specializationType) {
+	private boolean isValidSpecializationType(String specializationType) {
 		StandardDataType type = StandardDataType.getByTypeName(specializationType);
 		return StandardDataType.TS_FULLDATE.equals(type) || StandardDataType.TS_FULLDATETIME.equals(type);
 	}
@@ -173,11 +190,11 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		Date result = null;
 		String unparsedDate = getAttributeValue(element, "value");
 		if (StringUtils.isBlank(unparsedDate)) {
-       		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-       				"Timestamp value must be non-blank.", element));
+       		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timestamp value must be non-blank.", element));
 		} else {
             try {
                 result = parseDate(unparsedDate, getAllDateFormats(context), context);
+				checkForMissingTimezone(context, xmlToModelResult, result, unparsedDate);
             } catch (IllegalArgumentException e) {
                 result = tryEveryFormat(context, unparsedDate, element, xmlToModelResult);
                 if (result == null) {
@@ -188,6 +205,15 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
             }
 		}
 		return result;
+	}
+
+	private void checkForMissingTimezone(ParseContext context, XmlToModelResult xmlToModelResult, Date result, String unparsedDate) {
+		// issue a warning if a datetime (partial or otherwise) was passed in without a timezone (non-CeRx only)
+		if (context == null || context.getVersion() == null || !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())) {
+			if (result instanceof DateWithPattern && this.datetimeFormatsRequiringWarning.contains(((DateWithPattern) result).getDatePattern()))  {
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timezone should be specified for datetime " + unparsedDate + ". Value processed without timezone."));
+			}
+		}
 	}
 
 	private Date tryEveryFormat(ParseContext context, String unparsedDate, Element element, XmlToModelResult xmlToModelResult) {
@@ -247,7 +273,6 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
     /**
      * Adapted from org.apache.commons.lang.time.DateUtils, but leniency is turned off.
-     * @param context TODO
      */
     private Date parseDate(String str, String[] parsePatterns, ParseContext context) {
 
@@ -256,8 +281,8 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
         	String pattern = parsePatterns[i];
 			if (DateFormatUtil.isMatchingPattern(dateString, pattern)) {
 				Date date = DateFormatUtil.parse(dateString, pattern, getTimeZone(context));
-        		// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
 				pattern = expandPatternIfNecessary(pattern);
+				// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
             	return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, pattern);
         	}
         }

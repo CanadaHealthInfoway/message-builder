@@ -23,7 +23,7 @@
 <PORX_IN010110CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id extension="293844" root="2.16.124.113620.1.1.1.1.2"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN010110CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
@@ -628,7 +628,7 @@
                         </assignedPerson>
                       </responsibleParty>
                       <author typeCode="AUT">
-                        <time value="19691231190000-0500"/>
+                        <time value="19691231190000.0000-0500"/>
                         <assignedPerson classCode="ASSIGNED">
                           <id extension="1" root="1.1.1"/>
                           <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -662,7 +662,7 @@
                         </assignedPerson>
                       </responsibleParty>
                       <author typeCode="AUT">
-                        <time value="19691231190000-0500"/>
+                        <time value="19691231190000.0000-0500"/>
                         <assignedPerson classCode="ASSIGNED">
                           <id extension="1" root="1.1.1"/>
                           <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -696,7 +696,7 @@
                         </assignedPerson>
                       </responsibleParty>
                       <author typeCode="AUT">
-                        <time value="19691231190000-0500"/>
+                        <time value="19691231190000.0000-0500"/>
                         <assignedPerson classCode="ASSIGNED">
                           <id extension="1" root="1.1.1"/>
                           <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -892,7 +892,7 @@
                       <text>text</text>
                       <statusCode code="completed"/>
                       <author typeCode="AUT">
-                        <time value="19691231190000-0500"/>
+                        <time value="19691231190000.0000-0500"/>
                         <assignedPerson classCode="ASSIGNED">
                           <id extension="1" root="1.1.1"/>
                           <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -926,7 +926,7 @@
                 <statusCode code="completed"/>
                 <languageCode code="en" codeSystem="2.16.840.1.113883.6.84"/>
                 <author typeCode="AUT">
-                  <time value="19691231190000-0500"/>
+                  <time value="19691231190000.0000-0500"/>
                   <assignedPerson classCode="ASSIGNED">
                     <id extension="1" root="1.1.1"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">

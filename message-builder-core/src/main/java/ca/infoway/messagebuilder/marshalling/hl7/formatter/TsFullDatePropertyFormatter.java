@@ -45,6 +45,8 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
 
     private final static String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
 
+    // FIXME - TM - include DateWithPattern check in here
+    
     @Override
     protected String getValue(Date date, FormatContext context) {
 		TimeZone timeZone = context != null && context.getDateTimeZone() != null ? context.getDateTimeZone() : TimeZone.getDefault();

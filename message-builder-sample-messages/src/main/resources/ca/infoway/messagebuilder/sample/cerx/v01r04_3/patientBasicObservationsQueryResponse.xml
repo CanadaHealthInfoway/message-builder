@@ -23,7 +23,7 @@
 <REPC_IN000055CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="REPC_IN000055CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
@@ -53,13 +53,13 @@
       <id extension="8141234" root="2.16.840.1.113883.1.6"/>
       <code code="REPC_TE000055UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
-      <effectiveTime value="20080918000000-0400"/>
+      <effectiveTime value="20080918000000.0000-0400"/>
       <subject typeCode="SUBJ" contextConductionInd="false">
         <commonObservationEvent classCode="OBS" moodCode="EVN">
           <id extension="11.22.33" root="1.2.3.4.5.6"/>
           <code code="3137-7" codeSystem="2.16.840.1.113883.6.1"/>
           <statusCode code="completed"/>
-          <effectiveTime value="20081212153022-0500"/>
+          <effectiveTime value="20081212153022.0000-0500"/>
           <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
           <value unit="mg" value="1"/>
           <subject typeCode="SBJ" contextControlCode="OP">
@@ -86,7 +86,7 @@
             </assignedPerson>
           </responsibleParty>
           <author typeCode="AUT" contextControlCode="AP">
-            <time value="19691231190000-0500"/>
+            <time value="19691231190000.0000-0500"/>
             <assignedPerson classCode="ASSIGNED">
               <id extension="1" root="1.1.1"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -113,7 +113,7 @@
                 <statusCode code="completed"/>
                 <languageCode nullFlavor="NI"/>
                 <author typeCode="AUT">
-                  <time value="20081212153022-0500"/>
+                  <time value="20081212153022.0000-0500"/>
                   <assignedPerson classCode="ASSIGNED">
                     <id nullFlavor="NI"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -130,7 +130,7 @@
           <id extension="11.22.33" root="1.2.3.4.5.6"/>
           <code code="3137-7" codeSystem="2.16.840.1.113883.6.1"/>
           <statusCode code="completed"/>
-          <effectiveTime value="20081212153022-0500"/>
+          <effectiveTime value="20081212153022.0000-0500"/>
           <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
           <subject typeCode="SBJ" contextControlCode="OP">
             <patient classCode="PAT">
@@ -156,7 +156,7 @@
             </assignedPerson>
           </responsibleParty>
           <author typeCode="AUT" contextControlCode="AP">
-            <time value="19691231190000-0500"/>
+            <time value="19691231190000.0000-0500"/>
             <assignedPerson classCode="ASSIGNED">
               <id extension="1" root="1.1.1"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -197,7 +197,7 @@
                 <statusCode code="completed"/>
                 <languageCode nullFlavor="NI"/>
                 <author typeCode="AUT">
-                  <time value="20081212153022-0500"/>
+                  <time value="20081212153022.0000-0500"/>
                   <assignedPerson classCode="ASSIGNED">
                     <id nullFlavor="NI"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">

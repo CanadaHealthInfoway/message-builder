@@ -23,7 +23,7 @@
 <PORX_IN020080CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN020080CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
@@ -63,7 +63,7 @@
         </assignedPerson>
       </responsibleParty>
       <author typeCode="AUT" contextControlCode="AP">
-        <time value="19691231190000-0500"/>
+        <time value="19691231190000.0000-0500"/>
         <assignedPerson classCode="ASSIGNED">
           <id extension="1" root="1.1.1"/>
           <representedPerson classCode="PSN" determinerCode="INSTANCE">

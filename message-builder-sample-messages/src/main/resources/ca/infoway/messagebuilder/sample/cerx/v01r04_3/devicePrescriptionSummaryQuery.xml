@@ -23,7 +23,7 @@
 <PORX_IN060130CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060130CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
@@ -48,7 +48,7 @@
       <code code="PORX_TE060470UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <author typeCode="AUT" contextControlCode="AP">
-        <time value="20080918181800-0400"/>
+        <time value="20080918181800.0000-0400"/>
         <assignedPerson classCode="ASSIGNED">
           <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
           <representedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -75,7 +75,7 @@
         <parameterList>
           <amendedInTimeRange>
             <value>
-              <low value="19691231190000-0500"/>
+              <low value="19691231190000.0000-0500"/>
             </value>
           </amendedInTimeRange>
           <issueFilterCode>

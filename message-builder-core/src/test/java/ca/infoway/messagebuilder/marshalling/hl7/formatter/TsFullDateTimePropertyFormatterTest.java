@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSS;
-import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.TsFullDateTimePropertyFormatter.DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -176,8 +175,8 @@ public class TsFullDateTimePropertyFormatterTest {
 				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3));
 		assertEquals("Should use old default format if nothing else provided and version is SK CeRx", 
 				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
-		assertEquals("Should use old 'bad' default format if nothing else provided and version is NFLD", 
-				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+		assertEquals("Should NOW use default format if nothing else provided and version is NFLD", 
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		System.setProperty(
 				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral(),
@@ -192,7 +191,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("Should not use override format when provided version does not match", 
 				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should not use override format when provided version does not match", 
-				DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		assertEquals("Should use date with pattern always when provided", 
 				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, version));

@@ -23,7 +23,7 @@
 <PORX_IN060500CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610-0400"/>
+    <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060500CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
@@ -53,7 +53,7 @@
       <id extension="8141234" root="2.16.840.1.113883.1.6"/>
       <code code="PORX_TE060530UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
-      <effectiveTime value="20080918000000-0400"/>
+      <effectiveTime value="20080918000000.0000-0400"/>
       <subject typeCode="SUBJ" contextConductionInd="false">
         <combinedMedicationRequest classCode="SBADM" moodCode="RQO">
           <id extension="extention" root="1.2.3"/>

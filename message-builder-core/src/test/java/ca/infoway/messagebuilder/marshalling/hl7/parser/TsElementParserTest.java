@@ -140,6 +140,30 @@ public class TsElementParserTest extends MarshallingTestCase {
     }
 	
 	@Test
+    public void testParseDateTimeWithMissingTimezoneForNonCeRx() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 00, 0);
+		
+		String value = "200806251416";
+        Node node = createNode("<something value=\"" + value + "\" />");
+        
+        ParseContext context = ParserContextImpl.create("TS.DATETIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("has timezone missing error", 1, this.xmlResult.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testParseDateTimeWithMissingTimezoneForCeRx() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 00, 0);
+		
+		String value = "200806251416";
+        Node node = createNode("<something value=\"" + value + "\" />");
+        
+        ParseContext context = ParserContextImpl.create("TS.DATETIME", Date.class, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.POPULATED);
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("no timezone missing error", 0, this.xmlResult.getHl7Errors().size());
+    }
+	
+	@Test
     public void testParseNoFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
 		String value = "20080625141610" + getCurrentTimeZone(expectedResult);
@@ -222,7 +246,6 @@ public class TsElementParserTest extends MarshallingTestCase {
 		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
-		System.out.println(date);
 	}
 	
 	/**
@@ -240,7 +263,6 @@ public class TsElementParserTest extends MarshallingTestCase {
 		ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should have been converted due to time zone", FULL_DATE_TIME, expectedResult, date);
-		System.out.println(date);
 	}
 	
 	/**
@@ -258,7 +280,6 @@ public class TsElementParserTest extends MarshallingTestCase {
 		ParseContext context = ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), null, ConformanceLevel.POPULATED, null, null);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
-		System.out.println(date);
 	}
 	
 	private String getCurrentTimeZone(Date calendar) {
