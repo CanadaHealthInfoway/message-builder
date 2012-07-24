@@ -41,6 +41,7 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
     	validateContext(context);
     	StringBuilder builder = new StringBuilder();
     	if (isInvalidValue(context, value)) {
+    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
     		builder.append(createWarning(indentLevel, createWarningText(context, value)));
     	}
         builder.append(createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true));

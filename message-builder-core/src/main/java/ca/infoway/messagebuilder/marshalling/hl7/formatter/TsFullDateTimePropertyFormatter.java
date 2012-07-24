@@ -20,18 +20,25 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import org.apache.commons.lang.ArrayUtils;
+
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
 /**
- * TS.FULLDATETIME - Timestamp (fully-specified date and time only)
+ * TS.FULLDATETIME - Timestamp (fully-specified date and time only) and TS.DATETIME (partial date/time)
  *
- * Represents a TS.FULLDATETIME object as an element:
+ * Represents a TS.FULLDATETIME/TS.DATETIME object as an element:
  *
  * &lt;element-name value="yyyyMMddHHmmss"&gt;&lt;/element-name&gt;
  *
@@ -52,12 +59,49 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 
     @Override
     protected String getValue(Date date, FormatContext context) {
+    	// write out the date using the applicable "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);
     	String datePattern = determineDateFormat(date, version);
+		validateDatePattern(datePattern, context);
+		validateSpecializationType(date, context);
 		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
     }
 
+	private void validateDatePattern(String datePattern, FormatContext context) {
+		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
+		VersionNumber version = (context == null ? null : context.getVersion());
+		String[] allowedDateFormats = TsDateFormats.getAllDateFormats(standardDataType, version);
+		if (ArrayUtils.contains(allowedDateFormats, datePattern)) {
+			// check if this pattern is missing a timezone
+			if (!isCerx(version) && TsDateFormats.datetimeFormatsRequiringWarning.contains(datePattern)) {
+				context.getModelToXmlResult().addHl7Error(
+						new Hl7Error(
+								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								MessageFormat.format("Date format {0} supplied for value of type {1} should also have a timezone (ZZZZZ)", datePattern, context == null ? "TS" : context.getType())
+								));
+			}
+		} else {
+			context.getModelToXmlResult().addHl7Error(
+					new Hl7Error(
+							Hl7ErrorCode.DATA_TYPE_ERROR, 
+							MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType())
+							));
+		}
+	}
+
+	private void validateSpecializationType(Date date, FormatContext context) {
+		
+		// FIXME - VALIDATION - TM - if FULLDATEWITHTIME, check that specializationType provided and that it is FULLDATE or FULLDATETIME
+		//                         - this will likely cause a lot of errors to be reported; need to think about impact vs utility
+		
+	}
+
+	private boolean isCerx(VersionNumber version) {
+		return SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version);
+	}
+
+	// package level for testing purposes
 	String determineDateFormat(Date date, VersionNumber version) {
 		// date format precedence:
 		//    provided Date is a dateWithPattern
@@ -66,11 +110,18 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     	String datePattern = getPatternFromDateWithPattern(date);
     	if (datePattern == null) {
     		datePattern = getOverrideDatePattern(version);
-    		if (datePattern == null) {
+    		if (datePattern == null || isFullDateSpecializationType()) {
     			datePattern = getDefaultDatePattern(version);
     		}
     	}
 		return datePattern;
+	}
+
+	private boolean isFullDateSpecializationType() {
+		
+		// FIXME - VALIDATION - TM - check if FULLDATEWITHTIME and specializationType is FULLDATE
+		
+		return false;
 	}
 
 	private String getOverrideDatePattern(VersionNumber version) {
@@ -88,7 +139,9 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 	}
 
 	private String getDefaultDatePattern(VersionNumber version) {
-		if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
+		if (isFullDateSpecializationType()) {
+			return TsFullDatePropertyFormatter.DATE_FORMAT_YYYYMMDD;
+		} else if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
 			return DATE_FORMAT_YYYYMMDDHHMMSS;
 		}
 		return DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;

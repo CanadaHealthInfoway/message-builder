@@ -64,14 +64,16 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     		
     		if (cd.hasNullFlavor()) {
     			if (context.getConformanceLevel() == MANDATORY) {
-    				warning = createWarning(context, indentLevel);
+    	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+    				warning = createMissingMandatoryWarning(context, indentLevel);
     			} else {
     				attributes.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
     			}
     		} else if (!hasValue(cd, context)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
-        				warning = createWarning(context, indentLevel);
+        	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+        				warning = createMissingMandatoryWarning(context, indentLevel);
         			} else {
         				attributes.putAll(NULL_FLAVOR_ATTRIBUTES);
         			}

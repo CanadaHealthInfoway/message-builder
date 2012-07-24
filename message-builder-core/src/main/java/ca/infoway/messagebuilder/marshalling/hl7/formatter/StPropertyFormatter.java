@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 /**
  * ST - String
@@ -52,8 +51,6 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
  */
 @DataTypeHandler("ST")
 class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
-
-	private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 
 	@Override
 	String formatNonNullValue(FormatContext context, String value, int indentLevel) throws ModelToXmlTransformationException {
@@ -90,7 +87,6 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
 	    				MessageFormat.format("The language attribute content ({0}) is not an allowed value. Using en-CA instead.", language),
 	    				context.getPropertyPath());
 				result.addHl7Error(hl7Error);
-				buffer.append(this.xmlWarningRenderer.createWarning(indentLevel, hl7Error.toString()));
 			}
 		} else if (language != null) {
     		Hl7Error hl7Error = new Hl7Error(
@@ -98,7 +94,6 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
     				MessageFormat.format("The language attribute ({0}) is not allowed for ST element types", language),
     				context.getPropertyPath());
 			result.addHl7Error(hl7Error);
-			buffer.append(this.xmlWarningRenderer.createWarning(indentLevel, hl7Error.toString()));
 		}
 	}
 	

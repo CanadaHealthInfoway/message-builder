@@ -126,6 +126,7 @@ class XmlRenderingVisitor implements Visitor {
 	private Interaction interaction;
 	private final DataTypeValueAdapterProvider adapterProvider = new DataTypeValueAdapterProvider();
 	private final ModelToXmlResult result = new ModelToXmlResult();
+	private final XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 	
 	private Buffer currentBuffer() {
 		return this.buffers.peek();
@@ -241,12 +242,23 @@ class XmlRenderingVisitor implements Visitor {
 				}
 				
 //				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
-				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
+				// FIXME - VALIDATION - SPECIALIZATION_TYPE - TM - need to allow for specialization type to be set (passed in) here
 				String xmlFragment = formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				renderNewErrorsToXml(currentBuffer().getChildBuilder());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);
+				// FIXME VALIDATION - TM - also render error to xml (?)
+			}
+		}
+	}
+
+	private void renderNewErrorsToXml(StringBuilder stringBuilder) {
+		for (Hl7Error hl7Error : this.result.getHl7Errors()) {
+			if (!hl7Error.isRenderedToXml()) {
+				stringBuilder.append(this.xmlWarningRenderer.createWarning(getIndent(), hl7Error.toString()));
+				hl7Error.markAsRenderedToXml();
 			}
 		}
 	}

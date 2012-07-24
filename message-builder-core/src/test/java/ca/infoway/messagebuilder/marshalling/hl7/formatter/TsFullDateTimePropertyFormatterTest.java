@@ -33,10 +33,12 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -73,6 +75,95 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("value as expected", expectedValue, result.get("value"));
 	}
 
+	@Ignore // to be implemented once SpecializationType can be properly passed in from XmlRenderingVisitor
+	@Test
+	public void testGetAttributeNameValuePairsDateWithAbstractType() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		TSImpl tsImpl = new TSImpl(calendar);
+		tsImpl.setDataType(StandardDataType.TS_FULLDATE);
+		String resultXml = new TsFullDateTimePropertyFormatter().format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", StandardDataType.TS_FULLDATEWITHTIME.getType(), null, true, SpecificationVersion.R02_04_02, null, null), 
+				tsImpl
+		);
+		assertEquals("xml as expected", "<name specializationType=\"TS.FULLDATE\" value=\"19990423\" xsi:type=\"TS\"/>", resultXml);
+	}
+
+	@Test
+	public void testGetAttributeNameValuePairsInvalidDatePattern() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMMddHHmmss.SSS0ZZZZZ");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATETIME", null, false, SpecificationVersion.R02_04_02, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "1999Apr23101112.0000" + getCurrentTimeZone(calendar);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertEquals(1, xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsValidPartialDateTimePatternWithTimezone() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHHZZZZZ");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATETIME", null, false, SpecificationVersion.R02_04_02, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "1999042310" + getCurrentTimeZone(calendar);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsValidDatePatternMissingTimezone() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithValidPatternMissingTZ = new DateWithPattern(calendar, "yyyyMMddHH");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATETIME", null, false, SpecificationVersion.R02_04_02, null, null), dateWithValidPatternMissingTZ, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", "1999042310", result.get("value"));
+		assertEquals(1, xmlResult.getHl7Errors().size());
+		assertTrue(xmlResult.getHl7Errors().get(0).getMessage().contains("ZZZZZ"));
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsInvalidDatePatternMissingTimezone() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHH");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATETIME", null, false, SpecificationVersion.R02_04_02, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "1999042310";
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertEquals(1, xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsValidDatePatternForCeRxMissingTimezone() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHH");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATETIME", null, false, SpecificationVersion.V01R04_3, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "1999042310";
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
+	}
+	
 	@Test
 	public void testGetAttributeNameValuePairsDateWithDatePatternInformation() throws Exception  {
 		// used as expected: a date object is passed in

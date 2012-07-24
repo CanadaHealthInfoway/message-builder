@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
-import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 /**
  * If an object is null, value is replaced by a nullFlavor. So the element would look
@@ -40,8 +39,6 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
  * Otherwise this class hands the formatting off to the formatNonNull method.
  */
 public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPropertyFormatter {
-	
-	private XmlWarningRenderer renderer = new XmlWarningRenderer();
 	
 	protected AbstractNullFlavorPropertyFormatter() {
 	}
@@ -58,13 +55,15 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
     		if (hl7Value.hasNullFlavor()) {
     			result = createElement(context, createNullFlavorAttributes(hl7Value.getNullFlavor()), indentLevel, true, true);
     			if (context.getConformanceLevel() == MANDATORY) {
-    				result = createWarning(context, indentLevel) + result;
+    	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+    				result = createMissingMandatoryWarning(context, indentLevel) + result;
     			}
     		} else if (value == null || isEmptyCollection(value)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
         				result = createElement(context, EMPTY_ATTRIBUTE_MAP, indentLevel, true, true);
-        				result = createWarning(context, indentLevel) + result;
+        	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+        				result = createMissingMandatoryWarning(context, indentLevel) + result;
         			} else {
         				result = createElement(context, NULL_FLAVOR_ATTRIBUTES, indentLevel, true, true);
         			}
@@ -100,13 +99,10 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 		return attributes;
 	}
 
-	protected String createWarning(FormatContext context, int indentLevel) {
+	// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+	protected String createMissingMandatoryWarning(FormatContext context, int indentLevel) {
 		return createWarning(indentLevel, context.getElementName() 
 							+ " is a mandatory field, but no value is specified");
-	}
-
-	protected String createWarning(int indentLevel, String text) {
-		return this.renderer.createWarning(indentLevel, text);
 	}
 
     protected boolean isMandatoryOrPopulated(FormatContext context) {

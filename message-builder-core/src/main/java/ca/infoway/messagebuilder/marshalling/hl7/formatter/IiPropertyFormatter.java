@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 @DataTypeHandler("II")
 class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier> {
@@ -47,8 +46,6 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	private static Set<StandardDataType> abstractIiTypes = new HashSet<StandardDataType>(Arrays.asList(
 			StandardDataType.II, 
 			StandardDataType.II_BUS_AND_VER));
-	
-	private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 	
 	@Override
 	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
@@ -61,7 +58,8 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 								        	.append(context.getElementName())
 								        	.append(" cannot be null: ")
 								        	.append(ii);
-			builder.append(this.xmlWarningRenderer.createWarning(indentLevel, warningText.toString()));
+    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
+			builder.append(createWarning(indentLevel, warningText.toString()));
         }
         builder.append(super.formatNonNullDataType(context, ii, indentLevel));
 		return builder.toString();

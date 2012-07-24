@@ -32,6 +32,8 @@ import java.util.TimeZone;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
@@ -39,24 +41,56 @@ public class TsFullDatePropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String,String>  result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", null, null), null);
 
 		// a null value for TS elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("nullFlavor"));
 		assertEquals("value as expected", AbstractPropertyFormatter.NULL_FLAVOR_NO_INFORMATION, result.get("nullFlavor"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairsDate() throws Exception  {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), calendar);
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null), calendar);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "19990423", result.get("value"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsInvalidDatePattern() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMMdd");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected (even though invalid)", "1999Apr23", result.get("value"));
+		assertEquals(1, xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsForDateWithPattern() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithPattern = new DateWithPattern(calendar, "yyyyMM");
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null), dateWithPattern, null);
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", "199904", result.get("value"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
 	}
 	
 	/**

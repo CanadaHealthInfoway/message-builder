@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class DomainTypeHelper {
 
+	@SuppressWarnings("unchecked")
 	public static Class<? extends Code> getReturnType(Relationship relationship) {
 		String domainType = relationship.getDomainType();
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {

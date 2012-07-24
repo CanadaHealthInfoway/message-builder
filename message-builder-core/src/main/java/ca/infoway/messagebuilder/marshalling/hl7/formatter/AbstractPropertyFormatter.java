@@ -26,9 +26,12 @@ import java.util.Map;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
+import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 
+	private static final XmlWarningRenderer warningRenderer = new XmlWarningRenderer();
+	
     static final Map<String, String> EMPTY_ATTRIBUTE_MAP = new HashMap<String, String>(); 
 
     static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
@@ -38,6 +41,10 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
         NULL_FLAVOR_ATTRIBUTES.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
     }
     
+	protected String createWarning(int indentLevel, String text) {
+		return warningRenderer.createWarning(indentLevel, text);
+	}
+
     public String format(FormatContext formatContext, BareANY dataType) throws ModelToXmlTransformationException {
         return format(formatContext, dataType, 0);
     }

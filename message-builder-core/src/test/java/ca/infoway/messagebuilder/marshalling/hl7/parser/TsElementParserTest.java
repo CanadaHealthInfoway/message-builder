@@ -53,6 +53,7 @@ public class TsElementParserTest extends MarshallingTestCase {
         
         assertNull("null returned", ts.getValue());
         assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
+        assertTrue(this.xmlResult.getHl7Errors().isEmpty());
     }
 
     private ParseContext createContext() {
@@ -63,12 +64,21 @@ public class TsElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
     }
 
 	@Test
     public void testParseNoValueAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
+    }
+    
+	@Test
+    public void testParseEmptyValueAttributeNode() throws Exception {
+        Node node = createNode("<something value=\"\" />");
+        assertNull("null returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
     }
     
 	@Test
