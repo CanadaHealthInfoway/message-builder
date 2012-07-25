@@ -57,6 +57,9 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	@Element(required=false)
 	private Documentation documentation;
 	
+	@Attribute(required=false,name="rimClass")
+	private RimClass rimClass;
+	
 	@ElementList(required=false,inline=true)
 	private List<Relationship> relationships = new ArrayList<Relationship>();
 
@@ -245,5 +248,11 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	}
 	public void addDifference(Difference difference) {
 		this.differences.add(difference);
+	}
+	public RimClass getRimClass() {
+		return rimClass;
+	}
+	public void setRimClass(RimClass rimClass) {
+		this.rimClass = rimClass;
 	}
 }

@@ -60,9 +60,13 @@ public class ConformanceLevel extends EnumPattern {
 	 */
 	public static final ConformanceLevel OPTIONAL = new ConformanceLevel("OPTIONAL", "Opt", 3); 
 	/**
+	 * <p>The ignored conformance level.  
+	 */
+	public static final ConformanceLevel IGNORED = new ConformanceLevel("IGNORED", "Ign", 4);
+	/**
 	 * <p>The not allowed conformance level.  
 	 */
-	public static final ConformanceLevel NOT_ALLOWED = new ConformanceLevel("NOT_ALLOWED", "X", 4);
+	public static final ConformanceLevel NOT_ALLOWED = new ConformanceLevel("NOT_ALLOWED", "X", 5);
 
 	private final String description;
 	private final int permissiveRank;

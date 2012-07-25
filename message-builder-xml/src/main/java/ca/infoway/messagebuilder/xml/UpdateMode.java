@@ -81,7 +81,7 @@ public class UpdateMode {
 			this.updateModesAllowed = null;
 		} else {
 			List<String> result = new ArrayList<String>();
-			if (updateModesAllowed!= null) {
+			if (updateModes!= null) {
 				for (UpdateModeType updateModeType : updateModes) {
 					result.add(updateModeType.getName());
 				}
