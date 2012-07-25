@@ -45,7 +45,7 @@ public enum Representation {
 	
 	// These representations are used in Periodic Interval
 	
-	// TOOD: BCH: seperate these into another enum
+	// TOOD: BCH: separate these into another enum
 	PERIOD, 
 	PHASE, 
 	FREQUENCY,

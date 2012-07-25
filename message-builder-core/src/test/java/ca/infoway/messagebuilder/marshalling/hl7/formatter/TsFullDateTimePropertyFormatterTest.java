@@ -36,6 +36,7 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -49,7 +50,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	// a hack to make sure our legacy NEWFOUNDLAND tests work
 	private static final VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
-		public VersionNumber getBaseVersion() {return null;}
+		public Hl7BaseVersion getBaseVersion() {return null;} // should normally never return null here; but Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
 	};
 
 	@Test

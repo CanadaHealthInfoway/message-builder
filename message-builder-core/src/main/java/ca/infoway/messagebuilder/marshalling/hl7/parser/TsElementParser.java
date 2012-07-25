@@ -29,6 +29,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -122,7 +123,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
 	private void checkForMissingTimezone(ParseContext context, XmlToModelResult xmlToModelResult, Date result, String unparsedDate) {
 		// issue a warning if a datetime (partial or otherwise) was passed in without a timezone (non-CeRx only)
-		if (context == null || context.getVersion() == null || !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())) {
+		if (context == null || context.getVersion() == null || !SpecificationVersion.isVersion(context.getVersion(), Hl7BaseVersion.CERX)) {
 			if (result instanceof DateWithPattern && TsDateFormats.datetimeFormatsRequiringWarning.contains(((DateWithPattern) result).getDatePattern()))  {
 				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timezone should be specified for datetime " + unparsedDate + ". Value processed without timezone."));
 			}

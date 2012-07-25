@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -104,7 +105,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresSpecializationType(FormatContext formatContext) {
 		boolean result = true;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion());
+			result = !SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX);
 		}
 		return result;
 	}
@@ -112,9 +113,9 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresOperatorOnFirstRepetition(FormatContext formatContext) {
 		boolean result = false;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion())
-				  || SpecificationVersion.isVersion(SpecificationVersion.V02R01, formatContext.getVersion())
-				  || SpecificationVersion.isVersion(SpecificationVersion.V02R02, formatContext.getVersion());
+			result = SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX)
+				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007_V02R01)
+				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007);
 		}
 		return result;
 	}

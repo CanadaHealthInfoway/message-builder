@@ -32,6 +32,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -120,13 +121,12 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     }
 
 	private boolean isMR2009(VersionNumber version) {
-		return SpecificationVersion.isVersion(SpecificationVersion.R02_04_02, version) 
-				|| SpecificationVersion.isVersion(SpecificationVersion.R02_04_03, version);
+		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2009);
 	}
 
 	private boolean isSpecializationTypeAllowed(VersionNumber version, String type) {
-		return !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)
-    		    && !(SpecificationVersion.isVersion(SpecificationVersion.V02R02_AB, version) && StandardDataType.II.getType().equals(type))
+		return !SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX)
+    		    && !(SpecificationVersion.isExactVersion(SpecificationVersion.V02R02_AB, version) && StandardDataType.II.getType().equals(type))
     			&& (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type));
 	}
 

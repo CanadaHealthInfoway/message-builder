@@ -30,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -71,6 +72,8 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	private static final String II_OID = "II.OID";
 	private static final String II_VER = "II.VER";
 	private static final String II_BUS_AND_VER = "II.BUS_AND_VER";
+	private static final String II_BUSVER = "II.BUSVER";
+	private static final String II_PUBLICVER = "II.PUBLICVER";
 
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
@@ -131,8 +134,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 	private boolean isMR2009(VersionNumber version) {
-		return SpecificationVersion.isVersion(SpecificationVersion.R02_04_02, version) 
-				|| SpecificationVersion.isVersion(SpecificationVersion.R02_04_03, version);
+		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2009);
 	}
 
 	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
@@ -158,8 +160,8 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 	private boolean isSpecializationTypeAllowed(ParseContext context, String type) {
-		return !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())
-				&& !(SpecificationVersion.isVersion(SpecificationVersion.V02R02_AB, context.getVersion()) && II.equals(type));
+		return !SpecificationVersion.isVersion(context.getVersion(), Hl7BaseVersion.CERX)
+				&& !(SpecificationVersion.isExactVersion(SpecificationVersion.V02R02_AB, context.getVersion()) && II.equals(type));
 	}
 
 	private void validateAttributeEquals(String type, Element element,

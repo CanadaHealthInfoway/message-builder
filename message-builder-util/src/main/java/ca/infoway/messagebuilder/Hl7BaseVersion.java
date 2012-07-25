@@ -13,29 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2012-01-10 20:35:55 -0500 (Tue, 10 Jan 2012) $
+ * Revision:      $LastChangedRevision: 3319 $
  */
 
 package ca.infoway.messagebuilder;
 
+
 /**
- * <p>An interface usable by any class that provides a version number/id.
+ * 
+ * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
  */
-public interface VersionNumber {
+public enum Hl7BaseVersion {
 	
-	/**
-	 * <p>Gets the version literal. Null should not be returned.
-	 *
-	 * @return the version literal
-	 */
-	public String getVersionLiteral();
+	// if adding interfaces or behaviour to this enum, please consider using enum pattern for translation purposes
+
+	MR2009,
+	MR2007,
+	MR2007_V02R01,  // does this have a better name to use?
+	CERX;
 	
-	/**
-	 * The HL7v3 release that this version is based on. If at all possible, null should not be returned.
-	 * 
-	 * @return the base version
-	 */
-	public Hl7BaseVersion getBaseVersion();
 }

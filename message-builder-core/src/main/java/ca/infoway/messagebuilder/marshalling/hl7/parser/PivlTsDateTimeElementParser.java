@@ -86,7 +86,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		if (numerator != null && denominator != null) {
 			Integer repetitions = parseNumerator(context, numerator, xmlToModelResult);
 
-			if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_2_SK, context.getVersion())) {
+			if (SpecificationVersion.isExactVersion(SpecificationVersion.V01R04_2_SK, context.getVersion())) {
 				Interval<PhysicalQuantity> quantityInterval = parseDenominatorSk(context, denominator, xmlToModelResult);
 				return PeriodicIntervalTimeSk.createFrequencySk(
 						repetitions,

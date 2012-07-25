@@ -20,8 +20,7 @@
 
 package ca.infoway.messagebuilder;
 
-import org.apache.commons.lang.StringUtils;
-
+import static ca.infoway.messagebuilder.Hl7BaseVersion.CERX;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -37,22 +36,22 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 * <p>This designation is used for a stand-alone version of the IEHR messages.  It
 	 * was released on 2007-05-08
 	 */
-	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3");
+	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3", CERX);
 
-	public static final SpecificationVersion V02R01 = new SpecificationVersion("V02R01", "V02R01");
+	public static final SpecificationVersion V02R01 = new SpecificationVersion("V02R01", "V02R01", Hl7BaseVersion.MR2007_V02R01);
 
 	/**
 	 * <p>This designation is used for the major release of CeRx, CR, PR and other 
 	 * messages.  It appears to have been officially released on 2007-12-07.
 	 */
-	public static final SpecificationVersion V02R02 = new SpecificationVersion("V02R02", "V02R02");
+	public static final SpecificationVersion V02R02 = new SpecificationVersion("V02R02", "V02R02", Hl7BaseVersion.MR2007);
 	/**
 	 * <p>R02.04.00 is the designation given to Maintenance Release 2009 (MR 2009), 
 	 * officially released on 2009-03-16.
 	 */
-	public static final SpecificationVersion R02_04_02 = new SpecificationVersion("R02_04_02", "R02.04.02");
+	public static final SpecificationVersion R02_04_02 = new SpecificationVersion("R02_04_02", "R02.04.02", Hl7BaseVersion.MR2009);
 	
-	public static final SpecificationVersion R02_04_03 = new SpecificationVersion("R02_04_03", "R02.04.03");
+	public static final SpecificationVersion R02_04_03 = new SpecificationVersion("R02_04_03", "R02.04.03", Hl7BaseVersion.MR2009);
 
 	/**
 	 * Saskatchewan (V01R04.2)
@@ -61,23 +60,20 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 * is really only used to determine the main release (CeRx, in this case) so we should be ok to use V01R04_3.
 	 * 
 	 */
-	public static final SpecificationVersion V01R04_2_SK = new SpecificationVersion("V01R04_2_SK", "Saskatchewan (V01R04.2)", SpecificationVersion.V01R04_3);
+	public static final SpecificationVersion V01R04_2_SK = new SpecificationVersion("V01R04_2_SK", "Saskatchewan (V01R04.2)", Hl7BaseVersion.CERX);
 	
 	/**
 	 * Alberta (V02R02).
 	 */
-	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", SpecificationVersion.V02R02);
+	public static final SpecificationVersion V02R02_AB = new SpecificationVersion("V02R02_AB", "Alberta (V02R02)", Hl7BaseVersion.MR2007);
 	
 
 	
 	
 	private final String description;
-	private final VersionNumber baseVersion;
+	private final Hl7BaseVersion baseVersion;
 	
-	private SpecificationVersion(String name, String description) {
-		this(name, description, null);
-	}
-	private SpecificationVersion(String name, String description, VersionNumber baseVersion) {
+	private SpecificationVersion(String name, String description, Hl7BaseVersion baseVersion) {
 		super(name);
 		this.description = description;
 		this.baseVersion = baseVersion;
@@ -100,21 +96,33 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	}
 	
 	/**
-	 * <p>Gets the base version, if applicable. Since all versions in this
-	 * enum are base versions, this method just returns itself.
+	 * <p>Gets the base version of HL7v3 applicable to this version.
 	 *
-	 * @return the description
+	 * @return the base version
 	 */
-	public VersionNumber getBaseVersion() {
-		return this.baseVersion == null ? this : this.baseVersion;
+	public Hl7BaseVersion getBaseVersion() {
+		return this.baseVersion;
 	}
 
-	public static boolean isVersion(VersionNumber desiredVersion, VersionNumber versionToCheck) {
-		String actualVersion = (versionToCheck == null ? null : versionToCheck.getVersionLiteral());
-		String baseVersion = (versionToCheck == null ? null : (versionToCheck.getBaseVersion() == null ? null : versionToCheck.getBaseVersion().getVersionLiteral()));
-		String desiredVersionLiteral = (desiredVersion == null ? null : desiredVersion.getVersionLiteral());
-		
-		return StringUtils.equals(actualVersion, desiredVersionLiteral) || StringUtils.equals(baseVersion, desiredVersionLiteral);
+	/**
+	 * Checks if the supplied VersionNumber is based on a particular HL7v3 release
+	 * 
+	 * @param version
+	 * @param versionToCheck
+	 * @return
+	 */
+	public static boolean isVersion(VersionNumber version, Hl7BaseVersion versionToCheck) {
+		if (versionToCheck == null) {
+			return false;
+		}
+		return (version == null ? null : version.getBaseVersion()) == versionToCheck;
+	}
+	
+	public static boolean isExactVersion(VersionNumber version1, VersionNumber version2) {
+		if (version1 == null || version1.getVersionLiteral() == null || version2 == null || version2.getVersionLiteral() == null) {
+			return false;
+		}
+		return version1.getVersionLiteral().equals(version2.getVersionLiteral()) && version1.getBaseVersion() == version2.getBaseVersion();
 	}
 	
 }

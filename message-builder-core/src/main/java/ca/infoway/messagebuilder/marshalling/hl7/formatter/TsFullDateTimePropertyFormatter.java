@@ -26,6 +26,7 @@ import java.util.TimeZone;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -98,7 +99,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 	}
 
 	private boolean isCerx(VersionNumber version) {
-		return SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version);
+		return SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
 	}
 
 	// package level for testing purposes
@@ -141,7 +142,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 	private String getDefaultDatePattern(VersionNumber version) {
 		if (isFullDateSpecializationType()) {
 			return TsFullDatePropertyFormatter.DATE_FORMAT_YYYYMMDD;
-		} else if (SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, version)) {
+		} else if (SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX)) {
 			return DATE_FORMAT_YYYYMMDDHHMMSS;
 		}
 		return DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;
