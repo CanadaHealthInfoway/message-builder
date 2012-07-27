@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -303,11 +302,6 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
-		ConformanceLevel conformance = createConformance(targetConnection);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(targetConnection.getAttribute("name"));
@@ -329,18 +323,13 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));
-		relationship.setConformance(conformance);
+		relationship.setConformance(createConformance(targetConnection));
 		relationship.setUpdateMode(createUpdateMode(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
 
 	private void createAttribute(MessagePart part, Element element) {
-		ConformanceLevel conformance = createConformance(element);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(element.getAttribute("name"));
@@ -353,7 +342,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				: null);
 		relationship.setUpdateMode(createUpdateMode(element));	
 		relationship.setCardinality(createCardinality(element));
-		relationship.setConformance(conformance);
+		relationship.setConformance(createConformance(element));
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
 			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
