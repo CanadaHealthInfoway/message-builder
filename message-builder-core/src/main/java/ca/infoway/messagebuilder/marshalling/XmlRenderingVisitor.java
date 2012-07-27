@@ -50,8 +50,14 @@ import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
-class XmlRenderingVisitor implements Visitor {
-	
+public class XmlRenderingVisitor implements Visitor {
+	static final String ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED = "Association is ignored and can not be used: ({0})";
+	static final String ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED = "Association is ignored and will not be used: ({0})";
+	static final String ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED = "Attribute is ignored and can not be used: ({0})";
+	static final String ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED = "Attribute is ignored and will not be used: ({0})";
+	static final String ASSOCIATION_IS_NOT_ALLOWED = "Association is not allowed: ({0})";
+	static final String ATTRIBUTE_IS_NOT_ALLOWED = "Attribute is not allowed: ({0})";
+	public static final String IGNORED_AS_NOT_ALLOWED = "ignored.as.not.allowed";
 	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
 
 	class Buffer {
@@ -151,8 +157,18 @@ class XmlRenderingVisitor implements Visitor {
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
 				currentBuffer().setWarning("Mandatory association has no data. (" + relationship.getName() + ")");
+			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+						ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED :
+						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				currentBuffer().setWarning(MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName()));
 			}
 		}
+	}
+
+	public static boolean isIgnoredNotAllowed() {
+		return Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED));
 	}
 
 	/**
@@ -213,6 +229,13 @@ class XmlRenderingVisitor implements Visitor {
 	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.propertyPathNames.push(tealBean.getPropertyName());
 		if (relationship.isStructural()) {
+			if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
+				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+						ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
+						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+			}  else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				currentBuffer().setWarning(MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
+			}
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
 		} else {
 			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
@@ -240,7 +263,18 @@ class XmlRenderingVisitor implements Visitor {
 				
 //				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
 				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
-				String xmlFragment = formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				String xmlFragment = "";
+				if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
+					if (isIgnoredNotAllowed()){
+						
+						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, relationship.getName()));
+					} else {
+						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+					}
+				} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+					xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
+				}
+				xmlFragment += formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				String propertyPath = StringUtils.join(this.propertyPathNames, ".");

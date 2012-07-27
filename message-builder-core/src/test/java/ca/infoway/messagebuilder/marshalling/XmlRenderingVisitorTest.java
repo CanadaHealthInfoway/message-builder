@@ -340,6 +340,119 @@ public class XmlRenderingVisitorTest {
 		
 	}
 
+	@Test
+	public void shouldRenderWarningsForAssociationWithIgnoreConformanceAsOptional() throws Exception {		
+		Relationship relationship = createSimpleAssociationRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+		Relationship nonStructuralAttr = createNonStructuralRelationship();
+		nonStructuralAttr.setConformance(ConformanceLevel.IGNORED);
+		Relationship structuralAttr = createStructuralRelationship();
+		structuralAttr.setConformance(ConformanceLevel.IGNORED);
+		
+		runVisitor(relationship, nonStructuralAttr, structuralAttr);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals(
+				"xml",
+				"<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" "
+						+ "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">"
+						+ "<!-- WARNING: Association is ignored and will not be used: (receiver) -->"
+						+ "<receiver negationInd=\"false\">"
+						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
+						+ "</receiver>"
+						+ "</ABCD_IN123456CA>", xml);
+	}
+
+	
+	@Test
+	public void shouldRenderWarningsForInternalAttributesWithIgnoreConformanceAsOptional() throws Exception {
+		
+		Relationship relationship = createSimpleAssociationRelationship();
+		Relationship nonStructuralAttr = createNonStructuralRelationship();
+		nonStructuralAttr.setConformance(ConformanceLevel.IGNORED);
+		Relationship structuralAttr = createStructuralRelationship();
+		structuralAttr.setConformance(ConformanceLevel.IGNORED);
+		
+		runVisitor(relationship, nonStructuralAttr, structuralAttr);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals(
+				"xml",
+				"<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" "
+						+ "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">"
+						+ "<!-- WARNING: Attribute is ignored and will not be used: (negationInd) -->"
+						+ "<receiver negationInd=\"false\">"
+						+ "<!-- WARNING: Attribute is ignored and will not be used: (id) -->"
+						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
+						+ "</receiver>"
+						+ "</ABCD_IN123456CA>", xml);
+	}
+	
+	@Test
+	public void shouldRenderWarningsForAssociationWithIgnoreConformanceAsNotAllowed() throws Exception {
+		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		Relationship relationship = createSimpleAssociationRelationship();
+		relationship.setConformance(ConformanceLevel.IGNORED);
+		Relationship nonStructuralAttr = createNonStructuralRelationship();
+		nonStructuralAttr.setConformance(ConformanceLevel.IGNORED);
+		Relationship structuralAttr = createStructuralRelationship();
+		structuralAttr.setConformance(ConformanceLevel.IGNORED);
+		
+		runVisitor(relationship, nonStructuralAttr, structuralAttr);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals(
+				"xml",
+				"<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" "
+						+ "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">"
+						+ "<!-- WARNING: Association is ignored and can not be used: (receiver) -->"
+						+ "<receiver negationInd=\"false\">"
+						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
+						+ "</receiver>"
+						+ "</ABCD_IN123456CA>", xml);
+		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
+	}
+
+	
+	@Test
+	public void shouldRenderWarningsForInternalAttributesWithIgnoreConformanceAsNotAllowed() throws Exception {
+		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		
+		Relationship relationship = createSimpleAssociationRelationship();
+		Relationship nonStructuralAttr = createNonStructuralRelationship();
+		nonStructuralAttr.setConformance(ConformanceLevel.IGNORED);
+		Relationship structuralAttr = createStructuralRelationship();
+		structuralAttr.setConformance(ConformanceLevel.IGNORED);
+		
+		runVisitor(relationship, nonStructuralAttr, structuralAttr);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals(
+				"xml",
+				"<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" "
+						+ "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">"
+						+ "<!-- WARNING: Attribute is ignored and can not be used: (negationInd) -->"
+						+ "<receiver negationInd=\"false\">"
+						+ "<!-- WARNING: Attribute is ignored and can not be used: (id) -->"
+						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
+						+ "</receiver>"
+						+ "</ABCD_IN123456CA>", xml);
+		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
+	}
+	
+	private void runVisitor(Relationship relationship,
+			Relationship nonStructuralAttr, Relationship structuralAttr) {
+		this.attributeBridge.setEmpty(Boolean.FALSE);
+		this.attributeBridge.setHl7Value(new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51")));
+		this.attributeBridge.setValue(Boolean.FALSE);
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAssociationStart(this.partBridge, relationship);
+		this.visitor.visitAttribute(this.attributeBridge, nonStructuralAttr, null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, structuralAttr, null, null, null);
+		this.visitor.visitAssociationEnd(this.partBridge, relationship);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+	}
+	
 	private Relationship createSimpleAssociationRelationship() {
 		Relationship relationship = new Relationship();
 		relationship.setConformance(ConformanceLevel.POPULATED);

@@ -33,6 +33,7 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
+import ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
@@ -45,6 +46,8 @@ public class ValidatingVisitorTest {
 
 	public static final ConformanceLevel MANDATORY = ConformanceLevel.MANDATORY;
 	public static final ConformanceLevel POPULATED = ConformanceLevel.POPULATED;
+	public static final ConformanceLevel IGNORED = ConformanceLevel.IGNORED;
+	public static final ConformanceLevel NOT_ALLOWED = ConformanceLevel.NOT_ALLOWED;
 
 	@Test
 	public void shouldHaveValidationErrors() throws Exception {
@@ -150,6 +153,106 @@ public class ValidatingVisitorTest {
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());
 
+	}
+
+	@Test
+	public void shouldHaveValidationErrorForIgnoreConformanceAsNotAllowedOnAssociation() throws Exception {
+		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("admitter");
+		relationship.setConformance(IGNORED);
+		relationship.setType("COCT_MT011001CA.Admitter");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitAssociation(createElement("<node/>"), "admitter", Arrays.asList(createElement("<admitter />")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForNotAllowedConformanceOnAssociation() throws Exception {
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("admitter");
+		relationship.setConformance(NOT_ALLOWED);
+		relationship.setType("COCT_MT011001CA.Admitter");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitAssociation(createElement("<node/>"), "admitter", Arrays.asList(createElement("<admitter />")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+	}
+	
+	@Test
+	public void shouldHaveNoValidationErrorForIgnoreConformanceAsOptionalOnAssociation() throws Exception {
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("admitter");
+		relationship.setConformance(IGNORED);
+		relationship.setType("COCT_MT011001CA.Admitter");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitAssociation(createElement("<node/>"), "admitter", Arrays.asList(createElement("<admitter />")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertTrue(hl7Errors.isEmpty());
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForIgnoreConformanceAsNotAllowedOnAttribute() throws Exception {
+		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(IGNORED);
+		relationship.setFixedValue("123");
+		relationship.setStructural(false);
+		relationship.setType("INT.NONNEG");
+		
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"123\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForNotAllowedConformanceOnAttribute() throws Exception {
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(NOT_ALLOWED);
+		relationship.setFixedValue("123");
+		relationship.setStructural(false);
+		relationship.setType("INT.NONNEG");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"123\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+	}
+	
+	@Test
+	public void shouldHaveNoValidationErrorForIgnoreConformanceAsOptionalOnAttribute() throws Exception {
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(IGNORED);
+		relationship.setFixedValue("123");
+		relationship.setStructural(false);
+		relationship.setType("INT.NONNEG");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02);
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"123\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertTrue(hl7Errors.isEmpty());
 	}
 	
 	private Element createElement(String xml) throws SAXException {

@@ -211,11 +211,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = MifXPathHelper.getTargetConnection(element);
-		ConformanceLevel conformance = createConformance(targetConnection);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-		
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(targetConnection.getAttribute("name"));
@@ -226,7 +221,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));
-		relationship.setConformance(conformance);
+		relationship.setConformance(createConformance(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}

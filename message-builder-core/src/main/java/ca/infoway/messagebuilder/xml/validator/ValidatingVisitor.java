@@ -43,6 +43,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -85,6 +86,12 @@ public class ValidatingVisitor implements MessageVisitor {
 			this.result.addHl7Error(Hl7Error.createMissingPopulatedAssociationError(xmlName, base));
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
+		} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED))) {
+				this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(xmlName, base));
+			} 
+		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(xmlName, base));
 		}
 		if (relationship.getCardinality().isSingle() && elements.size() == 1) {
 			checkForInvalidNullFlavor(elements.get(0), relationship);
@@ -139,6 +146,12 @@ public class ValidatingVisitor implements MessageVisitor {
 			// various people suggest that fixed values can be left out
 		} else if (relationship.isMandatory()) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
+		} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED))) {
+				this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
+			} 
+		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 		}
 	}
 
@@ -166,6 +179,12 @@ public class ValidatingVisitor implements MessageVisitor {
 				this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
 			} else if (CollectionUtils.isEmpty(elements) && relationship.isPopulated()) {
 				this.result.addHl7Error(Hl7Error.createMissingPopulatedAttributeError(relationship.getName(), base));
+			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+				if (Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED))) {
+					this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
+				} 
+			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 			} else {
 				try {
 					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);

@@ -20,8 +20,14 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,7 +40,6 @@ import org.apache.commons.logging.LogFactory;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
 import ca.infoway.messagebuilder.model.InteractionBean;
@@ -110,6 +115,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 								new AssociationBridgeImpl(relationship, createNullPartBridge(relationship, interaction)));
 					}
 				} else {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					relationships.add(createAssociationBridge(
 							relationship, sorter, interaction, currentMessagePart, context));
 				}
@@ -117,6 +123,22 @@ class BridgeFactoryImpl implements BridgeFactory {
 		}
 		
 		return new PartBridgeImpl(sorter.getPropertyName(), sorter.getBean(), currentMessagePart.getName(), relationships, context.isCollapsed());
+	}
+
+	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
+		if(isIgnoredNotAllowed() && relationship.getConformance() == ConformanceLevel.IGNORED) {
+			this.log.debug(MessageFormat.format(
+					relationship.isAssociation()?
+							ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED:
+							ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, 
+					relationship.getName()));							
+		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED){
+			this.log.debug(MessageFormat.format(
+					relationship.isAssociation()?
+							ASSOCIATION_IS_NOT_ALLOWED:
+							ATTRIBUTE_IS_NOT_ALLOWED, 
+					relationship.getName()));
+		}
 	}
 	
 	private IndicatorAssociationBridgeImpl createIndicatorAssociationBridge(Relationship relationship, RelationshipSorter sorter,
@@ -165,7 +187,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private AssociationBridge createAssociationBridge(Relationship relationship,
 			RelationshipSorter sorter, Interaction interaction,
 			MessagePartHolder currentMessagePart, BridgeContext context) {
@@ -243,8 +265,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		return new AttributeBridgeImpl(relationship, property);
 	}
 
-	@SuppressWarnings("unchecked")
-	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
+	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, @SuppressWarnings("rawtypes") Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {
 			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));

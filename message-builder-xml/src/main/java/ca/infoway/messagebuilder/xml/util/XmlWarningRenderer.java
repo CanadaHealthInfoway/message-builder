@@ -21,6 +21,10 @@
 package ca.infoway.messagebuilder.xml.util;
 
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+
+import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.util.text.Indenter;
 
@@ -32,9 +36,21 @@ import ca.infoway.messagebuilder.util.text.Indenter;
  */
 public class XmlWarningRenderer {
 	
+	public static String MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML = "messagebuilder.output.warnings.in.generated.xml";
+	
+	private boolean outputWarnings;
+	
+	public XmlWarningRenderer() {
+		String outputWarningsPropertyValue = System.getProperty(MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, "true");
+		this.outputWarnings = BooleanUtils.toBoolean(outputWarningsPropertyValue);
+	}
+	
 	public String createWarning(int indentLevel, String text) {
-		return Indenter.indent(
+		return this.outputWarnings ? 
+				Indenter.indent(
 				"<!-- WARNING: " + XmlStringEscape.escape(text) 
-				+ " -->" + LINE_SEPARATOR, indentLevel);
+				+ " -->" + LINE_SEPARATOR, indentLevel)
+			:
+				StringUtils.EMPTY;
 	}
 }

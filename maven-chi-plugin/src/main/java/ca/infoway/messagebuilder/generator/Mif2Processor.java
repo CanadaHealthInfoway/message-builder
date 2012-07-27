@@ -250,16 +250,11 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createChoice(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
-		ConformanceLevel conformance = createConformance(targetConnection);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		choice.setCardinality(createCardinality(targetConnection));
 		choice.setUpdateMode(createUpdateMode(targetConnection));
-		choice.setConformance(conformance);
+		choice.setConformance(createConformance(targetConnection));
 		choice.setType(determineType(targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
 
 		addChoiceItems(messageSet, targetConnection, choice);
