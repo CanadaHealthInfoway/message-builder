@@ -49,7 +49,7 @@ public class MedicineBeanBuilder extends BaseBeanBuilder<MedicineBean> {
 		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1)));
 		this.bean.setFormCode(lookup(OrderableDrugForm.class, "DROP", CodeSystem.VOCABULARY_ADMINISTRABLE_DRUG_FORM.getRoot()));
 		this.bean.setLotNumberText("lot number 123");
-		this.bean.setManufacturerId(new Identifier("manufacturerRoot", "1"));
+		this.bean.setManufacturerId(new Identifier("5.4.3", "1"));
 		this.bean.setManufacturerName("Advil Manufacturer");
 		this.bean.setName("advil extra strength");
 		this.bean.setQuantity(new PhysicalQuantity(new BigDecimal(12), lookup(x_DrugUnitsOfMeasure.class, "g")));

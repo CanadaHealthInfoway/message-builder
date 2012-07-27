@@ -63,7 +63,7 @@
             <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
             <asManufacturedProduct classCode="MANU">
               <manufacturer classCode="ORG" determinerCode="INSTANCE">
-                <id extension="1" root="manufacturerRoot"/>
+                <id extension="1" root="5.4.3"/>
                 <name>Advil Manufacturer</name>
               </manufacturer>
             </asManufacturedProduct>
@@ -92,7 +92,7 @@
             <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
             <asManufacturedProduct classCode="MANU">
               <manufacturer classCode="ORG" determinerCode="INSTANCE">
-                <id extension="1" root="manufacturerRoot"/>
+                <id extension="1" root="5.4.3"/>
                 <name>Advil Manufacturer</name>
               </manufacturer>
             </asManufacturedProduct>

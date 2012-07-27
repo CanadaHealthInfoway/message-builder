@@ -117,6 +117,13 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
             }
         } 
         
+		if (StringUtils.equals(StandardDataType.II_PUBLICVER.getType(), type) || StringUtils.equals(StandardDataType.II_BUSVER.getType(), type)) {
+			if (ii.getVersion() != null) {
+				result.put("version", ii.getVersion());
+			}
+            result.put("displayable", "true"); // only for publicver
+		}
+		
         return result;
     }
 

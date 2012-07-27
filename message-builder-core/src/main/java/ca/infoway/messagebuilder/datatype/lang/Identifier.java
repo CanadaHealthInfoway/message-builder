@@ -44,8 +44,9 @@ public class Identifier implements Serializable {
     private static final long serialVersionUID = -3182973493107028067L;
     private String root;
     private String extension;
+	private String version;
 
-    /**
+	/**
      * <p>Constructs an empty identifier.
      */
     public Identifier() {
@@ -58,9 +59,13 @@ public class Identifier implements Serializable {
      * @param extension the extension
      */
     public Identifier(Oid oid, String extension) {
-    	this(oid == null ? null : oid.getRoot(), extension);
+    	this(oid == null ? null : oid.getRoot(), extension, null);
     }
     
+    public Identifier(Oid oid, String extension, String version) {
+    	this(oid == null ? null : oid.getRoot(), extension, version);
+    }
+
     /**
      * <p>Constructs an Identifier with the supplied parameters.
      * 
@@ -68,8 +73,13 @@ public class Identifier implements Serializable {
      * @param extension the extension
      */
     public Identifier(String root, String extension) {
+    	this(root, extension, null);
+    }
+
+    public Identifier(String root, String extension, String version) {
         this.root = root;
         this.extension = extension;
+		this.version = version;
     }
 
     /**
@@ -116,14 +126,27 @@ public class Identifier implements Serializable {
     public String getRoot() {
         return root;
     }
-    
+
+    /**
+     * <p>Returns the version (only applicable for II.BUSVER and II.PUBLICVER)
+     * 
+     * @return the version
+     */
+    public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
     /**
      * <p>Formats this object as a string.
      * 
      * @return the string representation of this object
      */
     public String toString() {
-        return "root={" + this.root + "},extension={" + this.extension + "}";
+        return "root={" + this.root + "},extension={" + this.extension + "}" + (this.version == null ? "" : ",version={" + this.version + "}") ;
     }
     
     /**
@@ -135,6 +158,7 @@ public class Identifier implements Serializable {
         return new HashCodeBuilder()
                 .append(this.root)
                 .append(this.extension)
+                .append(this.version)
                 .toHashCode();
     }
 
@@ -158,6 +182,7 @@ public class Identifier implements Serializable {
         return new EqualsBuilder()
                 .append(this.root, that.root)
                 .append(this.extension, that.extension)
+                .append(this.version, that.version)
                 .isEquals();
     }
 }

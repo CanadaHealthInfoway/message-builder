@@ -99,7 +99,7 @@ public class ProviderDetailsQueryResponseTransformationTest extends BaseTransfor
 	private HealthcareProvider createProviderRecord() {
 		HealthcareProvider provider = new HealthcareProvider();
 		provider.setCode(CodeResolverRegistry.lookup(HealthcareProviderRoleType.class, "MD", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
-		provider.getId().add(new Identifier(CodeSystem.REFERRALS_OHIP_BILLING_NUMBER.getRoot(), "111-111-111"));
+		provider.getId().add(new Identifier(CodeSystem.REFERRALS_OHIP_BILLING_NUMBER.getRoot(), "111-111-111", "2"));
 		PersonName personName = new PersonName();
 		personName.addNamePart(new EntityNamePart("Robert", PersonNamePartType.GIVEN));
 		personName.addNamePart(new EntityNamePart("Sales", PersonNamePartType.FAMILY));

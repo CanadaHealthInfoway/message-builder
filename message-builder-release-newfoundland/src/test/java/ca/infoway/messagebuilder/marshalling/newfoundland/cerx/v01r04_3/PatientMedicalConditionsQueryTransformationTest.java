@@ -168,7 +168,7 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		identifiedPersonBuilder.populate();
 		
 		IdentifiedPersonBean patient = identifiedPersonBuilder.create();
-		patient.setId(new Identifier("patient root", "patient extention"));
+		patient.setId(new Identifier("1.2.3", "patient extention"));
 		PostalAddress address = new PostalAddress();
 		address.getParts().add(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		address.getUses().add(PostalAddressUse.HOME);
@@ -181,9 +181,9 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		condition.setPatient(patient);
 		
 		AssignedPersonBean responsibleParty = new AssignedPersonBean();
-		responsibleParty.setId(new Identifier("responsible party root", "responsible party extention"));
+		responsibleParty.setId(new Identifier("1.1.2", "resp party ext"));
 		responsibleParty.setCode(lookup(HealthcareProviderRoleType.class, "ACP", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
-		responsibleParty.setLicenseNumber(new Identifier("provider lic root", "provider lic ext"));
+		responsibleParty.setLicenseNumber(new Identifier("1.2.3.1", "provider lic ext"));
 		responsibleParty.setName(new PersonName());
 		responsibleParty.getName().addNamePart(new EntityNamePart("Joe", PersonNamePartType.GIVEN));
 		responsibleParty.getName().addNamePart(new EntityNamePart("Last", PersonNamePartType.FAMILY));

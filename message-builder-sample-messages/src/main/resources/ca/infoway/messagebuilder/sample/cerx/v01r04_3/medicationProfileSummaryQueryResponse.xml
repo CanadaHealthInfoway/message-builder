@@ -23,7 +23,7 @@
 
 <PORX_IN060400CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
-    <id root="1.2.3.4.5.6.7.8"/>
+    <id root="1.2.3.4.5.6.7.8" extension="msgExt" />
     <creationTime value="20080625141610.0000-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060400CA" root="2.16.840.1.113883.1.6"/>
@@ -197,7 +197,7 @@
         <resultRemainingQuantity value="0"/>
       </queryAck>
       <queryByParameter>
-        <queryId root="1.2.3.4.5.6.7.8.9"/>
+        <queryId root="1.2.3.4.5.6.7.8.9" extension="queryExt" />
 <!--        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>-->
         <parameterList>
           <administrationEffectivePeriod>

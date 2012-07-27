@@ -74,7 +74,7 @@
       </location>
       <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
         <supplyEvent classCode="SPLY" moodCode="EVN">
-          <id extension="dispenseIdExtension" root="dispenseIdRoot"/>
+          <id extension="dispenseIdExt" root="3.2.1"/>
           <code code="INFA" codeSystem="2.16.840.1.113883.5.4"/>
           <effectiveTime value="19691231190000.0000-0500"/>
           <quantity unit="g" value="12"/>

@@ -88,7 +88,7 @@
                 <expirationTime value="20090101"/>
                 <asManufacturedProduct classCode="MANU">
                   <manufacturer classCode="ORG" determinerCode="INSTANCE">
-                    <id extension="1" root="manufacturerRoot"/>
+                    <id extension="1" root="5.4.3"/>
                     <name>Advil Manufacturer</name>
                   </manufacturer>
                 </asManufacturedProduct>
@@ -256,7 +256,7 @@
                 <expirationTime value="20090101"/>
                 <asManufacturedProduct classCode="MANU">
                   <manufacturer classCode="ORG" determinerCode="INSTANCE">
-                    <id extension="1" root="manufacturerRoot"/>
+                    <id extension="1" root="5.4.3"/>
                     <name>Advil Manufacturer</name>
                   </manufacturer>
                 </asManufacturedProduct>

@@ -198,11 +198,11 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 		
 		MedicationProfileSummaryQueryResponseMessageBean model = new MedicationProfileSummaryQueryResponseMessageBean(criteria);
 		MessageBeanBuilderSupport.populateMoreBetterStandardValues(model.getMessageAttributes());
-		model.getMessageAttributes().setMessageId(new Identifier("1.2.3.4.5.6.7.8"));
+		model.getMessageAttributes().setMessageId(new Identifier("1.2.3.4.5.6.7.8", "msgExt"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 //		MessageAttributeBeanTestData.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.MEDICATION_PROFILE_SUMMARY_RESPONSE);
-		model.setQueryId(new Identifier("1.2.3.4.5.6.7.8.9"));
+		model.setQueryId(new Identifier("1.2.3.4.5.6.7.8.9", "queryExt"));
 
 		MessageBeanBuilderSupport.populateAcknowledgement(model.getAcknowledgement());
 

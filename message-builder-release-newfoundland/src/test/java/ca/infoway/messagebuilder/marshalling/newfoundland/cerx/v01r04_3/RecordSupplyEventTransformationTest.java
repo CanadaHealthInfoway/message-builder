@@ -91,7 +91,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 		
 		RecordBean<NonPrescribedSupplyEventBean> recordBean = new RecordBean<NonPrescribedSupplyEventBean>();
 		NonPrescribedSupplyEventBean record = new NonPrescribedSupplyEventBean();
-		record.setDispenseId(new Identifier("dispenseIdRoot", "dispenseIdExtension"));
+		record.setDispenseId(new Identifier("3.2.1", "dispenseIdExt"));
 		record.setEffectiveTime(new Date(0));
 		record.setProduct(new MedicineBeanBuilder().populate().create());
 		record.setQuantity(new PhysicalQuantity(
