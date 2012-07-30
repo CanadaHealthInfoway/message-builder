@@ -24,7 +24,9 @@ import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
-public class RimClass extends EnumPattern{
+public class RimClass extends EnumPattern {
+	
+	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
 	private static final long serialVersionUID = -8779975480440476740L;
 	
