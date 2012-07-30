@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.IGNORED_AS_NOT_ALLOWED;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -72,6 +73,7 @@ public class XmlRenderingVisitorTest {
 		argument.setTemplateParameterName("act");
 		argument.setTraversalName("bambino");
 		this.interation.getArguments().add(argument);
+		System.setProperty(IGNORED_AS_NOT_ALLOWED, "");
 	}
 	
 	@Test
@@ -390,7 +392,7 @@ public class XmlRenderingVisitorTest {
 	
 	@Test
 	public void shouldRenderWarningsForAssociationWithIgnoreConformanceAsNotAllowed() throws Exception {
-		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		System.setProperty(IGNORED_AS_NOT_ALLOWED, "true");
 		Relationship relationship = createSimpleAssociationRelationship();
 		relationship.setConformance(ConformanceLevel.IGNORED);
 		Relationship nonStructuralAttr = createNonStructuralRelationship();
@@ -410,13 +412,12 @@ public class XmlRenderingVisitorTest {
 						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
 						+ "</receiver>"
 						+ "</ABCD_IN123456CA>", xml);
-		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
 	}
 
 	
 	@Test
 	public void shouldRenderWarningsForInternalAttributesWithIgnoreConformanceAsNotAllowed() throws Exception {
-		System.setProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED, "true");
+		System.setProperty(IGNORED_AS_NOT_ALLOWED, "true");
 		
 		Relationship relationship = createSimpleAssociationRelationship();
 		Relationship nonStructuralAttr = createNonStructuralRelationship();
@@ -437,7 +438,6 @@ public class XmlRenderingVisitorTest {
 						+ "<id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" 
 						+ "</receiver>"
 						+ "</ABCD_IN123456CA>", xml);
-		System.clearProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED);
 	}
 	
 	private void runVisitor(Relationship relationship,

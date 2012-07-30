@@ -41,7 +41,10 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public class TsFullDateTimePropertyFormatterTest {
 
 	// a hack to make sure our legacy NEWFOUNDLAND tests work

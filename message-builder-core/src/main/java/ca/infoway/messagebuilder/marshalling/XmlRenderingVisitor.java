@@ -21,6 +21,13 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.marshalling.BeanBridgeChoiceRelationshipResolver.resolveChoice;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
 import java.text.MessageFormat;
@@ -50,14 +57,7 @@ import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
-public class XmlRenderingVisitor implements Visitor {
-	static final String ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED = "Association is ignored and can not be used: ({0})";
-	static final String ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED = "Association is ignored and will not be used: ({0})";
-	static final String ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED = "Attribute is ignored and can not be used: ({0})";
-	static final String ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED = "Attribute is ignored and will not be used: ({0})";
-	static final String ASSOCIATION_IS_NOT_ALLOWED = "Association is not allowed: ({0})";
-	static final String ATTRIBUTE_IS_NOT_ALLOWED = "Attribute is not allowed: ({0})";
-	public static final String IGNORED_AS_NOT_ALLOWED = "ignored.as.not.allowed";
+class XmlRenderingVisitor implements Visitor {	
 	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
 
 	class Buffer {
@@ -165,10 +165,6 @@ public class XmlRenderingVisitor implements Visitor {
 				currentBuffer().setWarning(MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName()));
 			}
 		}
-	}
-
-	public static boolean isIgnoredNotAllowed() {
-		return Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(XmlRenderingVisitor.IGNORED_AS_NOT_ALLOWED));
 	}
 
 	/**

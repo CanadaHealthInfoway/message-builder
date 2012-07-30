@@ -36,7 +36,10 @@ import org.apache.commons.lang.time.DateUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public abstract class FormatterTestCase {
 
 	protected void assertXml(String description, String expected, String actual) {

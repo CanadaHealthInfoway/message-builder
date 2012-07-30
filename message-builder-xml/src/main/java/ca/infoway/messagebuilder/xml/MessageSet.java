@@ -182,10 +182,18 @@ public class MessageSet implements MessagePartResolver {
 		this.component = component;
 	}
 
+	/**
+	 * <p>Get the remixHistory.
+	 * @return the remixHistory
+	 */
 	public List<MessageSetHistory> getRemixHistory() {
 		return remixHistory;
 	}
 
+	/**
+	 * <p>Set the remixHistory.
+	 * @param remixHistory - the new value
+	 */
 	public void setRemixHistory(List<MessageSetHistory> remixHistory) {
 		this.remixHistory = remixHistory;
 	}

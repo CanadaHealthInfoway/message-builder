@@ -22,13 +22,23 @@ package ca.infoway.messagebuilder.xml;
 
 import org.apache.commons.lang.WordUtils;
 
-public enum RimClass {
-	ACT,
-	ACT_RELATIONSHIP,
-	ENTITY,
-	PARTICIPATION,
-	ROLE,
-	ROLE_LINK;
+import ca.infoway.messagebuilder.lang.EnumPattern;
+
+public class RimClass extends EnumPattern{
+	
+	private static final long serialVersionUID = -8779975480440476740L;
+	
+	public final static RimClass ACT = new RimClass("ACT");
+	public final static RimClass ACT_RELATIONSHIP = new RimClass("ACT_RELATIONSHIP");
+	public final static RimClass ENTITY = new RimClass("ENTITY");
+	public final static RimClass PARTICIPATION = new RimClass("PARTICIPATION");
+	public final static RimClass ROLE = new RimClass("ROLE");
+	public final static RimClass ROLE_LINK = new RimClass("ROLE_LINK");
+	
+	
+	private RimClass(String name) {
+		super(name);
+	}
 	
 	public String getDescription() {
 		return WordUtils.capitalizeFully(name());

@@ -20,11 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ASSOCIATION_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.ATTRIBUTE_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.marshalling.XmlRenderingVisitor.isIgnoredNotAllowed;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
 import java.text.MessageFormat;
@@ -89,6 +89,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
 					relationships.add(new AttributeBridgeImpl(relationship, null));
 				} else if (context.isIndexed()) {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					Object field = sorter.getField(relationship);
 					if (ListElementUtil.isCollection(field)) {
 						relationships.add(new CollapsedAttributeBridge(
@@ -101,10 +102,12 @@ class BridgeFactoryImpl implements BridgeFactory {
 								+ " attribute");
 					}
 				} else {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					relationships.add(createAttributeBridge(relationship,
 							(BeanProperty) o, sorter, currentMessagePart));
 				}
 			} else if (isIndicator(relationship)) {
+				createWarningIfConformanceLevelIsNotAllowed(relationship);
 				relationships.add(createIndicatorAssociationBridge(
 						relationship, sorter, interaction, context, (BeanProperty) o));
 			} else { 

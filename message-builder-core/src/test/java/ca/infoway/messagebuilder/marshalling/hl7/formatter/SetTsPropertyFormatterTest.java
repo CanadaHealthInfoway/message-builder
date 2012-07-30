@@ -36,6 +36,10 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
