@@ -32,6 +32,9 @@ public class ModelToXmlResult {
 	public String getXmlMessage() {
 		return this.xmlMessage;
 	}
+	public String getXmlMessageWithoutFormatting() {
+		return this.xmlMessage == null ? null : this.xmlMessage.replaceAll(">\\s+<", "><");
+	}
 	public void setXmlMessage(String xmlMessage) {
 		this.xmlMessage = xmlMessage;
 	}
