@@ -26,7 +26,7 @@
 	<id extension="293844" root="2.16.124.113620.1.1.1.1.2" />
 	<creationTime value="20080625141610-0400" />
 	<versionCode code="V3-2007-05" />
-	<interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060450CA" root="2.16.840.1.113883.1.6"
+	<interactionId extension="PORX_IN060450CA" root="2.16.840.1.113883.1.6"
 		displayable="true" />
 	<processingCode code="P" />
 	<processingModeCode code="T" />

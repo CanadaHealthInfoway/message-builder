@@ -57,7 +57,7 @@ public abstract class BaseTransformerTestCase {
 	
 	public static VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
-		public Hl7BaseVersion getBaseVersion() {return null;} // should normally never return null here; but Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
+		public Hl7BaseVersion getBaseVersion() {return Hl7BaseVersion.MR2007;} // Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
 	};
 	
 	protected MessageBeanTransformerImpl transformer;

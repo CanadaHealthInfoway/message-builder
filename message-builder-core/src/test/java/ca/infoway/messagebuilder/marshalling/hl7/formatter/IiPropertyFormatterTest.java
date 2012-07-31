@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -40,7 +41,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("rootString", "extensionString");
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, new IIImpl(ii));
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");
@@ -135,7 +136,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledInWithTypeId() throws Exception {
     	Identifier ii = new Identifier("rootString", "extensionString");
-    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
+    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, new IIImpl(ii));
     	assertEquals("map size", 2, result.size());
     	
     	assertKeyValuePairInMap(result, "root", "rootString");
@@ -145,14 +146,19 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsRootNotFilled() throws Exception {
         Identifier ii = new Identifier((String) null, "extension");
-        String format = new IiPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new IIImpl(ii));
-        assertTrue("result: " + format, format.contains("<!-- WARNING:"));
+        ModelToXmlResult xmlResult = new ModelToXmlResult();
+		IIImpl dataType = new IIImpl(ii);
+		dataType.setDataType(StandardDataType.II_BUS);
+		new IiPropertyFormatter().format(new FormatContextImpl(xmlResult, null, "name", "II.BUS", null), dataType);
+        assertFalse(xmlResult.isValid());
+        assertEquals(1, xmlResult.getHl7Errors().size());
+        assertEquals("Attribute \"root\" must be specified for II.BUS", xmlResult.getHl7Errors().get(0).getMessage());
     }
 
 	@Test
     public void testGetAttributeNameValuePairsExtensionNotFilled() throws Exception {
         Identifier ii = new Identifier("rootString", null);
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, null);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), ii, new IIImpl(ii));
         assertEquals("map size", 1, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");

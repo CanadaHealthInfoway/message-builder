@@ -34,7 +34,6 @@ import org.apache.commons.logging.LogFactory;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
 import ca.infoway.messagebuilder.model.InteractionBean;
@@ -64,7 +63,8 @@ class BridgeFactoryImpl implements BridgeFactory {
 		Interaction interaction = getInteraction(tealBean);
 		return new TopLevelBeanBridgeWrapper(
 				createPartBridgeFromBean(tealBean.getClass().getSimpleName(), tealBean, interaction, getMessagePart(interaction)),
-				interaction.getName());
+				interaction.getName(),
+				this.version);
 	}
 
 	PartBridge createPartBridgeFromBean(String propertyPath, Object tealBean, Interaction interaction, MessagePartHolder currentMessagePart) {
@@ -165,7 +165,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private AssociationBridge createAssociationBridge(Relationship relationship,
 			RelationshipSorter sorter, Interaction interaction,
 			MessagePartHolder currentMessagePart, BridgeContext context) {
@@ -243,7 +243,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		return new AttributeBridgeImpl(relationship, property);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {

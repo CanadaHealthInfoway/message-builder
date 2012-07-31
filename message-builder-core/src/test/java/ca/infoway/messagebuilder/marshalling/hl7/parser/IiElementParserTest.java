@@ -38,12 +38,14 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IiElementParserTest extends CeRxDomainValueTestCase {
 	
 	private XmlToModelResult result;
+	private static final IiValidationUtils II_VALIDATION_UTILS = new IiValidationUtils();
 
 	@Override
 	@Before
@@ -271,8 +273,8 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		assertResultAsExpected(ii.getValue(), "1.3.1.2", "extensionValue");
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, this.result.getHl7Errors().get(0).getHl7ErrorCode());
-		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("specializationType"));
+		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("Missing specializationType"));
 	}
 	
 	@Test
@@ -283,8 +285,18 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
-		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("specializationType"));
-		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("does not match any of the expected concrete II types"));
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("Invalid specializationType"));
+	}
+	
+	@Test
+	public void testParseSpecializationTypeProvidedWhenNotNecessary() throws Exception {
+		Node node = createNode("<something root=\"1.3.1.2\" extension=\"extensionValue\" use=\"BUS\" specializationType=\"II.BUS\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II.BUS"), node, this.result);
+		assertResultAsExpected(ii.getValue(), "1.3.1.2", "extensionValue");
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("A specializationType should not be specified for non-abstract type: II.BUS"));
 	}
 	
 	@Test
@@ -457,9 +469,9 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private void assertOid(String oid) {
-		assertTrue(oid, new IiElementParser().isOid(oid));
+		assertTrue(oid, II_VALIDATION_UTILS.isOid(oid));
 	}
 	private void assertNotOid(String oid) {
-		assertFalse(oid, new IiElementParser().isOid(oid));
+		assertFalse(oid, II_VALIDATION_UTILS.isOid(oid));
 	}
 }

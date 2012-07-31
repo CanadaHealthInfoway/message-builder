@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.InteractionBean;
@@ -95,10 +96,10 @@ System.out.println(xml);
 //		assertValidHl7Message(xml);
 		
 		GetPersonDemographicsQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(VERSION, model);
-		assertValidHl7Message(xml);
-System.out.println(xml);		
-		Assert.assertFalse("Response should not have warnings", xml.contains("<!-- WARNING:"));
+		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, model);
+		assertValidHl7Message(result.getXmlMessage());
+		System.out.println(result.getXmlMessage());		
+		Assert.assertTrue("Response should not have warnings", result.getHl7Errors().isEmpty());
 	}
 	
 	private GetPersonDemographicsQueryResponseMessageBean createResponseBean() {

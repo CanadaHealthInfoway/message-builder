@@ -102,7 +102,9 @@ public class XmlRenderingVisitorTest {
 
 	@Test
 	public void shouldRenderNonStructuralAttribute() throws Exception {
-		this.attributeBridge.setHl7Value(new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51")));
+		IIImpl iiImpl = new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
+		iiImpl.setDataType(StandardDataType.II_TOKEN);
+		this.attributeBridge.setHl7Value(iiImpl);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
 		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
@@ -318,7 +320,9 @@ public class XmlRenderingVisitorTest {
 	@Test
 	public void shouldRenderCombinationOfAttributesAndAssociations() throws Exception {
 		this.attributeBridge.setEmpty(Boolean.FALSE);
-		this.attributeBridge.setHl7Value(new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51")));
+		IIImpl iiImpl = new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
+		iiImpl.setDataType(StandardDataType.II_TOKEN);
+		this.attributeBridge.setHl7Value(iiImpl);
 		this.attributeBridge.setValue(Boolean.FALSE);
 		
 		Relationship relationship = createSimpleAssociationRelationship();
