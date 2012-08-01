@@ -73,6 +73,7 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         registerTelPhonemailFormatter();
         registerTelUriFormatter();
         register(new TnPropertyFormatter());
+        register(new TsFullDateWithTimePropertyFormatter());
         register(new TsFullDatePropertyFormatter());
         register(new TsFullDateTimePropertyFormatter());
         register(new UrgPqPropertyFormatter());

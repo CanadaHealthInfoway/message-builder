@@ -74,6 +74,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
 		if (specializationType == null) {
+			// FIXME - VALIDATION - TM - should log error here once inner datatypes can be accessed (i.e. IVL<TS.FULLDATEWITHTIME> - there is currently no way to specify specialization type on the inner TS)
 			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS type TS_FULLDATEWITHTIME
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
 			//    - (update: perhaps the real issue is that this was an IVL<TS.FULLDATEWITHTIME> and MB has a bug where inner types can't have specializationType set??)

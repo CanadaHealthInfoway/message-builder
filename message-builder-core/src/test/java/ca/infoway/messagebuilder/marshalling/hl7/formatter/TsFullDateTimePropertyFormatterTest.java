@@ -33,13 +33,11 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -74,20 +72,6 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);
 		assertEquals("value as expected", expectedValue, result.get("value"));
-	}
-
-	@Ignore // to be implemented once SpecializationType can be properly passed in from XmlRenderingVisitor
-	@Test
-	public void testGetAttributeNameValuePairsDateWithAbstractType() throws Exception  {
-		// used as expected: a date object is passed in
-		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		TSImpl tsImpl = new TSImpl(calendar);
-		tsImpl.setDataType(StandardDataType.TS_FULLDATE);
-		String resultXml = new TsFullDateTimePropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", StandardDataType.TS_FULLDATEWITHTIME.getType(), null, true, SpecificationVersion.R02_04_02, null, null), 
-				tsImpl
-		);
-		assertEquals("xml as expected", "<name specializationType=\"TS.FULLDATE\" value=\"19990423\" xsi:type=\"TS\"/>", resultXml);
 	}
 
 	@Test

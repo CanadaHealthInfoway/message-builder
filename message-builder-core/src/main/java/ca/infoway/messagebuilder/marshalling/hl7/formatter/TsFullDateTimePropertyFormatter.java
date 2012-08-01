@@ -65,7 +65,6 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     	VersionNumber version = getVersion(context);
     	String datePattern = determineDateFormat(date, version);
 		validateDatePattern(datePattern, context);
-		validateSpecializationType(date, context);
 		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
     }
@@ -92,13 +91,6 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		}
 	}
 
-	private void validateSpecializationType(Date date, FormatContext context) {
-		
-		// FIXME - VALIDATION - TM - if FULLDATEWITHTIME, check that specializationType provided and that it is FULLDATE or FULLDATETIME
-		//                         - this will likely cause a lot of errors to be reported; need to think about impact vs utility
-		
-	}
-
 	private boolean isCerx(VersionNumber version) {
 		return SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
 	}
@@ -108,22 +100,15 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		// date format precedence:
 		//    provided Date is a dateWithPattern
 		//    format has been overridden for this version
-		//    default format for version
+		//    default format for version/specializationType
     	String datePattern = getPatternFromDateWithPattern(date);
     	if (datePattern == null) {
     		datePattern = getOverrideDatePattern(version);
-    		if (datePattern == null || isFullDateSpecializationType()) {
+    		if (datePattern == null) {
     			datePattern = getDefaultDatePattern(version);
     		}
     	}
 		return datePattern;
-	}
-
-	private boolean isFullDateSpecializationType() {
-		
-		// FIXME - VALIDATION - TM - check if FULLDATEWITHTIME and specializationType is FULLDATE
-		
-		return false;
 	}
 
 	private String getOverrideDatePattern(VersionNumber version) {
@@ -141,9 +126,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 	}
 
 	private String getDefaultDatePattern(VersionNumber version) {
-		if (isFullDateSpecializationType()) {
-			return TsFullDatePropertyFormatter.DATE_FORMAT_YYYYMMDD;
-		} else if (SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX)) {
+		if (SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX)) {
 			return DATE_FORMAT_YYYYMMDDHHMMSS;
 		}
 		return DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;

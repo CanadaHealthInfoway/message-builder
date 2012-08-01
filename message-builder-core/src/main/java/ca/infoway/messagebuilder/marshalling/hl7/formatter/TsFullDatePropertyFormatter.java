@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
 @DataTypeHandler({"TS.FULLDATE", "TS.DATE"})
 public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
-    static final String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
+    private static final String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
 
     @Override
     protected String getValue(Date date, FormatContext context, BareANY bareAny) {
