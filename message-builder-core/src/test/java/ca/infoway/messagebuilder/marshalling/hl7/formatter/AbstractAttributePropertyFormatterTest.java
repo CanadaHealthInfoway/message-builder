@@ -27,6 +27,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 
 public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
@@ -35,7 +36,7 @@ public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
 		private final Map<String, String> nameValuePairs = new HashMap<String, String>();
 		
 		@Override
-		Map<String, String> getAttributeNameValuePairs(FormatContext context, String string) {
+		Map<String, String> getAttributeNameValuePairs(FormatContext context, String string, BareANY bareANY) {
 			return this.nameValuePairs;
 		}
 		

@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 
 /**
@@ -51,7 +52,7 @@ public abstract class AbstractPqPropertyFormatter extends AbstractAttributePrope
 	public static final String ATTRIBUTE_VALUE = "value";
 
 	@Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) throws ModelToXmlTransformationException {
 
         Map<String, String> result = new HashMap<String, String>();
 

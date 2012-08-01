@@ -27,6 +27,7 @@ import java.util.TimeZone;
 import org.apache.commons.lang.ArrayUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -54,7 +55,7 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
     static final String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
 
     @Override
-    protected String getValue(Date date, FormatContext context) {
+    protected String getValue(Date date, FormatContext context, BareANY bareAny) {
 		TimeZone timeZone = context != null && context.getDateTimeZone() != null ? context.getDateTimeZone() : TimeZone.getDefault();
 		String datePattern = determineDatePattern(date);
 		validateDatePattern(datePattern, context);

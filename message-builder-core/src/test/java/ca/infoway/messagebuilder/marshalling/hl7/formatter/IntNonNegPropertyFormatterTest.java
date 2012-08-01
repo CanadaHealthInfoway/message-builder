@@ -38,7 +38,7 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
+		Map<String,String>  result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
 
 		// a null value for INT elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -50,7 +50,7 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerValid() throws Exception {
 		String integerValue = "34";
-		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new Integer(integerValue));
+		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -81,7 +81,7 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZero() throws Exception {
 		String integerValue = "0";
-		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new Integer(integerValue));
+		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -95,7 +95,7 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 		Integer intActual = new Integer(integerValue);
 		INTImpl intImpl = new INTImpl(intActual);
 		
-		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(context, intActual);
+		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(context, intActual, null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));

@@ -41,6 +41,6 @@ class PivlTsPropertyFormatter extends AbstractPivlPropertyFormatter {
 
 	private Map<String, String> getAttributes(DateDiff period) throws ModelToXmlTransformationException {
 		PhysicalQuantity quantity = period.getValueAsPhysicalQuantity();
-		return new PqPropertyFormatter().getAttributeNameValuePairs((FormatContext) null, quantity);
+		return new PqPropertyFormatter().getAttributeNameValuePairs((FormatContext) null, quantity, null);
 	}
 }

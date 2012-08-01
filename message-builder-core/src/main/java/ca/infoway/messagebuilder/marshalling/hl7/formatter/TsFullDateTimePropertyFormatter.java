@@ -29,6 +29,7 @@ import org.apache.commons.lang.ArrayUtils;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -59,7 +60,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSS0ZZZZZ";
 
     @Override
-    protected String getValue(Date date, FormatContext context) {
+    protected String getValue(Date date, FormatContext context, BareANY bareAny) {
     	// write out the date using the applicable "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);
     	String datePattern = determineDateFormat(date, version);

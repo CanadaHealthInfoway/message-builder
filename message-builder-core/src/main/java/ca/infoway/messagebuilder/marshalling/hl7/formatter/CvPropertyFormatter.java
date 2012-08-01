@@ -25,6 +25,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 
@@ -60,8 +61,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class CvPropertyFormatter extends AbstractCodePropertyFormatter {
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code) throws ModelToXmlTransformationException {
-        Map<String, String> result = super.getAttributeNameValuePairs(context, code);
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) throws ModelToXmlTransformationException {
+        Map<String, String> result = super.getAttributeNameValuePairs(context, code, bareAny);
         if (code != null) {
             if (StringUtils.isNotBlank(code.getCodeSystem())) {
                 result.put("codeSystem", code.getCodeSystem());

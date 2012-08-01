@@ -61,11 +61,6 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
 		return false;
 	}
 
-	Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny) throws ModelToXmlTransformationException {
-		return getAttributeNameValuePairs(context, value);
-    }
+	abstract Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny) throws ModelToXmlTransformationException;
 
-	Map<String, String> getAttributeNameValuePairs(FormatContext context, V value) throws ModelToXmlTransformationException {
-		throw new IllegalStateException("getAttributeNameValuePairs(FormatContext,T) is not implemented");
-    }
 }

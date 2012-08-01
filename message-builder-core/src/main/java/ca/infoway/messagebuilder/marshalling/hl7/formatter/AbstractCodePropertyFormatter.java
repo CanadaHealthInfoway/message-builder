@@ -79,7 +79,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
         			}
     			}
     		} else {
-    			attributes.putAll(getAttributeNameValuePairs(context, cd.getValue()));
+    			attributes.putAll(getAttributeNameValuePairs(context, cd.getValue(), hl7Value));
     		}
     		
     		result.append(warning);
@@ -119,7 +119,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	}
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) throws ModelToXmlTransformationException {
         Map<String, String> result = new HashMap<String, String>();
         if (code != null) {
             String value = code.getCodeValue();

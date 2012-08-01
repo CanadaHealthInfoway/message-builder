@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -41,7 +42,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class MoPropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) throws ModelToXmlTransformationException {
         Map<String, String> result = new HashMap<String, String>();
         if (money != null) {
             BigDecimal value = money.getAmount();

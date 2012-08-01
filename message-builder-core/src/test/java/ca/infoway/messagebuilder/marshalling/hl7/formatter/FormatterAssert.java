@@ -39,7 +39,7 @@ public class FormatterAssert extends Assert {
 		address.setUrlScheme(urlScheme);
 		
 		try {
-			formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address);
+			formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
 			fail("expected exception");
 			
 		} catch (ModelToXmlTransformationException e) {
@@ -51,7 +51,7 @@ public class FormatterAssert extends Assert {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
 		
-		Map<String, String> result = formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address);
+		Map<String, String> result = formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));

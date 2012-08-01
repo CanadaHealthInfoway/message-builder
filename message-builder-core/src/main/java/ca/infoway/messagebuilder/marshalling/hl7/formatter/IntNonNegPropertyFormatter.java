@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -43,7 +44,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class IntNonNegPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
 	@Override
-    protected String getValue(Integer integer, FormatContext context) throws ModelToXmlTransformationException {
+    protected String getValue(Integer integer, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
        	return integer.toString();
     }
     

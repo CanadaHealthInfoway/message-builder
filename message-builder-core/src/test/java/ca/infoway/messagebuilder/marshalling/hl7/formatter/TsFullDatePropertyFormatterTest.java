@@ -42,7 +42,7 @@ public class TsFullDatePropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String,String>  result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", null, null), null);
+		Map<String,String>  result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", null, null), null, null);
 
 		// a null value for TS elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -57,7 +57,7 @@ public class TsFullDatePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null), calendar);
+		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null), calendar, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -102,8 +102,8 @@ public class TsFullDatePropertyFormatterTest {
 		format.setTimeZone(TimeZone.getTimeZone("Canada/Ontario"));
 		Date date = format.parse("1999-02-01");
 		
-		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")));
-		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")));
+		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")), null);
+		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")), null);
 		assertFalse(StringUtils.equals(gmtSixValue, gmtFiveValue));
 	}
 

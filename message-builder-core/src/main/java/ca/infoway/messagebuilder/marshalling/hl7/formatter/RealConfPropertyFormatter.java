@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.math.BigDecimal;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.RealConfFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealFormat;
@@ -59,7 +60,7 @@ public class RealConfPropertyFormatter extends AbstractValueNullFlavorPropertyFo
 	}
 	
     @Override
-    protected String getValue(BigDecimal bigDecimal, FormatContext context) {
+    protected String getValue(BigDecimal bigDecimal, FormatContext context, BareANY bareAny) {
     	return this.formatter.format(bigDecimal, 
     			this.format.getMaxValueLength(), this.format.getMaxDecimalPartLength(), true);
     }

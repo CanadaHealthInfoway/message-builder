@@ -34,7 +34,7 @@ public class RealConfPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null);
+		Map<String,String>  result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
 
 		// a null value for REAL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -47,7 +47,7 @@ public class RealConfPropertyFormatterTest {
 	public void testFormatCorrectly() throws Exception {
 		String realValue = "0.2564";
 
-		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue));
+		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", realValue, result.get("value"));
@@ -63,7 +63,7 @@ public class RealConfPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToZero() throws Exception{
 		String realValue = "0.0";
-		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue));
+		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.0000", result.get("value"));		
@@ -80,7 +80,7 @@ public class RealConfPropertyFormatterTest {
 	public void testRoundedToFourDecimalPlacesFloor() throws Exception{
 		String realValue = "0.256444444";
 
-		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue));
+		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.2564", result.get("value"));
@@ -90,7 +90,7 @@ public class RealConfPropertyFormatterTest {
 	public void testRoundedToFourDecimalPlacesCieling() throws Exception{
 		String realValue = "0.256455555";
 
-		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue));
+		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.2565", result.get("value"));
@@ -99,7 +99,7 @@ public class RealConfPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToOne() throws Exception{
 		String realValue = "1.0";
-		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue));
+		Map<String, String> result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "1.0000", result.get("value"));
