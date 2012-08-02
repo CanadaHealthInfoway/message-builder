@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
@@ -38,7 +37,7 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String>  result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new INTImpl());
 
 		// a null value for INT elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -92,24 +91,30 @@ public class IntNonNegPropertyFormatterTest extends MarshallingTestCase {
 	public void testGetAttributeNameValuePairsIntegerNegative() throws Exception {
 		String integerValue = "-1";
 		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "INT.NONNEG", ConformanceLevel.REQUIRED);
-		Integer intActual = new Integer(integerValue);
-		INTImpl intImpl = new INTImpl(intActual);
-		
-		Map<String, String> result = new IntNonNegPropertyFormatter().getAttributeNameValuePairs(context, intActual, null);
+		Integer integer = new Integer(integerValue);
+		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
 		assertEquals("map size", 1, result.size());
+		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));
+
+		context.getModelToXmlResult().getHl7Errors().clear();
 		
-		String string = new IntNonNegPropertyFormatter().format(context, intImpl);
-		assertTrue("warning: ", string.contains("<!-- WARNING:"));
+		String output = new IntPosPropertyFormatter().format(
+				context,
+				new INTImpl(integer));
+		assertEquals("xml output as expected", "<name value=\"-1\"/>", output.trim());
+		assertEquals("1 error", 1, context.getModelToXmlResult().getHl7Errors().size());
 	}
 	
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZeroNoWarnings() throws Exception {
 		String integerValue = "0";
-		String string = new IntNonNegPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "INT.NONNEG", ConformanceLevel.REQUIRED),
+		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "INT.NONNEG", ConformanceLevel.REQUIRED);
+		String output = new IntNonNegPropertyFormatter().format(
+				context,
 				new INTImpl(new Integer(integerValue)));
-		assertFalse("warning: " + string, string.contains("<!-- WARNING:"));
+		assertEquals("xml output as expected", "<name value=\"0\"/>", output.trim());
+		assertTrue("no errors", context.getModelToXmlResult().getHl7Errors().isEmpty());
 	}
 }

@@ -29,6 +29,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
@@ -37,7 +38,7 @@ public class TelUriPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new TELImpl());
 
 		// a null value for TEL.URI elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());

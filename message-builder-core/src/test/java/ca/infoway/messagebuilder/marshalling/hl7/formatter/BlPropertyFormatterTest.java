@@ -27,13 +27,15 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new BLImpl());
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());

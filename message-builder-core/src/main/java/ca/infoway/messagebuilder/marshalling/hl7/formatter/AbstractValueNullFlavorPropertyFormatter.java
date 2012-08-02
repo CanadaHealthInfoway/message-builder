@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 
 /**
@@ -49,7 +50,8 @@ public abstract class AbstractValueNullFlavorPropertyFormatter<V> extends Abstra
             result.put("value", getValue(t, context, bareAny));
             addOtherAttributesIfNecessary(t, result);
         } else {
-            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
+        	NullFlavor providedNullFlavor = bareAny.getNullFlavor();
+            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, providedNullFlavor == null ? NULL_FLAVOR_NO_INFORMATION : providedNullFlavor.getCodeValue());
         }
         return result;
     }

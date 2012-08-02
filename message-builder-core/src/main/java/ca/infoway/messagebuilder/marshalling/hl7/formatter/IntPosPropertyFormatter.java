@@ -22,6 +22,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 
 
@@ -47,16 +50,21 @@ class IntPosPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<I
 
     @Override
     protected String getValue(Integer integer, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
+    	validate(integer, context, bareAny);
         return integer.toString();
     }
     
-    @Override
-    boolean isInvalidValue(FormatContext context, Integer integer) {
-    	return integer==null || integer.intValue() <= 0;
-    }
+    private void validate(Integer integer, FormatContext context, BareANY bareAny) {
+    	if (integer.intValue() <= 0) {
+    		recordMustBeGreaterThanZeroError(integer, context.getModelToXmlResult());
+    	}
+	}
 
-    @Override
-    protected String createWarningText(FormatContext context, Integer value) {
-		return "Value " + value + " should be positive.";
-    }
+	private void recordMustBeGreaterThanZeroError(Integer integer, ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, 
+						"The attribute \"value\" must be greater than zero for INT.POS.")); 
+	}
+
 }

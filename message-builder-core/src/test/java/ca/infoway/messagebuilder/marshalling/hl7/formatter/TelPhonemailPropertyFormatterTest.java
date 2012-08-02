@@ -33,6 +33,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -42,7 +43,7 @@ public class TelPhonemailPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new TELImpl());
 
 		// a null value for TEL.PHONEMAIL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());

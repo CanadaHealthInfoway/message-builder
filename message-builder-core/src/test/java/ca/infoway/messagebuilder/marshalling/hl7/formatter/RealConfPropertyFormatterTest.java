@@ -28,13 +28,14 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.impl.REALImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class RealConfPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String>  result = new RealConfPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new REALImpl());
 
 		// a null value for REAL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
