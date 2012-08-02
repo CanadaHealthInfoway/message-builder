@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -41,64 +42,75 @@ public class IntElementParserTest extends MarshallingTestCase {
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
 		
-		INT parsedInt = (INT) new IntElementParser().parse(createContext(), node, this.xmlResult);
+		INT parsedInt = (INT) new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult);
 		
 		assertNull("null returned", parsedInt.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, parsedInt.getNullFlavor());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 
-	private ParseContext createContext() {
-		return ParserContextImpl.create("Int", Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+	private ParseContext createContext(String hl7Type) {
+		return ParserContextImpl.create(hl7Type, Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 	
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		assertNull("null returned", new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertNull("null returned", new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertFalse("error", this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		assertNull("null returned", new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertNull("null returned", new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertFalse("error", this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 	
 	@Test
 	public void testParseValueAttributeValid() throws Exception {
 		Node node = createNode("<something value=\"1345\" />");
-		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
 	public void testParseValueAttributeValidZero() throws Exception {
 		Node node = createNode("<something value=\"0\" />");
-		assertEquals("correct value returned", new Integer("0"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("0"), new IntElementParser().parse(createContext("INT.NONNEG"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeValidNegative() throws Exception {
+	public void testParseValueAttributeInvalidNegative() throws Exception {
 		Node node = createNode("<something value=\"-1\" />");
-		assertEquals("correct value returned", new Integer("-1"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("-1"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertFalse("error", this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 	
 	@Test
 	public void testParseValueAttributeValidPlusExtraAttribute() throws Exception {
 		Node node = createNode("<something extra=\"value\" value=\"1345\" />");
-		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
 	public void testParseEmptyValue() throws Exception {
 		Node node = createNode("<something value=\"\" />");
-		assertEquals("correct value returned", null, new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", null, new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
 		assertFalse("error", this.xmlResult.isValid());
-		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 	
 	@Test
 	public void testParseElementWithTextNodes() throws Exception {
 		Node node = createNode("<something value=\"3\" >\n</something>");
-		assertEquals("correct value returned", new Integer(3), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer(3), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
@@ -108,36 +120,51 @@ public class IntElementParserTest extends MarshallingTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new IntElementParser().parse(new TrivialContext("INT"), node, this.xmlResult);
+			new IntElementParser().parse(new TrivialContext("INT.POS"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
 			// expected
-			assertEquals("proper exception returned", "Expected INT node to have no children", e.getMessage());
+			assertEquals("proper exception returned", "Expected INT.POS node to have no children", e.getMessage());
 		}
 	}
 
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
 		Node node = createNode("<something value=\"monkey\" />");
-		new IntElementParser().parse(null, node, this.xmlResult);
+		new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult);
 		assertFalse("error", this.xmlResult.isValid());
-		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueWithZeroForIntPosAttribute() throws Exception {
+		Node node = createNode("<something value=\"0\" />");
+		new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult);
+		assertFalse("error", this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueWithZeroForIntNonNegAttribute() throws Exception {
+		Node node = createNode("<something value=\"0\" />");
+		new IntElementParser().parse(createContext("INT.NONNEG"), node, this.xmlResult);
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
 	public void testParseValueAttributeValidIntgerWithDecimal() throws Exception {
 		Node node = createNode("<something value=\"1345.000\" />");
-		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
 		assertFalse("error", this.xmlResult.isValid());
-		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 
 	@Test
 	public void testParseValueAttributeValidIntgerWithOtherDecimal() throws Exception {
 		Node node = createNode("<something value=\"1345.999\" />");
-		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(null, node, this.xmlResult).getBareValue());
+		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());
 		assertFalse("error", this.xmlResult.isValid());
-		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
 	}
 }

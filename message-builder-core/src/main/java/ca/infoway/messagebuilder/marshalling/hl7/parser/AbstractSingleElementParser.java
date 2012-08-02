@@ -193,7 +193,6 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	}
 
 	private boolean isNonTrivialChildNode(Node child) {
-		// FIXME - TM - should also check for comments and other trivial nodes
 		return (child instanceof Text && StringUtils.isNotBlank(((Text) child).getData()))
 			|| (child instanceof Element);
 	}
