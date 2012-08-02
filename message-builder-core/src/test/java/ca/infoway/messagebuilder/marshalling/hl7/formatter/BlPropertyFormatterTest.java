@@ -28,7 +28,6 @@ import java.util.Map;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class BlPropertyFormatterTest {
