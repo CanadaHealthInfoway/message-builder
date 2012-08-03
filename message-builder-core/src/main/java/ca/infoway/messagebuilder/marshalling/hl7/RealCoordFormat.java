@@ -30,10 +30,10 @@ public class RealCoordFormat implements RealFormat {
 	}
 
 	public int getMaxIntegerPartLength() {
-		return 1;
+		return 4;
 	}
 
 	public int getMaxValueLength() {
-		return 6;
+		return 9;
 	}
 }
