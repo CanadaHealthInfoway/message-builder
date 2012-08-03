@@ -20,16 +20,22 @@
 
 package ca.infoway.messagebuilder.generator;
 
+import static ca.infoway.messagebuilder.util.iterator.NodeListIterator.elementIterable;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.RimClass;
 
 
 public class Mif2XPathHelperTest {
@@ -61,7 +67,16 @@ public class Mif2XPathHelperTest {
 		Element templateParameter = Mif2XPathHelper.getTemplateParameter(element);
 		
 		assertNotNull("element", templateParameter);
-		
 	}
 
+	@Test
+	public void shouldFindGraphicRepresentationClasses() throws Exception {
+		Document mif = new DocumentFactory().createFromResource(
+				new ClasspathResource(getClass(), 
+						"MCCI_MT002100CA - Request Transport Wrapper.mif"));
+		
+		List<Element> classes = Mif2XPathHelper.getGraphicRepresentationClasses(mif);
+		assertEquals(13, classes.size());
+	}
+	
 }

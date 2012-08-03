@@ -27,6 +27,7 @@ import static ca.infoway.messagebuilder.util.xml.NodeUtil.getLocalOrTagName;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
@@ -38,6 +39,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -45,6 +47,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.RimClass;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -187,8 +190,10 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		List<MessagePart> result = new ArrayList<MessagePart>();
 		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(mif.asDocument());
 		String qualifier = createPackageLocation(messageSet, ownedEntryPoint);
+		HashMap<String, String> rimClassMap = new HashMap<String, String>();
 		
-		processContainedClasses(messageSet, result, qualifier, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
+		processGraphicRepresentation(rimClassMap, mif);
+		processContainedClasses(messageSet, result, qualifier, rimClassMap, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
 		
 		for (MessagePart messagePart : result) {
 			this.outputUI.log(LogLevel.DEBUG, "Entry point " + qualifier + " contains complex type " + messagePart.getName());
@@ -199,12 +204,22 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 
+	private void processGraphicRepresentation(HashMap<String, String> rimClassMap, Mif mif) {
+		List<Element> graphicRepresentationClasses = Mif2XPathHelper.getGraphicRepresentationClasses(mif.asDocument());		
+		for (Element classElement : graphicRepresentationClasses) {
+			String id = classElement.getAttribute("semanticLinkId");
+			Element graphElement = Mif2XPathHelper.getSingleElement(classElement, "mif2:graphElement");
+			String value = graphElement.getAttribute("shapeTemplate");
+			rimClassMap.put(id, value);
+		}
+	}
+
 	private void processContainedClasses(MessageSet messageSet, List<MessagePart> result,
-			String qualifier, List<Element> containedClasses) throws GeneratorException {
+			String qualifier, HashMap<String, String> rimClassMap, List<Element> containedClasses) throws GeneratorException {
 		
 		for (Element element : containedClasses) {
 			if (Mif2XPathHelper.isMifClassPresent(element)) {
-				MessagePart part = createPart(result, qualifier, element);
+				MessagePart part = createPart(result, qualifier, element, rimClassMap);
 				addDocumentation(Mif2XPathHelper.getClassElement(element), part);
 				processChilds(messageSet, element, part);
 				result.add(part);
@@ -452,14 +467,45 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private MessagePart createPart(List<MessagePart> result, String qualifier,
-			Element element) {
+			Element element, HashMap<String, String> rimClassMap) {
 		Element classElement = Mif2XPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
+		
+		MessagePart msgPart = null;
 		if (isAbstract(classElement)) {
-			return MessagePart.createAbstractPart(name);
+			msgPart = MessagePart.createAbstractPart(name);
 		} else {
-			return new MessagePart(name);
+			msgPart = new MessagePart(name);
 		}
+		addRimClass(classElement, msgPart, rimClassMap);
+		return msgPart;
+	}
+
+	private void addRimClass(Element classElement, MessagePart msgPart, HashMap<String, String> rimClassMap) {
+		String rimClassName = rimClassMap.get(classElement.getAttribute("graphicLinkId"));
+		if(rimClassName.equals("RoleLinkR")) {
+			rimClassName = RimClass.ROLE_LINK.getCode();
+		} else if (rimClassName.equals("ActRelationshipR")) {
+			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
+		} else if (rimClassName.equals("Choice")) {
+			rimClassName = extractFromDerivedFromElement(classElement);
+		}
+		msgPart.setRimClass(getRimClassFromCode(rimClassName));
+	}
+
+	private RimClass getRimClassFromCode(String rimClassName) {
+		List<RimClass> values = EnumPattern.values(RimClass.class);
+		for (RimClass rimClass : values) {
+			if (rimClass.getCode().equals(rimClassName)) {
+				return rimClass;
+			}
+		}
+		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
+	}
+
+	private String extractFromDerivedFromElement(Element classElement) {
+		Element derivedFromElement = Mif2XPathHelper.getSingleElement(classElement, "mif2:derivedFrom");
+		return derivedFromElement.getAttribute("className");
 	}
 
 	private boolean isAbstract(Element classElement) {
