@@ -24,6 +24,9 @@ import java.math.BigDecimal;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.RealConfFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealFormat;
 import ca.infoway.messagebuilder.platform.NumberFormatter;
@@ -47,21 +50,41 @@ import ca.infoway.messagebuilder.platform.NumberFormatter;
 @DataTypeHandler({"REAL.CONF"})
 public class RealConfPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<BigDecimal>{
 
-	private NumberFormatter formatter = new NumberFormatter();
-	private RealFormat format = new RealConfFormat();
-	
-	@Override
-	boolean isInvalidValue(FormatContext context, BigDecimal bigDecimal) {
-    	if (bigDecimal.compareTo(BigDecimal.ZERO) < 0 || bigDecimal.compareTo(BigDecimal.ONE) > 0){
-    		return true;
-    	} else {
-    		return false;
-    	}
-	}
+	private NumberFormatter numberFormatter = new NumberFormatter();
+	private RealFormat realFormat = new RealConfFormat();
 	
     @Override
     protected String getValue(BigDecimal bigDecimal, FormatContext context, BareANY bareAny) {
-    	return this.formatter.format(bigDecimal, 
-    			this.format.getMaxValueLength(), this.format.getMaxDecimalPartLength(), true);
+    	validate(context, bigDecimal);
+    	return this.numberFormatter.format(
+    			bigDecimal, 
+    			this.realFormat.getMaxValueLength(),
+    			this.realFormat.getMaxIntegerPartLength(),
+    			determineScale(bigDecimal), 
+    			true);
     }
+
+	private int determineScale(BigDecimal bigDecimal) {
+		boolean useBigDecimalScale = (bigDecimal.scale() >= 0 && bigDecimal.scale() < this.realFormat.getMaxDecimalPartLength());
+		return useBigDecimalScale ? bigDecimal.scale() : this.realFormat.getMaxDecimalPartLength();
+	}
+    
+	private void validate(FormatContext context, BigDecimal bigDecimal) {
+		ModelToXmlResult modelToXmlResult = context.getModelToXmlResult();
+    	if (bigDecimal.compareTo(BigDecimal.ZERO) < 0 || bigDecimal.compareTo(BigDecimal.ONE) > 0){
+    		recordValueMustBeBetweenZeroAndOneError(modelToXmlResult);
+    	}
+    	if (bigDecimal.scale() > realFormat.getMaxDecimalPartLength()) {
+    		recordTooManyDigitsToRightOfDecimalError(modelToXmlResult);
+    	}
+	}
+
+	private void recordValueMustBeBetweenZeroAndOneError(ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must be between 0 and 1 (inclusive). Value may have been modified to fit format requirements."));
+	}
+	
+	private void recordTooManyDigitsToRightOfDecimalError(ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements."));
+	}
+	
 }
