@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class AnyElementParserTest extends CeRxDomainValueTestCase {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParse() throws Exception {
 		Node node = createNode(
@@ -65,6 +66,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseAbsentSpecializationTypeUrgExampleFromChiDocs() throws Exception {
 		Node node = createNode(
@@ -119,7 +121,8 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
 				node, xmlToModelResult);
 
-		
+		assertNotNull(result);
+		assertNull(result.getBareValue());
 		assertEquals("has error", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("error message", "Cannot support properties of type \"PQ\" for \"ANY.LAB\"", xmlToModelResult.getHl7Errors().get(0).getMessage());
 	}
@@ -139,6 +142,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseRetainsProperDatatypeForSpecializationTypeWhenAnyOnlySpecifiesOkToUseAbstractType() throws Exception {
 		Node node = createNode(

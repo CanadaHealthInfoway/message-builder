@@ -78,7 +78,8 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
 							context.getConformance()),
-						Arrays.asList(node), xmlToModelResult);
+						Arrays.asList(node), 
+						xmlToModelResult);
 				result = parsedValue.getBareValue();
 
 				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost.

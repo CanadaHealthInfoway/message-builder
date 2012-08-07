@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
-
 public class AnyPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
