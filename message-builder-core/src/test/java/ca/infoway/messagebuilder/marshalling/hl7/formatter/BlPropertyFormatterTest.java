@@ -28,6 +28,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class BlPropertyFormatterTest {
@@ -41,6 +42,17 @@ public class BlPropertyFormatterTest {
 		
 		assertTrue("key as expected", result.containsKey("nullFlavor"));
 		assertEquals("value as expected", AbstractPropertyFormatter.NULL_FLAVOR_NO_INFORMATION, result.get("nullFlavor"));
+	}
+
+	@Test
+	public void testGetAttributeNameValuePairsSpecifiedNullValue() throws Exception {
+		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new BLImpl(NullFlavor.NOT_APPLICABLE));
+
+		// a null value for BL elements results in a nullFlavor attribute
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("nullFlavor"));
+		assertEquals("value as expected", NullFlavor.NOT_APPLICABLE.getCodeValue(), result.get("nullFlavor"));
 	}
 
 	@Test
