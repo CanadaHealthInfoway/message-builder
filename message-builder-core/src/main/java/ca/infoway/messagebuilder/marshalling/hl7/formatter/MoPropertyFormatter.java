@@ -24,10 +24,15 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 /**
  * MO - Money
@@ -41,20 +46,109 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("MO")
 class MoPropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	
+	private static final int MAX_DIGITS_BEFORE_DECIMAL = 11;
+	private static final int MAX_DIGITS_AFTER_DECIMAL = 2;
+
     @Override
     Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) throws ModelToXmlTransformationException {
+    	
+    	validate(money, context);    	
+    	
         Map<String, String> result = new HashMap<String, String>();
-        if (money != null) {
-            BigDecimal value = money.getAmount();
-            if (value != null) {
-                result.put("value", value.toString());
-            }
-
-            Currency currency = money.getCurrency();
-            if (currency != null) {
-                result.put("currency", currency.getCodeValue());
-            }
+        
+        BigDecimal value = money.getAmount();
+        if (value != null) {
+            result.put("value", value.toString());
         }
+
+        Currency currency = money.getCurrency();
+        if (currency != null) {
+            result.put("currency", currency.getCodeValue());
+        }
+        
         return result;
     }
+
+	private void validate(Money money, FormatContext context) {
+
+		ModelToXmlResult modelToXmlResult = context.getModelToXmlResult();
+
+		BigDecimal amount = money.getAmount();
+		if (amount == null) {
+			recordMissingValueError(modelToXmlResult);
+		} else {
+			String value = amount.toString();
+			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
+			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
+			
+			if (StringUtils.length(integerPart) > MAX_DIGITS_BEFORE_DECIMAL) {
+				recordTooManyDigitsBeforeDecimalError(value, modelToXmlResult);
+			}
+			if (StringUtils.length(decimalPart) > MAX_DIGITS_AFTER_DECIMAL) {
+				recordTooManyDigitsAfterDecimalError(value, modelToXmlResult);
+			}
+			if (!StringUtils.isNumeric(integerPart) || !StringUtils.isNumeric(decimalPart)) {
+				recordMustContainDigitsOnlyError(value, modelToXmlResult);
+			}
+		}
+		
+		Currency currency = money.getCurrency();
+		if (currency == null) {
+			recordMissingCurrencyError(modelToXmlResult); 
+		} else if (!Currency.CANADIAN_DOLLAR.getCodeValue().equals(currency.getCodeValue())) {
+			recordCurrencyMustBeCadError(modelToXmlResult); 
+		}
+		
+
+		
+	}
+
+	private void recordTooManyDigitsAfterDecimalError(String value, ModelToXmlResult result) {
+		result.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type MO.CAD" 
+						+ " should have no more than " + MAX_DIGITS_AFTER_DECIMAL 
+						+ " digits after the decimal"));
+	}
+
+	private void recordTooManyDigitsBeforeDecimalError(String value, ModelToXmlResult result) {
+		result.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type MO.CAD" 
+						+ " should have no more than " + MAX_DIGITS_BEFORE_DECIMAL 
+						+ " digits before the decimal"));
+	}
+
+	private void recordMustContainDigitsOnlyError(String value, ModelToXmlResult result) {
+		result.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR,
+						"Value \"" + value + "\" can only contain digits, with a maximum of " + MAX_DIGITS_BEFORE_DECIMAL +
+						" before the decimal and " + MAX_DIGITS_AFTER_DECIMAL + " after the decimal."
+						));
+	}
+	
+	private void recordCurrencyMustBeCadError(ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, 
+						"The attribute \"currency\" has been provided, but it must be CAD."));
+	}
+
+	private void recordMissingCurrencyError(ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, 
+						"The attribute \"currency\" is mandatory and must be specified."));
+	}
+	
+	private void recordMissingValueError(ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(
+				new Hl7Error(
+						Hl7ErrorCode.DATA_TYPE_ERROR, 
+						"The attribute \"value\" is mandatory and must be specified."));
+	}
+	
 }
