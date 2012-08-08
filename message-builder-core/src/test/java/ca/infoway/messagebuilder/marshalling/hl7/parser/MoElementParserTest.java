@@ -24,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -45,7 +46,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 public class MoElementParserTest extends MarshallingTestCase {
 
 	private XmlToModelResult result;
-
+	
 	@Override
 	@Before
 	public void setUp() throws Exception {
@@ -67,54 +68,113 @@ public class MoElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		new MoElementParser().parse(null, node, result);
+		new MoElementParser().parse(createContext(), node, result);
 		assertFalse("valid", result.isValid());
+        assertEquals(2, this.result.getHl7Errors().size());
 	}
 
 	@Test
 	public void testParseNoCurrencyAttributeNode() throws Exception {
 		Node node = createNode("<something value=\"12.34\" notcurrency=\"CAD\" />");
-		new MoElementParser().parse(null, node, this.result);
+		Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
 		assertFalse("result", result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, new BigDecimal("12.34"), null);
 	}
 	
 	@Test
 	public void testParseValidTwoAttributes() throws Exception {
 		Node node = createNode("<something value=\"12.00\" currency=\"CAD\" />");
-		Money result = (Money) new MoElementParser().parse(null, node, this.result).getBareValue();
+		Money result = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+		assertTrue("result", this.result.isValid());
 		assertResultAsExpected(result, new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
 	}
 	
 	@Test
+	public void testParseValidTwoAttributesMaxDigits() throws Exception {
+		Node node = createNode("<something value=\"12345678901.12\" currency=\"CAD\" />");
+		Money result = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+		assertTrue("result", this.result.isValid());
+		assertResultAsExpected(result, new BigDecimal("12345678901.12"), Currency.CANADIAN_DOLLAR);
+	}
+	
+	@Test
 	public void testParseValidTwoAttributesDifferentOrder() throws Exception {
-        Node node = createNode("<something currency=\"CAD\" value=\"12.00\" />");
-        Money result = (Money) new MoElementParser().parse(null, node, this.result).getBareValue();
-        assertResultAsExpected(result, new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
+        Node node = createNode("<something currency=\"CAD\" value=\"12\" />");
+        Money result = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertTrue("result", this.result.isValid());
+        assertResultAsExpected(result, new BigDecimal("12"), Currency.CANADIAN_DOLLAR);
 	}
 	
 	@Test
     public void testParseValidTwoAttributesPlusExtra() throws Exception {
-        Node node = createNode("<something value=\"12.00\" currency=\"CAD\" something=\"monkey\" />");
-        Money result = (Money) new MoElementParser().parse(null, node, this.result).getBareValue();
-        assertResultAsExpected(result, new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
+        Node node = createNode("<something value=\".4\" currency=\"CAD\" something=\"monkey\" />");
+        Money result = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+		assertTrue("result", this.result.isValid());
+        assertResultAsExpected(result, new BigDecimal(".4"), Currency.CANADIAN_DOLLAR);
     }
     
 	@Test
     public void testParseInvalidValue() throws Exception {
         Node node = createNode("<something value=\"12.00X\" currency=\"CAD\" />");
-        try {
-            new MoElementParser().parse(null, node, this.result);
-            fail("expected exception");
-        } catch (NumberFormatException e) {
-            // expected
-        }
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertFalse(this.result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, null, Currency.CANADIAN_DOLLAR);
+    }
+    
+	@Test
+    public void testParseMissingValue() throws Exception {
+        Node node = createNode("<something value=\"\" currency=\"CAD\" />");
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertFalse(this.result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, null, Currency.CANADIAN_DOLLAR);
+    }
+    
+	@Test
+    public void testParseInvalidValueTooManyDigits() throws Exception {
+        Node node = createNode("<something value=\"123456789012.123\" currency=\"CAD\" />");
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertFalse(this.result.isValid());
+        assertEquals(2, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, new BigDecimal("123456789012.123"), Currency.CANADIAN_DOLLAR);
+    }
+    
+	@Test
+    public void testParseInvalidValueNotAllDigitsBeforeDecimal() throws Exception {
+        Node node = createNode("<something value=\"0x12\" currency=\"CAD\" />");
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertFalse(this.result.isValid());
+        assertEquals(2, this.result.getHl7Errors().size()); // not all digits; not a number
+        assertResultAsExpected(parseResult, null, Currency.CANADIAN_DOLLAR);
+    }
+    
+	@Test
+    public void testParseInvalidValueNotAllDigitsAfterDecimal() throws Exception {
+        Node node = createNode("<something value=\"1122.1a\" currency=\"CAD\" />");
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+        assertFalse(this.result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size()); // not all digits; not a number
+        assertResultAsExpected(parseResult, null, Currency.CANADIAN_DOLLAR);
     }
     
 	@Test
     public void testParseInvalidCurrency() throws Exception {
         Node node = createNode("<something value=\"12.00\" currency=\"XXX\" />");
-        new MoElementParser().parse(null, node, this.result);
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
 		assertFalse("result", result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, new BigDecimal("12.00"), null);
+    }
+    
+	@Test
+    public void testParseUnallowedCurrency() throws Exception {
+        Node node = createNode("<something value=\"123.0\" currency=\"USD\" />");
+        Money parseResult = (Money) new MoElementParser().parse(createContext(), node, this.result).getBareValue();
+		assertFalse("result", result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+        assertResultAsExpected(parseResult, new BigDecimal("123.0"), Currency.US_DOLLAR);
     }
     
 	@Test
@@ -124,7 +184,7 @@ public class MoElementParserTest extends MarshallingTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new MoElementParser().parse(new TrivialContext("MO"), node, this.result);
+			new MoElementParser().parse(createContext(), node, this.result);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
