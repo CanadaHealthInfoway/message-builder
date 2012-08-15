@@ -76,6 +76,7 @@
           <amendedInTimeRange>
             <value>
               <low value="19691231190000.0000-0500"/>
+              <high value="19691231190000.0050-0500"/>
             </value>
           </amendedInTimeRange>
           <includeEventHistoryIndicator>

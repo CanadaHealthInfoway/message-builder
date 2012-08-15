@@ -67,6 +67,7 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 	"      <statusCode code=\"completed\"/>" +
 	"      <effectiveTime>" +
 	"        <low value=\"20080918\"/>" +
+	"        <high nullFlavor=\"NI\"/>" +
 	"      </effectiveTime>" +
 	"      <author typeCode=\"AUT\" contextControlCode=\"AP\">" +
 	"        <time value=\"20080625141610-0500\"/>" +

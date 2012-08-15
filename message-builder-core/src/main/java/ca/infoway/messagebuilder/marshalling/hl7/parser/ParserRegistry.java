@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 
-@SuppressWarnings("unchecked")
 public class ParserRegistry extends Registry<ElementParser> {
 
     private static ParserRegistry instance = new ParserRegistry();
@@ -30,7 +29,8 @@ public class ParserRegistry extends Registry<ElementParser> {
     private ParserRegistry() {
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     protected void registerAll() {
         register(new AdElementParser());
         register(new AnyElementParser());

@@ -24,7 +24,6 @@ import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.apache.commons.lang.SystemUtils;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -70,7 +69,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean());
 		String xmlMessage = result.getXmlMessage();
 		Document actual = this.factory.createFromString(xmlMessage);
-//		System.out.println(xmlMessage);
+		System.out.println(xmlMessage);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RETRACT_MESSAGE_FILE)), actual);
 	}
 

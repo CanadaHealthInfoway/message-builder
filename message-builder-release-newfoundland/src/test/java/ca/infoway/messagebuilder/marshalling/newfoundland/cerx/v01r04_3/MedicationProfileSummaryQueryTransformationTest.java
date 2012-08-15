@@ -247,7 +247,7 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 
 	private SupplySummaryBean createSupplySummaryBean() {
 		SupplySummaryBean bean = new SupplySummaryBean();
-		bean.setEffectiveTime(IntervalFactory.createLow(new Date(0)));
+		bean.setEffectiveTime(IntervalFactory.createHigh(new Date(0)));
 		bean.setQuantity(createPhysicalQuantity(1));
 		return bean;
 	}

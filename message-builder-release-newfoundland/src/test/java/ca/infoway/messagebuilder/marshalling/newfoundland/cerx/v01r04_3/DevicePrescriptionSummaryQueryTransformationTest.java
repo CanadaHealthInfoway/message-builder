@@ -137,7 +137,7 @@ public class DevicePrescriptionSummaryQueryTransformationTest extends BaseTransf
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		criteria.setPatientBirthDate(new Date(0));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
-		criteria.setAmendedInTimeRange(IntervalFactory.createLow(new Date(0)));
+		criteria.setAmendedInTimeRange(IntervalFactory.createLowHigh(new Date(0), new Date(5)));
 		criteria.setIssueFilterCode(lookup(IssueFilterCode.class, "A", CodeSystem.VOCABULARY_QUERY_PARAMETER_VALUE.getRoot()));
 		criteria.setMostRecentByDeviceIndicator(true);
 		criteria.getRxDispenseIndicator().add(lookup(PrescriptionDispenseFilterCode.class, "N", CodeSystem.VOCABULARY_QUERY_PARAMETER_VALUE.getRoot()));

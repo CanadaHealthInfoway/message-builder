@@ -52,7 +52,7 @@ public class GenericMathTest {
 	@Test
 	public void testAddDateAndDiff() throws Exception {
 		Date low = new Date(0);
-		Date add = GenericMath.add(low, new Diff<Date>(null));
+		Date add = GenericMath.add(low, new Diff<Date>((Date)null));
 		assertEquals(low, add);
 	}
 	

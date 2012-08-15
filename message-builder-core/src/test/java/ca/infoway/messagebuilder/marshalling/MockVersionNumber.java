@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 
 public class MockVersionNumber implements VersionNumber {
 
-	public static final VersionNumber MOCK_NEWFOUNDLAND = new MockVersionNumber("MOCK_NEWFOUNDLAND", null);
+	public static final VersionNumber MOCK_NEWFOUNDLAND = new MockVersionNumber("MOCK_NEWFOUNDLAND", Hl7BaseVersion.MR2007);
 	public static final VersionNumber MOCK_MR2009 = new MockVersionNumber("MOCK_MR2009", Hl7BaseVersion.MR2009);
 	private final String literal;
 	private final Hl7BaseVersion baseVersion;

@@ -56,7 +56,7 @@
       <code code="NLPN_TE100110CA" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="new"/>
       <effectiveTime>
-        <low value="20080918"/>
+        <low value="20080918"/><high value="20080918"/>
       </effectiveTime>
       <subject typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
         <broadcastMessage moodCode="EVN">

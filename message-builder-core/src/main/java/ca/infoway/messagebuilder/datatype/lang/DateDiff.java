@@ -47,7 +47,6 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
     public static final String HOUR = "h";
     public static final String DAY = "d";
     private final Integer value;
-    private final NullFlavor nullFlavor;
 	private final PhysicalQuantity quantity;
 
 	/**
@@ -58,7 +57,6 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
     public DateDiff(Date value) {
         super(value);
         this.value = null;
-        this.nullFlavor = null;
         this.quantity = null;
     }
 
@@ -82,7 +80,6 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
         super(asDate(quantity));
 		this.quantity = quantity;
         this.value = quantity.getQuantity().intValue();
-        this.nullFlavor = null;
     }
 
     /**
@@ -91,9 +88,8 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
      * @param nullFlavor a null flavor
      */
     public DateDiff(NullFlavor nullFlavor) {
-        super(null);
+        super(nullFlavor);
         this.value = null;
-        this.nullFlavor = nullFlavor;
         this.quantity = null;
     }
 
@@ -154,21 +150,4 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
         }
     }
     
-    /**
-     * <p>Returns the null flavor.
-     * 
-     * @return the null flavor
-     */
-    public NullFlavor getNullFlavor() {
-        return this.nullFlavor;
-    }
-
-    /**
-     * <p>Returns whether this object has a null flavor.
-     * 
-     * @return whether this object has a null flavor.
-     */
-    public boolean hasNullFlavor() {
-        return this.nullFlavor != null;
-    }
 }

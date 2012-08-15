@@ -90,4 +90,8 @@ class ParserContextImpl implements ParseContext {
 			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
 		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, strength, length);
 	}
+	
+	public static ParseContext create(String newType, ParseContext oldContext) {
+		return new ParserContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCodingStrength(), oldContext.getLength());
+	}
 }

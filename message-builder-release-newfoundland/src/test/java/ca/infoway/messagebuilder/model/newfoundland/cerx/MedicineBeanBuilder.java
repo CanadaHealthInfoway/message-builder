@@ -47,6 +47,7 @@ public class MedicineBeanBuilder extends BaseBeanBuilder<MedicineBean> {
 		this.bean.setContainerPackagedMedicine(lookup(CompliancePackageEntityType.class, "BLSTRPK", CodeSystem.VOCABULARY_ENTITY_CODE.getRoot()));
 		this.bean.setDesc("some medicine containing ibuprofen");
 		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1)));
+//		this.bean.setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
 		this.bean.setFormCode(lookup(OrderableDrugForm.class, "DROP", CodeSystem.VOCABULARY_ADMINISTRABLE_DRUG_FORM.getRoot()));
 		this.bean.setLotNumberText("lot number 123");
 		this.bean.setManufacturerId(new Identifier("5.4.3", "1"));

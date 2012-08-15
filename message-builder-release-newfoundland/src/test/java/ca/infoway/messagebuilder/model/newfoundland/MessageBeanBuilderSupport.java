@@ -38,6 +38,8 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
@@ -54,6 +56,10 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 public class MessageBeanBuilderSupport {
 
 	public static final Date EFFECTIVE_TIME = new GregorianCalendar(2008, SEPTEMBER, 18).getTime();
+
+	public static final Interval<Date> EFFECTIVE_TIME_IVL = IntervalFactory.createLowHigh(
+			new GregorianCalendar(2008, SEPTEMBER, 18).getTime(), 
+			new GregorianCalendar(2008, SEPTEMBER, 20).getTime()); 
 
 	public static void populateStandardValues(ResponseMessageAttributesBean bean) {
 		populateStandardValuesV02(bean);

@@ -76,6 +76,7 @@
           <immunizationPeriod>
             <value>
               <low value="20080518"/>
+              <high value="20090305"/>
             </value>
           </immunizationPeriod>
           <includeIssuesIndicator>
@@ -87,6 +88,7 @@
           <nextPlannedDosePeriod>
             <value>
               <low value="20081020"/>
+              <high value="20090305"/>
             </value>
           </nextPlannedDosePeriod>
           <patientBirthDate>
@@ -104,6 +106,7 @@
           <renewalPeriod>
             <value>
               <low value="20080304"/>
+              <high value="20090305"/>
             </value>
           </renewalPeriod>
           <vaccineCode>

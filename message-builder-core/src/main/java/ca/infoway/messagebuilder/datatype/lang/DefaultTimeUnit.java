@@ -45,10 +45,10 @@ public class DefaultTimeUnit extends EnumPattern implements DateConverter, x_Tim
 	public static final DefaultTimeUnit YEAR = new DefaultTimeUnit("YEAR", "a", DateUtils.MILLIS_PER_DAY * 365); 
 	public static final DefaultTimeUnit MONTH = new DefaultTimeUnit("MONTH", "mo", DateUtils.MILLIS_PER_DAY * 30); 
 	public static final DefaultTimeUnit WEEK = new DefaultTimeUnit("WEEK", "wk", DateUtils.MILLIS_PER_DAY * 7);
-	public static final DefaultTimeUnit SECOND = new DefaultTimeUnit("SECOND", "s", DateUtils.MILLIS_PER_SECOND); 
-	public static final DefaultTimeUnit MINUTE = new DefaultTimeUnit("MINUTE", "min", DateUtils.MILLIS_PER_MINUTE); 
-	public static final DefaultTimeUnit HOUR = new DefaultTimeUnit("HOUR", "h", DateUtils.MILLIS_PER_HOUR);
 	public static final DefaultTimeUnit DAY = new DefaultTimeUnit("DAY", "d", DateUtils.MILLIS_PER_DAY);
+	public static final DefaultTimeUnit HOUR = new DefaultTimeUnit("HOUR", "h", DateUtils.MILLIS_PER_HOUR);
+	public static final DefaultTimeUnit MINUTE = new DefaultTimeUnit("MINUTE", "min", DateUtils.MILLIS_PER_MINUTE); 
+	public static final DefaultTimeUnit SECOND = new DefaultTimeUnit("SECOND", "s", DateUtils.MILLIS_PER_SECOND); 
 
     private final String codeValue;
 	private final long conversion;
@@ -95,6 +95,16 @@ public class DefaultTimeUnit extends EnumPattern implements DateConverter, x_Tim
 	 */
 	public long toMilliseconds(BigDecimal quantity) {
 		return quantity == null ? null : quantity.multiply(new BigDecimal(this.conversion)).longValue();
+	}
+	
+	public static boolean isDayBased(ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive units) {
+		if (units == null || units.getCodeValue() == null) {
+			return false;
+		}
+		return  YEAR.getCodeValue().equals(units.getCodeValue()) || 
+				MONTH.getCodeValue().equals(units.getCodeValue()) || 
+				WEEK.getCodeValue().equals(units.getCodeValue()) || 
+				DAY.getCodeValue().equals(units.getCodeValue()); 
 	}
 	
 	/**

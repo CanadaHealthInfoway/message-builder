@@ -85,7 +85,9 @@
                 <desc>some medicine containing ibuprofen</desc>
                 <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
                 <lotNumberText>lot number 123</lotNumberText>
-                <expirationTime value="20090101"/>
+                <expirationTime>
+                	<high value="20090101"/>
+                </expirationTime>
                 <asManufacturedProduct classCode="MANU">
                   <manufacturer classCode="ORG" determinerCode="INSTANCE">
                     <id extension="1" root="5.4.3"/>
@@ -253,7 +255,9 @@
                 <desc>some medicine containing ibuprofen</desc>
                 <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
                 <lotNumberText>lot number 123</lotNumberText>
-                <expirationTime value="20090101"/>
+                <expirationTime>
+                	<high value="20090101"/>
+                </expirationTime>
                 <asManufacturedProduct classCode="MANU">
                   <manufacturer classCode="ORG" determinerCode="INSTANCE">
                     <id extension="1" root="5.4.3"/>
@@ -419,6 +423,7 @@
           <immunizationPeriod>
             <value>
               <low value="20080518"/>
+              <high value="20090305"/>
             </value>
           </immunizationPeriod>
           <includeIssuesIndicator>
@@ -430,6 +435,7 @@
           <nextPlannedDosePeriod>
             <value>
               <low value="20081020"/>
+              <high value="20090305"/>
             </value>
           </nextPlannedDosePeriod>
           <patientBirthDate>
@@ -447,6 +453,7 @@
           <renewalPeriod>
             <value>
               <low value="20080304"/>
+              <high value="20090305"/>
             </value>
           </renewalPeriod>
           <vaccineCode>

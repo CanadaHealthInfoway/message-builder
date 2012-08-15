@@ -55,7 +55,7 @@
     <code code="REPC_TE041200UV" codeSystem="2.16.840.1.113883.1.18"/>
     <statusCode code="completed" />
     <effectiveTime>
-      <low value="20080918"/>
+      <low value="20080918"/><high value="20080918"/>
     </effectiveTime>
     <recordTarget typeCode="PART" contextControlCode="AP">
       <patient1 classCode="PAT">

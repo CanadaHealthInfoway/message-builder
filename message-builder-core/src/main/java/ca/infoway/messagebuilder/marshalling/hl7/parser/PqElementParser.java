@@ -121,8 +121,7 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
         }
     }
 
-	private UnitsOfMeasureCaseSensitive parseUnit(ParseContext context, String unitAsString, Element element,
-			XmlToModelResult xmlToModelResult) {
+	private UnitsOfMeasureCaseSensitive parseUnit(ParseContext context, String unitAsString, Element element, XmlToModelResult xmlToModelResult) {
 		if (StringUtils.isNotBlank(unitAsString)) {
 			UnitsOfMeasureCaseSensitive unit = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(getUnitTypeByHl7Type(context), unitAsString);
 			if (unit == null) {

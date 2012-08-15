@@ -196,22 +196,9 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 */
 	public static final StandardDataType BAG = new StandardDataType("BAG", "BAG"); 
 	
-	
-	private static final Map<StandardDataType,StandardDataType> widthType;
-	
 	private static final Set<StandardDataType> ignorable;
 	
 	static {
-		Map<StandardDataType,StandardDataType> map = new HashMap<StandardDataType, StandardDataType>();
-		map.put(IVL_FULL_DATE, PQ_TIME);
-		map.put(IVL_DATE, PQ_TIME);
-		map.put(IVL_DATETIME, PQ_TIME);
-		map.put(IVL_FULL_DATE_TIME, PQ_TIME);
-		map.put(IVL_FULL_DATE_WITH_TIME, PQ_TIME);
-		map.put(IVL_TS, PQ_TIME);
-		
-		widthType = Collections.unmodifiableMap(map);
-		
 		Set<StandardDataType> set = new HashSet<StandardDataType>();
 		set.add(ED);
 		set.add(EN);
@@ -385,23 +372,6 @@ public class StandardDataType extends EnumPattern implements Typed {
 		}
 		
 		return result;
-	}
-	
-	/**
-	 * <p>Determines the enum datatype for the width attribute of the given enum datatype.
-	 * 
-	 * @param type the enum datatype for which its width datetype needs to be determined 
-	 * @return the enum datatype representing the width attribute of the given enum datatype
-	 */
-	public static StandardDataType getWidthType(StandardDataType type) {
-		StandardDataType result = type == null ? null : widthType.get(type);
-		if (type == null) {
-			throw new IllegalArgumentException("Cannot determine the width type of an unknown interval type.");
-		} else if (result == null) {
-			throw new IllegalArgumentException(type.getType() + " is not an interval");
-		} else {
-			return result;
-		}
 	}
 	
 	/**

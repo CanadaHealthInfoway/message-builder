@@ -78,6 +78,34 @@ public class IntervalFactory {
 	/**
 	 * <p>Constructs an Interval using the supplied parameters.
 	 * 
+	 * @param low
+	 * @param centre
+	 * @return the constructed interval
+	 */
+	public static <T> Interval<T> createLowCentre(T low, T centre) {
+		T halfDiff = GenericMath.diff(low, centre).getValue();
+		T high = GenericMath.add(centre, halfDiff);
+		Diff<T> width = GenericMath.diff(low, high);
+		return new Interval<T>(low, high, centre, width, Representation.LOW_CENTER);
+	}
+	
+	/**
+	 * <p>Constructs an Interval using the supplied parameters.
+	 * 
+	 * @param centre
+	 * @param high
+	 * @return the constructed interval
+	 */
+	public static <T> Interval<T> createCentreHigh(T centre, T high) {
+		T halfDiff = GenericMath.diff(centre, high).getValue();
+		T low = GenericMath.diff(halfDiff, centre).getValue();
+		Diff<T> width = GenericMath.diff(low, high);
+		return new Interval<T>(low, high, centre, width, Representation.CENTRE_HIGH);
+	}
+	
+	/**
+	 * <p>Constructs an Interval using the supplied parameters.
+	 * 
 	 * @param <T> the java type of the interval
 	 * @param low the low bound
 	 * @return the constructed interval

@@ -154,7 +154,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		
 		BareANY result = new AnyElementParser().parse(
 				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
-				node, null);
+				node, new XmlToModelResult());
 		
 		assertNotNull("null", result);
 		assertEquals("type", StandardDataType.IVL_PQ, result.getDataType());

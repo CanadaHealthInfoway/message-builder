@@ -48,7 +48,7 @@
       <code code="PORX_TE020130UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <effectiveTime>
-        <low value="20080918"/>
+        <low value="20080918"/><high value="20080918"/>
       </effectiveTime>
       <author typeCode="AUT" contextControlCode="AP">
         <time value="20080918181800.0000-0400"/>
@@ -86,7 +86,9 @@
                 <desc>some medicine containing ibuprofen</desc>
                 <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
                 <lotNumberText>lot number 123</lotNumberText>
-                <expirationTime value="20090101"/>
+                <expirationTime>
+                	<high value="20090101"/>
+                </expirationTime>
                 <asContent classCode="CONT">
                   <quantity unit="g" value="12"/>
                   <containerPackagedMedicine classCode="CONT" determinerCode="KIND">

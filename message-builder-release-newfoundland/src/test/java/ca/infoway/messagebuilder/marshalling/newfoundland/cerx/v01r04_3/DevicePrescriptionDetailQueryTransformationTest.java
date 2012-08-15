@@ -136,7 +136,7 @@ public class DevicePrescriptionDetailQueryTransformationTest extends BaseTransfo
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		criteria.setPatientBirthDate(new Date(0));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
-		criteria.setAmendedInTimeRange(IntervalFactory.createLow(new Date(0)));
+		criteria.setAmendedInTimeRange(IntervalFactory.createLowHigh(new Date(0), new Date(5)));
 		criteria.setIncludeEventHistoryIndicator(false);
 		criteria.setPrescriptionOrderNumber(new Identifier("5.4.3.2.1", "1.2.3"));
 		return criteria;

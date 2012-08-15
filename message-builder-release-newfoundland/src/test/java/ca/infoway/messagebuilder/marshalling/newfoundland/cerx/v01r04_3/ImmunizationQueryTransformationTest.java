@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
@@ -57,9 +58,7 @@ import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
-
 public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase {
-	
 	
 	private static final VersionNumber VERSION = BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK;
 	private static final String QUERY_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQuery.xml";
@@ -119,10 +118,10 @@ public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase
 		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		criteria.setIncludeNotesIndicator(true);
-		criteria.setImmunizationPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 18), null));
+		criteria.setImmunizationPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 18), DateUtil.getDate(2009, 2, 5)));
 		criteria.setIncludeIssuesIndicator(true);
-		criteria.setNextPlannedDosePeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 9, 20), null));
-		criteria.setRenewalPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 2, 4), null));
+		criteria.setNextPlannedDosePeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 9, 20), DateUtil.getDate(2009, 2, 5)));
+		criteria.setRenewalPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 2, 4), DateUtil.getDate(2009, 2, 5)));
 		criteria.setVaccineCode(lookup(VaccineEntityType.class, "396422009", CodeSystem.SNOMED.getRoot()));
 		criteria.setVaccineDoseNumber(2);
 		return criteria;
@@ -152,6 +151,7 @@ public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase
 		model.setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 		
 		ImmunizationBean immunization = new ImmunizationBeanBuilder().populate().create();
+		immunization.getMedicine().setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<ImmunizationBean>(immunization));
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<ImmunizationBean>(immunization));
 		

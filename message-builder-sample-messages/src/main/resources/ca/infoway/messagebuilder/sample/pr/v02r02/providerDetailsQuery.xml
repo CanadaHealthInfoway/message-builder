@@ -50,7 +50,7 @@
     <code code="PRPM_TE306010CA" codeSystem="2.16.840.1.113883.1.18"/>
     <statusCode code="completed"/>
 	<effectiveTime>
-      <low value="20080918"/>
+      <low value="20080918"/><high value="20080918"/>
     </effectiveTime>	
     <author typeCode="AUT" contextControlCode="AP">
       <time value="20080918181800.0000-0400"/>
