@@ -36,6 +36,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -98,6 +99,10 @@ public class IvlPqElementParserTest extends CeRxDomainValueTestCase {
 		Interval<PhysicalQuantity> interval = parse(node);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size()); // low and high can't both be null
-		assertNull("null", interval);
+		assertNotNull("null", interval);
+		assertNull(interval.getLow());
+		assertNull(interval.getHigh());
+		assertEquals(NullFlavor.OTHER, interval.getLowNullFlavor());
+		assertEquals(NullFlavor.NO_INFORMATION, interval.getHighNullFlavor());
 	}
 }

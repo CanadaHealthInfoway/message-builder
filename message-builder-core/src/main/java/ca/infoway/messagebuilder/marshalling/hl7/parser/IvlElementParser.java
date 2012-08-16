@@ -84,8 +84,6 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 	@SuppressWarnings("unchecked")
 	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 
-		// FIXME - VALIDATION - TM - need to be able to preserve null flavors...
-		
 		// go back and revert TS.FULLDATEWITHTIME validation check? (is there anything to revert?)
 		context = handleSpecializationType(context, node, xmlToModelResult);
 		
@@ -111,24 +109,24 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 
 		doOtherValidations(lowAny, highAny, centerAny, widthType, (Element) node, context, xmlToModelResult);
 		
-		if (lowType != null && highType != null) {
-			result = IntervalFactory.<T>createLowHigh((T) lowType, (T)highType);
-		} else if (lowType != null && widthType != null) {
-			result = IntervalFactory.<T>createLowWidth((T)lowType, (Diff<T>) widthType);
-		} else if (highType != null && widthType != null) {
-			result = IntervalFactory.<T>createWidthHigh((Diff<T>) widthType, (T) highType);
-		} else if (centerType != null && widthType != null) {
-			result = IntervalFactory.<T>createCentreWidth((T) centerType, (Diff<T>) widthType);
-		} else if (centerType != null && lowType != null) {
-			result = IntervalFactory.<T>createLowCentre((T) lowType, (T) centerType);
-		} else if (centerType != null && highType != null) {
-			result = IntervalFactory.<T>createCentreHigh((T) centerType, (T) highType);
-		} else if (lowType != null) {
-			result = IntervalFactory.<T>createLow((T) lowType);
-		} else if (highType != null) {
-			result = IntervalFactory.<T>createHigh((T) highType);
-		} else if (centerType != null) {
-			result = IntervalFactory.<T>createCentre((T) centerType);
+		if (lowAny != null && highAny != null) {
+			result = IntervalFactory.<T>createLowHigh((T) lowType, (T) highType, lowAny.getNullFlavor(), highAny.getNullFlavor());
+		} else if (lowAny != null && widthType != null) {
+			result = IntervalFactory.<T>createLowWidth((T)lowType, (Diff<T>) widthType, lowAny.getNullFlavor());
+		} else if (highAny != null && widthType != null) {
+			result = IntervalFactory.<T>createWidthHigh((Diff<T>) widthType, (T) highType, highAny.getNullFlavor());
+		} else if (centerAny != null && widthType != null) {
+			result = IntervalFactory.<T>createCentreWidth((T) centerType, (Diff<T>) widthType, centerAny.getNullFlavor());
+		} else if (centerAny != null && lowAny != null) {
+			result = IntervalFactory.<T>createLowCentre((T) lowType, (T) centerType, lowAny.getNullFlavor(), centerAny.getNullFlavor());
+		} else if (centerAny != null && highAny != null) {
+			result = IntervalFactory.<T>createCentreHigh((T) centerType, (T) highType, centerAny.getNullFlavor(), highAny.getNullFlavor());
+		} else if (lowAny != null) {
+			result = IntervalFactory.<T>createLow((T) lowType, lowAny.getNullFlavor());
+		} else if (highAny != null) {
+			result = IntervalFactory.<T>createHigh((T) highType, highAny.getNullFlavor());
+		} else if (centerAny != null) {
+			result = IntervalFactory.<T>createCentre((T) centerType, centerAny.getNullFlavor());
 		} else if (widthType != null) {
 			result = IntervalFactory.<T>createWidth((Diff<T>)widthType);
 		} else {

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+
 
 /**
  * <p>This java datatype is used to back the HL7 datatype IVL.
@@ -38,23 +40,33 @@ public class Interval<T> extends SetComponent<T> {
 	private final T high;
 	private final T centre;
 	private final Diff<T> width;
+	private final NullFlavor lowNullFlavor;
+	private final NullFlavor highNullFlavor;
+	private final NullFlavor centreNullFlavor;
 	private final Representation representation;
 	
 	Interval(T low, T high, T centre, Diff<T> width, Representation representation) {
+		this(low, high, centre, width, representation, null, null, null, null);
+	}
+
+	Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor) {
+		this(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor, null);
+	}
+
+	Interval(T value) {
+		this(null, null, null, null, Representation.SIMPLE, null, null, null, value);
+	}
+
+	private Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, T value) {
+		super(value);
 		this.low = low;
 		this.high = high;
 		this.centre = centre;
 		this.width = width;
 		this.representation = representation;
-	}
-
-	Interval(T value) {
-		super(value);
-		this.low = null;
-		this.high = null;
-		this.centre = null;
-		this.width = null;
-		this.representation = Representation.SIMPLE;
+		this.lowNullFlavor = lowNullFlavor;
+		this.highNullFlavor = highNullFlavor;
+		this.centreNullFlavor = centreNullFlavor;
 	}
 
 	/**
@@ -101,4 +113,29 @@ public class Interval<T> extends SetComponent<T> {
     public Representation getRepresentation() {
 		return this.representation;
 	}
+    
+    /**
+     * 
+     * @return the null flavor for low (if any)
+     */
+	public NullFlavor getLowNullFlavor() {
+		return this.lowNullFlavor;
+	}
+
+	/**
+	 * 
+     * @return the null flavor for high (if any)
+	 */
+	public NullFlavor getHighNullFlavor() {
+		return this.highNullFlavor;
+	}
+
+	/**
+	 * 
+     * @return the null flavor for centre (if any)
+	 */
+	public NullFlavor getCentreNullFlavor() {
+		return this.centreNullFlavor;
+	}
+
 }

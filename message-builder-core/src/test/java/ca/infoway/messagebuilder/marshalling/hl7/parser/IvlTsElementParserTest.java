@@ -41,9 +41,9 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -229,8 +229,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertNotNull("width", interval.getWidth());
         
         diff = (DateDiff) interval.getWidth();
-        NullFlavor nullFlavor = (diff).getNullFlavor();
-        assertEquals("nullFlavor", "OTH", nullFlavor.getCodeValue());
+        assertEquals("nullFlavor", "OTH", diff.getNullFlavor().getCodeValue());
         assertNull("unit", diff.getUnit());
     }
 	
@@ -246,9 +245,29 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertNull(interval.getLow());
         assertNull(interval.getHigh());
         assertNull(interval.getWidth().getValue());
-        assertEquals(ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.POSITIVE_INFINITY.getCodeValue(), interval.getWidth().getNullFlavor().getCodeValue());
+        assertEquals(NullFlavor.NEGATIVE_INFINITY, interval.getLowNullFlavor());
+        assertEquals(NullFlavor.POSITIVE_INFINITY, interval.getWidth().getNullFlavor());
         assertFalse(this.result.isValid());
         assertEquals(2, this.result.getHl7Errors().size()); // PINF and NINF are not legal null flavors
+	}
+    
+	@Test
+	public void testParseOtherInvalidNullFlavors() throws Exception {
+        Node node = createNode(
+                "<effectiveTime>" +
+                "   <center nullFlavor=\"MSK\"/>" +
+                "   <high nullFlavor=\"ASKU\"/>" +
+                "</effectiveTime>");
+        Interval<Date> interval = parse(node, "IVL<TS.FULLDATE>");
+        assertNotNull(interval);
+        assertNull(interval.getLow());
+        assertNull(interval.getCentre());
+        assertNull(interval.getHigh());
+        assertNull(interval.getWidth());
+        assertEquals(NullFlavor.MASKED, interval.getCentreNullFlavor());
+        assertEquals(NullFlavor.ASKED_BUT_UNKNOWN, interval.getHighNullFlavor());
+        assertFalse(this.result.isValid());
+        assertEquals(2, this.result.getHl7Errors().size()); // center not allowed; need two of low/high/width
 	}
     
 	@Test

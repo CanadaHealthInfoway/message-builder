@@ -33,8 +33,10 @@ import org.junit.Before;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
@@ -49,6 +51,7 @@ public abstract class MarshallingTestCase {
 	public void setUp() throws Exception {
 		this.resolver = new TrivialCodeResolver();
 		CodeResolverRegistry.register(resolver);
+		CodeResolverRegistry.registerResolver(NullFlavor.class, new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.class));
 		this.xmlResult = new XmlToModelResult();
 	}
 	
