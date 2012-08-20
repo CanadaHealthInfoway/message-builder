@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.URLScheme;
+import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.model.mock.Sender;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;

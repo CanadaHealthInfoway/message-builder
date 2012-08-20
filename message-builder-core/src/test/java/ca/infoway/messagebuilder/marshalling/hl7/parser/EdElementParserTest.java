@@ -20,9 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.datatype.lang.Compression.GZIP;
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.PLAIN_TEXT;
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.XML_TEXT;
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.XML_TEXT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.MediaType;
+import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;

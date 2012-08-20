@@ -36,7 +36,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testBasic() throws Exception {
-		UncertainRange<PhysicalQuantity> urg = UncertainRange.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIMETER));
+		UncertainRange<PhysicalQuantity> urg = UncertainRange.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER));
 		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>(urg);
 		urgImpl.setDataType(StandardDataType.URG_PQ);
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null), urgImpl, 0);

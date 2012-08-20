@@ -28,9 +28,9 @@ import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
-import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 public class PersonNameXmlParserTest extends AbstractXmlParserTest<PN> {

@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.lang.EnumPattern;

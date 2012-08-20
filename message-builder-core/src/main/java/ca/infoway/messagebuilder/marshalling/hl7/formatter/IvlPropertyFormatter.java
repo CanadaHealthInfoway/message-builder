@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.Representation;
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;

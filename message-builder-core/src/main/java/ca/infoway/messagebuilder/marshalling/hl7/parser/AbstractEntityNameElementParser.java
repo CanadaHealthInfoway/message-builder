@@ -29,7 +29,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
-import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;

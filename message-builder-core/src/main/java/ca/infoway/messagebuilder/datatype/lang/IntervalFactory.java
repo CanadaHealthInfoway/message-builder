@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 public class IntervalFactory {

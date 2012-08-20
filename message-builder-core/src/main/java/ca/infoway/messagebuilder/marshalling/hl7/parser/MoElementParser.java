@@ -29,8 +29,8 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.lang.NumberUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;

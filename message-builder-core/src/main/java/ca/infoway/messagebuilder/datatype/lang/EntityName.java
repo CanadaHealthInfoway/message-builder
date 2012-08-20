@@ -25,6 +25,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
+
 /**
  * <p>Abstract super class for names.
  * 

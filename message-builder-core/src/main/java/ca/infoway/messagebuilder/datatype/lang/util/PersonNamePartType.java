@@ -18,38 +18,40 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
- * <p>An enum for organization name part types.
+ * <p>Enum for PersonName part types.
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class OrganizationNamePartType extends EnumPattern implements NamePartType {
+public class PersonNamePartType extends EnumPattern implements NamePartType {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
-    private static final long serialVersionUID = -8005396643000939327L;
+    private static final long serialVersionUID = 8255492551088946001L;
     
-	public static final OrganizationNamePartType DELIMETER = new OrganizationNamePartType("DELIMETER", "delimiter"); 
-    public static final OrganizationNamePartType PREFIX = new OrganizationNamePartType("PREFIX", "prefix");
-    public static final OrganizationNamePartType SUFFIX = new OrganizationNamePartType("SUFFIX", "suffix");
+	public static final PersonNamePartType DELIMITER = new PersonNamePartType("DELIMITER", "delimiter"); 
+    public static final PersonNamePartType PREFIX = new PersonNamePartType("PREFIX", "prefix"); 
+    public static final PersonNamePartType SUFFIX = new PersonNamePartType("SUFFIX", "suffix"); 
+    public static final PersonNamePartType FAMILY = new PersonNamePartType("FAMILY", "family"); 
+    public static final PersonNamePartType GIVEN = new PersonNamePartType("GIVEN", "given");
 
 	private final String value;
 
-    private OrganizationNamePartType(String name, String value) {
-        super(name);
+    private PersonNamePartType(String name, String value) {
+    	super(name);
 		this.value = value;
     }
     
     /**
-     * <p>Returns the value of this enum.
+     * <p>Returns the enum value.
      * 
-     * @return the value
+     * @return the enum value
      */
     public String getValue() {
         return this.value;

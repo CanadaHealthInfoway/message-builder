@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.domainvalue.basic;
 
 import ca.infoway.messagebuilder.Describable;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;

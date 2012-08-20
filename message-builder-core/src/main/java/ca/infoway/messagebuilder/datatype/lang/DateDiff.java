@@ -26,6 +26,7 @@ import java.util.Date;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 
 /**
  * <p>A specialist Diff class for Dates.

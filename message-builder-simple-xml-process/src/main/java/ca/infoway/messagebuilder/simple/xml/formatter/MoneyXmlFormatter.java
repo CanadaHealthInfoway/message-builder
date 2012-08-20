@@ -26,8 +26,8 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;

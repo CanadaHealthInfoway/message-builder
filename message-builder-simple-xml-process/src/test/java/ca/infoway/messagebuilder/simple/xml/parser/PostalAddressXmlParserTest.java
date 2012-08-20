@@ -29,8 +29,8 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 

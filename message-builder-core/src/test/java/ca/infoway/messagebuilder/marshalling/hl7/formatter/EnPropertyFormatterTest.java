@@ -31,10 +31,10 @@ import ca.infoway.messagebuilder.datatype.impl.TNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
-import ca.infoway.messagebuilder.datatype.lang.OrganizationNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
+import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 
 public class EnPropertyFormatterTest extends FormatterTestCase {
 

@@ -28,8 +28,8 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.ENImpl;
 import ca.infoway.messagebuilder.datatype.impl.TNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
-import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 
 public class TnPropertyFormatterTest extends FormatterTestCase {
 

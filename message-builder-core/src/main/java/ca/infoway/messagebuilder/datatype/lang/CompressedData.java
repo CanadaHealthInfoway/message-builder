@@ -20,9 +20,11 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import static ca.infoway.messagebuilder.datatype.lang.Compression.GZIP;
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 
 import java.io.IOException;
+
+import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 
 /**
  * <p>Java datatype representing the HL7 Datatype ED. (a specialized class)

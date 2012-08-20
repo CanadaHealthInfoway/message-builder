@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.PLAIN_TEXT;
 
 import java.util.HashMap;
 import java.util.Map;

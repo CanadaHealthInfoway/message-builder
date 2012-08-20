@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.domainvalue.basic;
 
 import java.io.Serializable;
 

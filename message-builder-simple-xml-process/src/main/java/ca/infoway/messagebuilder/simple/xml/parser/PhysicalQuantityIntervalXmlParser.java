@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.Representation;
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.simple.xml.ParserException;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParser;

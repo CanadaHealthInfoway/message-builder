@@ -27,8 +27,8 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;

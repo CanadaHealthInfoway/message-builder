@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
+
 /**
  * <p>Java datatype for HL7 encapsulated string.
  * 

@@ -25,13 +25,13 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
+import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
+import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPersonBean> {

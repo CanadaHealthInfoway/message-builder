@@ -27,7 +27,6 @@ import java.util.Date;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
-import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
@@ -36,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodDefEvnRqo;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 
 public class DosageLineBeanBuilder extends BaseBeanBuilder<DosageLineBean> {

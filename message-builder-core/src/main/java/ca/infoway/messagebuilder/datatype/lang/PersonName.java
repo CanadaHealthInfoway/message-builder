@@ -26,6 +26,8 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+
 /**
  * <p>Java datatype used to back the HL7 PN datatype.
  * 

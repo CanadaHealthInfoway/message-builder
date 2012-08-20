@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
+
 /**
  * <p>Class to represent an entity name part, containing a name part type and a value. 
  * 

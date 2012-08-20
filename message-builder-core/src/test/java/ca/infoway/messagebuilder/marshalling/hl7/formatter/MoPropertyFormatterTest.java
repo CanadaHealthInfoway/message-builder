@@ -29,8 +29,8 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 
 public class MoPropertyFormatterTest extends FormatterTestCase {
 

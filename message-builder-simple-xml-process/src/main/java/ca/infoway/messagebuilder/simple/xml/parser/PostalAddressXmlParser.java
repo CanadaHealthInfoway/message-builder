@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.simple.xml.ParserException;

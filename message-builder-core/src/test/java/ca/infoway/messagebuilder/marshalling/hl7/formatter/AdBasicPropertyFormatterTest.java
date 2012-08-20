@@ -20,9 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.DELIMITER;
-import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.HOUSE_NUMBER;
-import static ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType.UNIT_ID;
+import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.DELIMITER;
+import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.HOUSE_NUMBER;
+import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.UNIT_ID;
 import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertContainsSame;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.toSet;
@@ -37,12 +37,12 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
-import ca.infoway.messagebuilder.datatype.lang.Country;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.basic.Country;
 import ca.infoway.messagebuilder.domainvalue.basic.Iso3166Alpha2Country;
+import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.State;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 

@@ -39,10 +39,10 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
-import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;

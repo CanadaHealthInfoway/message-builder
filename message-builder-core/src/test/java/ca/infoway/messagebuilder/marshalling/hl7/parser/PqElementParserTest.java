@@ -108,6 +108,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		String element = "<something value=\"123456789012.12\" unit=\"kg\"/>";
 		Node node = createNode(element);
 		PhysicalQuantity physicalQuantity = (PhysicalQuantity) new PqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"123456789012.12\"/>) can contain a maximum of 11 integer places", this.xmlResult.getHl7Errors().get(0).getMessage());
@@ -118,6 +119,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		String element = "<something value=\"12345678901.1234\" unit=\"kg\"/>";
 		Node node = createNode(element);
 		PhysicalQuantity physicalQuantity = (PhysicalQuantity) new PqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"12345678901.1234\"/>) can contain a maximum of 2 decimal places", this.xmlResult.getHl7Errors().get(0).getMessage());

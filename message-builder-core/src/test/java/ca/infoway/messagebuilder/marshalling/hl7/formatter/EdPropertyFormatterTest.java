@@ -21,11 +21,11 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.datatype.lang.CompressedData.LANGUAGE_ENGLISH;
-import static ca.infoway.messagebuilder.datatype.lang.Compression.GZIP;
-import static ca.infoway.messagebuilder.datatype.lang.Compression.gunzip;
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.HTML_TEXT;
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.PLAIN_TEXT;
-import static ca.infoway.messagebuilder.datatype.lang.MediaType.XML_TEXT;
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.gunzip;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.HTML_TEXT;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.XML_TEXT;
 import static ca.infoway.messagebuilder.platform.Base64.decodeBase64String;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
@@ -37,7 +37,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.MediaType;
+import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 
 public class EdPropertyFormatterTest extends FormatterTestCase {
 

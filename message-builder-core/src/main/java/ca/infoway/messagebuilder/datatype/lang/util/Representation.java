@@ -18,22 +18,36 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
 /**
- * <p>Provides access to the value of a name part type.
+ * <p>An enum for interval representations. Some apply only to periodic intervals.
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
- *
+ * 
  * @sharpen.ignore - datatype - translated manually
  */
-public interface NamePartType {
-	
-    /**
-     * <p>Returns the part type value.
-     * 
-     * @return the part type value
-     */
-    public String getValue();
+public enum Representation {
 
+	// if adding interfaces or behaviour to this enum, please consider using enum pattern for translation purposes
+
+	HIGH, 
+	LOW, 
+	CENTRE, 
+	WIDTH, 
+	LOW_HIGH, 
+	LOW_WIDTH, 
+	LOW_CENTER, 
+	WIDTH_HIGH, 
+	CENTRE_WIDTH, 
+	CENTRE_HIGH,
+	SIMPLE,
+	
+	// These representations are used in Periodic Interval
+	
+	// TOOD: BCH: separate these into another enum
+	PERIOD, 
+	PHASE, 
+	FREQUENCY,
+	PERIOD_PHASE
 }

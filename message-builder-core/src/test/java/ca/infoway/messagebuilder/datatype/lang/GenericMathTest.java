@@ -30,6 +30,9 @@ import java.util.Date;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
+import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
+
 /**
  * @sharpen.ignore - datatype - translated manually
  */

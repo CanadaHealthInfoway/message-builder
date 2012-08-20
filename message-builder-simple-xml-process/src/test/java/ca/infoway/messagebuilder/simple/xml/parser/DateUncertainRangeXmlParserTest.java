@@ -37,10 +37,10 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
-import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 @RunWith(Theories.class)

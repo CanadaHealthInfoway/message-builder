@@ -36,7 +36,7 @@ import org.w3c.dom.Text;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
-import ca.infoway.messagebuilder.datatype.lang.NamePartType;
+import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;

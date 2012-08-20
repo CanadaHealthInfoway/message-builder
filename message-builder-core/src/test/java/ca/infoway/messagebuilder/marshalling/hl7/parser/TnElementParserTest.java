@@ -31,8 +31,8 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.TN;
-import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;

@@ -33,13 +33,13 @@ import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.GTSImpl;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
-import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
@@ -303,7 +303,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 	public void timeZoneHandling() throws Exception {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)),  
-				PeriodicIntervalTime.createFrequency(2, new PhysicalQuantity(BigDecimal.TEN, ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.DAY)));
+				PeriodicIntervalTime.createFrequency(2, new PhysicalQuantity(BigDecimal.TEN, ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.DAY)));
 
 		
 		String result = new GtsBoundedPivlFormatter().format(

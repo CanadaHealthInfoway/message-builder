@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+
 /**
  * <p>Uncertain Range.
  * 
