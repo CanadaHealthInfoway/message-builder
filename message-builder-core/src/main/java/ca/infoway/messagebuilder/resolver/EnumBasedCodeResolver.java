@@ -53,7 +53,7 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public <T extends Code> Collection<T> lookup(Class<T> type) {
 		return new ArrayList(Arrays.asList(EnumPattern.getEnumConstants(this.e)));

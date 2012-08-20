@@ -20,37 +20,35 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.NEGATIVE_INFINITY;
-import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.POSITIVE_INFINITY;
 import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.POPULATED;
 
 import java.lang.reflect.Type;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.Hl7BaseVersion;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
-import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.IvlValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -80,6 +78,8 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  */
 abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
 
+	private IvlValidationUtils ivlValidationUtils = new IvlValidationUtils();
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
@@ -149,118 +149,48 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 		return result;
 	}
 
+	
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
-		if (StandardDataType.IVL_FULL_DATE_WITH_TIME.getType().equals(context.getType())) {
-			// assume type to default to FULLDATETIME
-			String newType = StandardDataType.IVL_FULL_DATE_TIME.getType();
-			String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
-			if (StringUtils.isBlank(specializationType)) {
-				recordError("IVL<TS.FULLDATEWITHTIME> is an abstract type. A specialization type must be provided. IVL<TS.FULLDATETIME> will be assumed.", (Element) node, xmlToModelResult);
-			} else {
-				StandardDataType concreteType = StandardDataType.getByTypeName(specializationType);
-				if (concreteType == StandardDataType.IVL_FULL_DATE || concreteType == StandardDataType.IVL_FULL_DATE_TIME) {
-					newType = specializationType; 
-				} else {
-					recordError("Invalid specializationType provided for abstract type IVL<TS.FULLDATEWITHTIME>. IVL<TS.FULLDATETIME> will be assumed.", (Element) node, xmlToModelResult);
-				}
-			}
+		String type = context.getType();
+		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		List<String> errors = new ArrayList<String>();
+		
+		String newType = this.ivlValidationUtils.validateSpecializationType(type, specializationType, errors);
+		recordAnyErrors(errors, (Element) node, xmlToModelResult);
+
+		if (!StringUtils.equals(type, newType)) {
 			// replace the context with one using the specialization type
 			context = ParserContextImpl.create(newType, context);
 		}
+		
 		return context;
-	}
-	
-	private void doOtherValidations(BareANY lowAny, BareANY highAny, BareANY centerAny, BareDiff widthType, Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
-		String type = context.getType();
-		String parameterizedType = Hl7DataTypeName.getParameterizedType(type);
-		String unqualifiedParameterizedType = Hl7DataTypeName.unqualify(parameterizedType);
-		
-		StandardDataType innerType = StandardDataType.getByTypeName(parameterizedType);
-		StandardDataType baseInnerType = StandardDataType.getByTypeName(unqualifiedParameterizedType);
-
-		if (baseInnerType == StandardDataType.PQ) {
-			boolean lowNull = (lowAny == null || lowAny.hasNullFlavor());
-			boolean highNull = (highAny == null || highAny.hasNullFlavor());
-			if (lowNull && highNull) {
-				recordError("For intervals of type PQ.x, one of (low, high) must be non-null.", element, xmlToModelResult);
-			}
-		} else {
-			ensureNotPinfOrNinf("low", lowAny, element, xmlToModelResult);
-			ensureNotPinfOrNinf("high", highAny, element, xmlToModelResult);
-			ensureNotPinfOrNinf("center", centerAny, element, xmlToModelResult);
-			ensureNotPinfOrNinf("width", widthType, element, xmlToModelResult);
-		}
-			
-		// TS.DATE/TS.FULLDATE have width restrictions
-		if (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE) {
-			if (widthType != null && widthType instanceof DateDiff) {
-				DateDiff dateDiff = (DateDiff) widthType;
-				PhysicalQuantity widthValue = dateDiff.getValueAsPhysicalQuantity();
-				if (widthValue != null) {
-					if (!DefaultTimeUnit.isDayBased(widthValue.getUnit())) {
-						recordError("Width units must be days (d), weeks (wk), months (mo) or years (a).", element, xmlToModelResult);
-					}
-				}
-			}
-		}
-		
-	}
-
-	private void ensureNotPinfOrNinf(String intervalElement, NullFlavorSupport any, Element element, XmlToModelResult xmlToModelResult) {
-		if (any != null && any.hasNullFlavor()) {
-			if (POSITIVE_INFINITY.getCodeValue().equals(any.getNullFlavor().getCodeValue()) || NEGATIVE_INFINITY.getCodeValue().equals(any.getNullFlavor().getCodeValue())) {
-				recordError("The " + intervalElement + " element can not have a null flavor of PINF or NINF.", element, xmlToModelResult);
-			}
-		}
 	}
 
 	private void validateCorrectElementsProvided(boolean lowProvided, boolean highProvided, boolean centerProvided, boolean widthProvided, Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
 		VersionNumber version = context.getVersion();
-		boolean isCeRx = SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
-		
 		String type = context.getType();
-		String typeWithoutParameters = Hl7DataTypeName.getTypeWithoutParameters(type);
-		String parameterizedType = Hl7DataTypeName.getParameterizedType(type);
-		String unqualifiedParameterizedType = Hl7DataTypeName.unqualify(parameterizedType);
-		
-		StandardDataType ivlType = StandardDataType.getByTypeName(typeWithoutParameters);
-		StandardDataType innerType = StandardDataType.getByTypeName(parameterizedType);
-		StandardDataType baseInnerType = StandardDataType.getByTypeName(unqualifiedParameterizedType);
-		
-		int numberOfCorrectlyProvidedElements = countProvidedElements(lowProvided, highProvided, centerProvided, widthProvided);
-		
-		if (lowProvided && isLowProhibited(ivlType)) {
-			numberOfCorrectlyProvidedElements--;
-			recordError(createIncorrectElementErrorMessage(type, "low"), element, xmlToModelResult);
-		}
-		if (highProvided && isHighProhibited(ivlType)) {
-			numberOfCorrectlyProvidedElements--;
-			recordError(createIncorrectElementErrorMessage(type, "high"), element, xmlToModelResult);
-		}
-		if (widthProvided && isWidthProhibited(ivlType, innerType, baseInnerType)) {
-			numberOfCorrectlyProvidedElements--;
-			recordError(createIncorrectElementErrorMessage(type, "width"), element, xmlToModelResult);
-		}
-		if (centerProvided && isCenterProhibited(isCeRx, innerType)) {
-			numberOfCorrectlyProvidedElements--;
-			recordError(createIncorrectElementErrorMessage(type, "center"), element, xmlToModelResult);
-		}
-		if (incorrectNumberOfElementsProvided(numberOfCorrectlyProvidedElements, ivlType)) {
-			recordError(createWrongNumberOfElementsProvidedErrorMessage(isCeRx, type, ivlType, innerType, baseInnerType), element, xmlToModelResult);
-		}
-		
+
+		List<String> errors = ivlValidationUtils.validateCorrectElementsProvided(type, version, lowProvided, highProvided, centerProvided, widthProvided);
+
+		recordAnyErrors(errors, element, xmlToModelResult);
 	}
 
-	private String createWrongNumberOfElementsProvidedErrorMessage(boolean isCeRx, String type, StandardDataType ivlType, StandardDataType innerType, StandardDataType baseInnerType) {
-		return "Intervals of type " + type + " must " + (ivlType == StandardDataType.IVL ? "provide exactly 2 of" : "only provide") + ": "
-				+ (isLowProhibited(ivlType) ? "" : "low ")
-				+ (isHighProhibited(ivlType) ? "" : "high ")
-				+ (isCenterProhibited(isCeRx, innerType) ? "" : "center ")
-				+ (isWidthProhibited(ivlType, innerType, baseInnerType) ? "" : "width ");
+	private void doOtherValidations(BareANY lowAny, BareANY highAny, BareANY centerAny, BareDiff widthType, Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
+		String type = context.getType();
+		NullFlavor lowNullFlavor = (lowAny == null ? null : lowAny.getNullFlavor());
+		NullFlavor centerNullFlavor = (centerAny == null ? null : centerAny.getNullFlavor());
+		NullFlavor highNullFlavor = (highAny == null ? null : highAny.getNullFlavor());
+		NullFlavor widthNullFlavor = (widthType == null ? null : widthType.getNullFlavor());
+		UnitsOfMeasureCaseSensitive widthTimeUnits = ((widthType != null && widthType instanceof DateDiff) ? ((DateDiff) widthType).getUnit() : null);
+		
+		List<String> errors = this.ivlValidationUtils.doOtherValidations(type, lowNullFlavor, centerNullFlavor, highNullFlavor, widthNullFlavor, widthTimeUnits);
+		recordAnyErrors(errors, element, xmlToModelResult);
 	}
-
-	private String createIncorrectElementErrorMessage(String type, String incorrectElement) {
-		return "Element " + incorrectElement + " is not allowed for type " + type;
+	
+	private void recordAnyErrors(List<String> errors, Element element, XmlToModelResult xmlToModelResult) {
+		for (String error : errors) {
+			recordError(error, element, xmlToModelResult);
+		}
 	}
 
 	private void recordError(String message, Element element, XmlToModelResult xmlToModelResult) {
@@ -269,30 +199,6 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 						Hl7ErrorCode.DATA_TYPE_ERROR,
 						message + " (" + XmlDescriber.describeSingleElement(element) + ")",
 						element));
-	}
-
-	private boolean incorrectNumberOfElementsProvided(int numberOfCorrectlyProvidedElements, StandardDataType ivlType) {
-		return ivlType == StandardDataType.IVL ? numberOfCorrectlyProvidedElements != 2 : numberOfCorrectlyProvidedElements != 1;
-	}
-
-	private int countProvidedElements(boolean lowProvided, boolean highProvided, boolean centerProvided, boolean widthProvided) {
-		return (lowProvided ? 1 : 0) + (highProvided ? 1 : 0) + (widthProvided ? 1 : 0) + (centerProvided ? 1 : 0);
-	}
-
-	private boolean isCenterProhibited(boolean isCeRx, StandardDataType innerType) {
-		return !(isCeRx && (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE));
-	}
-
-	private boolean isWidthProhibited(StandardDataType ivlType, StandardDataType innerType, StandardDataType baseInnerType) {
-		return ivlType == StandardDataType.IVL_HIGH || ivlType == StandardDataType.IVL_LOW || innerType == StandardDataType.TS_FULLDATETIME || baseInnerType == StandardDataType.PQ;
-	}
-
-	private boolean isHighProhibited(StandardDataType ivlType) {
-		return ivlType == StandardDataType.IVL_WIDTH || ivlType == StandardDataType.IVL_LOW;
-	}
-
-	private boolean isLowProhibited(StandardDataType ivlType) {
-		return ivlType == StandardDataType.IVL_WIDTH || ivlType == StandardDataType.IVL_HIGH;
 	}
 
 	@Override

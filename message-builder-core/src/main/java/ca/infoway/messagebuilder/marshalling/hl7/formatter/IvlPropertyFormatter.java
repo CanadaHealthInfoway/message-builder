@@ -20,10 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -37,8 +40,12 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Representation;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.IvlValidationUtils;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -66,6 +73,8 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
  */
 abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatter<Interval<T>> {
 
+	private IvlValidationUtils ivlValidationUtils = new IvlValidationUtils();
+	
     private static final String UNITS_OF_MEASURE_DAY = "d";
 	
 	protected static final String UNIT = "unit";
@@ -77,6 +86,17 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 
 	@Override
 	String formatNonNullValue(FormatContext context, Interval<T> value, int indentLevel) throws ModelToXmlTransformationException {
+		// need to use the alternate format method that has the BareANY object as a parameter
+		throw new UnsupportedOperationException();
+	}
+		
+	@Override
+	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
+		
+		Interval<T> value = extractBareValue(bareAny);
+		
+		context = validateInterval(value, bareAny, context);
+		
 		StringBuffer buffer = new StringBuffer();
 		if (value.getRepresentation() == Representation.SIMPLE) {
 			buffer.append(createElement(context, context.getElementName(), new QTYImpl<T>(value.getValue()), indentLevel));
@@ -88,11 +108,74 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		return buffer.toString();
 	}
 
-	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel)
-			throws ModelToXmlTransformationException {
-		String low = createElement(context, LOW, new QTYImpl<T>(value.getLow()), indentLevel);
-		String high = createElement(context, HIGH, new QTYImpl<T>(value.getHigh()), indentLevel);
-		String centre = createElement(context, CENTRE, new QTYImpl<T>(value.getCentre()), indentLevel);
+	private FormatContext validateInterval(Interval<T> value, BareANY bareAny, FormatContext context) {
+		String type = context.getType();
+		
+		List<String> errors = new ArrayList<String>(); 
+		String specializationType = bareAny.getDataType() == null ? null : bareAny.getDataType().getType();
+		String newType = this.ivlValidationUtils.validateSpecializationType(type, specializationType, errors);
+		recordAnyErrors(errors, context);
+		
+		if (!StringUtils.equals(type, newType)) {
+			// replace the context with one using the specialization type
+			context = new FormatContextImpl(newType, true, context);
+		}
+		
+		boolean lowProvided = 
+				(value.getRepresentation() == Representation.LOW ||
+				value.getRepresentation() == Representation.LOW_CENTER ||
+				value.getRepresentation() == Representation.LOW_HIGH ||
+				value.getRepresentation() == Representation.LOW_WIDTH) &&
+				(value.getLow() != null || value.getLowNullFlavor() != null);
+		
+		boolean highProvided = 
+				(value.getRepresentation() == Representation.HIGH ||
+				value.getRepresentation() == Representation.CENTRE_HIGH ||
+				value.getRepresentation() == Representation.LOW_HIGH ||
+				value.getRepresentation() == Representation.WIDTH_HIGH) &&
+				(value.getHigh() != null || value.getHighNullFlavor() != null);
+		
+		boolean centerProvided = 
+				(value.getRepresentation() == Representation.CENTRE ||
+				value.getRepresentation() == Representation.CENTRE_HIGH ||
+				value.getRepresentation() == Representation.CENTRE_WIDTH ||
+				value.getRepresentation() == Representation.LOW_CENTER) &&
+				(value.getCentre() != null || value.getCentreNullFlavor() != null);
+		
+		boolean widthProvided = 
+				(value.getRepresentation() == Representation.WIDTH ||
+				value.getRepresentation() == Representation.CENTRE_WIDTH ||
+				value.getRepresentation() == Representation.LOW_WIDTH ||
+				value.getRepresentation() == Representation.WIDTH_HIGH) &&
+				(value.getWidth() != null && (value.getWidth().getValue() != null || value.getWidth().getNullFlavor() != null));
+		
+		
+		errors = this.ivlValidationUtils.validateCorrectElementsProvided(type, context.getVersion(), lowProvided, highProvided, centerProvided, widthProvided);
+		recordAnyErrors(errors, context);
+		
+		errors = this.ivlValidationUtils.doOtherValidations(
+				type, 
+				lowProvided ? value.getLowNullFlavor() : null, 
+				centerProvided ? value.getCentreNullFlavor() : null,
+				highProvided ? value.getHighNullFlavor() : null,
+				widthProvided ?	value.getWidth().getNullFlavor() : null,
+				(widthProvided && value.getWidth() instanceof DateDiff) ? ((DateDiff) value.getWidth()).getUnit() : null);
+		recordAnyErrors(errors, context);
+		
+		return context;
+	}
+
+	private void recordAnyErrors(List<String> errors, FormatContext context) {
+		for (String error : errors) {
+			recordError(error, context);
+		}
+	}
+
+	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) throws ModelToXmlTransformationException {
+		
+		String low = createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel);
+		String high = createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel);
+		String centre = createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), indentLevel);
 		String width = createWidthElement(context, WIDTH, value.getWidth(), indentLevel);
 
 		switch (value.getRepresentation()) {
@@ -128,10 +211,14 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		}
 	}
 
+	private QTY<T> createQTY(T value, NullFlavor nullFlavor) {
+		return value != null ? new QTYImpl<T>(value) : new QTYImpl<T>(nullFlavor);
+	}
+
 	protected String getDateDiffUnits(BareDiff diff) {
     	if (diff instanceof DateDiff) {
     		UnitsOfMeasureCaseSensitive unit = ((DateDiff) diff).getUnit();
-			return unit!=null ? unit.getCodeValue() : ""; 
+			return unit != null ? unit.getCodeValue() : ""; 
     	} else {
     		return UNITS_OF_MEASURE_DAY;
     	}
@@ -211,4 +298,10 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}
 	}
+	
+	private void recordError(String message, FormatContext context) {
+		String propertyPath = context.getPropertyPath();
+		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, propertyPath));
+	}
+
 }

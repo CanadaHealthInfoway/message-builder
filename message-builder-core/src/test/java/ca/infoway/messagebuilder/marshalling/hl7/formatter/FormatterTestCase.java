@@ -40,6 +40,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public abstract class FormatterTestCase {
+	
+	protected ModelToXmlResult result = new ModelToXmlResult();
 
 	protected void assertXml(String description, String expected, String actual) {
 		if (actual.contains("<!--")) {
@@ -55,7 +57,7 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(new ModelToXmlResult(), null, name, null, null);
+		return new FormatContextImpl(this.result, null, name, null, null);
 	}
 
 	

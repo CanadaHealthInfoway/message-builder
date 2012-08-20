@@ -60,6 +60,23 @@ class FormatContextImpl implements FormatContext {
 		this.isPassOnSpecializationType = isPassOnSpecializationType;
 	}
 	
+	FormatContextImpl(String newType, FormatContext context) {
+		this(newType, context.isSpecializationType(), context);
+	}
+	
+	FormatContextImpl(String newType, boolean isSpecializationType, FormatContext context) {
+		this(context.getModelToXmlResult(), 
+			 context.getPropertyPath(), 
+			 context.getElementName(), 
+			 newType, 
+			 context.getConformanceLevel(), 
+			 isSpecializationType, 
+			 context.getVersion(), 
+			 context.getDateTimeZone(), 
+			 context.getDateTimeTimeZone(), 
+			 context.isPassOnSpecializationType());
+	}
+
 	public ModelToXmlResult getModelToXmlResult() {
 		return this.result;
 	}

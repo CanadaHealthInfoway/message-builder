@@ -31,7 +31,6 @@ import static ca.infoway.messagebuilder.datatype.StandardDataType.II_VER;
 import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.concreteIiTypes;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -247,9 +246,8 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	}
 
 	private void recordError(String message, FormatContext context) {
-		List<Hl7Error> hl7Errors = context.getModelToXmlResult().getHl7Errors();
 		String propertyPath = context.getPropertyPath();
-		hl7Errors.add(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, propertyPath));
+		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, propertyPath));
 	}
 
 }
