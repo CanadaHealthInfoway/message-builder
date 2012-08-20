@@ -77,7 +77,7 @@ public class DateXmlParserTest extends AbstractXmlParserTest<TS> {
 	
 	@Test
 	public void shouldParseTsDateWithPrecisionRemembered() throws Exception {
-		TSImpl ts = new TSImpl(new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(new GregorianCalendar(2010, 0, 1).getTime(), "yyyy"));
+		TSImpl ts = new TSImpl(new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(new GregorianCalendar(2010, 0, 1).getTime(), "yyyy"));
 		ts.setDataType(StandardDataType.TS_DATE);
 		
 		assertEquals(

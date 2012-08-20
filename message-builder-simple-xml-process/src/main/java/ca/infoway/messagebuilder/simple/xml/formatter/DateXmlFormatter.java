@@ -145,7 +145,7 @@ public class DateXmlFormatter extends AbstractSimpleXmlFormatter {
             pos.setIndex(0);
             Date date = parser.parse(dateString, pos);
             if (date != null && pos.getIndex() == dateString.length() && parsePatterns[i].length() == dateString.length()) {
-                return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, parsePatterns[i]);
+                return new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(date, parsePatterns[i]);
             }
         }
         throw new ParseException("Unable to parse the date: " + str, -1);

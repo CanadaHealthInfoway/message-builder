@@ -34,7 +34,7 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
-import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 

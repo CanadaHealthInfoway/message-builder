@@ -54,8 +54,8 @@ public class DateXmlParser extends AbstractSimpleXmlParser<TS, Date> implements 
 
 	private String renderDate(StandardDataType type, Date date) {
 		String datePattern = lookUpDateFormat(type);
-		if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
-			datePattern = ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
+		if (date instanceof ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern) {
+			datePattern = ((ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern)date).getDatePattern();
 		}
 		return new SimpleDateFormat(datePattern).format(date);
 	}

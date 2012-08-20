@@ -26,7 +26,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.DateConverter;
+import ca.infoway.messagebuilder.datatype.lang.util.DateConverter;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 

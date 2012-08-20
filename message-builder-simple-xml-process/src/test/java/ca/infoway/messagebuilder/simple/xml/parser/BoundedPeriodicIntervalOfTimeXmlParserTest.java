@@ -32,9 +32,9 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.GTS;
 import ca.infoway.messagebuilder.datatype.impl.GTSImpl;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
-import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 

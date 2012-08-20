@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.datatype.lang.util;
 import java.util.Date;
 
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 
 /**
  * <p>A utility class for handling the Date Interval java datatype.

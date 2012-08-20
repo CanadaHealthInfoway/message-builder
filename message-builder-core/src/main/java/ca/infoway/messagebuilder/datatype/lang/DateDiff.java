@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.datatype.lang;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.lang.util.DateConverter;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;

@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
-import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
@@ -155,7 +155,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(
 				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), 
-				new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(calendar1, "yyyyMMddHHmmss"), null);
+				new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(calendar1, "yyyyMMddHHmmss"), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -168,7 +168,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(
 				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, SpecificationVersion.R02_04_02, null, null), 
-				new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(calendar, "yyyyMMddHHmmss.SSSZZZZZ"), null);
+				new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(calendar, "yyyyMMddHHmmss.SSSZZZZZ"), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));

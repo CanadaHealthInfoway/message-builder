@@ -30,6 +30,7 @@ import java.util.Date;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.lang.util.GenericMath;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 

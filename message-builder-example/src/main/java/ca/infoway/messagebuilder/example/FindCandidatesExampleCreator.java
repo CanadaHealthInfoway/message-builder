@@ -25,7 +25,7 @@ import static ca.infoway.messagebuilder.datatype.lang.PersonName.createFirstName
 import java.util.Date;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.devtools.DefaultValueHolder;
 import ca.infoway.messagebuilder.devtools.MessageBeanFactory;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;

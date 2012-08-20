@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.newfoundland.location;
 
 import java.util.List;
 
-import ca.infoway.messagebuilder.datatype.lang.Identifiable;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
+import ca.infoway.messagebuilder.datatype.lang.util.Identifiable;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationPlaceType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryRoleStatus;

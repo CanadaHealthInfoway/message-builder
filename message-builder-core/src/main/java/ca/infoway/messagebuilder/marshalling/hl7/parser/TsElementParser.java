@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
-import ca.infoway.messagebuilder.datatype.lang.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -187,7 +187,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				Date date = DateFormatUtil.parse(dateString, pattern, getTimeZone(context));
 				pattern = expandPatternIfNecessary(pattern);
 				// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
-            	return new ca.infoway.messagebuilder.datatype.lang.DateWithPattern(date, pattern);
+            	return new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(date, pattern);
         	}
         }
         throw new IllegalArgumentException("Unable to parse the date: " + str);

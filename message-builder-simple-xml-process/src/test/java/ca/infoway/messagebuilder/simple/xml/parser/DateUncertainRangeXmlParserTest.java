@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
+import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
@@ -103,7 +104,7 @@ public class DateUncertainRangeXmlParserTest extends AbstractXmlParserTest<URG<T
 	}
 
 	private static URG<TS, Date> createUrgLowHigh(String low, String high, StandardDataType dataType) {
-		return createUrg(dataType, UncertainRange.createLowHigh(parseDate(low), parseDate(high)));
+		return createUrg(dataType, UncertainRangeFactory.createLowHigh(parseDate(low), parseDate(high)));
 	}
 
 	private static URG<TS, Date> createUrg(StandardDataType dataType, UncertainRange<Date> uncertainRange) {
@@ -113,34 +114,34 @@ public class DateUncertainRangeXmlParserTest extends AbstractXmlParserTest<URG<T
 	}
 
 	private static URG<TS, Date> createUrgLow(String low, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createLow(parseDate(low)));
+		return createUrg(dataType,  UncertainRangeFactory.createLow(parseDate(low)));
 	}
 
 	private static URG<TS, Date> createUrgCentre(String centre, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createCentre(parseDate(centre)));
+		return createUrg(dataType,  UncertainRangeFactory.createCentre(parseDate(centre)));
 	}
 
 	private static URG<TS, Date> createUrgCentreHigh(String centre, String high, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createCentreHigh(parseDate(centre), parseDate(high)));
+		return createUrg(dataType,  UncertainRangeFactory.createCentreHigh(parseDate(centre), parseDate(high)));
 	}
 	
 	private static URG<TS, Date> createUrgHigh(String high, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createHigh(parseDate(high)));
+		return createUrg(dataType,  UncertainRangeFactory.createHigh(parseDate(high)));
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static URG<TS, Date> createUrgLowWidth(String low, Diff width, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createLowWidth(parseDate(low), width));
+		return createUrg(dataType,  UncertainRangeFactory.createLowWidth(parseDate(low), width));
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static URG<TS, Date> createUrgHighWidth(Diff width, String high, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createWidthHigh(width, parseDate(high)));
+		return createUrg(dataType,  UncertainRangeFactory.createWidthHigh(width, parseDate(high)));
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static URG<TS, Date> createUrgWidth(Diff width, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createWidth(width));
+		return createUrg(dataType,  UncertainRangeFactory.createWidth(width));
 	}
 	
 	private static Date parseDate(String textualDate) {

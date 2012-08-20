@@ -18,7 +18,9 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
+
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 
 /**
  * <p>An interface for types that contain, or can access or compute, an identifier.

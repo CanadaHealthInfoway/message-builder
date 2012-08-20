@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.datatype.lang;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+
 public class IntervalFactoryTest {
 
 	@Test

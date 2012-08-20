@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * <p>This data type is used when a continuous range needs to be expressed.
  * 
+ * <p>Recommended to use the IntervalFactory class for object creation
+ * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
  * @param <T> the underlying java type of the interval (i.e. Date)
@@ -45,16 +47,42 @@ public class Interval<T> extends SetComponent<T> {
 	private final NullFlavor highNullFlavor;
 	private final NullFlavor centreNullFlavor;
 	private final Representation representation;
-	
-	Interval(T low, T high, T centre, Diff<T> width, Representation representation) {
+
+	/**
+	 * <p>Recommended to use the IntervalFactory class for object creation
+	 * 
+	 * @param low
+	 * @param high
+	 * @param centre
+	 * @param width
+	 * @param representation
+	 */
+	public Interval(T low, T high, T centre, Diff<T> width, Representation representation) {
 		this(low, high, centre, width, representation, null, null, null, null);
 	}
 
-	Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor) {
+	/**
+	 * <p>Recommended to use the IntervalFactory class for object creation
+	 * 
+	 * @param low
+	 * @param high
+	 * @param centre
+	 * @param width
+	 * @param representation
+	 * @param lowNullFlavor
+	 * @param highNullFlavor
+	 * @param centreNullFlavor
+	 */
+	public Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor) {
 		this(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor, null);
 	}
 
-	Interval(T value) {
+	/**
+	 * <p>Recommended to use the IntervalFactory class for object creation
+	 * 
+	 * @param value
+	 */
+	public Interval(T value) {
 		this(null, null, null, null, Representation.SIMPLE, null, null, null, value);
 	}
 

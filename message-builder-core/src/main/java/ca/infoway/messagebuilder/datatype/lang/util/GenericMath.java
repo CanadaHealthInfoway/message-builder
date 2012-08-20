@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,6 +26,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.ObjectUtils;
+
+import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.Diff;
+import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 
 /**
  * <p>A math utility class for operations on various datatypes.
@@ -36,7 +40,7 @@ import org.apache.commons.lang.ObjectUtils;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-class GenericMath {
+public class GenericMath {
 
 	/**
 	 * <p>Adds two values of the same type. 

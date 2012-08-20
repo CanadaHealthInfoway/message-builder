@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterContextImpl;

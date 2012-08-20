@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
+import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
@@ -81,7 +82,7 @@ public class PhysicalQuantityUncertainRangeXmlParserTest extends AbstractXmlPars
 	}
 
 	private static URG<PQ, PhysicalQuantity> createIvlLowHigh(PhysicalQuantity low, PhysicalQuantity high, StandardDataType dataType) {
-		return createUrg(dataType, UncertainRange.createLowHigh(low, high));
+		return createUrg(dataType, UncertainRangeFactory.createLowHigh(low, high));
 	}
 
 	private static URG<PQ, PhysicalQuantity> createUrg(StandardDataType dataType, UncertainRange<PhysicalQuantity> range) {
@@ -91,11 +92,11 @@ public class PhysicalQuantityUncertainRangeXmlParserTest extends AbstractXmlPars
 	}
 
 	private static URG<PQ, PhysicalQuantity> createIvlLow(PhysicalQuantity low, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createLow(low));
+		return createUrg(dataType,  UncertainRangeFactory.createLow(low));
 	}
 
 	private static URG<PQ, PhysicalQuantity> createIvlHigh(PhysicalQuantity high, StandardDataType dataType) {
-		return createUrg(dataType,  UncertainRange.createHigh(high));
+		return createUrg(dataType,  UncertainRangeFactory.createHigh(high));
 	}
 
 	@Override

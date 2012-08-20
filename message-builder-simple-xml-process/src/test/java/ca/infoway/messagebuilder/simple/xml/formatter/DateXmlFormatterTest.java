@@ -103,8 +103,8 @@ public class DateXmlFormatterTest {
 		String value = "20080331155857.8620+0100";
         Element element = createElement("<something" + ns  + " value=\"" + value + "\" />");
         Date parsedDate = (new DateXmlFormatter(new FormatterConfiguration())).format(createContext(StandardDataType.TS_DATETIME), element).getValue();
-        Assert.assertTrue("is messagebuilder Date", parsedDate instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern);
-		assertEquals("correct date pattern", "yyyyMMddHHmmss.SSSZZZZZ", ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)parsedDate).getDatePattern());		
+        Assert.assertTrue("is messagebuilder Date", parsedDate instanceof ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern);
+		assertEquals("correct date pattern", "yyyyMMddHHmmss.SSSZZZZZ", ((ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern)parsedDate).getDatePattern());		
 	}
 	
     private void assertValidValueAttribute(Date expectedResult, String value) throws Exception {

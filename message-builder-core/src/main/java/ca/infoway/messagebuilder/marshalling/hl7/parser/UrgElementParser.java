@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.UncertainRangeFactory;
+import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -51,7 +51,7 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 			
 			if (low != null && high != null) {
 				try {
-					return UncertainRange.createLowHigh(createType(low), createType(high));
+					return UncertainRangeFactory.createLowHigh(createType(low), createType(high));
 				} catch (IllegalArgumentException e) {
 					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (Element) node));
 					return null;

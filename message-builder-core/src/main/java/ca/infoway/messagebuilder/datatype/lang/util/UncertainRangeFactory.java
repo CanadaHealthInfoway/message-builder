@@ -18,9 +18,10 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang;
+package ca.infoway.messagebuilder.datatype.lang.util;
 
-import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.datatype.lang.Diff;
+import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 
 public class UncertainRangeFactory {
 

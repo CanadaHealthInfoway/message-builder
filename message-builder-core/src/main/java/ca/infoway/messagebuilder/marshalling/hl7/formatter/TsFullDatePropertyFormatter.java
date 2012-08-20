@@ -83,8 +83,8 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
 	}
 
 	private String getPatternFromDateWithPattern(Date date) {
-		if (date instanceof ca.infoway.messagebuilder.datatype.lang.DateWithPattern) {
-			return ((ca.infoway.messagebuilder.datatype.lang.DateWithPattern)date).getDatePattern();
+		if (date instanceof ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern) {
+			return ((ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern)date).getDatePattern();
 		}
 		return null;
 	}
