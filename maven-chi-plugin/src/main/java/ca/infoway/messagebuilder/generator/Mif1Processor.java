@@ -34,12 +34,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.RimClass;
 
 
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
@@ -282,14 +284,45 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return MifXPathHelper.isParticipantClassSpecializationPresent(element);
 	}
 
-	private MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
+	protected MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
 		Element classElement = MifXPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
+		MessagePart messagePart;
 		if (isAbstract(classElement)) {
-			return MessagePart.createAbstractPart(name);
+			messagePart = MessagePart.createAbstractPart(name);
 		} else {
-			return new MessagePart(name);
+			messagePart = new MessagePart(name);
 		}
+		addRimClass(classElement, messagePart);
+		return messagePart;
+	}
+	
+	private void addRimClass(Element classElement, MessagePart messagePart) {
+		Element graphElement = MifXPathHelper.getSingleElement(classElement, "mif:graphicRepresentation/mif:graphElement");
+		String rimClassName = graphElement.getAttribute("shapeTemplate");
+		if(rimClassName.equals("RoleLinkR")) {
+			rimClassName = RimClass.ROLE_LINK.getCode();
+		} else if (rimClassName.equals("ActRelationshipR")) {
+			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
+		} else if (rimClassName.equals("Choice")) {
+			rimClassName = extractFromDerivationSupplierElement(classElement);
+		}
+		messagePart.setRimClass(getRimClassFromCode(rimClassName));
+	}
+
+	private RimClass getRimClassFromCode(String rimClassName) {
+		List<RimClass> values = EnumPattern.values(RimClass.class);
+		for (RimClass rimClass : values) {
+			if (rimClass.getCode().equals(rimClassName)) {
+				return rimClass;
+			}
+		}
+		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
+	}
+
+	private String extractFromDerivationSupplierElement(Element classElement) {
+		Element derivedFromElement = Mif2XPathHelper.getSingleElement(classElement, "mif:derivationSupplier");
+		return derivedFromElement.getAttribute("className");
 	}
 
 	private boolean isAbstract(Element classElement) {

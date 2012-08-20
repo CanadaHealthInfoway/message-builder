@@ -49,8 +49,9 @@ public class Mif2InteractionDefinitionTest {
 		}});
 		
 		Document document = new DocumentFactory().createFromResource(new ClasspathResource(getClass(), "PRPA_IN101205CA - Person Revise Event Accept.mif"));
-		Interaction interaction = new Mif2InteractionDefinition(document, null, null).extract(this.resolver);
+		Interaction interaction = new Mif2InteractionDefinition(document, "myCategory", null, null).extract(this.resolver);
 		assertEquals("name", "PRPA_IN101205CA", interaction.getName());
+		assertEquals("category", "myCategory", interaction.getCategory());
 		assertEquals("businessName", "Person Revise Event Accept", interaction.getBusinessName());
 		assertEquals("super type", "MCCI_MT002300CA.Message", interaction.getSuperTypeName());
 		assertEquals("arguments", 1, interaction.getArguments().size());

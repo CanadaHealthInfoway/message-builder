@@ -50,9 +50,11 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	private final Document document;
 	private final OutputUI outputUI;
 	private final MifRegistry registry;
+	private final String category;
 
-	Mif2InteractionDefinition(Document document, MifRegistry mifRegistry, OutputUI outputUI) {
+	Mif2InteractionDefinition(Document document, String category, MifRegistry mifRegistry, OutputUI outputUI) {
 		this.document = document;
+		this.category = category;
 		this.registry = mifRegistry;
 		this.outputUI = outputUI;
 	}
@@ -60,7 +62,7 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	public static InteractionDefinition create(MifReference mifReference, MifRegistry mifRegistry, OutputUI outputUI) throws GeneratorException, IOException {
 		try {
 			Document document = new DocumentFactory().createFromFile(mifReference.asFile());
-			return new Mif2InteractionDefinition(document, mifRegistry, outputUI);
+			return new Mif2InteractionDefinition(document, mifReference.getCategory(), mifRegistry, outputUI);
 		} catch (SAXException e) {
 			throw new GeneratorException(e.getMessage());
 		}
@@ -69,6 +71,8 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	public Interaction extract(MessagePartResolver resolver) throws GeneratorException {
 		try {
 			Interaction interaction = new Interaction();
+			
+			interaction.setCategory(this.category);
 
 			Element packageLocation = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:packageLocation", MIF2_NAMESPACE);
 			interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
