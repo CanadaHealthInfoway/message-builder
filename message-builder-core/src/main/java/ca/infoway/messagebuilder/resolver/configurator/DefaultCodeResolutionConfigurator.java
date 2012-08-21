@@ -60,8 +60,14 @@ import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.domainvalue.State;
 import ca.infoway.messagebuilder.domainvalue.SubscriptionStatus;
 import ca.infoway.messagebuilder.domainvalue.TopicPriority;
+import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodOrderEvent;
+import ca.infoway.messagebuilder.domainvalue.x_BasicUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.x_DistanceObservationUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.x_HeightOrWeightObservationUnitsOfMeasure;
+import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.basic.Iso3166Alpha2Country;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
@@ -166,6 +172,19 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.x_ActMoodIntentEvent.class));
 		CodeResolverRegistry.registerResolver(x_ActMoodOrderEvent.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.x_ActMoodOrderEvent.class));
+
+		CodeResolverRegistry.registerResolver(UnitsOfMeasureCaseSensitive.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.class));
+		CodeResolverRegistry.registerResolver(x_BasicUnitsOfMeasure.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.class));
+		CodeResolverRegistry.registerResolver(x_DistanceObservationUnitsOfMeasure.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.X_DistanceObservationUnitsOfMeasure.class));
+		CodeResolverRegistry.registerResolver(x_DrugUnitsOfMeasure.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.X_DrugUnitsOfMeasure.class));
+		CodeResolverRegistry.registerResolver(x_HeightOrWeightObservationUnitsOfMeasure.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.X_HeightOrWeightObservationUnitsOfMeasure.class));
+		CodeResolverRegistry.registerResolver(x_TimeUnitsOfMeasure.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit.class));
 		
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 	}

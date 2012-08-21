@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.domainvalue.basic;
 
 import ca.infoway.messagebuilder.Describable;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
+import ca.infoway.messagebuilder.domainvalue.x_BasicUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.util.DescribableUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
@@ -32,7 +33,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  *
  * @sharpen.ignore - datatype - translated manually 
  */
-public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive, Describable {
+public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive, x_BasicUnitsOfMeasure, Describable {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
