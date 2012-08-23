@@ -41,12 +41,9 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class PqPropertyFormatterTest {
 
-    private class TestablePqPropertyFormatter extends AbstractCerxPqPropertyFormatter {
-    }
-    
     @Test
     public void testFormatPhysicalQuantityNull() throws Exception {
-        Map<String,String>  result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
         
         // a null value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -57,7 +54,7 @@ public class PqPropertyFormatterTest {
     
     @Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String>  result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new PhysicalQuantity(), null);
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new PhysicalQuantity(), null);
         
         // an empty value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -69,7 +66,7 @@ public class PqPropertyFormatterTest {
     @Test
     public void testFormatPhysicalQuantityValueOrUnitNull() throws Exception {
         // no name-value pairs
-        TestablePqPropertyFormatter formatter = new TestablePqPropertyFormatter();
+        PqPropertyFormatter formatter = new PqPropertyFormatter();
         
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setUnit(CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE);
@@ -92,7 +89,7 @@ public class PqPropertyFormatterTest {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
+        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));
@@ -127,7 +124,7 @@ public class PqPropertyFormatterTest {
         			integerError ? "PhysicalQuantity can contain a maximum of 11 integer places. Value has " + (bigDecimal.precision() - bigDecimal.scale()) + " integer places." : ""
         			);
         	
-			String result = new TestablePqPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(),
+			String result = new PqPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(),
 					null, "name", "PQ", ConformanceLevel.MANDATORY), new PQImpl(physicalQuantity), 0);
 			assertEquals(expectedErrorMessage, StringUtils.substringBefore(result,SystemUtils.LINE_SEPARATOR));
 		} catch (ModelToXmlTransformationException e) {
@@ -137,7 +134,7 @@ public class PqPropertyFormatterTest {
     
     @Test
     public void testFormatNonNullWithEmptyPq() throws ModelToXmlTransformationException {
-    	TestablePqPropertyFormatter formatter = new TestablePqPropertyFormatter();
+    	PqPropertyFormatter formatter = new PqPropertyFormatter();
     	PQImpl pqImpl = new PQImpl();
     	pqImpl.setValue(new PhysicalQuantity());
 		String string = formatter.formatNonNullDataType(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), pqImpl, 0);
@@ -182,7 +179,7 @@ public class PqPropertyFormatterTest {
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(CeRxDomainTestValues.CENTIMETRE);
-        Map<String, String> result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
+        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
         assertEquals("value " + quantity, formattedQuantity, result.get("value"));
     }
 }

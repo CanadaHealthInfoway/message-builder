@@ -79,7 +79,7 @@ public class IntPosPropertyFormatterTest {
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));
 		
-		context.getModelToXmlResult().getHl7Errors().clear();
+		context.getModelToXmlResult().clearErrors();
 		
 		String output = new IntPosPropertyFormatter().format(
 				context,
@@ -100,7 +100,7 @@ public class IntPosPropertyFormatterTest {
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));
 
-		context.getModelToXmlResult().getHl7Errors().clear();
+		context.getModelToXmlResult().clearErrors();
 		
 		String output = new IntPosPropertyFormatter().format(
 				context,

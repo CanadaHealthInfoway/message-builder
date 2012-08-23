@@ -40,7 +40,7 @@ public class StPropertyFormatterTest extends FormatterTestCase {
 	}
 
 	private void assertNoErrors(FormatContext context) {
-		assertTrue("no errors", context.getModelToXmlResult().getHl7Errors().isEmpty());
+		assertTrue("no errors", context.getModelToXmlResult().isValid());
 	}
 	
 	@Test

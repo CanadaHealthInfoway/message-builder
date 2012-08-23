@@ -20,6 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 
@@ -30,10 +36,78 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
  *
  * &lt;element-name value="123.33" unit="mg"/&gt;
  *
- * This is the default HL7 implementation of the formatter without any wacky CeRx additions.
- *
  * 
  */
 @DataTypeHandler("PQ")
-public class PqPropertyFormatter extends AbstractPqPropertyFormatter {
+public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<PhysicalQuantity> {
+	
+	public static final String ATTRIBUTE_UNIT = "unit";
+	public static final String ATTRIBUTE_VALUE = "value";
+
+    
+    private static final int MAXIMUM_INTEGER_DIGITS = 11;
+    private static final int MAXIMUM_FRACTION_DIGITS = 2;
+
+    @Override
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) throws ModelToXmlTransformationException {
+
+        Map<String, String> result = new HashMap<String, String>();
+
+        if (physicalQuantity == null) {
+            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
+
+        } else if (physicalQuantity.getQuantity() == null && physicalQuantity.getUnit() == null) {
+            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
+
+        } else if (physicalQuantity.getQuantity() == null) {
+            throw new ModelToXmlTransformationException("PhysicalQuantity must define quantity");
+
+        } else if (isValidPhysicalQuantity(physicalQuantity)) {
+            result.put(ATTRIBUTE_VALUE, formatQuantity(physicalQuantity.getQuantity()));
+            if (physicalQuantity.getUnit() != null) {
+                // if unit is null, then this is an "each"
+                result.put(ATTRIBUTE_UNIT, physicalQuantity.getUnit().getCodeValue());
+            }
+        }
+
+        return result;
+    }
+
+    protected boolean isValidPhysicalQuantity(PhysicalQuantity physicalQuantity) throws ModelToXmlTransformationException {
+    	// now we have all values be valid; bad values are rounded by NumberFormat, and a warning message is sent back
+        return true;
+    }
+
+    @Override
+    boolean isInvalidValue(FormatContext context, PhysicalQuantity physicalQuantity) {
+    	if (physicalQuantity.getQuantity() == null) {
+    		return false;
+    	} else {
+    		return (physicalQuantity.getQuantity().scale() > MAXIMUM_FRACTION_DIGITS) ||
+				((physicalQuantity.getQuantity().precision() - physicalQuantity.getQuantity().scale()) > MAXIMUM_INTEGER_DIGITS);
+    	}
+    }
+    
+    @Override
+    protected String createWarningText(FormatContext context, PhysicalQuantity physicalQuantity) {
+    	String warningText = "";
+        int decimalDigits = physicalQuantity.getQuantity().scale();
+		if (decimalDigits > MAXIMUM_FRACTION_DIGITS) {
+        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_FRACTION_DIGITS + " decimal places. Value has " + decimalDigits + " decimal places.";
+        } 
+        int intDigits = physicalQuantity.getQuantity().precision() - decimalDigits;
+		if (intDigits > MAXIMUM_INTEGER_DIGITS) {
+        	warningText += "PhysicalQuantity can contain a maximum of " + MAXIMUM_INTEGER_DIGITS + " integer places. Value has " + intDigits + " integer places.";
+        }
+        return org.apache.commons.lang.StringUtils.isEmpty(warningText) ? super.createWarningText(context, physicalQuantity) : warningText;
+    }
+    
+    protected String formatQuantity(BigDecimal quantity) {
+        // NumberFormat quietly rounds. This is unfortunate for us. Check before we get to the format step.
+    	// UPDATE: we are allowing this behaviour to occur, and sending back a warning message rather than
+    	//         aborting via exception.
+    	// Redmine 1570 - don't change value even if incorrect; just call toString on it
+        return quantity.toPlainString(); 
+        // return new NumberFormatter().format(quantity, MAXIMUM_LENGTH, MAXIMUM_FRACTION_DIGITS, false); 
+    }
 }

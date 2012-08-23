@@ -59,9 +59,6 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new OnPropertyFormatter());
         register(new PnPropertyFormatter());
         register(new PqPropertyFormatter());
-        register(new PqBasicPropertyFormatter());
-        register(new PqDrugPropertyFormatter());
-        register(new PqHeightWeightPropertyFormatter());
         register(new RealConfPropertyFormatter());
         register(new RealCoordPropertyFormatter());
         register(new RtoQtyQtyPropertyFormatter());

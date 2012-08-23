@@ -52,14 +52,14 @@ public class MoPropertyFormatterTest extends FormatterTestCase {
         assertEquals("something in text node", "<amount currency=\"CAD\" value=\"12.00\"/>", result.trim());
 		assertTrue(context.getModelToXmlResult().isValid());
 
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
         
         money = new Money(new BigDecimal("12"), Currency.CANADIAN_DOLLAR);
         result = formatter.format(context, new MOImpl(money));
         assertEquals("something in text node", "<amount currency=\"CAD\" value=\"12\"/>", result.trim());
 		assertTrue(context.getModelToXmlResult().isValid());
         
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
 
         money = new Money(new BigDecimal("12.0000"), Currency.EURO);
         result = formatter.format(context, new MOImpl(money));
@@ -67,7 +67,7 @@ public class MoPropertyFormatterTest extends FormatterTestCase {
 		assertFalse(context.getModelToXmlResult().isValid());
 		assertEquals(2, context.getModelToXmlResult().getHl7Errors().size());  // bad currency; too many digits right of decimal
 		
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
 
         money = new Money(null, Currency.EURO);
         result = formatter.format(context, new MOImpl(money));
@@ -75,7 +75,7 @@ public class MoPropertyFormatterTest extends FormatterTestCase {
 		assertFalse(context.getModelToXmlResult().isValid());
 		assertEquals(2, context.getModelToXmlResult().getHl7Errors().size());  // bad currency; missing value
 
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
 
         money = new Money(new BigDecimal("12.0000"), null);
         result = formatter.format(context, new MOImpl(money));
@@ -83,7 +83,7 @@ public class MoPropertyFormatterTest extends FormatterTestCase {
 		assertFalse(context.getModelToXmlResult().isValid());
 		assertEquals(2, context.getModelToXmlResult().getHl7Errors().size());
 		
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
 
         money = new Money(new BigDecimal("123456789012.00"), Currency.CANADIAN_DOLLAR);
         result = formatter.format(context, new MOImpl(money));
@@ -91,7 +91,7 @@ public class MoPropertyFormatterTest extends FormatterTestCase {
 		assertFalse(context.getModelToXmlResult().isValid());
 		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size()); // too many digit left of decimal
 		
-        context.getModelToXmlResult().getHl7Errors().clear();
+        context.getModelToXmlResult().clearErrors();
 
         money = new Money(new BigDecimal("-89012.00"), Currency.CANADIAN_DOLLAR);
         result = formatter.format(context, new MOImpl(money));
