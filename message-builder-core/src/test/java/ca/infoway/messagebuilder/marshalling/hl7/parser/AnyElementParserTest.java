@@ -31,6 +31,7 @@ import java.math.BigDecimal;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -98,7 +99,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
 				node, null);
 		
 		assertNotNull("null", result);
@@ -153,11 +154,11 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				);
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
 				node, new XmlToModelResult());
 		
 		assertNotNull("null", result);
-		assertEquals("type", StandardDataType.IVL_PQ, result.getDataType());
+		assertEquals("type", StandardDataType.IVL, result.getDataType());  // was: IVL_PQ; should this be modified??
 		
 		assertNotNull("null", result.getBareValue());
 	

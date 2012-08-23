@@ -36,13 +36,13 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.RTO;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
-import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
@@ -56,6 +56,7 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 		return ParserContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
@@ -65,11 +66,9 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 		assertNull("denominator", ratio.getDenominator());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
-        resolver.addDomainValue(MILLIGRAM, UnitsOfMeasureCaseSensitive.class);
-        resolver.addDomainValue(MILLILITRE, UnitsOfMeasureCaseSensitive.class);
-        
 		Node node = createNode("<something><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
         Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(null, node, null).getBareValue();
         assertNotNull("ratio", ratio);

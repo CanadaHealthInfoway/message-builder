@@ -60,6 +60,7 @@ import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.domainvalue.State;
 import ca.infoway.messagebuilder.domainvalue.SubscriptionStatus;
 import ca.infoway.messagebuilder.domainvalue.TopicPriority;
+import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodOrderEvent;
@@ -172,6 +173,9 @@ public class DefaultCodeResolutionConfigurator {
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.transport.x_ActMoodIntentEvent.class));
 		CodeResolverRegistry.registerResolver(x_ActMoodOrderEvent.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.payload.x_ActMoodOrderEvent.class));
+
+		CodeResolverRegistry.registerResolver(URLScheme.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.URLScheme.class));
 
 		CodeResolverRegistry.registerResolver(UnitsOfMeasureCaseSensitive.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.class));

@@ -284,14 +284,12 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertEquals("error count", 2, this.result.getHl7Errors().size());
         
         Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" is not a valid decimal value (<width unit=\"d\" value=\"1.d\"/>)", hl7Error.getMessage());
+        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"d\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 	
 	@Test
     public void testParseWidthFailureUnit() throws Exception {
-        resolver.addDomainValue(null, UnitsOfMeasureCaseSensitive.class);
-    	
         Node node = createNode(
                 "<effectiveTime>" +
                 "   <width value=\"1\" unit=\"monkeys\"/>" +
@@ -303,14 +301,12 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertEquals("error count", 2, this.result.getHl7Errors().size());
         
         Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "Unit \"monkeys\" is not valid (<width unit=\"monkeys\" value=\"1\"/>)", hl7Error.getMessage());
+        assertEquals("message", "Unit \"monkeys\" is not valid for type PQ.TIME (<width unit=\"monkeys\" value=\"1\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
     
 	@Test
     public void testParseWidthFailureValueAndUnit() throws Exception {
-        resolver.addDomainValue(null, UnitsOfMeasureCaseSensitive.class);
-
         Node node = createNode(
                 "<effectiveTime>" +
                 "   <width value=\"1.d\" unit=\"monkey\"/>" +
@@ -322,11 +318,11 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertEquals("error count", 3, this.result.getHl7Errors().size());
         
         Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" is not a valid decimal value (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
+        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 
         hl7Error = this.result.getHl7Errors().get(2);
-        assertEquals("message", "Unit \"monkey\" is not valid (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
+        assertEquals("message", "Unit \"monkey\" is not valid for type PQ.TIME (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 

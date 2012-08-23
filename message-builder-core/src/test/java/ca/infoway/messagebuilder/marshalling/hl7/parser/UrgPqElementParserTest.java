@@ -60,13 +60,13 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		XmlToModelResult xmlResult = new XmlToModelResult();
 		
 		Node node = createNode(
-				"<range><low value=\"123\" unit=\"m\" /><high value=\"567\" unit=\"HOUR\" /></range>");
+				"<range><low value=\"123\" unit=\"m\" /><high value=\"567\" unit=\"h\" /></range>");
 		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(null, node, xmlResult).getBareValue();
 		
 		assertNull("null", range);
 		assertFalse("has error", xmlResult.getHl7Errors().isEmpty());
 		assertEquals("syntax error", 
-				new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Can't add two quantities of different units: m and HOUR", (Element) node),
+				new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Can't add two quantities of different units: METRE and HOUR", (Element) node),
 				xmlResult.getHl7Errors().get(0));
 	}
 	

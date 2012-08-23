@@ -33,11 +33,9 @@ import org.junit.Before;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
-import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
-import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public abstract class MarshallingTestCase {
@@ -45,13 +43,10 @@ public abstract class MarshallingTestCase {
 	protected static final String FULL_DATE_TIME = "yyyy-MM-dd'T'HH:mm:ss";
 	protected static final String FULL_DATE = "yyyy-MM-dd";
 	protected XmlToModelResult xmlResult;
-	protected TrivialCodeResolver resolver;
 	
 	@Before
 	public void setUp() throws Exception {
-		this.resolver = new TrivialCodeResolver();
-		CodeResolverRegistry.register(resolver);
-		CodeResolverRegistry.registerResolver(NullFlavor.class, new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.class));
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 		this.xmlResult = new XmlToModelResult();
 	}
 	

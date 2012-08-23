@@ -67,7 +67,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		String specializationType = obtainSpecializationType(parentType, node, xmlToModelResult);
 		if (StringUtils.isNotBlank(specializationType)) {
 			ElementParser elementParser = ParserRegistry.getInstance().get(specializationType);
-			if (elementParser == null || !AnyHelper.isValidTypeForAny(parentType, specializationType)) {
+			if (elementParser == null || !isValidTypeForAny(parentType, specializationType)) {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
@@ -91,6 +91,25 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		return result;
 	}
 
+	private boolean isValidTypeForAny(String parentType, String specializationType) {
+		if (StringUtils.isBlank(specializationType)) {
+			return false;
+		}
+		
+		boolean valid = AnyHelper.isValidTypeForAny(parentType, specializationType);
+		if (!valid) {
+			// unqualify only the inner types
+			String innerUnqualified = Hl7DataTypeName.unqualifyInnerTypes(specializationType);
+			valid = AnyHelper.isValidTypeForAny(parentType, innerUnqualified);
+		}
+		if (!valid) {
+			// unqualify both outer and inner types)
+			String bothUnqualified = Hl7DataTypeName.unqualify(specializationType);
+			valid = AnyHelper.isValidTypeForAny(parentType, bothUnqualified);
+		}
+		return valid;
+	}
+
 	/**
 	 * The specialization type attribute is used to check against valid ANY types. This has a bit of "magic"
 	 * involved, as the CHI specializationType notation (eg. URG_PQ) just happens to match up to our
@@ -109,27 +128,10 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 			rawSpecializationType = getXsiType(node);
 		}
 
-		String result = rawSpecializationType;
-
-		if (StringUtils.isNotBlank(rawSpecializationType) && !AnyHelper.isValidTypeForAny(parentType, rawSpecializationType)) {
-			String unqualify = Hl7DataTypeName.unqualify(rawSpecializationType);
-			String validType = getValidType(unqualify, parentType);
-			if (validType != null) {
-				result = validType;
-			}
+		if (rawSpecializationType != null && rawSpecializationType.contains("_") && rawSpecializationType.indexOf('_') == rawSpecializationType.lastIndexOf('_')) {
+			rawSpecializationType = rawSpecializationType.replace("_", "<") + ">";
 		}
-		return result;
-	}
-
-	private String getValidType(String hl7Type, String parentType) {
-		String result = null;
-		StandardDataType dataType = EnumPattern.valueOf(StandardDataType.class, hl7Type);
-		if (dataType != null) {
-			if (AnyHelper.isValidTypeForAny(parentType, dataType.getType())) {
-				result = dataType.getType();
-			}
-		}
-		return result;
+		return rawSpecializationType;
 	}
 
 }

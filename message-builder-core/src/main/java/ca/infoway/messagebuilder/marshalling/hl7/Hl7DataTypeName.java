@@ -44,6 +44,14 @@ public class Hl7DataTypeName {
 		}
 	}
 
+	public Hl7DataTypeName getUnqualifiedInnerTypesVersion() {
+		if (isQualified()) {
+			return create(unqualifyInnerTypes());
+		} else {
+			return this;
+		}
+	}
+
 	private String unqualify() {
 		StringBuilder builder = new StringBuilder();
 		for (StringTokenizer tokenizer = new StringTokenizer(this.name, "<,>", true); tokenizer.hasMoreTokens(); ) {
@@ -55,6 +63,23 @@ public class Hl7DataTypeName {
 			} else {
 				builder.append(token);
 			}
+		}
+		return builder.toString();
+	}
+
+	private String unqualifyInnerTypes() {
+		StringBuilder builder = new StringBuilder();
+		boolean first = true;
+		for (StringTokenizer tokenizer = new StringTokenizer(this.name, "<,>", true); tokenizer.hasMoreTokens(); ) {
+			String token = tokenizer.nextToken();
+			if ("<,>".indexOf(token) >= 0) {
+				builder.append(token);
+			} else if (isQualified(token) && !first) {
+				builder.append(StringUtils.substringBefore(token, "."));
+			} else {
+				builder.append(token);
+			}
+			first = false;
 		}
 		return builder.toString();
 	}
@@ -73,6 +98,10 @@ public class Hl7DataTypeName {
 
 	public static String unqualify(String name) {
 		return create(name).getUnqualifiedVersion().toString();
+	}
+
+	public static String unqualifyInnerTypes(String name) {
+		return create(name).getUnqualifiedInnerTypesVersion().toString();
 	}
 
 	public static String getTypeWithoutParameters(String name) {

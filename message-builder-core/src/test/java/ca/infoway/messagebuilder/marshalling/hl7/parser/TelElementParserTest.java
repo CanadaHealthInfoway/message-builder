@@ -97,7 +97,6 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseInvalidValueUrlScheme() throws Exception {
-		resolver.addDomainValue(null, URLScheme.class);
 		Node node = createNode("<something value=\"mailfrom://monkey\" />");
 		XmlToModelResult xmlResult = new XmlToModelResult();
 		new TelElementParser().parse(null, node, xmlResult);
@@ -137,7 +136,7 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode(
 				"<something value=\"mailfrom://monkey\">\n" +
 		"</something>");
-		new TelElementParser().parse(null, node, null);
+		new TelElementParser().parse(null, node, new XmlToModelResult());
 	}
 	
 	@Test
