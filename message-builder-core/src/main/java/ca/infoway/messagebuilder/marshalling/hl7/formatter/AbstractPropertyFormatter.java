@@ -71,8 +71,6 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 	protected String createElementClosure(FormatContext context, int indentLevel, boolean lineBreak) {
     	return XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, lineBreak); 
     }
-	protected void validateContext(FormatContext context) {
-	}
 	
 	protected Map<String, String> createSpecializationTypeAttibutesIfNecessary(FormatContext context) {
 		Map<String, String> attributes = new HashMap<String, String>();

@@ -45,7 +45,6 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
-    	validateContext(context);
 
     	String result = "";
     	if (hl7Value!=null) {

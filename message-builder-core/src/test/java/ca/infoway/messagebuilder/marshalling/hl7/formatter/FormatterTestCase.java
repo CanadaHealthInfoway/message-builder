@@ -35,6 +35,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
@@ -57,7 +58,7 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(this.result, null, name, null, null);
+		return new FormatContextImpl(this.result, null, name, null, null, false, SpecificationVersion.R02_04_03, null, null);
 	}
 
 	

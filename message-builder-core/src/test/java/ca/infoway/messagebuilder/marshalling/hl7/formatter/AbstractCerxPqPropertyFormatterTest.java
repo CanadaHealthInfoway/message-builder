@@ -24,33 +24,37 @@ import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSens
 import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
-public class AbstractCerxPqPropertyFormatterTest {
+public class AbstractCerxPqPropertyFormatterTest extends FormatterTestCase {
     
+	@Before
+	public void setup() {
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+	}
+	
 	@Test
 	public void testFormatPhysicalQuantityNull() throws Exception {
-        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+        String formatResult = new PqPropertyFormatter().format(createContext(), new PQImpl());
         
         // a null value for PQ elements results in a nullFlavor attribute
-        assertEquals("map size", 1, result.size());
-        
-        assertTrue("key as expected", result.containsKey("nullFlavor"));
-        assertEquals("value as expected", AbstractPropertyFormatter.NULL_FLAVOR_NO_INFORMATION, result.get("nullFlavor"));
+        assertEquals("result", "<name nullFlavor=\"NI\"/>", formatResult.trim());
     }
     
 	@Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), new PhysicalQuantity(), null);
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), new PhysicalQuantity(), null);
         
         // an empty value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -58,6 +62,10 @@ public class AbstractCerxPqPropertyFormatterTest {
         assertTrue("key as expected", result.containsKey("nullFlavor"));
         assertEquals("value as expected", AbstractPropertyFormatter.NULL_FLAVOR_NO_INFORMATION, result.get("nullFlavor"));
     }
+
+	private FormatContextImpl createContext() {
+		return new FormatContextImpl(this.result, null, "name", "PQ.BASIC", null, false, SpecificationVersion.V01R04_3, null, null);
+	}
     
 	@Test
     public void testFormatPhysicalQuantityValueOrUnitNull() throws Exception {
@@ -66,13 +74,11 @@ public class AbstractCerxPqPropertyFormatterTest {
         
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setUnit(MILLIGRAM);
+
+        formatter.format(createContext(), new PQImpl(physicalQuantity));
         
-        try {
-            formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
-            fail("expected exception");
-        } catch (ModelToXmlTransformationException e) {
-            assertEquals("exception message null quantity", "PhysicalQuantity must define quantity", e.getMessage());
-        }
+        assertEquals("No value provided for physical quantity", this.result.getHl7Errors().get(0).getMessage());
+        
     }
 
 	@Test
@@ -84,7 +90,7 @@ public class AbstractCerxPqPropertyFormatterTest {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), physicalQuantity, null);
+        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), physicalQuantity, null);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));

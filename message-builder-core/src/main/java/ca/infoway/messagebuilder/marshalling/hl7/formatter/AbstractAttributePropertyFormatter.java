@@ -38,14 +38,7 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
     @Override
     String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
     	V value = extractBareValue(bareAny);
-    	validateContext(context);
-    	StringBuilder builder = new StringBuilder();
-    	if (isInvalidValue(context, value)) {
-    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-    		builder.append(createWarning(indentLevel, createWarningText(context, value)));
-    	}
-        builder.append(createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true));
-        return builder.toString();
+        return createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true);
     }
 
     @Override
@@ -53,14 +46,6 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
 		throw new UnsupportedOperationException("Different formatNonNullValue handler used for AbstractAttributePropertyFormatter");
 	}
 	
-    protected String createWarningText(FormatContext context, V value) {
-		return "Value " + value + " is not valid";
-	}
-
-	boolean isInvalidValue(FormatContext context, V value) {
-		return false;
-	}
-
 	abstract Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny) throws ModelToXmlTransformationException;
 
 }

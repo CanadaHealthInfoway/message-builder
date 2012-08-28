@@ -29,18 +29,24 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("PIVL<TS>")
 class PivlTsPropertyFormatter extends AbstractPivlPropertyFormatter {
 
-	protected String format(DateDiff period) throws ModelToXmlTransformationException {
-		Map<String, String> attributes = getAttributes(period);
+	// combine this with super class? the double call of getAttributes will cause duplicate errors to be logged 
+	
+	@Override
+	protected String format(DateDiff period, FormatContext context) throws ModelToXmlTransformationException {
+		Map<String, String> attributes = getAttributes(period, context);
 		return attributes.get(PqPropertyFormatter.ATTRIBUTE_VALUE);
 	}
 
-	protected String getUnits(DateDiff period) throws ModelToXmlTransformationException {
-		Map<String, String> attributes = getAttributes(period);
+	@Override
+	protected String getUnits(DateDiff period, FormatContext context) throws ModelToXmlTransformationException {
+		Map<String, String> attributes = getAttributes(period, context);
 		return attributes.get(PqPropertyFormatter.ATTRIBUTE_UNIT);
 	}
 
-	private Map<String, String> getAttributes(DateDiff period) throws ModelToXmlTransformationException {
+	private Map<String, String> getAttributes(DateDiff period, FormatContext context) throws ModelToXmlTransformationException {
 		PhysicalQuantity quantity = period.getValueAsPhysicalQuantity();
-		return new PqPropertyFormatter().getAttributeNameValuePairs((FormatContext) null, quantity, null);
+		FormatContext newContext = new FormatContextImpl("PQ.TIME", context);
+		return new PqPropertyFormatter().getAttributeNameValuePairs(newContext, quantity, null);
 	}
+
 }

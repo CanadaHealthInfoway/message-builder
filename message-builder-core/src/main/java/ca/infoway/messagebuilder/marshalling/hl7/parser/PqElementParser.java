@@ -22,27 +22,18 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-import java.text.MessageFormat;
 
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
-import ca.infoway.messagebuilder.lang.NumberUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
-import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
-import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 /**
  * PQ - Physical Quantity
@@ -71,83 +62,15 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		Element element = (Element) node;
 		
-		BigDecimal value = parseValue(context, element.getAttribute("value"), element, xmlToModelResult);
-		UnitsOfMeasureCaseSensitive unit = parseUnit(context, element.getAttribute("unit"), element, xmlToModelResult);
+		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), element, xmlToModelResult);
+		
+		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, xmlToModelResult);
 		
 		// TODO: TM - PQ.LAB in MR2009 allows for an originalText attribute. Since no current pan-Canadian standard uses PQ.LAB, this requirement has not been implemented.
 		
 		return (value != null) ? new PhysicalQuantity(value, unit) : null;
 	}
 	
-	private BigDecimal parseValue(ParseContext context, String valueAsString, Element element, XmlToModelResult xmlToModelResult) {
-		BigDecimal result = null;
-		if (StringUtils.isBlank(valueAsString)) {
-			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-					MessageFormat.format("No value provided for physical quantity ({0})",
-							XmlDescriber.describeSingleElement(element)), element));
-		} else {
-			result = validateValue(valueAsString, context.getVersion(), context.getType(), element, xmlToModelResult);
-		}
-		return result;
-	}
-
-    protected BigDecimal validateValue(String value, VersionNumber version, String type, Element element, Hl7Errors errors) {
-    	int maxIntDigits = this.pqValidationUtils.getMaxIntDigits(version, type);
-    	int maxFractionDigits = this.pqValidationUtils.getMaxFractionDigits(version, type);
-    	String errorMessage = "PhysicalQuantity ({0}) for {1}/{2} can contain a maximum of {3} {4} places";
-    	boolean alreadyWarnedAboutValue = false;
-    	
-		if (NumberUtil.isNumber(value)) {
-			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
-			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
-			
-			if (StringUtils.length(decimalPart) > maxFractionDigits) {
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format(errorMessage,
-								XmlDescriber.describeSingleElement(element), version.getBaseVersion(), type, maxFractionDigits, "decimal"), element));
-	        }
-			
-			if (StringUtils.length(integerPart) > maxIntDigits) {
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format(errorMessage,
-								XmlDescriber.describeSingleElement(element), version.getBaseVersion(), type, maxIntDigits, "integer"), element));
-	        }
-
-			if (!StringUtils.isNumeric(integerPart) || !StringUtils.isNumeric(decimalPart)) {
-				alreadyWarnedAboutValue = true;
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format("value \"{0}\" must contain digits only ({1})",
-								value, XmlDescriber.describeSingleElement(element)), element));
-			}
-		}
-			
-		BigDecimal result = null;
-		try {
-			result = new BigDecimal(value);
-		} catch (NumberFormatException e) {
-			if (!alreadyWarnedAboutValue) {
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format("value \"{0}\" is not a valid decimal value ({1})",
-								value, XmlDescriber.describeSingleElement(element)), element));
-			}
-		}
-		return result;
-    }
-
-	private UnitsOfMeasureCaseSensitive parseUnit(ParseContext context, String unitAsString, Element element, XmlToModelResult xmlToModelResult) {
-		if (StringUtils.isNotBlank(unitAsString)) {
-			UnitsOfMeasureCaseSensitive unit = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.pqValidationUtils.getUnitTypeByHl7Type(context.getType(), element, xmlToModelResult), unitAsString);
-			if (unit == null) {
-				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format("Unit \"{0}\" is not valid for type {2} ({1})",
-								unitAsString, XmlDescriber.describeSingleElement(element), context.getType()), element));
-			}
-			return unit;
-		} else {
-			return null;
-		}
-	}
-
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new PQImpl();

@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 /**
  * @sharpen.ignore
@@ -51,6 +52,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 	@Before
 	public void setup() {
 		TimeZone.setDefault(TimeZone.getTimeZone("GMT-6:00"));
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 	}
 	
 	@After
@@ -63,7 +65,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
 				PeriodicIntervalTime.createPeriod(new DateDiff(createQuantity("3", DefaultTimeUnit.MINUTE))));
-		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null), 
+		String result = new GtsBoundedPivlFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "GTS.BOUNDEDPIVL", null, false, SpecificationVersion.R02_04_02, null, null), 
 				new GTSImpl(gts));
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +

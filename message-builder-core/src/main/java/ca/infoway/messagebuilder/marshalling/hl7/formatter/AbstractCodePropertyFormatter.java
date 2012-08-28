@@ -52,7 +52,6 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
-    	validateContext(context);
 
     	CD cd = (CD) hl7Value;
     	

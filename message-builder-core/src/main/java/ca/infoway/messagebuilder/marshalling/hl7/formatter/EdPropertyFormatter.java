@@ -56,7 +56,6 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 
 	@Override
 	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) throws ModelToXmlTransformationException {
-		validateContext(context);
 		StringBuffer buffer = new StringBuffer();
 		Map<String, String> attributes = new HashMap<String, String>();
 		addCompressedDataAttributes(data, attributes);

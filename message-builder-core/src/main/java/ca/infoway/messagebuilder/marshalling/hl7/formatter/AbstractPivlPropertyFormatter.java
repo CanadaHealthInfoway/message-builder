@@ -79,7 +79,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 
 	private void appendIntervalBounds(PeriodicIntervalTime value, StringBuffer buffer, int indentLevel, FormatContext context)
 			throws ModelToXmlTransformationException {
-		String period = createElement(PERIOD, value.getPeriod(), indentLevel);
+		String period = createElement(PERIOD, value.getPeriod(), indentLevel, context);
 		String phase = createElement(context.getModelToXmlResult(), context.getPropertyPath(), PHASE, value.getPhase(), indentLevel);
 
 		switch (value.getRepresentation()) {
@@ -132,10 +132,10 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		
 		if (intFormatter != null && ivlPqFormatter != null) {
 			buffer.append(intFormatter.format(
-					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
+					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), context.getVersion(), null, null), new INTImpl(repetitions), indentLevel));
 			IVLImpl<PQ, Interval<PhysicalQuantity>> ivlImpl = new IVLImpl<PQ, Interval<PhysicalQuantity>>(quantity);
 			buffer.append(ivlPqFormatter.format(
-					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), ivlImpl, indentLevel));
+					new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", ivlPqType, ConformanceLevel.MANDATORY, context.isSpecializationType(), context.getVersion(), null, null), ivlImpl, indentLevel));
 		} else {
 			throw new ModelToXmlTransformationException("No formatter found for " + (type == null ? type : ivlPqType));
 		}
@@ -161,16 +161,16 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
     	if (formatter != null) {
     		buffer.append(formatter.format(
     				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), new INTImpl(repetitions), indentLevel));
-    		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity)), UNIT, getUnits(new DateDiff(quantity)));
+    		Map<String, String> attributes = toStringMap(VALUE, format(new DateDiff(quantity), context), UNIT, getUnits(new DateDiff(quantity), context));
     		buffer.append(createElement(new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", "PQ.TIME", ConformanceLevel.MANDATORY, context.isSpecializationType(), null, null, null), attributes, indentLevel, true, true));
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}
 	}
 
-	private String createElement(String name, DateDiff period, int indentLevel) throws ModelToXmlTransformationException {
+	private String createElement(String name, DateDiff period, int indentLevel, FormatContext context) throws ModelToXmlTransformationException {
 		if (period != null) {
-			Map<String, String> attributes = toStringMap(VALUE, format(period), UNIT, getUnits(period));
+			Map<String, String> attributes = toStringMap(VALUE, format(period, context), UNIT, getUnits(period, context));
 			return createElement(name, attributes, indentLevel, true, true);
 		}
 		return null;
@@ -187,7 +187,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 		return null;
 	}
 
-	protected abstract String format(DateDiff diff) throws ModelToXmlTransformationException;
+	protected abstract String format(DateDiff diff, FormatContext context) throws ModelToXmlTransformationException;
 
-	protected abstract String getUnits(DateDiff diff) throws ModelToXmlTransformationException;
+	protected abstract String getUnits(DateDiff diff, FormatContext context) throws ModelToXmlTransformationException;
 }
