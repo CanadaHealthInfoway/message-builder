@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
@@ -46,7 +47,8 @@ class PivlTsPropertyFormatter extends AbstractPivlPropertyFormatter {
 	private Map<String, String> getAttributes(DateDiff period, FormatContext context) throws ModelToXmlTransformationException {
 		PhysicalQuantity quantity = period.getValueAsPhysicalQuantity();
 		FormatContext newContext = new FormatContextImpl("PQ.TIME", context);
-		return new PqPropertyFormatter().getAttributeNameValuePairs(newContext, quantity, null);
+		// getAttributeNameValuePairs is never called with a null value; directly calling it from here is a bit of a cheat, so ensure no null passed in
+		return quantity == null ? new HashMap<String, String>() : new PqPropertyFormatter().getAttributeNameValuePairs(newContext, quantity, null);
 	}
 
 }

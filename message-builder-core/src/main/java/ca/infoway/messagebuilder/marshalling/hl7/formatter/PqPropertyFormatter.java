@@ -48,12 +48,6 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 
     @Override
     Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) throws ModelToXmlTransformationException {
-
-    	if (physicalQuantity == null) {
-    		// FIXME - VALIDATION - TM - remove this
-    		// should not get here
-    		return new HashMap<String, String>();
-    	}
     	
         validatePhysicalQuantity(context, physicalQuantity);
 		
