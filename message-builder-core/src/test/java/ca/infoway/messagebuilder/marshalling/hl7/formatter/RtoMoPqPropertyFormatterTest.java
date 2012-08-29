@@ -13,18 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2012-08-20 19:01:34 -0400 (Mon, 20 Aug 2012) $
+ * Revision:      $LastChangedRevision: 6032 $
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
+
 import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 
@@ -32,11 +29,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
+import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
-public class RtoPqPqPropertyFormatterTest extends FormatterTestCase {
+public class RtoMoPqPropertyFormatterTest extends FormatterTestCase {
 
 	@Before
 	public void setup() {
@@ -45,25 +44,17 @@ public class RtoPqPqPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testBasic() throws Exception {
-        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = new Ratio<PhysicalQuantity, PhysicalQuantity> ();
-        ratio.setNumerator(new PhysicalQuantity(new BigDecimal("1.00"), MILLIGRAM));
+        Ratio<Money, PhysicalQuantity> ratio = new Ratio<Money, PhysicalQuantity> ();
+        ratio.setNumerator(new Money(new BigDecimal("1.00"), Currency.CANADIAN_DOLLAR));
         ratio.setDenominator(new PhysicalQuantity(new BigDecimal("10.00"), MILLILITRE));
         
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.DRUG>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(ratio));
-		assertXml("result", "<name><numerator unit=\"mg\" value=\"1.00\"/><denominator unit=\"ml\" value=\"10.00\"/></name>", result);
+		String result = new RtoMoPqPropertyFormatter().format(getContext("name", "RTO<MO.CAD,PQ.BASIC>"), new RTOImpl<Money, PhysicalQuantity>(ratio));
+		assertXml("result", "<name><numerator currency=\"CAD\" value=\"1.00\"/><denominator unit=\"ml\" value=\"10.00\"/></name>", result);
 	}
 	
 	@Test
 	public void testNullCase() throws Exception {
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.TIME>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>());
+		String result = new RtoMoPqPropertyFormatter().format(getContext("name", "RTO<MO.CAD,PQ.BASIC>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
-	}
-	
-	@Test
-	public void testInvalidNullCase() throws Exception {
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.TIME>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(new Ratio<PhysicalQuantity, PhysicalQuantity>()));
-		assertNotNull(result);
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
 	}
 }

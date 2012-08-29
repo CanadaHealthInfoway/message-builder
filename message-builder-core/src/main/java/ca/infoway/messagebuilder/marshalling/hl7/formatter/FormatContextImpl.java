@@ -61,15 +61,23 @@ class FormatContextImpl implements FormatContext {
 	}
 	
 	FormatContextImpl(String newType, FormatContext context) {
-		this(newType, context.isSpecializationType(), context);
+		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getElementName(), context);
+	}
+	
+	FormatContextImpl(String newType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
+		this(newType, context.isSpecializationType(), newConformanceLevel, elementName, context);
 	}
 	
 	FormatContextImpl(String newType, boolean isSpecializationType, FormatContext context) {
+		this(newType, isSpecializationType, context.getConformanceLevel(), context.getElementName(), context);
+	}
+
+	FormatContextImpl(String newType, boolean isSpecializationType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
 		this(context.getModelToXmlResult(), 
 			 context.getPropertyPath(), 
-			 context.getElementName(), 
+			 elementName, 
 			 newType, 
-			 context.getConformanceLevel(), 
+			 newConformanceLevel, 
 			 isSpecializationType, 
 			 context.getVersion(), 
 			 context.getDateTimeZone(), 

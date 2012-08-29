@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2012-05-15 20:03:59 -0400 (Tue, 15 May 2012) $
+ * Revision:      $LastChangedRevision: 5886 $
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -37,16 +39,17 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
  * &lt;/unitQuanity&gt;
  */
  //http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-RTO
-@DataTypeHandler("RTO<PQ,PQ>")
-public class RtoPqPqPropertyFormatter extends AbstractRtoPropertyFormatter<PhysicalQuantity, PhysicalQuantity> {
+@DataTypeHandler("RTO<MO,PQ>")
+public class RtoMoPqPropertyFormatter extends AbstractRtoPropertyFormatter<Money, PhysicalQuantity> {
 
 	private PqPropertyFormatter pqFormatter = new PqPropertyFormatter();
+	private MoPropertyFormatter moFormatter = new MoPropertyFormatter();
 	
 	@Override
-	protected String formatNumerator(FormatContext context, PhysicalQuantity numerator, int indentLevel) {
+	protected String formatNumerator(FormatContext context, Money numerator, int indentLevel) {
 		String numeratorType = Hl7DataTypeName.create(context.getType()).getInnerTypes().get(0).toString();
 		FormatContext newContext = new FormatContextImpl(numeratorType, ConformanceLevel.MANDATORY, "numerator", context);
-		return this.pqFormatter.format(newContext, new PQImpl(numerator), indentLevel);
+		return this.moFormatter.format(newContext, new MOImpl(numerator), indentLevel);
 	}
 
 	@Override

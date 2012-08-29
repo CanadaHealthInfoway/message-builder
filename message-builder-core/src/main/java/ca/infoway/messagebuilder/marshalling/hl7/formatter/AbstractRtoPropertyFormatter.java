@@ -20,9 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.util.Map;
-
 import ca.infoway.messagebuilder.datatype.lang.BareRatio;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFlavorPropertyFormatter<BareRatio> {
@@ -33,14 +33,23 @@ public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFla
         
         StringBuffer buffer = new StringBuffer();
         buffer.append(createElement(context.getElementName(), null, indentLevel, false, true));
+
+        T bareNumerator = (T) value.getBareNumerator();
+        U bareDenominator = (U) value.getBareDenominator();
         
-        buffer.append(createElement("numerator", getNumeratorAttributeMap((T) value.getBareNumerator()), indentLevel + 1, true, true));
-        buffer.append(createElement("denominator", getDenominatorAttributeMap((U) value.getBareDenominator()), indentLevel + 1, true, true));
+        if (bareNumerator == null || bareDenominator == null) {
+        	context.getModelToXmlResult().addHl7Error(
+        		new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Numerator and denominator must be non-null; both are mandatory for Ratio types.", context.getPropertyPath())
+        	);
+        }
+        
+		buffer.append(formatNumerator(context, bareNumerator, indentLevel + 1));
+		buffer.append(formatDenominator(context, bareDenominator, indentLevel + 1));
         
         buffer.append(XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, true));
         return buffer.toString();
     }
-
-    protected abstract Map<String, String> getNumeratorAttributeMap(T value);
-    protected abstract Map<String, String> getDenominatorAttributeMap(U value);
+    
+    protected abstract String formatNumerator(FormatContext context, T numerator, int indentLevel);
+    protected abstract String formatDenominator(FormatContext context, U denominator, int indentLevel);
 }

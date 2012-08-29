@@ -58,10 +58,13 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(this.result, null, name, null, null, false, SpecificationVersion.R02_04_03, null, null);
+		return getContext(name, null);
 	}
 
-	
+	protected FormatContext getContext(String name, String type) {
+		return new FormatContextImpl(this.result, null, name, type, null, false, SpecificationVersion.R02_04_03, null, null);
+	}
+
     protected final Set<Code> makeSet(Code... codes) {
         return new TreeSet<Code>(Arrays.asList(codes));
     }
