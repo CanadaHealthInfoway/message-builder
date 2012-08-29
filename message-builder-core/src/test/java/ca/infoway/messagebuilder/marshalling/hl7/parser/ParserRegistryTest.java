@@ -56,6 +56,21 @@ public class ParserRegistryTest {
 		assertTrue("SET", elementParser instanceof SetElementParser);
 	}
 	
+	@Test
+	public void testShouldFindRtoParsers() throws Exception {
+		ElementParser elementParser = ParserRegistry.getInstance().get("RTO<PQ.DRUG,PQ.TIME>");
+		assertNotNull(elementParser);
+		assertTrue("RTO<PQ,PQ>", elementParser instanceof RtoPqPqElementParser);
+		
+		elementParser = ParserRegistry.getInstance().get("RTO<PQ.DRUG,PQ.DRUG>");
+		assertNotNull(elementParser);
+		assertTrue("RTO<PQ,PQ>", elementParser instanceof RtoPqPqElementParser);
+
+		elementParser = ParserRegistry.getInstance().get("RTO<MO.CAD,PQ.BASIC>");
+		assertNotNull(elementParser);
+		assertTrue("RTO<MO,PQ>", elementParser instanceof RtoMoPqElementParser);
+	}
+	
     @Test
     @SuppressWarnings("unchecked")
     public void testAllParsersAreRegistered() throws Exception {

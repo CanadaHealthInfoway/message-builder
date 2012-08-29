@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2012-08-23 17:52:18 -0400 (Thu, 23 Aug 2012) $
+ * Revision:      $LastChangedRevision: 6035 $
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
 import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -33,19 +33,21 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.RTO;
+import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
+import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
+public class RtoMoPqElementParserTest extends CeRxDomainValueTestCase {
 
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		RTO<PhysicalQuantity, PhysicalQuantity> rto = (RTO<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, null);
+		RTO<Money, PhysicalQuantity> rto = (RTO<Money, PhysicalQuantity>) new RtoMoPqElementParser().parse(createContext(), node, null);
 		
 		assertNull("value", rto.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, rto.getNullFlavor());
@@ -59,20 +61,22 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        Ratio<Money, PhysicalQuantity> ratio = (Ratio<Money, PhysicalQuantity>) new RtoMoPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
 		assertNotNull("ratio", ratio);
 		assertNull("numerator", ratio.getNumerator());
 		assertNull("denominator", ratio.getDenominator());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size());
 	}
 
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
-		Node node = createNode("<something><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
-        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+		Node node = createNode("<something><numerator value=\"1234.45\" currency=\"CAD\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
+        Ratio<Money, PhysicalQuantity> ratio = (Ratio<Money, PhysicalQuantity>) new RtoMoPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("ratio", ratio);
-        assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getQuantity());
-        assertEquals("numerator unit", MILLIGRAM.getCodeValue(), ratio.getNumerator().getUnit().getCodeValue());
+        assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getAmount());
+        assertEquals("numerator unit", Currency.CANADIAN_DOLLAR.getCodeValue(), ratio.getNumerator().getCurrency().getCodeValue());
         assertEquals("denominator", new BigDecimal("2345.67"), ratio.getDenominator().getQuantity());
         assertEquals("denominator unit", MILLILITRE.getCodeValue(), ratio.getDenominator().getUnit().getCodeValue());
 	}
@@ -80,7 +84,7 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
         Node node = createNode("<something><numerator value=\"monkey\" /><denominator value=\"2345.67\" /></something>");
-		new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult);
-		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		new RtoMoPqElementParser().parse(createContext(), node, this.xmlResult);
+		assertEquals(2, this.xmlResult.getHl7Errors().size()); // no currency; monkey is invalid value
 	}
 }

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
@@ -94,6 +96,21 @@ public class Hl7DataTypeName {
 
 	public boolean isQualified() {
 		return this.name.contains(".");
+	}
+
+	public List<Hl7DataTypeName> getInnerTypes() {
+		List<Hl7DataTypeName> innerTypes = new ArrayList<Hl7DataTypeName>();
+		boolean first = true;
+		for (StringTokenizer tokenizer = new StringTokenizer(this.name, "<,>", true); tokenizer.hasMoreTokens(); ) {
+			String token = tokenizer.nextToken();
+			if (first || "<,>".indexOf(token) >= 0) {
+				// skip;
+			} else {
+				innerTypes.add(Hl7DataTypeName.create(token));
+			}
+			first = false;
+		}
+		return innerTypes;
 	}
 
 	public static String unqualify(String name) {

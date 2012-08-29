@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2012-01-10 20:35:55 -0500 (Tue, 10 Jan 2012) $
+ * Revision:      $LastChangedRevision: 3319 $
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -40,29 +41,30 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-RTO
  */
-@DataTypeHandler("RTO<PQ,PQ>")
-class RtoPqPqElementParser extends AbstractRtoElementParser<PhysicalQuantity, PhysicalQuantity> {
+@DataTypeHandler("RTO<MO,PQ>")
+class RtoMoPqElementParser extends AbstractRtoElementParser<Money, PhysicalQuantity> {
 
-	PqElementParser parser = new PqElementParser();
+	PqElementParser pqParser = new PqElementParser();
+	MoElementParser moParser = new MoElementParser();
 	
 	@Override
-	protected PhysicalQuantity getNumeratorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return getValue(element, type, context, xmlToModelResult);
+	protected Money getNumeratorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
+        return (Money) getValue(element, type, moParser, context, xmlToModelResult);
     }
     
 	@Override
 	protected PhysicalQuantity getDenominatorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return getValue(element, type, context, xmlToModelResult);
+        return (PhysicalQuantity) getValue(element, type, pqParser, context, xmlToModelResult);
     }
 
-    private PhysicalQuantity getValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-    	// inner types (numerator and denominator) are guaranteed to be of type PQ.x due to the DataTypeHandler annotation; no need to validate this is a PQ
+    private Object getValue(Element element, String type, AbstractSingleElementParser<?> parser, ParseContext context, XmlToModelResult xmlToModelResult) {
+    	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
     	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
-    	return (PhysicalQuantity) this.parser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
+    	return parser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
     }
 
 }

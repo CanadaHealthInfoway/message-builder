@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 /**
  * RTO<QTY,QTY> - Ratio (quantity, quantity)
@@ -42,14 +42,17 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 @DataTypeHandler("RTO<QTY,QTY>")
 class RtoQtyQtyElementParser extends AbstractRtoElementParser<BigDecimal, BigDecimal> {
 
-    protected BigDecimal getNumeratorValue(Element element) throws XmlToModelTransformationException {
-        return getValue(element);
+	@Override
+	protected BigDecimal getNumeratorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
+        return getValue(element, type, context, xmlToModelResult);
     }
-    protected BigDecimal getDenominatorValue(Element element) throws XmlToModelTransformationException {
-        return getValue(element);
+	
+	@Override
+	protected BigDecimal getDenominatorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
+        return getValue(element, type, context, xmlToModelResult);
     }
 
-    private BigDecimal getValue(Element element) throws XmlToModelTransformationException {
+    private BigDecimal getValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
         return new BigDecimal(getAttributeValue(element, "value"));
     }
 }

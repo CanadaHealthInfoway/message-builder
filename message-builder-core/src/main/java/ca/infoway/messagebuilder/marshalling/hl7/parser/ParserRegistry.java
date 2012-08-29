@@ -58,6 +58,7 @@ public class ParserRegistry extends Registry<ElementParser> {
         register(new RealElementParser());
         register(new RtoQtyQtyElementParser());
         register(new RtoPqPqElementParser());
+        register(new RtoMoPqElementParser());
         register(new ScElementParser());
         register(new StElementParser());
         register(new TelElementParser());

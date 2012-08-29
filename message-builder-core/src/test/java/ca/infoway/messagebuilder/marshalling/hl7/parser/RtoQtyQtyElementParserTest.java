@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class RtoQtyQtyElementParserTest extends CeRxDomainValueTestCase {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
@@ -51,19 +52,21 @@ public class RtoQtyQtyElementParserTest extends CeRxDomainValueTestCase {
 		return ParserContextImpl.create("RTO<QTY,QTY>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        Ratio<BigDecimal, BigDecimal> ratio = (Ratio<BigDecimal, BigDecimal>) new RtoQtyQtyElementParser().parse(null, node, null).getBareValue();
+        Ratio<BigDecimal, BigDecimal> ratio = (Ratio<BigDecimal, BigDecimal>) new RtoQtyQtyElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
 		assertNotNull("ratio", ratio);
 		assertNull("numerator", ratio.getNumerator());
 		assertNull("denominator", ratio.getDenominator());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
 		Node node = createNode("<something><numerator value=\"1234.45\" /><denominator value=\"2345.67\" /></something>");
-        Ratio<BigDecimal, BigDecimal> ratio = (Ratio<BigDecimal, BigDecimal>) new RtoQtyQtyElementParser().parse(null, node, null).getBareValue();
+        Ratio<BigDecimal, BigDecimal> ratio = (Ratio<BigDecimal, BigDecimal>) new RtoQtyQtyElementParser().parse(createContext(), node, null).getBareValue();
         assertNotNull("ratio", ratio);
         assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator());
         assertEquals("denominator", new BigDecimal("2345.67"), ratio.getDenominator());
@@ -73,7 +76,7 @@ public class RtoQtyQtyElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseInvalidValueAttribute() throws Exception {
         Node node = createNode("<something><numerator value=\"monkey\" /><denominator value=\"2345.67\" /></something>");
 		try {
-			new RtoQtyQtyElementParser().parse(null, node, null);
+			new RtoQtyQtyElementParser().parse(createContext(), node, null);
 			fail("expected exception");
 			
 		} catch (NumberFormatException e) {
