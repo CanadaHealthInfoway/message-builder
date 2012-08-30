@@ -26,4 +26,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("IVL<PQ>")
 class IvlPqElementParser extends IvlElementParser<PhysicalQuantity> {
 
+	public IvlPqElementParser() {
+		this(false);
+	}
+
+	public IvlPqElementParser(boolean isUncertainRange) {
+		super(isUncertainRange);
+	}
+	
 }

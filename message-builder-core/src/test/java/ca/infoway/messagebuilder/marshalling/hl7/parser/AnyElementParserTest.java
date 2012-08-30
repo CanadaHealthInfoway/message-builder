@@ -48,18 +48,18 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testParse() throws Exception {
+	public void testParseAnyWithSpecializationTypeInOuterElement() throws Exception {
 		Node node = createNode(
-				"<range xsi:type=\"URG\" specializationType=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
+				"<range xsi:type=\"URG_PQ\" specializationType=\"URG_PQ.BASIC\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
 					"<low value=\"123\" unit=\"kg\" />" +
 					"<high value=\"567\" unit=\"kg\" />" +
 				"</range>");
 		UncertainRange<PhysicalQuantity> range = 
 			(UncertainRange<PhysicalQuantity>)new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
-				node, null).getBareValue();
+				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
+				node, this.xmlResult).getBareValue();
 		assertNotNull("null", range);
-	
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
 		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
@@ -69,22 +69,43 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testParseAbsentSpecializationTypeUrgExampleFromChiDocs() throws Exception {
+	public void testParseAnyWithSpecializationTypeInOuterElementWithAlternativeDesignation() throws Exception {
+		Node node = createNode(
+				"<range xsi:type=\"URG_PQ\" specializationType=\"URG&lt;PQ.BASIC&gt;\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
+					"<low value=\"123\" unit=\"kg\" />" +
+					"<high value=\"567\" unit=\"kg\" />" +
+				"</range>");
+		UncertainRange<PhysicalQuantity> range = 
+			(UncertainRange<PhysicalQuantity>)new AnyElementParser().parse(
+				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
+				node, this.xmlResult).getBareValue();
+		assertNotNull("null", range);
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
+		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
+		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
+		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
+		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testParseAnyUrgExampleFromChiDocsWithSpecializationTypeInInnerElements() throws Exception {
 		Node node = createNode(
 				"<range xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
 					"<low xsi:type=\"PQ\" specializationType=\"PQ.HEIGHTWEIGHT\" value=\"123\" unit=\"kg\" />" +
 					"<high xsi:type=\"PQ\" specializationType=\"PQ.HEIGHTWEIGHT\" value=\"567\" unit=\"kg\" />" +
 				"</range>");
 		
-		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY parseResult = new AnyElementParser().parse(
-			ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
-			node, xmlToModelResult);
+			ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
+			node, this.xmlResult);
 		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>)parseResult.getBareValue();
 		
-		assertTrue("no errors", xmlToModelResult.getHl7Errors().isEmpty());
+		System.out.println(this.xmlResult.getHl7Errors());
+		assertTrue(this.xmlResult.isValid());
 		assertNotNull("null", range);
-		assertEquals("type", StandardDataType.URG_PQ, parseResult.getDataType());
+		assertEquals("type", StandardDataType.URG_PQ_HEIGHTWEIGHT, parseResult.getDataType());
 	
 		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
 		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
@@ -100,8 +121,9 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		
 		BareANY result = new AnyElementParser().parse(
 				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
-				node, null);
+				node, this.xmlResult);
 		
+		assertTrue(this.xmlResult.isValid());
 		assertNotNull("null", result);
 		assertEquals("type", StandardDataType.PQ_LAB, result.getDataType());
 		
@@ -117,15 +139,14 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode(
 		"<value xsi:type=\"PQ\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
-		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY result = new AnyElementParser().parse(
 				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
-				node, xmlToModelResult);
+				node, this.xmlResult);
 
 		assertNotNull(result);
 		assertNull(result.getBareValue());
-		assertEquals("has error", 1, xmlToModelResult.getHl7Errors().size());
-		assertEquals("error message", "Cannot support properties of type \"PQ\" for \"ANY.LAB\"", xmlToModelResult.getHl7Errors().get(0).getMessage());
+		assertEquals("has error", 1, this.xmlResult.getHl7Errors().size());
+		assertEquals("error message", "Cannot support properties of type \"PQ\" for \"ANY.LAB\"", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -158,7 +179,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				node, new XmlToModelResult());
 		
 		assertNotNull("null", result);
-		assertEquals("type", StandardDataType.IVL, result.getDataType());  // was: IVL_PQ; should this be modified??
+		assertEquals("type", StandardDataType.IVL_PQ_LAB, result.getDataType());  
 		
 		assertNotNull("null", result.getBareValue());
 	

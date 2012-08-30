@@ -26,11 +26,10 @@ import java.util.Arrays;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -122,12 +121,36 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	 */
 	private String obtainSpecializationType(String parentType, Node node, XmlToModelResult xmlToModelResult) {
 		String rawSpecializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		
 		if (StringUtils.isBlank(rawSpecializationType)) {
+			
 			// some cases don't need "specializationType". Treat xsi:type as specializationType (internally)
 			// e.g. URG_PQ, ST
-			rawSpecializationType = getXsiType(node);
-		}
+			String xsiType = getXsiType(node);
 
+			if (xsiType != null) {
+				String innerSpecializationType = null;
+				NodeList childNodes = node.getChildNodes();
+				for (int i = 0; i < childNodes.getLength(); i++) {
+					Node child = childNodes.item(0);
+					innerSpecializationType = getAttributeValue(child, SPECIALIZATION_TYPE);
+					if (StringUtils.isNotBlank(innerSpecializationType)) {
+						break;
+					}
+				}
+				
+				if (innerSpecializationType != null) {
+					// the "true" specialization type, in this case, is found by combining the xsi type with the inner specialization type
+					int xsiTypeIndex = xsiType.indexOf("_");
+					xsiType = (xsiTypeIndex >= 0 ? xsiType.substring(0, xsiTypeIndex) : xsiType);
+					rawSpecializationType = xsiType + "_" + innerSpecializationType;;
+				} else {
+					rawSpecializationType = xsiType;
+				}
+			}
+			
+		}
+		
 		if (rawSpecializationType != null && rawSpecializationType.contains("_") && rawSpecializationType.indexOf('_') == rawSpecializationType.lastIndexOf('_')) {
 			rawSpecializationType = rawSpecializationType.replace("_", "<") + ">";
 		}

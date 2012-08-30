@@ -26,5 +26,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 @DataTypeHandler("IVL<TS>")
 class IvlTsElementParser extends IvlElementParser<Date> {
+	
+	public IvlTsElementParser() {
+		this(false);
+	}
 
+	public IvlTsElementParser(boolean isUncertainRange) {
+		super(isUncertainRange);
+	}
 }

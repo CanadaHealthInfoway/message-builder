@@ -21,23 +21,21 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 
 import org.junit.Test;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 
@@ -45,9 +43,12 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 	public void testParse() throws Exception {
 		Node node = createNode(
 				"<range><low value=\"123\" unit=\"kg\" /><high value=\"567\" unit=\"kg\" /></range>");
-		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(null, node, null).getBareValue();
+		
+		@SuppressWarnings("unchecked")
+		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+		
 		assertNotNull("null", range);
-	
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
 		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
@@ -55,19 +56,29 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testReportError() throws Exception {
-		XmlToModelResult xmlResult = new XmlToModelResult();
-		
 		Node node = createNode(
 				"<range><low value=\"123\" unit=\"m\" /><high value=\"567\" unit=\"h\" /></range>");
-		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(null, node, xmlResult).getBareValue();
+		
+		UncertainRange<PhysicalQuantity> range = null; 
+		
+		try {
+			range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+			fail("Should fail trying to add quantities of different units");
+		} catch(IllegalArgumentException e) {
+			// expected
+			assertEquals("syntax error", 
+					"Can't add two quantities of different units: METRE and HOUR",
+					e.getMessage());
+		}
 		
 		assertNull("null", range);
-		assertFalse("has error", xmlResult.getHl7Errors().isEmpty());
-		assertEquals("syntax error", 
-				new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Can't add two quantities of different units: METRE and HOUR", (Element) node),
-				xmlResult.getHl7Errors().get(0));
+	}
+
+	private ParseContext createContext() {
+		return ParserContextImpl.create("URG<PQ.BASIC>", null, SpecificationVersion.R02_04_02, null, null, null, null, null);
 	}
 	
 }

@@ -121,11 +121,17 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_FULL_DATE_TIME = new StandardDataType("IVL_FULL_DATE_TIME", "IVL<TS.FULLDATETIME>");
 	public static final StandardDataType IVL_FULL_DATE_WITH_TIME = new StandardDataType("IVL_FULL_DATE_WITH_TIME", "IVL<TS.FULLDATEWITHTIME>"); 
 	public static final StandardDataType IVL_TS = new StandardDataType("IVL_TS", "IVL<TS>", "DateInterval"); 
-	public static final StandardDataType IVL_PQ = new StandardDataType("IVL_PQ", "IVL<PQ>", "PhysicalQuantityInterval"); 
 	public static final StandardDataType IVL_HIGH_TS_FULLDATE = new StandardDataType("IVL_HIGH_TS_FULLDATE", "IVL.HIGH<TS.FULLDATE>", "DateInterval");
 	public static final StandardDataType IVL_WIDTH_TS_FULLDATE = new StandardDataType("IVL_WIDTH_TS_FULLDATE", "IVL.WIDTH<TS.FULLDATE>", "DateInterval");
 	public static final StandardDataType IVL_LOW_TS_DATE = new StandardDataType("IVL_LOW_TS_DATE", "IVL.LOW<TS.DATE>", "DateInterval");
 	public static final StandardDataType IVL_LOW_TS_FULLDATE = new StandardDataType("IVL_LOW_TS_FULLDATE", "IVL.LOW<TS.FULLDATE>", "DateInterval");
+	public static final StandardDataType IVL_PQ = new StandardDataType("IVL_PQ", "IVL<PQ>", "PhysicalQuantityInterval"); 
+	public static final StandardDataType IVL_PQ_BASIC = new StandardDataType("IVL_PQ_BASIC", "IVL<PQ.BASIC>", "PhysicalQuantityInterval"); 
+	public static final StandardDataType IVL_PQ_DRUG = new StandardDataType("IVL_PQ_DRUG", "IVL<PQ.DRUG>", "PhysicalQuantityInterval"); 
+	public static final StandardDataType IVL_PQ_TIME = new StandardDataType("IVL_PQ_TIME", "IVL<PQ.TIME>", "PhysicalQuantityInterval"); 
+	public static final StandardDataType IVL_PQ_LAB = new StandardDataType("IVL_PQ_LAB", "IVL<PQ.LAB>", "PhysicalQuantityInterval"); 
+	public static final StandardDataType IVL_PQ_HEIGHTWEIGHT = new StandardDataType("IVL_PQ_HEIGHTWEIGHT", "IVL<PQ.HEIGHTWEIGHT>", "PhysicalQuantityInterval");
+	public static final StandardDataType IVL_PQ_DISTANCE = new StandardDataType("IVL_PQ_DISTANCE", "IVL<PQ.DISTANCE>", "PhysicalQuantityInterval");
 	
 	public static final StandardDataType IVL_WIDTH = new StandardDataType("IVL_WIDTH", "IVL.WIDTH", "Interval");
 	public static final StandardDataType IVL_LOW = new StandardDataType("IVL_LOW", "IVL.LOW", "Interval");
@@ -174,9 +180,13 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType URG = new StandardDataType("URG", "URG");
 	public static final StandardDataType URG_TS_DATE = new StandardDataType("URG_TS_DATE", "URG<TS.DATE>");
 	public static final StandardDataType URG_PQ = new StandardDataType("URG_PQ", "URG<PQ>");
+	public static final StandardDataType URG_PQ_BASIC = new StandardDataType("URG_PQ_BASIC", "URG<PQ.BASIC>");
 	public static final StandardDataType URG_PQ_DRUG = new StandardDataType("URG_PQ_DRUG", "URG<PQ.DRUG>");
 	public static final StandardDataType URG_PQ_TIME = new StandardDataType("URG_PQ_TIME", "URG<PQ.TIME>");
-
+	public static final StandardDataType URG_PQ_LAB = new StandardDataType("URG_PQ_LAB", "URG<PQ.LAB>");
+	public static final StandardDataType URG_PQ_HEIGHTWEIGHT = new StandardDataType("URG_PQ_HEIGHTWEIGHT", "URG<PQ.HEIGHTWEIGHT>");
+	public static final StandardDataType URG_PQ_DISTANCE = new StandardDataType("URG_PQ_DISTANCE", "URG<PQ.DISTANCE>");
+	
 	public static final StandardDataType URL = new StandardDataType("URL", "URL");
 	
 	public static final StandardDataType SXPR = new StandardDataType("SXPR", "SXPR");

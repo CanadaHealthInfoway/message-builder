@@ -21,69 +21,46 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
-import java.text.ParseException;
+import java.util.Arrays;
 
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
-import ca.infoway.messagebuilder.datatype.lang.Diff;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
 abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleElementParser<UncertainRange<V>> {
 
 	@Override
-	protected UncertainRange<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) 
-			throws XmlToModelTransformationException {
-
-		try {
-			Element low = (Element) getNamedChildNode(node, "low");
-			Element high = (Element) getNamedChildNode(node, "high");
-			Element center = (Element) getNamedChildNode(node, "center");
-			Element width = (Element) getNamedChildNode(node, "width");
-			
-			if (low != null && high != null) {
-				try {
-					return UncertainRangeFactory.createLowHigh(createType(low), createType(high));
-				} catch (IllegalArgumentException e) {
-					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (Element) node));
-					return null;
-				}
-			} else if (low != null && width != null) {
-				return UncertainRangeFactory.<V>createLowWidth(createType(low), createDiffType(width));
-			} else if (high != null && width != null) {
-				return UncertainRangeFactory.<V>createWidthHigh(createDiffType(width), createType(high));
-			} else if (center != null && width != null) {
-				return UncertainRangeFactory.<V>createCentreWidth(createType(center), createDiffType(width));
-			} else if (low != null) {
-				return UncertainRangeFactory.<V>createLow(createType(low));
-			} else if (high != null) {
-				return UncertainRangeFactory.<V>createHigh(createType(high));
-			} else if (center != null) {
-				return UncertainRangeFactory.<V>createCentre(createType(center));
-			} else if (width != null) {
-				return UncertainRangeFactory.<V>createWidth(createDiffType(width));
-			} else {
-				return null;
-			}
-		} catch (ParseException e) {
-			throw new XmlToModelTransformationException(e.toString());
-		}
+	protected UncertainRange<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
+		// URGs are almost identical in function to IVLs; use IVL parser
+		BareANY bareAny = getIvlParser().parse(convertContext(context), Arrays.asList(node), xmlToModelResult);
+		
+		@SuppressWarnings("unchecked")
+		Interval<V> parsedInterval = (Interval<V>) bareAny.getBareValue();
+		
+		return convertIntervalToUncertainRange(parsedInterval);
 	}
 	
-	protected Diff<V> createDiffType(Element width) throws ParseException, XmlToModelTransformationException {
-		return new Diff<V>((V) createType(width));
+	private ParseContext convertContext(ParseContext context) {
+		String newType = "IVL<" + Hl7DataTypeName.getParameterizedType(context.getType()) + ">";
+		return ParserContextImpl.create(newType, context);
 	}
 
-	protected abstract V createType(Element high) throws ParseException, XmlToModelTransformationException;
+	private UncertainRange<V> convertIntervalToUncertainRange(Interval<V> parsedInterval) {
+		UncertainRange<V> urg = null;
+		if (parsedInterval != null) {
+			urg = new UncertainRange<V>(parsedInterval);
+		}
+		return urg;
+	}
 
+	protected abstract ElementParser getIvlParser();
+	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new URGImpl<T, V>();

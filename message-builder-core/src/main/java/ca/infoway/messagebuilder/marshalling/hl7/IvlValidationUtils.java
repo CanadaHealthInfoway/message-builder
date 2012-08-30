@@ -18,6 +18,16 @@ import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 
 public class IvlValidationUtils {
 
+	boolean isUncertainRangeValidation;
+	
+	public IvlValidationUtils() {
+		this(false);
+	}
+	
+	public IvlValidationUtils(boolean isUncertainRangeValidation) {
+		this.isUncertainRangeValidation = isUncertainRangeValidation;
+	}
+	
 	public String validateSpecializationType(String type, String specializationType, List<String> errors) {
 		String resultType = type;
 		if (StandardDataType.IVL_FULL_DATE_WITH_TIME.getType().equals(type)) {
@@ -82,27 +92,31 @@ public class IvlValidationUtils {
 		StandardDataType innerType = StandardDataType.getByTypeName(parameterizedType);
 		StandardDataType baseInnerType = StandardDataType.getByTypeName(unqualifiedParameterizedType);
 
-		if (baseInnerType == StandardDataType.PQ) {
-			boolean lowNull = (lowNullFlavor != null);
-			boolean highNull = (highNullFlavor != null);
-			if (lowNull && highNull) {
-				errors.add("For intervals of type PQ.x, one of (low, high) must be non-null.");
+		if (!this.isUncertainRangeValidation) {
+			if (baseInnerType == StandardDataType.PQ) {
+				// FIXME - VALIDATION - TM - this might apply to URG<PQ.x> (check with Lloyd)
+				boolean lowNull = (lowNullFlavor != null);
+				boolean highNull = (highNullFlavor != null);
+				if (lowNull && highNull) {
+					errors.add("For " + getIntervalOrRange() + "s of type PQ.x, one of (low, high) must be non-null.");
+				}
+			} else {
+				ensureNotPinfOrNinf("low", lowNullFlavor, errors);
+				ensureNotPinfOrNinf("high", highNullFlavor, errors);
+				ensureNotPinfOrNinf("center", centerNullFlavor, errors);
+				ensureNotPinfOrNinf("width", widthNullFlavor, errors);
 			}
-		} else {
-			ensureNotPinfOrNinf("low", lowNullFlavor, errors);
-			ensureNotPinfOrNinf("high", highNullFlavor, errors);
-			ensureNotPinfOrNinf("center", centerNullFlavor, errors);
-			ensureNotPinfOrNinf("width", widthNullFlavor, errors);
-		}
 			
-		// TS.DATE/TS.FULLDATE have width restrictions
-		if (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE) {
-			if (widthTimeUnits != null) {
-				if (!DefaultTimeUnit.isDayBased(widthTimeUnits)) {
-					errors.add("Width units must be days (d), weeks (wk), months (mo) or years (a).");
+			// TS.DATE/TS.FULLDATE have width restrictions (does not seem to apply to URG; check with Lloyd)
+			if (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE) {
+				if (widthTimeUnits != null) {
+					if (!DefaultTimeUnit.isDayBased(widthTimeUnits)) {
+						errors.add("Width units must be days (d), weeks (wk), months (mo) or years (a).");
+					}
 				}
 			}
 		}
+			
 		
 		return errors;
 	}
@@ -124,7 +138,10 @@ public class IvlValidationUtils {
 	}
 
 	private boolean isCenterProhibited(boolean isCeRx, StandardDataType innerType) {
-		return !(isCeRx && (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE));
+		// only allowed for *CeRx* types: IVL<TS.DATE> and IVL<TS.FULLDATE>
+		// also allowed for types (of any version): URG<TS.DATE> 
+		return !(isCeRx && !this.isUncertainRangeValidation && (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE))
+			|| !(this.isUncertainRangeValidation && innerType == StandardDataType.TS_DATE);
 	}
 
 	private boolean isWidthProhibited(StandardDataType ivlType, StandardDataType innerType, StandardDataType baseInnerType) {
@@ -140,7 +157,7 @@ public class IvlValidationUtils {
 	}
 
 	private String createWrongNumberOfElementsProvidedErrorMessage(boolean isCeRx, String type, StandardDataType ivlType, StandardDataType innerType, StandardDataType baseInnerType) {
-		return "Intervals of type " + type + " must " + (ivlType == StandardDataType.IVL ? "provide exactly 2 of" : "only provide") + ": "
+		return getIntervalOrRange() + "s of type " + type + " must " + (ivlType == StandardDataType.IVL || ivlType == StandardDataType.URG ? "provide exactly 2 of" : "only provide") + ": "
 				+ (isLowProhibited(ivlType) ? "" : "low ")
 				+ (isHighProhibited(ivlType) ? "" : "high ")
 				+ (isCenterProhibited(isCeRx, innerType) ? "" : "center ")
@@ -151,4 +168,8 @@ public class IvlValidationUtils {
 		return "Element " + incorrectElement + " is not allowed for type " + type;
 	}
 
+	private String getIntervalOrRange() {
+		return this.isUncertainRangeValidation ? "Range" : "Interval";
+	}
+	
 }

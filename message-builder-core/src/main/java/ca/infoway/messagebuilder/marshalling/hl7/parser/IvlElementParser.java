@@ -78,7 +78,17 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  */
 abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
 
-	private IvlValidationUtils ivlValidationUtils = new IvlValidationUtils();
+	private IvlValidationUtils ivlValidationUtils;
+	private final boolean isUncertainRange;
+	
+	public IvlElementParser() {
+		this(false);
+	}
+	
+	public IvlElementParser(boolean isUncertainRange) {
+		this.isUncertainRange = isUncertainRange;
+		this.ivlValidationUtils = new IvlValidationUtils(this.isUncertainRange);
+	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
