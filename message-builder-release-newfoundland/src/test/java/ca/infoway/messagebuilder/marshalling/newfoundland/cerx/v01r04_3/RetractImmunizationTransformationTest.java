@@ -69,7 +69,6 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean());
 		String xmlMessage = result.getXmlMessage();
 		Document actual = this.factory.createFromString(xmlMessage);
-		System.out.println(xmlMessage);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RETRACT_MESSAGE_FILE)), actual);
 	}
 
@@ -120,7 +119,6 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 		RecordResponseMessageBean<ActEventBean> refusedBean = new RetractImmunizationRefusedMessageBean();
 		populateRefusedBean(refusedBean);
 		String xml = this.transformer.transformToHl7(VERSION, refusedBean);
-System.out.println(xml);		
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REFUSED_MESSAGE_FILE)), actual);
 	}

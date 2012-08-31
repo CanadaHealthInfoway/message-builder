@@ -64,7 +64,6 @@ public class LocationDetailsQueryTransformationTest extends BaseTransformerTestC
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
 		String xml = toHl7(model);
-		System.out.println(xml);
 		Document actual = this.factory.createFromString(xml);
 		XmlAssert.assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE)), actual);
 	}

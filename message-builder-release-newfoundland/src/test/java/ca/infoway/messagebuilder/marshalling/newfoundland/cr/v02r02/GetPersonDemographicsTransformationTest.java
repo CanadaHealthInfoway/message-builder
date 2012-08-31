@@ -69,7 +69,6 @@ public class GetPersonDemographicsTransformationTest extends BaseTransformerTest
 	public void shouldMatchKnownRequest() throws Exception {
 		String xml = toHl7UsingNewRenderer(createRequest(), VERSION);
 		Document actual = this.factory.createFromString(xml);
-System.out.println(xml);		
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				"ca/infoway/messagebuilder/sample/cr/v02r02/getPersonDemographicsQuery.xml")), actual);
 	}
@@ -98,7 +97,6 @@ System.out.println(xml);
 		GetPersonDemographicsQueryResponseMessageBean model = createResponseBean();
 		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, model);
 		assertValidHl7Message(result.getXmlMessage());
-		System.out.println(result.getXmlMessage());		
 		Assert.assertTrue("Response should not have warnings", result.getHl7Errors().isEmpty());
 	}
 	

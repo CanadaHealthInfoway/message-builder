@@ -120,7 +120,6 @@ public class PatientBasicObservationsQueryTransformationTest extends BaseTransfo
 	public void shouldCreateMeaningfulResponse() throws Exception {
 		PatientBasicObservationsQueryResponseMessageBean model = createResponseBean();
 		String xml = this.transformer.transformToHl7(VERSION, model);
-		System.out.println(xml);
 		assertValidHl7Message(xml);
 	}
 	

@@ -23,7 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.QTY;
@@ -31,6 +33,8 @@ import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleElementParser<UncertainRange<V>> {
@@ -43,18 +47,44 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 		@SuppressWarnings("unchecked")
 		Interval<V> parsedInterval = (Interval<V>) bareAny.getBareValue();
 		
-		return convertIntervalToUncertainRange(parsedInterval);
+		Boolean lowInclusive = getInclusiveValue("low", context, node, xmlToModelResult);
+		Boolean highInclusive = getInclusiveValue("high", context, node, xmlToModelResult);
+		UncertainRange<V> urg = convertIntervalToUncertainRange(parsedInterval, lowInclusive, highInclusive);
+		return urg;
 	}
 	
+	private Boolean getInclusiveValue(String elementName, ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
+		Boolean result = null;
+		NodeList childNodes = node.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node child = childNodes.item(i);
+			if (elementName.equalsIgnoreCase(child.getNodeName())) {
+				String inclusive = getAttributeValue(child, "inclusive");
+				result = (inclusive == null ? null : new Boolean(inclusive));
+				if (inclusive != null && !"true".equalsIgnoreCase(inclusive) && !"false".equalsIgnoreCase(inclusive)) {
+					xmlToModelResult.addHl7Error(
+						new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "The 'inclusive' attribute for URG." + elementName + " must be 'true' or 'false'", (Element) node)
+					);
+				} else if (inclusive != null && !context.getType().startsWith("URG<PQ.")) {
+					xmlToModelResult.addHl7Error(
+							new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "The 'inclusive' attribute for URG." + elementName + " is not allowed for types of " + context.getType(), (Element) node)
+						);
+				}
+				break;
+			}
+		}
+		return result;
+	}
+
 	private ParseContext convertContext(ParseContext context) {
 		String newType = "IVL<" + Hl7DataTypeName.getParameterizedType(context.getType()) + ">";
 		return ParserContextImpl.create(newType, context);
 	}
 
-	private UncertainRange<V> convertIntervalToUncertainRange(Interval<V> parsedInterval) {
+	private UncertainRange<V> convertIntervalToUncertainRange(Interval<V> parsedInterval, Boolean lowInclusive, Boolean highInclusive) {
 		UncertainRange<V> urg = null;
 		if (parsedInterval != null) {
-			urg = new UncertainRange<V>(parsedInterval);
+			urg = new UncertainRange<V>(parsedInterval, lowInclusive, highInclusive);
 		}
 		return urg;
 	}

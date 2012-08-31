@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -54,6 +55,27 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
 		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+		assertNull(range.isLowInclusive());
+		assertNull(range.isHighInclusive());
+	}
+	
+	@Test
+	public void testParseWithInclusive() throws Exception {
+		Node node = createNode(
+				"<range><low inclusive=\"true\" value=\"123\" unit=\"kg\" /><high inclusive=\"false\" value=\"567\" unit=\"kg\" /></range>");
+		
+		@SuppressWarnings("unchecked")
+		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) new UrgPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+		
+		assertNotNull("null", range);
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
+		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
+		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
+		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
+		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+		assertTrue(range.isLowInclusive());
+		assertFalse(range.isHighInclusive());
 	}
 	
 	@SuppressWarnings("unchecked")

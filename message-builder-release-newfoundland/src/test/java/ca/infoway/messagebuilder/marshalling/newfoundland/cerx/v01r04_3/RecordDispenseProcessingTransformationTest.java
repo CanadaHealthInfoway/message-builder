@@ -69,7 +69,6 @@ public class RecordDispenseProcessingTransformationTest extends BaseTransformerT
 		RecordDispenseProcessingRequestMessageBean requestBean = createRequestBean();
 		
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, requestBean);
-		System.out.println(xml);
 		Document message = this.factory.createFromString(xml);
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();

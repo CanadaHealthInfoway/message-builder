@@ -157,7 +157,6 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 		MedPrescriptionWithHistoryAndDispensesQueryResponseMessageBean model = createResponseBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
-		System.out.println(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE)), actual);
 	}
 	

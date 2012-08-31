@@ -82,7 +82,6 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	public void shouldMatchKnownRequestWithTwoValues() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithTwoValues());
 		Document actual = this.factory.createFromString(xml);
-		System.out.println(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RECORD_TWO_VALUES_MESSAGE_FILE)), actual);
 	}
 

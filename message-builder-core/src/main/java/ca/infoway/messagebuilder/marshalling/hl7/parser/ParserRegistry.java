@@ -64,6 +64,7 @@ public class ParserRegistry extends Registry<ElementParser> {
         register(new TnElementParser());
         register(new TsElementParser());
         register(new UrgPqElementParser());
+        register(new UrgTsElementParser());
     }
 
     public static ParserRegistry getInstance() {

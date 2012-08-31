@@ -141,7 +141,7 @@ public class IvlValidationUtils {
 		// only allowed for *CeRx* types: IVL<TS.DATE> and IVL<TS.FULLDATE>
 		// also allowed for types (of any version): URG<TS.DATE> 
 		return !(isCeRx && !this.isUncertainRangeValidation && (innerType == StandardDataType.TS_DATE || innerType == StandardDataType.TS_FULLDATE))
-			|| !(this.isUncertainRangeValidation && innerType == StandardDataType.TS_DATE);
+			&& !(this.isUncertainRangeValidation && innerType == StandardDataType.TS_DATE);
 	}
 
 	private boolean isWidthProhibited(StandardDataType ivlType, StandardDataType innerType, StandardDataType baseInnerType) {

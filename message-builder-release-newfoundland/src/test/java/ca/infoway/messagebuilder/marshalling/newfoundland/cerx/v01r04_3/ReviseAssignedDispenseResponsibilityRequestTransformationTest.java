@@ -96,7 +96,6 @@ public class ReviseAssignedDispenseResponsibilityRequestTransformationTest exten
 	public void shouldMatchKnownResponse() throws Exception {
 		ReviseAssignedDispenseResponsibilityRequestAcceptedMessageBean model = createResponseMessageBean();
 		String xml = this.transformer.transformToHl7(VERSION, model);
-		System.out.println(xml);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), RESPONSE_MESSAGE_FILE)), actual);
 	}

@@ -105,7 +105,6 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		UpdatePasswordRequestAcceptedMessageBean model = createAcceptedBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
-		System.out.println(xml);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				ACCEPTED_MESSAGE_FILE)), actual);

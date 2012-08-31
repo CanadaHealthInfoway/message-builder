@@ -108,7 +108,7 @@ public abstract class BaseTransformerTestCase {
 		Hl7Error found = null;
 		for (Hl7Error error : result.getHl7Errors()) {
 			// FIXME - TM - every NFLD sample message we have is not specifying Identifier xml correctly
-			//            - every NFLD messagebean is no not setting up Identifiers correctly 
+			//            - every NFLD messagebean is not setting up Identifiers correctly 
 			//            - rather than change all the xml and transformation tests and builders, skip the error in question for now
 			if (!error.getMessage().startsWith("Expected mandatory attribute \"specializationType\"")) {
 				System.out.println(error.getMessage() + (StringUtils.isNotBlank(error.getPath())

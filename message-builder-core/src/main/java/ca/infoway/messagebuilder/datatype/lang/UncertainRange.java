@@ -141,12 +141,12 @@ public class UncertainRange<T> extends Interval<T> {
 		this.highInclusive = highInclusive;
 	}
 
-	public Boolean getLowInclusive() {
+	public Boolean isLowInclusive() {
 		return lowInclusive;
 	}
 
-	public Boolean getHighInclusive() {
+	public Boolean isHighInclusive() {
 		return highInclusive;
 	}
-	
+
 }
