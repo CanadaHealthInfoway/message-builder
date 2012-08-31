@@ -30,6 +30,7 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
+import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
@@ -44,7 +45,7 @@ public class InteractionMarshallingTest {
 	@Before
 	public void setUp() throws Exception {
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-		this.transformer = new MessageBeanTransformerImpl();
+		this.transformer = new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
 	}
 	
 	
