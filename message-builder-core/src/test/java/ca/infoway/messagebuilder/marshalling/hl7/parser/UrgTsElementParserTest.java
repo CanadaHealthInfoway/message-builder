@@ -61,8 +61,8 @@ public class UrgTsElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("width", new BigDecimal("4"), ((DateDiff) range.getWidth()).getValueAsPhysicalQuantity().getQuantity());
 		assertEquals("width units", DefaultTimeUnit.MONTH.getCodeValue(), ((DateDiff) range.getWidth()).getValueAsPhysicalQuantity().getUnit().getCodeValue());
 		assertEquals("representation", Representation.CENTRE_WIDTH, range.getRepresentation());
-		assertNull(range.isLowInclusive());
-		assertNull(range.isHighInclusive());
+		assertNull(range.getLowInclusive());
+		assertNull(range.getHighInclusive());
 	}
 	
 	@Test
@@ -90,8 +90,8 @@ public class UrgTsElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("high", highDate, range.getHigh());
 		assertEquals("width", highDate.getTime()-lowDate.getTime(), range.getWidth().getValue().getTime());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
-		assertTrue(range.isLowInclusive());
-		assertTrue(range.isHighInclusive());
+		assertTrue(range.getLowInclusive());
+		assertTrue(range.getHighInclusive());
 	}
 	
 	private ParseContext createContext() {

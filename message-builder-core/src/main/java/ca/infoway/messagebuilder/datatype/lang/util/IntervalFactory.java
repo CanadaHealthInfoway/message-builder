@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.datatype.lang.util;
 
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 public class IntervalFactory {
@@ -280,5 +281,17 @@ public class IntervalFactory {
      */
 	public static <T> Interval<T> createSimple(T value) {
 		return new Interval<T>(value);
+	}
+
+	/**
+	 * Converts an UncertainRange into an Interval.
+	 * 
+	 * Note that the new Interval will lose any high/low inclusive data from the range.
+	 * 
+	 * @param the uncertain range
+	 * @return an Interval that corresponds to the range
+	 */
+	public static <T> Interval<T> createFromUncertainRange(UncertainRange<T> urg) {
+		return new Interval<T>(urg.getLow(), urg.getHigh(), urg.getCentre(), urg.getWidth(), urg.getRepresentation(), urg.getLowNullFlavor(), urg.getHighNullFlavor(), urg.getCentreNullFlavor());
 	}
 }

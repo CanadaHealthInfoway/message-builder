@@ -55,8 +55,8 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
 		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
-		assertNull(range.isLowInclusive());
-		assertNull(range.isHighInclusive());
+		assertNull(range.getLowInclusive());
+		assertNull(range.getHighInclusive());
 	}
 	
 	@Test
@@ -74,8 +74,8 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
 		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
-		assertTrue(range.isLowInclusive());
-		assertFalse(range.isHighInclusive());
+		assertTrue(range.getLowInclusive());
+		assertFalse(range.getHighInclusive());
 	}
 	
 	@SuppressWarnings("unchecked")
