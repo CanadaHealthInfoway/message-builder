@@ -39,46 +39,45 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
 @DataTypeHandler("PIVL<TS.DATETIME>")
 class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIntervalTime> {
 
 	@Override
-	protected PeriodicIntervalTime parseNonNullNode(
-			ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToModelResult);
 	}
 
-	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Element element,
-			Type expectedReturnType, XmlToModelResult xmlToModelResult)
-			throws XmlToModelTransformationException {
+	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Element element, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 
-		validateNonAllowedChildNode(element, xmlToModelResult, "period");
+		PeriodicIntervalTime result = null;
+		
 		validateNonAllowedChildNode(element, xmlToModelResult, "phase");
+		validateNonAllowedChildNode(element, xmlToModelResult, "period");
+		validateNonAllowedChildNode(element, xmlToModelResult, "alignment");
+		validateNonAllowedChildNode(element, xmlToModelResult, "institutionSpecified");
 
 		Element frequency = (Element) getNamedChildNode(element, "frequency");
 
-		if (frequency != null) {
-			return parseFrequency(context, frequency, expectedReturnType, xmlToModelResult);
-		} else {
+		if (frequency == null) {
 			createMandatoryChildElementHl7Error(element, "frequency", xmlToModelResult);
-			return null;
+		} else {
+			result = parseFrequency(context, frequency, expectedReturnType, xmlToModelResult);
 		}
+		
+		return result;
 	}
 
-	private void createMandatoryChildElementHl7Error(Element element, String name,
-			XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-				"Missing mandatory element <" +
-				name +
-				">",
-				element));
+	private void createMandatoryChildElementHl7Error(Element element, String name, XmlToModelResult xmlToModelResult) {
+		xmlToModelResult.addHl7Error(
+			new Hl7Error(
+				Hl7ErrorCode.DATA_TYPE_ERROR,
+				"Missing mandatory element <" +	name + ">",
+				element)
+		);
 	}
 
-	protected PeriodicIntervalTime parseFrequency(ParseContext context, Element element,
-			Type expectedReturnType, XmlToModelResult xmlToModelResult)
-			throws XmlToModelTransformationException {
+	protected PeriodicIntervalTime parseFrequency(ParseContext context, Element element, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 
 		Element numerator = (Element) getNamedChildNode(element, "numerator");
 		Element denominator = (Element) getNamedChildNode(element, "denominator");
@@ -107,8 +106,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		}
 	}
 
-	private Integer parseNumerator(ParseContext context, Element numerator,
-			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	private Integer parseNumerator(ParseContext context, Element numerator,	XmlToModelResult xmlToModelResult) {
 		ElementParser parser = ParserRegistry.getInstance().get("INT.NONNEG");
 		ParseContext subContext = ParserContextImpl.create(
 				"INT.NONNEG",
@@ -120,8 +118,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
-	private PhysicalQuantity parseDenominator(ParseContext context, Element numerator,
-			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	private PhysicalQuantity parseDenominator(ParseContext context, Element numerator, XmlToModelResult xmlToModelResult) {
 		ElementParser parser = ParserRegistry.getInstance().get("PQ.TIME");
 		ParseContext subContext = ParserContextImpl.create(
 				"PQ.TIME",
@@ -134,11 +131,11 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 	}
 
 	@SuppressWarnings("unchecked")
-	private Interval<PhysicalQuantity> parseDenominatorSk(ParseContext context, Element numerator,
-			XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		ElementParser parser = ParserRegistry.getInstance().get("IVL<PQ>");
+	private Interval<PhysicalQuantity> parseDenominatorSk(ParseContext context, Element numerator, XmlToModelResult xmlToModelResult) {
+		// TM - Unsure if SK is allowed to send in any kind of PQ, or only specific ones. Picked PQ.BASIC to cover most scenarios. 
+		ElementParser parser = ParserRegistry.getInstance().get("IVL<PQ.BASIC>");
 		ParseContext subContext = ParserContextImpl.create(
-				"IVL<PQ>",
+				"IVL<PQ.BASIC>",
 				PhysicalQuantity.class,
 				context.getVersion(),
 				context.getDateTimeZone(),
@@ -147,8 +144,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
-	private void validateNonAllowedChildNode(Element element,
-			XmlToModelResult xmlToModelResult, String elementName) {
+	private void validateNonAllowedChildNode(Element element, XmlToModelResult xmlToModelResult, String elementName) {
 		if (getNamedChildNode(element, elementName) != null) {
 			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 					"Periodic Interval (PIVL<TS.DATETIME>) does not allow the <" +

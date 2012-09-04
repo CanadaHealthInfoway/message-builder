@@ -54,6 +54,9 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  */
 public abstract class AbstractPivlElementParser extends AbstractSingleElementParser<PeriodicIntervalTime> {
 
+	// TM - VALIDATION - this approach to PIVL is not used by the current set of pan-Canadian standards (CeRx, MR2007, MR2009)
+	//                 - leaving this code as-is, with no validation updates; the code could be removed, but it may be useful in a future standard
+	
 	@Override
 	protected PeriodicIntervalTime parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 
