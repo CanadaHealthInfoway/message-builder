@@ -24,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -72,6 +73,11 @@ public class XmlRenderingVisitorTest {
 		argument.setTemplateParameterName("act");
 		argument.setTraversalName("bambino");
 		this.interation.getArguments().add(argument);
+	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

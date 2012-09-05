@@ -24,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -33,6 +34,7 @@ import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
@@ -48,6 +50,10 @@ public class InteractionMarshallingTest {
 		this.transformer = new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
 	}
 	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
 	
 	@Test
 	public void shouldParseMessage() throws Exception {

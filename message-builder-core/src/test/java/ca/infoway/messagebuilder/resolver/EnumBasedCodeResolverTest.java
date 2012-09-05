@@ -26,6 +26,7 @@ import static org.junit.Assert.assertNull;
 
 import java.util.Collection;
 
+import org.junit.After;
 import org.junit.Test;
 
 /**
@@ -33,6 +34,11 @@ import org.junit.Test;
  */
 public class EnumBasedCodeResolverTest {
 
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
+	
 	@Test
     public void testEnumResolver() throws Exception {
         CodeResolverRegistry.registerResolver(MockEnum.class, new EnumBasedCodeResolver(MockEnum.class));

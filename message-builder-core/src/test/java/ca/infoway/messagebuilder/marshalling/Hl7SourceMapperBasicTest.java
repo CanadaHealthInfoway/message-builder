@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -75,6 +77,11 @@ public class Hl7SourceMapperBasicTest {
 		this.partSource = rootSource.createPartSource(createRelationship("MCCI_MT002100CA.Sender"), element);
 	}
 
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
+	
 	private Relationship createRelationship(String type) {
 		Relationship relationship = new Relationship();
 		relationship.setType(type);

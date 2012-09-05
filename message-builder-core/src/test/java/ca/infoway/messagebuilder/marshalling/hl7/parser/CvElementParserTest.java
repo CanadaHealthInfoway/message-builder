@@ -34,6 +34,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -62,7 +63,6 @@ public class CvElementParserTest extends MarshallingTestCase {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-        //CodeResolverRegistry.registerResolver(MockEnum.class, new EnumBasedCodeResolver(MockEnum.class));
         CodeResolverRegistry.registerResolver(MockCharacters.class, new EnumBasedCodeResolver(MockEnum.class));
         this.parser = new CvElementParser();
 	}

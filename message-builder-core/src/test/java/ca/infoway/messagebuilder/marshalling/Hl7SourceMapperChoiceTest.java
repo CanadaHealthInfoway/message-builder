@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_NEWFO
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -67,6 +68,12 @@ public class Hl7SourceMapperChoiceTest {
 		this.element = document.getDocumentElement();
 		this.partSource = rootSource.createPartSource(createRelationship("MFMI_MT700711CA.Author"), element);
 	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
+	
 	private Relationship createRelationship(String type) {
 		Relationship relationship = new Relationship();
 		relationship.setType(type);

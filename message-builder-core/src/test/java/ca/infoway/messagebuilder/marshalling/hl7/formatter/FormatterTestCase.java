@@ -33,14 +33,21 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
+import org.junit.After;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public abstract class FormatterTestCase {
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
 	
 	protected ModelToXmlResult result = new ModelToXmlResult();
 

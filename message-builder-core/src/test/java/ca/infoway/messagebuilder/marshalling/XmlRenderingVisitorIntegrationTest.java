@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,6 +28,7 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesCriteria;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesQueryMessageBean;
 import ca.infoway.messagebuilder.model.mock.QueryControlActEventBean;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionService;
@@ -40,6 +42,11 @@ public class XmlRenderingVisitorIntegrationTest {
 		MockMessageBeanRegistry.initialize();
 		this.service = new MockTestCaseMessageDefinitionService();
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

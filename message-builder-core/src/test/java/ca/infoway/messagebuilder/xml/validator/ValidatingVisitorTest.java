@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Test;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -46,6 +47,11 @@ public class ValidatingVisitorTest {
 	public static final ConformanceLevel MANDATORY = ConformanceLevel.MANDATORY;
 	public static final ConformanceLevel POPULATED = ConformanceLevel.POPULATED;
 
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
+	
 	@Test
 	public void shouldHaveValidationErrors() throws Exception {
 		assertShouldHaveValidationErrorsFor(MANDATORY);

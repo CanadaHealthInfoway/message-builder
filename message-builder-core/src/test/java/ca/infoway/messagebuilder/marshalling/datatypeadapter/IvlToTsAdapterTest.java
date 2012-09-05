@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,13 +51,17 @@ public class IvlToTsAdapterTest {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 	}
 	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
+	}
+	
 	@Test
 	public void shouldMatch() throws Exception {
 		assertTrue("FULL_DATE_IVL", this.adapter.canAdapt(StandardDataType.IVL_FULL_DATE.getType(), TS.class));
 		assertTrue("IVL_FULL_DATE_WITH_TIME", this.adapter.canAdapt(StandardDataType.IVL_FULL_DATE_WITH_TIME.getType(), TS.class));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void shouldAdaptCorrectly() throws Exception {
 		IVLImpl<TS, Interval<Date>> ivl = new IVLImpl<TS, Interval<Date>>(IntervalFactory.<Date>createLow(new Date()));

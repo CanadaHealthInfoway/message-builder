@@ -29,6 +29,7 @@ import static org.junit.Assert.fail;
 import java.util.Date;
 import java.util.UUID;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -64,6 +65,11 @@ public class TealBeanRenderWalkerIntegrationTest {
 	@Before
 	public void setUp() throws Exception {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
+	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

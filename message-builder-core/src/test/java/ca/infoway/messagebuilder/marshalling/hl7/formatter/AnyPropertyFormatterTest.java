@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.math.BigDecimal;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 public class AnyPropertyFormatterTest extends FormatterTestCase {
@@ -41,6 +43,11 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	@Before
 	public void setup() {
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

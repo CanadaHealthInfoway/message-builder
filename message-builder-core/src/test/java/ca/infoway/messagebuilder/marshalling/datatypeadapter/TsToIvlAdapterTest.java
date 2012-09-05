@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,6 +49,11 @@ public class TsToIvlAdapterTest {
 	public void setUp() {
 		this.adapter = new TsToIvlAdapter();
 		CodeResolverRegistry.register(new TrivialCodeResolver());
+	}
+	
+	@After
+	public void tearDown() {
+		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test
