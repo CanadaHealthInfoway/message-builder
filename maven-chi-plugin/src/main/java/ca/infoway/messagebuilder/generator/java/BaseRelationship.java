@@ -26,7 +26,6 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;

@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -41,6 +42,9 @@ import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.generator.multiplemessageset.ExciseReportGenerator;
 import ca.infoway.messagebuilder.generator.multiplemessageset.ExcisedItem;
 import ca.infoway.messagebuilder.generator.multiplemessageset.Exciser;
+import ca.infoway.messagebuilder.generator.util.DomainRegistry;
+import ca.infoway.messagebuilder.generator.util.PackageName;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -48,6 +52,11 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
+import ca.infoway.messagebuilder.xml.ValueSet;
+import ca.infoway.messagebuilder.xml.Vocabulary;
+import ca.intelliware.commons.dependency.DependencyManager;
+import ca.intelliware.commons.dependency.Layer;
+import ca.intelliware.commons.dependency.Node;
 
 public abstract class IntermediateToModelGenerator {
 	
@@ -85,6 +94,7 @@ public abstract class IntermediateToModelGenerator {
 	public TypeAnalysisResult generate(MessageSet messageSet) throws IOException, GeneratorException {
 		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 		
+		registerDomainInterfaces(messageSet);
 		createTypes(messageSet, definitions);
 		createRelationships(messageSet, definitions);
 		createInteractions(messageSet, definitions);
@@ -100,6 +110,58 @@ public abstract class IntermediateToModelGenerator {
 		return result;
 	}
 
+
+	private void registerDomainInterfaces(MessageSet messageSet) {
+		if (messageSet.isVocabularyDataPresent()) {
+			registerDomainInterfaces(messageSet.getVocabulary());
+		} else {
+			// BCH: Consider whether or not we should support this case
+			for (MessagePart messagePart : messageSet.getAllMessageParts()) {
+				for (Relationship relationship : messagePart.getRelationships()) {
+					if (relationship.isAttribute() && relationship.isCodedType() 
+							&& StringUtils.isNotBlank(relationship.getDomainType())) {
+						registerDomainInterface(relationship.getDomainType(), Collections.<String>emptyList());
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * <p>Register all vocabulary types</p>
+	 * 
+	 * <p>We want to register all concepts and value sets that we've defined but
+	 * order matters.  We need to parents types before the types that specialize them.
+	 * To help us out, we'll build up a dependency tree.
+	 * 
+	 * @param vocabulary
+	 */
+	private void registerDomainInterfaces(Vocabulary vocabulary) {
+		DependencyManager<String> manager = new DependencyManager<String>();
+		for (ConceptDomain concepDomain : vocabulary.getConceptDomains()) {
+			if (concepDomain.getParentConceptDomains().isEmpty()) {
+				manager.add(concepDomain.getName());
+			} else {
+				for (String parent : concepDomain.getParentConceptDomains()) {
+					manager.add(concepDomain.getName(), parent);
+				}
+			}
+		}
+		
+		for (ValueSet valueSet : vocabulary.getValueSets()) {
+			manager.add(valueSet.getName());
+		}
+		
+		for (Layer<Node<String>> layer : manager.getNodeLayers()) {
+			for (Node<String> node : layer.getContents()) {
+				registerDomainInterface(node.getItem(), node.getEfferentCouplings());
+			}
+		}		
+	}
+
+	private void registerDomainInterface(String domainType, Collection<String> parents) {
+		DomainRegistry.getInstance().register(domainType, PackageName.createDomainValuesPackage(this.basePackageName), parents);
+	}
 
 	/**
 	 * <p>After processing the simplifications, some of our differences may have been 
@@ -261,6 +323,7 @@ public abstract class IntermediateToModelGenerator {
 
 	public void completeProcessing(TypeAnalysisResult result) throws IOException, GeneratorException {
 		writeClasses(result);
+		writeDomainInterfaces();
 	}
 	
 	protected void completeProcessing(TypeAnalysisResult result, MessageSet messageSet, SimplifiableDefinitions definitions) throws IOException, GeneratorException {
@@ -275,4 +338,5 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	protected abstract void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException;
+	protected abstract void writeDomainInterfaces() throws IOException, GeneratorException;
 }

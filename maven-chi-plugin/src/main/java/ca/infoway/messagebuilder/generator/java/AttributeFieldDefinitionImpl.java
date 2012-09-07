@@ -160,7 +160,8 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 	 * <p>Certain data types have initialization parameters:  
 	 * 
 	 * <ul>
-	 * <li>SET and LIST have 
+	 * <li>SET and LIST have element types.
+	 * </ul>
 	 */
 	public String getInitializationArguments() {
 		if (isHl7CollectionType()) {

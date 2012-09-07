@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.C_SHA
 import java.io.File;
 import java.io.IOException;
 
+import ca.infoway.messagebuilder.generator.DomainTypeWriter;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.java.Case3Simplifier;
@@ -68,5 +69,9 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	@Override
 	protected ProgrammingLanguage getProgrammingLanguage() {
 		return ProgrammingLanguage.C_SHARP;
+	}
+	@Override
+	protected void writeDomainInterfaces() throws IOException, GeneratorException {
+		new DomainTypeWriter(this.outputUI, this.sourceFolder, CsharpDomainTypeWriter.class, ProgrammingLanguage.C_SHARP).writeDomains();
 	}
 }

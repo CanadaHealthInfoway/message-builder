@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.util;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,9 +36,9 @@ public class DomainRegistry {
 	
 	public static DomainRegistry instance;
 	
-	private final Map<String, Class<?>> domains;
+	private final Map<String, DomainType> domains;
 
-	DomainRegistry(Map<String, Class<?>> map) {
+	DomainRegistry(Map<String, DomainType> map) {
 		this.domains = map;
 	}
 
@@ -50,10 +52,10 @@ public class DomainRegistry {
 
 	private static synchronized void initialize() {
 		if (instance == null) {
-			Map<String, Class<?>> map = new HashMap<String,Class<?>>();
+			Map<String, DomainType> map = new HashMap<String,DomainType>();
 			List<Class<?>> classes = new ClassFinder().findClasses(Code.class, Predicates.isInstanceofPredicate(Code.class, true));
 			for (Class<?> c : classes) {
-				map.put(ClassUtils.getShortClassName(c).toLowerCase(), c);
+				map.put(ClassUtils.getShortClassName(c).toLowerCase(), new ClassBasedDomainType(c));
 			}
 			instance = new DomainRegistry(map);
 		}
@@ -64,7 +66,37 @@ public class DomainRegistry {
 	 * @param vocabularyDomainName
 	 * @return
 	 */
-	public Class<?> getDomainType(String vocabularyDomainName) {
+	public DomainType getDomainType(String vocabularyDomainName) {
 		return vocabularyDomainName == null ? null : this.domains.get(vocabularyDomainName.toLowerCase());
+	}
+
+	public void register(String domainType, PackageName packageName, Collection<String> parentDomainTypes) {
+		if (!this.domains.containsKey(domainType.toLowerCase())) {
+			List<DomainType> parents = getDomainTypes(parentDomainTypes);
+			this.domains.put(domainType.toLowerCase(), new SpecificationDomainType(domainType, packageName, parents));
+		}
+	}
+
+	private List<DomainType> getDomainTypes(Collection<String> parentDomainTypes) {
+		List<DomainType> result = new ArrayList<DomainType>();
+		
+		for (String parent : parentDomainTypes) {
+			DomainType domainType = getDomainType(parent);
+			if (domainType != null) {
+				result.add(domainType);
+			}
+		}
+		
+		return result;
+	}
+
+	public List<DomainType> getAllSpecificationDomainTypes() {
+		List<DomainType> result = new ArrayList<DomainType>();
+		for (DomainType domainType : this.domains.values()) {
+			if (domainType instanceof SpecificationDomainType) {
+				result.add(domainType);
+			}
+		}
+		return result;
 	}
 }

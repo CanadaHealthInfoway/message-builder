@@ -94,14 +94,11 @@ class DmifProcessor {
 		Element packageLocation = (Element) this.xpath.getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
 		Element parameterTypeModel = (Element) this.xpath.getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
 		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
-		String businessName = this.xpath.getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
-		businessName = new MifXPathHelper().removeNonAsciiCharacters(businessName);
-
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		interaction.setCategory(category);
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
 		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
-		interaction.setBusinessName(businessName);
+		interaction.setBusinessName(new MifXPathHelper().getBusinessName(element));
 		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
 			interaction.getDocumentation().setAnnotations(documentationForInteraction);
 		}

@@ -29,6 +29,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
@@ -39,15 +41,24 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifConceptDomain;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifContextBinding;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifSpecializedByDomain;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifValueSet;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.VocabularyMifMarshaller;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
+import ca.infoway.messagebuilder.xml.ContextBinding;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
+import ca.infoway.messagebuilder.xml.ValueSet;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -72,24 +83,78 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		List<MifReference> coreMifs = extractCoreMifs(mifs);
 		this.outputUI.log(INFO, "MIF pre-processing - processing static model interface packages (" + coreMifs.size() + " files)");
+		List<MifVocabularyModel> vocabularyModels = new ArrayList<MifVocabularyModel>();
 		for (MifReference reference : coreMifs) {
-			processCoreMif(reference);
+			processCoreMif(reference, vocabularyModels);
 		}
+		createVocabularyInformation(messageSet, vocabularyModels);
 		this.outputUI.log(INFO, "MIF pre-processing - completed (" + renderTime(watch) + ")");
 		
 		super.addMessagePartsFromMifs(messageSet, mifs, watch);
 	}
 	
-	private void processCoreMif(MifReference reference) throws GeneratorException, IOException {
+	private void createVocabularyInformation(MessageSet messageSet,
+			List<MifVocabularyModel> vocabularyModels) {
+
+		Map<String,List<String>> conceptDomains = new TreeMap<String,List<String>>();
+		Map<String,ValueSet> valueSets = new TreeMap<String,ValueSet>();
+		Map<String,List<ContextBinding>> bindings = new HashMap<String,List<ContextBinding>>();
+		for (MifVocabularyModel mifVocabularyModel : vocabularyModels) {
+			for (MifConceptDomain conceptDomain : mifVocabularyModel.getConceptDomains()) {
+				if (!conceptDomains.containsKey(conceptDomain.getName())) {
+					conceptDomains.put(conceptDomain.getName(), new ArrayList<String>());
+				}
+				for (MifSpecializedByDomain specializedByDomain : conceptDomain.getSpecializedByDomains()) {
+					if (!conceptDomains.containsKey(specializedByDomain.getName())) {
+						conceptDomains.put(specializedByDomain.getName(), new ArrayList<String>());
+					}
+					conceptDomains.get(specializedByDomain.getName()).add(conceptDomain.getName());
+				}
+			}
+			
+			for (MifValueSet valueSet : mifVocabularyModel.getValueSets()) {
+				valueSets.put(valueSet.getId(), new ValueSet(valueSet.getName(), valueSet.getId()));
+			}
+			for (MifContextBinding binding : mifVocabularyModel.getContextBindings()) {
+				if (!bindings.containsKey(binding.getValueSet())) {
+					bindings.put(binding.getValueSet(), new ArrayList<ContextBinding>());
+				}
+				bindings.get(binding.getValueSet()).add(
+						new ContextBinding(binding.getConceptDomain(), binding.getBindingRealmName(), binding.getCodingStrength()));
+			}
+		}
+		
+		for (Map.Entry<String, List<String>> entry : conceptDomains.entrySet()) {
+			messageSet.getVocabulary().getConceptDomains().add(new ConceptDomain(entry.getKey(), entry.getValue()));
+		}
+		for (Map.Entry<String, List<ContextBinding>> entry : bindings.entrySet()) {
+			ValueSet valueSet = valueSets.get(entry.getKey());
+			if (valueSet != null) {
+				valueSet.getContextBindings().addAll(entry.getValue());
+			}
+		}
+		
+		
+		messageSet.getVocabulary().getValueSets().addAll(valueSets.values());
+	}
+
+	private void processCoreMif(MifReference reference, List<MifVocabularyModel> vocabularyModels) throws GeneratorException, IOException {
 		try {
 			Document document = this.factory.createFromFile(reference.asFile());
 			if ("staticModelInterfacePackage".equals(getLocalOrTagName(document.getDocumentElement()))) {
-				this.outputUI.log(LogLevel.DEBUG, "Processing static model information in " + reference.asFile().getName());
+				this.outputUI.log(LogLevel.INFO, "Processing static model information in " + reference.asFile().getName());
 				processStaticModel(document);
+			} else if ("vocabularyModel".equals(getLocalOrTagName(document.getDocumentElement()))) {
+				this.outputUI.log(LogLevel.INFO, "Processing vocabulary information in " + reference.asFile().getName());
+				processVocabularyModel(reference.asFile(), vocabularyModels);
 			}
 		} catch (SAXException e) {
 			throw new GeneratorException(e);
 		}
+	}
+
+	private void processVocabularyModel(File xmlFile, List<MifVocabularyModel> vocabularyModels) throws IOException {
+		vocabularyModels.add(new VocabularyMifMarshaller().unmarshallVocabularyModel(xmlFile));
 	}
 
 	private void processStaticModel(Document document) {

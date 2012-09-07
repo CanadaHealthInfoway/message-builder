@@ -52,15 +52,10 @@ public class MessageSetMarshallerTest {
 	}
 	
 	@Test
-	public void testShouldReadAndWriteSampleWithRimClass() throws Exception {
+	public void testShouldReadSampleWithRimClass() throws Exception {
 		MessageSet testset = getMessageSet("sample_with_rim_class.xml");
 		Collection<MessagePart> allMessageParts = testset.getAllMessageParts();
 		for (MessagePart messagePart : allMessageParts) {
-			assertNotNull(messagePart.getRimClass());
-		}
-		
-		MessageSet testset2 = marshallAndUnmarshall(testset);
-		for (MessagePart messagePart : testset2.getAllMessageParts()) {
 			assertNotNull(messagePart.getRimClass());
 		}		
 	}

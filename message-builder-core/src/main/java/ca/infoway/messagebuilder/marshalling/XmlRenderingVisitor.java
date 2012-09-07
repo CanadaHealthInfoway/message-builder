@@ -251,7 +251,7 @@ class XmlRenderingVisitor implements Visitor {
 				
 				if (relationship.isFixed()) {
 					any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
-					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship));
+					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version));
 				} else {
 					any = tealBean.getHl7Value();
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);

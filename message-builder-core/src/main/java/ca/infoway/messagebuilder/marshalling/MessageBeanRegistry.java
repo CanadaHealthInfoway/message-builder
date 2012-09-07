@@ -42,6 +42,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.j5goodies.ClassFinder;
@@ -73,6 +74,7 @@ public class MessageBeanRegistry {
 	
 	private final Map<MessageTypeKey,Class<? extends InteractionBean>> registry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<? extends InteractionBean>>());
 	private final Map<MessageTypeKey,Class<?>> partTypeRegistry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<?>>());
+	private final Map<MessageTypeKey,Class<?>> codeTypeRegistry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<?>>());
 
 	private MessageBeanRegistry() {
 	}
@@ -98,10 +100,27 @@ public class MessageBeanRegistry {
 
 	private void initialize() {
 		ClassPredicate partTypePredicate = Predicates.hasAnnotationPredicate(Hl7PartTypeMapping.class);
+		ClassPredicate codeTypePredicate = Predicates.isInstanceofPredicate(Code.class);
 		Map<URL, List<String>> manifests = getManifestsWithVersionAttribute();
 		for (URL url : manifests.keySet()) {
 			List<Class<?>> classes = new ClassFinder().findClasses(url, partTypePredicate);
 			registerClasses(classes, manifests.get(url));
+
+			List<Class<?>> codes = new ClassFinder().findClasses(url, codeTypePredicate);
+			registerCodeType(codes, manifests.get(url));
+		}
+	}
+
+	private void registerCodeType(List<Class<?>> codes, List<String> versions) {
+		for (Class<?> c : codes) {
+			registerCodeType(c, versions);
+		}
+	}
+
+	private void registerCodeType(Class<?> c, List<String> versions) {
+		String domainType = ClassUtils.getShortClassName(c);
+		for (String version : versions) {
+			this.codeTypeRegistry.put(new MessageTypeKey(version, domainType), c);
 		}
 	}
 
@@ -154,6 +173,10 @@ public class MessageBeanRegistry {
 		return manifests;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Class<? extends Code> getCodeType(String domainType, String version) {
+		return (Class<? extends Code>) this.partTypeRegistry.get(new MessageTypeKey(version, domainType));
+	}
 	Class<?> getMessagePartType(MessageTypeKey key) {
 		return this.partTypeRegistry.get(key);
 	}

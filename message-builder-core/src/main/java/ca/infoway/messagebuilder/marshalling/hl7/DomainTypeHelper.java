@@ -24,15 +24,28 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.OtherIDsRoleCode;
 import ca.infoway.messagebuilder.domainvalue.OtherIdentifierRoleType;
+import ca.infoway.messagebuilder.marshalling.MessageBeanRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class DomainTypeHelper {
 
-	public static Class<? extends Code> getReturnType(Relationship relationship) {
+	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version) {
+		Class<? extends Code> type = getReturnType(relationship);
+		if (type == Code.class) {
+			String domainType = relationship.getDomainType();
+			Class<? extends Code> codeType = MessageBeanRegistry.getInstance().getCodeType(domainType, version.getVersionLiteral());
+			if (codeType != null) {
+				type = codeType;
+			}
+		}
+		return type;
+	}
+	private static Class<? extends Code> getReturnType(Relationship relationship) {
 		String domainType = relationship.getDomainType();
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {
 			domainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);

@@ -52,5 +52,7 @@ public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions) {
 		return new XsdDefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy());
 	}
-
+	@Override
+	protected void writeDomainInterfaces() throws IOException, GeneratorException {
+	}
 }
