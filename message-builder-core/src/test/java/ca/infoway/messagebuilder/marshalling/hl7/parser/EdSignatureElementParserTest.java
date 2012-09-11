@@ -39,6 +39,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
+		@SuppressWarnings("unchecked")
 		ED<String> ed = (ED<String>) new EdSignatureElementParser().parse(createEdContext(), node, null);
 		assertNull("signature is null", ed.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ed.getNullFlavor());

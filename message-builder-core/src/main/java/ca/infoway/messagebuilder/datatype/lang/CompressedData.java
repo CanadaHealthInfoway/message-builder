@@ -35,11 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.Compression;
  */
 public class CompressedData extends EncapsulatedData {
 
-	public static final String LANGUAGE_ENGLISH = "ENG";
-	public static final String LANGUAGE_FRENCH = "FRA";
-
 	private Compression compression;
-	private String language;
 
 	/**
 	 * <p>Constructs an empty CompressedData.
@@ -56,10 +52,9 @@ public class CompressedData extends EncapsulatedData {
 	 * @param compression a compression type
 	 * @param language a language
 	 */
-	public CompressedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, byte[] content, Compression compression, String language) {
-		super(mediaType, reference, content);
+	public CompressedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, byte[] content, Compression compression, String language, String charset) {
+		super(mediaType, reference, language, content, charset);
 		this.compression = compression;
-		setLanguage(language);
 	}
 
 	/**
@@ -69,30 +64,6 @@ public class CompressedData extends EncapsulatedData {
 	 */
 	public Compression getCompression() {
 		return this.compression;
-	}
-
-	/**
-	 * <p>Returns the language.
-	 * 
-	 * @return the language.
-	 */
-	public String getLanguage() {
-		return this.language;
-	}
-
-	/**
-	 * <p>Sets the current language to the supplied parameter.
-	 * 
-	 * @param language the language to set
-	 */
-	public void setLanguage(String language) {
-		if (language != null) {
-			if (LANGUAGE_ENGLISH.equals(language)) {
-				this.language = LANGUAGE_ENGLISH;
-			} else if (LANGUAGE_FRENCH.equals(language)) {
-				this.language = LANGUAGE_FRENCH;
-			}
-		}
 	}
 
 	/**

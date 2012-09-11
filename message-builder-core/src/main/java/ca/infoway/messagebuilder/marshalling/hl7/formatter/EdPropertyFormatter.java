@@ -28,8 +28,12 @@ import java.util.Map;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedString;
+import ca.infoway.messagebuilder.datatype.lang.util.Compression;
+import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.platform.Base64;
 
 /**
@@ -49,6 +53,7 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 	public static final String REPRESENTATION_B64 = "B64";
 	public static final String ATTRIBUTE_COMPRESSION = "compression";
 	public static final String ATTRIBUTE_LANGUAGE = "language";
+	public static final String ATTRIBUTE_CHARSET = "charset";
 	public static final String ATTRIBUTE_REPRESENTATION = "representation";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
 	public static final String ELEMENT_REFERENCE = "reference";
@@ -139,6 +144,34 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 			}
 		}
 		return content;
+	}
+
+	@SuppressWarnings("unused")
+	private void validate(String specializationType, Compression compression, MediaType mediaType, String charset, String language, String representation, String reference, byte[] content, ParseContext context, XmlToModelResult xmlToModelResult) {
+		
+		// specializationType - must be provided for ED.DOCORREF *except* for CeRx; must be ED.DOC or ED.DOCREF
+
+		// compression - required, must be DF or GZ
+		//             - only GZ for CeRx (ED.DOCORREF), and only allowed if content present
+		//             - not permitted for ED.REF
+		
+		// mediatype - mandatory; value from x_DocumentMediaType
+		//           - ED.DOC/ED.DOCREF/MR2007, ED.DOCORREF/ED.REF/CeRx: restricted to "text/plain", "text/html", "text/xml", "application/pdf"
+		
+		// charset - mandatory (MR2009); not permitted for MR2007/CeRx
+		
+		// language - required, 2-2
+		//          - "eng" or "fre" (CeRx)
+		
+		// representation - TXT or B64; vague on if this is mandatory or not; not permitted for CeRx
+		
+		// reference - required; must be TEL.URI (mandatory for ED.DOCREF)
+		//           - CeRx: only allowed (and mandatory?) if content not present; must be FTP, HTTP, HTTPS  (ED.REF, ED.DOCORREF) 
+		
+		// content - max 1 MB after compression and base64 encoding; compressed or pdf must be b64-encoded; any checks done on this??
+		//         - mandatory for ED.DOC, ED.DOCORREF/CeRx
+		//         - not permitted for ED.DOCREF/ED.REF
+		
 	}
 
 }

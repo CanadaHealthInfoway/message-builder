@@ -55,25 +55,25 @@ public class EncapsulatedDataDocumentXmlParserTest extends AbstractXmlParserTest
 	public void shouldParseMinimalEdDoc() throws Exception {
 		assertEquals(
 				"<docOrRef><document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document></docOrRef>",
-				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, null, null, null, null, new String(this.bytes))));
+				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, null, null, null, null, new String(this.bytes), null)));
 	}
 
 	@Test
 	public void shouldParseFullEdDoc() throws Exception {
 		assertEquals(
 				"<docOrRef compression=\"GZ\" language=\"en\" mediaType=\"text/html\" uri=\"http://www.i-proving.ca\"><document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document></docOrRef>",
-				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, "text/html", "http://www.i-proving.ca", "GZ", "ENG", new String(this.bytes))));
+				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, "text/html", "http://www.i-proving.ca", "GZ", "ENG", new String(this.bytes), null)));
 	}
 
-	private EDImpl<EncapsulatedData> createEdDoc(StandardDataType dataType, String mediaType, String uri, String compression, String language, String content) {
+	private EDImpl<EncapsulatedData> createEdDoc(StandardDataType dataType, String mediaType, String uri, String compression, String language, String content, String charset) {
 		MediaType mt = StringUtils.isBlank(mediaType) ? null : CodeResolverRegistry.lookup(MediaType.class, mediaType);
 		byte[] doc = (StringUtils.isBlank(content) ? null : content.getBytes());
 		EncapsulatedData ed = null;
-		if (StringUtils.isBlank(compression) && StringUtils.isBlank(language)) {
-			ed = new EncapsulatedData(mt, uri, doc);
+		if (StringUtils.isBlank(compression)) {
+			ed = new EncapsulatedData(mt, uri, language, doc, charset);
 		} else {
 			Compression compr = Compression.get(compression);
-			ed = new CompressedData(mt, uri, doc, compr, language);
+			ed = new CompressedData(mt, uri, doc, compr, language, charset);
 		}
 		return new EDImpl<EncapsulatedData>(null, ed, null, dataType);
 	}

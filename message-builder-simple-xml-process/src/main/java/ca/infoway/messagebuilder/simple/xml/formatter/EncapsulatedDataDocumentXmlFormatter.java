@@ -40,6 +40,7 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	
 	public static final String REPRESENTATION_B64 = "B64";
 	public static final String ATTRIBUTE_COMPRESSION = "compression";
+	public static final String ATTRIBUTE_CHARSET = "charset";
 	public static final String ATTRIBUTE_LANGUAGE = "language";
 	public static final String ATTRIBUTE_REFERENCE = "uri";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
@@ -73,12 +74,13 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 		MediaType mediaType = parseMediaType(element);
 		Compression compression = parseCompression(element);
 		String language = parseLanguage(element);
+		String charset = parseCharset(element);
 		String reference = parseReference(element, context);
 		byte[] content = parseContent(getSingleElement(element, "document"), context, REPRESENTATION_B64);
-		if (compression != null || language != null) {
-			return new CompressedData(mediaType, reference, content, compression, language);
+		if (compression != null) {
+			return new CompressedData(mediaType, reference, content, compression, language, charset);
 		} else if (mediaType != null || reference != null || content != null) {
-			return new EncapsulatedData(mediaType, reference, content);
+			return new EncapsulatedData(mediaType, reference, language, content, charset);
 		} else {
 			return null;
 		}
@@ -118,9 +120,9 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 
 	private String convertLanguage(String lang) {
 		if ("en".equalsIgnoreCase(lang)) {
-			return CompressedData.LANGUAGE_ENGLISH;
+			return "en-CA";
 		} else if ("fr".equalsIgnoreCase(lang)) {
-			return CompressedData.LANGUAGE_FRENCH;
+			return "fr-CA";
 		} else {
 			return lang;
 		}
@@ -129,6 +131,13 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	private Compression parseCompression(Element element) {
 		if (element.hasAttribute(ATTRIBUTE_COMPRESSION)) {
 			return Compression.get(element.getAttribute(ATTRIBUTE_COMPRESSION));
+		}
+		return null;
+	}
+
+	private String parseCharset(Element element) {
+		if (element.hasAttribute(ATTRIBUTE_COMPRESSION)) {
+			return element.getAttribute(ATTRIBUTE_CHARSET);
 		}
 		return null;
 	}

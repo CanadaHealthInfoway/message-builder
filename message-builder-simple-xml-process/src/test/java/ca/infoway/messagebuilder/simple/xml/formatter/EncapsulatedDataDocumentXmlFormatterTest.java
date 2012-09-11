@@ -73,7 +73,7 @@ public class EncapsulatedDataDocumentXmlFormatterTest {
 		assertEquals(new String(this.bytes), new String(ed.getValue().getContent()));
 		assertTrue(ed.getValue() instanceof CompressedData);
 		assertEquals("GZ", ((CompressedData) ed.getValue()).getCompression().getCompressionType());
-		assertEquals(CompressedData.LANGUAGE_ENGLISH, ((CompressedData) ed.getValue()).getLanguage());
+		assertEquals("en-CA", ((CompressedData) ed.getValue()).getLanguage());
 	}
 	
 	@Test
@@ -103,7 +103,7 @@ public class EncapsulatedDataDocumentXmlFormatterTest {
 		assertNull(ed.getValue().getContent());
 		assertTrue(ed.getValue() instanceof CompressedData);
 		assertEquals("GZ", ((CompressedData) ed.getValue()).getCompression().getCompressionType());
-		assertEquals(CompressedData.LANGUAGE_ENGLISH, ((CompressedData) ed.getValue()).getLanguage());
+		assertEquals("en-CA", ((CompressedData) ed.getValue()).getLanguage());
 	}
 	@Test
 	public void shouldTransformMinimalRefXmlToDocument() throws Exception {

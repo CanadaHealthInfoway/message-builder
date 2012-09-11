@@ -72,9 +72,9 @@ public class EncapsulatedDataDocumentXmlParser extends AbstractSimpleXmlParser<E
 			}
 			String language = compressedData.getLanguage();
 			if (StringUtils.isNotBlank(language)) {
-				if (CompressedData.LANGUAGE_ENGLISH.equals(language)) {
+				if ("en-CA".equals(language)) {
 					attributes.put("language", "en");
-				} else if (CompressedData.LANGUAGE_FRENCH.equals(language)) {
+				} else if ("fr-CA".equals(language)) {
 					attributes.put("language", "fr");
 				}
 			}

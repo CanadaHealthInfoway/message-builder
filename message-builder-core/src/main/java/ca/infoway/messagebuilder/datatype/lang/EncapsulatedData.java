@@ -36,7 +36,9 @@ public class EncapsulatedData {
 
 	private ca.infoway.messagebuilder.domainvalue.MediaType mediaType;
 	private String reference;
+	private String language;
 	private byte[] content;
+	private String charset;
 
 	/**
 	 * <p>Constructs an empty ED.
@@ -50,11 +52,14 @@ public class EncapsulatedData {
 	 * @param mediaType the mediatype
 	 * @param reference a reference
 	 * @param content content within a byte array
+	 * @param charset 
 	 */
-	public EncapsulatedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, byte[] content) {
+	public EncapsulatedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, String language, byte[] content, String charset) {
 		this.mediaType = mediaType;
 		this.reference = reference;
+		this.language = language;
 		this.content = content;
+		this.charset = charset;
 	}
 	
 	/**
@@ -83,4 +88,22 @@ public class EncapsulatedData {
 	public String getReference() {
 		return this.reference;
 	}
+	
+	/**
+	 * <p>Returns the language.
+	 * 
+	 * @return the language.
+	 */
+	public String getLanguage() {
+		return this.language;
+	}
+
+	/**
+	 * 
+	 * @return the charset
+	 */
+	public String getCharset() {
+		return charset;
+	}
+
 }
