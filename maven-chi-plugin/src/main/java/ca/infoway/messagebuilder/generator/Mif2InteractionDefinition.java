@@ -100,7 +100,9 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 		if (type != null) {
 			return type;
 		} else {
-			throw new MifDependencyException(interaction, packageName);
+			MifDependencyException mifDependencyException = new MifDependencyException(interaction, packageName);
+			this.outputUI.log(LogLevel.SEVERE, mifDependencyException.getMessage());
+			return null;
 		}
 	}
 
