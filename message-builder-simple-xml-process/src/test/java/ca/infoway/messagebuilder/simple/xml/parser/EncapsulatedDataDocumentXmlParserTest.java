@@ -62,7 +62,7 @@ public class EncapsulatedDataDocumentXmlParserTest extends AbstractXmlParserTest
 	public void shouldParseFullEdDoc() throws Exception {
 		assertEquals(
 				"<docOrRef compression=\"GZ\" language=\"en\" mediaType=\"text/html\" uri=\"http://www.i-proving.ca\"><document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document></docOrRef>",
-				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, "text/html", "http://www.i-proving.ca", "GZ", "ENG", new String(this.bytes), null)));
+				this.parser.parse(createContext(), createEdDoc(StandardDataType.ED_DOC, "text/html", "http://www.i-proving.ca", "GZ", "en-CA", new String(this.bytes), null)));
 	}
 
 	private EDImpl<EncapsulatedData> createEdDoc(StandardDataType dataType, String mediaType, String uri, String compression, String language, String content, String charset) {

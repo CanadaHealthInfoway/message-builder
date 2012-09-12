@@ -28,6 +28,7 @@ import java.util.TreeMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
@@ -46,6 +47,12 @@ public class MessageSet implements MessagePartResolver {
 	@Attribute(required=false)
 	private String component;
 	
+	@Attribute(required=false)
+	private String schemaVersion = "1.1";
+	
+	@Element(required=false)
+	private Vocabulary vocabulary;
+
 	@ElementList(name="remixHistory",required=false,inline=true,entry="remixHistoryEntry") 
 	private List<MessageSetHistory> remixHistory = new ArrayList<MessageSetHistory>();
 	
@@ -54,7 +61,7 @@ public class MessageSet implements MessagePartResolver {
 
 	@ElementMap(name="interaction",key="name",required=false,inline=true,attribute=true)
 	private Map<String,Interaction> interactions = new TreeMap<String,Interaction>();
-
+	
 	/**
 	 * <p>Get the version code that this message set represents.
 	 * @return - the version code.
@@ -182,11 +189,43 @@ public class MessageSet implements MessagePartResolver {
 		this.component = component;
 	}
 
+	/**
+	 * <p>Get the remixHistory.
+	 * @return the remixHistory
+	 */
 	public List<MessageSetHistory> getRemixHistory() {
 		return remixHistory;
 	}
 
+	/**
+	 * <p>Set the remixHistory.
+	 * @param remixHistory - the new value
+	 */
 	public void setRemixHistory(List<MessageSetHistory> remixHistory) {
 		this.remixHistory = remixHistory;
+	}
+
+	public Vocabulary getVocabulary() {
+		if (this.vocabulary == null) {
+			this.vocabulary = new Vocabulary();
+		}
+		return this.vocabulary;
+	}
+
+	public String getSchemaVersion() {
+		return schemaVersion;
+	}
+
+	public void setSchemaVersion(String schemaVersion) {
+		this.schemaVersion = schemaVersion;
+	}
+
+	public void setVocabulary(Vocabulary vocabulary) {
+		this.vocabulary = vocabulary;
+	}
+	public boolean isVocabularyDataPresent() {
+		return this.vocabulary != null && 
+				!(this.vocabulary.getConceptDomains().isEmpty() && 
+						this.vocabulary.getValueSets().isEmpty());
 	}
 }

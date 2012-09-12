@@ -63,44 +63,42 @@ class DmifProcessor {
 		this.outputUI = outputUI;
 	}
 
-	private List<Interaction> extractInteractions(MessageSet messageSet, File file) throws SAXException, IOException, XPathExpressionException {
+	private List<Interaction> extractInteractions(MessageSet messageSet, File file, String category) throws SAXException, IOException, XPathExpressionException {
 		FileInputStream input = new FileInputStream(file);
 		try {
-			return extractInteractions(messageSet, file.getName(), input);
+			return extractInteractions(messageSet, file.getName(), category, input);
 		} finally {
 			IOUtils.closeQuietly(input);
 		}
 	}
 	
-	private List<Interaction> extractInteractions(MessageSet messageSet, String name, InputStream input) throws SAXException, IOException, XPathExpressionException {
+	private List<Interaction> extractInteractions(MessageSet messageSet, String name, String category, InputStream input) throws SAXException, IOException, XPathExpressionException {
 		Document dmif = new DocumentFactory().createFromStream(input);
-		return extractInteractions(messageSet, name, dmif);
+		return extractInteractions(messageSet, name, category, dmif);
 	}
 
-	private List<Interaction> extractInteractions(MessageSet messageSet, String name, Document dmif) throws XPathExpressionException {
+	private List<Interaction> extractInteractions(MessageSet messageSet, String name, String category, Document dmif) throws XPathExpressionException {
 		List<Interaction> result = new ArrayList<Interaction>();
 		NodeList list = dmif.getElementsByTagNameNS(Namespaces.MIF_NAMESPACE.getNamespace(), "hl7Interaction");
 		for (int i = 0, length = list == null ? 0 : list.getLength(); i < length; i++) {
 			Element item = (Element) list.item(i);
 			this.outputUI.log(DEBUG, "Extracting interaction: " + item.getAttribute("name") + "/" + item.getAttribute("title"));
-			result.add(extractInteraction(messageSet, name, item));
+			result.add(extractInteraction(messageSet, name, category, item));
 		}
 		return result;
 	}
 
-	private Interaction extractInteraction(MessageSet messageSet, String name, Element element)
+	private Interaction extractInteraction(MessageSet messageSet, String name, String category, Element element)
 			throws XPathExpressionException {
 		Interaction interaction = new Interaction();
 		Element packageLocation = (Element) this.xpath.getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
 		Element parameterTypeModel = (Element) this.xpath.getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
 		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
-		String businessName = this.xpath.getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
-		businessName = new MifXPathHelper().removeNonAsciiCharacters(businessName);
-
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
+		interaction.setCategory(category);
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
 		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
-		interaction.setBusinessName(businessName);
+		interaction.setBusinessName(new MifXPathHelper().getBusinessName(element));
 		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
 			interaction.getDocumentation().setAnnotations(documentationForInteraction);
 		}
@@ -206,7 +204,7 @@ class DmifProcessor {
 	public void addInteractionsFromDmifs(MessageSet messageSet, List<MifReference> list) throws IOException, XPathExpressionException, SAXException {
 		for (MifReference reference : list) {
 			this.outputUI.log(DEBUG, "DMIF - now processing file " + reference.asFile().getName());
-			List<Interaction> interactions = extractInteractions(messageSet, reference.asFile());
+			List<Interaction> interactions = extractInteractions(messageSet, reference.asFile(), reference.getCategory());
 			for (Interaction interaction : interactions) {
 				messageSet.getInteractions().put(interaction.getName(), interaction);
 			}

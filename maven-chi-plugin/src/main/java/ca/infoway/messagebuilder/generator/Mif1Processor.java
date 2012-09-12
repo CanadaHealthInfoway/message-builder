@@ -34,13 +34,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.RimClass;
 
 
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
@@ -176,11 +177,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createChoice(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = MifXPathHelper.getTargetConnection(element);
-		ConformanceLevel conformance = createConformance(targetConnection);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-		
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		
@@ -188,7 +184,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setType(strategy.getHighLevelType(messageSet));
 		choice.setCardinality(createCardinality(targetConnection));
 		choice.setUpdateMode(createUpdateMode(targetConnection));		
-		choice.setConformance(conformance);
+		choice.setConformance(createConformance(targetConnection));
 		
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
 		for (ChoiceOption choiceOption : choiceOptions) {
@@ -211,11 +207,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = MifXPathHelper.getTargetConnection(element);
-		ConformanceLevel conformance = createConformance(targetConnection);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-		
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(targetConnection.getAttribute("name"));
@@ -226,17 +217,12 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));
-		relationship.setConformance(conformance);
+		relationship.setConformance(createConformance(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
 
 	private void createAttribute(MessagePart part, Element element) {
-		ConformanceLevel conformance = createConformance(element);
-		if (ConformanceLevel.NOT_ALLOWED.equals(conformance)) {
-			return;
-		}
-		
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
 		relationship.setName(element.getAttribute("name"));
@@ -249,7 +235,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		relationship.setUpdateMode(createUpdateMode(element));
 		relationship.setCardinality(createCardinality(element));
-		relationship.setConformance(conformance);
+		relationship.setConformance(createConformance(element));
 		
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
@@ -298,14 +284,45 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return MifXPathHelper.isParticipantClassSpecializationPresent(element);
 	}
 
-	private MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
+	protected MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
 		Element classElement = MifXPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
+		MessagePart messagePart;
 		if (isAbstract(classElement)) {
-			return MessagePart.createAbstractPart(name);
+			messagePart = MessagePart.createAbstractPart(name);
 		} else {
-			return new MessagePart(name);
+			messagePart = new MessagePart(name);
 		}
+		addRimClass(classElement, messagePart);
+		return messagePart;
+	}
+	
+	private void addRimClass(Element classElement, MessagePart messagePart) {
+		Element graphElement = MifXPathHelper.getSingleElement(classElement, "mif:graphicRepresentation/mif:graphElement");
+		String rimClassName = graphElement.getAttribute("shapeTemplate");
+		if(rimClassName.equals("RoleLinkR")) {
+			rimClassName = RimClass.ROLE_LINK.getCode();
+		} else if (rimClassName.equals("ActRelationshipR")) {
+			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
+		} else if (rimClassName.equals("Choice")) {
+			rimClassName = extractFromDerivationSupplierElement(classElement);
+		}
+		messagePart.setRimClass(getRimClassFromCode(rimClassName));
+	}
+
+	private RimClass getRimClassFromCode(String rimClassName) {
+		List<RimClass> values = EnumPattern.values(RimClass.class);
+		for (RimClass rimClass : values) {
+			if (rimClass.getCode().equals(rimClassName)) {
+				return rimClass;
+			}
+		}
+		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
+	}
+
+	private String extractFromDerivationSupplierElement(Element classElement) {
+		Element derivedFromElement = Mif2XPathHelper.getSingleElement(classElement, "mif:derivationSupplier");
+		return derivedFromElement.getAttribute("className");
 	}
 
 	private boolean isAbstract(Element classElement) {

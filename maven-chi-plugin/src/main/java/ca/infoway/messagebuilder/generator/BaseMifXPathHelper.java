@@ -154,8 +154,11 @@ abstract class BaseMifXPathHelper {
 
 	protected String removeNonAsciiCharacters(String string) {
 		String result = string;
-		if (string != null && !StringUtils.isAsciiPrintable(string)) {
-			result = string.replaceAll("[^\\p{ASCII}]", "");
+		if (result != null && !StringUtils.isAsciiPrintable(result)) {
+			result = result.replaceAll("[^\\p{ASCII}]", "");
+		}
+		if (result != null) {
+			result = StringUtils.trim(result).replaceAll("\\s+", " ");
 		}
 		return result;
 	}

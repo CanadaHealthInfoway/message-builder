@@ -50,7 +50,10 @@ class CsharpPackageNameAdjustingDecorator implements NameTranslator {
 	}
 
 	public String getPackageName(TypeName name) {
-		String packageName = this.nameTranslator.getPackageName(name);
+		return capitalizePackageNameParts(this.nameTranslator.getPackageName(name));
+	}
+
+	static String capitalizePackageNameParts(String packageName) {
 		String[] words = StringUtils.split(packageName, ".");
 		for (int i = 0; i < words.length; i++) {
 			words[i] = WordUtils.capitalize(words[i]);

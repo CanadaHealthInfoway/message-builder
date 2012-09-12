@@ -39,13 +39,27 @@ public class AnnotationType extends EnumPattern {
 	private static final long serialVersionUID = 3066114109382422542L;
 	
 	public static final AnnotationType CONSTRAINT = new AnnotationType("CONSTRAINT", "CONSTRAINT", "constraint", "formalConstraint"); 
-	public static final AnnotationType DESCRIPTION = new AnnotationType("DESCRIPTION", "DESCRIPTION / DEFINITION", "description", "definition"); 
+//	public static final AnnotationType DESCRIPTION = new AnnotationType("DESCRIPTION", "DESCRIPTION / DEFINITION", "description", "definition");
 	public static final AnnotationType DESIGN_COMMENTS = new AnnotationType("DESIGN_COMMENTS", "DESIGN COMMENTS", "designComments"); 
 	public static final AnnotationType MAPPING = new AnnotationType("MAPPING", "MAPPING", "mapping");
 	public static final AnnotationType OPEN_ISSUE = new AnnotationType("OPEN_ISSUE", "OPEN ISSUE", "openIssues", "openIssue"); 
 	public static final AnnotationType OTHER_NOTES = new AnnotationType("OTHER_NOTES", "OTHER NOTES", "otherAnnotation");
 	public static final AnnotationType RATIONALE = new AnnotationType("RATIONALE", "RATIONALE", "rationale"); 
-	public static final AnnotationType USAGE_NOTES = new AnnotationType("USAGE_NOTES", "USAGE NOTES", "usageNotes"); 
+	public static final AnnotationType USAGE_NOTES = new AnnotationType("USAGE_NOTES", "USAGE NOTES", "usageNotes");
+	
+	//TODO: GN: need to figure out if these have corresponding mappings on mif1s
+	public static final AnnotationType DESCRIPTION = new AnnotationType("DESCRIPTION", "DESCRIPTION", "description");
+	public static final AnnotationType DEFINITION = new AnnotationType("DEFINITION", "DEFINITION", "definition");
+	public static final AnnotationType USAGE_CONSTRAINT = new AnnotationType("USAGE_CONSTRAINT", "USAGE CONSTRAINT", "usageConstraint");
+	public static final AnnotationType REQUIREMENTS = new AnnotationType("REQUIREMENTS", "REQUIREMENTS", "requirements");
+	public static final AnnotationType STABILITY_REMARKS = new AnnotationType("STABILITY_REMARKS", "STABILITY REMARKS", "stabilityRemarks");
+	public static final AnnotationType WALKTHROUGH = new AnnotationType("WALKTHROUGH", "WALKTHROUGH", "walkthrough");
+	public static final AnnotationType APPENDIX = new AnnotationType("APPENDIX", "APPENDIX", "appendix");
+	
+	public static final AnnotationType BALLOT_COMMENT = new AnnotationType("BALLOT_COMMENT", "BALLOT COMMENT", "ballotComment");
+	public static final AnnotationType CHANGE_REQUEST = new AnnotationType("CHANGE_REQUEST", "CHANGE REQUEST", "changeRequest");
+	public static final AnnotationType STATIC_EXAMPLE = new AnnotationType("STATIC_EXAMPLE", "STATIC EXAMPLE", "staticExample");
+	public static final AnnotationType DEPRECATION_INFO = new AnnotationType("DEPRECATION_INFO", "DEPRECATION INFO", "deprecationInfo");
 	
 	private final String[] mifElementNames;
 	private String displayName;

@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import java.io.File;
 import java.io.IOException;
 
+import ca.infoway.messagebuilder.generator.DomainTypeWriter;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -61,5 +62,9 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	@Override
 	protected ProgrammingLanguage getProgrammingLanguage() {
 		return ProgrammingLanguage.JAVA;
+	}
+	@Override
+	protected void writeDomainInterfaces() throws IOException, GeneratorException {
+		new DomainTypeWriter(this.outputUI, this.sourceFolder, JavaDomainTypeWriter.class, ProgrammingLanguage.JAVA).writeDomains();
 	}
 }

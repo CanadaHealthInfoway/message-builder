@@ -257,4 +257,16 @@ public class Hl7Error {
 				MessageFormat.format("Association \"{0}\" has a nullFlavor, but does not specify xsi:nil=\"true\".", elementName), 
 				element);
 	}
+	public static Hl7Error createIgnoredAsNotAllowedConformanceLevelRelationshipError(
+			String xmlName, Element base) {
+		return new Hl7Error(Hl7ErrorCode.IGNORED_CONFORMANCE_NOT_ALLOWED_IS_SET, 
+				MessageFormat.format("Ignored Conformance Level for relationship \"{0}\" for element ({1}) is not permitted",
+						xmlName, describeSingleElement(base)), base);
+	}
+	public static Hl7Error createNotAllowedConformanceLevelRelationshipError(
+			String xmlName, Element base) {
+		return new Hl7Error(Hl7ErrorCode.NOT_ALLOWED_CONFORMANCE_IS_SET, 
+				MessageFormat.format("Not Allowed Conformance Level for relationship \"{0}\" for element ({1}) is not permitted",
+						xmlName, describeSingleElement(base)), base);
+	}
 }

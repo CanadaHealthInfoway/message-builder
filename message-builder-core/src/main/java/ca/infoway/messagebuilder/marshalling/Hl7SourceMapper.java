@@ -393,7 +393,7 @@ class Hl7SourceMapper {
     				if (attributeRelationship.hasFixedValue()) {
     					validateFixedValue(source, currentElement, (Attr) attributeNode, attributeRelationship);
     				}
-    				wrapper.writeNodeAttribute(attributeRelationship, attributeNode.getNodeValue());
+    				wrapper.writeNodeAttribute(attributeRelationship, attributeNode.getNodeValue(), source.getVersion());
     			}
     			validateMandatoryAttributesExist(source, currentElement);	
     		}

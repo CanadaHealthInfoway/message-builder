@@ -49,7 +49,7 @@ class ParseContextImpl implements ParseContext {
 	}
 
 	public Type getExpectedReturnType() {
-		return DomainTypeHelper.getReturnType(this.relationship);
+		return DomainTypeHelper.getReturnType(this.relationship, this.version);
 	}
 
 	public String getType() {

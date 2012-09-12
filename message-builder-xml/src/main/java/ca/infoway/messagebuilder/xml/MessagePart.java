@@ -32,6 +32,7 @@ import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>A message part.  An example message part might be represent the type
@@ -57,8 +58,8 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	@Element(required=false)
 	private Documentation documentation;
 	
-	@Attribute(required=false,name="rimClass")
-	private RimClass rimClass;
+	@Attribute(required=false)
+	private String rimClass;
 	
 	@ElementList(required=false,inline=true)
 	private List<Relationship> relationships = new ArrayList<Relationship>();
@@ -250,9 +251,12 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 		this.differences.add(difference);
 	}
 	public RimClass getRimClass() {
-		return rimClass;
+		if (this.rimClass != null) {
+			return EnumPattern.valueOf(RimClass.class, this.rimClass);
+		} 
+		return null;
 	}
 	public void setRimClass(RimClass rimClass) {
-		this.rimClass = rimClass;
+		this.rimClass = rimClass == null ? null : rimClass.name();
 	}
 }

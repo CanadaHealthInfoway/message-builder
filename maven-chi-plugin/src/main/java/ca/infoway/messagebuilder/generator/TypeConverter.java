@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
+import ca.infoway.messagebuilder.generator.util.DomainType;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class TypeConverter {
@@ -72,10 +73,10 @@ public class TypeConverter {
 		}
 	}
 
-	private DataType resolveDomainType(DataTypeGenerationDetails type, String dataTypeName, String domainType) {
-		Class<?> c = DomainRegistry.getInstance().getDomainType(domainType);
-		if (c != null) {
-			return new DataType(type, c.getName());
+	private DataType resolveDomainType(DataTypeGenerationDetails type, String dataTypeName, String domainTypeName) {
+		DomainType domainType = DomainRegistry.getInstance().getDomainType(domainTypeName);
+		if (domainType != null) {
+			return new DataType(type, domainType.getFullyQualifiedClassName());
 		} else {
 			return new DataType(type, Code.class.getName());
 		}

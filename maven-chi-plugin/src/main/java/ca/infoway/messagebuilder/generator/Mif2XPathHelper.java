@@ -97,6 +97,11 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		return MifXPathHelper.toElementList(nodes);
 	}
 	
+	public static List<Element> getGraphicRepresentationClasses(Document document) {
+		NodeList nodes = getNodes(document.getDocumentElement(), ".//mif2:graphicRepresentation/mif2:class");
+		return MifXPathHelper.toElementList(nodes);
+	}
+	
 	public List<UpdateModeType> getAllowedUpdateModes(Element element) {
 		List<UpdateModeType> updateModeTypes = new ArrayList<UpdateModeType>();
 		NodeList nodes = getNodes(element, ".//mif2:updateModesAllowed");

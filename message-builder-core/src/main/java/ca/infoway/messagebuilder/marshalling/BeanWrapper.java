@@ -35,6 +35,7 @@ import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.NamedAndTyped;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
@@ -144,7 +145,7 @@ class BeanWrapper {
 		}
 	}
 
-	public void writeNodeAttribute(Relationship relationship, String attributeValue) {
+	public void writeNodeAttribute(Relationship relationship, String attributeValue, VersionNumber version) {
 		BeanProperty property = findBeanProperty(relationship);
 		if (property != null) {
             if (StringUtils.isNotBlank(attributeValue)) {
@@ -152,7 +153,7 @@ class BeanWrapper {
             		if ("BL".equals(relationship.getType())) {
             			property.set(Boolean.valueOf(attributeValue));
             		} else if ("CS".equals(relationship.getType())) {
-            			property.set(resolveCodeValue(relationship, attributeValue));
+            			property.set(resolveCodeValue(relationship, attributeValue, version));
             		} else {
             			this.log.info("UNSUPPORTED RimType: IGNORING relationhsipName=" + relationship.getName() + ", property=" + property.getName());
             		}
@@ -168,8 +169,8 @@ class BeanWrapper {
 	}
 
 	@SuppressWarnings("unchecked")
-	private Code resolveCodeValue(Relationship relationship, String attributeValue) {
-		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship), attributeValue);
+	private Code resolveCodeValue(Relationship relationship, String attributeValue, VersionNumber version) {
+		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version), attributeValue);
 	}
 
 	public void writeNullFlavor(Hl7Source source, Relationship relationship, NullFlavor nullFlavor) {

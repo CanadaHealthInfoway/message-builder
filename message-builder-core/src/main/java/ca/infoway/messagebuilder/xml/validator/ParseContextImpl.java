@@ -46,7 +46,7 @@ class ParseContextImpl implements ParseContext {
 	}
 
 	public Type getExpectedReturnType() {
-		return getReturnType(this.relationship);
+		return getReturnType(this.relationship, this.version);
 	}
 
 	public String getType() {

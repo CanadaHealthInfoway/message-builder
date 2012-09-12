@@ -34,12 +34,13 @@ import org.apache.commons.lang.time.DateFormatUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.NamingPolicy;
+import ca.infoway.messagebuilder.generator.SourceFileWriter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
 
-public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7TypeWriter {
+public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7TypeWriter, SourceFileWriter {
 
 	private ImportDeclarationGenerator importDeclarationGenerator;
     private final NameTranslator nameTranslator;

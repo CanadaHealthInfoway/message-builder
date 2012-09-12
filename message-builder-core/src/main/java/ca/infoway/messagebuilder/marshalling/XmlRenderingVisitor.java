@@ -21,6 +21,13 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.marshalling.BeanBridgeChoiceRelationshipResolver.resolveChoice;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
 import java.text.MessageFormat;
@@ -50,8 +57,7 @@ import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
-class XmlRenderingVisitor implements Visitor {
-	
+class XmlRenderingVisitor implements Visitor {	
 	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
 
 	class Buffer {
@@ -154,6 +160,12 @@ class XmlRenderingVisitor implements Visitor {
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
 				currentBuffer().setWarning("Mandatory association has no data. (" + relationship.getName() + ")");
+			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+						ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED :
+						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				currentBuffer().setWarning(MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName()));
 			}
 		}
 	}
@@ -216,6 +228,13 @@ class XmlRenderingVisitor implements Visitor {
 	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.propertyPathNames.push(tealBean.getPropertyName());
 		if (relationship.isStructural()) {
+			if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
+				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+						ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
+						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+			}  else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				currentBuffer().setWarning(MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
+			}
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
 		} else {
 			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
@@ -235,16 +254,27 @@ class XmlRenderingVisitor implements Visitor {
 				
 				if (relationship.isFixed()) {
 					any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
-					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship));
+					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version));
 				} else {
 					any = tealBean.getHl7Value();
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
-//				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
-				// FIXME - VALIDATION - SPECIALIZATION_TYPE - TM - need to allow for specialization type to be set (passed in) here
-				String xmlFragment = formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				String xmlFragment = "";
 				renderNewErrorsToXml(currentBuffer().getChildBuilder());
+				if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
+					if (isIgnoredNotAllowed()){
+						
+						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, relationship.getName()));
+					} else {
+						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+					}
+				} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+					xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
+				}
+//				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
+				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
+				xmlFragment += formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
@@ -262,7 +292,7 @@ class XmlRenderingVisitor implements Visitor {
 			}
 		}
 	}
-
+	
 	private int getIndent() {
 		return this.buffers.size();
 	}

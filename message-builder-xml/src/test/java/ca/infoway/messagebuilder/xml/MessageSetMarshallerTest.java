@@ -27,6 +27,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Collection;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
@@ -48,6 +49,15 @@ public class MessageSetMarshallerTest {
 		MessageSet testset = getMessageSet("sample_with_breadcrumbs.xml");
 		assertTrue(testset.getRemixHistory().size() > 0);
 		assertEquals(testset.getRemixHistory().get(0).getValue(), "R02_04_02");
+	}
+	
+	@Test
+	public void testShouldReadSampleWithRimClass() throws Exception {
+		MessageSet testset = getMessageSet("sample_with_rim_class.xml");
+		Collection<MessagePart> allMessageParts = testset.getAllMessageParts();
+		for (MessagePart messagePart : allMessageParts) {
+			assertNotNull(messagePart.getRimClass());
+		}		
 	}
 	
 	@Test

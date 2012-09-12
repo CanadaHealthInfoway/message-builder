@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.generator;
 
-import static ca.infoway.messagebuilder.generator.LogLevel.WARN;
 import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
 
 import java.io.IOException;
@@ -29,7 +28,6 @@ import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -41,8 +39,10 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
+import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 class Mif2InteractionDefinition implements InteractionDefinition {
 	
@@ -50,9 +50,11 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	private final Document document;
 	private final OutputUI outputUI;
 	private final MifRegistry registry;
+	private final String category;
 
-	Mif2InteractionDefinition(Document document, MifRegistry mifRegistry, OutputUI outputUI) {
+	Mif2InteractionDefinition(Document document, String category, MifRegistry mifRegistry, OutputUI outputUI) {
 		this.document = document;
+		this.category = category;
 		this.registry = mifRegistry;
 		this.outputUI = outputUI;
 	}
@@ -60,7 +62,7 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	public static InteractionDefinition create(MifReference mifReference, MifRegistry mifRegistry, OutputUI outputUI) throws GeneratorException, IOException {
 		try {
 			Document document = new DocumentFactory().createFromFile(mifReference.asFile());
-			return new Mif2InteractionDefinition(document, mifRegistry, outputUI);
+			return new Mif2InteractionDefinition(document, mifReference.getCategory(), mifRegistry, outputUI);
 		} catch (SAXException e) {
 			throw new GeneratorException(e.getMessage());
 		}
@@ -69,6 +71,8 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	public Interaction extract(MessagePartResolver resolver) throws GeneratorException {
 		try {
 			Interaction interaction = new Interaction();
+			
+			interaction.setCategory(this.category);
 
 			Element packageLocation = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:packageLocation", MIF2_NAMESPACE);
 			interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
@@ -76,10 +80,8 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			Element message = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:argumentMessage", MIF2_NAMESPACE);
 			interaction.setSuperTypeName(resolveType(interaction, resolver, message));
 			
-			Element interactionName = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:businessName", MIF2_NAMESPACE);
-			interaction.setBusinessName(interactionName.getAttribute("name"));
-			
 			Element interactionElement = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction", MIF2_NAMESPACE);
+			interaction.setBusinessName(new Mif2XPathHelper().getBusinessName(interactionElement));
 			List<Annotation> annotations = new Mif2XPathHelper().getDocumentationForInteraction(interactionElement);
 			interaction.getDocumentation().setAnnotations(annotations);
 			
@@ -105,6 +107,27 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			return null;
 		}
 	}
+	
+	List<MifChoiceItem> getAllChoices(TypeName currentContext, Element parameterModel, String childElementName, MessagePartResolver resolver) throws XPathExpressionException {
+
+		MessagePart messagePart = resolver.getMessagePart(currentContext.getName());
+		NodeList nodes = Mif2XPathHelper.getNodes(parameterModel, "./mif2:" + childElementName);
+		
+		if (messagePart.getSpecializationChilds().size() == nodes.getLength()) {
+			List<MifChoiceItem> result = new ArrayList<MifChoiceItem>();
+			for (int i = 0, length = nodes.getLength(); i < length; i++) {
+				TypeName child = new TypeName(messagePart.getSpecializationChilds().get(i));
+				
+				Element element = (Element) nodes.item(i);
+				List<MifChoiceItem> subChoices = getAllChoices(child, element, "choiceItem", resolver); 
+				
+				result.add(new Mif2ChoiceItem(child, element, subChoices));
+			}
+			return result;
+		} else {
+			throw new GeneratorException("Expecting message part " + currentContext.getName() + " to have " + nodes.getLength() + " specializations");
+		}
+	}
 
 	private void addArguments(Interaction interaction, List<Argument> arguments, Element element, MessagePartResolver resolver) throws XPathExpressionException {
 		NodeList list = this.xPath.getNodes(element, "./mif2:parameterModel", Namespaces.MIF2_NAMESPACE);
@@ -115,55 +138,22 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			argument.setTemplateParameterName(parameter.getAttribute("parameterName"));
 			arguments.add(argument);
 			
-			// handle choices
-			NodeList nodes = this.xPath.getNodes(parameter, "./mif2:specialization", Namespaces.MIF2_NAMESPACE);
-
-			String packageName = EntryPointAssembler.getEntryPoint(parameter);
-			List<Relationship> choices = extractChoices(interaction, resolver, packageName, nodes);
-			argument.getChoices().addAll(choices);
+			argument.getChoices().addAll(toRelationships(getAllChoices(new TypeName(argument.getName()), parameter, "specialization", resolver)));
 			
 			addArguments(interaction, argument.getArguments(), parameter, resolver);
 		}
 	}
 	
-	private List<Relationship> extractChoices(Interaction interaction, MessagePartResolver resolver, String packageName, NodeList nodes) throws XPathExpressionException {
-		List<Relationship> choices = new ArrayList<Relationship>();
-		for (int i = 0, length = nodes == null ? 0 : nodes.getLength(); i < length; i++) {
-			Element specialization = (Element) nodes.item(i);
+	private List<Relationship> toRelationships(List<MifChoiceItem> choices) {
+		List<Relationship> result = new ArrayList<Relationship>();
+		for (MifChoiceItem choice : choices) {
 			Relationship relationship = new Relationship();
-			String attribute = specialization.getAttribute("className");
-			
-			String nestedPackageName = packageName;
-
-			String type = packageName + "." + attribute;
-			if (resolver.getMessagePart(type) != null) {
-				relationship.setType(type);
-				relationship.setName(specialization.getAttribute("traversalName"));
-				choices.add(relationship);
-			} else if (this.registry.isMifRegistered(packageName)) {
-				String referenceType = this.registry.getMifIdFromAlias(attribute);
-				type = referenceType == null ? null : resolver.getPackageLocationRootType(referenceType);
-				if (StringUtils.isNotBlank(type)) {
-					nestedPackageName = referenceType;
-					relationship.setType(type);
-					relationship.setName(specialization.getAttribute("traversalName"));
-					choices.add(relationship);
-				} else {
-					this.outputUI.log(WARN, "Name " + packageName + "." + attribute + " seems to resolve to " + referenceType + " but we can't resolve that.");
-				}
-			} else {
-				this.outputUI.log(WARN, "Cannot find type : " + attribute + " related to " + packageName);
-			}
-			
-			// find nested choices
-			NodeList subNodes = this.xPath.getNodes(specialization, "./mif2:choiceItem", Namespaces.MIF2_NAMESPACE);
-			if (subNodes.getLength() > 0) {
-				List<Relationship> subChoices = extractChoices(interaction, resolver, nestedPackageName, subNodes);
-				relationship.getChoices().addAll(subChoices);
-			}
+			relationship.setName(choice.getTraversalName());
+			relationship.setType(choice.getClassName());
+			result.add(relationship);
+			relationship.getChoices().addAll(toRelationships(choice.getChoiceItems()));
 		}
-		
-		return choices;
+		return result;
 	}
-	
+
 }

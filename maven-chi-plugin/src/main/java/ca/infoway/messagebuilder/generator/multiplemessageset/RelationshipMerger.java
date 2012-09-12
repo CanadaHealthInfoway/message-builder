@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -28,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
+import ca.infoway.messagebuilder.generator.util.DomainType;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
@@ -157,47 +157,27 @@ class RelationshipMerger implements Merger<Relationship> {
 	}
 
 	private String findCompatibleDomainType(String domainType, String domainType2) {
-		Class<?> type = DomainRegistry.getInstance().getDomainType(domainType);
-		Class<?> type2 = DomainRegistry.getInstance().getDomainType(domainType2);
+		String result = Code.class.getSimpleName();
+		DomainType type = DomainRegistry.getInstance().getDomainType(domainType);
+		DomainType type2 = DomainRegistry.getInstance().getDomainType(domainType2);
 		if (type == null || type2 == null) {
 			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, domainType, domainType2);
-			return Code.class.getSimpleName();
-		} else if (type.isAssignableFrom(type2)) {
-			this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType);
-			return domainType;
-		} else if (type2.isAssignableFrom(type)) {
-			this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType2);
-			return domainType2;
 		} else {
-			List<Class<?>> interfaces = getAllInterfaces(type);
-			List<Class<?>> interfaces2 = getAllInterfaces(type2);
-			for (Class<?> clazz : interfaces) {
-				if (interfaces2.contains(clazz)) {
-					this.context.logInfo("Found compatible domain type: " + domainType + "/" + domainType2 + " to " + clazz.getSimpleName());
-					return clazz.getSimpleName();
+			DomainType ancestor = type.findCommonAncestorWith(type2);
+			if (ancestor == null) {
+				this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, domainType, domainType2);
+			} else {
+				result = ancestor.getFullyQualifiedClassName();
+				if (StringUtils.equals(ancestor.getName(), type.getName())) {
+					this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType);
+				} else if (StringUtils.equals(ancestor.getName(), type2.getName())) {
+					this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType2);
+				} else {
+					this.context.logInfo("Found compatible domain type: " + domainType + "/" + domainType2 + " to " + ancestor.getName());
 				}
 			}
-			// register the difference, but go with the generic Code type
-			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, domainType, domainType2);
-			return Code.class.getSimpleName();
 		}
-	}
-
-	private List<Class<?>> getAllInterfaces(Class<?> type) {
-		// simplification - assume each level only has 1 (or 0) extended interfaces
-		Class<?>[] interfaces = type.getInterfaces();
-		if (interfaces.length > 0) {
-			if (interfaces.length > 1) {
-				this.context.logError("Domain type has more than one interface: " + type.getName());
-			}
-			List<Class<?>> result = getAllInterfaces(interfaces[0]);
-			if (!Code.class.equals(interfaces[0])) {
-				result.add(0, interfaces[0]);
-			}
-			return result;
-		} else {
-			return new ArrayList<Class<?>>();
-		}
+		return result;
 	}
 
 	private void mergeFixedValue(String fixedValue, String fixedValue2) {

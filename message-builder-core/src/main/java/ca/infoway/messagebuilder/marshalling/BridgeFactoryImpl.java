@@ -20,8 +20,14 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -63,7 +69,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		Interaction interaction = getInteraction(tealBean);
 		return new TopLevelBeanBridgeWrapper(
 				createPartBridgeFromBean(tealBean.getClass().getSimpleName(), tealBean, interaction, getMessagePart(interaction)),
-				interaction.getName(),
+				interaction.getName(), 
 				this.version);
 	}
 
@@ -84,6 +90,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
 					relationships.add(new AttributeBridgeImpl(relationship, null));
 				} else if (context.isIndexed()) {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					Object field = sorter.getField(relationship);
 					if (ListElementUtil.isCollection(field)) {
 						relationships.add(new CollapsedAttributeBridge(
@@ -96,10 +103,12 @@ class BridgeFactoryImpl implements BridgeFactory {
 								+ " attribute");
 					}
 				} else {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					relationships.add(createAttributeBridge(relationship,
 							(BeanProperty) o, sorter, currentMessagePart));
 				}
 			} else if (isIndicator(relationship)) {
+				createWarningIfConformanceLevelIsNotAllowed(relationship);
 				relationships.add(createIndicatorAssociationBridge(
 						relationship, sorter, interaction, context, (BeanProperty) o));
 			} else { 
@@ -110,6 +119,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 								new AssociationBridgeImpl(relationship, createNullPartBridge(relationship, interaction)));
 					}
 				} else {
+					createWarningIfConformanceLevelIsNotAllowed(relationship);
 					relationships.add(createAssociationBridge(
 							relationship, sorter, interaction, currentMessagePart, context));
 				}
@@ -117,6 +127,22 @@ class BridgeFactoryImpl implements BridgeFactory {
 		}
 		
 		return new PartBridgeImpl(sorter.getPropertyName(), sorter.getBean(), currentMessagePart.getName(), relationships, context.isCollapsed());
+	}
+
+	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
+		if(isIgnoredNotAllowed() && relationship.getConformance() == ConformanceLevel.IGNORED) {
+			this.log.debug(MessageFormat.format(
+					relationship.isAssociation()?
+							ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED:
+							ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, 
+					relationship.getName()));							
+		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED){
+			this.log.debug(MessageFormat.format(
+					relationship.isAssociation()?
+							ASSOCIATION_IS_NOT_ALLOWED:
+							ATTRIBUTE_IS_NOT_ALLOWED, 
+					relationship.getName()));
+		}
 	}
 	
 	private IndicatorAssociationBridgeImpl createIndicatorAssociationBridge(Relationship relationship, RelationshipSorter sorter,
@@ -242,7 +268,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 				+ " maps to property " + Describer.describe(sorter.getBeanType(), property));
 		return new AttributeBridgeImpl(relationship, property);
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();

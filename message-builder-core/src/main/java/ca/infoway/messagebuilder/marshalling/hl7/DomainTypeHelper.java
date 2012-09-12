@@ -24,17 +24,31 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.OtherIDsRoleCode;
 import ca.infoway.messagebuilder.domainvalue.OtherIdentifierRoleType;
+import ca.infoway.messagebuilder.marshalling.MessageBeanRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class DomainTypeHelper {
 
+	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version) {
+		Class<? extends Code> type = getReturnType(relationship);
+		if (type == Code.class) {
+			String domainType = sanitize(relationship.getDomainType());
+			Class<? extends Code> codeType = MessageBeanRegistry.getInstance().getCodeType(domainType, version.getVersionLiteral());
+			if (codeType != null) {
+				type = codeType;
+			}
+		}
+		return type;
+	}
+	
 	@SuppressWarnings("unchecked")
-	public static Class<? extends Code> getReturnType(Relationship relationship) {
-		String domainType = relationship.getDomainType();
+	private static Class<? extends Code> getReturnType(Relationship relationship) {
+		String domainType = sanitize(relationship.getDomainType());
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {
 			domainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
 		} else if (ClassUtils.getShortClassName(OtherIDsRoleCode.class).equals(domainType)) {
@@ -93,5 +107,23 @@ public class DomainTypeHelper {
 
 	public static boolean hasDomainType(Relationship relationship, String domainType) {
 		return relationship != null && StringUtils.equals(relationship.getDomainType(), domainType);
+	}
+	
+	public static String sanitize(String domainName) {
+		if (domainName == null) {
+			return null;
+		} else {
+			StringBuilder builder = new StringBuilder();
+			boolean capitalize = false;
+			for (char c : domainName.toCharArray()) {
+				if ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_".indexOf(c) >= 0) {
+					builder.append(capitalize ? Character.toUpperCase(c) : c);
+					capitalize = false;
+				} else {
+					capitalize = true;
+				}
+			}
+			return builder.toString();
+		}
 	}
 }

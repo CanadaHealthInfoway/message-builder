@@ -43,6 +43,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public class TsElementParserTest extends MarshallingTestCase { 
 
 	@Test

@@ -38,16 +38,16 @@ public class DomainRegistryTest {
 	
 	@Test
 	public void shouldResolveValue() throws Exception {
-		assertEquals("value", ActClass.class, DomainRegistry.getInstance().getDomainType("ActClass"));
+		assertEquals("value", ActClass.class.getName(), DomainRegistry.getInstance().getDomainType("ActClass").getFullyQualifiedClassName());
 	}
 	@Test
 	public void shouldResolveValueWithWrongCase() throws Exception {
-		assertEquals("value", ActClass.class, DomainRegistry.getInstance().getDomainType("actclass"));
+		assertEquals("value", ActClass.class.getName(), DomainRegistry.getInstance().getDomainType("actclass").getFullyQualifiedClassName());
 	}
 	
 	@Test
 	public void shouldResolveInterfaceTypesOnly() throws Exception {
-		assertEquals("value", ActStatus.class, DomainRegistry.getInstance().getDomainType("ActStatus"));
+		assertEquals("value", ActStatus.class.getName(), DomainRegistry.getInstance().getDomainType("ActStatus").getFullyQualifiedClassName());
 	}
 	
 }

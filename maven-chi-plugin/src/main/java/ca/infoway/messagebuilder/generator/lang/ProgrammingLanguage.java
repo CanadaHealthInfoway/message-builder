@@ -32,4 +32,7 @@ public enum ProgrammingLanguage {
 	public boolean isJava() {
 		return this == JAVA;
 	}
+	public String getFileSuffix() {
+		return isJava() ? "java" : "cs";
+	}
 }
