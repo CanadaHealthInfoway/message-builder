@@ -37,7 +37,7 @@ public class DomainTypeHelper {
 	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version) {
 		Class<? extends Code> type = getReturnType(relationship);
 		if (type == Code.class) {
-			String domainType = relationship.getDomainType();
+			String domainType = sanitize(relationship.getDomainType());
 			Class<? extends Code> codeType = MessageBeanRegistry.getInstance().getCodeType(domainType, version.getVersionLiteral());
 			if (codeType != null) {
 				type = codeType;
@@ -46,7 +46,7 @@ public class DomainTypeHelper {
 		return type;
 	}
 	private static Class<? extends Code> getReturnType(Relationship relationship) {
-		String domainType = relationship.getDomainType();
+		String domainType = sanitize(relationship.getDomainType());
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {
 			domainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
 		} else if (ClassUtils.getShortClassName(OtherIDsRoleCode.class).equals(domainType)) {
@@ -105,5 +105,23 @@ public class DomainTypeHelper {
 
 	public static boolean hasDomainType(Relationship relationship, String domainType) {
 		return relationship != null && StringUtils.equals(relationship.getDomainType(), domainType);
+	}
+	
+	public static String sanitize(String domainName) {
+		if (domainName == null) {
+			return null;
+		} else {
+			StringBuilder builder = new StringBuilder();
+			boolean capitalize = false;
+			for (char c : domainName.toCharArray()) {
+				if ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_".indexOf(c) >= 0) {
+					builder.append(capitalize ? Character.toUpperCase(c) : c);
+					capitalize = false;
+				} else {
+					capitalize = true;
+				}
+			}
+			return builder.toString();
+		}
 	}
 }

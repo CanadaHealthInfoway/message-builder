@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.sanitize;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
@@ -140,16 +142,16 @@ public abstract class IntermediateToModelGenerator {
 		DependencyManager<String> manager = new DependencyManager<String>();
 		for (ConceptDomain concepDomain : vocabulary.getConceptDomains()) {
 			if (concepDomain.getParentConceptDomains().isEmpty()) {
-				manager.add(concepDomain.getName());
+				manager.add(sanitize(concepDomain.getName()));
 			} else {
 				for (String parent : concepDomain.getParentConceptDomains()) {
-					manager.add(concepDomain.getName(), parent);
+					manager.add(sanitize(concepDomain.getName()), parent);
 				}
 			}
 		}
 		
 		for (ValueSet valueSet : vocabulary.getValueSets()) {
-			manager.add(valueSet.getName());
+			manager.add(sanitize(valueSet.getName()));
 		}
 		
 		for (Layer<Node<String>> layer : manager.getNodeLayers()) {

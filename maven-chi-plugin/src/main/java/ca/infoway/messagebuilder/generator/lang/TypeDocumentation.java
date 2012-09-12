@@ -67,10 +67,11 @@ public class TypeDocumentation {
 	    }
 		protected void renderParagraph(String tagName, String[] words,
 				StringBuilder buffer, int indentLevel) {
+			boolean htmlMarkup = words[0].startsWith("<p>");
 			for (int i = 0, lineLength = 0, length = words == null ? 0 : words.length; i < length; i++) {
 			    if (i == 0 || lineLength + words[i].length() > 60) {
 			        appendBlankDocLine(indentLevel, buffer);
-			        if (i == 0) {
+			        if (i == 0 && !htmlMarkup) {
 						buffer.append("<").append(tagName).append(">");
 			            lineLength = tagName.length() + 2;
 			        } else {
@@ -79,7 +80,9 @@ public class TypeDocumentation {
 			    }
 			    
 			    buffer.append(words[i]);
-			    if (i == length-1) {
+			    if (i == length-1 && htmlMarkup) {
+			    	// do nothing
+			    } else if (i == length-1) {
 					buffer.append("</").append(tagName).append(">");
 			    } else {
 			    	buffer.append(" ");
