@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy: tmcgrady $
- * Last modified: $LastChangedDate: 2012-03-20 19:17:48 -0400 (Tue, 20 Mar 2012) $
- * Revision:      $LastChangedRevision: 5798 $
+ * Author:        $LastChangedBy$
+ * Last modified: $LastChangedDate$
+ * Revision:      $LastChangedRevision$
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;

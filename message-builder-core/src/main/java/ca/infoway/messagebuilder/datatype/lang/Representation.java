@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy: tmcgrady $
- * Last modified: $LastChangedDate: 2012-01-11 10:55:47 -0500 (Wed, 11 Jan 2012) $
- * Revision:      $LastChangedRevision: 3414 $
+ * Author:        $LastChangedBy$
+ * Last modified: $LastChangedDate$
+ * Revision:      $LastChangedRevision$
  */
 
 package ca.infoway.messagebuilder.datatype.lang;
