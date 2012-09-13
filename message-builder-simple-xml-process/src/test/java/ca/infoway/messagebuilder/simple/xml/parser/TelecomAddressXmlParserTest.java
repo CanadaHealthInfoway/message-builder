@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
-import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 public class TelecomAddressXmlParserTest extends AbstractXmlParserTest<TEL> {

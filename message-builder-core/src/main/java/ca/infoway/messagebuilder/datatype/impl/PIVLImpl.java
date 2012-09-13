@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class PIVLImpl extends ANYImpl<PeriodicIntervalTime> implements PIVL {
 
-	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 159190145107996467L;
 
 	/**

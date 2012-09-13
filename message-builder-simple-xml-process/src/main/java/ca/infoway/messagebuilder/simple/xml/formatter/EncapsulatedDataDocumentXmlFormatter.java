@@ -29,9 +29,9 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
+import ca.infoway.messagebuilder.datatype.lang.Compression;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.util.Compression;
-import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
+import ca.infoway.messagebuilder.datatype.lang.MediaType;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
@@ -40,7 +40,6 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	
 	public static final String REPRESENTATION_B64 = "B64";
 	public static final String ATTRIBUTE_COMPRESSION = "compression";
-	public static final String ATTRIBUTE_CHARSET = "charset";
 	public static final String ATTRIBUTE_LANGUAGE = "language";
 	public static final String ATTRIBUTE_REFERENCE = "uri";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
@@ -74,13 +73,12 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 		MediaType mediaType = parseMediaType(element);
 		Compression compression = parseCompression(element);
 		String language = parseLanguage(element);
-		String charset = parseCharset(element);
 		String reference = parseReference(element, context);
 		byte[] content = parseContent(getSingleElement(element, "document"), context, REPRESENTATION_B64);
-		if (compression != null) {
-			return new CompressedData(mediaType, reference, content, compression, language, charset);
+		if (compression != null || language != null) {
+			return new CompressedData(mediaType, reference, content, compression, language);
 		} else if (mediaType != null || reference != null || content != null) {
-			return new EncapsulatedData(mediaType, reference, language, content, charset);
+			return new EncapsulatedData(mediaType, reference, content);
 		} else {
 			return null;
 		}
@@ -120,9 +118,9 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 
 	private String convertLanguage(String lang) {
 		if ("en".equalsIgnoreCase(lang)) {
-			return "en-CA";
+			return CompressedData.LANGUAGE_ENGLISH;
 		} else if ("fr".equalsIgnoreCase(lang)) {
-			return "fr-CA";
+			return CompressedData.LANGUAGE_FRENCH;
 		} else {
 			return lang;
 		}
@@ -131,13 +129,6 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	private Compression parseCompression(Element element) {
 		if (element.hasAttribute(ATTRIBUTE_COMPRESSION)) {
 			return Compression.get(element.getAttribute(ATTRIBUTE_COMPRESSION));
-		}
-		return null;
-	}
-
-	private String parseCharset(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_COMPRESSION)) {
-			return element.getAttribute(ATTRIBUTE_CHARSET);
 		}
 		return null;
 	}

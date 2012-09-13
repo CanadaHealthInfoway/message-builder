@@ -27,8 +27,8 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 

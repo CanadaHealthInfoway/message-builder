@@ -24,20 +24,16 @@ import java.math.BigDecimal;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.RealCoordFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealFormat;
 import ca.infoway.messagebuilder.platform.NumberFormatter;
 /**
- * REAL.COORD - BigDecimal
+ * REAL.CONF - BigDecimal [0,1]
  *
- * Represents a REAL.COORD object as an element:
+ * Represents a REAL.CONF object as an element:
  *
- * &lt;element-name value="4321.1234"&gt;&lt;/element-name&gt;
+ * &lt;element-name value="0.1234"&gt;&lt;/element-name&gt;
  *
  * If an object is null, value is replaced by a nullFlavor. So the element would look
  * like this:
@@ -46,51 +42,29 @@ import ca.infoway.messagebuilder.platform.NumberFormatter;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-REAL
  *
- * The REAL.COORD variant defined by CHI can only values with maximum length 4 characters to the left of the decimal point and 4 characters to the right.
+ * The REAL.CONF variant defined by CHI can only contain positive values between 0 to 1 (inclusive). CHI also 
+ * defines maximum length 1 character to the left of the decimal point and 4 characters to the right.
  */
 @DataTypeHandler({"REAL.COORD"})
 public class RealCoordPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<BigDecimal>{
 	
-	private NumberFormatter numberFormatter = new NumberFormatter();
-	private RealFormat realFormat = new RealCoordFormat();
+	private NumberFormatter formatter = new NumberFormatter();
+	private RealFormat format = new RealCoordFormat();
+	
+	@Override
+	boolean isInvalidValue(FormatContext context, BigDecimal bigDecimal) {
+		String value = bigDecimal.setScale(this.format.getMaxDecimalPartLength(), BigDecimal.ROUND_HALF_UP).toString();
+		
+		if (this.format.getMaxValueLength() > StringUtils.length(value) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
     @Override
-    protected String getValue(BigDecimal bigDecimal, FormatContext context, BareANY bareAny) {
-    	validate(context, bigDecimal);
-    	return this.numberFormatter.format(
-    			bigDecimal, 
-    			this.realFormat.getMaxValueLength(),
-    			this.realFormat.getMaxIntegerPartLength(),
-    			determineScale(bigDecimal), 
-    			true);
+    protected String getValue(BigDecimal bigDecimal, FormatContext context) {
+    	return this.formatter.format(bigDecimal, 
+    			this.format.getMaxValueLength(), this.format.getMaxDecimalPartLength(), true);
     }
-
-	private int determineScale(BigDecimal bigDecimal) {
-		boolean useBigDecimalScale = (bigDecimal.scale() >= 0 && bigDecimal.scale() < this.realFormat.getMaxDecimalPartLength());
-		return useBigDecimalScale ? bigDecimal.scale() : this.realFormat.getMaxDecimalPartLength();
-	}
-    
-	private void validate(FormatContext context, BigDecimal bigDecimal) {
-		ModelToXmlResult modelToXmlResult = context.getModelToXmlResult();
-
-		String value = bigDecimal.toString();
-		String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
-		String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
-		
-    	if (integerPart.length() > realFormat.getMaxIntegerPartLength()){
-    		recordTooManyCharactersToLeftOfDecimalError(modelToXmlResult);
-    	}
-    	if (decimalPart.length() > realFormat.getMaxDecimalPartLength()) {
-    		recordTooManyDigitsToRightOfDecimalError(modelToXmlResult);
-    	}
-	}
-
-	private void recordTooManyCharactersToLeftOfDecimalError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxIntegerPartLength() + " characters to the left of the decimal. Value has been modified to fit format requirements."));
-	}
-	
-	private void recordTooManyDigitsToRightOfDecimalError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements."));
-	}
-	
 }

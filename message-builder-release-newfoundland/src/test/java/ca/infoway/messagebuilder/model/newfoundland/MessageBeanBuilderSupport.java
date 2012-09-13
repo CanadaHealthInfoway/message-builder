@@ -20,9 +20,9 @@
 
 package ca.infoway.messagebuilder.model.newfoundland;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.FAMILY;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.GIVEN;
-import static ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse.LEGAL;
+import static ca.infoway.messagebuilder.datatype.lang.EntityNameUse.LEGAL;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.FAMILY;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.GIVEN;
 import static ca.infoway.messagebuilder.domainvalue.payload.QueryResponse.DATA_FOUND;
 import static ca.infoway.messagebuilder.domainvalue.payload.QueryResponse.NO_DATA_FOUND;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
@@ -38,11 +38,9 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
@@ -56,10 +54,6 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 public class MessageBeanBuilderSupport {
 
 	public static final Date EFFECTIVE_TIME = new GregorianCalendar(2008, SEPTEMBER, 18).getTime();
-
-	public static final Interval<Date> EFFECTIVE_TIME_IVL = IntervalFactory.createLowHigh(
-			new GregorianCalendar(2008, SEPTEMBER, 18).getTime(), 
-			new GregorianCalendar(2008, SEPTEMBER, 20).getTime()); 
 
 	public static void populateStandardValues(ResponseMessageAttributesBean bean) {
 		populateStandardValuesV02(bean);
@@ -214,7 +208,7 @@ public class MessageBeanBuilderSupport {
 	@Deprecated
 	public static void populateBetterStandardValuesV02(MessageAttributesBean messageAttributes) {
 		populateStandardValuesV02(messageAttributes);
-		messageAttributes.getReceiver().getTelecommunicationAddress().setUrlScheme(ca.infoway.messagebuilder.domainvalue.basic.URLScheme.HTTP);
+		messageAttributes.getReceiver().getTelecommunicationAddress().setUrlScheme(ca.infoway.messagebuilder.datatype.lang.URLScheme.HTTP);
 		messageAttributes.getReceiver().getTelecommunicationAddress().setAddress("123.255.255.10");
 	}
 	public static void populateMoreBetterStandardValues(MessageAttributesBean messageAttributes) {

@@ -25,8 +25,8 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.medicationprofile.SupplySummaryBean;

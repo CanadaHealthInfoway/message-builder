@@ -69,8 +69,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		Interaction interaction = getInteraction(tealBean);
 		return new TopLevelBeanBridgeWrapper(
 				createPartBridgeFromBean(tealBean.getClass().getSimpleName(), tealBean, interaction, getMessagePart(interaction)),
-				interaction.getName(), 
-				this.version);
+				interaction.getName());
 	}
 
 	PartBridge createPartBridgeFromBean(String propertyPath, Object tealBean, Interaction interaction, MessagePartHolder currentMessagePart) {
@@ -268,9 +267,8 @@ class BridgeFactoryImpl implements BridgeFactory {
 				+ " maps to property " + Describer.describe(sorter.getBeanType(), property));
 		return new AttributeBridgeImpl(relationship, property);
 	}
-	
-	@SuppressWarnings("rawtypes")
-	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
+
+	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, @SuppressWarnings("rawtypes") Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {
 			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));

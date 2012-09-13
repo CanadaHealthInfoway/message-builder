@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
@@ -82,6 +82,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	public void shouldMatchKnownRequestWithTwoValues() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithTwoValues());
 		Document actual = this.factory.createFromString(xml);
+		System.out.println(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RECORD_TWO_VALUES_MESSAGE_FILE)), actual);
 	}
 

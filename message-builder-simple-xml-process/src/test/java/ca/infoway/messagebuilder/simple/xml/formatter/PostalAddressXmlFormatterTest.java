@@ -31,8 +31,8 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;

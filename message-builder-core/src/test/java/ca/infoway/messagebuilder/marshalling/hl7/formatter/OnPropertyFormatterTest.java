@@ -27,7 +27,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.ONImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
-import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.OrganizationNamePartType;
 
 public class OnPropertyFormatterTest extends FormatterTestCase {
 

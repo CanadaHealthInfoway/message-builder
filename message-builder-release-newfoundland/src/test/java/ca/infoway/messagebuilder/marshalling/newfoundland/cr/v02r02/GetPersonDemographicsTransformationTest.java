@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.InteractionBean;
@@ -69,6 +68,7 @@ public class GetPersonDemographicsTransformationTest extends BaseTransformerTest
 	public void shouldMatchKnownRequest() throws Exception {
 		String xml = toHl7UsingNewRenderer(createRequest(), VERSION);
 		Document actual = this.factory.createFromString(xml);
+System.out.println(xml);		
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				"ca/infoway/messagebuilder/sample/cr/v02r02/getPersonDemographicsQuery.xml")), actual);
 	}
@@ -95,9 +95,10 @@ public class GetPersonDemographicsTransformationTest extends BaseTransformerTest
 //		assertValidHl7Message(xml);
 		
 		GetPersonDemographicsQueryResponseMessageBean model = createResponseBean();
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, model);
-		assertValidHl7Message(result.getXmlMessage());
-		Assert.assertTrue("Response should not have warnings", result.getHl7Errors().isEmpty());
+		String xml = this.transformer.transformToHl7(VERSION, model);
+		assertValidHl7Message(xml);
+System.out.println(xml);		
+		Assert.assertFalse("Response should not have warnings", xml.contains("<!-- WARNING:"));
 	}
 	
 	private GetPersonDemographicsQueryResponseMessageBean createResponseBean() {

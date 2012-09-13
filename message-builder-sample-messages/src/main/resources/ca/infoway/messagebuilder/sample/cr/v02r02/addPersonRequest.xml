@@ -23,7 +23,7 @@
 <PRPA_IN101201CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610.0000-0400"/>
+    <creationTime value="20080625141610-0400"/>
     <responseModeCode code="I"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" extension="PRPA_IN101201CA" root="2.16.840.1.113883.1.6"/>
@@ -49,7 +49,7 @@
       <code code="PRPA_TE101201CA" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <effectiveTime>
-        <low value="20080918"/><high value="20080918"/>
+        <low value="20080918"/>
       </effectiveTime>
       <responsibleParty typeCode="RESP" contextControlCode="AP">
         <assignedEntity classCode="ASSIGNED">
@@ -63,7 +63,7 @@
         </assignedEntity>
       </responsibleParty>
       <author typeCode="AUT" contextControlCode="AP">
-        <time value="19691231190000.0000-0500"/>
+        <time value="19691231190000-0500"/>
         <assignedEntity1 classCode="ASSIGNED">
           <id displayable="true" extension="1" root="1.1.1"/>
           <assignedPerson classCode="PSN" determinerCode="INSTANCE">
@@ -100,9 +100,9 @@
                 <telecom value="http://123.456.789.10"/>
                 <telecom value="https://123.456.789.11"/>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
-                <birthTime value="19720321000000.0000-0500"/>
+                <birthTime value="19720321000000-0500"/>
                 <deceasedInd value="true"/>
-                <deceasedTime value="20020310000000.0000-0500"/>
+                <deceasedTime value="20020310000000-0500"/>
                 <multipleBirthInd value="true"/>
                 <multipleBirthOrderNumber value="2"/>
                 <addr use="H"><streetName>Bloor</streetName></addr>

@@ -25,16 +25,13 @@ import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
-import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
+import ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IvlPqPropertyFormatterTest extends FormatterTestCase {
@@ -49,12 +46,11 @@ public class IvlPqPropertyFormatterTest extends FormatterTestCase {
 	@Before
 	public void setUp() throws Exception {
 		this.formatter = new IvlPqPropertyFormatter();
-		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 	}
 
 	@Override
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<PQ>", ConformanceLevel.POPULATED, false, SpecificationVersion.R02_04_03, null, null, true);
+		return new FormatContextImpl(name, "IVL<PQ>", ConformanceLevel.POPULATED);
 	}
 
 	@Test

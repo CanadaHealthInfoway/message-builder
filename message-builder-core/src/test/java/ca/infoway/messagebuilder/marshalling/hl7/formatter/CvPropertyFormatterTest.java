@@ -31,7 +31,6 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -42,14 +41,14 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, null);
+		Map<String,String>  result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
 		assertEquals("map size", 0, result.size());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairs() throws Exception {
 		// used as expected: an enumerated object is passed in
-		Map<String, String> result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), CeRxDomainTestValues.CENTIMETRE, null);
+		Map<String, String> result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), CeRxDomainTestValues.CENTIMETRE);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("code"));
@@ -89,14 +88,14 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndOptional() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.OPTIONAL), cv);
+		String result = new CvPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.OPTIONAL), cv);
 		assertEquals("result", "", StringUtils.trim(result));
 	}
 
 	@Test
 	public void testNoValueAndMandatory() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.MANDATORY), cv);
+		String result = new CvPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cv);
 		String lineBreak = System.getProperty("line.separator");
 		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));
 	}

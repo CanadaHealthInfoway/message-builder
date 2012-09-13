@@ -25,6 +25,4 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("IVL<INT>")
 class IvlIntElementParser extends IvlElementParser<Integer> {
 
-	// IVL<INT> does not appear to be used anywhere in CeRx, MR2007 (including V02R01) or MR2009
-	
 }

@@ -24,14 +24,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
+import ca.infoway.messagebuilder.datatype.lang.URLScheme;
 import ca.infoway.messagebuilder.model.mock.Sender;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
@@ -65,11 +64,6 @@ public class Hl7SourceMapperAssociationTest {
 		Hl7MessageSource rootSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, document, null, null, this.service);
 		this.element = this.document.getDocumentElement();
 		this.partSource = rootSource.createPartSource(createRelationship("MCCI_MT002100CA.Sender"), element);
-	}
-	
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
 	}
 	
 	private Relationship createRelationship(String type) {

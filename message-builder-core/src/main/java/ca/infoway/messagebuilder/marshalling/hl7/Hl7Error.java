@@ -41,8 +41,6 @@ public class Hl7Error {
 	private final String path;
 	private String beanPath; // must be set explicitly - later - when passing in an xpath
 	
-	private transient boolean renderedToXml = false;
-	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message) {
 		this(hl7ErrorCode, message, (String) null);
 	}
@@ -82,13 +80,6 @@ public class Hl7Error {
 		this.beanPath = beanPath;
 	}
 	
-	public boolean isRenderedToXml() {
-		return renderedToXml;
-	}
-	public void markAsRenderedToXml() {
-		this.renderedToXml = true;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -118,7 +109,7 @@ public class Hl7Error {
     public String toString() {
     	StringBuilder sb = new StringBuilder();
     	sb.append(this.hl7ErrorCode);
-    	sb.append(" : ");
+    	sb.append(" > ");
     	sb.append(this.message);
     	if (this.path != null) {
     		sb.append(" (");

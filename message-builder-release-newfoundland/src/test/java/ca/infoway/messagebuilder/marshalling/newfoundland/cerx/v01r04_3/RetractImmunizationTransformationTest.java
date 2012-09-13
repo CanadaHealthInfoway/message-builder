@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
@@ -66,9 +65,8 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean());
-		String xmlMessage = result.getXmlMessage();
-		Document actual = this.factory.createFromString(xmlMessage);
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RETRACT_MESSAGE_FILE)), actual);
 	}
 
@@ -119,6 +117,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 		RecordResponseMessageBean<ActEventBean> refusedBean = new RetractImmunizationRefusedMessageBean();
 		populateRefusedBean(refusedBean);
 		String xml = this.transformer.transformToHl7(VERSION, refusedBean);
+System.out.println(xml);		
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REFUSED_MESSAGE_FILE)), actual);
 	}

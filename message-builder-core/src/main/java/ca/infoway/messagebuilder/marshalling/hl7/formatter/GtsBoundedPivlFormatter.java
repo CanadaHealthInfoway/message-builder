@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -69,8 +68,6 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		PeriodicIntervalTime frequency = value.getFrequency();
 		buffer.append(formatter.format(
 				new FormatContextImpl(
-						context == null ? null : context.getModelToXmlResult(), 
-						context == null ? null : context.getPropertyPath(), 
 						"comp", 
 						"IVL<TS.FULLDATE>", 
 						ConformanceLevel.MANDATORY, 
@@ -82,10 +79,8 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 				ivlDuration, 
 				indentLevel + 1)
 			);
-		buffer.append(createPivlTsElement(
+		buffer.append(createElement(
 				new FormatContextImpl(
-						context == null ? null : context.getModelToXmlResult(), 
-						context == null ? null : context.getPropertyPath(), 
 						"comp", 
 						"PIVL<TS.DATETIME>", 
 						ConformanceLevel.MANDATORY, 
@@ -97,7 +92,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 				indentLevel + 1));
 	}
 	
-	protected String createPivlTsElement(FormatContext context, PeriodicIntervalTime value, int indentLevel) throws ModelToXmlTransformationException {
+	protected String createElement(FormatContext context, PeriodicIntervalTime value, int indentLevel) throws ModelToXmlTransformationException {
 		PivlTsPropertyFormatter formatter = new CustomPivlTsPropertyFormatter(!requiresOperatorOnFirstRepetition(context), requiresSpecializationType(context)); 
    		return formatter.format(context, new PIVLImpl(value), indentLevel);
 	}
@@ -105,7 +100,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresSpecializationType(FormatContext formatContext) {
 		boolean result = true;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = !SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX);
+			result = !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion());
 		}
 		return result;
 	}
@@ -113,9 +108,9 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresOperatorOnFirstRepetition(FormatContext formatContext) {
 		boolean result = false;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX)
-				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007_V02R01)
-				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007);
+			result = SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, formatContext.getVersion())
+				  || SpecificationVersion.isVersion(SpecificationVersion.V02R01, formatContext.getVersion())
+				  || SpecificationVersion.isVersion(SpecificationVersion.V02R02, formatContext.getVersion());
 		}
 		return result;
 	}

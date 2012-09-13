@@ -20,56 +20,83 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
+import java.util.HashMap;
+import java.util.Map;
+
+import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
-@DataTypeHandler("URG<PQ>")
+@DataTypeHandler({"URG<PQ>", "URG<PQ.BASIC>", "URG<PQ.TIME>", "URG<PQ.WIDTH>"})
 class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<UncertainRange<PhysicalQuantity>> {
-	
-	IvlPqPropertyFormatter formatter = new IvlPqPropertyFormatter();	
+
+	private static final String UNIT = "unit";
+    private static final String WIDTH = "width";
+    private static final String CENTRE = "center";
+    private static final String HIGH = "high";
+    private static final String LOW = "low";
+    private static final String VALUE = "value";
 
     @Override
 	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) throws ModelToXmlTransformationException {
 
-    	// convert URG to an IVL and use IVL formatter (loses any inclusive info; we'll pull that out later)
-    	Interval<PhysicalQuantity> convertedInterval = IntervalFactory.createFromUncertainRange(value);
-    	IVLImpl<PQ, Interval<PhysicalQuantity>> convertedHl7Interval = new IVLImpl<PQ, Interval<PhysicalQuantity>>(convertedInterval);
-    	
-    	FormatContext ivlContext = new FormatContextImpl(context.getType().replaceFirst("URG", "IVL"), context);
-    	
-		String xml = this.formatter.format(ivlContext, convertedHl7Interval, indentLevel);
-    	
-		xml = changeAnyIvlRemnants(xml);
-
-		// add in inclusive attributes if necessary
-		if (value.getLowInclusive() != null) {
-			xml = addInclusiveAttribute(xml, "low", value.getLowInclusive());
-		}
-		if (value.getHighInclusive() != null) {
-			xml = addInclusiveAttribute(xml, "high", value.getHighInclusive());
-		}
-		
-        return xml;
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(createElement(context, null, indentLevel, false, true));
+        appendIntervalBounds(value, buffer);
+        buffer.append(createElementClosure(context, 0, true));
+        return buffer.toString();
     }
 
-	private String addInclusiveAttribute(String xml, String elementName, boolean inclusive) {
-		String searchString = "<" + elementName + " ";
-		int elementIndex = xml.indexOf(searchString);
-		if (elementIndex >= 0) {
-			String first = xml.substring(0, elementIndex + searchString.length());
-			String last = xml.substring(elementIndex + searchString.length());
-			xml = first + "inclusive=\"" + inclusive + "\" " + last;
-		}
-		return xml;
-	}
+    private void appendIntervalBounds(UncertainRange<PhysicalQuantity> value, StringBuffer buffer) {
+        switch (value.getRepresentation()) {
+        case LOW_HIGH:
+            buffer.append(createElement(LOW, toStringMap(value.getLow()), 1, true, true));
+            buffer.append(createElement(HIGH, toStringMap(value.getHigh()), 1, true, true));
+            break;
+        case CENTRE:
+            buffer.append(createElement(CENTRE, toStringMap(value.getCentre()), 1, true, true));
+            break;
+        case HIGH:
+            buffer.append(createElement(HIGH, toStringMap(value.getHigh()), 1, true, true));
+            break;
+        case LOW:
+            buffer.append(createElement(LOW, toStringMap(value.getLow()), 1, true, true));
+            break;
+        case WIDTH:
+            buffer.append(createElement(WIDTH, toStringMap(value.getWidth()), 1, true, true));
+            break;
+        case LOW_WIDTH:
+            buffer.append(createElement(LOW, toStringMap(value.getLow()), 1, true, true));
+            buffer.append(createElement(WIDTH, toStringMap(value.getWidth()), 1, true, true));
+            break;
+        case WIDTH_HIGH:
+            buffer.append(createElement(WIDTH, toStringMap(value.getWidth()), 1, true, true));
+            buffer.append(createElement(HIGH, toStringMap(value.getCentre()), 1, true, true));
+            break;
+        case CENTRE_WIDTH:
+            buffer.append(createElement(CENTRE, toStringMap(value.getCentre()), 1, true, true));
+            buffer.append(createElement(WIDTH, toStringMap(value.getWidth()), 1, true, true));
+            break;
+        default:
+        }
+    }
 
-	private String changeAnyIvlRemnants(String xml) {
-		xml = xml.replace(" specializationType=\"IVL_", " specializationType=\"URG_");
-		return xml.replace(" xsi:type=\"IVL_", " xsi:type=\"URG_");
-	}
+    private Map<String, String> toStringMap(Diff<PhysicalQuantity> diff) {
+        return toStringMap(diff.getValue());
+    }
+
+    private Map<String, String> toStringMap(Object quantity) {
+        return toStringMap((PhysicalQuantity) quantity);
+    }
+    
+    private Map<String, String> toStringMap(PhysicalQuantity quantity) {
+        Map<String,String> map = new HashMap<String,String>();
+        map.put(VALUE, quantity.getQuantity().toString());
+        // TM - Redmine 11455 - need to account for units being null
+        if (quantity.getUnit() != null) {
+        	map.put(UNIT, quantity.getUnit().getCodeValue());
+        }
+        return map;
+    }
 }

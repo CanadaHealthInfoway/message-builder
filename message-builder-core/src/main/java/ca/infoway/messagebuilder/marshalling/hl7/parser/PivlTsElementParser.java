@@ -39,10 +39,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 @DataTypeHandler("PIVL<TS>")
 class PivlTsElementParser extends AbstractPivlElementParser {
 
-	// TM - VALIDATION - this approach to PIVL is not used by the current set of pan-Canadian standards (CeRx, MR2007, MR2009)
-	//                 - leaving this code as-is, with no validation updates; the code could be removed, but it may be useful in a future standard
-
-	@Override
+    @Override
 	protected DateDiff createPeriodType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
     	return (DateDiff) new IvlTsElementParser().createDiffType(
     			ParserContextImpl.create(
@@ -55,7 +52,6 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     			element, xmlToModelResult);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected Interval<Date> createPhaseType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
 		return (Interval<Date>) new IvlTsElementParser().parse(

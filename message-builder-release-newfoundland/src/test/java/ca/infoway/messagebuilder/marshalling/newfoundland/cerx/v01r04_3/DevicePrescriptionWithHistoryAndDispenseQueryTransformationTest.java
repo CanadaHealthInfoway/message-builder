@@ -37,8 +37,8 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
@@ -130,7 +130,7 @@ public class DevicePrescriptionWithHistoryAndDispenseQueryTransformationTest ext
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
 		criteria.setPatientBirthDate(new Date(0));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
-		criteria.setAmendedInTimeRange(IntervalFactory.createLowHigh(new Date(0), new Date(5)));
+		criteria.setAmendedInTimeRange(IntervalFactory.createLow(new Date(0)));
 		criteria.setIncludeEventHistoryIndicator(false);
 		criteria.setPrescriptionOrderNumber(new Identifier("5.4.3.2.1", "1.2.3"));
 		return criteria;

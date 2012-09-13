@@ -59,9 +59,12 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new OnPropertyFormatter());
         register(new PnPropertyFormatter());
         register(new PqPropertyFormatter());
+        register(new PqBasicPropertyFormatter());
+        register(new PqDrugPropertyFormatter());
+        register(new PqHeightWeightPropertyFormatter());
         register(new RealConfPropertyFormatter());
         register(new RealCoordPropertyFormatter());
-        register(new RtoMoPqPropertyFormatter());
+        register(new RtoQtyQtyPropertyFormatter());
         register(new RtoPqPqPropertyFormatter());
         register(new ScPropertyFormatter());
         register(new SetPropertyFormatter());
@@ -70,11 +73,9 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         registerTelPhonemailFormatter();
         registerTelUriFormatter();
         register(new TnPropertyFormatter());
-        register(new TsFullDateWithTimePropertyFormatter());
         register(new TsFullDatePropertyFormatter());
         register(new TsFullDateTimePropertyFormatter());
         register(new UrgPqPropertyFormatter());
-        register(new UrgTsPropertyFormatter());
     }
 
     private void registerTelPhonemailFormatter() {

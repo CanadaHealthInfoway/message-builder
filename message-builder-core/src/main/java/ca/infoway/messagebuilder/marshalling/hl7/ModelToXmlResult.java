@@ -21,21 +21,16 @@
 package ca.infoway.messagebuilder.marshalling.hl7;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class ModelToXmlResult implements Hl7Errors {
+public class ModelToXmlResult {
 	
 	private String xmlMessage;
 
 	private final List<Hl7Error> hl7Errors = new ArrayList<Hl7Error>();
-	private final List<Hl7Error> _hl7Errors = Collections.unmodifiableList(this.hl7Errors);
 	
 	public String getXmlMessage() {
 		return this.xmlMessage;
-	}
-	public String getXmlMessageWithoutFormatting() {
-		return this.xmlMessage == null ? null : this.xmlMessage.replaceAll(">\\s+<", "><");
 	}
 	public void setXmlMessage(String xmlMessage) {
 		this.xmlMessage = xmlMessage;
@@ -49,12 +44,22 @@ public class ModelToXmlResult implements Hl7Errors {
 		this.hl7Errors.add(hl7Error);
 	}
 	
+	boolean hasCodeError() {
+		return getFirstCodeError() != null;
+	}
+	
+	Hl7Error getFirstCodeError() {
+		Hl7Error result = null;
+		for (Hl7Error error : this.hl7Errors) {
+			if (error.getHl7ErrorCode() == Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM) {
+				result = error;
+				break;
+			}
+		}
+		return result;
+	}
+
 	public List<Hl7Error> getHl7Errors() {
-		return this._hl7Errors; // unmodifiable
+		return hl7Errors;
 	}
-	
-	public void clearErrors() {
-		this.hl7Errors.clear();
-	}
-	
 }

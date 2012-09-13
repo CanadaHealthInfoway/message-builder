@@ -20,11 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import java.util.HashMap;
+import java.util.Map;
+
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
  * RTO&lt;PQ, PQ&gt; - Ratio (physical quantity, physical quantity)
@@ -40,20 +40,23 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 @DataTypeHandler("RTO<PQ,PQ>")
 public class RtoPqPqPropertyFormatter extends AbstractRtoPropertyFormatter<PhysicalQuantity, PhysicalQuantity> {
 
-	private PqPropertyFormatter pqFormatter = new PqPropertyFormatter();
-	
-	@Override
-	protected String formatNumerator(FormatContext context, PhysicalQuantity numerator, int indentLevel) {
-		String numeratorType = Hl7DataTypeName.create(context.getType()).getInnerTypes().get(0).toString();
-		FormatContext newContext = new FormatContextImpl(numeratorType, ConformanceLevel.MANDATORY, "numerator", context);
-		return this.pqFormatter.format(newContext, new PQImpl(numerator), indentLevel);
-	}
+    @Override
+    protected Map<String, String> getDenominatorAttributeMap(PhysicalQuantity value) {
+        return getAttributeMap(value);
+    }
+    @Override
+    protected Map<String, String> getNumeratorAttributeMap(PhysicalQuantity value) {
+        return getAttributeMap(value);
+    }
 
-	@Override
-	protected String formatDenominator(FormatContext context, PhysicalQuantity denominator, int indentLevel) {
-		String denominatorType = Hl7DataTypeName.create(context.getType()).getInnerTypes().get(1).toString();
-		FormatContext newContext = new FormatContextImpl(denominatorType, ConformanceLevel.MANDATORY, "denominator", context);
-		return this.pqFormatter.format(newContext, new PQImpl(denominator), indentLevel);
-	}
-	
+    private Map<String, String> getAttributeMap(PhysicalQuantity value) {
+        Map<String, String> result = new HashMap<String, String>();
+        result.put("value", value.getQuantity().toString());
+        // TM - Redmine 11455 - need to account for units being null
+        if (value.getUnit() != null) {
+        	result.put("unit", value.getUnit().getCodeValue());
+        }
+        result.put("xsi:type", "PQ");
+        return result;
+    }
 }

@@ -30,11 +30,11 @@ import org.apache.commons.lang.StringUtils;
  */
 public class NumberFormatter {
 	
-	public String format(BigDecimal b, int maxLength, int maxNumberOfIntegers, int maxNumberOfDecimals, boolean padFractions) {
+	public String format(BigDecimal b, int maxLength, int maxNumberOfDecimals, boolean padFractions) {
 		String base = StringUtils.repeat(padFractions ? "0" : "#", maxNumberOfDecimals);
 		String pattern = StringUtils.leftPad("0." +  base, maxLength, '#');
 		DecimalFormat format = new DecimalFormat(pattern);
-		format.setMaximumIntegerDigits(maxNumberOfIntegers); 
+		format.setMaximumIntegerDigits(maxLength - maxNumberOfDecimals - 1); 
 		return format.format(b);
 	}
 }

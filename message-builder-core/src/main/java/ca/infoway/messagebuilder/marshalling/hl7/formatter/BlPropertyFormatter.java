@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -41,7 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class BlPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Boolean> {
 
 	@Override
-	protected String getValue(Boolean booleanValue, FormatContext context, BareANY bareAny) {
+	protected String getValue(Boolean booleanValue, FormatContext context) {
 		return booleanValue.booleanValue() ? "true" : "false"; 
 	}
 }

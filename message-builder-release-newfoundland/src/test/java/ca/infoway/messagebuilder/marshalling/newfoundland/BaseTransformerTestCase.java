@@ -31,7 +31,6 @@ import org.junit.Before;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
@@ -57,7 +56,7 @@ public abstract class BaseTransformerTestCase {
 	
 	public static VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
-		public Hl7BaseVersion getBaseVersion() {return Hl7BaseVersion.MR2007;} // Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
+		public VersionNumber getBaseVersion() {return null;}
 	};
 	
 	protected MessageBeanTransformerImpl transformer;
@@ -108,7 +107,7 @@ public abstract class BaseTransformerTestCase {
 		Hl7Error found = null;
 		for (Hl7Error error : result.getHl7Errors()) {
 			// FIXME - TM - every NFLD sample message we have is not specifying Identifier xml correctly
-			//            - every NFLD messagebean is not setting up Identifiers correctly 
+			//            - every NFLD messagebean is no not setting up Identifiers correctly 
 			//            - rather than change all the xml and transformation tests and builders, skip the error in question for now
 			if (!error.getMessage().startsWith("Expected mandatory attribute \"specializationType\"")) {
 				System.out.println(error.getMessage() + (StringUtils.isNotBlank(error.getPath())

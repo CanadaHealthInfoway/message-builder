@@ -27,8 +27,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
-
 /**
  * <p>Java datatype for AD Hl7 datatype. 
  * 

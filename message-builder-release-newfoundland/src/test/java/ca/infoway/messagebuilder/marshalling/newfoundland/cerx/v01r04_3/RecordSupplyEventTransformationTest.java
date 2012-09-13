@@ -28,26 +28,21 @@ import static org.junit.Assert.assertNotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicineBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicineBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.NonPrescribedSupplyEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventAcceptedMessageBean;
@@ -84,7 +79,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 		XmlToModelResult result = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		assertEquals("type", RecordSupplyEventMessageBean.class, result.getMessageObject().getClass());
 		
-//		RecordSupplyEventMessageBean messageObject = (RecordSupplyEventMessageBean) result.getMessageObject();
+		RecordSupplyEventMessageBean messageObject = (RecordSupplyEventMessageBean) result.getMessageObject();
 	}
 
 	private RecordSupplyEventMessageBean createRequest() {
@@ -96,12 +91,9 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 		
 		RecordBean<NonPrescribedSupplyEventBean> recordBean = new RecordBean<NonPrescribedSupplyEventBean>();
 		NonPrescribedSupplyEventBean record = new NonPrescribedSupplyEventBean();
-		record.setDispenseId(new Identifier("3.2.1", "dispenseIdExt"));
+		record.setDispenseId(new Identifier("dispenseIdRoot", "dispenseIdExtension"));
 		record.setEffectiveTime(new Date(0));
-		MedicineBean medicineBean = new MedicineBeanBuilder().populate().create();
-		medicineBean.setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
-		
-		record.setProduct(medicineBean);
+		record.setProduct(new MedicineBeanBuilder().populate().create());
 		record.setQuantity(new PhysicalQuantity(
 				new BigDecimal(12), 
 				lookup(x_DrugUnitsOfMeasure.class, "g", CodeSystem.VOCABULARY_UNIFORM_UNIT_OF_MEASURE.getRoot())));
@@ -116,7 +108,6 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		RecordSupplyEventAcceptedMessageBean model = createAcceptedResponseBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
-		Assert.assertNotNull(xml);
 	}
 
 	private RecordSupplyEventAcceptedMessageBean createAcceptedResponseBean() {

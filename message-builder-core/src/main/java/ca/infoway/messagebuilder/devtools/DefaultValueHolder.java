@@ -26,13 +26,13 @@ import java.util.List;
 import java.util.UUID;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+import ca.infoway.messagebuilder.datatype.lang.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ProcessingMode;
 import ca.infoway.messagebuilder.domainvalue.ResponseMode;
-import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 
 public class DefaultValueHolder extends ValueHolder {
 

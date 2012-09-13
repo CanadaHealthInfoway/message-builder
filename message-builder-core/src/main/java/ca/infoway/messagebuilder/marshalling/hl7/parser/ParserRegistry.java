@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 
+@SuppressWarnings("unchecked")
 public class ParserRegistry extends Registry<ElementParser> {
 
     private static ParserRegistry instance = new ParserRegistry();
@@ -29,8 +30,7 @@ public class ParserRegistry extends Registry<ElementParser> {
     private ParserRegistry() {
     }
 
-    @SuppressWarnings("rawtypes")
-	@Override
+    @Override
     protected void registerAll() {
         register(new AdElementParser());
         register(new AnyElementParser());
@@ -56,15 +56,14 @@ public class ParserRegistry extends Registry<ElementParser> {
         register(new PnElementParser());
         register(new PqElementParser());
         register(new RealElementParser());
+        register(new RtoQtyQtyElementParser());
         register(new RtoPqPqElementParser());
-        register(new RtoMoPqElementParser());
         register(new ScElementParser());
         register(new StElementParser());
         register(new TelElementParser());
         register(new TnElementParser());
         register(new TsElementParser());
         register(new UrgPqElementParser());
-        register(new UrgTsElementParser());
     }
 
     public static ParserRegistry getInstance() {

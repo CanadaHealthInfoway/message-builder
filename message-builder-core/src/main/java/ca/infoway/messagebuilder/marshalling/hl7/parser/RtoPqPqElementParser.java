@@ -20,13 +20,15 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import java.math.BigDecimal;
+
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 /**
  * RTO<PQ, PQ> - Ratio (physical quantity, physical quantity)
@@ -43,26 +45,18 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 @DataTypeHandler("RTO<PQ,PQ>")
 class RtoPqPqElementParser extends AbstractRtoElementParser<PhysicalQuantity, PhysicalQuantity> {
 
-	PqElementParser parser = new PqElementParser();
-	
-	@Override
-	protected PhysicalQuantity getNumeratorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return getValue(element, type, context, xmlToModelResult);
+    @Override
+	protected PhysicalQuantity getNumeratorValue(Element element) throws XmlToModelTransformationException {
+        return getValue(element);
     }
-    
-	@Override
-	protected PhysicalQuantity getDenominatorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return getValue(element, type, context, xmlToModelResult);
+    @Override
+	protected PhysicalQuantity getDenominatorValue(Element element) throws XmlToModelTransformationException {
+        return getValue(element);
     }
 
-    private PhysicalQuantity getValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-    	// inner types (numerator and denominator) are guaranteed to be of type PQ.x due to the DataTypeHandler annotation; no need to validate this is a PQ
-    	
-    	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
-    	
-    	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
-    	return (PhysicalQuantity) this.parser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
+    private PhysicalQuantity getValue(Element element) throws XmlToModelTransformationException {
+        return new PhysicalQuantity(
+                    new BigDecimal(getAttributeValue(element, "value")), 
+                    CodeResolverRegistry.lookup(UnitsOfMeasureCaseSensitive.class, getAttributeValue(element, "unit")));
     }
-
 }

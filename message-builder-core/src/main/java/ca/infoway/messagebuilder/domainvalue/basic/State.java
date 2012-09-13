@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.Code;
  *
  * @sharpen.ignore - datatype - translated manually
  */
+@SuppressWarnings("unchecked")
 @Deprecated
 public class State implements ca.infoway.messagebuilder.domainvalue.State, Serializable {
     

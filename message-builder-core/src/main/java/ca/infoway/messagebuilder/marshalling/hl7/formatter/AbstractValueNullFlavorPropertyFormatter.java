@@ -23,9 +23,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-
 
 /**
  * Formats some nullable object into element:
@@ -44,19 +41,18 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 public abstract class AbstractValueNullFlavorPropertyFormatter<V> extends AbstractAttributePropertyFormatter<V> {
 
 	@Override
-	Map<String, String> getAttributeNameValuePairs(FormatContext context, V t, BareANY bareAny) throws ModelToXmlTransformationException {
+	Map<String, String> getAttributeNameValuePairs(FormatContext context, V t) throws ModelToXmlTransformationException {
         Map<String, String> result = new HashMap<String, String>();
         if (t != null) {
-            result.put("value", getValue(t, context, bareAny));
+            result.put("value", getValue(t, context));
             addOtherAttributesIfNecessary(t, result);
         } else {
-        	NullFlavor providedNullFlavor = bareAny.getNullFlavor();
-            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, providedNullFlavor == null ? NULL_FLAVOR_NO_INFORMATION : providedNullFlavor.getCodeValue());
+            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
         }
         return result;
     }
 
-    protected abstract String getValue(V v, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException;
+    protected abstract String getValue(V v, FormatContext context) throws ModelToXmlTransformationException;
 
     protected void addOtherAttributesIfNecessary(V v, Map<String, String> attributes) throws ModelToXmlTransformationException {
         // no-op in superclass

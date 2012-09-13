@@ -23,12 +23,10 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 class FormatContextImpl implements FormatContext {
 
-	private final ModelToXmlResult result;
 	private final ConformanceLevel conformanceLevel;
 	private final String elementName;
 	private final String type;
@@ -37,19 +35,16 @@ class FormatContextImpl implements FormatContext {
 	private final VersionNumber version;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
-	private final String propertyPath;
 
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel) {
-		this(result, propertyPath, elementName, type, conformanceLevel, false, null, null, null, true);
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel) {
+		this(elementName, type, conformanceLevel, false, null, null, null, true);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		this(result, propertyPath, elementName, type, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true);
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		this(elementName, type, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType) {
-		this.result = result;
-		this.propertyPath = propertyPath;
+	FormatContextImpl(String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType) {
 		this.elementName = elementName;
 		this.type = type;
 		this.conformanceLevel = conformanceLevel;
@@ -60,39 +55,6 @@ class FormatContextImpl implements FormatContext {
 		this.isPassOnSpecializationType = isPassOnSpecializationType;
 	}
 	
-	FormatContextImpl(String newType, FormatContext context) {
-		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getElementName(), context);
-	}
-	
-	FormatContextImpl(String newType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
-		this(newType, context.isSpecializationType(), newConformanceLevel, elementName, context);
-	}
-	
-	FormatContextImpl(String newType, boolean isSpecializationType, FormatContext context) {
-		this(newType, isSpecializationType, context.getConformanceLevel(), context.getElementName(), context);
-	}
-
-	FormatContextImpl(String newType, boolean isSpecializationType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
-		this(context.getModelToXmlResult(), 
-			 context.getPropertyPath(), 
-			 elementName, 
-			 newType, 
-			 newConformanceLevel, 
-			 isSpecializationType, 
-			 context.getVersion(), 
-			 context.getDateTimeZone(), 
-			 context.getDateTimeTimeZone(), 
-			 context.isPassOnSpecializationType());
-	}
-
-	public ModelToXmlResult getModelToXmlResult() {
-		return this.result;
-	}
-
-	public String getPropertyPath() {
-		return this.propertyPath;
-	}
-
 	public ConformanceLevel getConformanceLevel() {
 		return this.conformanceLevel;
 	}
@@ -124,5 +86,4 @@ class FormatContextImpl implements FormatContext {
 	public boolean isPassOnSpecializationType() {
 		return this.isPassOnSpecializationType;
 	}
-
 }

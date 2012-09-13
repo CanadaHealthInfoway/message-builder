@@ -27,7 +27,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
-import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
+import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 
 /**

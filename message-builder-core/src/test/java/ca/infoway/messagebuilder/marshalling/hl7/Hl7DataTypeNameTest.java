@@ -47,9 +47,4 @@ public class Hl7DataTypeNameTest {
 		Hl7DataTypeName name = Hl7DataTypeName.create("RTO<MO.CAD,PQ.BASIC>");
 		assertEquals("RTO<MO,PQ>", name.getUnqualifiedVersion().toString());
 	}
-	@Test
-	public void testShouldDetermineUnqualifiedInnerTypesComplicatedName() throws Exception {
-		Hl7DataTypeName name = Hl7DataTypeName.create("IVL.LOW<PQ.LAB>");
-		assertEquals("IVL.LOW<PQ>", name.getUnqualifiedInnerTypesVersion().toString());
-	}
 }

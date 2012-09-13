@@ -33,17 +33,15 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class TelPhonemailPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new TELImpl());
+		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), null);
 
 		// a null value for TEL.PHONEMAIL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -57,7 +55,7 @@ public class TelPhonemailPropertyFormatterTest {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
 		address.setAddress("value");
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -90,7 +88,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.setAddress("value");
 		address.addAddressUse(CeRxDomainTestValues.HOME_ADDRESS);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -100,7 +98,7 @@ public class TelPhonemailPropertyFormatterTest {
 		assertEquals("use as expected", "H", result.get("use"));
 
 		address.addAddressUse(CeRxDomainTestValues.MOBILE_CONTACT);
-		result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("use key as expected", result.containsKey("use"));
@@ -126,7 +124,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(addressUse);
 		
 		try {
-			new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+			new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 			fail("expected exception");
 			
 		} catch (ModelToXmlTransformationException e) {
@@ -149,7 +147,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.setUrlScheme(CeRxDomainTestValues.FAX);
 		address.addAddressUse(addressUse);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("key as expected", result.containsKey("use"));

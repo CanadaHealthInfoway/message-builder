@@ -20,45 +20,30 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static org.junit.Assert.assertTrue;
-
 import java.math.BigDecimal;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 public class UrgPqPropertyFormatterTest extends FormatterTestCase {
 
-	@Before
-	public void setup() {
-		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-	}
-	
 	@Test
 	public void testBasic() throws Exception {
-		UncertainRange<PhysicalQuantity> urg = UncertainRangeFactory.createLowHigh(createQuantity("55", CeRxDomainTestValues.MILLIMETER), createQuantity("60", CeRxDomainTestValues.MILLIMETER));
-		urg.setHighInclusive(true);
-		urg.setLowInclusive(false);
-		
-		String result = new UrgPqPropertyFormatter().format(getContext("name", "URG<PQ.BASIC>"), new URGImpl<PQ, PhysicalQuantity>(urg));
-		
-		assertXml("result", "<name><low inclusive=\"false\" unit=\"mm\" value=\"55\"/><high inclusive=\"true\" unit=\"mm\" value=\"60\"/></name>", result);
-		assertTrue(this.result.isValid());
+		UncertainRange<PhysicalQuantity> urg = UncertainRange.createLowHigh(createQuantity("55", CeRxDomainTestValues.MILLIMETER), createQuantity("60", CeRxDomainTestValues.MILLIMETER));
+		String result = new UrgPqPropertyFormatter().format(getContext("name"), 
+				new URGImpl<PQ, PhysicalQuantity>(urg));
+		assertXml("result", "<name><low unit=\"mm\" value=\"55\"/><high unit=\"mm\" value=\"60\"/></name>", result);
 	}
 
 	@Test
 	public void testNullCase() throws Exception {
-		String result = new UrgPqPropertyFormatter().format(getContext("name", "URG<PQ.BASIC>"), new URGImpl<PQ, PhysicalQuantity>());
-		assertTrue(this.result.isValid());
+		String result = new UrgPqPropertyFormatter().format(getContext("name"), new URGImpl<PQ, PhysicalQuantity>());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}
 	

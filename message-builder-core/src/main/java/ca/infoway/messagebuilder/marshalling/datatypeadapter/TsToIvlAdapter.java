@@ -27,13 +27,11 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 
 public class TsToIvlAdapter implements DataTypeAdapter {
 	
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
-		// FIXME - VALIDATION - TM - should this cover all IVL<TS.x> cases? what about IVL.HIGH/.LOW/.WIDTH?
-		// (not a major concern, as this code is primarily meant to work with legacy NFLD transformation tests)
 		if (TS.class.isAssignableFrom(fromDataType) 
 		 && (StandardDataType.IVL_FULL_DATE.getType().equals(toDataTypeName)
 		 || StandardDataType.IVL_FULL_DATE_WITH_TIME.getType().equals(toDataTypeName))) {
@@ -50,7 +48,7 @@ public class TsToIvlAdapter implements DataTypeAdapter {
 		return new DataTypeAdapterHelper().copyAndReturnAdapted(
 				any, 
 				(BareANY) new IVLImpl<TS,Interval<Date>>(), 
-				any.getBareValue() != null ? IntervalFactory.<Date>createLowHigh((Date) any.getBareValue(), (Date) any.getBareValue()) : null);
+				any.getBareValue() !=null ? IntervalFactory.<Date>createLow((Date) any.getBareValue()) : null);
 	}
 
 }

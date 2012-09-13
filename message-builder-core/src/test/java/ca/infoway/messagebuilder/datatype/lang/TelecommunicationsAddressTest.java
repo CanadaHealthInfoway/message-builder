@@ -26,9 +26,6 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
-import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
-
 /**
  * @sharpen.ignore - datatype - translated manually
  */

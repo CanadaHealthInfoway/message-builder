@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 public class Diff<T> implements BareDiff {
 
 	private final T value;
-	private NullFlavor nullFlavor;
 
 	/**
 	 * <p>Constructs a diff using the supplied parameter.
@@ -43,12 +42,6 @@ public class Diff<T> implements BareDiff {
 	 */
 	public Diff(T value) {
 		this.value = value;
-		this.nullFlavor = null;
-	}
-
-	public Diff(NullFlavor nullFlavor) {
-		this.value = null;
-		this.nullFlavor = nullFlavor;
 	}
 
 	/**
@@ -66,7 +59,7 @@ public class Diff<T> implements BareDiff {
 	 * @return the null flavor
 	 */
 	public NullFlavor getNullFlavor() {
-		return this.nullFlavor;
+		throw null;
 	}
 
 	/**
@@ -75,7 +68,7 @@ public class Diff<T> implements BareDiff {
 	 * @return whether the diff has a null flavor set. 
 	 */
 	public boolean hasNullFlavor() {
-		return this.nullFlavor != null;
+		return false;
 	}
 
 	/**
@@ -84,7 +77,6 @@ public class Diff<T> implements BareDiff {
 	 * @param nullFlavor a null flavor
 	 */
 	public void setNullFlavor(NullFlavor nullFlavor) {
-		this.nullFlavor = nullFlavor;
 	}
 
 	public Object getBareValue() {

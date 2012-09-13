@@ -49,7 +49,7 @@ public class ModelTest {
 		@SuppressWarnings("unchecked")
 		@Override
 		protected boolean handleDirectory(File directory, int depth,
-				@SuppressWarnings("rawtypes") Collection results) throws IOException {
+				Collection results) throws IOException {
 			if (".svn".equals(directory.getName())) {
 				return false;
 			} else {

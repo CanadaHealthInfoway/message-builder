@@ -43,6 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
@@ -50,11 +51,14 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTimingSpecification> {
 
 	@Override
-	protected GeneralTimingSpecification parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlResult) {
+	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
+			Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlResult)
+			throws XmlToModelTransformationException {
 		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlResult);
 	}
-	
-	protected GeneralTimingSpecification parseNonNullNode(ParseContext context, Element element, Type expectedReturnType, XmlToModelResult xmlResult) {
+	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
+			Element element, Type expectedReturnType, XmlToModelResult xmlResult)
+			throws XmlToModelTransformationException {
 
 		GeneralTimingSpecification result = null;
 		List<Element> components = findComponents(element, xmlResult);
@@ -87,9 +91,9 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 		}
 		return result;
 	}
-	
 	@SuppressWarnings("unchecked")
-	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlResult, Element durationElement) {
+	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlResult,
+			Element durationElement) throws XmlToModelTransformationException {
 		ParseContext subContext = ParserContextImpl.create(
 				"IVL<TS.FULLDATE>",
 				Interval.class,
@@ -98,11 +102,11 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeTimeZone(),
 				MANDATORY);
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
-					subContext, Arrays.asList((Node) durationElement), xmlResult)
-						.getBareValue();
+				subContext, Arrays.asList((Node) durationElement), xmlResult).getBareValue();
 	}
 
-	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToModelResult, Element durationElement) {
+	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToModelResult,
+			Element durationElement) throws XmlToModelTransformationException {
 		ParseContext subContext = ParserContextImpl.create(
 				"PIVL<TS.DATETIME>",
 				PeriodicIntervalTime.class,
@@ -111,8 +115,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeTimeZone(),
 				MANDATORY);
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
-					subContext, Arrays.asList((Node) durationElement), xmlToModelResult)
-						.getBareValue();
+				subContext, Arrays.asList((Node) durationElement), xmlToModelResult).getBareValue();
 	}
 
 	private List<Element> findComponents(Element element, XmlToModelResult xmlToModelResult) {

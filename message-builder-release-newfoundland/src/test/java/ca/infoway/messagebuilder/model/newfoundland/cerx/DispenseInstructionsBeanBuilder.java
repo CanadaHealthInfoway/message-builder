@@ -25,12 +25,12 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import java.util.Date;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ResponsiblePartyBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;

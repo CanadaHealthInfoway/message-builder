@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.simple.xml.parser;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+import static ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;

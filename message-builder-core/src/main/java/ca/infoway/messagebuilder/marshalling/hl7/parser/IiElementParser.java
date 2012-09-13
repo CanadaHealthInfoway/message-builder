@@ -20,30 +20,25 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_BUS;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_BUSVER;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_OID;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_PUBLIC;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_PUBLICVER;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_TOKEN;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.II_VER;
-import static ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils.concreteIiTypes;
+import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
 
 import java.lang.reflect.Type;
+import java.text.MessageFormat;
+import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -69,8 +64,14 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 @DataTypeHandler("II")
 class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	
-	private static final IiValidationUtils iiValidationUtils = new IiValidationUtils();
-	
+	private static final String II = "II";
+	private static final String II_TOKEN = "II.TOKEN";
+	private static final String II_BUS = "II.BUS";
+	private static final String II_PUBLIC = "II.PUBLIC";
+	private static final String II_OID = "II.OID";
+	private static final String II_VER = "II.VER";
+	private static final String II_BUS_AND_VER = "II.BUS_AND_VER";
+
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new IIImpl();
@@ -81,196 +82,150 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 			throws XmlToModelTransformationException {
 		
 		Element element = (Element) node;
-		VersionNumber version = (context == null ? null : context.getVersion());
 		
 		String root = getMandatoryAttributeValue(element, "root", xmlToModelResult);
 		String extension = getAttributeValue(element, "extension");
-		String versionAttribute = null;
+		String type = getType(context, element, xmlToModelResult);
 		
-		String type = handleSpecializationType(context, element, xmlToModelResult);
-		
-		// type might have resolved to something different if this II.x is abstract (II, II_BUS_AND_VER), so set it again before performing validations
+		// type might have resolved to something different if this II.x is abstract (II, II_BUS_AND_VER), so set it again
 		setDataType(type, result);
-
-		if (II.equals(type)) {
-			// should only occur for CeRx and AB, but could happen if a relationship of type II is not specified via specializationType 
-			validateII(xmlToModelResult, element, version, root, extension,	type);
+		
+		if (StringUtils.isBlank(root)) {
+			// skip it... already handled
 		} else if (II_TOKEN.equals(type)) {
-			validateII_TOKEN(xmlToModelResult, element, root, type, version);
+			validateRootAsUuid(element, root, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		} else if (II_BUS.equals(type)) {
-			validateII_BUS(xmlToModelResult, element, root, extension, type, version);
-		} else if (II_OID.equals(type)) {
-			validateII_OID(context, xmlToModelResult, element, root, type, version);
-		} else if (II_PUBLIC.equals(type)) {
-			validateII_PUBLIC(context, xmlToModelResult, element, root, extension, type, version, false);
-		} else if (II_VER.equals(type)) {
-			validateII_VER(xmlToModelResult, element, root, type, version);
-		} else if (II_BUSVER.equals(type)) {
-			versionAttribute = validateII_BUSVER(xmlToModelResult, element, root, extension, type, version);
-		} else if (II_PUBLICVER.equals(type)) {
-			versionAttribute = validateII_PUBLICVER(context, xmlToModelResult, element, root, extension, type, version);
-		}
-		validateUnallowedAttributes(type, element, xmlToModelResult, "assigningAuthorityName");
-		return new Identifier(root, extension, versionAttribute);
-	}
-
-	private void validateII(XmlToModelResult xmlToModelResult, Element element, VersionNumber version, String root, String extension, String type) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension,	type, version);
-		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		validateUnallowedAttributes(type, element, xmlToModelResult, "use");
-	}
-
-	private String validateII_PUBLICVER(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
-		validateII_PUBLIC(context, xmlToModelResult, element, root, extension, type, version, true);
-		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
-	}
-
-	private String validateII_BUSVER(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
-		validateII_BUS(xmlToModelResult, element, root, extension, type, version);
-		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
-	}
-
-	private void validateII_VER(XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsUuid(element, root, xmlToModelResult, version);
-		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
-		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		validateAttributeEquals(type, element, xmlToModelResult, "use", "VER");
-	}
-
-	private void validateII_TOKEN(XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsUuid(element, root, xmlToModelResult, version);
-		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
-		validateUnallowedAttributes(type, element, xmlToModelResult, "use");
-		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-	}
-
-	private void validateII_OID(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsOid(root, element, xmlToModelResult, version);
-		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
-		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		if (iiValidationUtils.isMR2009(context.getVersion())) {
-			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
-		} else {
-			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
-		}
-	}
-
-	private void validateII_PUBLIC(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version, boolean isII_PUBLICVER) {
-		validateRootAsOid(root, element, xmlToModelResult, version);
-		validateExtensionForOid(xmlToModelResult, element, extension);
-		validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
-		// Redmine 11293 - TM - must have use=BUS, but not for MR2007 (use is not permitted in this case)
-		if (!isII_PUBLICVER && iiValidationUtils.isMR2009(context.getVersion())) {
-			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
-		} else {
-			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
-		}
-	}
-
-	private void validateII_BUS(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension,	type, version);
-		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
-	}
-
-	private void validateRootAndExtensionAsOidOrUuid(XmlToModelResult xmlToModelResult,	Element element, String root, String extension, String type, VersionNumber version) {
-		// if root has not been provided don't bother further validating root or extension
-		if (StringUtils.isNotBlank(root)) {
-			if (!iiValidationUtils.isUuid(root)) {
-				validateRootAsOid(root, element, xmlToModelResult, version);
-				validateExtensionForOid(xmlToModelResult, element, extension);
+			if (!isUuid(root)) {
+				validateRootAsOid(root, element, xmlToModelResult);
 			} else {
-				validateRootAsUuid(element, root, xmlToModelResult, version);
+				validateRootAsUuid(element, root, xmlToModelResult);
 				validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 			}
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
+		} else if (II_OID.equals(type)) {
+			validateRootAsOid(root, element, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+		} else if (II_PUBLIC.equals(type)) {
+			validateRootAsOid(root, element, xmlToModelResult);
+			validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
+			// Redmine 11293 - TM - must have use=BUS, but not for MR2007 (use is not permitted in this case)
+			if (isMR2009(context.getVersion())) {
+				validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
+			} else {
+				validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			}
+		} else if (II_VER.equals(type)) {
+			validateRootAsUuid(element, root, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+			validateAttributeEquals(type, element, xmlToModelResult, "use", "VER");
 		}
+		validateUnallowedAttributes(type, element, xmlToModelResult, "assigningAuthorityName");
+		return new Identifier(root, extension);
 	}
 
-	private void validateExtensionForOid(XmlToModelResult xmlToModelResult,	Element element, String extension) {
-		// extension is mandatory in this case
-		getMandatoryAttributeValue(element, "extension", xmlToModelResult);
-		validateExtensionLength(element, extension, xmlToModelResult);
+	private boolean isMR2009(VersionNumber version) {
+		return SpecificationVersion.isVersion(SpecificationVersion.R02_04_02, version) 
+				|| SpecificationVersion.isVersion(SpecificationVersion.R02_04_03, version);
 	}
 
-	private String handleSpecializationType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
-		VersionNumber version = context.getVersion();
-		String typeFromContext = context.getType(); 
-		String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
-		
-    	if (iiValidationUtils.isSpecializationTypeRequired(version, typeFromContext)) {
-    		boolean validSpecializationType = isSpecializationTypeProvided(specializationType);
-    		if (iiValidationUtils.isII(typeFromContext)) {
-    			validSpecializationType &= concreteIiTypes.contains(specializationType);
-    		} else if (iiValidationUtils.isIiBusAndVer(typeFromContext)) {
-    			validSpecializationType &= iiValidationUtils.isIiBusOrIiVer(specializationType);
-    		}
-    		// only override type if new type is valid
-    		if (validSpecializationType) {
-    			typeFromContext = specializationType;
-    		} else {
-    			if (iiValidationUtils.isIiBusAndVer(typeFromContext)) {
-        			String use = getAttributeValue(element, "use");
-        			typeFromContext = ("VER".equals(use) ? II_VER : II_BUS); // II.BUS allows oids and uuids, so default to it as a last resort
-        			recordError(iiValidationUtils.getInvalidSpecializationTypeForBusAndVerErrorMessage(specializationType, typeFromContext), element, xmlToModelResult);
-    			} else {
-    				recordError(iiValidationUtils.getInvalidOrMissingSpecializationTypeErrorMessage(specializationType), element, xmlToModelResult);
-    			}
-    		}
-    	} else if (isSpecializationTypeProvided(specializationType)) {
-			recordError(iiValidationUtils.getShouldNotProvideSpecializationTypeErrorMessage(typeFromContext), element, xmlToModelResult);
-    	}
-		return typeFromContext;
+	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
+		String type = context.getType();
+		if (isSpecializationTypeAllowed(context, type)) {
+			if (II_BUS_AND_VER.equals(type) || II.equals(type)) {   //   || II.equals(type)   ???? if plain II, then probably CeRx... (don't do extra validations)
+				String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
+				if (specializationType == null) {
+					xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
+				} else if (II_BUS_AND_VER.equals(type) && !II_BUS.equals(specializationType) && !II_VER.equals(specializationType)) {
+				    xmlToModelResult.addHl7Error(
+				    		new Hl7Error(
+				    				Hl7ErrorCode.DATA_TYPE_ERROR,
+				    				"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element) + ")",
+				    				element)
+				    );
+				} else {
+					type = specializationType;
+				}
+			}
+		}
+		return type;
 	}
 
-	private boolean isSpecializationTypeProvided(String specializationType) {
-		return specializationType != null;
+	private boolean isSpecializationTypeAllowed(ParseContext context, String type) {
+		return !SpecificationVersion.isVersion(SpecificationVersion.V01R04_3, context.getVersion())
+				&& !(SpecificationVersion.isVersion(SpecificationVersion.V02R02_AB, context.getVersion()) && II.equals(type));
 	}
 
-	private void validateAttributeEquals(String type, Element element, XmlToModelResult xmlToModelResult, String attributeName, String attributeValue) {
+	private void validateAttributeEquals(String type, Element element,
+			XmlToModelResult xmlToModelResult, String attributeName, String attributeValue) {
 		if (!element.hasAttribute(attributeName)) {
-			recordError(iiValidationUtils.getMissingAttributeErrorMessage(type, attributeName, attributeValue), element, xmlToModelResult);
+			xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+					MessageFormat.format(
+							"Data type " + type + " requires the attribute {0}=\"{1}\" ({2})",
+							attributeName, XmlStringEscape.escape(attributeValue), 
+							XmlDescriber.describeSingleElement(element)),
+					element));
 		} else if (!StringUtils.equals(element.getAttribute(attributeName), attributeValue)) {
-			recordError(iiValidationUtils.getIncorrectAttributeValueErrorMessage(type, attributeName, attributeValue), element, xmlToModelResult);
+			xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+					MessageFormat.format(
+							"Data type " + type + " expected the attribute {0}=\"{1}\" ({2})",
+							attributeName, XmlStringEscape.escape(attributeValue), 
+							XmlDescriber.describeSingleElement(element)),
+					element));
 		}
 	}
 
-	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version) {
-		if (StringUtils.isNotBlank(root)) {
-			if (!iiValidationUtils.isUuid(root)) {
-				recordError(iiValidationUtils.getRootMustBeUuidErrorMessage(root), element, xmlToModelResult);
+
+	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult) {
+		if (!isUuid(root)) {
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "root '" + root + "' should be a UUID. ("
+					+ XmlDescriber.describeSingleElement(element) +")", element));
+		}
+	}
+
+	private boolean isUuid(String root) {
+		try {
+			UUID.fromString(root);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToModelResult) {
+		if (!isOid(root)) {
+			xmlToModelResult.addHl7Error(
+					new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+							"The oid, \"" + root + "\" does not appear to be a valid oid", element));
+		}
+	}
+
+	boolean isOid(String root) {
+		if (StringUtils.isBlank(root) || !root.contains(".")) {
+			return false;
+		} else {
+			boolean oid = true;
+			while (root.contains(".")) {
+				String prefix = StringUtils.substringBefore(root, ".");
+				oid &= (StringUtils.isNotBlank(prefix) && StringUtils.isNumeric(prefix)); 
+				root = StringUtils.substringAfter(root, ".");
 			}
-			validateRootLength(element, root, xmlToModelResult, version);
-		}
-	}
-
-	private void validateRootLength(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version) {
-		if (iiValidationUtils.isRootLengthInvalid(root, version)) {
-			recordError(iiValidationUtils.getInvalidRootLengthErrorMessage(root, version), element, xmlToModelResult);
-		}
-	}
-
-	private void validateExtensionLength(Element element, String extension,	XmlToModelResult xmlToModelResult) {
-		if (iiValidationUtils.isExtensionLengthInvalid(extension)) {
-			recordError(iiValidationUtils.getInvalidExtensionLengthErrorMessage(extension), element, xmlToModelResult);
-		}
-	}
-
-	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToModelResult, VersionNumber version) {
-		if (StringUtils.isNotBlank(root)) {
-			if (!iiValidationUtils.isOid(root)) {
-				recordError(iiValidationUtils.getRootMustBeAnOidErrorMessage(root), element, xmlToModelResult);
+			
+			if (StringUtils.isBlank(root)) {
+				oid = false;
+			} else {
+				oid &= StringUtils.isNumeric(root);
 			}
-			validateRootLength(element, root, xmlToModelResult, version);
+			
+			return oid;
 		}
 	}
 
-	private void recordError(String message, Element element, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-			new Hl7Error(
-					Hl7ErrorCode.DATA_TYPE_ERROR,
-					message + " (" + XmlDescriber.describeSingleElement(element) + ")",
-					element)
-		);
-	}
 
 }

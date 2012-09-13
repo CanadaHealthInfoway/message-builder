@@ -23,41 +23,28 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class FormatContextImpl implements FormatContext {
 
-	private final ModelToXmlResult result;
 	private final Relationship relationship;
 	private final VersionNumber version;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
-	private final String propertyPath;
 
-	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		this.result = result;
-		this.propertyPath = propertyPath;
+	private FormatContextImpl(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.relationship = relationship;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 	}
 
-	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone);
+	public static FormatContext create(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return new FormatContextImpl(relationship, version, dateTimeZone, dateTimeTimeZone);
 	}
 
-	public ModelToXmlResult getModelToXmlResult() {
-		return result;
-	}
-
-	public String getPropertyPath() {
-		return this.propertyPath;
-	}
-	
 	public ConformanceLevel getConformanceLevel() {
 		return this.relationship.getConformance();
 	}
@@ -89,5 +76,4 @@ class FormatContextImpl implements FormatContext {
 	public TimeZone getDateTimeTimeZone() {
 		return dateTimeTimeZone;
 	}
-
 }

@@ -49,6 +49,7 @@ class EnPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityName
 
     @Override
     String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) throws ModelToXmlTransformationException {
+    	validateContext(context);
     	
         if (value == null || value.getClass().isAssignableFrom(TrivialName.class)) {
             return this.tnPropertyFormatter.format(context, new TNImpl((TrivialName) value), indentLevel);

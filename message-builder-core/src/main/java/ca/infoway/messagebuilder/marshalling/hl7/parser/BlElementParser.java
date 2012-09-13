@@ -65,24 +65,28 @@ public class BlElementParser extends AbstractSingleElementParser<Boolean> {
 	
 	@Override
 	protected Boolean parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		Element element = (Element) node;
+		return parseNonNullNode(context, (Element) node, xmlToModelResult);
+	}
+
+	private Boolean parseNonNullNode(ParseContext context, Element element,
+			XmlToModelResult xmlToModelResult) {
 		return parseBooleanValue(xmlToModelResult, getAttributeValue(element, "value"), element, null);
 	}
 
-	// public as a result of needing to call this method from ValidatingVistor
-	public Boolean parseBooleanValue(XmlToModelResult result, String unparsedBoolean, Element element, Attr attr) {
-		Boolean booleanResult = null;
+	public Boolean parseBooleanValue(XmlToModelResult result, 
+			String unparsedBoolean, Element element, Attr attr) {
 		if (StringUtils.isBlank(unparsedBoolean)) {
 			result.addHl7Error(Hl7Error.createMandatoryBooleanValueError(element, attr));
+			return null;
 		} else if (VALID_BOOLEAN_STRINGS.contains(unparsedBoolean)) {
-			booleanResult = Boolean.valueOf(unparsedBoolean);
+			return Boolean.valueOf(unparsedBoolean);
 		} else if (VALID_BOOLEAN_STRINGS.contains(unparsedBoolean.toLowerCase())) {
 			result.addHl7Error(Hl7Error.createIncorrectCapitalizationBooleanValueError(unparsedBoolean, element, attr));
-			booleanResult = Boolean.valueOf(unparsedBoolean);
+			return Boolean.valueOf(unparsedBoolean);
 		} else {
 			result.addHl7Error(Hl7Error.createInvalidBooleanValueError(element, attr));
+			return null;
 		}
-		return booleanResult;
 	}
 
 }

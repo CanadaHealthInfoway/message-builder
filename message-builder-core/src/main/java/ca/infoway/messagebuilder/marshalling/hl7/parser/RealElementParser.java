@@ -54,8 +54,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-REAL
  * 
- * CHI further breaks down the datatype into REAL.CONF and REAL.COORD subtypes.
- * 
+ * CHI further breaks down the datatype into REAL.CONF and REAL.COORD subtypes, but those are
+ * irrelevant on the parsing side. We don't check for non-negative or positive constraints.
  */
 @DataTypeHandler({"REAL.CONF", "REAL.COORD"})
 class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
@@ -71,74 +71,44 @@ class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 			try {
 				result = new BigDecimal(unparsedReal);
 			} catch (NumberFormatException e) {
-				recordInvalidNumberError(context, node, xmlToModelResult, unparsedReal);
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value \"" 
+						+ unparsedReal + "\" of type " + context.getType() + " is not a valid number", (Element) node));
 			}
 		}
 		return result;
 	}
-
 	private void validateDecimal(String value, String type, XmlToModelResult result, Element element) {
 		if (NumberUtil.isNumber(value)) {
 			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
 			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
 			
 			RealFormat format = getFormat(type);
-			if (StandardDataType.REAL_CONF.getType().equals(type) && !valueIsBetweenZeroAndOneInclusive(integerPart, decimalPart)) {
-				recordValueMustBeBetweenZeroAndOneError(value, type, result, element);
+			if (StandardDataType.REAL_CONF.getType().equals(type) && (!"0".equals(integerPart) && !"".equals(integerPart))) {
+				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type " + type + " must be between 0 and 1.", element));
 			}
-			// TM - decided to remove check on overall length; we check before and after decimal lengths, which should be sufficient
+			if (StringUtils.length(value) > format.getMaxValueLength()) {
+				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type " + type + " exceeds maximum length of " + format.getMaxValueLength(), element));
+			}
 			if (StringUtils.length(integerPart) > format.getMaxIntegerPartLength()) {
-				recordTooManyCharactersBeforeDecimalError(value, type, result, element, format);
+				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type " + type 
+						+ " should have no more than " + format.getMaxIntegerPartLength() 
+						+ " digits before the decimal", element));
 			}
 			if (StringUtils.length(decimalPart) > format.getMaxDecimalPartLength()) {
-				recordTooManyDigitsAfterDecimalError(value, type, result, element, format);
+				result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
+						+ value + " of type " + type 
+						+ " should have no more than " + format.getMaxDecimalPartLength() 
+						+ " digits after the decimal", element));
 			}
-		} else if (StringUtils.isBlank(value)) {
-			recordValueMustBeSpecifiedError(result, element);
+			
 		}
 	}
-
-	private void recordValueMustBeSpecifiedError(XmlToModelResult result, Element element) {
-		result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value must be specified", element));
-	}
-
-	private boolean valueIsBetweenZeroAndOneInclusive(String integerPart, String decimalPart) {
-		// integer part must be a single zeros or empty; otherwise integer must be 1 and decimal must be all zeros or empty
-		// TM - if this doesn't translate to .NET, then this can be replaced with a simple StringBuilder in a loop
-		String repeatedZerosInteger = new String(new char[integerPart.length()]).replace("\0", "0");
-		String repeatedZerosDecimal = new String(new char[decimalPart.length()]).replace("\0", "0");
-		boolean integerPartAllZerosOrEmpty = repeatedZerosInteger.equals(integerPart) || "".equals(integerPart);
-		boolean integerIsOneAndDecimalAllZerosOrEmpty = "1".equals(integerPart) && (repeatedZerosDecimal.equals(decimalPart));
-		return integerPartAllZerosOrEmpty || integerIsOneAndDecimalAllZerosOrEmpty;
-	}
-
-	private void recordValueMustBeBetweenZeroAndOneError(String value, String type, XmlToModelResult result, Element element) {
-		result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
-				+ value + " of type " + type + " must be between 0 and 1 (inclusive).", element));
-	}
-	
-	private void recordTooManyDigitsAfterDecimalError(String value, String type, XmlToModelResult result, Element element, RealFormat format) {
-		result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
-				+ value + " of type " + type 
-				+ " should have no more than " + format.getMaxDecimalPartLength() 
-				+ " digits after the decimal", element));
-	}
-
-	private void recordTooManyCharactersBeforeDecimalError(String value, String type, XmlToModelResult result, Element element, RealFormat format) {
-		result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
-				+ value + " of type " + type 
-				+ " should have no more than " + format.getMaxIntegerPartLength() 
-				+ " characters before the decimal", element));
-	}
-
-	private void recordInvalidNumberError(ParseContext context, Node node, XmlToModelResult xmlToModelResult, String unparsedReal) {
-		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value \"" + unparsedReal + "\" of type " + context.getType() + " is not a valid number", (Element) node));
-	}
-	
 	private RealFormat getFormat(String type) {
 		return StandardDataType.REAL_CONF.getType().equals(type) ? (RealFormat) new RealConfFormat() : (RealFormat) new RealCoordFormat();
 	}
-	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new REALImpl();

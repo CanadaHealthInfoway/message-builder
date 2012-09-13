@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
@@ -31,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7StandardVersionCode;
-import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 
 class TopLevelBeanBridgeWrapper implements PartBridge {
 
@@ -57,13 +55,10 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 
 	private final PartBridge bridge;
 	private final String interactionId;
-	private final VersionNumber version;
-	private final IiValidationUtils iiValidationUtils = new IiValidationUtils();
 
-	public TopLevelBeanBridgeWrapper(PartBridge bridge, String interactionId, VersionNumber version) {
+	public TopLevelBeanBridgeWrapper(PartBridge bridge, String interactionId) {
 		this.bridge = bridge;
 		this.interactionId = interactionId;
-		this.version = version;
 	}
 	
 	public List<BaseRelationshipBridge> getRelationshipBridges() {
@@ -75,7 +70,7 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 						new CSImpl(HL7StandardVersionCode.V3_2007_05)));
 			} else if ("interactionId".equals(relationshipBridge.getRelationship().getName())) {
 				IIImpl iiImpl = new IIImpl(new Identifier("2.16.840.1.113883.1.6", this.interactionId));
-				if (iiValidationUtils.isSpecializationTypeRequired(version, relationshipBridge.getRelationship().getType())) {
+				if (StandardDataType.II.getType().equals(relationshipBridge.getRelationship().getType())) {
 					// we must set a concrete specialization type when defined as abstract
 					iiImpl.setDataType(StandardDataType.II_PUBLIC);
 				}

@@ -30,10 +30,6 @@ import java.util.Date;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.lang.util.GenericMath;
-import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
-import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
-
 /**
  * @sharpen.ignore - datatype - translated manually
  */
@@ -56,7 +52,7 @@ public class GenericMathTest {
 	@Test
 	public void testAddDateAndDiff() throws Exception {
 		Date low = new Date(0);
-		Date add = GenericMath.add(low, new Diff<Date>((Date)null));
+		Date add = GenericMath.add(low, new Diff<Date>(null));
 		assertEquals(low, add);
 	}
 	

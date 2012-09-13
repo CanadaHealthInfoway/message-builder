@@ -26,16 +26,11 @@ package ca.infoway.messagebuilder;
 public interface VersionNumber {
 	
 	/**
-	 * <p>Gets the version literal. Null should not be returned.
+	 * <p>Gets the version literal.
 	 *
 	 * @return the version literal
 	 */
 	public String getVersionLiteral();
 	
-	/**
-	 * The HL7v3 release that this version is based on. If at all possible, null should not be returned.
-	 * 
-	 * @return the base version
-	 */
-	public Hl7BaseVersion getBaseVersion();
+	public VersionNumber getBaseVersion();
 }

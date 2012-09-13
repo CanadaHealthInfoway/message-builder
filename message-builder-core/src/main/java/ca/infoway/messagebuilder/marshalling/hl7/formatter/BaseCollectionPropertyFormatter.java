@@ -34,14 +34,13 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 	protected FormatContext createSubContext(FormatContext context)
 			throws ModelToXmlTransformationException {
 		return new FormatContextImpl(
-				context.getModelToXmlResult(),
-				context.getPropertyPath(),
 				context.getElementName(), 
-				getSubType(context),
+				getSubType(context), 
 				context.getConformanceLevel(),
-				context.isSpecializationType(), 
-				context.getVersion(),
-				context.getDateTimeZone(), context.getDateTimeTimeZone());
+				context.isSpecializationType(),
+				context.getVersion(), 
+				context.getDateTimeZone(),
+				context.getDateTimeTimeZone());
 	}
 	
 	@Override

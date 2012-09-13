@@ -28,16 +28,15 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class SetCsPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CS>", MANDATORY), 
+        		new FormatContextImpl("blah", "SET<CS>", MANDATORY), 
 				new SETImpl<CS, Code>(CSImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -45,7 +44,7 @@ public class SetCsPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CS>", MANDATORY),
+        		new FormatContextImpl("blah", "SET<CS>", MANDATORY),
 				SETImpl.<CS, Code>create(CSImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertXml("non null", "<blah code=\"cm\"/><blah code=\"kg\"/>", result);

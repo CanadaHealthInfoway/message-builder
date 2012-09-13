@@ -20,10 +20,10 @@
 
 package ca.infoway.messagebuilder.simple.xml.parser;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.FAMILY;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.GIVEN;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.PREFIX;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.SUFFIX;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.FAMILY;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.GIVEN;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.PREFIX;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.SUFFIX;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
+import ca.infoway.messagebuilder.datatype.lang.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.EntityNameUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;

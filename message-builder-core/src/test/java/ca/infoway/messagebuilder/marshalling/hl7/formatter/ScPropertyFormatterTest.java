@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -31,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.SCImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.domainvalue.basic.State;
 
-@SuppressWarnings("deprecation")
 public class ScPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
@@ -67,4 +67,7 @@ public class ScPropertyFormatterTest extends FormatterTestCase {
 		assertEquals("something in text node", "<name>&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</name>".trim(), result.trim());
 	}
 	
+	private String addLineSeparator(String value) {
+		return value + LINE_SEPARATOR;
+	}
 }

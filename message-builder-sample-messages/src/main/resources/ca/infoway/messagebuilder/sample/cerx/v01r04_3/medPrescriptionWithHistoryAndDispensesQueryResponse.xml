@@ -22,9 +22,9 @@
 
 <PORX_IN060180CA xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0">
   <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-  <creationTime value="20080625141610.0000-0400"/>
+  <creationTime value="20080625141610-0400"/>
   <versionCode code="V3-2007-05"/>
-  <interactionId extension="PORX_IN060180CA" root="2.16.840.1.113883.1.6"/>
+  <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060180CA" root="2.16.840.1.113883.1.6"/>
   <processingCode code="P"/>
   <processingModeCode code="T"/>
   <acceptAckCode code="AL"/>
@@ -52,7 +52,7 @@
     <id extension="8141234" root="2.16.840.1.113883.1.6"/>
     <code code="PORX_TE060240UV" codeSystem="2.16.840.1.113883.1.18"/>
     <statusCode code="completed"/>
-    <effectiveTime value="20080918000000.0000-0400"/>
+    <effectiveTime value="20080918000000-0400"/>
     <subject typeCode="SUBJ" contextConductionInd="false">
       <combinedMedicationRequest classCode="SBADM" moodCode="RQO">
         <id extension="extention" root="1.2.3"/>
@@ -135,11 +135,11 @@
               <dosageLine classCode="SBADM" moodCode="EVN">
                 <text>ad hoc dosage instruction</text>
                 <effectiveTime specializationType="GTS.BOUNDEDPIVL" xsi:type="SXPR_TS">
-                  <comp operator="I" specializationType="IVL_TS.FULLDATE" xsi:type="IVL_TS">
+                  <comp specializationType="IVL_TS.FULLDATE" xsi:type="IVL_TS">
                     <low value="19691231"/>
                     <width unit="wk" value="3"/>
                   </comp>
-                  <comp specializationType="PIVL_TS.DATETIME" xsi:type="PIVL_TS">
+                  <comp operator="I" specializationType="PIVL_TS.DATETIME" xsi:type="PIVL_TS">
                     <frequency>
                       <numerator specializationType="INT.NONNEG" value="3" xsi:type="INT"/>
                       <denominator specializationType="PQ.TIME" unit="d" value="1" xsi:type="PQ"/>
@@ -235,8 +235,8 @@
       <parameterList>
         <amendedInTimeRange>
           <value>
-            <low value="19700101000000.0000-0500"/>
-            <high value="20200101000000.0000-0500"/>
+            <low value="19700101000000-0500"/>
+            <high value="20200101000000-0500"/>
           </value>
         </amendedInTimeRange>
         <includeEventHistoryIndicator>

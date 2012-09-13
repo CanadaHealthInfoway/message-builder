@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.Properties;
 import java.util.TimeZone;
 
 import org.w3c.dom.Document;

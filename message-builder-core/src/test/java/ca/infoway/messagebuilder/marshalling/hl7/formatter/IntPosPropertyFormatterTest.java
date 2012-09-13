@@ -28,14 +28,13 @@ import java.util.Map;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class IntPosPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null);
-		Map<String,String>  result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, null, new INTImpl());
+		FormatContextImpl context = new FormatContextImpl("name", null, null);
+		Map<String,String>  result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, null);
 
 		// a null value for INT elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -47,9 +46,8 @@ public class IntPosPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerValid() throws Exception {
 		String integerValue = "34";
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null);
-		Integer integer = new Integer(integerValue);
-		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, integer,  new INTImpl(integer));
+		FormatContextImpl context = new FormatContextImpl("name", null, null);
+		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, new Integer(integerValue));
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -59,9 +57,8 @@ public class IntPosPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerValidWithMaxLength() throws Exception {
 		String integerValue = "1234567890";
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null);
-		Integer integer = new Integer(integerValue);
-		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
+		FormatContextImpl context = new FormatContextImpl("name", null, null);
+		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, new Integer(integerValue));
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -71,42 +68,34 @@ public class IntPosPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZero() throws Exception {
 		String integerValue = "0";
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "INT.POS", null);
-		Integer integer = new Integer(integerValue);
-		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
+		FormatContextImpl context = new FormatContextImpl("name", null, null);
+		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, new Integer(integerValue));
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));
 		
-		context.getModelToXmlResult().clearErrors();
-		
-		String output = new IntPosPropertyFormatter().format(
+		String string = new IntPosPropertyFormatter().format(
 				context,
-				new INTImpl(integer));
-		assertEquals("xml output as expected", "<name value=\"0\"/>", output.trim());
-		assertEquals("1 error", 1, context.getModelToXmlResult().getHl7Errors().size());
+				new INTImpl(new Integer(integerValue)));
+		assertTrue("warning: " + string, string.contains("<!-- WARNING:"));
 
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairsIntegerNegative() throws Exception {
 		String integerValue = "-1";
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null);
-		Integer integer = new Integer(integerValue);
-		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
+		FormatContextImpl context = new FormatContextImpl("name", null, null);
+		Map<String, String> result = new IntPosPropertyFormatter().getAttributeNameValuePairs(context, new Integer(integerValue));
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", integerValue, result.get("value"));
 
-		context.getModelToXmlResult().clearErrors();
-		
-		String output = new IntPosPropertyFormatter().format(
+		String string = new IntPosPropertyFormatter().format(
 				context,
-				new INTImpl(integer));
-		assertEquals("xml output as expected", "<name value=\"-1\"/>", output.trim());
-		assertEquals("1 error", 1, context.getModelToXmlResult().getHl7Errors().size());
+				new INTImpl(new Integer(integerValue)));
+		assertTrue("warning: " + string, string.contains("<!-- WARNING:"));
 	}
 	
 }

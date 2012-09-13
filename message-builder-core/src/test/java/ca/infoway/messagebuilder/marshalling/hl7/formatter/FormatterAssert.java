@@ -30,7 +30,6 @@ import org.junit.Assert;
 
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class FormatterAssert extends Assert {
 
@@ -39,7 +38,7 @@ public class FormatterAssert extends Assert {
 		address.setUrlScheme(urlScheme);
 		
 		try {
-			formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+			formatter.getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 			fail("expected exception");
 			
 		} catch (ModelToXmlTransformationException e) {
@@ -51,7 +50,7 @@ public class FormatterAssert extends Assert {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
 		
-		Map<String, String> result = formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = formatter.getAttributeNameValuePairs(new FormatContextImpl("name", null, null), address);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));

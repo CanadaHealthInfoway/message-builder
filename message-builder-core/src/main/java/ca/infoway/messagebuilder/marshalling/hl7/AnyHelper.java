@@ -49,31 +49,16 @@ public class AnyHelper {
 			StandardDataType.CD_LAB.getType(), 
 			StandardDataType.ST.getType(),
 			StandardDataType.PQ_LAB.getType(),
-			StandardDataType.IVL_PQ_BASIC.getType(),
-			StandardDataType.IVL_PQ_DISTANCE.getType(),
-			StandardDataType.IVL_PQ_DRUG.getType(),
-			StandardDataType.IVL_PQ_HEIGHTWEIGHT.getType(),
-			StandardDataType.IVL_PQ_LAB.getType(),
-			StandardDataType.IVL_PQ_TIME.getType(),
+			StandardDataType.IVL_PQ.getType(),
 			StandardDataType.INT_NONNEG.getType(),
 			StandardDataType.INT_POS.getType(),
 			StandardDataType.TS_FULLDATETIME.getType(),
-			StandardDataType.URG_PQ_BASIC.getType(),
-			StandardDataType.URG_PQ_DISTANCE.getType(),
-			StandardDataType.URG_PQ_DRUG.getType(),
-			StandardDataType.URG_PQ_HEIGHTWEIGHT.getType(),
-			StandardDataType.URG_PQ_LAB.getType(),
-			StandardDataType.URG_PQ_TIME.getType()
+			StandardDataType.URG_PQ.getType()
 	});
 	
 	private static List<String> ANY_PATH_LIST = Arrays.asList(new String[] {
 			StandardDataType.ST.getType(),
-			StandardDataType.PQ_BASIC.getType(),
-			StandardDataType.PQ_DISTANCE.getType(),
-			StandardDataType.PQ_DRUG.getType(),
-			StandardDataType.PQ_HEIGHTWEIGHT.getType(),
-			StandardDataType.PQ_LAB.getType(),
-			StandardDataType.PQ_TIME.getType(),
+			StandardDataType.PQ.getType(),
 			StandardDataType.ED_DOC_OR_REF.getType(),
 			StandardDataType.CD_LAB.getType() 
 	});

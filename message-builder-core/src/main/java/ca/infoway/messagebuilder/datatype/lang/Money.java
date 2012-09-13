@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.datatype.lang;
 
 import java.math.BigDecimal;
 
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
-
 /**
  * <p>Java datatype backing the Hl7 Datatype MO (MO.CAD).
  * 

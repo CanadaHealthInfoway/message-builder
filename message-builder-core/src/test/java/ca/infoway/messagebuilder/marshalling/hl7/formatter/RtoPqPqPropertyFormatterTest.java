@@ -20,50 +20,33 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+
+import static ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIGRAM;
+import static ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLILITRE;
 
 import java.math.BigDecimal;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
-import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 public class RtoPqPqPropertyFormatterTest extends FormatterTestCase {
 
-	@Before
-	public void setup() {
-		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-	}
-	
 	@Test
 	public void testBasic() throws Exception {
         Ratio<PhysicalQuantity, PhysicalQuantity> ratio = new Ratio<PhysicalQuantity, PhysicalQuantity> ();
         ratio.setNumerator(new PhysicalQuantity(new BigDecimal("1.00"), MILLIGRAM));
         ratio.setDenominator(new PhysicalQuantity(new BigDecimal("10.00"), MILLILITRE));
         
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.DRUG>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(ratio));
-		assertXml("result", "<name><numerator unit=\"mg\" value=\"1.00\"/><denominator unit=\"ml\" value=\"10.00\"/></name>", result);
+		String result = new RtoPqPqPropertyFormatter().format(getContext("name"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(ratio));
+		assertXml("result", "<name><numerator unit=\"mg\" value=\"1.00\" xsi:type=\"PQ\"/><denominator unit=\"ml\" value=\"10.00\" xsi:type=\"PQ\"/></name>", result);
 	}
 	
 	@Test
 	public void testNullCase() throws Exception {
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.TIME>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>());
+		String result = new RtoQtyQtyPropertyFormatter().format(getContext("name"), new RTOImpl<BigDecimal, BigDecimal>());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
-	}
-	
-	@Test
-	public void testInvalidNullCase() throws Exception {
-		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.TIME>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(new Ratio<PhysicalQuantity, PhysicalQuantity>()));
-		assertNotNull(result);
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
 	}
 }

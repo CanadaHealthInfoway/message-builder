@@ -38,7 +38,13 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
     @Override
     String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
     	V value = extractBareValue(bareAny);
-        return createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true);
+    	validateContext(context);
+    	StringBuilder builder = new StringBuilder();
+    	if (isInvalidValue(context, value)) {
+    		builder.append(createWarning(indentLevel, createWarningText(context, value)));
+    	}
+        builder.append(createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true));
+        return builder.toString();
     }
 
     @Override
@@ -46,6 +52,19 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
 		throw new UnsupportedOperationException("Different formatNonNullValue handler used for AbstractAttributePropertyFormatter");
 	}
 	
-	abstract Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny) throws ModelToXmlTransformationException;
+    protected String createWarningText(FormatContext context, V value) {
+		return "Value " + value + " is not valid";
+	}
 
+	boolean isInvalidValue(FormatContext context, V value) {
+		return false;
+	}
+
+	Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny) throws ModelToXmlTransformationException {
+		return getAttributeNameValuePairs(context, value);
+    }
+
+	Map<String, String> getAttributeNameValuePairs(FormatContext context, V value) throws ModelToXmlTransformationException {
+		throw new IllegalStateException("getAttributeNameValuePairs(FormatContext,T) is not implemented");
+    }
 }

@@ -68,6 +68,7 @@ public class RevisePersonTransformationTest extends BaseTransformerTestCase {
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		System.out.println(xml);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE)), actual);
 	}

@@ -45,8 +45,6 @@ public class DomainTypeHelper {
 		}
 		return type;
 	}
-	
-	@SuppressWarnings("unchecked")
 	private static Class<? extends Code> getReturnType(Relationship relationship) {
 		String domainType = sanitize(relationship.getDomainType());
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {

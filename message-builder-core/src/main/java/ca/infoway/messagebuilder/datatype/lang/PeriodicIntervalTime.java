@@ -20,16 +20,14 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.Representation.FREQUENCY;
-import static ca.infoway.messagebuilder.datatype.lang.util.Representation.PERIOD;
-import static ca.infoway.messagebuilder.datatype.lang.util.Representation.PERIOD_PHASE;
-import static ca.infoway.messagebuilder.datatype.lang.util.Representation.PHASE;
+import static ca.infoway.messagebuilder.datatype.lang.Representation.FREQUENCY;
+import static ca.infoway.messagebuilder.datatype.lang.Representation.PERIOD;
+import static ca.infoway.messagebuilder.datatype.lang.Representation.PERIOD_PHASE;
+import static ca.infoway.messagebuilder.datatype.lang.Representation.PHASE;
 
 import java.util.Date;
 
 import org.apache.commons.lang.Validate;
-
-import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 
 /**
  * <p>Periodic Interval of Time (PIVL) specializes SXCM. Backed by a java Date.

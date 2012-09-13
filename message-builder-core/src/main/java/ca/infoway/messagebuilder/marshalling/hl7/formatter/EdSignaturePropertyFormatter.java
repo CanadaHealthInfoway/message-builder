@@ -58,6 +58,7 @@ class EdSignaturePropertyFormatter extends AbstractNullFlavorPropertyFormatter<S
 
     @Override
     String formatNonNullValue(FormatContext context, String signature, int indentLevel) throws ModelToXmlTransformationException {
+    	validateContext(context);
 
         StringBuffer buffer = new StringBuffer();
         buffer.append(createElement(context, TOP_LEVEL_ATTRIBUTES, indentLevel, false, true));

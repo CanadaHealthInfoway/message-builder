@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 class AttributeValueBridge implements AttributeBridge {
 
 	private final ANY any;

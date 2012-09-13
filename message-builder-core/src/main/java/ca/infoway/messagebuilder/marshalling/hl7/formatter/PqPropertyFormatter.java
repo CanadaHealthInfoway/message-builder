@@ -20,15 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-
-import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
+
 
 /**
  * PQ - Physical Quantity
@@ -36,53 +29,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
  * Represents a Physical Quantity object as an element:
  *
  * &lt;element-name value="123.33" unit="mg"/&gt;
+ *
+ * This is the default HL7 implementation of the formatter without any wacky CeRx additions.
+ *
  * 
  */
 @DataTypeHandler("PQ")
-public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<PhysicalQuantity> {
-	
-	public static final String ATTRIBUTE_UNIT = "unit";
-	public static final String ATTRIBUTE_VALUE = "value";
-	
-	private final PqValidationUtils pqValidationUtils = new PqValidationUtils();
-
-    @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) throws ModelToXmlTransformationException {
-    	
-        validatePhysicalQuantity(context, physicalQuantity);
-		
-        return createPhysicalQuantityAttributes(physicalQuantity);
-    }
-
-	private void validatePhysicalQuantity(FormatContext context, PhysicalQuantity physicalQuantity) {
-		String type = context.getType();
-        ModelToXmlResult errors = context.getModelToXmlResult();
-        
-        String quantityAsString = physicalQuantity.getQuantity() == null ? null : physicalQuantity.getQuantity().toPlainString();
-		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, null, errors);
-        
-		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
-		this.pqValidationUtils.validateUnits(type, unitsAsString, null, errors);
-	}
-
-	private Map<String, String> createPhysicalQuantityAttributes(PhysicalQuantity physicalQuantity) {
-		Map<String, String> result = new HashMap<String, String>();
-        if (physicalQuantity.getQuantity() == null) {
-            result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
-        } else {
-        	result.put(ATTRIBUTE_VALUE, formatQuantity(physicalQuantity.getQuantity()));
-        } 
-        
-        // if unit is null, then this is considered an "each"
-        if (physicalQuantity.getUnit() != null) {
-            result.put(ATTRIBUTE_UNIT, physicalQuantity.getUnit().getCodeValue());
-        }
-
-        return result;
-	}
-
-    private String formatQuantity(BigDecimal quantity) {
-    	// Redmine 1570 - don't change value even if incorrect; just call toString on it
-        return quantity.toPlainString(); 
-    }
+public class PqPropertyFormatter extends AbstractPqPropertyFormatter {
 }

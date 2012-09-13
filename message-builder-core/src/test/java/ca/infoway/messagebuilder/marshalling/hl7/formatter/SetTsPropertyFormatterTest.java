@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 /**
  * @author administrator
@@ -45,7 +44,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY), 
+        String result = new SetPropertyFormatter().format(new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
         		new SETImpl<TS, Date>(TSImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -60,7 +59,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
         set.rawSet().addAll(makeSet(calendar1, calendar2));
         
 		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY), 
+				new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
 				set);
 		
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");

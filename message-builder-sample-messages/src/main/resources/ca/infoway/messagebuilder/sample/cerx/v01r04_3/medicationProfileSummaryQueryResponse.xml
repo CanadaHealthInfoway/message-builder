@@ -23,10 +23,10 @@
 
 <PORX_IN060400CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
-    <id root="1.2.3.4.5.6.7.8" extension="msgExt" />
-    <creationTime value="20080625141610.0000-0400"/>
+    <id root="1.2.3.4.5.6.7.8"/>
+    <creationTime value="20080625141610-0400"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId extension="PORX_IN060400CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060400CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="AL"/>
@@ -54,7 +54,7 @@
       <id extension="8141234" root="2.16.840.1.113883.1.6"/>
       <code code="PORX_TE060310UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
-      <effectiveTime value="20080918000000.0000-0400"/>
+      <effectiveTime value="20080918000000-0400"/>
       <subject typeCode="SUBJ" contextConductionInd="false">
         <combinedMedicationRequest classCode="SBADM" moodCode="RQO">
           <id extension="extention" root="1.2.3"/>
@@ -124,7 +124,7 @@
             <subsetCode code="FIRST"/>
             <supplyEventFirstSummary classCode="SPLY" moodCode="EVN">
               <effectiveTime>
-                <high value="19691231"/>
+                <low value="19691231"/>
               </effectiveTime>
               <quantity unit="U" value="1"/>
             </supplyEventFirstSummary>
@@ -133,7 +133,7 @@
             <subsetCode code="RECENT"/>
             <supplyEventLastSummary classCode="SPLY" moodCode="EVN">
               <effectiveTime>
-                <high value="19691231"/>
+                <low value="19691231"/>
               </effectiveTime>
               <quantity unit="U" value="1"/>
             </supplyEventLastSummary>
@@ -197,7 +197,7 @@
         <resultRemainingQuantity value="0"/>
       </queryAck>
       <queryByParameter>
-        <queryId root="1.2.3.4.5.6.7.8.9" extension="queryExt" />
+        <queryId root="1.2.3.4.5.6.7.8.9"/>
 <!--        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>-->
         <parameterList>
           <administrationEffectivePeriod>
@@ -208,8 +208,8 @@
           </administrationEffectivePeriod>
           <amendedInTimeRange>
             <value>
-              <low value="19700101000000.0000-0500"/>
-              <high value="20200101000000.0000-0500"/>
+              <low value="19700101000000-0500"/>
+              <high value="20200101000000-0500"/>
             </value>
           </amendedInTimeRange>
           <issueFilterCode>

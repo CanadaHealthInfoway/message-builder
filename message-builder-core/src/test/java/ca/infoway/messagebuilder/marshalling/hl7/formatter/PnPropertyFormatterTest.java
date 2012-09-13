@@ -27,7 +27,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 
 public class PnPropertyFormatterTest extends FormatterTestCase {
 	

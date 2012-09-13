@@ -38,9 +38,9 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
@@ -198,11 +198,11 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 		
 		MedicationProfileSummaryQueryResponseMessageBean model = new MedicationProfileSummaryQueryResponseMessageBean(criteria);
 		MessageBeanBuilderSupport.populateMoreBetterStandardValues(model.getMessageAttributes());
-		model.getMessageAttributes().setMessageId(new Identifier("1.2.3.4.5.6.7.8", "msgExt"));
+		model.getMessageAttributes().setMessageId(new Identifier("1.2.3.4.5.6.7.8"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 //		MessageAttributeBeanTestData.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.MEDICATION_PROFILE_SUMMARY_RESPONSE);
-		model.setQueryId(new Identifier("1.2.3.4.5.6.7.8.9", "queryExt"));
+		model.setQueryId(new Identifier("1.2.3.4.5.6.7.8.9"));
 
 		MessageBeanBuilderSupport.populateAcknowledgement(model.getAcknowledgement());
 
@@ -247,7 +247,7 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 
 	private SupplySummaryBean createSupplySummaryBean() {
 		SupplySummaryBean bean = new SupplySummaryBean();
-		bean.setEffectiveTime(IntervalFactory.createHigh(new Date(0)));
+		bean.setEffectiveTime(IntervalFactory.createLow(new Date(0)));
 		bean.setQuantity(createPhysicalQuantity(1));
 		return bean;
 	}

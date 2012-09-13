@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
-
 /**
  * <p>Set Component (SXCM)
  * 

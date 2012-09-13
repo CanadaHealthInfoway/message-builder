@@ -20,11 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
+import static ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLIGRAM;
+import static ca.infoway.messagebuilder.datatype.lang.UnitsOfMeasureCaseSensitive.MILLILITRE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 
@@ -35,13 +36,13 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.RTO;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
+import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
@@ -52,27 +53,28 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("RTO<PQ.DRUG,PQ.DRUG>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(null, node, null).getBareValue();
 		assertNotNull("ratio", ratio);
 		assertNull("numerator", ratio.getNumerator());
 		assertNull("denominator", ratio.getDenominator());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
+        resolver.addDomainValue(MILLIGRAM, UnitsOfMeasureCaseSensitive.class);
+        resolver.addDomainValue(MILLILITRE, UnitsOfMeasureCaseSensitive.class);
+        
 		Node node = createNode("<something><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
-        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(null, node, null).getBareValue();
         assertNotNull("ratio", ratio);
         assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getQuantity());
-        assertEquals("numerator unit", MILLIGRAM.getCodeValue(), ratio.getNumerator().getUnit().getCodeValue());
+        assertEquals("numerator unit", MILLIGRAM, ratio.getNumerator().getUnit());
         assertEquals("denominator", new BigDecimal("2345.67"), ratio.getDenominator().getQuantity());
         assertEquals("denominator unit", MILLILITRE.getCodeValue(), ratio.getDenominator().getUnit().getCodeValue());
 	}
@@ -80,7 +82,12 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
         Node node = createNode("<something><numerator value=\"monkey\" /><denominator value=\"2345.67\" /></something>");
-		new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult);
-		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		try {
+			new RtoPqPqElementParser().parse(null, node, null);
+			fail("expected exception");
+			
+		} catch (NumberFormatException e) {
+			// expected
+		}
 	}
 }

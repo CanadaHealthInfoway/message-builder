@@ -29,7 +29,6 @@ import java.io.IOException;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -84,11 +83,6 @@ public class Hl7SourceMapperNullFlavorTest {
 		this.service = new MockTestCaseMessageDefinitionService();
 	}
 
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
-	}
-	
 	private Relationship createRelationship(String type) {
 		Relationship relationship = new Relationship();
 		relationship.setType(type);

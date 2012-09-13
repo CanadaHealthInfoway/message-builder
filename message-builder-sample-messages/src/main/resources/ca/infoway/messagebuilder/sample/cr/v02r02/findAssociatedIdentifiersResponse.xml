@@ -23,10 +23,10 @@
 
 <PRPA_IN101106CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
 	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-	<creationTime value="20080625141610.0000-0400"/>
+	<creationTime value="20080625141610-0400"/>
 	<responseModeCode code="I"/>
 	<versionCode code="V3-2007-05"/>
-	<interactionId extension="PRPA_IN101106CA" root="2.16.840.1.113883.1.6" displayable="true" />
+	<interactionId displayable="true" specializationType="II.PUBLIC" extension="PRPA_IN101106CA" root="2.16.840.1.113883.1.6" displayable="true" />
 	<processingCode code="P"/>
 	<processingModeCode code="T"/>
 	<acceptAckCode code="AL"/>

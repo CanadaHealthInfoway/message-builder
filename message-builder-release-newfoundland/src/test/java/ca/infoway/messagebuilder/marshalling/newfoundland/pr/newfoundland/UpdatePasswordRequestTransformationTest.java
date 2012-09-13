@@ -118,7 +118,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 		model.getControlActEvent().setCode(HL7TriggerEventCode.UPDATE_PASSWORD_REQUEST_ACCEPTED);
 		model.getControlActEvent().setRegistrationBean(new RegistrationEventBean<ActEventBean>());
 		model.getControlActEvent().getRegistrationBean().setRecord(new ActEventBean());
-		model.getControlActEvent().getRegistrationBean().getRecord().setId(new Identifier("12345ff1-08ab-4fe7-b573-ea777e9bad51"));		
+		model.getControlActEvent().getRegistrationBean().getRecord().setId(new Identifier("1.2.3.4.5", "555"));		
 		
 		AssignedDeviceBean custodian = new AssignedDeviceBean();
 		custodian.setId(new Identifier("1.2.3.4.5", "444"));
@@ -148,7 +148,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 		model.getControlActEvent().setCode(HL7TriggerEventCode.UPDATE_PASSWORD_REQUEST_REFUSED);
 		model.getControlActEvent().setRegistrationBean(new RegistrationEventBean<ActEventBean>());
 		model.getControlActEvent().getRegistrationBean().setRecord(new ActEventBean());
-		model.getControlActEvent().getRegistrationBean().getRecord().setId(new Identifier("12345ff1-08ab-4fe7-b573-ea777e9bad51"));
+		model.getControlActEvent().getRegistrationBean().getRecord().setId(new Identifier("1.2.3.4.5", "555"));
 		
 		AssignedDeviceBean custodian = new AssignedDeviceBean();
 		custodian.setId(new Identifier("1.2.3.4.5", "444"));

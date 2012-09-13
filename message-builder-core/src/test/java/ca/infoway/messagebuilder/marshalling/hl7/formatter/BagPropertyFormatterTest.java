@@ -32,14 +32,13 @@ import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class BagPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new BagPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL), 
+				new FormatContextImpl("telecom", "BAG<TEL>", OPTIONAL), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
@@ -47,7 +46,7 @@ public class BagPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new BagPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL), 
+				new FormatContextImpl("telecom", "BAG<TEL>", OPTIONAL), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						createTelecommunicationAddressList()));

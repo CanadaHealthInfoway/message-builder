@@ -20,25 +20,21 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.PLAIN_TEXT;
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
+import static ca.infoway.messagebuilder.datatype.lang.Compression.GZIP;
+import static ca.infoway.messagebuilder.datatype.lang.MediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.datatype.lang.MediaType.XML_TEXT;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
+import ca.infoway.messagebuilder.datatype.lang.MediaType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -54,43 +50,36 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
-		ED<EncapsulatedData> ed = (ED<EncapsulatedData>) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
-		assertTrue(this.xmlResult.isValid());
+		ED<EncapsulatedData> ed = (ED<EncapsulatedData>) new EdElementParser().parse(createContext(), node, null);
 		assertNull("data", ed.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ed.getNullFlavor());
 	}
-	
-	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, EncapsulatedData.class, version, null, null, ConformanceLevel.POPULATED);
+	private ParseContext createContext() {
+		return ParserContextImpl.create("ED", EncapsulatedData.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		BareANY parseResult = new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
-		assertNull("data", parseResult.getBareValue());
-		assertFalse(this.xmlResult.isValid());
-		assertEquals(2, this.xmlResult.getHl7Errors().size()); // missing mediaType and content
+		assertEquals("data", null, new EdElementParser().parse(null, node, null).getBareValue());
 	}
 
 	@Test
 	public void testParseTextNodeNoCompression() throws Exception {
 		Node node = createNode("<something mediaType=\"text/plain\">" + TEXT_SIMPLE +
 				"</something>");
-		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("content", TEXT_SIMPLE, new String(data.getContent()));
-		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
+		assertEquals("media type", MediaType.PLAIN_TEXT, data.getMediaType());
 	}
 
 	@Test
 	public void testParseTextNodeWithCompression() throws Exception {
 		Node node = createNode("<something mediaType=\"text/plain\" representation=\"B64\">" + TEXT_SIMPLE +
 		"</something>");
-		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("content", "This is a test", new String(data.getContent()));
-		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
+		assertEquals("media type", MediaType.PLAIN_TEXT, data.getMediaType());
 	}
 	
 	@Test
@@ -101,7 +90,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"<shines/>" +
 				"</something>");
 		try {
-			new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
+			new EdElementParser().parse(null, node, null);
 			fail("expected exception");
 		} catch (XmlToModelTransformationException e) {
 			// expected
@@ -110,58 +99,55 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseValueCompressedXmlData() throws Exception {
-		Node node = createNode("<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
+		Node node = createNode("<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>");
-		CompressedData data = (CompressedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		CompressedData data = (CompressedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("media type", XML_TEXT, data.getMediaType());
 		assertEquals("Compression type", GZIP, data.getCompression());
-		assertEquals("language", "en-CA", data.getLanguage());
+		assertEquals("language", "ENG", data.getLanguage());
 		assertEquals("content", "<xml>foo</xml>", BytesUtil.asString(data.getUncompressedContent()));
 	}
 	
 	@Test
 	public void testParseValueCompressedXmlEmptyData() throws Exception {
-		Node node = createNode("<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
+		Node node = createNode("<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAAAMAAAAAAAAAAAA=</name>");
-		CompressedData data = (CompressedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		CompressedData data = (CompressedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("media type", XML_TEXT, data.getMediaType());
 		assertEquals("Compression type", GZIP, data.getCompression());
-		assertEquals("language", "en-CA", data.getLanguage());
+		assertEquals("language", "ENG", data.getLanguage());
 		assertEquals("content", "", BytesUtil.asString(data.getUncompressedContent()));
 	}
 	
 	@Test
 	public void testParseValueCompressedXmlNullData() throws Exception {
-		Node node = createNode("<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\"></name>");
-		CompressedData data = (CompressedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertFalse(this.xmlResult.isValid());
-		assertEquals(1, this.xmlResult.getHl7Errors().size()); // content missing
+		Node node = createNode("<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/xml\" representation=\"B64\"></name>");
+		CompressedData data = (CompressedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("media type", XML_TEXT, data.getMediaType());
 		assertEquals("Compression type", GZIP, data.getCompression());
-		assertEquals("language", "en-CA", data.getLanguage());
+		assertEquals("language", "ENG", data.getLanguage());
 		assertNull("content", data.getUncompressedContent());
 	}
 
 	@Test
 	public void testParseValueCompressedTextData() throws Exception {
-		Node node = createNode("<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/plain\" representation=\"B64\">" +
+		Node node = createNode("<name compression=\"GZ\" language=\"ENG\" mediaType=\"text/plain\" representation=\"B64\">" +
 				"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>");
-		CompressedData data = (CompressedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		CompressedData data = (CompressedData) new EdElementParser().parse(null, node, null).getBareValue();
 		assertEquals("media type", PLAIN_TEXT, data.getMediaType());
 		assertEquals("Compression type", GZIP, data.getCompression());
-		assertEquals("language", "en-CA", data.getLanguage());
+		assertEquals("language", "ENG", data.getLanguage());
 		assertEquals("content", "<xml>foo</xml>", BytesUtil.asString(data.getUncompressedContent()));
 	}
 	
+	private ParseContext createEdContext() {
+		return ParserContextImpl.create("ED.DOCORREF", String.class, SpecificationVersion.V02R02, null, null, null);
+	}
+
 	@Test
 	public void testParseTextNode() throws Exception {
 		Node node = createNode("<something>this is a text node</something>");
-		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
-		assertFalse(this.xmlResult.isValid());
-		assertEquals(2, this.xmlResult.getHl7Errors().size());  // must provide specializationType and mediaType
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createEdContext(), node, null).getBareValue();
 		assertEquals("signature", 
 				"this is a text node", 
 				new String(value.getContent()));
@@ -169,22 +155,19 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseTextNodeWithAttributes() throws Exception {
-		Node node = createNode("<something specializationType=\"ED.DOC\" mediaType=\"text/plain\" reference=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\">text value</something>");
-		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
-		assertFalse(this.xmlResult.isValid());
-		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		Node node = createNode("<something mediaType=\"text/plain\" reference=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createEdContext(), node, null).getBareValue();
 		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
-		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper media type returned", MediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
 	
 	@Test
 	public void testParseReferenceTypeUsingNewerReferenceFormat() throws Exception {
-		Node node = createNode("<text specializationType=\"ED.DOCREF\" mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>");
-		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid());
+		Node node = createNode("<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createEdContext(), node, null).getBareValue();
 		assertNull("no text returned", value.getContent());
-		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
+		assertEquals("proper media type returned", MediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
 	

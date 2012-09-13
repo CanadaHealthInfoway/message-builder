@@ -20,8 +20,8 @@
 
 package ca.infoway.messagebuilder.model.mock;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.FAMILY;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.GIVEN;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.FAMILY;
+import static ca.infoway.messagebuilder.datatype.lang.PersonNamePartType.GIVEN;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
 import static ca.infoway.messagebuilder.domainvalue.transport.ProcessingID.PRODUCTION;
 import static ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode.CURRENT_PROCESSING;
@@ -31,8 +31,8 @@ import java.util.Date;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
@@ -172,7 +172,7 @@ public class MessageBeanBuilderSupport {
 	@Deprecated
 	public static void populateBetterStandardValuesV02(NewBaseMessageBean messageAttributes) {
 		populateStandardValuesV02(messageAttributes);
-		messageAttributes.getReceiver().getTelecommunicationAddress().setUrlScheme(ca.infoway.messagebuilder.domainvalue.basic.URLScheme.HTTP);
+		messageAttributes.getReceiver().getTelecommunicationAddress().setUrlScheme(ca.infoway.messagebuilder.datatype.lang.URLScheme.HTTP);
 		messageAttributes.getReceiver().getTelecommunicationAddress().setAddress("123.255.255.10");
 	}
 	public static void populateMoreBetterStandardValues(NewBaseMessageBean messageAttributes) {

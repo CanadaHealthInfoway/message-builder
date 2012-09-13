@@ -20,19 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.text.MessageFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.ArrayUtils;
-
-import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
 /**
@@ -52,41 +43,11 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
 @DataTypeHandler({"TS.FULLDATE", "TS.DATE"})
 public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
-    private static final String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
+    private final static String DATE_FORMAT_YYYYMMDD = "yyyyMMdd";
 
     @Override
-    protected String getValue(Date date, FormatContext context, BareANY bareAny) {
+    protected String getValue(Date date, FormatContext context) {
 		TimeZone timeZone = context != null && context.getDateTimeZone() != null ? context.getDateTimeZone() : TimeZone.getDefault();
-		String datePattern = determineDatePattern(date);
-		validateDatePattern(datePattern, context);
-		return DateFormatUtil.format(date, datePattern, timeZone);
+		return DateFormatUtil.format(date, DATE_FORMAT_YYYYMMDD, timeZone);
     }
-    
-	private String determineDatePattern(Date date) {
-		String datePattern = getPatternFromDateWithPattern(date);
-		if (datePattern == null) {
-			datePattern = DATE_FORMAT_YYYYMMDD;
-		}
-		return datePattern;
-	}
-
-	private void validateDatePattern(String datePattern, FormatContext context) {
-		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
-		VersionNumber version = (context == null ? null : context.getVersion());
-		String[] allowedDateFormats = TsDateFormats.getAllDateFormats(standardDataType, version);
-		if (!ArrayUtils.contains(allowedDateFormats, datePattern)) {
-			Hl7Error hl7Error = new Hl7Error(
-					Hl7ErrorCode.DATA_TYPE_ERROR, 
-					MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()));
-			context.getModelToXmlResult().addHl7Error(hl7Error);
-		}
-	}
-
-	private String getPatternFromDateWithPattern(Date date) {
-		if (date instanceof ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern) {
-			return ((ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern)date).getDatePattern();
-		}
-		return null;
-	}
-	
 }

@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -51,11 +50,6 @@ public class Hl7SourceMapperMessageBeanTest {
 		this.document = getSourceDocument();
 		this.service = new MockTestCaseMessageDefinitionService();
 		this.messageSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, null, null, service);
-	}
-	
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

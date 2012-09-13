@@ -20,15 +20,10 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import ca.infoway.messagebuilder.datatype.lang.util.Representation;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-
 /**
  * <p>Uncertain Range.
  * 
- * <p>This java data type is used when a continuous range needs to be expressed.
- *  
- * <p>Recommended to use the UncertainRangeFactory class for object creation
+ * <p>This java data type is used when a continuous range needs to be expressed. 
  *
  * <p>For URG&lt;TS.DATE&gt; This data type is used when an occurrence is tied to a specific date, 
  * but the actual date is not known, merely the range of dates within which the date falls. 
@@ -48,113 +43,140 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class UncertainRange<T> extends Interval<T> {
 
-	private Boolean lowInclusive;
-	private Boolean highInclusive;
-
 	/**
+	 * <p>Constructs an uncertain range.
 	 * 
-	 * @param interval
+	 * @param low lower bound
+	 * @param high upper bound
+	 * @param centre middle bound
+	 * @param width size of width
+	 * @param representation the type of range
 	 */
-	public UncertainRange(Interval<T> interval) {
-		this(interval.getLow(), interval.getHigh(), interval.getCentre(), interval.getWidth(), interval.getRepresentation(), interval.getLowNullFlavor(), interval.getHighNullFlavor(), interval.getCentreNullFlavor(), null, null);
+	UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation) {
+		super(low, high, centre, width, representation);
 	}
 
 	/**
+	 * <p>Constructs an uncertain range (low/high).
 	 * 
-	 * @param interval
-	 * @param lowInclusive
-	 * @param highInclusive
+	 * @param <T> the type of the bounds
+	 * @param low lower bound
+	 * @param high upper bound
+	 * @return the constructed uncertain range
 	 */
-	public UncertainRange(Interval<T> interval, Boolean lowInclusive, Boolean highInclusive) {
-		this(interval.getLow(), interval.getHigh(), interval.getCentre(), interval.getWidth(), interval.getRepresentation(), interval.getLowNullFlavor(), interval.getHighNullFlavor(), interval.getCentreNullFlavor(), lowInclusive, highInclusive);
+	public static <T> UncertainRange<T> createLowHigh(T low, T high) {
+		return new UncertainRange<T>(low, high, GenericMath.average(low, high), GenericMath.diff(low, high), Representation.LOW_HIGH);
+	}
+
+	/**
+	 * <p>Constructs an uncertain range (low/width).
+	 * 
+	 * @param <T> the type of the bounds
+	 * @param low lower bound
+	 * @param width size of width
+	 * @return the constructed uncertain range
+	 */
+	public static <T> UncertainRange<T> createLowWidth(T low, Diff<T> width) {
+		T high =  GenericMath.add(low, width);
+		return new UncertainRange<T>(low, high, GenericMath.average(low, high), width, Representation.LOW_WIDTH);
 	}
 	
 	/**
-	 * <p>Constructs an uncertain range.
+	 * <p>Constructs an uncertain range (width/high).
 	 * 
-	 * <p>Recommended to use the UncertainRangeFactory class for object creation
-	 * 
-	 * @param low lower bound
-	 * @param high upper bound
-	 * @param centre middle bound
+	 * @param <T> the type of the bounds
 	 * @param width size of width
-	 * @param representation the type of range
+	 * @param high higher bound
+	 * @return the constructed uncertain range
 	 */
-	public UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation) {
-		this(low, high, centre, width, representation, null, null, null);
+	public static <T> UncertainRange<T> createWidthHigh(Diff<T> width, T high) {
+		T low =  GenericMath.diff(width.getValue(), high).getValue();
+		return new UncertainRange<T>(low, high, GenericMath.average(low, high), width, Representation.WIDTH_HIGH);
+	}
+	
+	/**
+	 * <p>Constructs an uncertain range (centre/width).
+	 * 
+	 * @param <T> the type of the bounds
+	 * @param centre centre bound
+	 * @param width size of width
+	 * @return the constructed uncertain range
+	 */
+	public static <T> UncertainRange<T> createCentreWidth(T centre, Diff<T> width) {
+		T half = GenericMath.half(width.getValue());
+		T low = GenericMath.diff(half, centre).getValue();
+		T high = GenericMath.add(low, width);
+		return new UncertainRange<T>(low, high, centre, width, Representation.CENTRE_WIDTH);
 	}
 
 	/**
-	 * <p>Constructs an uncertain range.
+	 * <p>Constructs an uncertain range (centre/high).
 	 * 
-	 * <p>Recommended to use the UncertainRangeFactory class for object creation
-	 * 
-	 * @param low lower bound
-	 * @param high upper bound
-	 * @param centre middle bound
-	 * @param width size of width
-	 * @param representation the type of range
-	 * @param lowInclusive
-	 * @param highInclusive
+	 * @param <T> the type of the bounds
+	 * @param center center bound
+	 * @param high higher bound
+	 * @return the constructed uncertain range
 	 */
-	public UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation, Boolean lowInclusive, Boolean highInclusive) {
-		this(low, high, centre, width, representation, null, null, null, lowInclusive, highInclusive);
+	public static <T> UncertainRange<T> createCentreHigh(T center, T high) {
+		T half = GenericMath.diff(center, high).getValue();
+		T low = GenericMath.diff(half, center).getValue();
+		return new UncertainRange<T>(low, high, center, GenericMath.diff(low, high), Representation.CENTRE_HIGH);
+	}
+	
+	/**
+	 * <p>Constructs an uncertain range (low).
+	 * 
+	 * @param <T> the type of the bounds
+	 * @param low lower bound
+	 * @return the constructed uncertain range
+	 */
+	public static <T> UncertainRange<T> createLow(T low) {
+		return new UncertainRange<T>(low, null, null, null, Representation.LOW);
+	}
+	
+	/**
+	 * <p>Constructs an uncertain range (low/centre).
+	 * 
+	 * @param <T> the type of the bounds
+	 * @param low lower bound
+	 * @param center center bound
+	 * @return the constructed uncertain range
+	 */
+	public static <T> UncertainRange<T> createLowCenter(T low, T center) {
+		return new UncertainRange<T>(low, null, center, null, Representation.LOW_CENTER);
 	}
 
 	/**
-	 * <p>Constructs an uncertain range.
+	 * <p>Constructs an uncertain range (width).
 	 * 
-	 * <p>Recommended to use the UncertainRangeFactory class for object creation
-	 * 
-	 * @param low lower bound
-	 * @param high upper bound
-	 * @param centre middle bound
-	 * @param width size of width
-	 * @param representation the type of range
-	 * @param lowNullFlavor
-	 * @param highNullFlavor
-	 * @param centreNullFlavor
+	 * @param <T> the type of the bounds
+	 * @param diff the width diff
+	 * @return the constructed uncertain range
 	 */
-	public UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor) {
-		this(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor, null, null);
+	public static <T> UncertainRange<T> createWidth(Diff<T> diff) {
+		return new UncertainRange<T>(null, null, null, diff, Representation.WIDTH);
+	}
+	
+	/**
+	 * <p>Constructs an uncertain range (high).
+	 * 
+	 * @param <T> the type of the bounds
+	 * @param high higher bound
+	 * @return the constructed uncertain range
+	 */
+	public static <T> UncertainRange<T> createHigh(T high) {
+		return new UncertainRange<T>(null, high, null, null, Representation.HIGH);
 	}
 
 	/**
-	 * <p>Constructs an uncertain range.
+	 * <p>Constructs an uncertain range (centre).
 	 * 
-	 * <p>Recommended to use the UncertainRangeFactory class for object creation
-	 * 
-	 * @param low lower bound
-	 * @param high upper bound
-	 * @param centre middle bound
-	 * @param width size of width
-	 * @param representation the type of range
-	 * @param lowNullFlavor
-	 * @param highNullFlavor
-	 * @param centreNullFlavor
-	 * @param lowInclusive
-	 * @param highInclusive
+	 * @param <T> the type of the bounds
+	 * @param centre centre bound
+	 * @return the constructed uncertain range
 	 */
-	public UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, Boolean lowInclusive, Boolean highInclusive) {
-		super(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor);
-		this.lowInclusive = lowInclusive;
-		this.highInclusive = highInclusive;
+	public static <T> UncertainRange<T> createCentre(T centre) {
+		return new UncertainRange<T>(null, null, centre, null, Representation.CENTRE);
 	}
-
-	public Boolean getLowInclusive() {
-		return this.lowInclusive;
-	}
-
-	public void setLowInclusive(Boolean lowInclusive) {
-		this.lowInclusive = lowInclusive;
-	}
-
-	public Boolean getHighInclusive() {
-		return this.highInclusive;
-	}
-
-	public void setHighInclusive(Boolean highInclusive) {
-		this.highInclusive = highInclusive;
-	}
-
+	
 }

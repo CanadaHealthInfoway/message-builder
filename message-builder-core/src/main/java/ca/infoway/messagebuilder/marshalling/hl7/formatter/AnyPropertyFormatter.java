@@ -40,26 +40,16 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 
 	@Override
 	public String format(FormatContext formatContext, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
-		String specializationType = hl7Value.getDataType().getType();
-		PropertyFormatter formatter = FormatterRegistry.getInstance().get(specializationType);
+		String type = hl7Value.getDataType().getType();
+		PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 		String parentType = formatContext.getType();
-		if (formatter == null || !AnyHelper.isValidTypeForAny(parentType, specializationType)) {
-			String errorText = "Cannot support properties of type " + specializationType + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
+		if (formatter == null || !AnyHelper.isValidTypeForAny(parentType, type)) {
+			String errorText = "Cannot support properties of type " + type + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
 			throw new ModelToXmlTransformationException(errorText);
 		} else {
 			return formatter.format(
-					new FormatContextImpl(
-							formatContext.getModelToXmlResult(), 
-							formatContext.getPropertyPath(), 
-							formatContext.getElementName(), 
-							specializationType, 
-							formatContext.getConformanceLevel(), 
-							true, 
-							formatContext.getVersion(), 
-							formatContext.getDateTimeZone(), 
-							formatContext.getDateTimeTimeZone()), 
-					hl7Value, 
-					indentLevel);
+					new FormatContextImpl(formatContext.getElementName(), type, formatContext.getConformanceLevel(), true, null, null, null), 
+					hl7Value, indentLevel);
 		}
 	}
 	

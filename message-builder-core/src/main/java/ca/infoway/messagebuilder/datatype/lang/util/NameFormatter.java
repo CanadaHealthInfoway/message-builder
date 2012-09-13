@@ -30,6 +30,7 @@ import org.apache.commons.collections.CollectionUtils;
 
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 
 /**
  * <p>An abstract formatter for PersonName. Contains an inner class implementation. 

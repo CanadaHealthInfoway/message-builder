@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.3.5-SNAPSHOT</version>
+	<version>1.3.4.1</version>
 	<name>Message Builder Parent</name>
 <!--
 	<issueManagement>
@@ -575,9 +575,9 @@
                            				</goals>
                        				</pluginExecutionFilter>
                        				<action>
-            	           				<execute >
+            	           				<execute>
                 							<runOnIncremental>false</runOnIncremental>
-			               				</execute >
+			               				</execute>
                        				</action>
                    				</pluginExecution>
                 			</pluginExecutions>

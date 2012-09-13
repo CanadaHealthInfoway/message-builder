@@ -26,10 +26,11 @@ import java.util.Arrays;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -52,7 +53,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 @DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH"})
 public class AnyElementParser extends AbstractSingleElementParser<Object> {
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new ANYImpl();
@@ -66,7 +67,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		String specializationType = obtainSpecializationType(parentType, node, xmlToModelResult);
 		if (StringUtils.isNotBlank(specializationType)) {
 			ElementParser elementParser = ParserRegistry.getInstance().get(specializationType);
-			if (elementParser == null || !isValidTypeForAny(parentType, specializationType)) {
+			if (elementParser == null || !AnyHelper.isValidTypeForAny(parentType, specializationType)) {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
@@ -77,8 +78,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
 							context.getConformance()),
-						Arrays.asList(node), 
-						xmlToModelResult);
+						Arrays.asList(node), xmlToModelResult);
 				result = parsedValue.getBareValue();
 
 				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost.
@@ -88,25 +88,6 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 			xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		}
 		return result;
-	}
-
-	private boolean isValidTypeForAny(String parentType, String specializationType) {
-		if (StringUtils.isBlank(specializationType)) {
-			return false;
-		}
-		
-		boolean valid = AnyHelper.isValidTypeForAny(parentType, specializationType);
-		if (!valid) {
-			// unqualify only the inner types
-			String innerUnqualified = Hl7DataTypeName.unqualifyInnerTypes(specializationType);
-			valid = AnyHelper.isValidTypeForAny(parentType, innerUnqualified);
-		}
-		if (!valid) {
-			// unqualify both outer and inner types)
-			String bothUnqualified = Hl7DataTypeName.unqualify(specializationType);
-			valid = AnyHelper.isValidTypeForAny(parentType, bothUnqualified);
-		}
-		return valid;
 	}
 
 	/**
@@ -121,40 +102,33 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	 */
 	private String obtainSpecializationType(String parentType, Node node, XmlToModelResult xmlToModelResult) {
 		String rawSpecializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
-		
 		if (StringUtils.isBlank(rawSpecializationType)) {
-			
 			// some cases don't need "specializationType". Treat xsi:type as specializationType (internally)
 			// e.g. URG_PQ, ST
-			String xsiType = getXsiType(node);
+			rawSpecializationType = getXsiType(node);
+		}
 
-			if (xsiType != null) {
-				String innerSpecializationType = null;
-				NodeList childNodes = node.getChildNodes();
-				for (int i = 0; i < childNodes.getLength(); i++) {
-					Node child = childNodes.item(0);
-					innerSpecializationType = getAttributeValue(child, SPECIALIZATION_TYPE);
-					if (StringUtils.isNotBlank(innerSpecializationType)) {
-						break;
-					}
-				}
-				
-				if (innerSpecializationType != null) {
-					// the "true" specialization type, in this case, is found by combining the xsi type with the inner specialization type
-					int xsiTypeIndex = xsiType.indexOf("_");
-					xsiType = (xsiTypeIndex >= 0 ? xsiType.substring(0, xsiTypeIndex) : xsiType);
-					rawSpecializationType = xsiType + "_" + innerSpecializationType;;
-				} else {
-					rawSpecializationType = xsiType;
-				}
+		String result = rawSpecializationType;
+
+		if (StringUtils.isNotBlank(rawSpecializationType) && !AnyHelper.isValidTypeForAny(parentType, rawSpecializationType)) {
+			String unqualify = Hl7DataTypeName.unqualify(rawSpecializationType);
+			String validType = getValidType(unqualify, parentType);
+			if (validType != null) {
+				result = validType;
 			}
-			
 		}
-		
-		if (rawSpecializationType != null && rawSpecializationType.contains("_") && rawSpecializationType.indexOf('_') == rawSpecializationType.lastIndexOf('_')) {
-			rawSpecializationType = rawSpecializationType.replace("_", "<") + ">";
+		return result;
+	}
+
+	private String getValidType(String hl7Type, String parentType) {
+		String result = null;
+		StandardDataType dataType = EnumPattern.valueOf(StandardDataType.class, hl7Type);
+		if (dataType != null) {
+			if (AnyHelper.isValidTypeForAny(parentType, dataType.getType())) {
+				result = dataType.getType();
+			}
 		}
-		return rawSpecializationType;
+		return result;
 	}
 
 }

@@ -39,15 +39,15 @@ import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -168,7 +168,7 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		identifiedPersonBuilder.populate();
 		
 		IdentifiedPersonBean patient = identifiedPersonBuilder.create();
-		patient.setId(new Identifier("1.2.3", "patient extention"));
+		patient.setId(new Identifier("patient root", "patient extention"));
 		PostalAddress address = new PostalAddress();
 		address.getParts().add(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		address.getUses().add(PostalAddressUse.HOME);
@@ -181,9 +181,9 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		condition.setPatient(patient);
 		
 		AssignedPersonBean responsibleParty = new AssignedPersonBean();
-		responsibleParty.setId(new Identifier("1.1.2", "resp party ext"));
+		responsibleParty.setId(new Identifier("responsible party root", "responsible party extention"));
 		responsibleParty.setCode(lookup(HealthcareProviderRoleType.class, "ACP", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
-		responsibleParty.setLicenseNumber(new Identifier("1.2.3.1", "provider lic ext"));
+		responsibleParty.setLicenseNumber(new Identifier("provider lic root", "provider lic ext"));
 		responsibleParty.setName(new PersonName());
 		responsibleParty.getName().addNamePart(new EntityNamePart("Joe", PersonNamePartType.GIVEN));
 		responsibleParty.getName().addNamePart(new EntityNamePart("Last", PersonNamePartType.FAMILY));

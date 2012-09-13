@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
@@ -27,7 +28,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 
 public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
@@ -36,7 +36,7 @@ public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
 		private final Map<String, String> nameValuePairs = new HashMap<String, String>();
 		
 		@Override
-		Map<String, String> getAttributeNameValuePairs(FormatContext context, String string, BareANY bareANY) {
+		Map<String, String> getAttributeNameValuePairs(FormatContext context, String string) {
 			return this.nameValuePairs;
 		}
 		
@@ -80,4 +80,7 @@ public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
 		assertEquals("named null format", addLineSeparator("    <name nullFlavor=\"NI\"/>"), result);
 	}
 	
+	private String addLineSeparator(String value) {
+		return value + LINE_SEPARATOR;
+	}
 }

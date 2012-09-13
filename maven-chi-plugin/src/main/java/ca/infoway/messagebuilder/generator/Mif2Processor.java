@@ -312,8 +312,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 					part.getSpecializationChilds().add(rootType);
 					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + rootType);
 				} else {
-					this.outputUI.log(LogLevel.SEVERE, part.getName() + ": Cannot resolve child class cmetName " + name);
-//					throw new GeneratorException("Cannot resolve child class cmetName " + name);
+					throw new GeneratorException("Cannot resolve child class cmetName " + name);
 				}
 			}
 		}

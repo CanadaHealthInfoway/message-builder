@@ -31,14 +31,13 @@ import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL), 
+				new FormatContextImpl("blah", "LIST<TEL.PHONEMAIL>", OPTIONAL), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
@@ -46,7 +45,7 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL), 
+				new FormatContextImpl("blah", "LIST<TEL.PHONEMAIL>", OPTIONAL), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet( "Fred"))));

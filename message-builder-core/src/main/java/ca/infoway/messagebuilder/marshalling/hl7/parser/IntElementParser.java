@@ -27,7 +27,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.lang.NumberUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -51,95 +50,51 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-INT
  * 
- * CeRx further breaks down the datatype into INT.NONNEG and INT.POS subtypes.
- * 
+ * CeRx further breaks down the datatype into INT.NONNEG and INT.POS subtypes, but those are
+ * irrelevant on the parsing side. We don't check for non-negative or positive constraints.
  */
 @DataTypeHandler({"INT.NONNEG", "INT.POS", "INT"})
 class IntElementParser extends AbstractSingleElementParser<Integer> {
 
 	@Override
 	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		// TODO - TM - this validation throws an XmlToModelTransformationException if it fails; would be nice to log this as an error and then try to process the value anyway
 		validateNoChildren(context, node);
-		return parseNonNullNode(context, (Element) node, xmlToModelResult);
+		return parseNonNullNode((Element) node, expectedReturnType, xmlToModelResult);
 	}
 
-	private Integer parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected Integer parseNonNullNode(Element element, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		Integer result = null;
 		
 		String unparsedInteger = getAttributeValue(element, "value");
 		if (StringUtils.isNotBlank(unparsedInteger)) {
 			if (!NumberUtil.isNumber(unparsedInteger)) {
-				recordNotAValidNumberError(element, xmlToModelResult);
+				xmlToModelResult.addHl7Error(
+						new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+								"The attribute \"value\" does not contain a valid number (" 
+								+ XmlDescriber.describeSingleElement(element)
+								+ ")", element));
 			} else {
 				result = NumberUtil.parseAsInteger(unparsedInteger);
-				// using the isNumeric check to catch silly things such as passing in a hexadecimal number (0x1a, for example)
-				boolean mustBePositive = StandardDataType.INT_POS.getType().equals(context.getType());
-				if (!NumberUtil.isInteger(unparsedInteger) || !StringUtils.isNumeric(unparsedInteger)) {
-					recordInvalidIntegerError(result, element, mustBePositive, xmlToModelResult);
-				} else if (mustBePositive && result.intValue() == 0) {
-					recordMustBeGreaterThanZeroError(element, xmlToModelResult);
+				if (!NumberUtil.isInteger(unparsedInteger)) {
+					xmlToModelResult.addHl7Error(
+							new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+									"The attribute \"value\" is not a valid integer, it will be truncated to "
+									+ result
+									+" (" 
+									+ XmlDescriber.describeSingleElement(element)
+									+ ")", element));
 				}
 			}
 		} else if (element.hasAttribute("value")) {
-			recordEmptyValueError(element, xmlToModelResult);
-		} else {
-			recordMissingValueError(element, xmlToModelResult);
+			xmlToModelResult.addHl7Error(
+					new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
+							"The attribute \"value\" is specified, but empty. (" 
+							+ XmlDescriber.describeSingleElement(element)
+							+ ")", element));
 		}
 		
  		return result;
-	}
-
-	private void recordMissingValueError(Element element, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-			new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-					"The attribute \"value\" must be specified. (" 
-					+ XmlDescriber.describeSingleElement(element)
-					+ ")", element));
-	}
-
-	private void recordEmptyValueError(Element element, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-				new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" is specified, but empty. (" 
-						+ XmlDescriber.describeSingleElement(element)
-						+ ")", element));
-	}
-
-	private void recordMustBeGreaterThanZeroError(Element element, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-				new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" must be greater than zero for INT.POS. (" 
-						+ XmlDescriber.describeSingleElement(element)
-						+ ")", element));
-	}
-
-//	private void recordNotNegativeError(Element element, XmlToModelResult xmlToModelResult) {
-//		xmlToModelResult.addHl7Error(
-//				new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-//						"The attribute \"value\" must not be negative for INT.NONNEG. (" 
-//						+ XmlDescriber.describeSingleElement(element)
-//						+ ")", element));
-//	}
-//
-	private void recordInvalidIntegerError(Integer result, Element element, boolean mustBePositive, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-				new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" is not a valid integer: it cannot be negative " + (mustBePositive ? "or zero " : "") + "and must be digits only (maximum of 10), with a maximum value of "
-				        + Integer.MAX_VALUE + "." + " The value may have been truncated; processing value as "
-						+ result
-						+" (" 
-						+ XmlDescriber.describeSingleElement(element)
-						+ ")", element));
-	}
-
-	private void recordNotAValidNumberError(Element element, XmlToModelResult xmlToModelResult) {
-		xmlToModelResult.addHl7Error(
-				new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" does not contain a valid number (" 
-						+ XmlDescriber.describeSingleElement(element)
-						+ ")", element));
 	}
 
 	@Override

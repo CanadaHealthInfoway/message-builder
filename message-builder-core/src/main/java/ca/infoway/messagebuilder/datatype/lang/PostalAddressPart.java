@@ -28,7 +28,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Describable;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 
 /**
  * <p>Postal address parts are held by a postal address object and together make up the full address.

@@ -26,7 +26,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -75,11 +74,6 @@ public class Hl7SourceMapperIndicatorTest {
 		this.service = new MockTestCaseMessageDefinitionService();
 	}
 
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
-	}
-	
 	private Relationship createRelationship(String type) {
 		Relationship relationship = new Relationship();
 		relationship.setType(type);

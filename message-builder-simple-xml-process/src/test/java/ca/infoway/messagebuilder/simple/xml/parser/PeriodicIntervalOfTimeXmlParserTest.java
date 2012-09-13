@@ -30,9 +30,9 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.datatype.PIVL;
 import ca.infoway.messagebuilder.datatype.impl.PIVLImpl;
+import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 @RunWith(Theories.class)

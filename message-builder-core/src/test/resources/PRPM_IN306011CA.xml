@@ -63,7 +63,7 @@
 				<statusCode code="active" />
 				<subject typeCode="SBJ" contextControlCode="AN">
 					<healthCareProvider classCode="PROV">
-						<id extension="111-111-111" root="2.16.124.8.101.99.1.1.42" displayable="true" version="1"/>
+						<id extension="111-111-111" root="2.16.124.8.101.99.1.1.42" />
 						<code code="MD" codeSystem="2.16.840.1.113883.5.111" />
 						<name>
 							<given>Robert</given>

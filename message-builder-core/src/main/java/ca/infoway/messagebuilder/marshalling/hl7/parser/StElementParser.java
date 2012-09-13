@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 class StElementParser extends AbstractSingleElementParser<String> {
 
 	@Override
-	protected String parseNonNullNode(ParseContext context, Node node, BareANY dataType, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected String parseNonNullNode(ParseContext context, Node node, BareANY dataType, Type returnType, XmlToModelResult xmlToModelResult)	throws XmlToModelTransformationException {
 
     	Element element = (Element) node;
     	

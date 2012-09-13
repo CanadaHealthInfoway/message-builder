@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
@@ -33,23 +32,15 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
-import org.junit.After;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
-
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public abstract class FormatterTestCase {
-	
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
-	}
-	
-	protected ModelToXmlResult result = new ModelToXmlResult();
 
 	protected void assertXml(String description, String expected, String actual) {
 		if (actual.contains("<!--")) {
@@ -65,13 +56,10 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name) {
-		return getContext(name, null);
+		return new FormatContextImpl(name, null, null);
 	}
 
-	protected FormatContext getContext(String name, String type) {
-		return new FormatContextImpl(this.result, null, name, type, null, false, SpecificationVersion.R02_04_03, null, null);
-	}
-
+	
     protected final Set<Code> makeSet(Code... codes) {
         return new TreeSet<Code>(Arrays.asList(codes));
     }
@@ -89,14 +77,6 @@ public abstract class FormatterTestCase {
 			result.add(address);
 		}
 		return result;
-	}
-
-	protected String addLineSeparator(String value) {
-		return value + LINE_SEPARATOR;
-	}
-
-	protected String removeErrorComments(String result) {
-		return result.replaceAll("<!--(.*?)-->" + LINE_SEPARATOR, "");
 	}
 	
 }

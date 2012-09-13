@@ -23,9 +23,9 @@
 <PORX_IN010840CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-    <creationTime value="20080625141610.0000-0400"/>
+    <creationTime value="20080625141610-0400"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId extension="PORX_IN010840CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN010840CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="NE"/>
@@ -48,7 +48,7 @@
       <code code="PORX_TE010500UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <effectiveTime>
-        <low value="20080918"/><high value="20080918"/>
+        <low value="20080918"/>
       </effectiveTime>
       <responsibleParty typeCode="RESP" contextControlCode="AP">
         <assignedPerson classCode="ASSIGNED">
@@ -63,7 +63,7 @@
         </assignedPerson>
       </responsibleParty>
       <author typeCode="AUT" contextControlCode="AP">
-        <time value="19691231190000.0000-0500"/>
+        <time value="19691231190000-0500"/>
         <assignedPerson classCode="ASSIGNED">
           <id extension="1" root="1.1.1"/>
           <representedPerson classCode="PSN" determinerCode="INSTANCE">

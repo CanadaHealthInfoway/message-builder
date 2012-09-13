@@ -24,7 +24,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -68,7 +67,6 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 	"      <statusCode code=\"completed\"/>" +
 	"      <effectiveTime>" +
 	"        <low value=\"20080918\"/>" +
-	"        <high nullFlavor=\"NI\"/>" +
 	"      </effectiveTime>" +
 	"      <author typeCode=\"AUT\" contextControlCode=\"AP\">" +
 	"        <time value=\"20080625141610-0500\"/>" +
@@ -124,11 +122,6 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 		this.document = getSourceDocument();
 		this.service = new MockTestCaseMessageDefinitionService();
 		this.messageSource = new Hl7MessageSource(MockVersionNumber.MOCK_NEWFOUNDLAND, this.document, null, null, service);
-	}
-	
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

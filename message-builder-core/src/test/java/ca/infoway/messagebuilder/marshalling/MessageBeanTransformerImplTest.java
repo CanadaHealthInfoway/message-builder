@@ -25,7 +25,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -61,11 +60,6 @@ public class MessageBeanTransformerImplTest {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		this.transformer = new MessageBeanTransformerImpl(new MockTestCaseMessageDefinitionService(), RenderMode.PERMISSIVE);
 		this.factory = new DocumentFactory();
-	}
-	
-	@After
-	public void tearDown() {
-		CodeResolverRegistry.unregisterAll();
 	}
 	
 	@Test

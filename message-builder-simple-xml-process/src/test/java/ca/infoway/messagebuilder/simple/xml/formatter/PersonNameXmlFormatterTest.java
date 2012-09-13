@@ -31,7 +31,7 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.datatype.lang.PersonNamePartType;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterContextImpl;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;

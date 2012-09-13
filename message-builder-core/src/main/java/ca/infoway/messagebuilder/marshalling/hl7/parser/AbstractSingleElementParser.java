@@ -36,7 +36,7 @@ import org.w3c.dom.Text;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
-import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
+import ca.infoway.messagebuilder.datatype.lang.NamePartType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -193,6 +193,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	}
 
 	private boolean isNonTrivialChildNode(Node child) {
+		// FIXME - TM - should also check for comments and other trivial nodes
 		return (child instanceof Text && StringUtils.isNotBlank(((Text) child).getData()))
 			|| (child instanceof Element);
 	}

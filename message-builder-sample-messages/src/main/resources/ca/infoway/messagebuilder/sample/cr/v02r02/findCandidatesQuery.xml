@@ -23,7 +23,7 @@
 
 <PRPA_IN101103CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
   <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
-  <creationTime value="20080625141610.0000-0400"/>
+  <creationTime value="20080625141610-0400"/>
   <responseModeCode code="I"/>
   <versionCode code="V3-2007-05"/>
   <interactionId displayable="true" extension="PRPA_IN101103CA" root="2.16.840.1.113883.1.6" />
@@ -49,10 +49,10 @@
     <code code="PRPA_TE101103CA" codeSystem="2.16.840.1.113883.1.18"/>
     <statusCode code="completed"/>
     <effectiveTime>
-      <low value="20080918"/><high value="20080918"/>
+      <low value="20080918"/>
     </effectiveTime>
     <author typeCode="AUT" contextControlCode="AP">
-      <time value="20080918181800.0000-0400"/>
+      <time value="20080918181800-0400"/>
       <assignedEntity1 classCode="ASSIGNED">
         <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267" displayable="true" />
         <assignedPerson classCode="PSN" determinerCode="INSTANCE">

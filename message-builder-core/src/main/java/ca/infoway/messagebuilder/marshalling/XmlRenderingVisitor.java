@@ -67,8 +67,6 @@ class XmlRenderingVisitor implements Visitor {
 		private final int indent;
 		private String warning;
 
-		private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
-		
 		public Buffer(String name, int indent) {
 			this.name = name;
 			this.indent = indent;
@@ -88,7 +86,7 @@ class XmlRenderingVisitor implements Visitor {
 		public String toXml() {
 			StringBuilder builder = new StringBuilder();
 			if (StringUtils.isNotBlank(this.warning)) {
-				builder.append(this.xmlWarningRenderer.createWarning(this.indent, this.warning));
+				builder.append(new XmlWarningRenderer().createWarning(this.indent, this.warning));
 			}
 			Indenter.indentBuilder(builder, this.indent);
 			
@@ -132,7 +130,6 @@ class XmlRenderingVisitor implements Visitor {
 	private Interaction interaction;
 	private final DataTypeValueAdapterProvider adapterProvider = new DataTypeValueAdapterProvider();
 	private final ModelToXmlResult result = new ModelToXmlResult();
-	private final XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 	
 	private Buffer currentBuffer() {
 		return this.buffers.peek();
@@ -240,6 +237,7 @@ class XmlRenderingVisitor implements Visitor {
 			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
 		}
 		this.propertyPathNames.pop();
+		// remove(this.propertyPathNames.size() - 1);
 	}
 
 	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
@@ -248,7 +246,6 @@ class XmlRenderingVisitor implements Visitor {
 		if (formatter == null) {
 			throw new RenderingException("Cannot support properties of type " + type);
 		} else {
-			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 			try {
 				BareANY any;
 				
@@ -260,8 +257,9 @@ class XmlRenderingVisitor implements Visitor {
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
+//				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
+				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
 				String xmlFragment = "";
-				renderNewErrorsToXml(currentBuffer().getChildBuilder());
 				if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
 					if (isIgnoredNotAllowed()){
 						
@@ -272,27 +270,16 @@ class XmlRenderingVisitor implements Visitor {
 				} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
 					xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
 				}
-//				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
-				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
-				xmlFragment += formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				xmlFragment += formatter.format(FormatContextImpl.create(relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
 				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
+				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);
-				// FIXME VALIDATION - TM - also render error to xml (?)
 			}
 		}
 	}
 
-	private void renderNewErrorsToXml(StringBuilder stringBuilder) {
-		for (Hl7Error hl7Error : this.result.getHl7Errors()) {
-			if (!hl7Error.isRenderedToXml()) {
-				stringBuilder.append(this.xmlWarningRenderer.createWarning(getIndent(), hl7Error.toString()));
-				hl7Error.markAsRenderedToXml();
-			}
-		}
-	}
-	
 	private int getIndent() {
 		return this.buffers.size();
 	}

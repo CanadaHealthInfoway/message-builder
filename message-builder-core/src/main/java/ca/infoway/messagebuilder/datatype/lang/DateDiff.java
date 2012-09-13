@@ -23,11 +23,9 @@ package ca.infoway.messagebuilder.datatype.lang;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import ca.infoway.messagebuilder.datatype.lang.util.DateConverter;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
-import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 
 /**
  * <p>A specialist Diff class for Dates.
@@ -49,6 +47,7 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
     public static final String HOUR = "h";
     public static final String DAY = "d";
     private final Integer value;
+    private final NullFlavor nullFlavor;
 	private final PhysicalQuantity quantity;
 
 	/**
@@ -59,6 +58,7 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
     public DateDiff(Date value) {
         super(value);
         this.value = null;
+        this.nullFlavor = null;
         this.quantity = null;
     }
 
@@ -82,6 +82,7 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
         super(asDate(quantity));
 		this.quantity = quantity;
         this.value = quantity.getQuantity().intValue();
+        this.nullFlavor = null;
     }
 
     /**
@@ -90,8 +91,9 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
      * @param nullFlavor a null flavor
      */
     public DateDiff(NullFlavor nullFlavor) {
-        super(nullFlavor);
+        super(null);
         this.value = null;
+        this.nullFlavor = nullFlavor;
         this.quantity = null;
     }
 
@@ -152,4 +154,21 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
         }
     }
     
+    /**
+     * <p>Returns the null flavor.
+     * 
+     * @return the null flavor
+     */
+    public NullFlavor getNullFlavor() {
+        return this.nullFlavor;
+    }
+
+    /**
+     * <p>Returns whether this object has a null flavor.
+     * 
+     * @return whether this object has a null flavor.
+     */
+    public boolean hasNullFlavor() {
+        return this.nullFlavor != null;
+    }
 }

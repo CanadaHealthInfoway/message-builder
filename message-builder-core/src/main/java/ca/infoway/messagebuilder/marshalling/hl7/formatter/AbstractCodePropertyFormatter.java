@@ -52,6 +52,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
+    	validateContext(context);
 
     	CD cd = (CD) hl7Value;
     	
@@ -63,22 +64,20 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     		
     		if (cd.hasNullFlavor()) {
     			if (context.getConformanceLevel() == MANDATORY) {
-    	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-    				warning = createMissingMandatoryWarning(context, indentLevel);
+    				warning = createWarning(context, indentLevel);
     			} else {
     				attributes.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
     			}
     		} else if (!hasValue(cd, context)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
-        	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-        				warning = createMissingMandatoryWarning(context, indentLevel);
+        				warning = createWarning(context, indentLevel);
         			} else {
         				attributes.putAll(NULL_FLAVOR_ATTRIBUTES);
         			}
     			}
     		} else {
-    			attributes.putAll(getAttributeNameValuePairs(context, cd.getValue(), hl7Value));
+    			attributes.putAll(getAttributeNameValuePairs(context, cd.getValue()));
     		}
     		
     		result.append(warning);
@@ -118,7 +117,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	}
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code) throws ModelToXmlTransformationException {
         Map<String, String> result = new HashMap<String, String>();
         if (code != null) {
             String value = code.getCodeValue();

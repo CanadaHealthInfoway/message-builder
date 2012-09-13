@@ -28,8 +28,8 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
+import ca.infoway.messagebuilder.datatype.lang.Currency;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 public class MoneyXmlParserTest extends AbstractXmlParserTest<MO> {

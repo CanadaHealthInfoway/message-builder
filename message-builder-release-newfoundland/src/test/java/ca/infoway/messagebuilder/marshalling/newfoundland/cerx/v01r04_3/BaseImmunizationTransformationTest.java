@@ -121,6 +121,7 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 		}
 
 		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) msgObj);
+System.out.println(xmlString);		
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 

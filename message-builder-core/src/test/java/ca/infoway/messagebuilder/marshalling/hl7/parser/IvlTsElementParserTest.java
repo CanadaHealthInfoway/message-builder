@@ -24,13 +24,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Before;
@@ -39,11 +37,11 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.DefaultTimeUnit;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
-import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -70,8 +68,6 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	private Interval<Date> parse(Node node, String type) throws XmlToModelTransformationException {
 		return parse(node, type, null);
 	}
-	
-	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
 		return (Interval<Date>) this.parser.parse(
 				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, conformanceLevel), 
@@ -81,12 +77,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParseLowHigh() throws Exception {
-		int offset = TimeZone.getDefault().getOffset(System.currentTimeMillis());
-		int hours = -1 * offset/(1000*60*60);
         Node node = createNode(
-                "<effectiveTime><low value=\"20060810120000-0" + hours + "00\" /><high value=\"20060812150000-0" + hours + "00\" /></effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL<TS.DATETIME>");
-        assertTrue("valid", this.result.isValid());
+                "<effectiveTime><low value=\"20060810120000\" /><high value=\"20060812150000\" /></effectiveTime>");
+        Interval<Date> interval = parse(node, "IVL<TS>");
         assertNotNull("null", interval);
         assertDateEquals("low", FULL_DATE_TIME, parseDate("2006-08-10T12:00:00"), interval.getLow());
         assertDateEquals("high", FULL_DATE_TIME, parseDate("2006-08-12T15:00:00"), interval.getHigh());
@@ -96,48 +89,14 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     public void testParseEffectiveTimeDate() throws Exception {
     	Node node = createNode("<effectiveTime><low value=\"20080918\"/></effectiveTime>");
     	Interval<Date> interval = parse(node, "IVL.LOW<TS.DATE>");
-        assertTrue("valid", this.result.isValid());
     	assertNotNull("null", interval);
     	assertDateEquals("low", FULL_DATE, parseDate("2008-09-18"), interval.getLow());
-    }
-
-	@Test
-    public void testParseEffectiveTimeDateWithSpecializationType() throws Exception {
-    	Node node = createNode("<effectiveTime specializationType=\"IVL&lt;TS.FULLDATE&gt;\"><low value=\"20080918\"/><high value=\"20090918\"/></effectiveTime>");
-    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
-        assertTrue("valid", this.result.isValid());
-    	assertNotNull("null", interval);
-    	assertDateEquals("low", FULL_DATE, parseDate("2008-09-18"), interval.getLow());
-    	assertDateEquals("high", FULL_DATE, parseDate("2009-09-18"), interval.getHigh());
-    }
-
-	@Test
-    public void testParseEffectiveTimeDateWithMissingSpecializationType() throws Exception {
-    	Node node = createNode("<effectiveTime><low value=\"20080918\"/><high value=\"20090918\"/></effectiveTime>");
-    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
-        assertFalse("valid", this.result.isValid());
-        assertEquals(3, this.result.getHl7Errors().size()); // no ST; low and high should be datetimes 
-    	assertNotNull("null", interval);
-    	assertDateEquals("low", FULL_DATE, parseDate("2008-09-18"), interval.getLow());
-    	assertDateEquals("high", FULL_DATE, parseDate("2009-09-18"), interval.getHigh());
-    }
-
-	@Test
-    public void testParseEffectiveTimeDateWithInvalidSpecializationType() throws Exception {
-    	Node node = createNode("<effectiveTime specializationType=\"IVL&lt;TS.DATE&gt;\"><low value=\"20080918\"/><high value=\"20090918\"/></effectiveTime>");
-    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
-        assertFalse("valid", this.result.isValid());
-        assertEquals(3, this.result.getHl7Errors().size()); // invalid ST; low and high should be datetimes 
-    	assertNotNull("null", interval);
-    	assertDateEquals("low", FULL_DATE, parseDate("2008-09-18"), interval.getLow());
-    	assertDateEquals("high", FULL_DATE, parseDate("2009-09-18"), interval.getHigh());
     }
 
 	@Test
 	public void testParseMissingMandatoryEffectiveTimeDate() throws Exception {
 		Node node = createNode("<effectiveTime/>");
 		parse(node, "IVL.LOW<TS.DATE>", ConformanceLevel.MANDATORY);
-        assertFalse("not valid", this.result.isValid());
 		List<Hl7Error> hl7Errors = this.result.getHl7Errors();
 		assertFalse("has error", hl7Errors.isEmpty());
 	}
@@ -151,23 +110,10 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     public void testParseLowWidth() throws Exception {
         Node node = createNode(
             "<effectiveTime><low value=\"20050810\" /><width value=\"10\" unit=\"d\" /></effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL<TS.FULLDATE>");
-        assertTrue("valid", this.result.isValid());
+        Interval<Date> interval = parse(node, "IVL<TS>");
         assertNotNull("null", interval);
         assertDateEquals("low", FULL_DATE, parseDate("2005-08-10"), interval.getLow());
         assertDateEquals("high", FULL_DATE, parseDate("2005-08-20"), interval.getHigh());
-    }
-    
-	@Test
-    public void testParseLowWidthInvalidUnits() throws Exception {
-        Node node = createNode(
-            "<effectiveTime><low value=\"20050810\" /><width value=\"10\" unit=\"s\" /></effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL<TS.FULLDATE>");
-        assertFalse("not valid", this.result.isValid());
-        assertEquals(1, this.result.getHl7Errors().size()); // seconds not valid for width for this type
-        assertNotNull("null", interval);
-        assertDateEquals("low", FULL_DATE, parseDate("2005-08-10"), interval.getLow());
-        assertDateEquals("high", FULL_DATE, parseDate("2005-08-10"), interval.getHigh());  // width of 10 seconds changes nothing
     }
     
 	@Test
@@ -175,20 +121,15 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     	Node node = createNode(
     			"<effectiveTime value=\"20050810\"></effectiveTime>");
         Interval<Date> interval = parse(node, "IVL<TS>");
-        assertFalse("not valid", this.result.isValid());
-        assertEquals(1, this.result.getHl7Errors().size()); // IVL<TS> must have two of low/high/width provided (even though this example is a correct representation of a "simple" interval)
     	assertNotNull("null", interval);
     	assertDateEquals("value", FULL_DATE, parseDate("2005-08-10"), interval.getValue());
     }
     
 	@Test
     public void testParseLow() throws Exception {
-		int offset = TimeZone.getDefault().getOffset(System.currentTimeMillis());
-		int hours = -1 * offset/(1000*60*60);
         Node node = createNode(
-                "<effectiveTime><low value=\"20050810143456-0" + hours + "00\" /></effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL.LOW<TS>");
-        assertTrue("valid", this.result.isValid());
+                "<effectiveTime><low value=\"20050810143456\" /></effectiveTime>");
+        Interval<Date> interval = parse(node, "IVL<TS>");
         assertNotNull("null", interval);
         assertDateEquals("low", FULL_DATE_TIME, parseDate("2005-08-10T14:34:56"), interval.getLow());
         assertNull("high", interval.getHigh());
@@ -202,8 +143,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
                 "<effectiveTime>" +
                 "   <width value=\"1\" unit=\"d\"/>" +
                 "</effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL.WIDTH<TS>");
-        assertTrue("valid", this.result.isValid());
+        Interval<Date> interval = parse(node, "IVL<TS>");
         assertNotNull("null", interval);
         assertNull("low", interval.getLow());
         assertNull("high", interval.getHigh());
@@ -217,11 +157,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 
         node = createNode(
                     "<effectiveTime>" +
-                    "   <low nullFlavor=\"OTH\"/>" +
                     "   <width nullFlavor=\"OTH\"/>" +
                     "</effectiveTime>");
         interval = parse(node, "IVL<TS>");
-        assertTrue("valid", this.result.isValid());
         assertNotNull("null", interval);
         assertNull("low", interval.getLow());
         assertNull("high", interval.getHigh());
@@ -229,46 +167,10 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertNotNull("width", interval.getWidth());
         
         diff = (DateDiff) interval.getWidth();
-        assertEquals("nullFlavor", "OTH", diff.getNullFlavor().getCodeValue());
+        NullFlavor nullFlavor = (diff).getNullFlavor();
+        assertEquals("nullFlavor", "OTH", nullFlavor.getCodeValue());
         assertNull("unit", diff.getUnit());
     }
-	
-	@Test
-	public void testParseInvalidNullFlavor() throws Exception {
-        Node node = createNode(
-                "<effectiveTime>" +
-                "   <low nullFlavor=\"NINF\"/>" +
-                "   <width nullFlavor=\"PINF\"/>" +
-                "</effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL<TS.FULLDATE>");
-        assertNotNull(interval);
-        assertNull(interval.getLow());
-        assertNull(interval.getHigh());
-        assertNull(interval.getWidth().getValue());
-        assertEquals(NullFlavor.NEGATIVE_INFINITY, interval.getLowNullFlavor());
-        assertEquals(NullFlavor.POSITIVE_INFINITY, interval.getWidth().getNullFlavor());
-        assertFalse(this.result.isValid());
-        assertEquals(2, this.result.getHl7Errors().size()); // PINF and NINF are not legal null flavors
-	}
-    
-	@Test
-	public void testParseOtherInvalidNullFlavors() throws Exception {
-        Node node = createNode(
-                "<effectiveTime>" +
-                "   <center nullFlavor=\"MSK\"/>" +
-                "   <high nullFlavor=\"ASKU\"/>" +
-                "</effectiveTime>");
-        Interval<Date> interval = parse(node, "IVL<TS.FULLDATE>");
-        assertNotNull(interval);
-        assertNull(interval.getLow());
-        assertNull(interval.getCentre());
-        assertNull(interval.getHigh());
-        assertNull(interval.getWidth());
-        assertEquals(NullFlavor.MASKED, interval.getCentreNullFlavor());
-        assertEquals(NullFlavor.ASKED_BUT_UNKNOWN, interval.getHighNullFlavor());
-        assertFalse(this.result.isValid());
-        assertEquals(2, this.result.getHl7Errors().size()); // center not allowed; need two of low/high/width
-	}
     
 	@Test
     public void testParseWidthFailureValue() throws Exception {
@@ -281,15 +183,17 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         assertNull("null", interval);
         assertFalse("not valid", this.result.isValid());
         System.out.println(this.result.getHl7Errors().get(1));
-        assertEquals("error count", 2, this.result.getHl7Errors().size());
+        assertEquals("error count", 3, this.result.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"d\" value=\"1.d\"/>)", hl7Error.getMessage());
+        Hl7Error hl7Error = this.result.getHl7Errors().get(0);
+        assertEquals("message", "value \"1.d\" is not a valid decimal value (<width unit=\"d\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 	
 	@Test
     public void testParseWidthFailureUnit() throws Exception {
+        resolver.addDomainValue(null, UnitsOfMeasureCaseSensitive.class);
+    	
         Node node = createNode(
                 "<effectiveTime>" +
                 "   <width value=\"1\" unit=\"monkeys\"/>" +
@@ -298,15 +202,17 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         Interval<Date> interval = parse(node, "IVL<TS>");
         assertNull("null", interval);
         assertFalse("not valid", this.result.isValid());
-        assertEquals("error count", 2, this.result.getHl7Errors().size());
+        assertEquals("error count", 3, this.result.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "Unit \"monkeys\" is not valid for type PQ.TIME (<width unit=\"monkeys\" value=\"1\"/>)", hl7Error.getMessage());
+        Hl7Error hl7Error = this.result.getHl7Errors().get(0);
+        assertEquals("message", "Unit \"monkeys\" is not valid (<width unit=\"monkeys\" value=\"1\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
     
 	@Test
     public void testParseWidthFailureValueAndUnit() throws Exception {
+        resolver.addDomainValue(null, UnitsOfMeasureCaseSensitive.class);
+
         Node node = createNode(
                 "<effectiveTime>" +
                 "   <width value=\"1.d\" unit=\"monkey\"/>" +
@@ -315,14 +221,14 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         Interval<Date> interval = parse(node, "IVL<TS>");
         assertNull("null", interval);
         assertFalse("not valid", this.result.isValid());
-        assertEquals("error count", 3, this.result.getHl7Errors().size());
+        assertEquals("error count", 4, this.result.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
+        Hl7Error hl7Error = this.result.getHl7Errors().get(0);
+        assertEquals("message", "value \"1.d\" is not a valid decimal value (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 
-        hl7Error = this.result.getHl7Errors().get(2);
-        assertEquals("message", "Unit \"monkey\" is not valid for type PQ.TIME (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
+        hl7Error = this.result.getHl7Errors().get(1);
+        assertEquals("message", "Unit \"monkey\" is not valid (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
         assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 
@@ -336,7 +242,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
         Interval<Date> interval = parse(node, "IVL<TS>");
         assertNull("null", interval);
         assertFalse("not valid", this.result.isValid());
-        assertEquals("error count", 3, this.result.getHl7Errors().size());
+        assertEquals("error count", 2, this.result.getHl7Errors().size());
     }
     
     private Date parseDate(String date) throws ParseException {

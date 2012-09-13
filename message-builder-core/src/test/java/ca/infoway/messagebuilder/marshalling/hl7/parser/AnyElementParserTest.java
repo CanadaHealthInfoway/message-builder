@@ -31,13 +31,12 @@ import java.math.BigDecimal;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.Representation;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -46,20 +45,19 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class AnyElementParserTest extends CeRxDomainValueTestCase {
 
-	@SuppressWarnings("unchecked")
 	@Test
-	public void testParseAnyWithSpecializationTypeInOuterElement() throws Exception {
+	public void testParse() throws Exception {
 		Node node = createNode(
-				"<range xsi:type=\"URG_PQ\" specializationType=\"URG_PQ.BASIC\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
+				"<range xsi:type=\"URG\" specializationType=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
 					"<low value=\"123\" unit=\"kg\" />" +
 					"<high value=\"567\" unit=\"kg\" />" +
 				"</range>");
 		UncertainRange<PhysicalQuantity> range = 
 			(UncertainRange<PhysicalQuantity>)new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
-				node, this.xmlResult).getBareValue();
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+				node, null).getBareValue();
 		assertNotNull("null", range);
-		assertTrue(this.xmlResult.isValid());
+	
 		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
 		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
@@ -67,45 +65,23 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
-	public void testParseAnyWithSpecializationTypeInOuterElementWithAlternativeDesignation() throws Exception {
-		Node node = createNode(
-				"<range xsi:type=\"URG_PQ\" specializationType=\"URG&lt;PQ.BASIC&gt;\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
-					"<low value=\"123\" unit=\"kg\" />" +
-					"<high value=\"567\" unit=\"kg\" />" +
-				"</range>");
-		UncertainRange<PhysicalQuantity> range = 
-			(UncertainRange<PhysicalQuantity>)new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
-				node, this.xmlResult).getBareValue();
-		assertNotNull("null", range);
-		assertTrue(this.xmlResult.isValid());
-		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
-		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
-		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
-		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
-		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testParseAnyUrgExampleFromChiDocsWithSpecializationTypeInInnerElements() throws Exception {
+	public void testParseAbsentSpecializationTypeUrgExampleFromChiDocs() throws Exception {
 		Node node = createNode(
 				"<range xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
 					"<low xsi:type=\"PQ\" specializationType=\"PQ.HEIGHTWEIGHT\" value=\"123\" unit=\"kg\" />" +
 					"<high xsi:type=\"PQ\" specializationType=\"PQ.HEIGHTWEIGHT\" value=\"567\" unit=\"kg\" />" +
 				"</range>");
 		
+		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY parseResult = new AnyElementParser().parse(
-			ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY), 
-			node, this.xmlResult);
+			ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+			node, xmlToModelResult);
 		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>)parseResult.getBareValue();
 		
-		System.out.println(this.xmlResult.getHl7Errors());
-		assertTrue(this.xmlResult.isValid());
+		assertTrue("no errors", xmlToModelResult.getHl7Errors().isEmpty());
 		assertNotNull("null", range);
-		assertEquals("type", StandardDataType.URG_PQ_HEIGHTWEIGHT, parseResult.getDataType());
+		assertEquals("type", StandardDataType.URG_PQ, parseResult.getDataType());
 	
 		assertEquals("low", new BigDecimal("123"), range.getLow().getQuantity());
 		assertEquals("high", new BigDecimal("567"), range.getHigh().getQuantity());
@@ -120,10 +96,9 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
-				node, this.xmlResult);
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+				node, null);
 		
-		assertTrue(this.xmlResult.isValid());
 		assertNotNull("null", result);
 		assertEquals("type", StandardDataType.PQ_LAB, result.getDataType());
 		
@@ -139,14 +114,14 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode(
 		"<value xsi:type=\"PQ\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
+		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		BareANY result = new AnyElementParser().parse(
 				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
-				node, this.xmlResult);
+				node, xmlToModelResult);
 
-		assertNotNull(result);
-		assertNull(result.getBareValue());
-		assertEquals("has error", 1, this.xmlResult.getHl7Errors().size());
-		assertEquals("error message", "Cannot support properties of type \"PQ\" for \"ANY.LAB\"", this.xmlResult.getHl7Errors().get(0).getMessage());
+		
+		assertEquals("has error", 1, xmlToModelResult.getHl7Errors().size());
+		assertEquals("error message", "Cannot support properties of type \"PQ\" for \"ANY.LAB\"", xmlToModelResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -164,7 +139,6 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseRetainsProperDatatypeForSpecializationTypeWhenAnyOnlySpecifiesOkToUseAbstractType() throws Exception {
 		Node node = createNode(
@@ -175,11 +149,11 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				);
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.LAB", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
-				node, new XmlToModelResult());
+				ParserContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY), 
+				node, null);
 		
 		assertNotNull("null", result);
-		assertEquals("type", StandardDataType.IVL_PQ_LAB, result.getDataType());  
+		assertEquals("type", StandardDataType.IVL_PQ, result.getDataType());
 		
 		assertNotNull("null", result.getBareValue());
 	
