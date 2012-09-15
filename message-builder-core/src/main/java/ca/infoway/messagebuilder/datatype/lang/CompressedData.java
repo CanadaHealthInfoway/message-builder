@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 import java.io.IOException;
 
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
+import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 
 /**
  * <p>Java datatype representing the HL7 Datatype ED. (a specialized class)
@@ -51,8 +52,9 @@ public class CompressedData extends EncapsulatedData {
 	 * @param content the data content
 	 * @param compression a compression type
 	 * @param language a language
+	 * @param representation 
 	 */
-	public CompressedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, byte[] content, Compression compression, String language, String charset) {
+	public CompressedData(x_DocumentMediaType mediaType, String reference, byte[] content, Compression compression, String language, String charset) {
 		super(mediaType, reference, language, content, charset);
 		this.compression = compression;
 	}

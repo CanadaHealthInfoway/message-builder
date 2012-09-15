@@ -20,20 +20,31 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.MediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_CHARSET;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_COMPRESSION;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_LANGUAGE;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_MEDIA_TYPE;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_REPRESENTATION;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_VALUE;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ELEMENT_REFERENCE;
+import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.REPRESENTATION_B64;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedString;
-import ca.infoway.messagebuilder.datatype.lang.util.Compression;
-import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
+import ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.platform.Base64;
 
 /**
@@ -50,128 +61,107 @@ import ca.infoway.messagebuilder.platform.Base64;
 @DataTypeHandler("ED")
 public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EncapsulatedData> {
 
-	public static final String REPRESENTATION_B64 = "B64";
-	public static final String ATTRIBUTE_COMPRESSION = "compression";
-	public static final String ATTRIBUTE_LANGUAGE = "language";
-	public static final String ATTRIBUTE_CHARSET = "charset";
-	public static final String ATTRIBUTE_REPRESENTATION = "representation";
-	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
-	public static final String ELEMENT_REFERENCE = "reference";
-	public static final String ATTRIBUTE_VALUE = "value"; // for newer format of "reference" usage
-
+	private EdValidationUtils edValidationUtils = new EdValidationUtils();
+	
 	@Override
 	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) throws ModelToXmlTransformationException {
+		throw new UnsupportedOperationException("ED uses formatNonNullDataType() method instead.");
+	}
+	
+	@Override
+	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) throws ModelToXmlTransformationException {
+		
+		EncapsulatedData encapsulatedData = extractBareValue(dataType);
+		
+		validate(context, dataType, encapsulatedData);
+		
 		StringBuffer buffer = new StringBuffer();
 		Map<String, String> attributes = new HashMap<String, String>();
-		addCompressedDataAttributes(data, attributes);
-		byte[] content = getContent(data);
-		boolean base64 = isBase64(data, content);
-		addEncapsulatedDataAttributes(data, attributes, base64);
+		addCompressedDataAttributes(encapsulatedData, attributes);
+		byte[] content = getContent(encapsulatedData);
+		boolean base64 = this.edValidationUtils.isBase64(encapsulatedData, content);
+		addEncapsulatedDataAttributes(encapsulatedData, attributes, base64, context.getType(), dataType.getDataType(), context.getVersion());
 		buffer.append(createElement(context, attributes, indentLevel, false, false));
-		writeReference(data, buffer, indentLevel + 1);
-		writeContent(data, buffer, content, base64);
+		writeReference(encapsulatedData, buffer, indentLevel + 1);
+		writeContent(encapsulatedData, buffer, content, base64);
 		buffer.append(createElementClosure(context, 0, true));
 		return buffer.toString();
 	}
 
-	// FIXME - TM - Need to restrict this formatter based on actual data type - references only allowed in ED.REF/ED.DOCREF (similar restrictions on content, but only for ED.DOC)
+	private void validate(FormatContext context, BareANY dataType, EncapsulatedData encapsulatedData) {
+		String type = context.getType();
+		String specializationType = dataType.getDataType() == null ? null : dataType.getDataType().getType();
+		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
+		Hl7Errors errors = context.getModelToXmlResult();
+		
+		this.edValidationUtils.doValidate(encapsulatedData, specializationType, baseVersion, type, errors);
+	}
+
 	private void writeReference(EncapsulatedData data, StringBuffer buffer, int indentLevel) {
-		if (data != null && data.getReference() != null) {
+		if (StringUtils.isNotBlank(data.getReference())) {
 			Map<String, String> attributes = new HashMap<String, String>();
 			attributes.put(ATTRIBUTE_VALUE, data.getReference());
-			// attributes.put("specializationType", "TEL.URI");  // is this necessary? 
 			buffer.append("\n").append(createElement(ELEMENT_REFERENCE, attributes, indentLevel, true, true));
 		}
 	}
 
 	private void writeContent(EncapsulatedData data, StringBuffer buffer, byte[] content, boolean base64) {
-		if (data != null && content != null && base64) {
-			buffer.append(Base64.encodeBase64String(content));
-		} else if (data != null && content != null && data instanceof EncapsulatedString) {
-			buffer.append(XmlStringEscape.escape(((EncapsulatedString) data).getContentAsString()));
-		} else if (data != null && content != null) {
-			buffer.append(XmlStringEscape.escape(new String(content)));
+		if (content != null) {
+			if (base64) {
+				buffer.append(Base64.encodeBase64String(content));
+			} else if (data instanceof EncapsulatedString) {
+				buffer.append(XmlStringEscape.escape(((EncapsulatedString) data).getContentAsString()));
+			} else {
+				buffer.append(XmlStringEscape.escape(new String(content)));
+			}
 		}
 	}
 
-	private void addEncapsulatedDataAttributes(EncapsulatedData data, Map<String, String> attributes, boolean base64) {
-		if (data != null && data.getMediaType() != null) {
-			if (data instanceof CompressedData) {
-				attributes.put(ATTRIBUTE_MEDIA_TYPE, data.getMediaType().getCodeValue());
-			} else if (data.getMediaType() != PLAIN_TEXT) {
-				attributes.put(ATTRIBUTE_MEDIA_TYPE, data.getMediaType().getCodeValue());
-			}
+	private void addEncapsulatedDataAttributes(EncapsulatedData data, Map<String, String> attributes, boolean base64, String type, StandardDataType specializationType, VersionNumber version) {
+		if (data.getMediaType() != null) {
+			attributes.put(ATTRIBUTE_MEDIA_TYPE, data.getMediaType().getCodeValue());
+		}
+		
+		if (StringUtils.isNotBlank(data.getLanguage())) {
+			attributes.put(ATTRIBUTE_LANGUAGE, data.getLanguage());
+		}
+
+		if (StringUtils.isNotBlank(data.getCharset())) {
+			attributes.put(ATTRIBUTE_CHARSET, data.getCharset());
 		}
 
 		if (base64 == true) {
 			attributes.put(ATTRIBUTE_REPRESENTATION, REPRESENTATION_B64);
 		}
+		
+		if (StandardDataType.ED_DOC_OR_REF.getType().equals(type) && !Hl7BaseVersion.CERX.equals(version.getBaseVersion())) {
+			if (specializationType == StandardDataType.ED_DOC || specializationType == StandardDataType.ED_DOC_REF) {
+				addSpecializationType(attributes, specializationType.getType());
+			} else {
+				// best guess: check content to decide on DOC or DOC_REF
+				addSpecializationType(attributes, data.getContent() != null && data.getContent().length > 0 ? StandardDataType.ED_DOC.getType() : StandardDataType.ED_DOC_REF.getType());
+			}
+		}
+		
 	}
 
 	private void addCompressedDataAttributes(EncapsulatedData data, Map<String, String> attributes) {
-		if (data != null) {
-			if (data instanceof CompressedData) {
-				CompressedData compressedData = (CompressedData) data;
-				if (compressedData.getLanguage() != null) {
-					attributes.put(ATTRIBUTE_LANGUAGE, compressedData.getLanguage());
-				}
-				if (compressedData.getCompression() != null) {
-					attributes.put(ATTRIBUTE_COMPRESSION, compressedData.getCompression().getCompressionType());
-				}
+		if (data instanceof CompressedData) {
+			CompressedData compressedData = (CompressedData) data;
+			if (compressedData.getCompression() != null) {
+				attributes.put(ATTRIBUTE_COMPRESSION, compressedData.getCompression().getCompressionType());
 			}
 		}
-	}
-
-	private boolean isBase64(EncapsulatedData data, byte[] content) {
-		if (data != null) {
-			if (data instanceof CompressedData) {
-				return true;
-			} else if (content != null && data.getMediaType() != PLAIN_TEXT) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	private byte[] getContent(EncapsulatedData data) {
 		byte[] content = null;
-		if (data != null) {
-			if (data instanceof CompressedData) {
-				CompressedData compressedData = (CompressedData) data;
-				content = compressedData.getCompressedContent();
-			} else {
-				content = data.getContent();
-			}
+		if (data instanceof CompressedData) {
+			content = ((CompressedData) data).getCompressedContent();
+		} else {
+			content = data.getContent();
 		}
 		return content;
-	}
-
-	@SuppressWarnings("unused")
-	private void validate(String specializationType, Compression compression, MediaType mediaType, String charset, String language, String representation, String reference, byte[] content, ParseContext context, XmlToModelResult xmlToModelResult) {
-		
-		// specializationType - must be provided for ED.DOCORREF *except* for CeRx; must be ED.DOC or ED.DOCREF
-
-		// compression - required, must be DF or GZ
-		//             - only GZ for CeRx (ED.DOCORREF), and only allowed if content present
-		//             - not permitted for ED.REF
-		
-		// mediatype - mandatory; value from x_DocumentMediaType
-		//           - ED.DOC/ED.DOCREF/MR2007, ED.DOCORREF/ED.REF/CeRx: restricted to "text/plain", "text/html", "text/xml", "application/pdf"
-		
-		// charset - mandatory (MR2009); not permitted for MR2007/CeRx
-		
-		// language - required, 2-2
-		//          - "eng" or "fre" (CeRx)
-		
-		// representation - TXT or B64; vague on if this is mandatory or not; not permitted for CeRx
-		
-		// reference - required; must be TEL.URI (mandatory for ED.DOCREF)
-		//           - CeRx: only allowed (and mandatory?) if content not present; must be FTP, HTTP, HTTPS  (ED.REF, ED.DOCORREF) 
-		
-		// content - max 1 MB after compression and base64 encoding; compressed or pdf must be b64-encoded; any checks done on this??
-		//         - mandatory for ED.DOC, ED.DOCORREF/CeRx
-		//         - not permitted for ED.DOCREF/ED.REF
-		
 	}
 
 }

@@ -20,7 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
+import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
 
 /**
  * <p>Java datatype for HL7 encapsulated string.
@@ -67,7 +68,7 @@ public class EncapsulatedString extends EncapsulatedData {
 	 * @return the media type
 	 */
 	@Override
-	public MediaType getMediaType() {
-		return MediaType.PLAIN_TEXT;
+	public x_DocumentMediaType getMediaType() {
+		return X_DocumentMediaType.PLAIN_TEXT;
 	}
 }

@@ -75,11 +75,16 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 	protected Map<String, String> createSpecializationTypeAttibutesIfNecessary(FormatContext context) {
 		Map<String, String> attributes = new HashMap<String, String>();
 		if (context.isSpecializationType()) {
-    		StandardDataType type = StandardDataType.getByTypeName(context.getType());
-			attributes.put("xsi:type", xmlify(type.getTypeName().getUnspecializedName()));
-    		attributes.put("specializationType", xmlify(type.getType()));
+    		String typeAsString = context.getType();
+			addSpecializationType(attributes, typeAsString);
     	}
 		return attributes;
+	}
+
+	protected void addSpecializationType(Map<String, String> attributes, String typeAsString) {
+		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
+		attributes.put("xsi:type", xmlify(type.getTypeName().getUnspecializedName()));
+		attributes.put("specializationType", xmlify(type.getType()));
 	}
 	
 	protected boolean isNullFlavor(Map<String, String> attributes) {

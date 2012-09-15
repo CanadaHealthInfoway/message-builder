@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+
 /**
  * <p>This class represents data that is primarily intended for human interpretation
  * or for further machine processing outside the scope of HL7.  Examples include
@@ -34,7 +36,7 @@ package ca.infoway.messagebuilder.datatype.lang;
  */
 public class EncapsulatedData {
 
-	private ca.infoway.messagebuilder.domainvalue.MediaType mediaType;
+	private x_DocumentMediaType mediaType;
 	private String reference;
 	private String language;
 	private byte[] content;
@@ -53,8 +55,9 @@ public class EncapsulatedData {
 	 * @param reference a reference
 	 * @param content content within a byte array
 	 * @param charset 
+	 * @param representation 
 	 */
-	public EncapsulatedData(ca.infoway.messagebuilder.domainvalue.MediaType mediaType, String reference, String language, byte[] content, String charset) {
+	public EncapsulatedData(x_DocumentMediaType mediaType, String reference, String language, byte[] content, String charset) {
 		this.mediaType = mediaType;
 		this.reference = reference;
 		this.language = language;
@@ -76,7 +79,7 @@ public class EncapsulatedData {
 	 * 
 	 * @return the media type
 	 */
-	public ca.infoway.messagebuilder.domainvalue.MediaType getMediaType() {
+	public x_DocumentMediaType getMediaType() {
 		return this.mediaType;
 	}
 	

@@ -187,6 +187,183 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
+
+	@Test
+	public void testParseReferenceTypeUsingNewerReferenceFormatWithInvalidSpecializationType() throws Exception {
+		Node node = createNode("<text specializationType=\"ED.SIGNATURE\" mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+
+	@Test
+	public void testParseCompressionNotAllowedForEdRef() throws Exception {
+		Node node = createNode("<something compression=\"GZ\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.REF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+	
+	@Test
+	public void testParseCompressionPassesWithGZForCerxEdDocOrRef() throws Exception {
+		Node node = createNode("<something compression=\"GZ\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+	
+	@Test
+	public void testParseCompressionFailsWithNonGZForCerxEdDocOrRef() throws Exception {
+		Node node = createNode("<something compression=\"DF\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+	
+	@Test
+	public void testParseCompressionMustBeDfOrGz() throws Exception {
+		Node node = createNode("<text compression=\"DFGZ\" specializationType=\"ED.DOC\" mediaType=\"text/html\">text value</text>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReference());
+	}
+
+	@Test
+	public void testCantHaveBothRefAndContentForCerxEdDocOrRef() throws Exception {
+		Node node = createNode("<something mediaType=\"text/plain\" reference=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size()); // reference should be as element; can't have both reference and content
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+
+	@Test
+	public void testMustHaveOneOfRefOrContentForCerxEdDocOrRef() throws Exception {
+		Node node = createNode("<something mediaType=\"text/plain\"></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReference());
+	}
+
+	@Test
+	public void testParseRepresentationInvalid() throws Exception {
+		Node node = createNode("<something representation=\"TXTB64\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReference());
+	}
+	
+	@Test
+	public void testParseRepresentationValidTXT() throws Exception {
+		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReference());
+	}
+	
+	@Test
+	public void testParseRepresentationValidB64() throws Exception {
+		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("proper text returned", BytesUtil.asString(Base64.decodeBase64String("text value")), BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReference());
+	}
+	
+	@Test
+	public void testParseFailsDueToContentNotAllowed() throws Exception {
+		Node node = createNode("<something reference=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size()); // reference should be an element; can't have content
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+	
+	@Test
+	public void testParseFailsDueToMissingReference() throws Exception {
+		Node node = createNode("<something compression=\"DF\" mediaType=\"text/plain\"/>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("nor text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference returned", value.getReference());
+	}
+	
+	@Test
+	public void testParseSucceedsWithValidLanguage() throws Exception {
+		Node node = createNode("<something language=\"en-CA\" compression=\"DF\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+		assertEquals("en-CA", value.getLanguage());
+	}
+	
+	@Test
+	public void testParseFailsWithInvalidLanguage() throws Exception {
+		Node node = createNode("<something language=\"eng\" compression=\"DF\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+		assertEquals("eng", value.getLanguage());
+	}
+	
+	@Test
+	public void testParseFailsWithInvalidLanguageForCeRx() throws Exception {
+		Node node = createNode("<something language=\"en-CA\" compression=\"GZ\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+		assertEquals("en-CA", value.getLanguage());
+	}
+	
+	@Test
+	public void testParsePassesWithValidLanguageForCeRx() throws Exception {
+		Node node = createNode("<something language=\"eng\" compression=\"GZ\" mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+		assertEquals("eng", value.getLanguage());
+	}
+	
+	// charset not permitted pre-MR2009
 	
 }
 
