@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
-import ca.infoway.messagebuilder.domainvalue.MediaType;
+import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
@@ -66,7 +66,7 @@ public class EncapsulatedDataDocumentXmlParserTest extends AbstractXmlParserTest
 	}
 
 	private EDImpl<EncapsulatedData> createEdDoc(StandardDataType dataType, String mediaType, String uri, String compression, String language, String content, String charset) {
-		MediaType mt = StringUtils.isBlank(mediaType) ? null : CodeResolverRegistry.lookup(MediaType.class, mediaType);
+		x_DocumentMediaType mt = StringUtils.isBlank(mediaType) ? null : CodeResolverRegistry.lookup(x_DocumentMediaType.class, mediaType);
 		byte[] doc = (StringUtils.isBlank(content) ? null : content.getBytes());
 		EncapsulatedData ed = null;
 		if (StringUtils.isBlank(compression)) {

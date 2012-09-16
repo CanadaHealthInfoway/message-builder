@@ -31,7 +31,8 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
-import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
+import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
@@ -71,7 +72,7 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 	}
 	
 	private EncapsulatedData parse(Element element, FormatContext context) throws DecoderException, FormatterException {
-		MediaType mediaType = parseMediaType(element);
+		x_DocumentMediaType mediaType = parseMediaType(element);
 		Compression compression = parseCompression(element);
 		String language = parseLanguage(element);
 		String charset = parseCharset(element);
@@ -142,9 +143,9 @@ public class EncapsulatedDataDocumentXmlFormatter extends AbstractSimpleXmlForma
 		return null;
 	}
 
-	private MediaType parseMediaType(Element element) {
+	private x_DocumentMediaType parseMediaType(Element element) {
 		if (element.hasAttribute(ATTRIBUTE_MEDIA_TYPE)) {
-			return MediaType.get(element.getAttribute(ATTRIBUTE_MEDIA_TYPE));
+			return X_DocumentMediaType.get(element.getAttribute(ATTRIBUTE_MEDIA_TYPE));
 		}
 		return null;
 	}
