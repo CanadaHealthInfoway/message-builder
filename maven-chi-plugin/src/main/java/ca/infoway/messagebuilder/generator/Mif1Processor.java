@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.generator.MifXPathHelper.getTemplatePara
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -43,9 +44,11 @@ import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
 
-
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
+	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
+	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(false);
+
 	public Mif1Processor(MifRegistry mifRegistry, OutputUI outputUI) {
 		super(mifRegistry, outputUI, new MifXPathHelper());
 	}
@@ -81,8 +84,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		processRelationships(messageSet, MifXPathHelper.getParticipantClasses(ownedEntryPoint));
 	}
 
-	private void processRelationships(MessageSet messageSet, 
-			List<Element> specializedClasses) {
+	private void processRelationships(MessageSet messageSet, List<Element> specializedClasses) {
 		for (Element element : specializedClasses) {
 			if (MifXPathHelper.isMifClassPresent(element)) {
 				Element classElement = MifXPathHelper.getClassElement(element);
@@ -162,17 +164,34 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void addRelationships(MessageSet messageSet, Element specializedClass, MessagePart part) {
+		
+		List<Element> sortedAttributes = new ArrayList<Element>();
+		List<Element> sortedAssociations = new ArrayList<Element>();
+		
 		NodeList nodes = getClassElement(specializedClass).getChildNodes();
 		for (Element element : NodeListIterator.elementIterable(nodes)) {
-			
 			if ("attribute".equals(element.getLocalName())) {
-				createAttribute(part, element);
-			} else if ("association".equals(element.getLocalName()) && !isChoice(element)) {
-				createStandardAssociation(messageSet, part, element);
+				sortedAttributes.add(element);
 			} else if ("association".equals(element.getLocalName())) {
-				createChoice(messageSet, part, element);
+				sortedAssociations.add(element);
 			}
 		}
+		
+		Collections.sort(sortedAttributes, ATTRIBUTE_COMPARATOR);
+		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
+		
+		for (Element element : sortedAttributes) {
+			createAttribute(part, element);
+		}
+		
+		for (Element element : sortedAssociations) {
+			if (isChoice(element)) {
+				createChoice(messageSet, part, element);
+			} else {
+				createStandardAssociation(messageSet, part, element);
+			}
+		}
+		
 	}
 
 	private void createChoice(MessageSet messageSet, MessagePart part, Element element) {

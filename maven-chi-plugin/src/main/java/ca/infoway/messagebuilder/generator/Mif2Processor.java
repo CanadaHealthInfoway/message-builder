@@ -27,6 +27,7 @@ import static ca.infoway.messagebuilder.util.xml.NodeUtil.getLocalOrTagName;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +66,9 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
+	
+	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
+	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(true);
 	
 	private DocumentFactory factory = new DocumentFactory();
 	
@@ -214,7 +218,11 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void processAssociations(MessageSet messageSet, List<Element> associations) throws GeneratorException {
-		for (Element association : associations) {
+		
+		List<Element> sortedAssociations = new ArrayList<Element>(associations);
+		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
+		
+		for (Element association : sortedAssociations) {
 			Element traversableConnection = Mif2XPathHelper.getTraversableConnection(association);
 			String partName = Mif2XPathHelper.getNonTraversableConnectionClassName(association);
 			MessagePart part = getPart(messageSet, partName, association);
@@ -232,8 +240,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return messageSet.getMessagePart(qualifiedName);
 	}
 
-	private void processAttributes(MessageSet messageSet, 
-			List<Element> containedClasses) {
+	private void processAttributes(MessageSet messageSet, List<Element> containedClasses) {
 		for (Element element : containedClasses) {
 			if (Mif2XPathHelper.isMifClassPresent(element)) {
 				Element classElement = Mif2XPathHelper.getClassElement(element);
@@ -321,10 +328,19 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void addRelationships(MessageSet messageSet, Element specializedClass, MessagePart part) {
 		NodeList nodes = Mif2XPathHelper.getClassElement(specializedClass).getChildNodes();
+		
+		List<Element> sortedAttributes = new ArrayList<Element>();
+		
 		for (Element element : elementIterable(nodes)) {
 			if ("attribute".equals(element.getLocalName())) {
-				createAttribute(part, element);
+				sortedAttributes.add(element);
 			}
+		}
+		
+		Collections.sort(sortedAttributes, ATTRIBUTE_COMPARATOR);
+
+		for (Element element : sortedAttributes) {
+			createAttribute(part, element);
 		}
 	}
 
