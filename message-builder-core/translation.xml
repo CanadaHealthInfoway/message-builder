@@ -70,8 +70,8 @@
 		  <arg line="co"/>
 		  <arg line="--username tmcgrady"/>
 		  <arg line="--password pa$$w0rD"/>
-		  <arg line="https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
-		  <arg line="https://svn.emri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
+		  <arg line="https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
+		  <arg line="https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
 		</exec>
 
 		<copy todir="${sharpen.workspace.dir}/mbtdotnet/${project}/Main" overwrite="true">
