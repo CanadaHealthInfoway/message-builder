@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_CHARSET;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_COMPRESSION;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_LANGUAGE;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_MEDIA_TYPE;
@@ -87,24 +86,23 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 		String specializationType = parseSpecializationType(element);
 		Compression compression = parseCompression(element);
 		x_DocumentMediaType mediaType = parseMediaType(element);
-		String charset = parseCharset(element);
 		String language = parseLanguage(element);
 		String representation = parseRepresentation(element);
 		String reference = parseReference(element);
 		byte[] content = parseContent(element, representation);
 
-		validate(specializationType, compression, mediaType, charset, language, representation, reference, content, element, context, xmlToModelResult);
+		validate(specializationType, compression, mediaType, language, representation, reference, content, element, context, xmlToModelResult);
 		
 		if (compression != null) {
-			return new CompressedData(mediaType, reference, content, compression, language, charset);
+			return new CompressedData(mediaType, reference, content, compression, language);
 		} else if (mediaType != null || reference != null || content != null) {
-			return new EncapsulatedData(mediaType, reference, language, content, charset);
+			return new EncapsulatedData(mediaType, reference, language, content);
 		} else {
 			return null;
 		}
 	}
 
-	private void validate(String specializationType, Compression compression, x_DocumentMediaType mediaType, String charset, String language, String representation, String reference, byte[] content, 
+	private void validate(String specializationType, Compression compression, x_DocumentMediaType mediaType, String language, String representation, String reference, byte[] content, 
 			Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
 
 		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
@@ -113,7 +111,7 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 		
 		boolean hasCompression = element.hasAttribute(ATTRIBUTE_COMPRESSION);
 		
-		this.edValidationUtils.doValidate(specializationType, compression, hasCompression, mediaType, charset, language, representation, reference, content, baseVersion, type, errors, element);
+		this.edValidationUtils.doValidate(specializationType, compression, hasCompression, mediaType, language, representation, reference, content, baseVersion, type, errors, element);
 		
 	}
 
@@ -157,13 +155,6 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 	private String parseSpecializationType(Element element) {
 		if (element.hasAttribute(SPECIALIZATION_TYPE)) {
 			return element.getAttribute(SPECIALIZATION_TYPE);
-		}
-		return null;
-	}
-
-	private String parseCharset(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_CHARSET)) {
-			return element.getAttribute(ATTRIBUTE_CHARSET);
 		}
 		return null;
 	}

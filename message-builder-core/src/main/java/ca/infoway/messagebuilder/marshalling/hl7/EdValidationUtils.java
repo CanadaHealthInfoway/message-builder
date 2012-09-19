@@ -21,7 +21,6 @@ public class EdValidationUtils {
 	public static final String REPRESENTATION_B64 = "B64";
 	public static final String ATTRIBUTE_COMPRESSION = "compression";
 	public static final String ATTRIBUTE_LANGUAGE = "language";
-	public static final String ATTRIBUTE_CHARSET = "charset";
 	public static final String ATTRIBUTE_REPRESENTATION = "representation";
 	public static final String ATTRIBUTE_MEDIA_TYPE = "mediaType";
 	public static final String ELEMENT_REFERENCE = "reference";
@@ -33,14 +32,13 @@ public class EdValidationUtils {
 		Compression compression = (encapsulatedData instanceof CompressedData ? ((CompressedData) encapsulatedData).getCompression() : null);
 		boolean hasCompression = (compression != null);
 		String representation = this.isBase64(encapsulatedData, encapsulatedData.getContent()) ? REPRESENTATION_B64 : REPRESENTATION_TXT;
-		doValidate(specializationType, compression, hasCompression, encapsulatedData.getMediaType(), encapsulatedData.getCharset(), encapsulatedData.getLanguage(), representation, encapsulatedData.getReference(), encapsulatedData.getContent(), baseVersion, type, errors, null);
+		doValidate(specializationType, compression, hasCompression, encapsulatedData.getMediaType(), encapsulatedData.getLanguage(), representation, encapsulatedData.getReference(), encapsulatedData.getContent(), baseVersion, type, errors, null);
 	}
 
 	public void doValidate(String specializationType, 
 							Compression compression,
 							boolean hasCompression,
 							x_DocumentMediaType mediaType, 
-							String charset, 
 							String language, 
 							String representation, 
 							String reference, 
@@ -86,15 +84,6 @@ public class EdValidationUtils {
 		if (mediaType == null) {
 			// must be provided, and must be acceptable value
 			createError("MediaType must be provided and must be a value from x_DocumentMediaType.", element, errors);
-		}
-		
-		// charset - mandatory (MR2009); not permitted for MR2007/CeRx
-		if (StringUtils.isBlank(charset) && Hl7BaseVersion.MR2009.equals(baseVersion)) {
-			// must provide for MR2009
-			// FIXME - VALIDATION - TM - waiting to hear back from Sam on whether this is really mandatory for MR2009
-		} else if (StringUtils.isNotBlank(charset) && !Hl7BaseVersion.MR2009.equals(baseVersion)) {
-			// not permitted
-			createError("The charset attribute is not permitted.", element, errors);
 		}
 		
 		// language - required, 2-2

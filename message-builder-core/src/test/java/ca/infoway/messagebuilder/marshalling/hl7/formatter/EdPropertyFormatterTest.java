@@ -59,7 +59,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			  "this is some text &amp; some &quot;more&quot;</name>" + LINE_SEPARATOR;
 
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), 
-				new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes(), null)));
+				new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes())));
 		assertTrue(this.result.isValid());
 		assertEquals("something in text node", expectedResult, result);
 	}
@@ -71,7 +71,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			  "</name>" + LINE_SEPARATOR;
 
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), 
-				new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "".getBytes(), null)));
+				new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "".getBytes())));
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals("something in text node", expectedResult, result);
@@ -83,7 +83,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			  "<name mediaType=\"text/plain\" specializationType=\"ED.DOC\" xsi:type=\"ED\">" +
 			  "this is some text &amp; some &quot;more&quot;</name>" + LINE_SEPARATOR;
 
-		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes(), null));
+		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes()));
 		edImp.setDataType(StandardDataType.ED_DOC);
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOCORREF"), 
 				edImp);
@@ -97,7 +97,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			  "<name mediaType=\"text/plain\" specializationType=\"ED.DOC\" xsi:type=\"ED\">" +
 			  "this is some text &amp; some &quot;more&quot;</name>" + LINE_SEPARATOR;
 
-		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes(), null));
+		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes()));
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOCORREF"), 
 				edImp);
 		assertFalse(this.result.isValid());
@@ -111,7 +111,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			  "<name mediaType=\"text/plain\" specializationType=\"ED.DOC\" xsi:type=\"ED\">" +
 			  "this is some text &amp; some &quot;more&quot;</name>" + LINE_SEPARATOR;
 
-		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes(), null));
+		EDImpl<EncapsulatedData> edImp = new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes()));
 		edImp.setDataType(StandardDataType.ED_SIGNATURE);
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOCORREF"), 
 				edImp);
@@ -127,7 +127,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			"dGhpcyBpcyBzb21lIHRleHQ=</name>" + LINE_SEPARATOR;
 
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), 
-				new EDImpl<EncapsulatedData>(new EncapsulatedData(null, null, null, "this is some text".getBytes(), null)));
+				new EDImpl<EncapsulatedData>(new EncapsulatedData(null, null, null, "this is some text".getBytes())));
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals("something in text node", expectedResult, result);
@@ -137,7 +137,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueCompressedXmlData() throws Exception {
 		String expectedResult = "<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA", null);
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
@@ -149,7 +149,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueCompressedXmlDataEmptyContent() throws Exception {
 		String expectedResult = "<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
 				"H4sIAAAAAAAAAAMAAAAAAAAAAAA=</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "".getBytes(), GZIP, "en-CA", null);
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "".getBytes(), GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertFalse(this.result.isValid());
@@ -161,7 +161,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueCompressedXmlDataNullContent() throws Exception {
 		String expectedResult = "<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\"><reference value=\"http://www.i-proving.ca\"/></name>";
-		EncapsulatedData data = new CompressedData(XML_TEXT,  "http://www.i-proving.ca", null, GZIP, "en-CA", null);
+		EncapsulatedData data = new CompressedData(XML_TEXT,  "http://www.i-proving.ca", null, GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 
 		assertFalse(this.result.isValid());
@@ -175,7 +175,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 			"<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/plain\" representation=\"B64\">" +
 			"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
 		
-		EncapsulatedData data = new CompressedData(PLAIN_TEXT, null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA", null);
+		EncapsulatedData data = new CompressedData(PLAIN_TEXT, null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
@@ -193,7 +193,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 		String expectedResult = 
 			"<name mediaType=\"text/plain\">&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</name>" + LINE_SEPARATOR;
 
-		EncapsulatedData ed = new EncapsulatedData(PLAIN_TEXT, null, null, "<cats think they're > humans & dogs 99% of the time/>".getBytes(), null);
+		EncapsulatedData ed = new EncapsulatedData(PLAIN_TEXT, null, null, "<cats think they're > humans & dogs 99% of the time/>".getBytes());
 		
 		String result = new EdPropertyFormatter().format(
 				getContext("name", "ED.DOC"), 
@@ -214,7 +214,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testReferenceForSKBug() throws Exception {
 		String expectedResult = "<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>";
-		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", null, null, null);
+		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", null, null);
 		String result = new EdPropertyFormatter().format(getContext("text", "ED.DOCREF"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
@@ -224,7 +224,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testMissingReference() throws Exception {
 		String expectedResult = "<text mediaType=\"text/html\"></text>";
-		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, null, null, null, null);
+		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, null, null, null);
 		String result = new EdPropertyFormatter().format(getContext("text", "ED.DOCREF"), new EDImpl<EncapsulatedData>(data));
 		
 		assertFalse(this.result.isValid());

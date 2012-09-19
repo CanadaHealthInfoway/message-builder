@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_CHARSET;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_COMPRESSION;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_LANGUAGE;
 import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_MEDIA_TYPE;
@@ -124,10 +123,6 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 		
 		if (StringUtils.isNotBlank(data.getLanguage())) {
 			attributes.put(ATTRIBUTE_LANGUAGE, data.getLanguage());
-		}
-
-		if (StringUtils.isNotBlank(data.getCharset())) {
-			attributes.put(ATTRIBUTE_CHARSET, data.getCharset());
 		}
 
 		if (base64 == true) {
