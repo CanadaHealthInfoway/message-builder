@@ -49,6 +49,7 @@ public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.do
 	public static final ActCode SEV = new ActCode("SEV"); 
 	public static final ActCode STORE = new ActCode("STORE"); 
 	public static final ActCode TF = new ActCode("TF"); 
+	public static final ActCode FALSE = new ActCode("FALSE"); 
 	public static final ActCode VFPAPER = new ActCode("VFPAPER"); 
 
 	private ActCode(String name) {
