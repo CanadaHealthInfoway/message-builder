@@ -27,6 +27,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
+import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -51,16 +52,28 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 @DataTypeHandler("ED.SIGNATURE")
 class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 
+	// Note that the behaviour for this datatype has not been fully defined by CHI. It is likely that the code below will need to be adjusted at some point.
+	
 	private final StElementParser stElementParser = new StElementParser();
 	
 	@Override
 	protected String parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
+		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "compression");
+		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "language");
+		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "reference");
+		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "integrityCheck");
+		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "thumbnail");
+		validateMaxChildCount(context, node, 1);
+		if (!MediaType.XML_TEXT.getCodeValue().equals(getAttributeValue(node, "mediaType"))) {
+			xmlToModelResult.addHl7Error(createHl7Error("Attribute mediaType must be included with a value of \"text/xml\" for ED.SIGNATURE", (Element) node));
+		}
+		
 		String result = null;
 		
 		Node signatureNode = getNamedChildNode(node, "signature");
 		if (signatureNode == null || signatureNode.getNodeType() != Node.ELEMENT_NODE) {
-			xmlToModelResult.addHl7Error(createHl7Error((Element) node));
+			xmlToModelResult.addHl7Error(createHl7Error("Expected ED.SIGNATURE node to have a child element named signature", (Element) node));
 		} else {
 			result = (String) this.stElementParser.parse(context, signatureNode, xmlToModelResult).getBareValue();
 		}
@@ -68,8 +81,8 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 		return result;
 	}
 	
-    private Hl7Error createHl7Error(Element element) {
-    	return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Expected ED.SIGNATURE node to have a child element named signature", element);
+    private Hl7Error createHl7Error(String errorMessage, Element element) {
+    	return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, element);
     }
 
 	@Override

@@ -72,9 +72,13 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 		String parseResult = (String) new EdSignatureElementParser().parse(createEdContext(), invalidNode, xmlResult).getBareValue();
 		
 		assertNull("parse result", parseResult);
-		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
+		assertEquals("HL7 error count", 2, xmlResult.getHl7Errors().size());
 		
 		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
+		assertEquals("error message", "Attribute mediaType must be included with a value of \"text/xml\" for ED.SIGNATURE", hl7Error.getMessage());
+		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
+		
+		hl7Error = xmlResult.getHl7Errors().get(1);
 		assertEquals("error message", "Expected ED.SIGNATURE node to have a child element named signature", hl7Error.getMessage());
 		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
@@ -82,7 +86,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseValidNode() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something mediaType=\"text/xml\">"
 				+ "  <signature>signatureText</signature>"
 				+ "</something>");
 
@@ -94,7 +98,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptySignatureNode() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something mediaType=\"text/xml\">"
 				+ "  <signature></signature>"
 				+ "</something>");
 
@@ -106,7 +110,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptySignatureNodeAgain() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something mediaType=\"text/xml\">"
 				+ "  <signature/>"
 				+ "</something>");
 

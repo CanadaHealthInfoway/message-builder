@@ -146,9 +146,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	    throw new XmlToModelTransformationException("Unexpected part of type: " + value);
 	}
 
-	protected void validateUnallowedAttributes(String type, Element node, 
-			XmlToModelResult result, String attribute) {
-		
+	protected void validateUnallowedAttributes(String type, Element node, XmlToModelResult result, String attribute) {
 		if (StringUtils.isNotBlank(getAttributeValue(node, attribute))) {
 			result.addHl7Error(
 					new Hl7Error(
@@ -158,8 +156,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 		}
 	}
 	
-	protected void validateUnallowedChildNode(String type, Element node, 
-			XmlToModelResult result, String childNodeName) {
+	protected void validateUnallowedChildNode(String type, Element node, XmlToModelResult result, String childNodeName) {
 		
 		Node child = getNamedChildNode(node, childNodeName);
 		if (child != null) {
