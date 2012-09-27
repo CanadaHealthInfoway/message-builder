@@ -52,8 +52,8 @@ public class EncapsulatedData {
 	 * 
 	 * @param mediaType the mediatype
 	 * @param reference a reference
+	 * @param language
 	 * @param content content within a byte array
-	 * @param representation 
 	 */
 	public EncapsulatedData(x_DocumentMediaType mediaType, String reference, String language, byte[] content) {
 		this.mediaType = mediaType;

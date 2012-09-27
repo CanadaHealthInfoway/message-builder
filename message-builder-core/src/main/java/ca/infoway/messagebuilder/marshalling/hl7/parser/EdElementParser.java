@@ -37,6 +37,7 @@ import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
@@ -73,7 +74,7 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 
 	@Override
 	protected EncapsulatedData parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
-		validateMaxChildCount(context, node, 1);
+		validateMaxChildCount(context, node, StandardDataType.ED_DOC.getType().equals(context.getType()) ? 2 : 1);
 		try {
 			return parse((Element) node, context, xmlToModelResult);
 		} catch (RuntimeException e) {

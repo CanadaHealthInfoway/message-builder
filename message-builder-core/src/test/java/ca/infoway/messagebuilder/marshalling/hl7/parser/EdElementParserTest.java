@@ -99,9 +99,22 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"<something>" +
 				"<monkey/>" +
 				"<shines/>" +
+				"<through/>" +
 				"</something>");
 		try {
 			new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
+			fail("expected exception");
+		} catch (XmlToModelTransformationException e) {
+			// expected
+		}
+		
+		node = createNode(
+				"<something>" +
+				"<monkey/>" +
+				"<shines/>" +
+				"</something>");
+		try {
+			new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.V02R02), node, this.xmlResult);
 			fail("expected exception");
 		} catch (XmlToModelTransformationException e) {
 			// expected
@@ -184,6 +197,16 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
 		assertNull("no text returned", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
+		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
+	}
+
+	@Test
+	public void testParseDocAndReferenceUsingNewerReferenceFormat() throws Exception {
+		Node node = createNode("<text specializationType=\"ED.DOC\" mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>text value</text>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("text returned", "text value", new String(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}

@@ -204,7 +204,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private String clearPayload(String result) {
-		return result.replaceAll("\n", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll(">.+?<", "><");
+		return result.replaceAll("\n", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll("> +", ">").replaceAll(" +<", "<");
 	}
 
 	private String extractPayload(String result) {
@@ -216,6 +216,16 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 		String expectedResult = "<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/></text>";
 		EncapsulatedData data = new EncapsulatedData(HTML_TEXT, "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", null, null);
 		String result = new EdPropertyFormatter().format(getContext("text", "ED.DOCREF"), new EDImpl<EncapsulatedData>(data));
+		
+		assertTrue(this.result.isValid());
+		assertEquals("something in text node", expectedResult, clearPayload(result));
+	}
+	
+	@Test
+	public void testReferenceWithContent() throws Exception {
+		String expectedResult = "<text mediaType=\"text/plain\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>this is some text</text>";
+		EncapsulatedData data = new EncapsulatedData(PLAIN_TEXT, "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", null, "this is some text".getBytes());
+		String result = new EdPropertyFormatter().format(getContext("text", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("something in text node", expectedResult, clearPayload(result));
