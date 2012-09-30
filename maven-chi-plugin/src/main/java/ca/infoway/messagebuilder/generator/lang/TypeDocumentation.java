@@ -176,9 +176,9 @@ public class TypeDocumentation {
 			builder = new StringBuilder(string.length());
 			for (byte b : bytes) {
 				if (b == '\n') {
-					builder.setLength(0);
-				}
-				if (isSpecialCharacter(b)) {
+					builder.append(' ');
+//					builder.setLength(0);  // TM - this seemed to be causing information to be lost
+				} else if (isSpecialCharacter(b)) {
 					// in most cases this will be a single or double quote
 					builder.append('\'');
 				} else {
@@ -186,7 +186,7 @@ public class TypeDocumentation {
 				}
 			}
 		}
-		return builder == null ? null : builder.toString();
+		return builder == null ? null : builder.toString().trim();
 	}
 	
 	private boolean isSpecialCharacter(byte b) {
