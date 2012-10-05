@@ -22,27 +22,22 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.Hl7BaseVersion;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
-import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.marshalling.hl7.AdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -77,10 +72,8 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 @DataTypeHandler({"AD", "AD.BASIC", "AD.FULL", "AD.SEARCH"})
 class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
 
-	private static final int MAX_DELIMITED_LINES = 4;
-	private static final int MAX_PART_LENGTH = 80;
-	private static final int MAX_USES = 3;
-
+	private static final AdValidationUtils AD_VALIDATION_UTILS = new AdValidationUtils();
+	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new ADImpl();
@@ -92,117 +85,11 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
         result.setUses(getNameUses(getAttributeValue(node, "use"), node, xmlToModelResult));
         // FIXME - VALIDATION - TM - missing useablePeriod (only for MR2009 AD.FULL)
 
-        validatePostalAddress(context, result, (Element) node, xmlToModelResult);
+        AD_VALIDATION_UTILS.validatePostalAddress(result, context.getType(), context.getVersion().getBaseVersion(), (Element) node, xmlToModelResult);
         
         return result;
     }
     
-    private void validatePostalAddress(ParseContext context, PostalAddress postalAddress, Element element, XmlToModelResult xmlToModelResult) {
-    	validatePostalAddressUses(context, postalAddress, element, xmlToModelResult);
-    	validatePostalAddressParts(context, postalAddress, element, xmlToModelResult);
-	}
-
-	private void validatePostalAddressParts(ParseContext context, PostalAddress postalAddress, Element element, XmlToModelResult xmlToModelResult) {
-		int countBlankParts = 0;
-    	boolean isBasic = StandardDataType.AD_BASIC.getType().equals(context.getType());
-    	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(context.getType());
-    	boolean isFull = StandardDataType.AD_FULL.getType().equals(context.getType());
-    	
-    	Set<PostalAddressPartType> partTypesTracking = new HashSet<PostalAddressPartType>();
-    	for (PostalAddressPart postalAddressPart : postalAddress.getParts()) {
-			int partLength = StringUtils.length(postalAddressPart.getValue());
-			if (partLength > MAX_PART_LENGTH) {
-				// value max length of 80
-    			recordError("Address part types have a maximum allowed length of " + MAX_PART_LENGTH + " (length found: " + partLength + ")", element, xmlToModelResult);
-			}
-
-			// error if part type not allowed
-	    	PostalAddressPartType partType = postalAddressPart.getType();
-			if (partType == null) {
-				countBlankParts++;
-				// no part type : only allowed for BASIC (max 4, plus max 4 delimiter)
-	    		if (!isBasic) {
-	    			recordError("Text without an address part only allowed for AD.BASIC", element, xmlToModelResult);
-	    		}
-			} else if (partType == PostalAddressPartType.DELIMITER) {
-	    		if (!isBasic) {
-	    			recordError("Part type " + partType.getValue() + " is only allowed for AD.BASIC", element, xmlToModelResult);
-	    		}
-	    	} else if (isFull) {
-	    		if (!PostalAddressPartType.isFullAddressPartType(partType)) {
-	    			recordError("Part type " + partType.getValue() + " is not allowed for AD.FULL", element, xmlToModelResult);
-	    		}
-			} else if (!PostalAddressPartType.isBasicAddressPartType(partType)) {
-    			recordError("Part type " + partType.getValue() + " is not allowed for AD.BASIC or AD.SEARCH", element, xmlToModelResult);
-			}
-	    	
-			// code/codesystem are only for state/country
-			if (postalAddressPart.getCode() != null) {
-				if (partType != PostalAddressPartType.STATE && partType != PostalAddressPartType.COUNTRY) {
-	    			recordError("Part type " + partType.getValue() + " is not allowed to specify code or codeSystem", element, xmlToModelResult);
-				}
-			}
-			
-	        // only one occurrence of each type allowed except for delimiter (is this correct?); delimiter only for BASIC (max 4)
-			if (partType != null && partType != PostalAddressPartType.DELIMITER && !partTypesTracking.add(partType)) {
-    			recordError("Part type " + partType.getValue() + " is only allowed to occur once", element, xmlToModelResult);
-			}
-		}
-
-    	if (isBasic && countBlankParts > MAX_DELIMITED_LINES) {
-			recordError("AD.BASIC is only allowed a maximum of " + MAX_DELIMITED_LINES + " delimited-separted address lines (address lines without an address part type)", element, xmlToModelResult);
-    	}
-    	
-    	if (isSearch && CollectionUtils.isEmpty(postalAddress.getParts())) {
-			recordError("AD.SEARCH must specify at least one part type", element, xmlToModelResult);
-    	}
-    	
-    	// city/state/postalCode/country mandatory for AD.FULL
-    	if (isFull) {
-    		validatePartTypeProvided(PostalAddressPartType.CITY, postalAddress.getParts(), element, xmlToModelResult);
-    		validatePartTypeProvided(PostalAddressPartType.STATE, postalAddress.getParts(), element, xmlToModelResult);
-    		validatePartTypeProvided(PostalAddressPartType.POSTAL_CODE, postalAddress.getParts(), element, xmlToModelResult);
-    		validatePartTypeProvided(PostalAddressPartType.COUNTRY, postalAddress.getParts(), element, xmlToModelResult);
-    	}
-	}
-
-	private void validatePartTypeProvided(PostalAddressPartType partType, List<PostalAddressPart> parts, Element element, XmlToModelResult xmlToModelResult) {
-		boolean found = false;
-		for (PostalAddressPart postalAddressPart : parts) {
-			if (postalAddressPart.getType() == partType) {
-				found = true;
-				break;
-			}
-		}
-		if (!found) {
-			recordError("Part type '" + partType + "' is mandatory for AD.FULL", element, xmlToModelResult);
-		}
-	}
-
-	private void validatePostalAddressUses(ParseContext context, PostalAddress postalAddress, Element element, XmlToModelResult xmlToModelResult) {
-		int numUses = postalAddress.getUses().size();
-    	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(context.getType());
-		if (isSearch && numUses > 0) {
-    		// error if > 0 and SEARCH
-			recordError("PostalAddressUses are not allowed for AD.SEARCH", element, xmlToModelResult);
-    	} else {
-			if (numUses > MAX_USES) {
-				// error if more than 3 uses
-				recordError("A maximum of 3 PostalAddressUses are allowed (number found: " + numUses + ")", element, xmlToModelResult);
-			}
-		}
-    	
-    	if (SpecificationVersion.isVersion(context.getVersion(), Hl7BaseVersion.CERX)) {
-    		// error if CONF/DIR and CeRx
-    		for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
-				if (X_BasicPostalAddressUse.CONFIDENTIAL.getCodeValue().equals(postalAddressUse.getCodeValue())
-						|| X_BasicPostalAddressUse.DIRECT.getCodeValue().equals(postalAddressUse.getCodeValue())) {
-					recordError("PostalAddressUses 'CONF' and 'DIR' are not valid for CeRx AD datatypes", element, xmlToModelResult);
-				}
-			}
-    	}
-	}
-
 	private Set<x_BasicPostalAddressUse> getNameUses(String nameUseAttribute, Node node, XmlToModelResult xmlToModelResult) {
         Set<x_BasicPostalAddressUse> uses = new HashSet<x_BasicPostalAddressUse>();
         if (nameUseAttribute != null) {
