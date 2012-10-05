@@ -20,22 +20,22 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class AdElementParserTest extends MarshallingTestCase {
@@ -43,18 +43,20 @@ public class AdElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		AD ad = (AD) (new AdElementParser()).parse(createContext(), node, this.xmlResult);
+		AD ad = (AD) (new AdElementParser()).parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("null returned", null, ad.getValue());
 	}
 
-	private ParseContext createContext() {
-		return ParserContextImpl.create("AD", PostalAddress.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+	private ParseContext createContext(String type, VersionNumber version) {
+		return ParserContextImpl.create(type, PostalAddress.class, version, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
         assertNotNull("empty node", ad.getValue());
         assertTrue("empty node value", ad.getValue().getParts().isEmpty());
 	}
@@ -62,7 +64,8 @@ public class AdElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseTextNode() throws Exception {
 		Node node = createNode("<something>text value</something>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("correct number of parts", 1, ad.getValue().getParts().size());
         assertPostalAddressPartAsExpected("text node", ad.getValue().getParts().get(0), null, "text value", null);
 	}
@@ -70,7 +73,8 @@ public class AdElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseTextNodeWithAttributes() throws Exception {
 		Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\">text value</something>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("correct number of parts", 1, ad.getValue().getParts().size());
         assertPostalAddressPartAsExpected("text node with attributes", ad.getValue().getParts().get(0), null, "text value", null);
 	}
@@ -80,7 +84,8 @@ public class AdElementParserTest extends MarshallingTestCase {
         Node node = createNode(
                   "<something> <city>city name</city>freeform<delimiter>,</delimiter>\n<state code=\"ON\">Ontario</state></something>");
         
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
         
         PostalAddress postalAddress = ad.getValue();
         
@@ -95,15 +100,11 @@ public class AdElementParserTest extends MarshallingTestCase {
 
 	@Test
     public void testParseFailure() throws Exception {
-        Node node = createNode(
-                  "<something><monkey>prefix 1</monkey>Organization name<delimiter>,</delimiter><suffix>Inc</suffix></something>");
+        Node node = createNode("<something><monkey>prefix 1</monkey>Organization name<delimiter>,</delimiter><suffix>Inc</suffix></something>");
         
-        try {
-            new AdElementParser().parse(null, node, null);
-            fail("expected exception");
-        } catch (XmlToModelTransformationException e) {
-            assertEquals("message", "Unexpected part of type: monkey", e.getMessage());
-        }
+        new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+        assertFalse(this.xmlResult.isValid());
+        assertEquals("message", "Address part type not valid: monkey (<monkey>)", this.xmlResult.getHl7Errors().get(0).getMessage());
     }
     
     private void assertPostalAddressPartAsExpected(String message, PostalAddressPart postalAddressPart, PostalAddressPartType expectedType, String expectedValue, String expectedCode) {
@@ -115,34 +116,39 @@ public class AdElementParserTest extends MarshallingTestCase {
 	@Test
     public void testUsesNoUse() throws Exception {
         Node node = createNode("<something/>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
         assertEquals("zero uses", 0, ad.getValue().getUses().size());
     }
     
 	@Test
     public void testUsesOneUse() throws Exception {
         Node node = createNode("<something use=\"H\"/>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
         assertEquals("one use", 1, ad.getValue().getUses().size());
-        assertTrue("contains HOME use", ad.getValue().getUses().contains(PostalAddressUse.HOME));
+        assertTrue("contains HOME use", ad.getValue().getUses().contains(X_BasicPostalAddressUse.HOME));
     }
     
 	@Test
     public void testUsesMultipleUses() throws Exception {
-        Node node = createNode("<something use=\"H PUB PST\"/>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
+        Node node = createNode("<something use=\"H PHYS PST\"/>");
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
         
         PostalAddress postalAddress = ad.getValue();
 		assertEquals("one use", 3, postalAddress.getUses().size());
-        assertTrue("contains HOME use", postalAddress.getUses().contains(PostalAddressUse.HOME));
-        assertTrue("contains PUBLIC use", postalAddress.getUses().contains(PostalAddressUse.PUBLIC));
-        assertTrue("contains POSTAL use", postalAddress.getUses().contains(PostalAddressUse.POSTAL));
+        assertTrue("contains HOME use", postalAddress.getUses().contains(X_BasicPostalAddressUse.HOME));
+        assertTrue("contains PHYS use", postalAddress.getUses().contains(X_BasicPostalAddressUse.PHYSICAL));
+        assertTrue("contains POSTAL use", postalAddress.getUses().contains(X_BasicPostalAddressUse.POSTAL));
     }
     
 	@Test
     public void testUsesUnknownUse() throws Exception {
         Node node = createNode("<something use=\"XXX\"/>");
-        AD ad = (AD) new AdElementParser().parse(null, node, null);
-        assertEquals("no uses", 0, ad.getValue().getUses().size());
+        AD ad = (AD) new AdElementParser().parse(createContext("AD.BASIC", V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("no uses", 0, ad.getValue().getUses().size());
     }
 }

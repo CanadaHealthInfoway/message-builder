@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -181,7 +181,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		ResponsiblePartyBean responsibleParty = new ResponsiblePartyBean();
 		responsibleParty.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		responsibleParty.setAddress(address);
 		responsibleParty.getTelecom().add(new TelecommunicationAddress(
@@ -206,6 +206,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 				getAcceptedMessageFile())), actual);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void populateAcceptedBean(RecordResponseMessageBean<ActEventBean> acceptedBean) {
 		MessageBeanBuilderSupport.populateBetterStandardValuesV02(acceptedBean.getMessageAttributes());
 		acceptedBean.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
@@ -226,6 +227,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 				getRefusedMessageFile())), actual);
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void populateRefusedBean(RecordResponseMessageBean<ActEventBean> refusedBean) {
 		MessageBeanBuilderSupport.populateBetterStandardValuesV02(refusedBean.getMessageAttributes());
 		refusedBean.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));

@@ -32,10 +32,10 @@ import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
  */
 public class CodeUtil {
 
-	public static Code convertToCode(String codeAsString) {
+	public static Code convertToCode(String codeAsString, String codeSystem) {
 		Code result = null; 
 		if (StringUtils.isNotBlank(codeAsString)) {
-			result = new TrivialCodeResolver().lookup(Code.class, codeAsString);
+			result = new TrivialCodeResolver().lookup(Code.class, codeAsString, codeSystem);
 		}
 		return result;
 	}

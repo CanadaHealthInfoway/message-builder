@@ -105,8 +105,8 @@
                 <deceasedTime value="20020310000000.0000-0500"/>
                 <multipleBirthInd value="true"/>
                 <multipleBirthOrderNumber value="2"/>
-                <addr use="H"><streetName>Bloor</streetName></addr>
-                <addr use="H"><streetName>Yonge</streetName></addr>
+                <addr use="H"><streetName>Bloor</streetName><city>Toronto</city><state>ON</state><postalCode>H0H0H0</postalCode><country>Canada</country></addr>
+                <addr use="H"><streetName>Yonge</streetName><city>Toronto</city><state>ON</state><postalCode>H0H0H0</postalCode><country>Canada</country></addr>
                 <asOtherIDs classCode="IDENT">
                   <id displayable="true" extension="123" root="1.2.3"/>
                   <code code="PASS" codeSystem="2.16.840.1.113883.2.20.5.2"/>

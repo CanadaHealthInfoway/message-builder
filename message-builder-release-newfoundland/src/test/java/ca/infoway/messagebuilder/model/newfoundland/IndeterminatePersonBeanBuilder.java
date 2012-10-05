@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
@@ -75,11 +75,19 @@ public class IndeterminatePersonBeanBuilder extends BaseBeanBuilder<Indeterminat
 		bean.setMultipleBirthOrderNumber(2);
 		
 		PostalAddress address1 = new PostalAddress();
-		address1.addUse(PostalAddressUse.HOME);
+		address1.addUse(X_BasicPostalAddressUse.HOME);
 		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
 		PostalAddress address2 = new PostalAddress();
-		address2.addUse(PostalAddressUse.HOME);
+		address2.addUse(X_BasicPostalAddressUse.HOME);
 		address2.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Yonge"));
+		address2.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+		address2.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+		address2.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+		address2.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
 		bean.getAddresses().add(address1);
 		bean.getAddresses().add(address2);
 

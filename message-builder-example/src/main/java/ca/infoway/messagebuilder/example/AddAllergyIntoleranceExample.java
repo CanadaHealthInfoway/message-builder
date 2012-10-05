@@ -36,7 +36,7 @@ import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ROUTE_O
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_SEVERITY_OBSERVATION;
 import static ca.infoway.messagebuilder.datatype.lang.PersonName.createFirstNameLastName;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.STREET_NAME;
-import static ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse.HOME;
+import static ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse.HOME;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_ALLERGY_INTOLERANCE_REQUEST;
 import static ca.infoway.messagebuilder.domainvalue.transport.ProcessingID.PRODUCTION;

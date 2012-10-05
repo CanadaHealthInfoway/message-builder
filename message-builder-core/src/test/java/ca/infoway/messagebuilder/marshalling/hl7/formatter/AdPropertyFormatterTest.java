@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 
 public class AdPropertyFormatterTest extends FormatterTestCase {
 
@@ -75,13 +75,13 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
     	AdPropertyFormatter formatter = new AdPropertyFormatter();
         
         PostalAddress address = new PostalAddress();
-        address.addUse(PostalAddressUse.HOME);
-        address.addUse(PostalAddressUse.PUBLIC);
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        address.addUse(X_BasicPostalAddressUse.PHYSICAL);
 
         // since the uses as a set, order is not guaranteed
         String result = formatter.format(getContext("addr"), new ADImpl(address));
         assertTrue("open tag", result.startsWith("<addr use=\""));
-        assertTrue("H PUB", result.contains("H PUB") || result.contains("PUB H"));
+        assertTrue("H PHYS", result.contains("H PHYS") || result.contains("PUB H"));
         assertTrue("close tag", result.trim().endsWith("\"></addr>"));
     }
 	

@@ -32,7 +32,7 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
@@ -58,7 +58,7 @@ public class PostalAddressXmlFormatterTest {
 		AD ad = formatter.format(new FormatterContextImpl(StandardDataType.AD, null), document.getDocumentElement());
 		assertNotNull("ad", ad);
 		assertEquals(3, ad.getValue().getUses().size());
-		Iterator<PostalAddressUse> iterator = ad.getValue().getUses().iterator();
+		Iterator<x_BasicPostalAddressUse> iterator = ad.getValue().getUses().iterator();
 		assertEquals("H", iterator.next().getCodeValue());
 		assertEquals("WP", iterator.next().getCodeValue());
 		assertEquals("PST", iterator.next().getCodeValue());
@@ -86,7 +86,7 @@ public class PostalAddressXmlFormatterTest {
 		AD ad = formatter.format(new FormatterContextImpl(StandardDataType.AD, null), document.getDocumentElement());
 		assertNotNull("ad", ad);
 		assertEquals(3, ad.getValue().getUses().size());
-		Iterator<PostalAddressUse> iterator = ad.getValue().getUses().iterator();
+		Iterator<x_BasicPostalAddressUse> iterator = ad.getValue().getUses().iterator();
 		assertEquals("H", iterator.next().getCodeValue());
 		assertEquals("WP", iterator.next().getCodeValue());
 		assertEquals("PST", iterator.next().getCodeValue());

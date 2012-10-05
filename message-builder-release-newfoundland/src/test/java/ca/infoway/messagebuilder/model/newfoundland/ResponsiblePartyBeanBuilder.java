@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class ResponsiblePartyBeanBuilder extends BaseBeanBuilder<ResponsiblePartyBean> {
@@ -45,7 +45,7 @@ public class ResponsiblePartyBeanBuilder extends BaseBeanBuilder<ResponsiblePart
 		this.bean.setCode(lookup(x_SimplePersonalRelationship.class, "SIB", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
 		bean.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(

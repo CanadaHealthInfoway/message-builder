@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.model.newfoundland.BaseBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ResponsiblePartyBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBeanBuilder;
@@ -44,7 +44,7 @@ public class DispenseInstructionsBeanBuilder extends
 
 	public BaseBeanBuilder<DispenseInstructionsBean> populate() {
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		this.bean.setDestination(address);
 		this.bean.setEffectiveTime(IntervalFactory.createLow(new Date(0)));

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 
@@ -63,9 +63,9 @@ public class PostalAddressXmlParserTest extends AbstractXmlParserTest<AD> {
 	@Test
 	public void shouldParseMultipleParts() throws Exception {
 		PostalAddress postalAddress = new PostalAddress();
-		postalAddress.getUses().add(PostalAddressUse.HOME);
-		postalAddress.getUses().add(PostalAddressUse.WORK_PLACE);
-		postalAddress.getUses().add(PostalAddressUse.POSTAL);
+		postalAddress.getUses().add(X_BasicPostalAddressUse.HOME);
+		postalAddress.getUses().add(X_BasicPostalAddressUse.WORK_PLACE);
+		postalAddress.getUses().add(X_BasicPostalAddressUse.POSTAL);
 		postalAddress.addPostalAddressPart(new PostalAddressPart("addressline1"));
 		postalAddress.addPostalAddressPart(new PostalAddressPart("addressline2"));
 		postalAddress.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "myCity"));
@@ -89,13 +89,13 @@ public class PostalAddressXmlParserTest extends AbstractXmlParserTest<AD> {
 	@Test
 	public void shouldParsePostalAddressUses() throws Exception {
 		PostalAddress postalAddress = new PostalAddress();
-		postalAddress.addUse(PostalAddressUse.HOME);
-		postalAddress.addUse(PostalAddressUse.PUBLIC);
+		postalAddress.addUse(X_BasicPostalAddressUse.HOME);
+		postalAddress.addUse(X_BasicPostalAddressUse.PHYSICAL);
 		
 		String parsedAddress = this.parser.parse(createContext(), new ADImpl(postalAddress));
 		
 		assertTrue("open tag", parsedAddress.startsWith("<deliveryAddress use=\""));
-		assertTrue("H PUB", parsedAddress.contains("H PUB") || parsedAddress.contains("PUB H"));
+		assertTrue("H PHYS", parsedAddress.contains("H PHYS") || parsedAddress.contains("PHYS H"));
 		assertTrue("close tag", parsedAddress.trim().endsWith("\"></deliveryAddress>"));
 
 	}

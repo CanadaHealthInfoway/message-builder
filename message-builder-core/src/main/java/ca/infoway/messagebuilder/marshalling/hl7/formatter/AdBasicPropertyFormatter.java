@@ -28,7 +28,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
@@ -104,7 +104,7 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
 		}
     	flush(builder, basicAddress);
     	
-    	for (PostalAddressUse use : postalAddress.getUses()) {
+    	for (x_BasicPostalAddressUse use : postalAddress.getUses()) {
     		if (isAllowableUse(use)) {
     			basicAddress.addUse(use);
     		}
@@ -113,9 +113,8 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
     	return super.formatNonNullValue(context, basicAddress, indentLevel);
     }
 
-	private boolean isAllowableUse(PostalAddressUse use) {
-		return use != null && use.getCodeValue() != null 
-				&& ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue());
+	private boolean isAllowableUse(x_BasicPostalAddressUse use) {
+		return use != null && use.getCodeValue() != null && ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue());
 	}
 
 	private void flush(StringBuilder builder, PostalAddress basicAddress) {

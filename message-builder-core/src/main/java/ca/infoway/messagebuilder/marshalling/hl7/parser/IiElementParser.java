@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 /**
@@ -77,8 +76,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 	@Override
-	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult)
-			throws XmlToModelTransformationException {
+	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) {
 		
 		Element element = (Element) node;
 		VersionNumber version = (context == null ? null : context.getVersion());

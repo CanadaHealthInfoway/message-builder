@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
@@ -57,7 +57,7 @@ public class PostalAddressXmlFormatter extends AbstractSimpleXmlFormatter {
 		
 		AD result = null;
 		if (postalAddress != null) {
-			Set<PostalAddressUse> postalAddressUses = getPostalAddressUses(value.getAttribute("use"));
+			Set<x_BasicPostalAddressUse> postalAddressUses = getPostalAddressUses(value.getAttribute("use"));
 			postalAddress.getUses().addAll(postalAddressUses);
 			result = new ADImpl(postalAddress);
 		}
@@ -118,14 +118,16 @@ public class PostalAddressXmlFormatter extends AbstractSimpleXmlFormatter {
 	}
 
 	// taken from AdElementParser
-    private Set<PostalAddressUse> getPostalAddressUses(String postAddressUseAttribute) {
-        Set<PostalAddressUse> uses = new LinkedHashSet<PostalAddressUse>();
-        if (postAddressUseAttribute != null) {
-            StringTokenizer tokenizer = new StringTokenizer(postAddressUseAttribute);
+    private Set<x_BasicPostalAddressUse> getPostalAddressUses(String nameUseAttribute) {
+        Set<x_BasicPostalAddressUse> uses = new LinkedHashSet<x_BasicPostalAddressUse>();
+        if (nameUseAttribute != null) {
+            StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
             while (tokenizer.hasMoreElements()) {
                 String token = tokenizer.nextToken();
-                PostalAddressUse postalAddressUse = CodeResolverRegistry.lookup(PostalAddressUse.class, token);
-                if (postalAddressUse != null) {
+                x_BasicPostalAddressUse postalAddressUse = CodeResolverRegistry.lookup(x_BasicPostalAddressUse.class, token);
+                if (postalAddressUse == null) {
+                	// error if a use is not found
+                } else {
                     uses.add(postalAddressUse);
                 }
             }

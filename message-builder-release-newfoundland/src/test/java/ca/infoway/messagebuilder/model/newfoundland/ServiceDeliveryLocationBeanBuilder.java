@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ServiceDeliveryLocationBeanBuilder extends BaseBeanBuilder<ServiceDeliveryLocationBean> {
@@ -43,7 +43,7 @@ public class ServiceDeliveryLocationBeanBuilder extends BaseBeanBuilder<ServiceD
 		bean.setCode(CodeResolverRegistry.lookup(ServiceDeliveryLocationRoleType.class, "ALL", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
 		
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		bean.setAddr(address);
 		bean.getTelecom().add(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10"));

@@ -27,7 +27,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 
 /**
  * <p>Java datatype for AD Hl7 datatype. 
@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 public class PostalAddress implements Serializable {
 	
     private static final long serialVersionUID = -12550370508382374L;
-	private Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
+	private Set<x_BasicPostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<x_BasicPostalAddressUse>());
     private final List<PostalAddressPart> parts = Collections.synchronizedList(new ArrayList<PostalAddressPart>());
 
     /**
@@ -49,7 +49,7 @@ public class PostalAddress implements Serializable {
      * 
      * @return set of postal address uses
      */
-    public Set<PostalAddressUse> getUses() {
+    public Set<x_BasicPostalAddressUse> getUses() {
         return this.uses;
     }
     
@@ -58,7 +58,7 @@ public class PostalAddress implements Serializable {
      * 
      * @param uses  set of postal address uses
      */
-    public void setUses(Set<PostalAddressUse> uses) {
+    public void setUses(Set<x_BasicPostalAddressUse> uses) {
         this.uses = uses;
     }
     
@@ -67,7 +67,7 @@ public class PostalAddress implements Serializable {
      * 
      * @param use a postal address use
      */
-    public void addUse(PostalAddressUse use) {
+    public void addUse(x_BasicPostalAddressUse use) {
         this.uses.add(use);
     }
     

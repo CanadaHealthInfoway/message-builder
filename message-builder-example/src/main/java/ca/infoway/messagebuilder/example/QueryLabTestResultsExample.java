@@ -24,7 +24,7 @@ import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER;
 import static ca.infoway.messagebuilder.datatype.lang.PersonName.createFirstNameLastName;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.STREET_NAME;
-import static ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse.HOME;
+import static ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse.HOME;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
 import static ca.infoway.messagebuilder.domainvalue.transport.ProcessingID.PRODUCTION;
 import static ca.infoway.messagebuilder.domainvalue.transport.ResponseMode.IMMEDIATE;

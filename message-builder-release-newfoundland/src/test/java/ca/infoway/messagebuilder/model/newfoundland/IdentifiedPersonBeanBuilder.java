@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 
 public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPersonBean> {
@@ -47,7 +47,7 @@ public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPerso
 	public IdentifiedPersonBeanBuilder populate() {
 		bean.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(
@@ -64,7 +64,7 @@ public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPerso
 	public IdentifiedPersonBeanBuilder populateMabelHauptman() {
 		bean.setId(new Identifier("2.16.840.1.113883.4.260", "9283488"));
 		PostalAddress address = new PostalAddress();
-		address.addUse(PostalAddressUse.HOME);
+		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(

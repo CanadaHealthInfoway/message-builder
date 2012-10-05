@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -171,7 +171,7 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		patient.setId(new Identifier("1.2.3", "patient extention"));
 		PostalAddress address = new PostalAddress();
 		address.getParts().add(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
-		address.getUses().add(PostalAddressUse.HOME);
+		address.getUses().add(X_BasicPostalAddressUse.HOME);
 		patient.setAddress(address);
 //		patient.getTelecom().add(new TelecomAddressBeanAdapter().adaptToHl7(new TelecomAddressBean("416-762-0032", URLScheme.TEL, TelecommunicationAddressUse.WORKPLACE)));
 		

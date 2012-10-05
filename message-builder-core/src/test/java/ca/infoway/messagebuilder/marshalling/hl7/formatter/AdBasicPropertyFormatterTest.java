@@ -40,12 +40,15 @@ import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.Country;
 import ca.infoway.messagebuilder.domainvalue.basic.Iso3166Alpha2Country;
 import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.State;
+import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
+@SuppressWarnings("deprecation")
 public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 
 	private PostalAddress address;
@@ -79,12 +82,12 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		this.address.addUse(null);
 		assertXmlEquals("empty address - even with \"null\" address use", expectedResult, result);
 		
-		this.address.addUse(PostalAddressUse.WORK_PLACE);
+		this.address.addUse(X_BasicPostalAddressUse.WORK_PLACE);
 		result = formatter.format(getContext("address"), new ADImpl(this.address) );
 		expectedResult = "<address use=\"WP\">" + LINE_SEPARATOR + "</address>" + LINE_SEPARATOR;
 		assertXmlEquals("empty workplace address", expectedResult, result);
 		
-		this.address.addUse(PostalAddressUse.HOME);
+		this.address.addUse(X_BasicPostalAddressUse.HOME);
 		result = formatter.format(getContext("address"), new ADImpl(this.address));
 		Document document = new DocumentFactory().createFromString(result);
 		String attribute = (document.getDocumentElement()).getAttribute("use");
@@ -233,7 +236,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_ADDRESS_LINE, "1 Yonge St."));
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_ADDRESS_LINE, "1 Bloor St."));
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_ADDRESS_LINE, "1 Spadina Ave."));
-		this.address.addUse(PostalAddressUse.HOME);
+		this.address.addUse(X_BasicPostalAddressUse.HOME);
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, State.ONTARIO));
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "postalCodeValue"));
@@ -275,14 +278,14 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatAllValidAddressUses() throws Exception {
-		assertValidAddressUse(PostalAddressUse.HOME);
-		assertValidAddressUse(PostalAddressUse.PHYSICAL);
-		assertValidAddressUse(PostalAddressUse.POSTAL);
-		assertValidAddressUse(PostalAddressUse.TEMPORARY);
-		assertValidAddressUse(PostalAddressUse.WORK_PLACE);
+		assertValidAddressUse(X_BasicPostalAddressUse.HOME);
+		assertValidAddressUse(X_BasicPostalAddressUse.PHYSICAL);
+		assertValidAddressUse(X_BasicPostalAddressUse.POSTAL);
+		assertValidAddressUse(X_BasicPostalAddressUse.TEMPORARY);
+		assertValidAddressUse(X_BasicPostalAddressUse.WORK_PLACE);
 	}
 	
-	private void assertValidAddressUse(PostalAddressUse use) throws Exception {
+	private void assertValidAddressUse(x_BasicPostalAddressUse use) throws Exception {
 		PostalAddress postalAddress = new PostalAddress();
 		postalAddress.addUse(use);
 		

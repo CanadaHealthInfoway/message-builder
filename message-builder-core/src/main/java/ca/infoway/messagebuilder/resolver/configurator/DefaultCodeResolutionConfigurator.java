@@ -64,6 +64,7 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodOrderEvent;
+import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.x_BasicUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_DistanceObservationUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
@@ -190,6 +191,9 @@ public class DefaultCodeResolutionConfigurator {
 		CodeResolverRegistry.registerResolver(x_TimeUnitsOfMeasure.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit.class));
 		
+		CodeResolverRegistry.registerResolver(x_BasicPostalAddressUse.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse.class));
+
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 	}
 }
