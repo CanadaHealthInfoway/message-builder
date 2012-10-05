@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
@@ -182,7 +181,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		responsibleParty.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
 		address.addUse(X_BasicPostalAddressUse.HOME);
-		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
+		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		responsibleParty.setAddress(address);
 		responsibleParty.getTelecom().add(new TelecommunicationAddress(
 				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10"));

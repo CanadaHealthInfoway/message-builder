@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -45,4 +46,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
  */
 @DataTypeHandler("AD")
 class AdPropertyFormatter extends AbstractAdPropertyFormatter {
+	
+    @Override
+    final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
+    	
+    	AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), context.getVersion().getBaseVersion(), null, context.getModelToXmlResult());
+    	
+    	return super.formatNonNullValue(context, postalAddress, indentLevel);
+    }
 }

@@ -42,7 +42,6 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
@@ -170,7 +169,7 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		IdentifiedPersonBean patient = identifiedPersonBuilder.create();
 		patient.setId(new Identifier("1.2.3", "patient extention"));
 		PostalAddress address = new PostalAddress();
-		address.getParts().add(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
+		address.getParts().add(new PostalAddressPart("Bloor"));
 		address.getUses().add(X_BasicPostalAddressUse.HOME);
 		patient.setAddress(address);
 //		patient.getTelecom().add(new TelecomAddressBeanAdapter().adaptToHl7(new TelecomAddressBean("416-762-0032", URLScheme.TEL, TelecommunicationAddressUse.WORKPLACE)));

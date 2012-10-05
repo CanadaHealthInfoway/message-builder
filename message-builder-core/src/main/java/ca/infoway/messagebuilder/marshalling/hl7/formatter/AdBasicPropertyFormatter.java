@@ -20,11 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
@@ -62,60 +60,42 @@ import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 @DataTypeHandler("AD.BASIC")
 class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
 
-    private final static List<String> ALLOWABLE_ADDRESS_USES = new ArrayList<String>();
-
-    static {
-        ALLOWABLE_ADDRESS_USES.add("H");
-        ALLOWABLE_ADDRESS_USES.add("PHYS");
-        ALLOWABLE_ADDRESS_USES.add("PST");
-        ALLOWABLE_ADDRESS_USES.add("TMP");
-        ALLOWABLE_ADDRESS_USES.add("WP");
-    }
-
     @Override
     final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
+    	
+    	Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
+		AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), baseVersion, null, context.getModelToXmlResult());
+    	
     	PostalAddress basicAddress = new PostalAddress();
     	
     	StringBuilder builder = new StringBuilder();
-    	PostalAddressPartType lastPartType = null;
-    	
+
+    	// remove any non-basic address parts
     	for (PostalAddressPart part : EmptyIterable.nullSafeIterable(postalAddress.getParts())) {
    			if (part.getType() == PostalAddressPartType.CITY
 					|| part.getType() == PostalAddressPartType.STATE
 					|| part.getType() == PostalAddressPartType.COUNTRY
-					|| part.getType() == PostalAddressPartType.POSTAL_CODE) {
-				flush(builder, basicAddress);
-				basicAddress.addPostalAddressPart(part);
-			} else if (part.getType() == PostalAddressPartType.DELIMITER && StringUtils.isBlank(part.getValue())) {
+					|| part.getType() == PostalAddressPartType.POSTAL_CODE
+					|| part.getType() == PostalAddressPartType.DELIMITER) {
 				flush(builder, basicAddress);
 				basicAddress.addPostalAddressPart(part);
 			} else if (StringUtils.isNotBlank(part.getValue())) {
-				if (builder.length() > 0 
-						&& part.getType() == PostalAddressPartType.STREET_ADDRESS_LINE 
-						&& lastPartType == PostalAddressPartType.STREET_ADDRESS_LINE) {
-					flush(builder, basicAddress);
-					basicAddress.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.DELIMITER, (String) null));
-				} else if (builder.length() > 0) {
+				if (builder.length() > 0) {
 					builder.append(" ");
 				}
 				builder.append(part.getValue());
 			}
-   			lastPartType = part.getType();
 		}
     	flush(builder, basicAddress);
     	
     	for (x_BasicPostalAddressUse use : postalAddress.getUses()) {
-    		if (isAllowableUse(use)) {
+    		if (AD_VALIDATION_UTILS.isAllowableUse(use, baseVersion)) {
     			basicAddress.addUse(use);
     		}
 		}
     	
     	return super.formatNonNullValue(context, basicAddress, indentLevel);
     }
-
-	private boolean isAllowableUse(x_BasicPostalAddressUse use) {
-		return use != null && use.getCodeValue() != null && ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue());
-	}
 
 	private void flush(StringBuilder builder, PostalAddress basicAddress) {
 		if (builder.length() > 0) {

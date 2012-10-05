@@ -79,7 +79,7 @@ public class ActivateDevicePrescriptionTransformationTest extends BaseTransforme
 	public void shouldFormatAcceptedResponse() throws Exception {
 		ActivateDevicePrescriptionRequestAcceptedMessageBean model = createAcceptedResponseBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
-		Document actual = this.factory.createFromString(xml);
+		this.factory.createFromString(xml);
 	}
 
 

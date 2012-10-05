@@ -48,7 +48,7 @@ public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPerso
 		bean.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
 		address.addUse(X_BasicPostalAddressUse.HOME);
-		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
+		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));

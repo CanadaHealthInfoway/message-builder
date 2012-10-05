@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
@@ -46,7 +45,7 @@ public class ResponsiblePartyBeanBuilder extends BaseBeanBuilder<ResponsiblePart
 		bean.setId(new Identifier("3.14", "159"));
 		PostalAddress address = new PostalAddress();
 		address.addUse(X_BasicPostalAddressUse.HOME);
-		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
+		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));

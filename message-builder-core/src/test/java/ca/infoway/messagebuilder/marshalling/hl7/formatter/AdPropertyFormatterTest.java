@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -35,7 +36,8 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new AdPropertyFormatter().format(getContext("addr"), new ADImpl());
+		String result = new AdPropertyFormatter().format(getContext("addr", "AD.FULL"), new ADImpl());
+		assertTrue(this.result.isValid());
         assertEquals("named null format", "<addr nullFlavor=\"NI\"/>", result.trim());
 	}
 	
@@ -44,17 +46,24 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
 		AdPropertyFormatter formatter = new AdPropertyFormatter();
 		PostalAddress postalAddress = new PostalAddress();
 		postalAddress.addPostalAddressPart(new PostalAddressPart("something"));
-		String result = formatter.format(getContext("addr"), new ADImpl(postalAddress));
-		assertEquals("something in text node", "<addr>something</addr>", result.trim());
+		String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(postalAddress));
+		assertFalse(this.result.isValid());
+		assertEquals(5, this.result.getHl7Errors().size()); // city/state/postalcode/country are mandatory; part without types not allowed 
+		assertEquals("empty address node node", "<addr></addr>", result.trim());
 	}
 
 	@Test
 	public void testFormatValueReservedXmlChars() throws Exception{
 		AdPropertyFormatter formatter = new AdPropertyFormatter();
-		PostalAddress postalAddress = new PostalAddress();
-		postalAddress.addPostalAddressPart(new PostalAddressPart("<cats think they're > humans & dogs 99% of the time/>"));
-		String result = formatter.format(getContext("addr"), new ADImpl(postalAddress));
-		assertEquals("something in text node", "<addr>&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</addr>".trim(), result.trim());
+		PostalAddress address = new PostalAddress();
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "<cats think they're > humans & dogs 99% of the time/>"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+        
+		String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertTrue(this.result.isValid());
+		assertEquals("something in text node", "<addr><city>&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</city><state>ON</state><postalCode>H0H0H0</postalCode><country>Canada</country></addr>".trim(), result.trim());
 	}
 	
 	@Test
@@ -66,8 +75,10 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
 		postalAddress.addPostalAddressPart(new PostalAddressPart("freeform"));
 		postalAddress.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.DELIMITER, ","));
 		postalAddress.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
-		String result = formatter.format(getContext("addr"), new ADImpl(postalAddress));
-        assertEquals("something in text node with goofy sub nodes", "<addr><city>cityname</city>freeform<delimiter>,</delimiter><state>ON</state></addr>", result.trim());
+		String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(postalAddress));
+		assertFalse(this.result.isValid());
+		assertEquals(4, this.result.getHl7Errors().size()); // no parts without part type; delimiter not allowed; postal code and country mandatory
+        assertEquals("something in text node with goofy sub nodes suppressed", "<addr><city>cityname</city><state>ON</state></addr>", result.trim());
     }
 
 	@Test
@@ -77,12 +88,17 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
         PostalAddress address = new PostalAddress();
         address.addUse(X_BasicPostalAddressUse.HOME);
         address.addUse(X_BasicPostalAddressUse.PHYSICAL);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
 
         // since the uses as a set, order is not guaranteed
-        String result = formatter.format(getContext("addr"), new ADImpl(address));
+        String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertTrue(this.result.isValid());
         assertTrue("open tag", result.startsWith("<addr use=\""));
-        assertTrue("H PHYS", result.contains("H PHYS") || result.contains("PUB H"));
-        assertTrue("close tag", result.trim().endsWith("\"></addr>"));
+        assertTrue("H PHYS", result.contains("\"H PHYS\"") || result.contains("\"H PHYS\""));
     }
 	
 }

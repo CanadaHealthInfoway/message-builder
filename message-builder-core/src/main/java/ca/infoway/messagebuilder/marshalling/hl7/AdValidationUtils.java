@@ -19,6 +19,7 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,6 +42,18 @@ public class AdValidationUtils {
 	private static final int MAX_DELIMITED_LINES = 4;
 	private static final int MAX_PART_LENGTH = 80;
 	private static final int MAX_USES = 3;
+
+    private final static List<String> ALLOWABLE_ADDRESS_USES = new ArrayList<String>();
+
+    static {
+        ALLOWABLE_ADDRESS_USES.add("H");
+        ALLOWABLE_ADDRESS_USES.add("PHYS");
+        ALLOWABLE_ADDRESS_USES.add("PST");
+        ALLOWABLE_ADDRESS_USES.add("TMP");
+        ALLOWABLE_ADDRESS_USES.add("WP");
+        ALLOWABLE_ADDRESS_USES.add("CONF");
+        ALLOWABLE_ADDRESS_USES.add("DIR");
+    }
 
 	public void validatePostalAddress(PostalAddress postalAddress, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
     	validatePostalAddressUses(postalAddress, type, baseVersion, element, errors);
@@ -90,7 +103,10 @@ public class AdValidationUtils {
 			
 	        // only one occurrence of each type allowed except for delimiter (is this correct?); delimiter only for BASIC (max 4)
 			if (partType != null && partType != PostalAddressPartType.DELIMITER && !partTypesTracking.add(partType)) {
-    			createError("Part type " + partType.getValue() + " is only allowed to occur once", element, errors);
+				// don't report an invalid part type more than once
+				if (isAllowableAddressPart(partType, type)) {
+					createError("Part type " + partType.getValue() + " is only allowed to occur once", element, errors);
+				}
 			}
 		}
 
@@ -137,19 +153,55 @@ public class AdValidationUtils {
 			}
 		}
     	
-    	if (baseVersion == Hl7BaseVersion.CERX) {
-    		// error if CONF/DIR and CeRx
     		for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
-				if (X_BasicPostalAddressUse.CONFIDENTIAL.getCodeValue().equals(postalAddressUse.getCodeValue())
-						|| X_BasicPostalAddressUse.DIRECT.getCodeValue().equals(postalAddressUse.getCodeValue())) {
-					createError("PostalAddressUses 'CONF' and 'DIR' are not valid for CeRx AD datatypes", element, errors);
-				}
+    			if (!isAllowableUse(postalAddressUse, baseVersion)) {
+       				createError("PostalAddressUse is not valid: " + (postalAddressUse == null ? "null" : postalAddressUse.getCodeValue()), element, errors);
+    			}
 			}
-    	}
 	}
 
+	public boolean isAllowableAddressPart(PostalAddressPartType partType, String type) {
+    	boolean isBasic = StandardDataType.AD_BASIC.getType().equals(type);
+    	boolean isFull = StandardDataType.AD_FULL.getType().equals(type);
+
+    	boolean result = true; 
+    	
+		if (partType == null) {
+			// no part type : only allowed for BASIC (max 4, plus max 4 delimiter)
+    		if (!isBasic) {
+    			result = false;
+    		}
+		} else if (partType == PostalAddressPartType.DELIMITER) {
+    		if (!isBasic) {
+    			result = false;
+    		}
+    	} else if (isFull) {
+    		if (!PostalAddressPartType.isFullAddressPartType(partType)) {
+    			result = false;
+    		}
+		} else if (!PostalAddressPartType.isBasicAddressPartType(partType)) {
+			result = false;
+		}
+		
+		return result;
+	}
 	
-	
+	public boolean isAllowableUse(x_BasicPostalAddressUse use, Hl7BaseVersion baseVersion) {
+		return use != null && use.getCodeValue() != null 
+				&& ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue())
+				// error if CONF/DIR and CeRx
+				&& !(isCeRx(baseVersion) && isConfOrDir(use));
+	}
+
+	private boolean isCeRx(Hl7BaseVersion baseVersion) {
+		return baseVersion != Hl7BaseVersion.CERX;
+	}
+
+	private boolean isConfOrDir(x_BasicPostalAddressUse use) {
+		return X_BasicPostalAddressUse.CONFIDENTIAL.getCodeValue().equals(use.getCodeValue())
+				|| X_BasicPostalAddressUse.DIRECT.getCodeValue().equals(use.getCodeValue());
+	}
+
 	private void createError(String errorMessage, Element element, Hl7Errors errors) {
 		errors.addHl7Error(
 				new Hl7Error(

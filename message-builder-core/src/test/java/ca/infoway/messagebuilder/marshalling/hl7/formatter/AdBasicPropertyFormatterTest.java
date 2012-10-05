@@ -29,6 +29,7 @@ import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAsser
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,7 +64,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNull() throws Exception {
 
-		String result = this.formatter.format(getContext("name"), new ADImpl());
+		String result = this.formatter.format(getContext("name", "AD.BASIC"), new ADImpl());
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = "<name nullFlavor=\"NI\"/>" + LINE_SEPARATOR;
 		assertEquals("null name", expectedResult, result);
@@ -72,7 +74,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatEmptyAddress() throws Exception {
 		AdBasicPropertyFormatter formatter = new AdBasicPropertyFormatter();
-		String result = formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = "<address>" + LINE_SEPARATOR + "</address>" + LINE_SEPARATOR;
 		assertXmlEquals("empty address", expectedResult, result);
@@ -83,12 +86,18 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		assertXmlEquals("empty address - even with \"null\" address use", expectedResult, result);
 		
 		this.address.addUse(X_BasicPostalAddressUse.WORK_PLACE);
-		result = formatter.format(getContext("address"), new ADImpl(this.address) );
+		result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address) );
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size()); // null not allowed for use
 		expectedResult = "<address use=\"WP\">" + LINE_SEPARATOR + "</address>" + LINE_SEPARATOR;
 		assertXmlEquals("empty workplace address", expectedResult, result);
 		
+		this.result.clearErrors();
+		
 		this.address.addUse(X_BasicPostalAddressUse.HOME);
-		result = formatter.format(getContext("address"), new ADImpl(this.address));
+		result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size()); // null not allowed for use
 		Document document = new DocumentFactory().createFromString(result);
 		String attribute = (document.getDocumentElement()).getAttribute("use");
 		
@@ -99,7 +108,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	public void testFormatFreeformLines() throws Exception {
 		AdBasicPropertyFormatter formatter = new AdBasicPropertyFormatter();
 		this.address.addPostalAddressPart(new PostalAddressPart("address line one"));
-		String result = formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>"
@@ -109,7 +119,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		assertXmlEquals("one freeform line", expectedResult, result);
 		
 		this.address.addPostalAddressPart(new PostalAddressPart("address line two"));
-		result = formatter.format(getContext("address"), new ADImpl(this.address));
+		result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		expectedResult = 
 			  "<address>"
@@ -123,7 +134,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatCity() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Cityville"));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
@@ -140,7 +152,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatProvince() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "Ontario"));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
@@ -153,7 +166,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatPostalCode() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "postalCodeValue"));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
@@ -169,11 +183,13 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 				HOUSE_NUMBER, null},
 				new String[] { "200", "-", "1709", "Bloor St. W." });
 		
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertFalse(this.result.isValid());
+		assertEquals(2, this.result.getHl7Errors().size()); // both part types used are invalid for AD.BASIC
 		
 		String expectedResult = 
 			"<address>"
-			+ "200 - 1709 Bloor St. W."
+			+ "200<delimiter/>1709 Bloor St. W."
 			+ "</address>";
 		
 		assertXmlEquals("postal code", expectedResult, result);
@@ -192,7 +208,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatCountryCode() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Country.CANADA));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
@@ -206,11 +223,12 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatCountryIsoCode() throws Exception {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Iso3166Alpha2Country.CANADA));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
-				+ "  <country code=\"CA\">CA</country>" + LINE_SEPARATOR 
+				+ "  <country code=\"CA\" codeSystem=\"1.0.3166.1.2.2\">CA</country>" + LINE_SEPARATOR 
 			+ "</address>" + LINE_SEPARATOR;
 
 		assertXmlEquals("country", expectedResult, result);
@@ -220,11 +238,12 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	public void testFormatCountryAsCodedString() throws Exception {
 		CodedString<Code> country = new CodedString<Code>("Canada", Iso3166Alpha2Country.CANADA);
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, country));
-		String result = this.formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
-				+ "  <country code=\"CA\">Canada</country>" + LINE_SEPARATOR 
+				+ "  <country code=\"CA\" codeSystem=\"1.0.3166.1.2.2\">Canada</country>" + LINE_SEPARATOR 
 			+ "</address>" + LINE_SEPARATOR;
 
 		assertXmlEquals("country", expectedResult, result);
@@ -243,12 +262,12 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		this.address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Country.CANADA));
 		this.address.addPostalAddressPart(new PostalAddressPart("freeformLine1"));
 		this.address.addPostalAddressPart(new PostalAddressPart("freeformLine2"));
-		String result = formatter.format(getContext("address"), new ADImpl(this.address));
+		String result = formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertFalse(this.result.isValid());
+		assertEquals(3, this.result.getHl7Errors().size()); // one error for each of the invalid SAL parts
 		
 		String expectedResult = "<address use=\"H\">" +
-				"1 Yonge St.<delimiter></delimiter>" +
-				"1 Bloor St.<delimiter></delimiter>" +
-				"1 Spadina Ave." +
+				"1 Yonge St. 1 Bloor St. 1 Spadina Ave." +
 				"<city>Toronto</city>" +
 				"<state code=\"ON\">ON</state>" +
 				"<postalCode>postalCodeValue</postalCode>" +
@@ -272,7 +291,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private void assertInvalidAddressUse(PostalAddressUse postalAddressUse) throws Exception {
-		String xml = new AdBasicPropertyFormatter().format(getContext("address"), new ADImpl(this.address));
+		String xml = new AdBasicPropertyFormatter().format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertTrue(this.result.isValid());
 		assertFalse("use: " + postalAddressUse, xml.contains("use"));
 	}
 	
@@ -289,7 +309,8 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		PostalAddress postalAddress = new PostalAddress();
 		postalAddress.addUse(use);
 		
-		String result = new AdBasicPropertyFormatter().format(getContext("address"), new ADImpl(postalAddress));
+		String result = new AdBasicPropertyFormatter().format(getContext("address", "AD.BASIC"), new ADImpl(postalAddress));
+		assertTrue(this.result.isValid());
 		String expected = "<address use=\"" + use.getCodeValue() + "\">" + LINE_SEPARATOR + "</address>" + LINE_SEPARATOR;
 		assertXmlEquals("use formatted properly", expected, result);
 	}
