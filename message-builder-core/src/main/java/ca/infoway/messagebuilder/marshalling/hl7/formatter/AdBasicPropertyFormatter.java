@@ -64,7 +64,8 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
     final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
     	
     	Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
-		AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), baseVersion, null, context.getModelToXmlResult());
+		String dataType = context.getType();
+		AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, dataType, baseVersion, null, context.getModelToXmlResult());
     	
     	PostalAddress basicAddress = new PostalAddress();
     	
@@ -89,7 +90,7 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
     	flush(builder, basicAddress);
     	
     	for (x_BasicPostalAddressUse use : postalAddress.getUses()) {
-    		if (AD_VALIDATION_UTILS.isAllowableUse(use, baseVersion)) {
+    		if (AD_VALIDATION_UTILS.isAllowableUse(dataType, use, baseVersion)) {
     			basicAddress.addUse(use);
     		}
 		}

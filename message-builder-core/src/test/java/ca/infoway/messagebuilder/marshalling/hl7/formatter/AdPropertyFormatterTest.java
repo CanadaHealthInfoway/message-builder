@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.platform.CodeUtil;
 
 public class AdPropertyFormatterTest extends FormatterTestCase {
 
@@ -99,6 +100,137 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
 		assertTrue(this.result.isValid());
         assertTrue("open tag", result.startsWith("<addr use=\""));
         assertTrue("H PHYS", result.contains("\"H PHYS\"") || result.contains("\"H PHYS\""));
+    }
+	
+	@Test
+    public void testFormatTooManyPostalAddressUses() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        address.addUse(X_BasicPostalAddressUse.PHYSICAL);
+        address.addUse(X_BasicPostalAddressUse.DIRECT);
+        address.addUse(X_BasicPostalAddressUse.CONFIDENTIAL);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+
+        String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+        assertTrue("open tag", result.startsWith("<addr use=\""));
+        assertTrue(result.contains("\"H PHYS DIR CONF\""));
+    }
+	
+	@Test
+    public void testFormatNoDuplicatePartTypes() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "US"));
+
+        formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testFormatInvalidUseOfCodeAndCodeSystem() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, CodeUtil.convertToCode("Toronto", "1.2.3.4.5")));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+
+        formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testFormatValueTooLong() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY,  "12345678901234567890123456789012345678901234567890123456789012345678901234567890"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "123456789012345678901234567890123456789012345678901234567890123456789012345678901"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+
+        formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testFormatInvalidPartTypeForFull() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.DELIVERY_INSTALLATION_TYPE, "this isn't allowed"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "H0H0H0"));
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "Canada"));
+
+        formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testFormatValidSearch() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        
+        String formattedAddress = formatter.format(getContext("addr", "AD.SEARCH"), new ADImpl(address));
+		assertTrue(this.result.isValid());
+		assertEquals("<addr><city>Toronto</city></addr>", formattedAddress.trim());
+    }
+	
+	@Test
+    public void testFormatSearchMustHaveAtLeastOnePartType() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        
+        formatter.format(getContext("addr", "AD.SEARCH"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testFormatSearchCannotHaveUses() throws Exception {
+    	AdPropertyFormatter formatter = new AdPropertyFormatter();
+        
+        PostalAddress address = new PostalAddress();
+        address.addUse(X_BasicPostalAddressUse.HOME);
+                
+        address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+        
+        String formattedAddress = formatter.format(getContext("addr", "AD.SEARCH"), new ADImpl(address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals("<addr><city>Toronto</city></addr>", formattedAddress.trim());
     }
 	
 }

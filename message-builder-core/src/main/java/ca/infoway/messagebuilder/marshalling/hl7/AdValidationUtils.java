@@ -111,7 +111,7 @@ public class AdValidationUtils {
 		}
 
     	if (isBasic && countBlankParts > MAX_DELIMITED_LINES) {
-			createError("AD.BASIC is only allowed a maximum of " + MAX_DELIMITED_LINES + " delimited-separted address lines (address lines without an address part type)", element, errors);
+			createError("AD.BASIC is only allowed a maximum of " + MAX_DELIMITED_LINES + " delimiter-separated address lines (address lines without an address part type)", element, errors);
     	}
     	
     	if (isSearch && CollectionUtils.isEmpty(postalAddress.getParts())) {
@@ -153,11 +153,13 @@ public class AdValidationUtils {
 			}
 		}
     	
-    		for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
-    			if (!isAllowableUse(postalAddressUse, baseVersion)) {
-       				createError("PostalAddressUse is not valid: " + (postalAddressUse == null ? "null" : postalAddressUse.getCodeValue()), element, errors);
-    			}
+		if (!isSearch) {
+			for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
+				if (!isAllowableUse(type, postalAddressUse, baseVersion)) {
+	   				createError("PostalAddressUse is not valid: " + (postalAddressUse == null ? "null" : postalAddressUse.getCodeValue()), element, errors);
+				}
 			}
+		}
 	}
 
 	public boolean isAllowableAddressPart(PostalAddressPartType partType, String type) {
@@ -186,15 +188,16 @@ public class AdValidationUtils {
 		return result;
 	}
 	
-	public boolean isAllowableUse(x_BasicPostalAddressUse use, Hl7BaseVersion baseVersion) {
-		return use != null && use.getCodeValue() != null 
+	public boolean isAllowableUse(String dataType, x_BasicPostalAddressUse use, Hl7BaseVersion baseVersion) {
+		return !StandardDataType.AD_SEARCH.getType().equals(dataType)
+				&& use != null && use.getCodeValue() != null 
 				&& ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue())
 				// error if CONF/DIR and CeRx
 				&& !(isCeRx(baseVersion) && isConfOrDir(use));
 	}
 
 	private boolean isCeRx(Hl7BaseVersion baseVersion) {
-		return baseVersion != Hl7BaseVersion.CERX;
+		return baseVersion == Hl7BaseVersion.CERX;
 	}
 
 	private boolean isConfOrDir(x_BasicPostalAddressUse use) {

@@ -62,7 +62,8 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
 	@Override
     String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
-        buffer.append(createElement(context, getUseAttributeMap(postalAddress, context.getVersion().getBaseVersion()), indentLevel, false, false));
+        Map<String, String> useAttributeMap = getUseAttributeMap(context.getType(), postalAddress, context.getVersion().getBaseVersion());
+		buffer.append(createElement(context, useAttributeMap, indentLevel, false, false));
 		for (PostalAddressPart postalAddressPart : postalAddress.getParts()) {
 			if (AD_VALIDATION_UTILS.isAllowableAddressPart(postalAddressPart.getType(), context.getType())) {
 				appendPostalAddressPart(buffer, postalAddressPart);
@@ -113,10 +114,10 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
 		return " code=\"" + codeValue + "\"" + (StringUtils.isBlank(code.getCodeSystem()) ? "" : " codeSystem=\"" + codeSystem + "\"");
 	}
 
-	private Map<String, String> getUseAttributeMap(PostalAddress value, Hl7BaseVersion baseVersion) {
+	private Map<String, String> getUseAttributeMap(String dataType, PostalAddress value, Hl7BaseVersion baseVersion) {
         String uses = "";
         for (x_BasicPostalAddressUse postalAddressUse : value.getUses()) {
-        	if (AD_VALIDATION_UTILS.isAllowableUse(postalAddressUse, baseVersion)) {
+        	if (AD_VALIDATION_UTILS.isAllowableUse(dataType, postalAddressUse, baseVersion)) {
 	            uses += uses.length() == 0 ? "" : " ";
 	            uses += postalAddressUse.getCodeValue();
         	}

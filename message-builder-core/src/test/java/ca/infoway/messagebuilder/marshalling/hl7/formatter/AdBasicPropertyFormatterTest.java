@@ -195,8 +195,24 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		assertXmlEquals("postal code", expectedResult, result);
 	}
 	
-	private void addParts(PostalAddressPartType[] type,
-			String[] strings) {
+	@Test
+	public void testTooManyDelimitedParts() throws Exception {
+		addParts(new PostalAddressPartType[] {null, DELIMITER, null, null, null, DELIMITER, null},
+				                new String[] { "200", "-", "1709", "Bloor St. W.", "Toronto", "-", "ON" });
+		
+		String result = this.formatter.format(getContext("address", "AD.BASIC"), new ADImpl(this.address));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size()); // max of 4 parts without a type
+		
+		String expectedResult = 
+			"<address>"
+			+ "200<delimiter/>1709 Bloor St. W. Toronto<delimiter/>ON"
+			+ "</address>";
+		
+		assertXmlEquals("postal code", expectedResult, result);
+	}
+	
+	private void addParts(PostalAddressPartType[] type, String[] strings) {
 		
 		for (int i = 0; i < Math.max(type.length, strings.length); i++) {
 			this.address.addPostalAddressPart(new PostalAddressPart(
