@@ -81,7 +81,7 @@ public class MessageBeanBuilderSupport {
 		bean.setReceiver(new Receiver());
 		bean.getReceiver().setDeviceId(new Identifier("1.2.3", "123"));
 		bean.getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(
-				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10"));
+				CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032"));
 		bean.setSender(new Sender());
 		bean.getSender().setDeviceId(new Identifier("1.2.3", "123"));
 		bean.getSender().setManufacturerModelNumber("1.0");

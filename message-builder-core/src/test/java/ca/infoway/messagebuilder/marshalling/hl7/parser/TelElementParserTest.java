@@ -21,7 +21,9 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Set;
@@ -31,6 +33,7 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
@@ -40,7 +43,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -49,60 +51,55 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		TEL tel = (TEL) new TelElementParser().parse(createContext(), node, null);
+		TEL tel = (TEL) new TelElementParser().parse(createContext("TEL.PHONE", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 		assertNull("null returned", tel.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, tel.getNullFlavor());
 	}
 	
-	private ParseContext createContext() {
-		return ParserContextImpl.create("TEL", TelecommunicationAddress.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+	private ParseContext createContext(String type, VersionNumber version) {
+		return ParserContextImpl.create(type, TelecommunicationAddress.class, version, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		try {
-			new TelElementParser().parse(null, node, null);
-			fail("Expected exception");
-			
-		} catch (NullPointerException e) {
-			// expected
-		}
+		new TelElementParser().parse(createContext("TEL.PHONE", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size());  // missing scheme; missing address
 	}
 
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		try {
-			new TelElementParser().parse(null, node, null);
-			fail("Expected exception");
-			
-		} catch (NullPointerException e) {
-			// expected
-		}
+		new TelElementParser().parse(createContext("TEL.PHONE", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size());  // missing scheme; missing address
 	}
 	
 	@Test
 	public void testParseInvalidValueAttributeNode() throws Exception {
 		Node node = createNode("<something value=\"1234\" />");
-		XmlToModelResult xmlResult = new XmlToModelResult();
-		new TelElementParser().parse(null, node, xmlResult);
+		new TelElementParser().parse(createContext("TEL.PHONE", SpecificationVersion.V02R02), node, this.xmlResult);
 		
-		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("HL7 error count", 1, this.xmlResult.getHl7Errors().size());
 		
-		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
-		assertEquals("error message", "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", hl7Error.getMessage());
-		assertEquals("error message code", Hl7ErrorCode.SYNTAX_ERROR, hl7Error.getHl7ErrorCode());
+		Hl7Error hl7Error = this.xmlResult.getHl7Errors().get(0);
+		assertEquals("error message", "TelecomAddress must have a valid URL scheme (e.g. 'http://') (<something value=\"1234\"/>)", hl7Error.getMessage());
+		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
 	
 	@Test
 	public void testParseInvalidValueUrlScheme() throws Exception {
 		Node node = createNode("<something value=\"mailfrom://monkey\" />");
-		XmlToModelResult xmlResult = new XmlToModelResult();
-		new TelElementParser().parse(null, node, xmlResult);
-		assertEquals("HL7 error count", 1, xmlResult.getHl7Errors().size());
 		
-		Hl7Error hl7Error = xmlResult.getHl7Errors().get(0);
+		new TelElementParser().parse(createContext("TEL.PHONE", SpecificationVersion.V02R02), node, this.xmlResult);
+		
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("HL7 error count", 2, this.xmlResult.getHl7Errors().size());  // invalid scheme; must have a valid scheme
+		
+		Hl7Error hl7Error = this.xmlResult.getHl7Errors().get(0);
 		assertEquals("error message code", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());		
 		assertEquals("error message", "Unrecognized URL scheme 'mailfrom' in element /something", hl7Error.getMessage());
 	}
@@ -110,7 +107,8 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseValueAttributeValidPlusExtraAttribute() throws Exception {
 		Node node = createNode("<something extra=\"extra\" value=\"mailto://monkey@monkey\" />");
-		TelecommunicationAddress address = (TelecommunicationAddress) new TelElementParser().parse(null, node, null).getBareValue();
+		TelecommunicationAddress address = (TelecommunicationAddress) new TelElementParser().parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("correct address returned", "monkey@monkey", address.getAddress());
 		assertEquals("correct urlscheme returned", CeRxDomainTestValues.MAILTO.getCodeValue(), address.getUrlScheme().getCodeValue());
 	}
@@ -122,7 +120,7 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new TelElementParser().parse(new TrivialContext("TEL.URI"), node, null);
+			new TelElementParser().parse(new TrivialContext("TEL.URI"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
@@ -134,47 +132,41 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseBlankChildNode() throws Exception {
 		Node node = createNode(
-				"<something value=\"mailfrom://monkey\">\n" +
+				"<something value=\"mailto://monkey\">\n" +
 		"</something>");
-		new TelElementParser().parse(null, node, new XmlToModelResult());
+		new TelElementParser().parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 	}
 	
 	@Test
 	public void testParseValueAttributeAllUrlSchemes() throws Exception {
-		assertValidValueAttribute("fax:1234", "1234", CeRxDomainTestValues.FAX);
-		assertValidValueAttribute("fax:", "", CeRxDomainTestValues.FAX);
+		assertValidValueAttribute("TEL.PHONE", "fax:1234", "1234", CeRxDomainTestValues.FAX);
 		
-		assertValidValueAttribute("file:c:/temp", "c:/temp", CeRxDomainTestValues.FILE);
-		assertValidValueAttribute("file://c:/temp", "c:/temp", CeRxDomainTestValues.FILE);
-		assertValidValueAttribute("file:", "", CeRxDomainTestValues.FILE);
+		assertValidValueAttribute("TEL.URI", "file:c:/temp", "c:/temp", CeRxDomainTestValues.FILE);
+		assertValidValueAttribute("TEL.URI", "file://c:/temp", "c:/temp", CeRxDomainTestValues.FILE);
 		
-		assertValidValueAttribute("ftp:ftp.monkey.com", "ftp.monkey.com", CeRxDomainTestValues.FTP);
-		assertValidValueAttribute("ftp://ftp.monkey.com", "ftp.monkey.com", CeRxDomainTestValues.FTP);
-		assertValidValueAttribute("ftp:", "", CeRxDomainTestValues.FTP);
+		assertValidValueAttribute("TEL.URI", "ftp:ftp.monkey.com", "ftp.monkey.com", CeRxDomainTestValues.FTP);
+		assertValidValueAttribute("TEL.URI", "ftp://ftp.monkey.com", "ftp.monkey.com", CeRxDomainTestValues.FTP);
 		
-		assertValidValueAttribute("http:www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTP);
-		assertValidValueAttribute("http://www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTP);
-		assertValidValueAttribute("http:", "", CeRxDomainTestValues.HTTP);
+		assertValidValueAttribute("TEL.URI", "http:www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTP);
+		assertValidValueAttribute("TEL.URI", "http://www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTP);
 		
-		assertValidValueAttribute("https:www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTPS);
-		assertValidValueAttribute("https://www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTPS);
-		assertValidValueAttribute("https:", "", CeRxDomainTestValues.HTTPS);
+		assertValidValueAttribute("TEL.URI", "https:www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTPS);
+		assertValidValueAttribute("TEL.URI", "https://www.monkey.com", "www.monkey.com", CeRxDomainTestValues.HTTPS);
 		
-		assertValidValueAttribute("mailto://monkey@monkey", "monkey@monkey", CeRxDomainTestValues.MAILTO);
-		assertValidValueAttribute("mailto:monkey@monkey", "monkey@monkey", CeRxDomainTestValues.MAILTO);
-		assertValidValueAttribute("mailto:", "", CeRxDomainTestValues.MAILTO);
+		assertValidValueAttribute("TEL.EMAIL", "mailto://monkey@monkey", "monkey@monkey", CeRxDomainTestValues.MAILTO);
+		assertValidValueAttribute("TEL.EMAIL", "mailto:monkey@monkey", "monkey@monkey", CeRxDomainTestValues.MAILTO);
 		
-		assertValidValueAttribute("nfs://nfs.ca", "nfs.ca", CeRxDomainTestValues.NFS);
-		assertValidValueAttribute("nfs:nfs.ca", "nfs.ca", CeRxDomainTestValues.NFS);
-		assertValidValueAttribute("nfs:", "", CeRxDomainTestValues.NFS);
+		assertValidValueAttribute("TEL.URI", "nfs://nfs.ca", "nfs.ca", CeRxDomainTestValues.NFS);
+		assertValidValueAttribute("TEL.URI", "nfs:nfs.ca", "nfs.ca", CeRxDomainTestValues.NFS);
 
-		assertValidValueAttribute("tel:567-1111", "567-1111", CeRxDomainTestValues.TELEPHONE);
-		assertValidValueAttribute("tel:", "", CeRxDomainTestValues.TELEPHONE);
+		assertValidValueAttribute("TEL.PHONE", "tel:567-1111", "567-1111", CeRxDomainTestValues.TELEPHONE);
 	}
 	
-	private void assertValidValueAttribute(String value, String address, URLScheme urlScheme) throws Exception {
+	private void assertValidValueAttribute(String type, String value, String address, URLScheme urlScheme) throws Exception {
 		Node node = createNode("<something value=\"" + value + "\" />");
-		TelecommunicationAddress telecommunicationAddress = (TelecommunicationAddress) new TelElementParser().parse(null, node, null).getBareValue();
+		TelecommunicationAddress telecommunicationAddress = (TelecommunicationAddress) new TelElementParser().parse(createContext(type, SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("correct address returned", address, telecommunicationAddress.getAddress());
 		assertEquals("correct urlscheme returned", urlScheme.getCodeValue(), telecommunicationAddress.getUrlScheme().getCodeValue());
 	}
@@ -184,13 +176,15 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 		AbstractSingleElementParser<TelecommunicationAddress> parser = new TelElementParser();
 		
 		Node node = createNode("<something use=\"H\" value=\"mailto://monkey@monkey\" />");
-		Set<TelecommunicationAddressUse> addressUses = ((TelecommunicationAddress) parser.parse(null, node, null).getBareValue()).getAddressUses();
+		Set<TelecommunicationAddressUse> addressUses = ((TelecommunicationAddress) parser.parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue()).getAddressUses();
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("address use count", 1, addressUses.size());
 		
 		assertContains("address use HOME", addressUses, CeRxDomainTestValues.HOME_ADDRESS);
 
 		node = createNode("<something use=\"H WP\" value=\"mailto://monkey@monkey\" />");
-		addressUses = ((TelecommunicationAddress) parser.parse(null, node, null).getBareValue()).getAddressUses();
+		addressUses = ((TelecommunicationAddress) parser.parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue()).getAddressUses();
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("address use count (2)", 2, addressUses.size());
 		assertContains("address use HOME (2)", addressUses, CeRxDomainTestValues.HOME_ADDRESS);
 		assertContains("address use WORKPLACE (2)", addressUses, CeRxDomainTestValues.WORK_PLACE);

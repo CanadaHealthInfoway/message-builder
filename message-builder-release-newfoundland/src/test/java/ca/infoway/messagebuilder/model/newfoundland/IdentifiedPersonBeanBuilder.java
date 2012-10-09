@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.model.newfoundland;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
@@ -51,7 +52,7 @@ public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPerso
 		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(
-				lookup(URLScheme.class, "http"), "123.456.789.10"));
+				lookup(URLScheme.class, "tel"), "4167620032"));
 //		bean.getTelecom().add(createTelecommunicationAddress());				
 		bean.setIndeterminatePerson(new IndeterminatePersonBeanBuilder().populate().create());
 		bean.setStatusCode(lookup(RoleStatus.class, "active", CodeSystem.VOCABULARY_ROLE_STATUS.getRoot()));
@@ -68,7 +69,7 @@ public class IdentifiedPersonBeanBuilder extends BaseBeanBuilder<IdentifiedPerso
 		address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_NAME, "Bloor"));
 		bean.setAddress(address);
 		bean.getTelecom().add(new TelecommunicationAddress(
-				lookup(URLScheme.class, "http"), "123.456.789.10"));
+				lookup(URLScheme.class, "tel"), "4167620032"));
 		bean.setIndeterminatePerson(new IndeterminatePersonBeanBuilder().populateMabelHauptman().create());
 		bean.setStatusCode(lookup(RoleStatus.class, "active", CodeSystem.VOCABULARY_ROLE_STATUS.getRoot()));
 		bean.setConfidentialityCode(

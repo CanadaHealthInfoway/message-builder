@@ -45,7 +45,7 @@ public class ServiceDeliveryLocationBeanBuilder extends BaseBeanBuilder<ServiceD
 		address.addUse(X_BasicPostalAddressUse.HOME);
 		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		bean.setAddr(address);
-		bean.getTelecom().add(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10"));
+		bean.getTelecom().add(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032"));
 
 		return this;
 	}

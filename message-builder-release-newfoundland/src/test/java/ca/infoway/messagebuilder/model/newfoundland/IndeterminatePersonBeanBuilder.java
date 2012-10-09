@@ -61,9 +61,9 @@ public class IndeterminatePersonBeanBuilder extends BaseBeanBuilder<Indeterminat
 		bean.getNames().add(PersonName.createFirstNameLastName("Alan", "Wall"));
 		
 		TelecommunicationAddress telecom1 = new TelecommunicationAddress(
-				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10");
+				CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032");
 		TelecommunicationAddress telecom2 = new TelecommunicationAddress(
-				CodeResolverRegistry.lookup(URLScheme.class, "https"), "123.456.789.11");
+				CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032");
 		bean.getTelecom().add(telecom1);		
 		bean.getTelecom().add(telecom2);		
 		

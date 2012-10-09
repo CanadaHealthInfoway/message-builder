@@ -32,7 +32,7 @@
     <processingModeCode code="T"/>
     <acceptAckCode code="NE"/>
     <receiver typeCode="RCV">
-      <telecom value="http://123.456.789.10"/>
+      <telecom value="tel:4167620032"/>
       <device classCode="DEV" determinerCode="INSTANCE">
         <id extension="123" root="1.2.3" use="BUS"/>
       </device>
@@ -169,7 +169,7 @@
                           <id displayable="true" extension="3" root="2.2.2"/>
                           <code code="ALL" codeSystem="2.16.840.1.113883.5.111"/>
                           <addr use="H">Bloor</addr>
-                          <telecom value="http://123.456.789.10"/>
+                          <telecom value="tel:4167620032"/>
                           <location classCode="PLC" determinerCode="INSTANCE">
                             <name>Intelliware&apos;s Pharmacy</name>
                           </location>

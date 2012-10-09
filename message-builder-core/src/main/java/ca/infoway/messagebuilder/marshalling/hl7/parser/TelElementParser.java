@@ -26,6 +26,8 @@ import java.util.StringTokenizer;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
@@ -34,6 +36,7 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -58,24 +61,34 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 @DataTypeHandler({"TEL.URI", "TEL.PHONEMAIL", "TEL"})
 class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
+	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
+	
 	@Override
 	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
+		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult);
+		
+		String type = context.getType();
+		TEL_VALIDATION_UTILS.validateTelecommunicationAddress(telecomAddress, type, specializationType, context.getVersion(), (Element) node, xmlToModelResult);
+		
+		return telecomAddress;
+	}
 
+	private TelecommunicationAddress parseTelecommunicationAddress(Node node, XmlToModelResult xmlToModelResult) {
 		String value = getAttributeValue(node, "value");
 		
 		// remove the // that appear after the colon if necessary
 		// e.g. file://monkey
-		value = value.replaceAll("://", ":");
+		value = value == null ? null : value.replaceAll("://", ":");
 		
 		// anything before the FIRST colon is the URL scheme. Anything after it is the address.
-		int colonIndex = value.indexOf(':');
+		int colonIndex = value == null ? -1 : value.indexOf(':');
 		
-		String address;
+		String address = null;
 		URLScheme urlScheme = null;
 		if (colonIndex == -1) {
 			address = value;
-			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Expected TEL.URI node to have a URL scheme (e.g. 'http://')", (Element) node));
 		} else {
 			address = value.substring(colonIndex + 1);
 			String urlSchemeString = value.substring(0, colonIndex);

@@ -43,8 +43,8 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 	@Test
 	public void testParse() throws Exception {
 		Node node = createNode("<top>" +
-				"<something value=\"mailto://Fred\"/>" +
-				"<something value=\"mailto://Wilma\"/>" +
+				"<something specializationType=\"TEL.EMAIL\" value=\"mailto://Fred\"/>" +
+				"<something specializationType=\"TEL.EMAIL\" value=\"mailto://Wilma\"/>" +
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(

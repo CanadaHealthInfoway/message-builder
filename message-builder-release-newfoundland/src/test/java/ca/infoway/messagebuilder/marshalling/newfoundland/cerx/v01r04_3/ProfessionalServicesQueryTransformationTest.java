@@ -29,8 +29,10 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
+import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -48,7 +50,9 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 	
 	@Test
 	public void shouldProduceSomeQuery() throws Exception {
-		String xml = toHl7UsingNewRenderer(createQueryBean(), BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
+		ProfessionalServicesQueryMessageBean bean = createQueryBean();
+		bean.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
+		String xml = toHl7UsingNewRenderer(bean, BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 		assertNotNull("query", xml);
 		assertValidHl7Message(xml);
 	}

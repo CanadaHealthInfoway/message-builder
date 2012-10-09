@@ -97,8 +97,8 @@
               <identifiedPerson classCode="PSN" determinerCode="INSTANCE">
                 <name><given>Hannah</given><family>Lambert</family></name>
                 <name><given>Alan</given><family>Wall</family></name>
-                <telecom value="http://123.456.789.10"/>
-                <telecom value="https://123.456.789.11"/>
+                <telecom value="tel:4167620032"/>
+                <telecom value="tel:4167620032"/>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
                 <birthTime value="19720321000000.0000-0500"/>
                 <deceasedInd value="true"/>

@@ -59,6 +59,7 @@ import ca.infoway.messagebuilder.domainvalue.RoleStatusNormal;
 import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.domainvalue.State;
 import ca.infoway.messagebuilder.domainvalue.SubscriptionStatus;
+import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.TopicPriority;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -177,6 +178,8 @@ public class DefaultCodeResolutionConfigurator {
 
 		CodeResolverRegistry.registerResolver(URLScheme.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.URLScheme.class));
+		CodeResolverRegistry.registerResolver(TelecommunicationAddressUse.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.class));
 
 		CodeResolverRegistry.registerResolver(UnitsOfMeasureCaseSensitive.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.class));

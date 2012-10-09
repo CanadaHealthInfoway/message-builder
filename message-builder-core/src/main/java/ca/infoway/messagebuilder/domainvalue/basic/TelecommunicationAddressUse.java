@@ -43,6 +43,7 @@ public class TelecommunicationAddressUse extends EnumPattern implements Describa
     public static final TelecommunicationAddressUse VACATION_HOME = new TelecommunicationAddressUse("VACATION_HOME", "HV"); 
     public static final TelecommunicationAddressUse WORKPLACE = new TelecommunicationAddressUse("WORKPLACE", "WP"); 
     public static final TelecommunicationAddressUse DIRECT = new TelecommunicationAddressUse("DIRECT", "DIR"); 
+    public static final TelecommunicationAddressUse CONFIDENTIAL = new TelecommunicationAddressUse("CONFIDENTIAL", "CONF"); 
     public static final TelecommunicationAddressUse PUBLISHED = new TelecommunicationAddressUse("PUBLISHED", "PUB"); 
     public static final TelecommunicationAddressUse BAD = new TelecommunicationAddressUse("BAD", "BAD"); 
     public static final TelecommunicationAddressUse TEMPORARY = new TelecommunicationAddressUse("TEMPORARY", "TMP"); 

@@ -36,8 +36,10 @@ import org.w3c.dom.Document;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
+import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -52,6 +54,7 @@ import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicineBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.NonPrescribedSupplyEventBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.supply.RecordSupplyEventMessageBean;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase {
@@ -65,7 +68,9 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequest());
+		RecordSupplyEventMessageBean bean = createRequest();
+		bean.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, bean);
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}

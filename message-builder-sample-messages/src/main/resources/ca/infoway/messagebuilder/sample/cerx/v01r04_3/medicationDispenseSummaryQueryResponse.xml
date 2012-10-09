@@ -87,7 +87,7 @@
             <serviceDeliveryLocation classCode="SDLOC">
               <id extension="3" root="2.2.2"/>
               <addr use="H">Bloor</addr>
-              <telecom value="http://123.456.789.10"/>
+              <telecom value="tel:4167620032"/>
               <location classCode="PLC" determinerCode="INSTANCE">
                 <name>Intelliware&apos;s Pharmacy</name>
               </location>

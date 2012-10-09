@@ -30,7 +30,7 @@
     <processingModeCode code="T"/>
     <acceptAckCode code="NE"/>
     <receiver typeCode="RCV">
-      <telecom value="http://123.456.789.10"/>
+      <telecom value="tel:4167620032"/>
       <device classCode="DEV" determinerCode="INSTANCE">
         <id extension="123" root="1.2.3"/>
       </device>
@@ -98,7 +98,7 @@
             <patient classCode="PAT">
               <id extension="159" root="3.14"/>
               <addr use="H">Bloor</addr>
-              <telecom value="http://123.456.789.10"/>
+              <telecom value="tel:4167620032"/>
               <patientPerson classCode="PSN" determinerCode="INSTANCE">
                 <name><given>Hannah</given><family>Lambert</family></name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>

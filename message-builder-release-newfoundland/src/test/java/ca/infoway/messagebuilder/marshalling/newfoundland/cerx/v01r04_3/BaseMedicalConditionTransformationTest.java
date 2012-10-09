@@ -184,7 +184,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		address.addPostalAddressPart(new PostalAddressPart("Bloor"));
 		responsibleParty.setAddress(address);
 		responsibleParty.getTelecom().add(new TelecommunicationAddress(
-				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.10"));
+				CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032"));
 		responsibleParty.setIndeterminatePerson(new IndeterminatePersonBeanBuilder().populate().create());		
 		medicationCondition.setInformant(responsibleParty);
 		medicationCondition.setInformantTime(DateUtil.getDate(2009, Calendar.SEPTEMBER, 29));
