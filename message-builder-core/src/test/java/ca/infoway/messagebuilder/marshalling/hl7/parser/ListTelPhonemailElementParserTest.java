@@ -49,6 +49,7 @@ public class ListTelPhonemailElementParserTest extends ParserTestCase {
 		
 		BareANY result = new ListElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null), 
 				asList(node.getChildNodes()), null);
+		@SuppressWarnings("unchecked")
 		List<TelecommunicationAddress> list = ((LIST<TEL,TelecommunicationAddress>) result).rawList();
 		assertNotNull("null", list);
 		assertEquals("size", 2, list.size());

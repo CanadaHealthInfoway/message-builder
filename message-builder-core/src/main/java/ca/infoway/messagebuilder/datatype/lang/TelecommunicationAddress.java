@@ -60,7 +60,7 @@ public class TelecommunicationAddress implements Serializable {
 		URL_SCHEMES_REQUIRING_SLASHES.add("ftp");
 		URL_SCHEMES_REQUIRING_SLASHES.add("http");
 		URL_SCHEMES_REQUIRING_SLASHES.add("https");
-		URL_SCHEMES_REQUIRING_SLASHES.add("mailto");
+//		URL_SCHEMES_REQUIRING_SLASHES.add("mailto");
 		URL_SCHEMES_REQUIRING_SLASHES.add("nfs");
 	}
 	

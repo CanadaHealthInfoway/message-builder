@@ -54,8 +54,8 @@ public class TelecommunicationsAddressTest {
         assertToStringAsExpected(null, null, "");
         assertToStringAsExpected(null, "monkey", "monkey");
 
-        assertToStringAsExpected(URLScheme.MAILTO, null, "mailto://");
-        assertToStringAsExpected(URLScheme.MAILTO, "address@host", "mailto://address@host");
+        assertToStringAsExpected(URLScheme.MAILTO, null, "mailto:");
+        assertToStringAsExpected(URLScheme.MAILTO, "address@host", "mailto:address@host");
 
         assertToStringAsExpected(URLScheme.FAX, null, "fax:");
         assertToStringAsExpected(URLScheme.FAX, "1234", "fax:1234");

@@ -56,26 +56,30 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
     protected final String getValue(TelecommunicationAddress phonemail, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
     	
     	String type = context.getType();
-    	StandardDataType specializationType = bareAny.getDataType();
+    	String specializationType = bareAny.getDataType() == null ? null : bareAny.getDataType().getType();
     	VersionNumber version = context.getVersion();
     	Hl7Errors errors = context.getModelToXmlResult();
     	
-    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(phonemail, type, specializationType.getType(), version, null, errors);
+    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(phonemail, type, specializationType, version, null, errors);
     	
         return phonemail.toString();
     }
 
     @Override
-    protected final void addOtherAttributesIfNecessary(TelecommunicationAddress phonemail, Map<String, String> attributes) throws ModelToXmlTransformationException {
+    protected void addOtherAttributesIfNecessary(TelecommunicationAddress phonemail, Map<String, String> attributes, FormatContext context,	BareANY bareAny) {
         if (!phonemail.getAddressUses().isEmpty()) {
-            StringBuffer useValue = new StringBuffer();
+    		String actualType = TEL_VALIDATION_UTILS.determineActualType(phonemail, context.getType(), bareAny.getDataType().getType(), context.getVersion(), null, context.getModelToXmlResult(), false);
+
+    		StringBuffer useValue = new StringBuffer();
             boolean isFirst = true;
             for (TelecommunicationAddressUse addressUse : phonemail.getAddressUses()) {
-                if (!isFirst) {
-                    useValue.append(XmlRenderingUtils.SPACE);
-                }
-                useValue.append(addressUse.getCodeValue());
-                isFirst = false;
+            	if (TEL_VALIDATION_UTILS.isAllowableUse(actualType, addressUse, context.getVersion())) {
+	                if (!isFirst) {
+	                    useValue.append(XmlRenderingUtils.SPACE);
+	                }
+	                useValue.append(addressUse.getCodeValue());
+	                isFirst = false;
+            	}
             }
             attributes.put("use", useValue.toString());
         }

@@ -51,7 +51,7 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet( "Fred"))));
-		assertXml("non null", "<blah value=\"mailto://Fred\"/>", result);
+		assertXml("non null", "<blah value=\"mailto:Fred\"/>", result);
 	}
 
 }

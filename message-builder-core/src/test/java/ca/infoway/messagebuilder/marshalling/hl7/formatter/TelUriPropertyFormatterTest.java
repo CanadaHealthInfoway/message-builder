@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertInvalidUrlScheme;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertValidUrlScheme;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
@@ -32,6 +33,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
+import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
@@ -42,6 +44,8 @@ public class TelUriPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), null, new TELImpl());
+		
+		assertTrue(this.xmlResult.isValid());
 
 		// a null value for TEL.URI elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -60,10 +64,25 @@ public class TelUriPropertyFormatterTest {
 		address.setUrlScheme(CeRxDomainTestValues.FILE);
 		address.setAddress("value");
 		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "file://value", result.get("value"));
+	}
+
+	@Test
+	public void testGetAttributeNameValuePairsTelUriInvalidUse() throws Exception {
+		TelecommunicationAddress address = new TelecommunicationAddress();
+		address.setUrlScheme(CeRxDomainTestValues.FILE);
+		address.setAddress("value");
+		address.getAddressUses().add(TelecommunicationAddressUse.HOME);
+		
+		new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
 	}
 
 	@Test
@@ -73,7 +92,7 @@ public class TelUriPropertyFormatterTest {
 		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FTP, context, "ftp://");
 		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTP, context, "http://");
 		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTPS, context, "https://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto:");
 		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.NFS, context, "nfs://");
 	}
 
@@ -90,4 +109,38 @@ public class TelUriPropertyFormatterTest {
 		this.xmlResult.clearErrors();
 		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
 	}
+	
+	@Test
+	public void testTelUriWithValidMaxLength() throws Exception {
+		TelecommunicationAddress address = new TelecommunicationAddress();
+		address.setUrlScheme(CeRxDomainTestValues.FILE);
+		// file:// + 248 = 255 (max)
+		address.setAddress("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678");
+		
+		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", "file://" + address.getAddress(), result.get("value"));
+	}
+
+	@Test
+	public void testTelUriWithInvalidMaxLength() throws Exception {
+		TelecommunicationAddress address = new TelecommunicationAddress();
+		address.setUrlScheme(CeRxDomainTestValues.FILE);
+		// file:// + 249 = 256 (1 over max)
+		address.setAddress("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789");
+		
+		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", "file://" + address.getAddress(), result.get("value"));
+	}
+
 }

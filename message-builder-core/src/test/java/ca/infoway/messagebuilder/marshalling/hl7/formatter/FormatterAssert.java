@@ -49,12 +49,16 @@ public class FormatterAssert extends Assert {
 	static void assertValidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context, String expected) throws Exception {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
+		address.setAddress("someAddress");
 		
 		Map<String, String> result = formatter.getAttributeNameValuePairs(context, address, new TELImpl());
+		
+		assertTrue(context.getModelToXmlResult().isValid());
+		
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
-		assertEquals("value as expected", expected, result.get("value"));
+		assertEquals("value as expected", expected+address.getAddress(), result.get("value"));
 	}
 
 	public static void assertContainsSame(String description, Set<String> expected, Set<String> actual) {

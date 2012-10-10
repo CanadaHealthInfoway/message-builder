@@ -79,13 +79,13 @@ public class TelValidationUtils {
     }
 
 	public void validateTelecommunicationAddress(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, Hl7Errors errors) {
-		String actualType = determineActualType(telecomAddress, type, specializationType, version, element, errors);
+		String actualType = determineActualType(telecomAddress, type, specializationType, version, element, errors, true);
     	validateTelecomAddressUses(telecomAddress, actualType, version, element, errors);
     	validateTelecomAddressScheme(telecomAddress, actualType, version.getBaseVersion(), element, errors);
     	validateTelecomAddressValue(telecomAddress, actualType, version, element, errors);
 	}
 
-	private String determineActualType(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, Hl7Errors errors) {
+	public String determineActualType(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, Hl7Errors errors, boolean logErrors) {
 		String actualType = type;
 		if (StandardDataType.TEL_PHONEMAIL.getType().equals(type)) {
 			if (isCeRxOrNewfoundland(version)) {
@@ -97,10 +97,14 @@ public class TelValidationUtils {
 				}
 			} else {
 				if (StringUtils.isBlank(specializationType)) {
-					createError("No specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+					if (logErrors) {
+						createError("No specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+					}
 					actualType = "TEL.PHONE";
 				} else if (!StandardDataType.TEL_PHONE.getType().equals(specializationType) && !StandardDataType.TEL_EMAIL.getType().equals(specializationType)) {
-					createError("Invalid specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+					if (logErrors) {
+						createError("Invalid specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+					}
 					actualType = "TEL.PHONE";
 				} else {
 					actualType = specializationType;
@@ -178,7 +182,7 @@ public class TelValidationUtils {
 		return !StandardDataType.TEL_URI.getType().equals(dataType)
 				&& telecomAddressUse != null && telecomAddressUse.getCodeValue() != null 
 				&& ALLOWABLE_TELECOM_USES.contains(telecomAddressUse.getCodeValue())
-				&& !(StandardDataType.TEL_EMAIL.getType().equals(dataType) && isPg(telecomAddressUse))
+				&& !(StandardDataType.TEL_EMAIL.getType().equals(dataType) && isPgConfDir(telecomAddressUse))
 				&& !(isMr2007(baseVersion) && isConf(telecomAddressUse))
 				&& !(isCeRxOrNewfoundland(version) && isConfOrDir(telecomAddressUse));
 	}
@@ -200,8 +204,9 @@ public class TelValidationUtils {
 		return ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.CONFIDENTIAL.getCodeValue().equals(telecomAddressUse.getCodeValue());
 	}
 
-	private boolean isPg(TelecommunicationAddressUse telecomAddressUse) {
-		return ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.PAGER.getCodeValue().equals(telecomAddressUse.getCodeValue());
+	private boolean isPgConfDir(TelecommunicationAddressUse telecomAddressUse) {
+		return ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.PAGER.getCodeValue().equals(telecomAddressUse.getCodeValue())
+				|| isConfOrDir(telecomAddressUse);
 	}
 
 	private void createError(String errorMessage, Element element, Hl7Errors errors) {

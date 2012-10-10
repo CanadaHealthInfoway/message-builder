@@ -48,7 +48,7 @@ public class SetTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, false, SpecificationVersion.R02_04_03, null, null),
 				SETImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, makeTelecommunicationAddressSet("Fred")));
-		assertXml("non null", "<blah value=\"mailto://Fred\"/>", result);
+		assertXml("non null", "<blah value=\"mailto:Fred\"/>", result);
 	}
 
 }
