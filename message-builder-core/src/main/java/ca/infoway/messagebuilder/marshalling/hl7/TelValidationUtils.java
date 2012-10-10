@@ -146,7 +146,7 @@ public class TelValidationUtils {
     	} else {
     		Set<String> allowableSchemes = ALLOWABLE_SCHEMES_BY_TYPE.get(type);
     		if (allowableSchemes == null || !allowableSchemes.contains(urlScheme.getCodeValue())) {
-    			createError("TelecomAddressScheme " + urlScheme + " is not valid for " + type, element, errors);
+    			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, errors);
     		}
     	}
 	}

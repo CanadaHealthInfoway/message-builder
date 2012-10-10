@@ -28,6 +28,8 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
+import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.BaseTealMlTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -43,6 +45,7 @@ import ca.infoway.messagebuilder.model.newfoundland.pr.PasswordChangeBean;
 import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestAcceptedMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestRefusedMessageBean;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
 public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransformerTestCase {
@@ -85,6 +88,10 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	private UpdatePasswordRequestMessageBean createRequest() {
 		UpdatePasswordRequestMessageBean model = new UpdatePasswordRequestMessageBean();
 		MessageBeanBuilderSupport.populateStandardValuesV02(model.getMessageAttributes());
+		
+		model.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(
+				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
+		
 		model.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.UPDATE_PASSWORD_REQUEST);
@@ -104,6 +111,7 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	@Test
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		UpdatePasswordRequestAcceptedMessageBean model = createAcceptedBean();
+		
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
@@ -113,6 +121,10 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	private UpdatePasswordRequestAcceptedMessageBean createAcceptedBean() {
 		UpdatePasswordRequestAcceptedMessageBean model = new UpdatePasswordRequestAcceptedMessageBean();
 		MessageBeanBuilderSupport.populateStandardValuesV02(model.getMessageAttributes());
+		
+		model.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(
+				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
+
 		model.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.UPDATE_PASSWORD_REQUEST_ACCEPTED);
@@ -143,6 +155,10 @@ public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransform
 	private UpdatePasswordRequestRefusedMessageBean createRefusedBean() {
 		UpdatePasswordRequestRefusedMessageBean model = new UpdatePasswordRequestRefusedMessageBean();
 		MessageBeanBuilderSupport.populateStandardValuesV02(model.getMessageAttributes());
+		
+		model.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(
+				CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
+		
 		model.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.UPDATE_PASSWORD_REQUEST_REFUSED);

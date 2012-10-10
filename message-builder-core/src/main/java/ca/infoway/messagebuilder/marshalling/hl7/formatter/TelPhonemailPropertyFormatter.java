@@ -20,14 +20,16 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 /**
@@ -48,26 +50,18 @@ import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 @DataTypeHandler({"TEL.PHONEMAIL", "TEL"})
 public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> {
 
-    private final static List<String> ALLOWABLE_URL_SCHEMES;
-    private final static List<String> ALLOWABLE_TELECOMMUNICATION_USES;
-    static {
-    	ALLOWABLE_URL_SCHEMES = new ArrayList<String>();
-        ALLOWABLE_URL_SCHEMES.add("fax");
-        ALLOWABLE_URL_SCHEMES.add("mailto");
-        ALLOWABLE_URL_SCHEMES.add("tel");
-        
-        ALLOWABLE_TELECOMMUNICATION_USES = new ArrayList<String>();
-        ALLOWABLE_TELECOMMUNICATION_USES.add("EC");
-        ALLOWABLE_TELECOMMUNICATION_USES.add("H");
-        ALLOWABLE_TELECOMMUNICATION_USES.add("MC");
-        ALLOWABLE_TELECOMMUNICATION_USES.add("PG");
-        ALLOWABLE_TELECOMMUNICATION_USES.add("TMP");
-        ALLOWABLE_TELECOMMUNICATION_USES.add("WP");
-    }
-
+	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
+	
     @Override
     protected final String getValue(TelecommunicationAddress phonemail, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
-        validateUrlScheme(phonemail);
+    	
+    	String type = context.getType();
+    	StandardDataType specializationType = bareAny.getDataType();
+    	VersionNumber version = context.getVersion();
+    	Hl7Errors errors = context.getModelToXmlResult();
+    	
+    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(phonemail, type, specializationType.getType(), version, null, errors);
+    	
         return phonemail.toString();
     }
 
@@ -77,8 +71,6 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
             StringBuffer useValue = new StringBuffer();
             boolean isFirst = true;
             for (TelecommunicationAddressUse addressUse : phonemail.getAddressUses()) {
-                validateTelecommunicationAddressUse(addressUse);
-
                 if (!isFirst) {
                     useValue.append(XmlRenderingUtils.SPACE);
                 }
@@ -89,15 +81,4 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
         }
     }
 
-    protected void validateUrlScheme(TelecommunicationAddress telcomAddress) throws ModelToXmlTransformationException {
-        if (!ALLOWABLE_URL_SCHEMES.contains(telcomAddress.getUrlScheme().getCodeValue())) {
-            throw new ModelToXmlTransformationException("URLScheme " + telcomAddress.getUrlScheme().getCodeValue() + " is not supported for TEL.PHONEMAIL data");
-        }
-    }
-
-    protected void validateTelecommunicationAddressUse(TelecommunicationAddressUse telcomAddressUse) throws ModelToXmlTransformationException {
-        if (!ALLOWABLE_TELECOMMUNICATION_USES.contains(telcomAddressUse.getCodeValue())) {
-            throw new ModelToXmlTransformationException("Telecommunication address use " + telcomAddressUse.getCodeValue() + " is not supported for TEL.PHONEMAIL data");
-        }
-    }
 }

@@ -29,16 +29,19 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class TelUriPropertyFormatterTest {
+	
+	private ModelToXmlResult xmlResult = new ModelToXmlResult();
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), null, new TELImpl());
+		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), null, new TELImpl());
 
 		// a null value for TEL.URI elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -47,12 +50,16 @@ public class TelUriPropertyFormatterTest {
 		assertEquals("value as expected", AbstractPropertyFormatter.NULL_FLAVOR_NO_INFORMATION, result.get("nullFlavor"));
 	}
 
+	private FormatContextImpl createContext() {
+		return new FormatContextImpl(this.xmlResult, null, "name", "TEL.URI", null, false, SpecificationVersion.R02_04_03, null, null);
+	}
+
 	@Test
 	public void testGetAttributeNameValuePairsTelUriValid() throws Exception {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.FILE);
 		address.setAddress("value");
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -61,20 +68,26 @@ public class TelUriPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsTelAllValidUris() throws Exception {
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FILE, "file://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FTP, "ftp://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTP, "http://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTPS, "https://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, "mailto://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.NFS, "nfs://");
+		FormatContextImpl context = createContext();
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FILE, context, "file://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FTP, context, "ftp://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTP, context, "http://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTPS, context, "https://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto://");
+		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.NFS, context, "nfs://");
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairsAllInvalidUris() throws Exception {
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FAX);
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MLLP);
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MODEM);
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELEPHONE);
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELNET);
+		FormatContextImpl context = createContext();
+		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FAX, context);
+		this.xmlResult.clearErrors();
+		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MLLP, context);
+		this.xmlResult.clearErrors();
+		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MODEM, context);
+		this.xmlResult.clearErrors();
+		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELEPHONE, context);
+		this.xmlResult.clearErrors();
+		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
 	}
 }

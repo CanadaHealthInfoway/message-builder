@@ -20,12 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 
 /**
  * Represents a TEL.URI String as an element:
@@ -45,26 +46,18 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("TEL.URI")
 public class TelUriPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> {
 
-    private final static List<String> ALLOWABLE_URL_SCHEMES = new ArrayList<String>();
-
-    static {
-        ALLOWABLE_URL_SCHEMES.add("file");
-        ALLOWABLE_URL_SCHEMES.add("ftp");
-        ALLOWABLE_URL_SCHEMES.add("http");
-        ALLOWABLE_URL_SCHEMES.add("https");
-        ALLOWABLE_URL_SCHEMES.add("mailto");
-        ALLOWABLE_URL_SCHEMES.add("nfs");
-    }
+	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
 
     @Override
     protected final String getValue(TelecommunicationAddress uri, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
-        validateUrlScheme(uri);
+    	String type = context.getType();
+    	StandardDataType specializationType = bareAny.getDataType();
+    	VersionNumber version = context.getVersion();
+    	Hl7Errors errors = context.getModelToXmlResult();
+    	
+    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(uri, type, specializationType.getType(), version, null, errors);
+    	
         return uri.toString();
     }
 
-    protected void validateUrlScheme(TelecommunicationAddress uri) throws ModelToXmlTransformationException {
-        if (!ALLOWABLE_URL_SCHEMES.contains(uri.getUrlScheme().getCodeValue())) {
-            throw new ModelToXmlTransformationException("URLScheme " + uri.getUrlScheme().getCodeValue() + " is not supported for TEL.URI data");
-        }
-    }
 }

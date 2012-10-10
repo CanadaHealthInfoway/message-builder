@@ -67,8 +67,8 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new SetPropertyFormatter());
         register(new ListPropertyFormatter());
         register(new StPropertyFormatter());
-        registerTelPhonemailFormatter();
-        registerTelUriFormatter();
+        register(new TelPhonemailPropertyFormatter());
+        register(new TelUriPropertyFormatter());
         register(new TnPropertyFormatter());
         register(new TsFullDateWithTimePropertyFormatter());
         register(new TsFullDatePropertyFormatter());
@@ -77,23 +77,4 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new UrgTsPropertyFormatter());
     }
 
-    private void registerTelPhonemailFormatter() {
-        if (isLenientFormatting()) {
-            register(new LenientTelPhonemailPropertyFormatter());
-        } else {
-            register(new TelPhonemailPropertyFormatter());
-        }
-    }
-
-    private void registerTelUriFormatter() {
-        if (isLenientFormatting()) {
-            register(new LenientTelUriPropertyFormatter());
-        } else {
-            register(new TelUriPropertyFormatter());
-        }
-    }
-
-    private boolean isLenientFormatting() {
-        return true;//BooleanUtils.toBoolean(System.getProperty("lenientCeRxFormatter", "true"))
-    }
 }

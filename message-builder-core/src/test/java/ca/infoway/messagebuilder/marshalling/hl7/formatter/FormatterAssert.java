@@ -28,30 +28,29 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class FormatterAssert extends Assert {
 
-	static void assertInvalidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme) {
+	static void assertInvalidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context) {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
+		address.setAddress("sometext");
 		
-		try {
-			formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
-			fail("expected exception");
-			
-		} catch (ModelToXmlTransformationException e) {
-			assertTrue("expected message", e.getMessage().contains("URLScheme " + urlScheme.getCodeValue() + " is not supported"));
-		}
+		formatter.getAttributeNameValuePairs(context, address, new TELImpl());
+
+		assertFalse(context.getModelToXmlResult().isValid());
+		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size());
+		assertTrue("expected message", context.getModelToXmlResult().getHl7Errors().get(0).getMessage().contains("Scheme " + urlScheme.getCodeValue() + " is not valid"));
 	}
 
-	static void assertValidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, String expected) throws Exception {
+	static void assertValidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context, String expected) throws Exception {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
 		
-		Map<String, String> result = formatter.getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null), address, null);
+		Map<String, String> result = formatter.getAttributeNameValuePairs(context, address, new TELImpl());
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
