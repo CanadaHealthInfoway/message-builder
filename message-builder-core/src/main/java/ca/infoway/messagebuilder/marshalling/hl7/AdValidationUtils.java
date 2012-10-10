@@ -20,9 +20,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -66,7 +64,6 @@ public class AdValidationUtils {
     	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(type);
     	boolean isFull = StandardDataType.AD_FULL.getType().equals(type);
     	
-    	Set<PostalAddressPartType> partTypesTracking = new HashSet<PostalAddressPartType>();
     	for (PostalAddressPart postalAddressPart : postalAddress.getParts()) {
 			int partLength = StringUtils.length(postalAddressPart.getValue());
 			if (partLength > MAX_PART_LENGTH) {
@@ -101,13 +98,6 @@ public class AdValidationUtils {
 				}
 			}
 			
-	        // only one occurrence of each type allowed except for delimiter (is this correct?); delimiter only for BASIC (max 4)
-			if (partType != null && partType != PostalAddressPartType.DELIMITER && !partTypesTracking.add(partType)) {
-				// don't report an invalid part type more than once
-				if (isAllowableAddressPart(partType, type)) {
-					createError("Part type " + partType.getValue() + " is only allowed to occur once", element, errors);
-				}
-			}
 		}
 
     	if (isBasic && countBlankParts > MAX_DELIMITED_LINES) {

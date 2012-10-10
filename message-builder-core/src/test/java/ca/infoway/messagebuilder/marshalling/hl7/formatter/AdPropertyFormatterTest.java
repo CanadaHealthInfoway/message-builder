@@ -125,7 +125,10 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
     }
 	
 	@Test
-    public void testFormatNoDuplicatePartTypes() throws Exception {
+    public void testFormatDuplicatePartTypesAllowed() throws Exception {
+		
+		// confirmed via Sam that all part types can occur multiple times
+		
     	AdPropertyFormatter formatter = new AdPropertyFormatter();
         
         PostalAddress address = new PostalAddress();
@@ -138,8 +141,7 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
         address.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, "US"));
 
         formatter.format(getContext("addr", "AD.FULL"), new ADImpl(address));
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.isValid());
     }
 	
 	@Test
