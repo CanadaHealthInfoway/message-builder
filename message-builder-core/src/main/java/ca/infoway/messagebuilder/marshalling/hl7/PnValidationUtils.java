@@ -128,7 +128,7 @@ public class PnValidationUtils {
 			}
 		}
 
-    	if (isSimple && (countBlankParts > 1 || numParts > 1)) {
+    	if (isSimple && (countBlankParts > 1 || numParts > 1 || (numParts > 0 && countBlankParts == 0))) {
 			createError("For PN.SIMPLE, only one simple name (a name without a part type) is allowed, and no other name parts are allowed.", element, errors);
     	}
     	if ((isBasic && isCeRx) && (countBlankParts > 1 || numParts > 1)) {
