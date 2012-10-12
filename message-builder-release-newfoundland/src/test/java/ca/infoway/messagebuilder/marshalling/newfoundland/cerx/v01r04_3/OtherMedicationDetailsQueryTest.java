@@ -106,9 +106,7 @@ public class OtherMedicationDetailsQueryTest extends BaseTransformerTestCase {
 	private OtherMedicationQueryCriteriaBean createCriteria() {
 		OtherMedicationQueryCriteriaBean criteria = new OtherMedicationQueryCriteriaBean();
 		
-		PersonName patientName = new PersonName();
-		patientName.addNamePart(new EntityNamePart("Mabel", PersonNamePartType.GIVEN));
-		patientName.addNamePart(new EntityNamePart("Hauptman", PersonNamePartType.FAMILY));
+		PersonName patientName = PersonName.createFirstNameLastName("Mabel", "Hauptman");
 		criteria.setIncludeIssuesIndicator(false);
 		criteria.setIncludeNotesIndicator(false);
 		criteria.setIssueFilterCode(IssueFilterCode.ALL);

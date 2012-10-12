@@ -102,7 +102,7 @@
             <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
           </patientID>
           <patientName>
-            <value><given>Tim</given><family>Eapen</family></value>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
           </patientName>
           <prescriptionOrderNumber>
             <value extension="4814" root="2.16.124.113620.1.1.8"/>

@@ -72,7 +72,7 @@
               <id displayable="true" extension="1" root="12.34.56"/>
               <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
               <assignedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asHealthCareProvider classCode="PROV">
                   <id displayable="true" extension="1" root="77.33.22.11"/>
                 </asHealthCareProvider>
@@ -87,7 +87,7 @@
               <!-- WARNING: code is a mandatory field, but no value is specified -->
               <code nullFlavor="NI"/>
               <assignedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asHealthCareProvider classCode="PROV">
                   <id displayable="true" extension="1" root="2.2.2"/>
                 </asHealthCareProvider>

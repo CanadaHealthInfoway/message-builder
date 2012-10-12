@@ -94,9 +94,7 @@ public class ObservationTestBeanBuilder {
 	private AssignedPersonBean createResponsibleParty() {
 		AssignedPersonBean assignedPersonBean = new AssignedPersonBean();
 		assignedPersonBean.setId(new Identifier("3.16.840.1.113883.1.133", "223344"));
-		assignedPersonBean.setName(new PersonName());
-		assignedPersonBean.getName().addNamePart(new EntityNamePart("Laura", PersonNamePartType.GIVEN));
-		assignedPersonBean.getName().addNamePart(new EntityNamePart("Bush", PersonNamePartType.FAMILY));
+		assignedPersonBean.setName(PersonName.createFirstNameLastName("Laura", "Bush"));
 		assignedPersonBean.setLicenseNumber(new Identifier("3.21.456.1.113883.1.133", "445566"));
 		assignedPersonBean.setCode(lookup(HealthcareProviderRoleType.class, "ACP", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
 		return assignedPersonBean;
@@ -106,9 +104,7 @@ public class ObservationTestBeanBuilder {
 		IdentifiedPersonBean personBean = new IdentifiedPersonBean();
 		personBean.setId(new Identifier("1.2.49472.29.34.1", "patientId"));
 		personBean.getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
-		personBean.getIndeterminatePerson().setName(new PersonName());
-		personBean.getIndeterminatePerson().getName().addNamePart(new EntityNamePart("Michelle", PersonNamePartType.GIVEN));
-		personBean.getIndeterminatePerson().getName().addNamePart(new EntityNamePart("Obama", PersonNamePartType.FAMILY));
+		personBean.getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		personBean.getIndeterminatePerson().setBirthTime(new GregorianCalendar(1964, Calendar.JANUARY, 17).getTime());
 		return personBean;
 	}
@@ -117,9 +113,7 @@ public class ObservationTestBeanBuilder {
 		NoteBean note = new NoteBean();
 		note.setText("super note");
 		note.getAuthor().setTime(new GregorianCalendar(2008, Calendar.DECEMBER, 12, 15, 30, 22).getTime());
-		note.getAuthor().setName(new PersonName());
-		note.getAuthor().getName().addNamePart(new EntityNamePart("Michelle", PersonNamePartType.GIVEN));
-		note.getAuthor().getName().addNamePart(new EntityNamePart("Obama", PersonNamePartType.FAMILY));
+		note.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		return note;
 	}
 	

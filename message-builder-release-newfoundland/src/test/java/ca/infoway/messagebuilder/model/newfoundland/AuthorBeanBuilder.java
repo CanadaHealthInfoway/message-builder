@@ -54,10 +54,7 @@ public class AuthorBeanBuilder extends BaseBeanBuilder<AuthorBean> {
 	}
 	
 	private PersonName createPersonName(String firstName, String lastName) {
-		PersonName personName = new PersonName();
-		personName.getParts().add(new EntityNamePart(firstName, PersonNamePartType.GIVEN));
-		personName.getParts().add(new EntityNamePart(lastName, PersonNamePartType.FAMILY));
-		return personName;
+		return PersonName.createFirstNameLastName(firstName, lastName);
 	}
 	
 }

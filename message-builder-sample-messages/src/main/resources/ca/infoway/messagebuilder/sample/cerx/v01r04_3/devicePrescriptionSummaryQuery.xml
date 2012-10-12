@@ -95,7 +95,7 @@
             <value extension="987654" root="1.2.3.4.5.6"/>
           </patientID>
           <patientName>
-            <value><given>Tim</given><family>Eapen</family></value>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
           </patientName>
             <rxDispenseIndicator>
               <value code="N" codeSystem="2.16.840.1.113883.5.1096"/>

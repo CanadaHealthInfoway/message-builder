@@ -54,7 +54,7 @@
         <patient1 classCode="PAT">
           <id extension="8765-876-543-MH" root="1.3.6.1.4.1.21367.2008.1.2.364.4" displayable="true" />
           <patientPerson classCode="PSN" determinerCode="INSTANCE">
-            <name><given>Hannah</given><family>Lambert</family></name>
+            <name use="L"><given>Hannah</given><family>Lambert</family></name>
             <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
             <birthTime value="19720321"/>
           </patientPerson>

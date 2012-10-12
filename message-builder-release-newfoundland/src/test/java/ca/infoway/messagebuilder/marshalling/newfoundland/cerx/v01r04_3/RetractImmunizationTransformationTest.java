@@ -68,6 +68,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 	public void shouldMatchKnownRequest() throws Exception {
 		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean());
 		String xmlMessage = result.getXmlMessage();
+		System.out.println(xmlMessage);
 		Document actual = this.factory.createFromString(xmlMessage);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RETRACT_MESSAGE_FILE)), actual);
 	}

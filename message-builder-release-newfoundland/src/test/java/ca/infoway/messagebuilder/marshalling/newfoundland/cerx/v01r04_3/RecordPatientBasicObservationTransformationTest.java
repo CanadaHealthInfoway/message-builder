@@ -157,9 +157,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 		
 		model.getControlActEvent().setResponsibleParty(new AssignedPersonBean());
 		model.getControlActEvent().getResponsibleParty().setId(new Identifier("3.16.840.1.113883.1.133", "223344"));
-		model.getControlActEvent().getResponsibleParty().setName(new PersonName());
-		model.getControlActEvent().getResponsibleParty().getName().addNamePart(new EntityNamePart("Laura", PersonNamePartType.GIVEN));
-		model.getControlActEvent().getResponsibleParty().getName().addNamePart(new EntityNamePart("Bush", PersonNamePartType.FAMILY));
+		model.getControlActEvent().getResponsibleParty().setName(PersonName.createFirstNameLastName("Laura", "Bush"));
 		model.getControlActEvent().getResponsibleParty().setLicenseNumber(new Identifier("3.21.456.1.113883.1.133", "445566"));
 		model.getControlActEvent().getResponsibleParty().setCode(lookup(HealthcareProviderRoleType.class, "ACP", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
 

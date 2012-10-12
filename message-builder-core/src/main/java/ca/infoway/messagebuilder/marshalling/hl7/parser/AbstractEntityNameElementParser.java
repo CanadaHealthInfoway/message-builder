@@ -25,11 +25,15 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -39,11 +43,16 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
 	@Override
 	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		EntityName result = parseNode(node, xmlToModelResult);
-        result.setUses(getNameUses(getAttributeValue(node, "use")));
+        result.setUses(getNameUses(getAttributeValue(node, "use"), (Element) node, xmlToModelResult));
+        validateName(result, context, (Element) node, xmlToModelResult);
 		return result;
 	}
     
-    protected Set<EntityNameUse> getNameUses(String nameUseAttribute) {
+    protected void validateName(EntityName result, ParseContext context, Element element, Hl7Errors errors) {
+    	// leave this up to subclasses to decide if they want to do any validations
+	}
+
+	protected Set<EntityNameUse> getNameUses(String nameUseAttribute, Element element, XmlToModelResult xmlToModelResult) {
         Set<EntityNameUse> uses = new HashSet<EntityNameUse>();
         if (nameUseAttribute != null) {
             StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
@@ -52,6 +61,8 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
                 EntityNameUse nameUse = CodeResolverRegistry.lookup(EntityNameUse.class, token);
                 if (nameUse != null) {
                     uses.add(nameUse);
+                } else {
+                	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Name use '" + token + "' not recognized.", element));
                 }
             }
         }
@@ -60,10 +71,10 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
 	
     protected abstract EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
    
-    public boolean isParseable(Node node) {
+    public boolean isParseable(Node node, ParseContext parseContext) {
         boolean result = false;
         try {
-            parse(null, node, new XmlToModelResult());
+            parse(parseContext, node, new XmlToModelResult());
             result = true;
         } catch (XmlToModelTransformationException e) {
             // expected, sort of

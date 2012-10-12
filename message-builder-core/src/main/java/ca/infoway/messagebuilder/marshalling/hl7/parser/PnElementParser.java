@@ -24,7 +24,6 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
@@ -36,6 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.PnValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
@@ -65,22 +66,23 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 class PnElementParser extends AbstractEntityNameElementParser {
 
     private static final String NAME_PART_TYPE_QUALIFIER = "qualifier";
+
+    private static final PnValidationUtils PN_VALIDATION_UTILS = new PnValidationUtils();
     
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new PNImpl();
 	}
 
+	@Override
+	protected void validateName(EntityName result, ParseContext context, Element element, Hl7Errors errors) {
+		PN_VALIDATION_UTILS.validatePersonName((PersonName) result, context.getType(), context.getVersion().getBaseVersion(), element, errors);
+	}
+	
     @Override
 	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         PersonName result = new PersonName();
-        NodeList childNodes = node.getChildNodes();
-        if (childNodes.getLength() == 1 && childNodes.item(0) instanceof Text) {
-        	// TODO - TM - this is most likely a PN.SIMPLE - need type passed in to be able to check
-            handleSimpleName(node, result);
-        } else {
-	        handlePersonName(xmlToModelResult, result, childNodes);
-        }
+        handlePersonName(xmlToModelResult, result, node.getChildNodes());
         return result;
     }
 
@@ -97,8 +99,8 @@ class PnElementParser extends AbstractEntityNameElementParser {
 				}
 			//GN: Added in fix similar to what was done for AD.BASIC.  Issue with XML containing mixture of elements and untyped text nodes.
 			} else if (isNonBlankTextNode(childNode)) {	
-				String value = childNode.getNodeValue().trim();
-				result.addNamePart(new EntityNamePart(value, null, null));
+	        	// validation will catch if this type does not allow for a free-form name
+				result.addNamePart(new EntityNamePart(childNode.getNodeValue().trim(), null));
 			}
 		}
 	}
@@ -107,13 +109,6 @@ class PnElementParser extends AbstractEntityNameElementParser {
 		return childNode.getNodeValue() != null 
 				&& childNode.getNodeType() == Node.TEXT_NODE 
 				&& !StringUtils.isBlank(childNode.getNodeValue());
-	}
-
-	private void handleSimpleName(Node node, PersonName result) {
-		String value = NodeUtil.getTextValue(node);
-		if (StringUtils.isNotBlank(value)) {
-			result.addNamePart(new EntityNamePart(value, null));
-		}
 	}
     
     private String getTextValue(Element element, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {

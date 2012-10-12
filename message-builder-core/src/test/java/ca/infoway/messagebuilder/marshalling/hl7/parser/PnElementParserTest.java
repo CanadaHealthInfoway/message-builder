@@ -21,8 +21,10 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -32,6 +34,7 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
@@ -40,7 +43,6 @@ import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -49,19 +51,22 @@ public class PnElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
-		PN pn = (PN) new PnElementParser().parse(createContext(), node, null);
+		PN pn = (PN) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
 		assertNull("PersonName", pn.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, pn.getNullFlavor());
 	}
 	
-	private ParseContext createContext() {
-		return ParserContextImpl.create("PN", PersonName.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+	private ParseContext createContext(String type, VersionNumber version) {
+		return ParserContextImpl.create(type, PersonName.class, version, null, null, ConformanceLevel.POPULATED);
 	}
 
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.BASIC", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size()); // use is mandatory
 		assertNotNull("PersonName", personName);
 		assertEquals("number of name parts", 0, personName.getParts().size());
 		assertEquals("number of name uses", 0, personName.getUses().size());
@@ -70,7 +75,8 @@ public class PnElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseSimpleNameNode() throws Exception {
 		Node node = createNode("<something use=\"L\">John Doe</something>");
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.SIMPLE", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
 		assertNotNull("PersonName", personName);
 		assertEquals("number of name parts", 1, personName.getParts().size());
 		assertEquals("name", "John Doe", personName.getParts().get(0).getValue());
@@ -83,21 +89,23 @@ public class PnElementParserTest extends MarshallingTestCase {
 	 @Test
 	public void testParsePrefixes() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something use=\"L\">"
 				+ "  <prefix>Mr.</prefix>" 
 				+ "</something>");
 		
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
         assertEquals("number of name parts", 1, personName.getParts().size());
         assertNamePartAsExpected("prefix Mr", personName.getParts().get(0), PersonNamePartType.PREFIX, "Mr.", null);
 
 		node = createNode(
-				  "<something>"
+				  "<something use=\"L\">"
 				+ "  <prefix>Mr.</prefix>" 
 				+ "  <prefix>Mrs.</prefix>" 
 				+ "</something>");
 
-        personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+        personName = (PersonName) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
 		assertEquals("number of name partsd second time", 2, personName.getParts().size());
         assertNamePartAsExpected("prefix Mr", personName.getParts().get(0), PersonNamePartType.PREFIX, "Mr.", null);
         assertNamePartAsExpected("prefix Mrs", personName.getParts().get(1), PersonNamePartType.PREFIX, "Mrs.", null);
@@ -106,7 +114,7 @@ public class PnElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseAll() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something use=\"L\">"
 				+ "  <prefix>Mr.</prefix>" 
 				+ "  <given qualifier=\"IN\">John</given>" 
 				+ "  <given>Jimmy</given>" 
@@ -114,8 +122,9 @@ public class PnElementParserTest extends MarshallingTestCase {
 				+ "  <suffix>ESQ</suffix>" 
 				+ "</something>");
 		
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
-        assertEquals("number of name uses", 0, personName.getUses().size());
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+        assertEquals("number of name uses", 1, personName.getUses().size());
         assertEquals("number of name parts", 5, personName.getParts().size());
         
         assertNamePartAsExpected("prefix Mr", personName.getParts().get(0), PersonNamePartType.PREFIX, "Mr.", null);
@@ -137,7 +146,9 @@ public class PnElementParserTest extends MarshallingTestCase {
 				"  <given qualifier=\"IN\">A.</given>" +
 				"</name>");
 		
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, null).getBareValue();
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size()); // not allowed to have a simple name mixed in with parts
         assertEquals("number of name uses", 1, personName.getUses().size());
         assertEquals("number of name parts", 7, personName.getParts().size());
 
@@ -156,7 +167,7 @@ public class PnElementParserTest extends MarshallingTestCase {
                   "<something><monkey>prefix 1</monkey>Organization name<delimiter>,</delimiter><suffix>Inc</suffix></something>");
         
         try {
-            new PnElementParser().parse(null, node, null);
+            new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult);
             fail("expected exception");
         } catch (XmlToModelTransformationException e) {
             assertEquals("message", "Unexpected part of type: monkey", e.getMessage());
@@ -166,14 +177,14 @@ public class PnElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseEmptyPrefix() throws Exception {
 		Node node = createNode(
-				  "<something>"
+				  "<something use=\"L\">"
 				+ "  <prefix></prefix>" 
 				+ "</something>");
 		
-		XmlToModelResult xmlResult = new XmlToModelResult();
-		PersonName personName = (PersonName) new PnElementParser().parse(null, node, xmlResult).getBareValue();
+		PersonName personName = (PersonName) new PnElementParser().parse(createContext("PN.FULL", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("number of warnings", 2, this.xmlResult.getHl7Errors().size()); // empty part; must provide at least one part
         assertEquals("number of name parts", 0, personName.getParts().size());
-        assertEquals("number of warnings", 1, xmlResult.getHl7Errors().size());
         assertEquals("warnings", "Expected PN child node \"prefix\" to have a text node", xmlResult.getHl7Errors().get(0).getMessage());
         assertEquals("warnings", "/something/prefix", xmlResult.getHl7Errors().get(0).getPath());
 	}

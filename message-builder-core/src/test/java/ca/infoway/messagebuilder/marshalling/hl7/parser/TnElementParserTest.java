@@ -137,7 +137,7 @@ public class TnElementParserTest extends CeRxDomainValueTestCase {
 	@Test
     public void testUsesUnknownUse() throws Exception {
         Node node = createNode("<something use=\"XXX\"/>");
-        TrivialName result = (TrivialName) new TnElementParser().parse(null, node, null).getBareValue();
+        TrivialName result = (TrivialName) new TnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertEquals("no uses", 0, result.getUses().size());
     }
 }

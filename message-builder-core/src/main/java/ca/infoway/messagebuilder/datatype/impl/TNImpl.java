@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class TNImpl extends ENImpl<TrivialName> implements TN {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -3857569397613505550L;
 
 	/**

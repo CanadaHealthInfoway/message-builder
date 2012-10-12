@@ -89,7 +89,7 @@
             <value extension="4" root="1.2.3"/>
           </patientID>
           <patientName>
-            <value><given>John</given><family>Doe</family></value>
+            <value use="L"><given>John</given><family>Doe</family></value>
           </patientName>
           <prescriptionDispenseNumber>
             <value extension="9" root="1.2.3.4.5.6"/>

@@ -58,7 +58,7 @@
 					<identifiedEntity classCode="IDENT">
 						<id root="2.16.840.1.113883.1.133" extension="9283488" displayable="true" />
 						<identifiedPerson classCode="PSN" determinerCode="INSTANCE">
-	    					<name>
+	    					<name use="L">
 	    						<given>Mabel</given>
 	    						<family>Hauptman</family>
 	    					</name>

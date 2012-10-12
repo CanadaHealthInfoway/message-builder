@@ -54,14 +54,14 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
 	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	EntityName result;
         
-        if (tnElementParser.isParseable(node)) {
-            result = (EntityName) tnElementParser.parse(null, node, xmlToModelResult).getBareValue();
+        if (tnElementParser.isParseable(node, context)) {
+            result = (EntityName) tnElementParser.parse(context, node, xmlToModelResult).getBareValue();
             
-        } else if (onElementParser.isParseable(node)) {
-            result = (EntityName) onElementParser.parse(null, node, xmlToModelResult).getBareValue();
+        } else if (onElementParser.isParseable(node, context)) {
+            result = (EntityName) onElementParser.parse(context, node, xmlToModelResult).getBareValue();
             
-        } else if (pnElementParser.isParseable(node)) {
-            result = (EntityName) pnElementParser.parse(null, node, xmlToModelResult).getBareValue();
+        } else if (pnElementParser.isParseable(node, context)) {
+            result = (EntityName) pnElementParser.parse(context, node, xmlToModelResult).getBareValue();
             
         } else {
             throw new XmlToModelTransformationException("Cannot figure out how to parse node " + node.toString());

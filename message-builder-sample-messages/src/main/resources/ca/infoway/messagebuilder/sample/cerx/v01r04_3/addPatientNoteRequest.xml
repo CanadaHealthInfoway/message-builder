@@ -55,7 +55,7 @@
           <id extension="1" root="12.34.56"/>
           <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
           <representedPerson classCode="PSN" determinerCode="INSTANCE">
-            <name><given>John</given><family>Doe</family></name>
+            <name use="L"><given>John</given><family>Doe</family></name>
             <asLicensedEntity classCode="LIC">
               <id extension="1" root="77.33.22.11"/>
             </asLicensedEntity>
@@ -67,7 +67,7 @@
         <assignedPerson classCode="ASSIGNED">
           <id extension="1" root="1.1.1"/>
           <representedPerson classCode="PSN" determinerCode="INSTANCE">
-            <name><given>John</given><family>Doe</family></name>
+            <name use="L"><given>John</given><family>Doe</family></name>
             <asLicensedEntity classCode="LIC">
               <id extension="1" root="2.2.2"/>
             </asLicensedEntity>
@@ -93,7 +93,7 @@
             <patient classCode="PAT">
               <id extension="159" root="3.14"/>
               <patientPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Hannah</given><family>Lambert</family></name>
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
                 <birthTime value="19720321"/>
               </patientPerson>

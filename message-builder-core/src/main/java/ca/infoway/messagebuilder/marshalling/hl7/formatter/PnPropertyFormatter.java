@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.PnValidationUtils;
 
 /**
  * PN - PersonalName
@@ -38,4 +39,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
  */
 @DataTypeHandler({"PN", "PN.FULL", "PN.BASIC", "PN.SEARCH"})
 class PnPropertyFormatter extends AbstractEntityNamePropertyFormatter<PersonName> {
+	
+    private static final PnValidationUtils PN_VALIDATION_UTILS = new PnValidationUtils();
+
+    @Override
+    protected void validateName(PersonName value, FormatContext context) {
+		PN_VALIDATION_UTILS.validatePersonName(value, context.getType(), context.getVersion().getBaseVersion(), null, context.getModelToXmlResult());
+    }
 }

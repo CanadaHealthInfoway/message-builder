@@ -61,7 +61,7 @@
       <patient1 classCode="PAT">
         <id extension="8765-876-543-MH" root="1.3.6.1.4.1.21367.2008.1.2.364.4"/>
         <patientPerson classCode="PSN" determinerCode="INSTANCE">
-          <name><given>Hannah</given><family>Lambert</family></name>
+          <name use="L"><given>Hannah</given><family>Lambert</family></name>
           <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
           <birthTime value="19720321"/>
         </patientPerson>
@@ -77,7 +77,7 @@
           <patient classCode="PAT">
             <id extension="8765-876-543-MH" root="1.3.6.1.4.1.21367.2008.1.2.364.4"/>
             <patientPerson classCode="PSN" determinerCode="INSTANCE">
-              <name><given>Hannah</given><family>Lambert</family></name>
+              <name use="L"><given>Hannah</given><family>Lambert</family></name>
               <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
               <birthTime value="19720321"/>
             </patientPerson>
@@ -95,7 +95,7 @@
             <id extension="responsiblePartyBeanId" root="responsiblePartyRoot"/>
             <code nullFlavor="NI"/>
             <assignedPerson classCode="PSN" determinerCode="INSTANCE">
-              <name><given>Resp</given><family>Party</family></name>
+              <name use="L"><given>Resp</given><family>Party</family></name>
               <asHealthCareProvider classCode="PROV">
                 <id extension="5" root="5.5"/>
               </asHealthCareProvider>
@@ -108,7 +108,7 @@
             <id extension="authorId" root="authorRoot"/>
             <code nullFlavor="NI"/>
             <assignedPerson classCode="PSN" determinerCode="INSTANCE">
-              <name><given>John</given><family>Doe</family></name>
+              <name use="L"><given>John</given><family>Doe</family></name>
               <asHealthCareProvider classCode="PROV">
                 <id extension="1" root="1.1"/>
               </asHealthCareProvider>

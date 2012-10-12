@@ -65,7 +65,7 @@
 					<healthCareProvider classCode="PROV">
 						<id extension="111-111-111" root="2.16.124.8.101.99.1.1.42" displayable="true" version="1"/>
 						<code code="MD" codeSystem="2.16.840.1.113883.5.111" />
-						<name>
+						<name use="L">
 							<given>Robert</given>
 							<family>Sales</family>
 						</name>
@@ -100,7 +100,7 @@
 					<value value="false" />
 				</includeHistoryIndicator>
 				<name>
-					<value>
+					<value use="L">
 						<given>J</given>
 						<family>Smith</family>
 					</value>

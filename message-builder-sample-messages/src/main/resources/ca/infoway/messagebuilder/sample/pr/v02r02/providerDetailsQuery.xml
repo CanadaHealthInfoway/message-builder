@@ -82,7 +82,7 @@
           <value value="false"/>
         </includeHistoryIndicator>
         <name>
-          <value><given>J</given><family>Smith</family></value>
+          <value use="L"><given>J</given><family>Smith</family></value>
         </name>
       </parameterList>
     </queryByParameter>

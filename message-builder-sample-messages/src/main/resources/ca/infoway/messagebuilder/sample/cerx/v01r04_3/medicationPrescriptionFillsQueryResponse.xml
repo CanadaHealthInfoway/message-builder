@@ -64,7 +64,7 @@
               <id extension="1" root="12.34.56"/>
               <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="1" root="77.33.22.11"/>
                 </asLicensedEntity>
@@ -76,7 +76,7 @@
               <id extension="1" root="12.34.56"/>
               <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="1" root="77.33.22.11"/>
                 </asLicensedEntity>
@@ -151,7 +151,7 @@
                 <assignedPerson classCode="ASSIGNED">
                   <id extension="1" root="1.1.1"/>
                   <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                    <name><given>John</given><family>Doe</family></name>
+                    <name use="L"><given>John</given><family>Doe</family></name>
                     <asLicensedEntity classCode="LIC">
                       <id extension="1" root="2.2.2"/>
                     </asLicensedEntity>
@@ -213,7 +213,7 @@
             <value extension="4" root="1.2.3"/>
           </patientID>
           <patientName>
-            <value><given>John</given><family>Doe</family></value>
+            <value use="L"><given>John</given><family>Doe</family></value>
           </patientName>
           <prescriptionOrderNumber>
             <value extension="9" root="1.2.3.4.5.6"/>

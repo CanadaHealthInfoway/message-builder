@@ -86,7 +86,7 @@
             <value extension="987654" root="1.2.3.4.5.6"/>
           </patientID>
           <patientName>
-            <value><given>Tim</given><family>Eapen</family></value>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
           </patientName>
         </parameterList>
       </queryByParameter>

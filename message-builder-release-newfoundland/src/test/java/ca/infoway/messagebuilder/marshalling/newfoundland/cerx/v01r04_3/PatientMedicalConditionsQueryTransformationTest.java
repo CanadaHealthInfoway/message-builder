@@ -183,9 +183,7 @@ public class PatientMedicalConditionsQueryTransformationTest extends BaseTransfo
 		responsibleParty.setId(new Identifier("1.1.2", "resp party ext"));
 		responsibleParty.setCode(lookup(HealthcareProviderRoleType.class, "ACP", CodeSystem.VOCABULARY_ROLE_CODE.getRoot()));
 		responsibleParty.setLicenseNumber(new Identifier("1.2.3.1", "provider lic ext"));
-		responsibleParty.setName(new PersonName());
-		responsibleParty.getName().addNamePart(new EntityNamePart("Joe", PersonNamePartType.GIVEN));
-		responsibleParty.getName().addNamePart(new EntityNamePart("Last", PersonNamePartType.FAMILY));
+		responsibleParty.setName(PersonName.createFirstNameLastName("Joe", "Last"));
 		condition.setResponsibleParty(responsibleParty);
 		
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<MedicalConditionBean>(condition));

@@ -75,7 +75,7 @@
       <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
       <parameterList>
         <personName>
-          <value><given>J</given><family>Smith</family></value>
+          <value use="L"><given>J</given><family>Smith</family></value>
         </personName>
       </parameterList>
     </queryByParameter>

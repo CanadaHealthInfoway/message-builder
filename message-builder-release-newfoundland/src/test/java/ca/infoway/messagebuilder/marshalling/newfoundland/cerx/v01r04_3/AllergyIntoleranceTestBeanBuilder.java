@@ -163,9 +163,7 @@ public class AllergyIntoleranceTestBeanBuilder {
 		noteBean.getAuthor().setId(new Identifier("2.16.840.1.113883.1.133", "112233"));
 		noteBean.getAuthor().setLicenseNumber(new Identifier("2.16.840.1.113883.1.133", "332211"));
 		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20));
-		noteBean.getAuthor().setName(new PersonName());
-		noteBean.getAuthor().getName().addNamePart(new EntityNamePart("Michelle", PersonNamePartType.GIVEN));
-		noteBean.getAuthor().getName().addNamePart(new EntityNamePart("Obama", PersonNamePartType.FAMILY));
+		noteBean.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		return noteBean;
 	}
 	

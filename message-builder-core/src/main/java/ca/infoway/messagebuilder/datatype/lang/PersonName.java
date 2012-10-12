@@ -27,6 +27,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 
 /**
  * <p>Java datatype used to back the HL7 PN datatype.
@@ -107,6 +108,7 @@ public class PersonName extends EntityName {
 	 */
 	public static PersonName createFirstNameLastName(String firstName, String lastName) {
 		PersonName name = new PersonName();
+		name.addUse(EntityNameUse.LEGAL);
 		if (StringUtils.isNotBlank(firstName)) {
 			name.addNamePart(new EntityNamePart(firstName, PersonNamePartType.GIVEN));
 		}

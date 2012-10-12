@@ -70,8 +70,8 @@
               </effectiveTime>
               <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
               <identifiedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Hannah</given><family>Lambert</family></name>
-                <name><given>Alan</given><family>Wall</family></name>
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <name use="L"><given>Alan</given><family>Wall</family></name>
                 <telecom value="tel:4167620032"/>
                 <telecom value="tel:4167620032"/>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
@@ -102,14 +102,14 @@
                   <code code="SON" codeSystem="2.16.840.1.113883.5.111"/>
                   <relationshipHolder classCode="PSN" determinerCode="INSTANCE">
                     <id displayable="true" extension="4357" root="44.55.66.88"/>
-                    <name><given>George</given><family>Lazen</family></name>
+                    <name use="L"><given>George</given><family>Lazen</family></name>
                   </relationshipHolder>
                 </personalRelationship>
                 <personalRelationship classCode="PRS">
                   <code code="SON" codeSystem="2.16.840.1.113883.5.111"/>
                   <relationshipHolder classCode="PSN" determinerCode="INSTANCE">
                     <id displayable="true" extension="4357" root="44.55.66.88"/>
-                    <name><given>George</given><family>Lazen</family></name>
+                    <name use="L"><given>George</given><family>Lazen</family></name>
                   </relationshipHolder>
                 </personalRelationship>
                 <languageCommunication>

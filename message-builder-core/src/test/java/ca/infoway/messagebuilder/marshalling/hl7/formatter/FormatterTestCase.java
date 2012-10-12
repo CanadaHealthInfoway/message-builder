@@ -37,6 +37,7 @@ import org.junit.After;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
@@ -69,7 +70,11 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name, String type) {
-		return new FormatContextImpl(this.result, null, name, type, null, false, SpecificationVersion.R02_04_03, null, null);
+		return getContext(name, type, SpecificationVersion.R02_04_03);
+	}
+
+	protected FormatContext getContext(String name, String type, VersionNumber version) {
+		return new FormatContextImpl(this.result, null, name, type, null, false, version, null, null);
 	}
 
     protected final Set<Code> makeSet(Code... codes) {

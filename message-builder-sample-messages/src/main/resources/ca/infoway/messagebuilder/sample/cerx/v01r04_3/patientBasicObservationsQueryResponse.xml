@@ -67,7 +67,7 @@
               <id extension="patientId" root="1.2.49472.29.34.1"/>
               <telecom nullFlavor="NI"/>
               <patientPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Michelle</given><family>Obama</family></name>
+                <name use="L"><given>Michelle</given><family>Obama</family></name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
                 <birthTime value="19640117"/>
               </patientPerson>
@@ -78,7 +78,7 @@
               <id extension="223344" root="3.16.840.1.113883.1.133"/>
               <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Laura</given><family>Bush</family></name>
+                <name use="L"><given>Laura</given><family>Bush</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="445566" root="3.21.456.1.113883.1.133"/>
                 </asLicensedEntity>
@@ -90,7 +90,7 @@
             <assignedPerson classCode="ASSIGNED">
               <id extension="1" root="1.1.1"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="1" root="2.2.2"/>
                 </asLicensedEntity>
@@ -117,7 +117,7 @@
                   <assignedPerson classCode="ASSIGNED">
                     <id nullFlavor="NI"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                      <name><given>Michelle</given><family>Obama</family></name>
+                      <name use="L"><given>Michelle</given><family>Obama</family></name>
                     </representedPerson>
                   </assignedPerson>
                 </author>
@@ -137,7 +137,7 @@
               <id extension="patientId" root="1.2.49472.29.34.1"/>
               <telecom nullFlavor="NI"/>
               <patientPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Michelle</given><family>Obama</family></name>
+                <name use="L"><given>Michelle</given><family>Obama</family></name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
                 <birthTime value="19640117"/>
               </patientPerson>
@@ -148,7 +148,7 @@
               <id extension="223344" root="3.16.840.1.113883.1.133"/>
               <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Laura</given><family>Bush</family></name>
+                <name use="L"><given>Laura</given><family>Bush</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="445566" root="3.21.456.1.113883.1.133"/>
                 </asLicensedEntity>
@@ -160,7 +160,7 @@
             <assignedPerson classCode="ASSIGNED">
               <id extension="1" root="1.1.1"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="1" root="2.2.2"/>
                 </asLicensedEntity>
@@ -201,7 +201,7 @@
                   <assignedPerson classCode="ASSIGNED">
                     <id nullFlavor="NI"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                      <name><given>Michelle</given><family>Obama</family></name>
+                      <name use="L"><given>Michelle</given><family>Obama</family></name>
                     </representedPerson>
                   </assignedPerson>
                 </author>
@@ -263,7 +263,7 @@
             <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
           </patientID>
           <patientName>
-            <value><given>Tim</given><family>Eapen</family></value>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
           </patientName>
         </parameterList>
       </queryByParameter>

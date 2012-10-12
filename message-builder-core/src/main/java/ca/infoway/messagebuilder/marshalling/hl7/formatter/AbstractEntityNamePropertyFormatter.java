@@ -38,6 +38,9 @@ public abstract class AbstractEntityNamePropertyFormatter<V extends EntityName> 
 
 	@Override
 	String formatNonNullValue(FormatContext context, V value, int indentLevel) {
+		
+		validateName(value, context);
+		
         StringBuffer buffer = new StringBuffer();
         if (value != null) {
             buffer.append(createElement(context, getUseAttributeMap(value), indentLevel, false, false));
@@ -49,7 +52,11 @@ public abstract class AbstractEntityNamePropertyFormatter<V extends EntityName> 
         return buffer.toString();
     }
     
-    private void appendNamePart(StringBuffer buffer, EntityNamePart namePart) {
+    protected void validateName(V value, FormatContext context) {
+    	// leave this up to subclasses to decide if they want to do any validations
+	}
+
+	private void appendNamePart(StringBuffer buffer, EntityNamePart namePart) {
         String openTag = "";
         String closeTag = "";
         

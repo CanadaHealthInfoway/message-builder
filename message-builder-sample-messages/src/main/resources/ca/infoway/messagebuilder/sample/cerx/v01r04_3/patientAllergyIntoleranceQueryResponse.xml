@@ -68,7 +68,7 @@
               <id extension="9283488" root="2.16.840.1.113883.1.133"/>
               <telecom nullFlavor="NI"/>
               <patientPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>Mabel</given><family>Hauptman</family></name>
+                <name use="L"><given>Mabel</given><family>Hauptman</family></name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
                 <birthTime value="19321228"/>
               </patientPerson>
@@ -79,7 +79,7 @@
             <assignedPerson classCode="ASSIGNED">
               <id extension="1" root="1.1.1"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>John</given><family>Doe</family></name>
+                <name use="L"><given>John</given><family>Doe</family></name>
                 <asLicensedEntity classCode="LIC">
                   <id extension="1" root="2.2.2"/>
                 </asLicensedEntity>
@@ -91,7 +91,7 @@
             <assignedPerson classCode="ASSIGNED">
               <id extension="665544" root="2.16.840.1.113883.1.133"/>
               <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                <name><given>George</given><family>Jungle</family></name>
+                <name use="L"><given>George</given><family>Jungle</family></name>
               </representedPerson>
             </assignedPerson>
           </informant>
@@ -163,7 +163,7 @@
                   <assignedPerson classCode="ASSIGNED">
                     <id extension="112233" root="2.16.840.1.113883.1.133"/>
                     <representedPerson classCode="PSN" determinerCode="INSTANCE">
-                      <name><given>Michelle</given><family>Obama</family></name>
+                      <name use="L"><given>Michelle</given><family>Obama</family></name>
                       <asLicensedEntity classCode="LIC">
                         <id extension="332211" root="2.16.840.1.113883.1.133"/>
                       </asLicensedEntity>
@@ -220,7 +220,7 @@
             <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
           </patientID>
           <patientName>
-            <value><given>Tim</given><family>Eapen</family></value>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
           </patientName>
         </parameterList>
       </queryByParameter>

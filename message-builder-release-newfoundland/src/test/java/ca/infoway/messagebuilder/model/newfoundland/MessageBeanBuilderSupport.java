@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType;
@@ -126,9 +127,7 @@ public class MessageBeanBuilderSupport {
 		result.setLicenseNumber(new Identifier("2.16.840.1.113883.4.268", "55555"));
 		
 		// TODO: I'm a little unhappy about this. The data setup seems too HL7-y. Would it be better to retain the PersonNameBean and the adaptor?
-		PersonName name = new PersonName();
-		name.addNamePart(new EntityNamePart("Jane", GIVEN));
-		name.addNamePart(new EntityNamePart("Doe", FAMILY));
+		PersonName name = PersonName.createFirstNameLastName("Jane", "Doe");
 		name.addUse(LEGAL);
 		result.setName(name);
 		
@@ -203,9 +202,7 @@ public class MessageBeanBuilderSupport {
 		IndeterminatePersonBean personBean = new IndeterminatePersonBean();
 		personBean.setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		personBean.setBirthTime(new Date());
-		personBean.setName(new PersonName());
-		personBean.getName().addNamePart(new EntityNamePart("Jane", PersonNamePartType.GIVEN));
-		personBean.getName().addNamePart(new EntityNamePart("Doe", PersonNamePartType.FAMILY));
+		personBean.setName(PersonName.createFirstNameLastName("Jane", "Doe"));
 		return personBean;
 	}
 

@@ -104,7 +104,7 @@
 			            <id extension="9283488" root="2.16.840.1.113883.1.133"/>
 						<telecom nullFlavor="NI" />
 						<patientPerson>
-							<name><given>Mabel</given><family>Hauptman</family></name>
+							<name use="L"><given>Mabel</given><family>Hauptman</family></name>
 			                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
 			                <birthTime value="19321228"/>
 						</patientPerson>
