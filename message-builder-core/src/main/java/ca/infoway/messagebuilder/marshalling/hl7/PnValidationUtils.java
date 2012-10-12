@@ -135,7 +135,7 @@ public class PnValidationUtils {
 			createError("For CeRx PN.BASIC, only a single simple name (a name without a part type) is allowed. Multiple name parts can be provided, but none of them may be simple.", element, errors);
     	}
     	
-    	// FIXME - VALIDATION - TM - this likely only applies in certain cases (PN.FULL, PN.SEARCH) - awaiting confirmation from CHI 
+    	// confirmed with CHI that simple and basic types do not have to provide any name parts 
     	if (numParts == 0 && (isFull || isSearch)) {
 			createError("At least one name part must be specified.", element, errors);
     	}
@@ -145,9 +145,8 @@ public class PnValidationUtils {
 	private void validatePersonNameUses(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
     	boolean isSearch = StandardDataType.PN_SEARCH.getType().equals(type);
 		int numUses = personName.getUses().size();
-		if (numUses > 1) {
-			createError("PersonName datatype can only have a single use.", element, errors);
-		} else if (numUses == 0 && !isSearch) {
+		// confirmed with CHI that multiple uses are allowed (specs don't indicate either way)
+		if (numUses == 0 && !isSearch) {
 			createError("PersonName 'use' property is mandatory.", element, errors);
 		}
     	

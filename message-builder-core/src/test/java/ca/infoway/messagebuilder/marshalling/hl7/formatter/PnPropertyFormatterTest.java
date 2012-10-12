@@ -122,9 +122,8 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         personName.addNamePart(new EntityNamePart("Steve Shaw"));
         
         String result = formatter.format(getContext("name", "PN.SIMPLE", SpecificationVersion.R02_04_02), new PNImpl(personName));
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
-        assertEquals("something in text node", "<name use=\"L P\">Steve Shaw</name>", result.trim());
+		assertTrue(this.result.isValid());
+        assertTrue("something in text node", "<name use=\"P L\">Steve Shaw</name>".equals(result.trim()) || "<name use=\"L P\">Steve Shaw</name>".equals(result.trim()));
     }
 
 	@SuppressWarnings("deprecation")
