@@ -249,6 +249,7 @@ class XmlRenderingVisitor implements Visitor {
 			throw new RenderingException("Cannot support properties of type " + type);
 		} else {
 			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
+			String xmlFragment = "";
 			try {
 				BareANY any;
 				
@@ -260,11 +261,8 @@ class XmlRenderingVisitor implements Visitor {
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
 				}
 				
-				String xmlFragment = "";
-				renderNewErrorsToXml(currentBuffer().getChildBuilder());
 				if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
 					if (isIgnoredNotAllowed()){
-						
 						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, relationship.getName()));
 					} else {
 						xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
@@ -273,14 +271,14 @@ class XmlRenderingVisitor implements Visitor {
 					xmlFragment += new XmlWarningRenderer().createWarning(0, MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
 				}
 //				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
-				// FIXME - SPECIALIZATION_TYPE - need to allow for specialization type to be set here
+				// FIXME - VALIDATION - TM - SPECIALIZATION_TYPE - need to allow for specialization type to be set here???
 				xmlFragment += formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
-				currentBuffer().getChildBuilder().append(xmlFragment);
 			} catch (ModelToXmlTransformationException e) {
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);
-				// FIXME VALIDATION - TM - also render error to xml (?)
 			}
+			renderNewErrorsToXml(currentBuffer().getChildBuilder());
+			currentBuffer().getChildBuilder().append(xmlFragment);
 		}
 	}
 
