@@ -21,12 +21,9 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CD;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CV;
-import static ca.infoway.messagebuilder.util.xml.XmlDescriber.describeSingleElement;
+import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
 
 import java.lang.reflect.Type;
-import java.text.MessageFormat;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
@@ -36,18 +33,16 @@ import org.w3c.dom.NodeList;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
-import ca.infoway.messagebuilder.xml.CodingStrength;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
  * CV - Coded Value
@@ -77,99 +72,73 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
  * Currently this class does nothing with codeSystem or originalText. Therefore it is
  * identical to the CS class.
  */
-@DataTypeHandler({"CV", "CD", "CE"})
-class CvElementParser extends AbstractCodeTypeElementParser {
-
-	private static final int MAX_TRANSLATIONS_ALLOWED = 10;
-	private static final String CODE_SYSTEM_ATTRIBUTE_NAME = "codeSystem";
+@DataTypeHandler({"CV", "CD", "CE", "CS"})
+public class CvElementParser extends AbstractCodeTypeElementParser {
 
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new CVImpl();
 	}
 	
-    @SuppressWarnings("unchecked")
 	@Override
-    protected Code parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected Code parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
+		throw new UnsupportedOperationException("Nothing should be calling this method.");
+	}
+	
+	@Override
+    protected Code parseNonNullCodeNode(ParseContext context, String codeAttributeName, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 
     	Element element = (Element) node;
     	
     	performStandardValidations(context, element, xmlToModelResult);
     	
-    	if (isCWE(context)) {
-    		if (!element.hasAttribute("code") && !hasOriginalText(element)) {
-    			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-    					MessageFormat.format(
-    						"Either \"code\" or \"originalText\" property must be provided ({0}).", 
-    						describeSingleElement(element)),
-    					element));
-    		}
-    	} else if (isCNE(context)) {
-    		if (hasOriginalText(element) && !hasValidNullFlavorAttribute(context, element, xmlToModelResult)) {
-    			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-    					MessageFormat.format(
-    						"\"OriginalText\" is not allowed for non-null CNE values. ({0}).", 
-    						describeSingleElement(element)),
-    					element));
-    		}
-    	}
-
     	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
     	
-    	Code code = getCorrespondingCode(context, element, codeType, xmlToModelResult);
+    	Code code = getCorrespondingCode(context, element, codeType, xmlToModelResult, codeAttributeName);
+        populateOriginalText(result, context, (Element) node, getReturnType(context), xmlToModelResult);
     	addTranslations(context, element, (CD) result, expectedReturnType, xmlToModelResult);
+    	addDisplayName(element, (CD) result);
 
+        // this is not the usual way of doing things; this is to make validation easier
+        ((BareANYImpl) result).setBareValue(code);
+    	
         return code;
     }
 
 	private void performStandardValidations(ParseContext context, Element element, XmlToModelResult result) {
+		if (StandardDataType.CS.getType().equals(context.getType())) {
+			validateUnallowedAttributes(context.getType(), element, result, CODE_SYSTEM_ATTRIBUTE_NAME);
+		}
 		validateUnallowedAttributes(context.getType(), element, result, "codeSystemName");
     	validateUnallowedAttributes(context.getType(), element, result, "codeSystemVersion");
-    	validateUnallowedAttributes(context.getType(), element, result, "displayName");
-    	
-    	if (CV.getType().equals(context.getType())) {
-    		validateUnallowedChildNode(context.getType(), element, result, "translation");
-    		validateUnallowedChildNode(context.getType(), element, result, "qualifier");
-    	} else if (CD.getType().equals(context.getType())) {
-    		validateUnallowedChildNode(context.getType(), element, result, "qualifier");
-    	}
+   		validateUnallowedChildNode(context.getType(), element, result, "qualifier");
 	}
     
-    @Override
-    protected NullFlavor parseNullNode(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-    	NullFlavor nullFlavor = super.parseNullNode(context, node, xmlToModelResult);
-    	
-    	if (!hasOriginalText((Element) node) && isOtherNullFlavor(nullFlavor) && isCNE(context)) {
-    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-    				MessageFormat.format("Data type \"{0}\" with coding strength of \"{1}\" " +
-    						"must include <originalText> if nullFlavor is \"OTH\" ({2})",
-    						context.getType(), context.getCodingStrength(),
-    						XmlDescriber.describeSingleElement((Element)node)),
-    						(Element) node));
-    	}
-    	
-        return nullFlavor;
-    }
-
-	private boolean isOtherNullFlavor(NullFlavor nullFlavor) {
-		return ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.OTHER == nullFlavor;
-	}
-
     private boolean isInterface(Class<? extends Code> codeType) {
         return codeType.isInterface();
     }
 
     private Code getCorrespondingCode(ParseContext context, Element element, 
-    		Class<? extends Code> codeType, XmlToModelResult xmlToModelResult) 
+    		Class<? extends Code> codeType, XmlToModelResult xmlToModelResult, String codeAttributeName) 
     		throws XmlToModelTransformationException {
     	
-        String code = isMandatory(context) && isCNE(context)
-        		? getMandatoryAttributeValue(element, "code", xmlToModelResult) 
-        		: getAttributeValue(element, "code");
-		String codeSystem = (isMandatory(context) && isCNE(context)) || StringUtils.isNotBlank(code)
-        		? getMandatoryAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME, xmlToModelResult) 
-				: getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);
+        String code = getAttributeValue(element, codeAttributeName);
+		String codeSystem = getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);
         		
+    	if (StandardDataType.CS.getType().equals(context.getType())) {
+    		if (codeSystem != null) {
+    			xmlToModelResult.addHl7Error(
+    					new Hl7Error(
+    							DATA_TYPE_ERROR, 
+    							"CS should not include the 'codeSystem' property. (" + XmlDescriber.describeSingleElement(element) + ")", 
+    							element));
+    		}
+    	} else {
+    		if (StringUtils.isNotBlank(code) && StringUtils.isBlank(codeSystem)) {
+            	xmlToModelResult.addHl7Error(createMissingCodeSystemError(element, codeType, code));
+    		}
+    	}
+    	
 		Code result = getCode(codeType, code, codeSystem);
 
         // if a code is specified and there is no matching enum value for it,
@@ -192,65 +161,23 @@ class CvElementParser extends AbstractCodeTypeElementParser {
 		return resolver.<Code>lookup(returnType, codeValue, codeSystem);
 	}
     
-	private boolean isCNE(ParseContext context) {
-		return context.getCodingStrength() == CodingStrength.CNE;
-	}
-	
-	private boolean isCWE(ParseContext context) {
-		return context.getCodingStrength() == CodingStrength.CWE;
-	}
-
-	private boolean isMandatory(ParseContext context) {
-		return context.getConformance() == ConformanceLevel.MANDATORY;
+	private void addDisplayName(Element element, CD result) {
+		String displayName = getAttributeValue(element, "displayName");
+		result.setDisplayName(displayName);
 	}
 
 	private void addTranslations(ParseContext context, Element element, CD result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
 		NodeList translations = element.getElementsByTagName("translation");
-		int translationCount = 0;
 		for (int i = 0, length=translations.getLength(); i < length; i++) {
 			Element translationElement = (Element) translations.item(i);
 			// only want direct child node translations
 			if (translationElement.getParentNode().isSameNode(element)) {
-				translationCount++;
-				validateTranslation(context, (Element) translationElement, xmlToModelResult);
-		        Code translation = extractCodeFromTranslation(translationElement, expectedReturnType, xmlToModelResult);
-				if (translation != null) {
-					CD hl7Translation = new CVImpl();
-					hl7Translation.setValue(translation);
-					hl7Translation.setDataType(result.getDataType());
-					result.getTranslations().add(hl7Translation);
+				CD parsedTranslation = (CD) doParse(context, translationElement, xmlToModelResult, true, STANDARD_CODE_ATTRIBUTE_NAME);
+				if (parsedTranslation != null) {
+					result.getTranslations().add(parsedTranslation);
 				}
 			}
 		}
-		if (translationCount > MAX_TRANSLATIONS_ALLOWED) {
-    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-    				MessageFormat.format("A maximum of {0} translations are allowed for any given code.",
-    						MAX_TRANSLATIONS_ALLOWED),
-    						element));
-		}
-	}
-
-	private Code extractCodeFromTranslation(Element element, Type expectedReturnType,
-			XmlToModelResult xmlToModelResult) {
-		String code = getMandatoryAttributeValue(element, "code", xmlToModelResult); 
-		String codeSystem = getMandatoryAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME, xmlToModelResult); 
-		
-		Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
-
-		Code translation = getCode(codeType, code, codeSystem);
-
-		// if a code is specified and there is no matching enum value for it, something is seriously wrong
-		if (StringUtils.isNotBlank(code) && translation == null) {
-			xmlToModelResult.addHl7Error(createHl7Error((Node) element, codeType, code));
-		}
-		return translation;
-	}
-
-	private void validateTranslation(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
-		performStandardValidations(context, element, xmlToModelResult);
-    	validateUnallowedAttributes(context.getType(), element, xmlToModelResult, "nullFlavor");
-    	validateUnallowedChildNode(context.getType(), element, xmlToModelResult, "originalText");
-    	validateUnallowedChildNode(context.getType(), element, xmlToModelResult, "translation");
 	}
 
 }

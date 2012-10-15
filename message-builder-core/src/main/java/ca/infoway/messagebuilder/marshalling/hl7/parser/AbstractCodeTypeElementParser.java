@@ -34,24 +34,47 @@ import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.Generics;
+import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
 
+	protected static final String STANDARD_CODE_ATTRIBUTE_NAME = "code";
+	protected static final String CODE_SYSTEM_ATTRIBUTE_NAME = "codeSystem";
+
+	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
+
     @Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+    	boolean isTranslation = false;
+    	return doParse(context, node, xmlToModelResult, isTranslation, STANDARD_CODE_ATTRIBUTE_NAME);
+    }
+
+	public BareANY doParse(ParseContext context, Node node, XmlToModelResult xmlToModelResult, boolean isTranslation, String codeAttributeName) throws XmlToModelTransformationException {
     	BareANY cd = doCreateDataTypeInstance(context.getType());
         
         populateNullFlavor(cd, context, node, xmlToModelResult); 
-        populateValue(cd, context, node, xmlToModelResult);
-        populateOriginalText(cd, context, (Element) node, getReturnType(context), xmlToModelResult);
+        populateValue(cd, context, node, xmlToModelResult, codeAttributeName);
+       
+        if (!isTranslation) {
+        	CD_VALIDATION_UTILS.validateCodedType((CD) cd, isCWE(context), isCNE(context), isTranslation, context.getType(), context.getVersion().getBaseVersion(), (Element) node, xmlToModelResult);
+        }
         
         return cd;
     }
+	
+	private boolean isCNE(ParseContext context) {
+		return context.getCodingStrength() == CodingStrength.CNE;
+	}
+	
+	private boolean isCWE(ParseContext context) {
+		return context.getCodingStrength() == CodingStrength.CWE;
+	}
 
 	private void populateNullFlavor(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		if (hasValidNullFlavorAttribute(context, node, xmlToModelResult)) {
@@ -60,12 +83,12 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
         }
 	}
 
-	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		Code value = parseNonNullNode(context, node, dataType, getReturnType(context), xmlToModelResult);
+	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult, String codeAttributeName) throws XmlToModelTransformationException {
+		Code value = parseNonNullCodeNode(context, codeAttributeName, node, dataType, getReturnType(context), xmlToModelResult);
         ((BareANYImpl) dataType).setBareValue(value);
 	}
 	
-	private void populateOriginalText(BareANY dataType, ParseContext context, Element element, Type returnType, XmlToModelResult xmlToModelResult) {
+	protected void populateOriginalText(BareANY dataType, ParseContext context, Element element, Type returnType, XmlToModelResult xmlToModelResult) {
 		if (hasOriginalText(element)) {
         	((CD) dataType).setOriginalText(getOriginalText(element));
         }
@@ -96,6 +119,10 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 		return new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, message, (Element) node);
 	}
 
+	protected Hl7Error createMissingCodeSystemError(Node node, Class<? extends Code> type, String code) {
+		return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "CodeSystem is mandatory when providing a code value", (Element) node);
+	}
+
 	@SuppressWarnings("unchecked")
 	protected Class<? extends Code> getReturnTypeAsCodeType(Type type) {
 		if (type instanceof Class) {
@@ -108,4 +135,5 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 		}
 	}
 	
+    protected abstract Code parseNonNullCodeNode(ParseContext context, String codeAttributeName, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult);
 }

@@ -34,9 +34,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
@@ -49,7 +47,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -142,7 +139,6 @@ public class CvElementParserTest extends MarshallingTestCase {
 	}
 	
 	@Test
-	@Ignore  //FIXME
 	public void testParseCNEMustHaveNonEmptyCodeAndCodeSystem() throws Exception {
 		Node node = createNode("<something code=\"\" codeSystem=\"\" />");
 		CV cv = (CV) this.parser.parse(
@@ -243,7 +239,7 @@ public class CvElementParserTest extends MarshallingTestCase {
         this.parser.parse(
         		ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), node, this.xmlResult);
         
-		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size());
+		assertEquals("warning message count", 2, this.xmlResult.getHl7Errors().size()); // invalid NF; code/codeSystem are mandatory
     }
 
 	@Test
@@ -327,36 +323,34 @@ public class CvElementParserTest extends MarshallingTestCase {
 	public void testParseInvalidEnumCode() throws Exception {
 		Node node = createNode("<something code=\"ER\" codeSystem=\"1.2.3\"/>");
 		
-		XmlToModelResult result = new XmlToModelResult();
 		CV cv = (CV) this.parser.parse(
 				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
-				result);
+				this.xmlResult);
 		
 		assertNull("bogus enum not found", cv.getValue().getCodeValue());
-		assertEquals("error message count", 1, result.getHl7Errors().size());
+		assertEquals("error message count", 2, this.xmlResult.getHl7Errors().size()); // invalid code; code and codeSystem are mandatory
 		assertEquals("error message", 
 				"The code, \"ER\", in element <something> is not a valid value for domain type \"MockCharacters\"", 
-				result.getHl7Errors().get(0).getMessage());
+				this.xmlResult.getHl7Errors().get(0).getMessage());
 		assertEquals("error type", 
 				Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, 
-				result.getHl7Errors().get(0).getHl7ErrorCode());
+				this.xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 	
 	@Test
 	public void testParseValidTranslation() throws Exception {
 		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\"><translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" /></something>");
 		
-		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
 				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
-				result);
+				this.xmlResult);
 		
 		assertNotNull("main enum found", cd.getValue());
 		assertFalse("translation enum found", cd.getTranslations().isEmpty());
 		assertTrue("translation enum found", cd.getTranslations().size() == 1);
-		assertEquals("error message count", 0, result.getHl7Errors().size());
+		assertEquals("error message count", 0, this.xmlResult.getHl7Errors().size());
 		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
 		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
 	}
@@ -372,25 +366,24 @@ public class CvElementParserTest extends MarshallingTestCase {
 				"</translation>" +
 				"</something>");
 		
-		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
 				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
-				result);
+				this.xmlResult);
 		
 		assertNotNull("main enum found", cd.getValue());
 		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
-		assertTrue("translation enum not found", cd.getTranslations().isEmpty());
-		assertEquals("error message count", 9, result.getHl7Errors().size());
-		assertTrue("error message", result.getHl7Errors().get(0).getMessage().startsWith("CD should not include the 'codeSystemName' property."));
-		assertTrue("error message", result.getHl7Errors().get(1).getMessage().startsWith("CD should not include the 'codeSystemVersion' property."));
-		assertTrue("error message", result.getHl7Errors().get(2).getMessage().startsWith("CD should not include the 'displayName' property."));
-		assertTrue("error message", result.getHl7Errors().get(3).getMessage().startsWith("CD should not include the 'qualifier' property."));
-		assertTrue("error message", result.getHl7Errors().get(4).getMessage().startsWith("CD should not include the 'nullFlavor' property."));
-		assertTrue("error message", result.getHl7Errors().get(5).getMessage().startsWith("CD should not include the 'originalText' property."));
-		assertTrue("error message", result.getHl7Errors().get(6).getMessage().startsWith("CD should not include the 'translation' property."));
-		assertTrue("error message", result.getHl7Errors().get(7).getMessage().startsWith("Attribute code is mandatory for node /something/translation"));
-		assertTrue("error message", result.getHl7Errors().get(8).getMessage().startsWith("Attribute codeSystem is mandatory for node /something/translation"));
+//		assertTrue("translation enum not found", cd.getTranslations().isEmpty());
+		
+		assertEquals("error message count", 8, this.xmlResult.getHl7Errors().size());
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(0).getMessage().startsWith("CD should not include the 'codeSystemName' property."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(1).getMessage().startsWith("CD should not include the 'codeSystemVersion' property."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(2).getMessage().startsWith("CD should not include the 'qualifier' property."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(3).getMessage().startsWith("(translation level) Translation may not contain other translations."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(4).getMessage().startsWith("(translation level) Translation may not contain a NullFlavor."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(5).getMessage().startsWith("(translation level) Translation may not contain originalText."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(6).getMessage().startsWith("(translation level) Translation may not contain displayName."));
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(7).getMessage().startsWith("(translation level) Code and codeSystem properties must be provided."));
 	}
 	
 	@Test
@@ -407,16 +400,15 @@ public class CvElementParserTest extends MarshallingTestCase {
 				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
 				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" /></something>");
 		
-		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
 				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
-				result);
+				this.xmlResult);
 		
 		assertNotNull("main enum found", cd.getValue());
 		assertFalse("translation enums found", cd.getTranslations().isEmpty());
 		assertTrue("translation enums found", cd.getTranslations().size() == 10);
-		assertEquals("error message count", 0, result.getHl7Errors().size());
+		assertEquals("error message count", 0, this.xmlResult.getHl7Errors().size());
 		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
 		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
 		assertEquals("translation", "WILMA", cd.getTranslations().get(9).getValue().getCodeValue());
@@ -437,24 +429,21 @@ public class CvElementParserTest extends MarshallingTestCase {
 				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
 				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" /></something>");
 		
-		XmlToModelResult result = new XmlToModelResult();
 		CD cd = (CD) this.parser.parse(
 				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
 				node, 
-				result);
+				this.xmlResult);
 		
 		assertNotNull("main enum found", cd.getValue());
 		assertFalse("translation enums found", cd.getTranslations().isEmpty());
 		assertTrue("translation enums found", cd.getTranslations().size() == 11);
-		assertEquals("error message count", 1, result.getHl7Errors().size());
+		assertEquals("error message count", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
 		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
 		assertEquals("translation", "BETTY", cd.getTranslations().get(10).getValue().getCodeValue());
-		assertEquals("error message", 
-				"A maximum of 10 translations are allowed for any given code.", 
-				result.getHl7Errors().get(0).getMessage());
+		assertTrue("error message", this.xmlResult.getHl7Errors().get(0).getMessage().startsWith("A maximum of 10 translations are allowed."));
 		assertEquals("error type", 
 				Hl7ErrorCode.DATA_TYPE_ERROR, 
-				result.getHl7Errors().get(0).getHl7ErrorCode());
+				this.xmlResult.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 }

@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.xml.validator;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.getReturnType;
 import static ca.infoway.messagebuilder.marshalling.hl7.Hl7Error.createInvalidFixedValueAttributeError;
 import static ca.infoway.messagebuilder.marshalling.hl7.Hl7Error.createMissingMandatoryAttributeError;
 import static ca.infoway.messagebuilder.marshalling.hl7.Hl7Error.createMissingNamespace;
@@ -48,7 +47,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.BlElementParser;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.CsElementParser;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.CvElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
@@ -155,7 +154,7 @@ public class ValidatingVisitor implements MessageVisitor {
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
 		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
-			new CsElementParser().parseCodedSimpleValue(attr.getValue(), (Class<? extends Code>) getReturnType(relationship, version), base, this.result, attr);
+			new CvElementParser().doParse(ParseContextImpl.create(relationship, this.version), base, this.result, false, attr.getLocalName());
 		} else {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralTypeError(relationship.getType(), relationship.getName(), base, attr));
 		}
