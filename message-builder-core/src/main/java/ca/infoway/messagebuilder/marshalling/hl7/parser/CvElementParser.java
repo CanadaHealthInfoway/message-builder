@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -119,8 +118,7 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     }
 
     private Code getCorrespondingCode(ParseContext context, Element element, 
-    		Class<? extends Code> codeType, XmlToModelResult xmlToModelResult, String codeAttributeName) 
-    		throws XmlToModelTransformationException {
+    		Class<? extends Code> codeType, XmlToModelResult xmlToModelResult, String codeAttributeName) {
     	
         String code = getAttributeValue(element, codeAttributeName);
 		String codeSystem = getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);

@@ -134,7 +134,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\" />");
 		CD cs = (CD) new CvElementParser().parse(
 				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL), 
-				node, null);
+				node, this.xmlResult);
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("node with code attribute returns value", "ER", cs.getValue().getCodeValue());
 	}

@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
@@ -50,12 +49,12 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
 
     @Override
-	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
     	boolean isTranslation = false;
     	return doParse(context, node, xmlToModelResult, isTranslation, STANDARD_CODE_ATTRIBUTE_NAME);
     }
 
-	public BareANY doParse(ParseContext context, Node node, XmlToModelResult xmlToModelResult, boolean isTranslation, String codeAttributeName) throws XmlToModelTransformationException {
+	public BareANY doParse(ParseContext context, Node node, XmlToModelResult xmlToModelResult, boolean isTranslation, String codeAttributeName) {
     	BareANY cd = doCreateDataTypeInstance(context.getType());
         
         populateNullFlavor(cd, context, node, xmlToModelResult); 
@@ -76,14 +75,14 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 		return context.getCodingStrength() == CodingStrength.CWE;
 	}
 
-	private void populateNullFlavor(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	private void populateNullFlavor(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		if (hasValidNullFlavorAttribute(context, node, xmlToModelResult)) {
             NullFlavor nullFlavor = parseNullNode(context, node, xmlToModelResult);
             dataType.setNullFlavor(nullFlavor);
         }
 	}
 
-	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult, String codeAttributeName) throws XmlToModelTransformationException {
+	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToModelResult, String codeAttributeName) {
 		Code value = parseNonNullCodeNode(context, codeAttributeName, node, dataType, getReturnType(context), xmlToModelResult);
         ((BareANYImpl) dataType).setBareValue(value);
 	}
