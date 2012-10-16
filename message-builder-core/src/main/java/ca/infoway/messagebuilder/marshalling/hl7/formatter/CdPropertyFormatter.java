@@ -55,6 +55,9 @@ class CdPropertyFormatter extends AbstractCodePropertyFormatter {
             if (StringUtils.isNotBlank(code.getCodeSystem())) {
                 result.put("codeSystem", code.getCodeSystem());
             }
+        	if (StringUtils.isNotBlank(((CD) bareAny).getDisplayName())) {
+                result.put("displayName", ((CD) bareAny).getDisplayName());
+        	}
         }
         return result;
     }

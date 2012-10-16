@@ -25,6 +25,7 @@ import java.util.TimeZone;
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public interface FormatContext extends Typed {
@@ -32,6 +33,7 @@ public interface FormatContext extends Typed {
 	public String getPropertyPath();
 	public String getElementName();
 	public String getType();
+	public CodingStrength getCodingStrength();
 	public boolean isSpecializationType();
 	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();

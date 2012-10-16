@@ -69,7 +69,7 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 						true, 
 						context.getVersion(), 
 						context.getDateTimeZone(), 
-						context.getDateTimeTimeZone()), 
+						context.getDateTimeTimeZone(), null), 
 				hl7Value, 
 				indentLevel);
 	}

@@ -29,6 +29,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
@@ -170,7 +171,7 @@ public class XmlRenderingVisitorTest {
 	@Test
 	public void shouldRenderFixedValueNonStructuralAttribute() throws Exception {
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), SpecificationVersion.V01R04_3, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();

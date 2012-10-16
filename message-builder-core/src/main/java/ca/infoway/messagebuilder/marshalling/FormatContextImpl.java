@@ -25,6 +25,7 @@ import java.util.TimeZone;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -36,18 +37,20 @@ class FormatContextImpl implements FormatContext {
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
 	private final String propertyPath;
+	private final CodingStrength codingStrength;
 
-	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.relationship = relationship;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
+		this.codingStrength = codingStrength;
 	}
 
-	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone);
+	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
+		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, codingStrength);
 	}
 
 	public ModelToXmlResult getModelToXmlResult() {
@@ -88,6 +91,10 @@ class FormatContextImpl implements FormatContext {
 
 	public TimeZone getDateTimeTimeZone() {
 		return dateTimeTimeZone;
+	}
+
+	public CodingStrength getCodingStrength() {
+		return this.codingStrength;
 	}
 
 }

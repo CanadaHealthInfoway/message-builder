@@ -36,7 +36,7 @@ public class SetTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, false, SpecificationVersion.R02_04_03, null, null), 
+		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, false, SpecificationVersion.R02_04_03, null, null, null), 
 				new SETImpl<TEL, TelecommunicationAddress>(
 						TELImpl.class, 
 						NullFlavor.NO_INFORMATION));
@@ -45,7 +45,7 @@ public class SetTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, false, SpecificationVersion.R02_04_03, null, null),
+		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, false, SpecificationVersion.R02_04_03, null, null, null),
 				SETImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, makeTelecommunicationAddressSet("Fred")));
 		assertXml("non null", "<blah value=\"mailto:Fred\"/>", result);

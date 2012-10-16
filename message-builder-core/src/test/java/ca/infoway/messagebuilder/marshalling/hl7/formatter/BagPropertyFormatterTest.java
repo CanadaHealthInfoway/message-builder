@@ -40,7 +40,7 @@ public class BagPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new BagPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
@@ -48,7 +48,7 @@ public class BagPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new BagPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "BAG<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						createTelecommunicationAddressList()));

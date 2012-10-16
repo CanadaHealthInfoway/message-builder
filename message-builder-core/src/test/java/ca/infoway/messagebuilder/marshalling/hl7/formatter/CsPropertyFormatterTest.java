@@ -89,6 +89,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
         		getContext("character"),
                 cs);
         
+		assertTrue(this.result.isValid());
         Document document = new DocumentFactory().createFromString(result);
         NodeList list = document.getElementsByTagName("originalText");
         assertEquals("originalText", 1, list.getLength());
@@ -97,6 +98,8 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testFormatNull() throws Exception {
         String result = new CsPropertyFormatter().format(getContext("option"), new CSImpl(NullFlavor.OTHER));
+        
+		assertTrue(this.result.isValid());
         Document document = new DocumentFactory().createFromString(result);
         NodeList list = document.getElementsByTagName("option");
         assertEquals("option", 1, list.getLength());
@@ -112,6 +115,8 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
         String xml = new CsPropertyFormatter().format(
         		getContext("option"),
         		new CSImpl(NullFlavor.OTHER));
+        
+		assertTrue(this.result.isValid());
         Document document = new DocumentFactory().createFromString(xml);
         NodeList list = document.getElementsByTagName("option");
         assertEquals("option", 1, list.getLength());

@@ -57,7 +57,7 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 							true, 
 							formatContext.getVersion(), 
 							formatContext.getDateTimeZone(), 
-							formatContext.getDateTimeTimeZone()), 
+							formatContext.getDateTimeTimeZone(), null), 
 					hl7Value, 
 					indentLevel);
 		}

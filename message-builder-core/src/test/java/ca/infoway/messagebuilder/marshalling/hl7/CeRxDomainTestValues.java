@@ -64,7 +64,7 @@ public class CeRxDomainTestValues {
 			return codeValue;
 		}
 		public String getCodeSystem() {
-			return "";
+			return "1.2.3.4";
 		}
 	}
 	

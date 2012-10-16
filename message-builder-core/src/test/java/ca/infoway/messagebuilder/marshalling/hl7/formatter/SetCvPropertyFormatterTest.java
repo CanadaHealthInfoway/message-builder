@@ -21,33 +21,38 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static junit.framework.Assert.assertTrue;
 
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public class SetCvPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CV>", MANDATORY), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CV, Code>(CVImpl.class, NullFlavor.NO_INFORMATION));
+        assertTrue(this.result.isValid());
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CV>", MANDATORY), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				SETImpl.<CV, Code>create(CVImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
+        assertTrue(this.result.isValid());
         assertXml("non null", "<blah code=\"cm\" codeSystem=\"2.16.840.1.113883.5.141\"/><blah code=\"kg\" codeSystem=\"2.16.840.1.113883.5.141\"/>", result);
     }
 

@@ -48,7 +48,7 @@ public class ListTelPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						createTelecommunicationAddressList()));

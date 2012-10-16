@@ -53,7 +53,7 @@ public class ListEnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<EN>", ConformanceLevel.OPTIONAL, false, SpecificationVersion.R02_04_02, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<EN>", ConformanceLevel.OPTIONAL, false, SpecificationVersion.R02_04_02, null, null, null), 
 				(BareANY) LISTImpl.<EN<EntityName>, EntityName>create(ENImpl.class, createEntityNameList()));
 		assertEquals("non null", "<name><family>Flinstone</family><given>Fred</given></name>" + LINE_SEPARATOR + 
 								 "<name><family>Flinstone</family><given>Wilma</given></name>" + LINE_SEPARATOR, result);

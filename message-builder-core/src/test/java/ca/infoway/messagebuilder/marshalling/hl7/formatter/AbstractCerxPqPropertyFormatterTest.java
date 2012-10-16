@@ -64,7 +64,7 @@ public class AbstractCerxPqPropertyFormatterTest extends FormatterTestCase {
     }
 
 	private FormatContextImpl createContext() {
-		return new FormatContextImpl(this.result, null, "name", "PQ.BASIC", null, false, SpecificationVersion.V01R04_3, null, null);
+		return new FormatContextImpl(this.result, null, "name", "PQ.BASIC", null, false, SpecificationVersion.V01R04_3, null, null, null);
 	}
     
 	@Test

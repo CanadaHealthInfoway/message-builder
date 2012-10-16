@@ -51,6 +51,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformat
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Predicate;
@@ -272,7 +273,8 @@ class XmlRenderingVisitor implements Visitor {
 				}
 //				boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
 				// FIXME - VALIDATION - TM - SPECIALIZATION_TYPE - need to allow for specialization type to be set here???
-				xmlFragment += formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), any, getIndent());
+				CodingStrength codingStrength = relationship.getCodingStrength();
+				xmlFragment += formatter.format(FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, codingStrength), any, getIndent());
 			} catch (ModelToXmlTransformationException e) {
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);

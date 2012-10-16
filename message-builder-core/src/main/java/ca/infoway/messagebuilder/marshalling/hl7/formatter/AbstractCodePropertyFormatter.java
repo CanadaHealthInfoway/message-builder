@@ -29,9 +29,15 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 
 /**
  * CS - Coded Simple
@@ -50,38 +56,51 @@ import ca.infoway.messagebuilder.lang.XmlStringEscape;
  */
 abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFormatter<Code> {
 
+	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
+	
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
 
     	CD cd = (CD) hl7Value;
     	
     	StringBuilder result = new StringBuilder();
-    	if (cd!=null) {
+    	if (cd != null) {
 
+    		// don't bother validating if we don't have anything to validate
+    		if (cd.hasNullFlavor() || hasValue(cd, context)) {
+	    		Hl7Errors errors = context.getModelToXmlResult();
+	    		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
+	    		String type = context.getType();
+	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
+	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
+	    		
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, errors);
+	    		
+	    		for (Hl7Error hl7Error : errors.getHl7Errors()) {
+	    			System.out.println(hl7Error);
+	    		}
+    		}
+        	
     		Map<String, String> attributes = new HashMap<String, String>();
-    		String warning = "";
     		
     		if (cd.hasNullFlavor()) {
     			if (context.getConformanceLevel() == MANDATORY) {
-    	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-    				warning = createMissingMandatoryWarning(context, indentLevel);
+    				logMandatoryError(context);
     			} else {
     				attributes.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
     			}
     		} else if (!hasValue(cd, context)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
-        	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-        				warning = createMissingMandatoryWarning(context, indentLevel);
+        				logMandatoryError(context);
         			} else {
         				attributes.putAll(NULL_FLAVOR_ATTRIBUTES);
         			}
     			}
-    		} else {
-    			attributes.putAll(getAttributeNameValuePairs(context, cd.getValue(), hl7Value));
     		}
     		
-    		result.append(warning);
+    		// Codes can have other attributes in map even if has NullFlavor
+    		attributes.putAll(getAttributeNameValuePairs(context, cd.getValue(), hl7Value));
     		
     		boolean hasChildContent = hasChildContent(cd, context);
     		if (hasChildContent || (!attributes.isEmpty() || context.getConformanceLevel() == MANDATORY)) {
@@ -97,6 +116,11 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
         return result.toString();
     }
 
+	private void logMandatoryError(FormatContext context) {
+		String errorMessage = context.getElementName() + " is a mandatory field, but no value is specified";
+		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage));
+	}
+
 	protected boolean hasChildContent(CD cd, FormatContext context) {
 		return hasOriginalText(cd);
 	}
@@ -110,7 +134,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	}
 	
     protected boolean hasValue(CD cd, FormatContext context) {
-		return cd!=null && (cd.getValue()!=null || hasChildContent(cd, context));
+		return cd != null && (cd.getValue() != null || hasChildContent(cd, context));
 	}
 
 	private boolean hasOriginalText(CD cd) {

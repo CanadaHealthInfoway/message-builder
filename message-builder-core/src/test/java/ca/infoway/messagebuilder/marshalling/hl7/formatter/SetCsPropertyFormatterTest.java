@@ -21,33 +21,37 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static junit.framework.Assert.assertTrue;
 
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public class SetCsPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CS>", MANDATORY), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CS>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CS, Code>(CSImpl.class, NullFlavor.NO_INFORMATION));
+        assertTrue(this.result.isValid());
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<CS>", MANDATORY),
+        		new FormatContextImpl(this.result, null, "blah", "SET<CS>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE),
 				SETImpl.<CS, Code>create(CSImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
+        assertTrue(this.result.isValid());
         assertXml("non null", "<blah code=\"cm\"/><blah code=\"kg\"/>", result);
     }
 

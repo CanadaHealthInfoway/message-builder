@@ -43,7 +43,7 @@ public class TsFullDateWithTimePropertyFormatterTest {
 		Date date = DateUtil.getDate(1999, 3, 23);
 		TS ts = new TSImpl(date);
 		ts.setDataType(StandardDataType.TS_FULLDATE);
-		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null);
+		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null, null);
 		String xmlOutput = this.formatter.format(context, ts);
 		assertTrue("no errors", result.getHl7Errors().isEmpty());
 		assertEquals("output as expected", "<tsValue specializationType=\"TS.FULLDATE\" value=\"19990423\" xsi:type=\"TS\"/>", xmlOutput.trim());
@@ -55,7 +55,7 @@ public class TsFullDateWithTimePropertyFormatterTest {
 		Date date = DateUtil.getDate(1999, 3, 23, 1, 2, 3, 0);
 		TS ts = new TSImpl(date);
 		ts.setDataType(StandardDataType.TS_FULLDATETIME);
-		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null);
+		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null, null);
 		String xmlOutput = this.formatter.format(context, ts);
 		// avoid having to assess the timezone
 		assertTrue("no errors", result.getHl7Errors().isEmpty());
@@ -68,7 +68,7 @@ public class TsFullDateWithTimePropertyFormatterTest {
 		ModelToXmlResult result = new ModelToXmlResult();
 		Date date = DateUtil.getDate(1999, 3, 23, 1, 2, 3, 0);
 		TS ts = new TSImpl(date);
-		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null);
+		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null, null);
 		String xmlOutput = this.formatter.format(context, ts);
 		assertEquals("1 error", 1, result.getHl7Errors().size());
 		assertEquals("No specializationType provided. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", result.getHl7Errors().get(0).getMessage());
@@ -83,7 +83,7 @@ public class TsFullDateWithTimePropertyFormatterTest {
 		Date date = DateUtil.getDate(1999, 3, 23, 1, 2, 3, 0);
 		TS ts = new TSImpl(date);
 		ts.setDataType(StandardDataType.TS_DATETIME);
-		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null);
+		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", null, false, SpecificationVersion.R02_04_02, null, null, null);
 		String xmlOutput = this.formatter.format(context, ts);
 		assertEquals("1 error", 1, result.getHl7Errors().size());
 		assertEquals("Invalid specializationType: TS.DATETIME. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", result.getHl7Errors().get(0).getMessage());
