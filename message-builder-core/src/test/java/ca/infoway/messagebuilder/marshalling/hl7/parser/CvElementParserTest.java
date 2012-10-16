@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
+import static ca.infoway.messagebuilder.SpecificationVersion.V01R04_3;
 import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static ca.infoway.messagebuilder.xml.CodingStrength.CNE;
 import static ca.infoway.messagebuilder.xml.CodingStrength.CWE;
@@ -83,6 +85,18 @@ public class CvElementParserTest extends MarshallingTestCase {
     }
     
 	@Test
+    public void testParseCodeWithNullNode() throws Exception {
+        Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
+        CV cv = (CV) this.parser.parse(
+        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL), 
+        		node, this.xmlResult);
+        assertFalse(this.xmlResult.isValid());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
+        assertEquals("value", "BARNEY", cv.getValue().getCodeValue());
+        assertEquals("null flavor", NullFlavor.OTHER, cv.getNullFlavor());
+    }
+    
+	@Test
     public void testParseOtherNullNodeWithWrongCodeSystem() throws Exception {
     	Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"1.2.3.4.wrong.code.system\" />");
     	CV cv = (CV) this.parser.parse(
@@ -96,7 +110,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     
 	@Test
     public void testParseOtherNullNodeWithCodeSystem() throws Exception {
-    	Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"1.2.3.4.5\" originalText=\"ahhh\"><originalText>ahhh</originalText></something>");
+    	Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"1.2.3.4.5\"><originalText>ahhh</originalText></something>");
     	CV cv = (CV) this.parser.parse(
     			ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
     			node, this.xmlResult);
@@ -149,6 +163,59 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		assertFalse("valid", this.xmlResult.isValid());
 		assertNull("empty node returns null", cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidCNENullFlavor() throws Exception {
+		Node node = createNode("<something nullFlavor=\"NI\"></something>");
+		CV cv = (CV) this.parser.parse(
+				createContext("CV", MockCharacters.class, V02R02, OPTIONAL, CNE), 
+				node, this.xmlResult);
+		
+		assertTrue("valid", this.xmlResult.isValid());
+		assertNull("empty node returns null", cv.getValue());
+		assertEquals("NI", cv.getNullFlavor().getCodeValue());
+	}
+	
+	@Test
+	public void testParseInvalidCNENullFlavorWithOriginalTextAndSomethingElse() throws Exception {
+		Node node = createNode("<something nullFlavor=\"OTH\" codeSystem=\"this_isnt_allowed\"><originalText>some text</originalText></something>");
+		CD cd = (CD) this.parser.parse(
+				createContext("CD", MockCharacters.class, V02R02, OPTIONAL, CNE), 
+				node, this.xmlResult);
+		
+		assertFalse("valid", this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("this_isnt_allowed", cd.getValue().getCodeSystem());
+		assertEquals("OTH", cd.getNullFlavor().getCodeValue());
+		assertEquals("some text", cd.getOriginalText());
+	}
+	
+	@Test
+	public void testParseValidCNENullFlavorWithOriginalTextAtMaxLength() throws Exception {
+		Node node = createNode("<something nullFlavor=\"OTH\"><originalText>123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</originalText></something>");
+		CD cd = (CD) this.parser.parse(
+				createContext("CD", MockCharacters.class, V02R02, OPTIONAL, CNE), 
+				node, this.xmlResult);
+		
+		assertTrue("valid", this.xmlResult.isValid());
+		assertNull("empty node returns null", cd.getValue());
+		assertEquals("OTH", cd.getNullFlavor().getCodeValue());
+		assertEquals("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890", cd.getOriginalText());
+	}
+	
+	@Test
+	public void testParseValidCNENullFlavorWithOriginalTextAtMaxLengthPlusOne() throws Exception {
+		Node node = createNode("<something nullFlavor=\"OTH\"><originalText>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901</originalText></something>");
+		CD cd = (CD) this.parser.parse(
+				createContext("CD", MockCharacters.class, V02R02, OPTIONAL, CNE), 
+				node, this.xmlResult);
+		
+		assertFalse("valid", this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("empty node returns null", cd.getValue());
+		assertEquals("OTH", cd.getNullFlavor().getCodeValue());
+		assertEquals("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901", cd.getOriginalText());
 	}
 	
 	@Test
@@ -227,6 +294,17 @@ public class CvElementParserTest extends MarshallingTestCase {
         assertFalse(this.xmlResult.isValid());
         assertEquals(3, this.xmlResult.getHl7Errors().size());
         assertNull("node with no code attribute returns null", cv.getValue());
+    }
+    
+	@Test
+    public void testParseInvalidCWE() throws Exception {
+        Node node = createNode("<something code=\"BARNEY\" />");
+        CV cv = (CV) this.parser.parse(
+        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, CodingStrength.CWE, null), 
+        		node, this.xmlResult);
+        assertFalse(this.xmlResult.isValid());
+        assertEquals(1, this.xmlResult.getHl7Errors().size()); // code system is mandatory when providing code and is CWE
+        assertEquals("BARNEY", cv.getValue().getCodeValue());
     }
     
 	@Test
@@ -325,7 +403,7 @@ public class CvElementParserTest extends MarshallingTestCase {
     }
     
 	@Test
-	public void testParseValidEnumCode() throws Exception {
+	public void testParseValidEnumCodeButNoCodeSystem() throws Exception {
 		Node node = createNode("<something code=\"FRED\" />");
 		
 		CV cv = (CV) this.parser.parse(
@@ -333,6 +411,76 @@ public class CvElementParserTest extends MarshallingTestCase {
 				node, this.xmlResult);
 		assertFalse("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidEnumCodeWithCodeSystem() throws Exception {
+		Node node = createNode("<something code=\"FRED\" codeSystem=\"1.2.3.4.5\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertTrue("valid", this.xmlResult.isValid());
+		assertEquals("enum found properly", MockEnum.FRED, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidCodeWithMaxCodeValueCeRx() throws Exception {
+		Node node = createNode("<something code=\"12345678901234567890\" codeSystem=\"1.2.3.4.5\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, V01R04_3, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertTrue("valid", this.xmlResult.isValid());
+		assertEquals("enum found properly", MockEnum.CERX_MAX, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidCodeWithMaxPlus1CodeValueCeRx() throws Exception {
+		Node node = createNode("<something code=\"123456789012345678901\" codeSystem=\"1.2.3.4.5\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, V01R04_3, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertFalse("valid", this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("enum found properly", MockEnum.CERX_MAX_PLUS_1, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidCodeWithMaxCodeValueMr2009() throws Exception {
+		Node node = createNode("<something code=\"12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890\" codeSystem=\"1.2.3.4.5\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, R02_04_02, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertTrue("valid", this.xmlResult.isValid());
+		assertEquals("enum found properly", MockEnum.MR2009_MAX, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidCodeWithMaxPlus1CodeValueMr2009() throws Exception {
+		Node node = createNode("<something code=\"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901\" codeSystem=\"1.2.3.4.5\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, R02_04_02, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertFalse("valid", this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("enum found properly", MockEnum.MR2009_MAX_PLUS_1, cv.getValue());
+	}
+	
+	@Test
+	public void testParseValidEnumCodeWithCodeSystemButUnallowedAttribute() throws Exception {
+		Node node = createNode("<something code=\"FRED\" codeSystem=\"1.2.3.4.5\" displayName=\"unallowed\"/>");
+		
+		CV cv = (CV) this.parser.parse(
+				ParserContextImpl.create("CV", MockCharacters.class, V02R02, null, null, OPTIONAL), 
+				node, this.xmlResult);
+		assertFalse("valid", this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("enum found properly", MockEnum.FRED, cv.getValue());
+		assertEquals("display name", "unallowed", cv.getDisplayName());
 	}
 	
 	@Test
