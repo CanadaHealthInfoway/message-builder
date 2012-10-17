@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.3.4
+                               Version 1.4
                                Release Notes
 
 INTRODUCTION:
@@ -31,6 +31,10 @@ This document contains the release notes for this version of Infoway Message Bui
 
 SYSTEM PROPERTIES USED WITHIN MESSAGEBUILDER:
 =============================================
+
+(new for 1.4) messagebuilder.abstract.ts.ignore.specializationtype.error
+- used to suppress errors caused by not specifying specializationType for the TS.FULLDATEWITHTIME type
+- defaults to "false"
 
 messagebuilder.output.warnings.in.generated.xml
  - used to suppress xml warnings within generated xml
@@ -51,6 +55,33 @@ messagebuilder.simplexml.resturl
 messagebuilder.simplexml.transportclass
  - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+BUGS FIXED in 1.4:
+=======================
+
+- this release incorporates massive changes to the entire MB validation mechanism (for marshalling and unmarshalling)
+- specifying a version (via the VersionNumber interface) has changed to use a new Hl7BaseVersion enum
+- 11430	[DATATYPE] MBT MR2009 Runtime coremif mismatch.
+- 11372	[DATATYPE] MBT does not validate the II.PUBLIC datatype correctly
+- 11322	[DATATYPE] MBT does not validate various definitions of the AD.BASIC datatype for both CeRx4.3 and MR2009
+- 11316	Refactor Message Builder datatype validation
+- 11302	Ensure lack of coding strength from MIFv2s won't cause problems when marshalling/unmarshalling
+- 11297	[DATATYPE] MBT does not validate various definitions of the PN.BASIC datatype for CeRx4.3
+- 11296	[DATATYPE] MBT does not pick up administrativeGenderCode being null as a problem.
+- 11267	[DATATYPE] Validator gaps (was FW: Mif or MBT CeRx problems)
+- 717   Need to finalize a process for ensuring that we have interfaces for all Domain Values
+
+
+BUGS FIXED in 1.3.4.1 (Remixer v2 branch):
+============================================
+
+Remixer 2.0 changes
+- Expanded AnnotationType to include missing types
+- Added RimClass To MessagePart
+- Added Vocabulary Mif processing
+- Generation of Vocabulary Classes (C# and java)
+- Added ConformanceLevel.IGNORED (as not allowed and as optional)- tight integration with
 
 
 BUGS FIXED in 1.3.4:
