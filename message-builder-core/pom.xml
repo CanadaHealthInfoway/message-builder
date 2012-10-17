@@ -4,11 +4,11 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.3.5-SNAPSHOT</version>
+		<version>1.3.5</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-core</artifactId>
-	<version>1.3.5-SNAPSHOT</version>
+	<version>1.3.5</version>
 	<name>message-builder-core</name>
 	<url>http://maven.apache.org</url>
 	
