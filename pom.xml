@@ -9,20 +9,19 @@
 	
         <properties>
           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-          <isSkipJavaDoc>true</isSkipJavaDoc>          
+          <isSkipJavaDoc>true</isSkipJavaDoc>
         </properties>
 
 	<distributionManagement>
 		<repository>
 	   	            <id>private-release</id>
                              <name>private-release</name>
-                             <url>https://infoapp.se-emri11.extra.infoway-inforoute.ca/repo/private-release</url>
+                             <url>https://infoapp.infoway-inforoute.ca/repo/private-release</url>
 		</repository>
 		<snapshotRepository>
-			    <id>private-snapshot</id>
-                <name>private-snapshot</name>
-              <url>https://infoapp.se-emri11.extra.infoway-inforoute.ca/repo/private-snapshot</url>
-
+		                    <id>private-snapshot</id>
+                                    <name>private-snapshot</name>
+                                    <url>https://infoapp.infoway-inforoute.ca/repo/private-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
 
