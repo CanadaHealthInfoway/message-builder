@@ -113,7 +113,7 @@ public class IvlValidationUtils {
 
 		if (!this.isUncertainRangeValidation) {
 			if (baseInnerType == StandardDataType.PQ) {
-				// FIXME - VALIDATION - TM - this might apply to URG<PQ.x> (check with Lloyd)
+				// TODO - VALIDATION - TM - this might apply to URG<PQ.x> (check with Lloyd)
 				boolean lowNull = (lowNullFlavor != null);
 				boolean highNull = (highNullFlavor != null);
 				if (lowNull && highNull) {

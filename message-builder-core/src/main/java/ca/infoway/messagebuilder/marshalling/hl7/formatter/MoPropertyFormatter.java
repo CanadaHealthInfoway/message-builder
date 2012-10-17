@@ -50,7 +50,7 @@ class MoPropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	private static final int MAX_DIGITS_AFTER_DECIMAL = 2;
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) {
     	
     	validate(money, context);    	
     	

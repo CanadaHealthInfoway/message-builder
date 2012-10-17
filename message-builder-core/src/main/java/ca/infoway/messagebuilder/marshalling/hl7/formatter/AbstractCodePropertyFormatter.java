@@ -59,7 +59,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
 	
     @Override
-    public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
+    public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
 
     	CD cd = (CD) hl7Value;
     	
@@ -142,7 +142,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	}
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) {
         Map<String, String> result = new HashMap<String, String>();
         if (code != null) {
             String value = code.getCodeValue();

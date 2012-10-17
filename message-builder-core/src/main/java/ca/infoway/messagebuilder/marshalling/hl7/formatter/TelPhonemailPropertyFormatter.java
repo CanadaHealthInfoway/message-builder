@@ -24,7 +24,6 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -53,7 +52,7 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
 	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
 	
     @Override
-    protected final String getValue(TelecommunicationAddress phonemail, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
+    protected final String getValue(TelecommunicationAddress phonemail, FormatContext context, BareANY bareAny) {
     	
     	String type = context.getType();
     	String specializationType = bareAny.getDataType() == null ? null : bareAny.getDataType().getType();

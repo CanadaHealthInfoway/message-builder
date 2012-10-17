@@ -34,7 +34,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 	IvlPqPropertyFormatter formatter = new IvlPqPropertyFormatter();	
 
     @Override
-	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) {
 
     	// convert URG to an IVL and use IVL formatter (loses any inclusive info; we'll pull that out later)
     	Interval<PhysicalQuantity> convertedInterval = IntervalFactory.createFromUncertainRange(value);

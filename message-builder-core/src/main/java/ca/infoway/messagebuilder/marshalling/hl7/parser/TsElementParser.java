@@ -60,6 +60,8 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 @DataTypeHandler("TS")
 class TsElementParser extends AbstractSingleElementParser<Date> {
 
+	public static final String ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME = "messagebuilder.abstract.ts.ignore.specializationtype.error";
+
 	public TsElementParser() {
 	}
 
@@ -74,12 +76,18 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
 		if (specializationType == null) {
-			// FIXME - VALIDATION - TM - should log error here once inner datatypes can be accessed (i.e. IVL<TS.FULLDATEWITHTIME> - there is currently no way to specify specialization type on the inner TS)
 			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS type TS_FULLDATEWITHTIME
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
 			//    - (update: perhaps the real issue is that this was an IVL<TS.FULLDATEWITHTIME> and MB has a bug where inner types can't have specializationType set??)
-			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
-			// xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
+			// TM - 16/10/2012 - should be able to set specialization type now (need to specify IVL_FULL_DATE_TIME as the specialization type for IVL<TS.FULLDATEWITHTIME>, for example)
+			//                 - in a cowardly move, I have allowed for a system property to bypass this error
+			
+			if (Boolean.parseBoolean(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
+				// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
+			} else {
+				xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
+			}
+			
 		} else if (isValidSpecializationType(specializationType)) {
 			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), null, null);
 		} else {

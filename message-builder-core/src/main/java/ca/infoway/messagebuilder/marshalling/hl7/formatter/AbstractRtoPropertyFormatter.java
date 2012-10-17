@@ -29,7 +29,7 @@ public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFla
 
 	@SuppressWarnings("unchecked")
 	@Override
-    String formatNonNullValue(FormatContext context, BareRatio value, int indentLevel) throws ModelToXmlTransformationException {
+    String formatNonNullValue(FormatContext context, BareRatio value, int indentLevel) {
         
         StringBuffer buffer = new StringBuffer();
         buffer.append(createElement(context.getElementName(), null, indentLevel, false, true));

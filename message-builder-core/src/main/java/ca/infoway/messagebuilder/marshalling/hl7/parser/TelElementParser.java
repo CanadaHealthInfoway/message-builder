@@ -26,8 +26,6 @@ import java.util.StringTokenizer;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.Hl7BaseVersion;
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;

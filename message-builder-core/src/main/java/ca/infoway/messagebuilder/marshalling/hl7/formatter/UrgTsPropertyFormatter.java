@@ -37,7 +37,7 @@ class UrgTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 	IvlTsPropertyFormatter formatter = new IvlTsPropertyFormatter();	
 
     @Override
-	String formatNonNullValue(FormatContext context, UncertainRange<Date> value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, UncertainRange<Date> value, int indentLevel) {
 
     	// convert URG to an IVL and use IVL formatter
     	Interval<Date> convertedInterval = IntervalFactory.createFromUncertainRange(value);

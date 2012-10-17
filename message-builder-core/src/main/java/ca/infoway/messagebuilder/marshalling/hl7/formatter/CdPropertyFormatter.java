@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class CdPropertyFormatter extends AbstractCodePropertyFormatter {
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) {
         Map<String, String> result = super.getAttributeNameValuePairs(context, code, bareAny);
         if (code != null) {
             if (StringUtils.isNotBlank(code.getCodeSystem())) {

@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 
 	@Override
-	public String format(FormatContext formatContext, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
+	public String format(FormatContext formatContext, BareANY hl7Value, int indentLevel) {
 		String specializationType = hl7Value.getDataType().getType();
 		PropertyFormatter formatter = FormatterRegistry.getInstance().get(specializationType);
 		String parentType = formatContext.getType();

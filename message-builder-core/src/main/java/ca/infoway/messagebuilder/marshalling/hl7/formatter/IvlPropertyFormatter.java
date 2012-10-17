@@ -85,13 +85,13 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	protected static final String VALUE = "value";
 
 	@Override
-	String formatNonNullValue(FormatContext context, Interval<T> value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, Interval<T> value, int indentLevel) {
 		// need to use the alternate format method that has the BareANY object as a parameter
 		throw new UnsupportedOperationException();
 	}
 		
 	@Override
-	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
 		
 		Interval<T> value = extractBareValue(bareAny);
 		
@@ -171,7 +171,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		}
 	}
 
-	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) throws ModelToXmlTransformationException {
+	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) {
 		
 		String low = createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel);
 		String high = createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel);
@@ -234,7 +234,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
     	}
     }
     
-	protected String createTimestampWidthElement(FormatContext context, String name, BareDiff diff, int indentLevel) throws ModelToXmlTransformationException {
+	protected String createTimestampWidthElement(FormatContext context, String name, BareDiff diff, int indentLevel) {
 		if (diff != null) {
 			Map<String, String> attributes;
 			if (diff instanceof NullFlavorSupport && ((NullFlavorSupport) diff).hasNullFlavor()) {
@@ -249,7 +249,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		
 	}
     
-	protected String createWidthElement(FormatContext context, String name, BareDiff diff, int indentLevel) throws ModelToXmlTransformationException {
+	protected String createWidthElement(FormatContext context, String name, BareDiff diff, int indentLevel) {
 		if (isTimestamp(context)) {
 			return createTimestampWidthElement(context, name, diff, indentLevel);
 		} else {
@@ -267,7 +267,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		}
 	}
 
-	private BareANY wrapWithHl7DataType(String hl7DataType, BareDiff diff) throws ModelToXmlTransformationException {
+	private BareANY wrapWithHl7DataType(String hl7DataType, BareDiff diff) {
 		try {
 			BareANY hl7Value = (BareANY) DataTypeImplementationFactory.getImplementation(hl7DataType).newInstance();
 			if (diff!=null) {
@@ -287,13 +287,13 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		return "TS".equals(Hl7DataTypeName.unqualify(Hl7DataTypeName.getParameterizedType(context.getType())));
 	}
 
-	protected String createElement(FormatContext context, String name, QTY<T> value, int indentLevel) throws ModelToXmlTransformationException {
+	protected String createElement(FormatContext context, String name, QTY<T> value, int indentLevel) {
     	String type = Hl7DataTypeName.getParameterizedType(context.getType());
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
     		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
     		return formatter.format(
-    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
+    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

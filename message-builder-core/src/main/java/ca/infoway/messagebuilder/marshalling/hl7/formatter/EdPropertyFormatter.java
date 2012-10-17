@@ -65,12 +65,12 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 	private EdValidationUtils edValidationUtils = new EdValidationUtils();
 	
 	@Override
-	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) {
 		throw new UnsupportedOperationException("ED uses formatNonNullDataType() method instead.");
 	}
 	
 	@Override
-	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		
 		EncapsulatedData encapsulatedData = extractBareValue(dataType);
 		

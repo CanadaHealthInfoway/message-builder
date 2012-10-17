@@ -64,6 +64,6 @@ public class RtoPqPqPropertyFormatterTest extends FormatterTestCase {
 		String result = new RtoPqPqPropertyFormatter().format(getContext("name", "RTO<PQ.DRUG,PQ.TIME>"), new RTOImpl<PhysicalQuantity, PhysicalQuantity>(new Ratio<PhysicalQuantity, PhysicalQuantity>()));
 		assertNotNull(result);
 		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals(3, this.result.getHl7Errors().size()); // mandatory fields missing x 2, rto has no value
 	}
 }

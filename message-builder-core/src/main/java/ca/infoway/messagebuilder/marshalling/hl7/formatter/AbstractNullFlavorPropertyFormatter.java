@@ -27,6 +27,8 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -44,7 +46,7 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 	}
 
     @Override
-    public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
+    public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
 
     	String result = "";
     	if (hl7Value!=null) {
@@ -54,15 +56,13 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
     		if (hl7Value.hasNullFlavor()) {
     			result = createElement(context, createNullFlavorAttributes(hl7Value.getNullFlavor()), indentLevel, true, true);
     			if (context.getConformanceLevel() == MANDATORY) {
-    	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-    				result = createMissingMandatoryWarning(context, indentLevel) + result;
+    				createMissingMandatoryWarning(context);
     			}
     		} else if (value == null || isEmptyCollection(value)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
         				result = createElement(context, EMPTY_ATTRIBUTE_MAP, indentLevel, true, true);
-        	    		// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-        				result = createMissingMandatoryWarning(context, indentLevel) + result;
+        				createMissingMandatoryWarning(context);
         			} else {
         				result = createElement(context, NULL_FLAVOR_ATTRIBUTES, indentLevel, true, true);
         			}
@@ -79,11 +79,11 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 		return (V) hl7Value.getBareValue();
 	}
 
-	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		return formatNonNullValue(context, extractBareValue(dataType), indentLevel);
 	}
 
-	abstract String formatNonNullValue(FormatContext context, V t, int indentLevel) throws ModelToXmlTransformationException;
+	abstract String formatNonNullValue(FormatContext context, V t, int indentLevel);
 	
 	protected boolean isEmptyCollection(V value) {
 		if (ListElementUtil.isCollection(value)) {
@@ -98,10 +98,10 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 		return attributes;
 	}
 
-	// FIXME - VALIDATION - TM - should be able to remove this warning and instead log an hl7Error
-	protected String createMissingMandatoryWarning(FormatContext context, int indentLevel) {
-		return createWarning(indentLevel, context.getElementName() 
-							+ " is a mandatory field, but no value is specified");
+	protected void createMissingMandatoryWarning(FormatContext context) {
+		context.getModelToXmlResult().addHl7Error(
+			new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, context.getElementName() + " is a mandatory field, but no value is specified")
+		);
 	}
 
     protected boolean isMandatoryOrPopulated(FormatContext context) {

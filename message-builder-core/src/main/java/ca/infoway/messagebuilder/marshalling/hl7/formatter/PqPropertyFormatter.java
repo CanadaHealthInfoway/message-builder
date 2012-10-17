@@ -47,7 +47,7 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 	private final PqValidationUtils pqValidationUtils = new PqValidationUtils();
 
     @Override
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) throws ModelToXmlTransformationException {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
     	
         validatePhysicalQuantity(context, physicalQuantity);
 		

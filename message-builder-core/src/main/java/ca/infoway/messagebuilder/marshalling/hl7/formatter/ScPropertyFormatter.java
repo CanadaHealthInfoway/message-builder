@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class ScPropertyFormatter extends AbstractNullFlavorPropertyFormatter<CodedString<Code>> {
 
 	@Override
-	String formatNonNullValue(FormatContext context, CodedString<Code> value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, CodedString<Code> value, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
         buffer.append(createElement(context, getAttributeNameValuePairs(value.getCode()), indentLevel, false, false));
         buffer.append(XmlStringEscape.escape(value.getValue()));
@@ -56,7 +56,7 @@ class ScPropertyFormatter extends AbstractNullFlavorPropertyFormatter<CodedStrin
         return buffer.toString();
 	}
     
-    private Map<String, String> getAttributeNameValuePairs(Code code) throws ModelToXmlTransformationException {
+    private Map<String, String> getAttributeNameValuePairs(Code code) {
         Map<String, String> result = new HashMap<String, String>();
         if (code != null) {
             String value = code.getCodeValue();

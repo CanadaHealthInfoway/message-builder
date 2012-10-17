@@ -20,9 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -56,6 +56,7 @@ public class SetRtoPqPqElementParserTest extends ParserTestCase {
 				ParserContextImpl.create("SET<RTO<PQ.DRUG,PQ.TIME>>", null, SpecificationVersion.V01R04_2_SK, null, null, ConformanceLevel.MANDATORY),
 				asList(node.getChildNodes()),
 				null);
+		@SuppressWarnings("unchecked")
 		Set<Ratio<PhysicalQuantity,PhysicalQuantity>> set = ((SET<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>>) result).rawSet();
 
 		assertNotNull("null", set);

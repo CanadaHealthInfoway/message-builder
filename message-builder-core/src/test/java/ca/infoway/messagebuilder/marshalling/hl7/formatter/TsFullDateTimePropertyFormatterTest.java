@@ -211,7 +211,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		handleVersion(SpecificationVersion.V01R04_3, "19990423101112", false);
 	}
 	
-	private void handleVersion(SpecificationVersion version, String expected, boolean withTimeZone)	throws ModelToXmlTransformationException {
+	private void handleVersion(SpecificationVersion version, String expected, boolean withTimeZone) {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, false, version, null, null, null), calendar, null);

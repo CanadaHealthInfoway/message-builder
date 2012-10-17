@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 class IntPosPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
     @Override
-    protected String getValue(Integer integer, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
+    protected String getValue(Integer integer, FormatContext context, BareANY bareAny) {
     	validate(integer, context, bareAny);
         return integer.toString();
     }

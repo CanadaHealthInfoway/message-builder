@@ -132,7 +132,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     }
     
     @Test
-    public void testFormatNonNullWithEmptyPq() throws ModelToXmlTransformationException {
+    public void testFormatNonNullWithEmptyPq() {
     	PqPropertyFormatter formatter = new PqPropertyFormatter();
     	PQImpl pqImpl = new PQImpl();
     	pqImpl.setValue(new PhysicalQuantity());

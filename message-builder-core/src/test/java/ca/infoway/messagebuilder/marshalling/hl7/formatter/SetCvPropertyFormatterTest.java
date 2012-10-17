@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
@@ -32,7 +34,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public class SetCvPropertyFormatterTest extends FormatterTestCase {
@@ -42,7 +43,8 @@ public class SetCvPropertyFormatterTest extends FormatterTestCase {
         String result = new SetPropertyFormatter().format(
         		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CV, Code>(CVImpl.class, NullFlavor.NO_INFORMATION));
-        assertTrue(this.result.isValid());
+        assertFalse(this.result.isValid()); // blah is mandatory
+        assertEquals(1, this.result.getHl7Errors().size());
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     

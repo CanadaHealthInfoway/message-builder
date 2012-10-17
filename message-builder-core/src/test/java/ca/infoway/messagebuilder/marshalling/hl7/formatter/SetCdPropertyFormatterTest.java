@@ -21,6 +21,8 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.HashSet;
 
@@ -34,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -52,7 +53,8 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
         String result = this.formatter.format(
         		new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CD, Code>(CDImpl.class, NullFlavor.NO_INFORMATION));
-        assertTrue(this.result.isValid());
+        assertFalse(this.result.isValid()); // blah is mandatory
+        assertEquals(1, this.result.getHl7Errors().size());
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     

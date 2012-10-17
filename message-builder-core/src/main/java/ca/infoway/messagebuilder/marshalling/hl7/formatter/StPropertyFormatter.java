@@ -53,12 +53,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
 
 	@Override
-	String formatNonNullValue(FormatContext context, String value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, String value, int indentLevel) {
 		throw new UnsupportedOperationException("Different formatNonNull handler used for ST");
 	}
 
 	@Override
-	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel)	throws ModelToXmlTransformationException {
+	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
     	Map<String, String> attributes = new HashMap<String, String>();
     	boolean isStLang = dataType instanceof ST && "ST.LANG".equals(context.getType());

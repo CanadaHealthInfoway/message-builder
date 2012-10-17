@@ -65,7 +65,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	private static final IiValidationUtils iiValidationUtils = new IiValidationUtils();
 	
     @Override
-    Map<String,String> getAttributeNameValuePairs(FormatContext context, Identifier ii, BareANY bareAny) throws ModelToXmlTransformationException {
+    Map<String,String> getAttributeNameValuePairs(FormatContext context, Identifier ii, BareANY bareAny) {
     	
         VersionNumber version = context.getVersion();
 

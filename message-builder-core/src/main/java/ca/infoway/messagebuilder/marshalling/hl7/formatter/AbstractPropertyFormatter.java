@@ -45,10 +45,10 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 		return warningRenderer.createWarning(indentLevel, text);
 	}
 
-    public String format(FormatContext formatContext, BareANY dataType) throws ModelToXmlTransformationException {
+    public String format(FormatContext formatContext, BareANY dataType) {
         return format(formatContext, dataType, 0);
     }
-    public abstract String format(FormatContext formatContext, BareANY dataType, int indentLevel) throws ModelToXmlTransformationException;
+    public abstract String format(FormatContext formatContext, BareANY dataType, int indentLevel);
 
     protected String createElement(FormatContext context, Map<String, String> attributes, int indentLevel, boolean close, boolean lineBreak) {
     	if (!isNullFlavor(attributes)) {

@@ -240,7 +240,12 @@ class RelationshipMerger implements Merger<Relationship> {
 		if (elementParser1 != null && elementParser2 != null) {
 			// first check to see if the types are straight-up compatible 
 			if (elementParser1.equals(elementParser2)) {
-				result = type;
+				if (("CS".equals(type) || "CS".equals(type2)) && !type.equals(type2)) {
+					// hack to get around the merging of two coded type parsers
+					result = StandardDataType.CV.getType();
+				} else {
+					result = type;
+				}
 			} else if (StandardDataType.isSetOrList(type) || StandardDataType.isSetOrList(type2)) {
 				// check if one is a list or a set, but otherwise compatible
 				result = checkCollectionCompatibility(type, type2);

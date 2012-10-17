@@ -26,8 +26,6 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.platform.NumberFormatter;
-
 
 public class NumberFormatterTest {
 

@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class IntPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
 	@Override
-    protected String getValue(Integer integer, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
+    protected String getValue(Integer integer, FormatContext context, BareANY bareAny) {
         return integer.toString();
     }
 }

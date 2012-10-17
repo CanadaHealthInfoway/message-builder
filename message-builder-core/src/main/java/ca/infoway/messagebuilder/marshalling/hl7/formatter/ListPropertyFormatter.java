@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class ListPropertyFormatter extends BaseCollectionPropertyFormatter {
 
     @Override
-    String formatNonNullValue(FormatContext context, Collection<BareANY> list, int indentLevel) throws ModelToXmlTransformationException {
+    String formatNonNullValue(FormatContext context, Collection<BareANY> list, int indentLevel) {
     	return formatAllElements(createSubContext(context), list, indentLevel);
     }
 

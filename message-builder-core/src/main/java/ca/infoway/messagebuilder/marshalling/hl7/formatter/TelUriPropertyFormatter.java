@@ -49,7 +49,7 @@ public class TelUriPropertyFormatter extends AbstractValueNullFlavorPropertyForm
 	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
 
     @Override
-    protected final String getValue(TelecommunicationAddress uri, FormatContext context, BareANY bareAny) throws ModelToXmlTransformationException {
+    protected final String getValue(TelecommunicationAddress uri, FormatContext context, BareANY bareAny) {
     	String type = context.getType();
     	StandardDataType specializationType = bareAny.getDataType();
     	VersionNumber version = context.getVersion();

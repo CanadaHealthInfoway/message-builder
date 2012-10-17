@@ -42,7 +42,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	public final static String GTS_BOUNDED_PIVL = "GTS.BOUNDEDPIVL";
 
 	@Override
-	String formatNonNullValue(FormatContext context, GeneralTimingSpecification value, int indentLevel) throws ModelToXmlTransformationException {
+	String formatNonNullValue(FormatContext context, GeneralTimingSpecification value, int indentLevel) {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(createElement(context, createTypeAttributes(context), indentLevel, false, true));
 		appendValues(buffer, value, indentLevel, context);		
@@ -59,7 +59,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		return attributes;
 	}
 
-	private void appendValues(StringBuffer buffer, GeneralTimingSpecification value, int indentLevel, FormatContext context) throws ModelToXmlTransformationException {
+	private void appendValues(StringBuffer buffer, GeneralTimingSpecification value, int indentLevel, FormatContext context) {
 		
 		Interval<Date> duration = value.getDuration();
 		IVL<TS,Interval<Date>> ivlDuration = new IVLImpl<TS,Interval<Date>>(duration);
@@ -98,7 +98,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 				indentLevel + 1));
 	}
 	
-	protected String createPivlTsElement(FormatContext context, PeriodicIntervalTime value, int indentLevel) throws ModelToXmlTransformationException {
+	protected String createPivlTsElement(FormatContext context, PeriodicIntervalTime value, int indentLevel) {
 		PivlTsPropertyFormatter formatter = new CustomPivlTsPropertyFormatter(!requiresOperatorOnFirstRepetition(context), requiresSpecializationType(context)); 
    		return formatter.format(context, new PIVLImpl(value), indentLevel);
 	}

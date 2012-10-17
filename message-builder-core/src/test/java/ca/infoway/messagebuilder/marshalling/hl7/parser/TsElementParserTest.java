@@ -185,7 +185,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
         assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
-        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
+//        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
+        assertFalse("no errors after relaxing validation", this.xmlResult.isValid());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
     }
 	
 	@Test
@@ -196,7 +198,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED);
         assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
-        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
+//        assertTrue("no errors after relaxing validation", this.xmlResult.getHl7Errors().isEmpty());
+        assertFalse("no errors after relaxing validation", this.xmlResult.isValid());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
     }
 	
 	@Test

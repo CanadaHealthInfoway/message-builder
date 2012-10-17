@@ -31,8 +31,7 @@ import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
 public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Collection<BareANY>> {
 
-	protected FormatContext createSubContext(FormatContext context)
-			throws ModelToXmlTransformationException {
+	protected FormatContext createSubContext(FormatContext context) {
 		return new FormatContextImpl(
 				context.getModelToXmlResult(),
 				context.getPropertyPath(),
@@ -50,9 +49,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 		return collection.getBareCollectionValue();
 	}
 
-	protected String formatAllElements(FormatContext subContext,
-			Collection<BareANY> collection, int indentLevel)
-			throws ModelToXmlTransformationException {
+	protected String formatAllElements(FormatContext subContext, Collection<BareANY> collection, int indentLevel) {
     	StringBuilder builder = new StringBuilder();
 
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(subContext.getType());
@@ -80,7 +77,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
      * @return
      * @throws ModelToXmlTransformationException 
      */
-	private String getSubType(FormatContext context) throws ModelToXmlTransformationException {
+	private String getSubType(FormatContext context) {
 		String subType = Hl7DataTypeName.getParameterizedType(context.getType());
 		if (StringUtils.isNotBlank(subType)) {
 			return subType;

@@ -47,7 +47,7 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 	private static final PropertyFormatter fullDateTimeFormatter = new TsFullDateTimePropertyFormatter(); 
 	
 	@Override
-	public String format(FormatContext context, BareANY hl7Value, int indentLevel) throws ModelToXmlTransformationException {
+	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
 		StandardDataType specializationType = hl7Value.getDataType();
 
 		validateSpecializationType(specializationType, context);

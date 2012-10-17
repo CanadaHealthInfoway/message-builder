@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 public class TsToIvlAdapter implements DataTypeAdapter {
 	
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
-		// FIXME - VALIDATION - TM - should this cover all IVL<TS.x> cases? what about IVL.HIGH/.LOW/.WIDTH?
+		// TODO - VALIDATION - TM - should this cover all IVL<TS.x> cases? what about IVL.HIGH/.LOW/.WIDTH?
 		// (not a major concern, as this code is primarily meant to work with legacy NFLD transformation tests)
 		if (TS.class.isAssignableFrom(fromDataType) 
 		 && (StandardDataType.IVL_FULL_DATE.getType().equals(toDataTypeName)

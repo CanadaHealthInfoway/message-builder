@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
@@ -41,7 +43,8 @@ public class SetCsPropertyFormatterTest extends FormatterTestCase {
         String result = new SetPropertyFormatter().format(
         		new FormatContextImpl(this.result, null, "blah", "SET<CS>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CS, Code>(CSImpl.class, NullFlavor.NO_INFORMATION));
-        assertTrue(this.result.isValid());
+        assertFalse(this.result.isValid()); // blah is mandatory
+        assertEquals(1, this.result.getHl7Errors().size());
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     
