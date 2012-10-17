@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.3.5</version>
+	<version>1.3.6-SNAPSHOT</version>
 	<name>Message Builder Parent</name>
 	
         <properties>
@@ -26,11 +26,11 @@
 	</distributionManagement>
 
         <scm>
-		<connection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.3.5
+		<connection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</connection>
-		<developerConnection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.3.5
+		<developerConnection>scm:svn:https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</developerConnection>
-		<url>https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/tags/message-builder-1.3.5
+		<url>https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderTool/sourceCode/trunk
 		</url>
 	</scm>
 
