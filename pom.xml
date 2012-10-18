@@ -270,7 +270,7 @@
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
 				  <descriptors>
-				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
+				    <!-- descriptor>./etc/assembly-descriptor-chi.xml</descriptor -->
 				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
 				  </descriptors>
 			        </configuration>
@@ -470,8 +470,7 @@
 		                    </archive>
 		                </configuration>
 		            </plugin>
-			   <!--
-                              <plugin>
+                       <plugin>
 				     <groupId>org.apache.maven.plugins</groupId>
 				     <artifactId>maven-javadoc-plugin</artifactId>
 		                 <executions>
@@ -495,8 +494,7 @@
 				               </configuration>
 		                      </execution>
 		                 </executions>
- 			      </plugin>
- 			      -->
+                       </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
