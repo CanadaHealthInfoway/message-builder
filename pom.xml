@@ -8,8 +8,9 @@
 	<name>Message Builder Parent</name>
 	
         <properties>
+          <!-- Note, creating JavaDoc takes a long time (an hour or more) to complete if enabled -->
+          <isSkipJavadoc>true</isSkipJavadoc>
           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-          <isSkipJavaDoc>true</isSkipJavaDoc>
         </properties>
 
 	<distributionManagement>
@@ -270,7 +271,7 @@
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
 				  <descriptors>
-				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
+				    <!-- <descriptor>./etc/assembly-descriptor-chi.xml</descriptor> -->
 				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
 				  </descriptors>
 			        </configuration>
@@ -347,13 +348,23 @@
 				<version>2.5.1</version>
 			</plugin>
 
-			<plugin>
+      	                <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.9</version>
-				     <configuration>
-				       <skip>${isSkipJavaDoc}</skip>
-				     </configuration>
+				  <configuration>
+				    <skip>${isSkipJavadoc}</skip>
+				    <source>1.6</source>
+				    <aggregate>true</aggregate>
+				    <!-- this doclet is used to auto create class diagrams in build-time  -->
+				    <doclet>gr.spinellis.umlgraph.doclet.UmlGraphDoc</doclet>
+				    <docletArtifact>
+				    <groupId>gr.spinellis</groupId>
+				    <artifactId>UmlGraph</artifactId>
+				    <version>4.6</version>
+				    </docletArtifact>
+				    <additionalparam>-all -quiet -postfixpackage -nodefontsize 9 -nodefontpackagesize 7</additionalparam>
+		  		  </configuration>
 				<inherited>false</inherited>
 			        <executions>
 			          <execution>
@@ -545,7 +556,7 @@
 			</plugins>
 		</pluginManagement>
 		<resources>
-<!--
+
 		  <resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
@@ -554,7 +565,7 @@
 		      <include>RELEASE-NOTES.txt</include>
 		    </includes>
 		  </resource>
--->
+
 		  <resource>
 		    <directory>${basedir}/src/main/resources</directory>
 		    <filtering>false</filtering>
