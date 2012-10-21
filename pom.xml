@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.4.</version>
+	<version>1.4</version>
 	<name>Message Builder Parent</name>
 	
         <properties>
