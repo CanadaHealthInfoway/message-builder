@@ -408,12 +408,16 @@
 			    <inherited>false</inherited>
 			    <groupId>com.mycila.maven-license-plugin</groupId>
 			    <artifactId>maven-license-plugin</artifactId>
+			    <version>1.9.0</version>
 			    <configuration>
 				<header>${basedir}/etc/LICENSE_main.txt</header>
 				<validHeaders>
 				    <validHeader>${basedir}/etc/LICENSE.txt</validHeader>
 				</validHeaders>
 				<aggregate>true</aggregate>
+				<concurrencyFactor>4</concurrencyFactor>
+				<encoding>UTF-8</encoding>
+				<strictCheck>true</strictCheck>
 				<mapping>
 				    <xslt>XML_STYLE</xslt>
 				    <mappingml>XML_STYLE</mappingml>
