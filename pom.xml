@@ -417,7 +417,7 @@
 				<aggregate>true</aggregate>
 				<concurrencyFactor>4</concurrencyFactor>
 				<encoding>UTF-8</encoding>
-				<strictCheck>true</strictCheck>
+				<!--<strictCheck>true</strictCheck>-->
 				<mapping>
 				    <xslt>XML_STYLE</xslt>
 				    <mappingml>XML_STYLE</mappingml>
