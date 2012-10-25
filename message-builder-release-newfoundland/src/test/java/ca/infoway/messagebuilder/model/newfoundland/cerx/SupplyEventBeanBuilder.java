@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.newfoundland.cerx;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -64,8 +65,8 @@ public class SupplyEventBeanBuilder extends BaseBeanBuilder<SupplyEventBean> {
 		this.bean.setDispenseId(new Identifier("dispenseIdRoot", "1"));
 		this.bean.setCode(lookup(ActPharmacySupplyType.class, "DF", CodeSystem.VOCABULARY_ACT_CODE.getRoot()));
 		this.bean.setStatusCode(lookup(ActStatus.class, "active", CodeSystem.VOCABULARY_ACT_STATUS.getRoot()));
-		this.bean.setEffectiveTime(IntervalFactory.createLowHigh(DateUtil.getDate(2009, 1, 1), DateUtil.getDate(2009, 12, 12)));
-		this.bean.setExpectedUseTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 12, 20)));
+		this.bean.setEffectiveTime(IntervalFactory.createLowHigh(DateUtil.getDate(2009, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), DateUtil.getDate(2009, 12, 12, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
+		this.bean.setExpectedUseTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 12, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setDestination(new ServiceDeliveryLocationBeanBuilder().populate().create());
 		this.bean.setPatient(new IdentifiedPersonBeanBuilder().populate().create());
 		this.bean.setResponsibleParty(new ResponsiblePartyBeanBuilder().populate().create());

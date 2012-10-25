@@ -32,8 +32,6 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
-import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;

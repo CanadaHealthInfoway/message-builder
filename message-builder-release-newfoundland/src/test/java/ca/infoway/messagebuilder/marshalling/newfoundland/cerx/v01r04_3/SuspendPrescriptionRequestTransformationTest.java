@@ -29,10 +29,8 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;

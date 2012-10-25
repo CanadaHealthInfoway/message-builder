@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.newfoundland;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
-import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -46,7 +46,7 @@ public class IndeterminatePersonBeanBuilder extends BaseBeanBuilder<Indeterminat
 	
 	public IndeterminatePersonBeanBuilder populateMabelHauptman() {
 		bean.setAdministrativeGenderCode(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		bean.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		bean.setBirthTime(DateUtil.getDate(1972, 2, 21, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		PersonName name = PersonName.createFirstNameLastName("Mabel", "Hauptman");
 		bean.setName(name);
 		LanguageCommunicationBean language = new LanguageCommunicationBean();
@@ -68,9 +68,11 @@ public class IndeterminatePersonBeanBuilder extends BaseBeanBuilder<Indeterminat
 		bean.getTelecom().add(telecom2);		
 		
 		bean.setAdministrativeGenderCode(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		bean.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		bean.setBirthTime(DateUtil.getDate(1972, 2, 21, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		bean.setDeceasedIndicator(true);
-		bean.setDeceasedTime(DateUtil.getDate(2002, 02, 10));
+		bean.setDeceasedTime(
+				DateUtil.getDate(2002, 2, 10, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))
+				);
 		bean.setMultipleBirthIndicator(true);
 		bean.setMultipleBirthOrderNumber(2);
 		

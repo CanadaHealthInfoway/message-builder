@@ -28,6 +28,7 @@ import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.junit.Before;
@@ -139,14 +140,17 @@ public class MedPrescriptionWithHistoryAndDispensesQueryTransformationTest exten
 	private MedPrescriptionWithHistoryAndDispensesQueryCriteriaBean createCriteria() {
 		MedPrescriptionWithHistoryAndDispensesQueryCriteriaBean criteria = new MedPrescriptionWithHistoryAndDispensesQueryCriteriaBean();
 		
-		criteria.setAmendedInTimeRange(IntervalUtil.createInterval(DateUtil.getDate(1970, 0, 1), DateUtil.getDate(2020, 0, 1)));
+		criteria.setAmendedInTimeRange(IntervalUtil.createInterval(
+				DateUtil.getDate(1970, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2020, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))
+				));
 		criteria.setIncludeEventHistoryIndicator(true);
 		criteria.setIncludeIssuesIndicator(true);
 		criteria.setIncludeNotesIndicator(true);
 		criteria.setIncludePendingChangesIndicator(true);
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		criteria.setPrescriptionOrderNumber(new Identifier("2.16.124.113620.1.1.8", "4814"));
 		return criteria;

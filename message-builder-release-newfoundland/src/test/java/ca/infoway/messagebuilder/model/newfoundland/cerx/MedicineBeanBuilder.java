@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.newfoundland.cerx;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -46,8 +47,7 @@ public class MedicineBeanBuilder extends BaseBeanBuilder<MedicineBean> {
 		this.bean.setCode(lookup(ManufacturedDrug.class, "00888982", CodeSystem.DRUG_IDENTIFICATION_NUMBER.getRoot()));
 		this.bean.setContainerPackagedMedicine(lookup(CompliancePackageEntityType.class, "BLSTRPK", CodeSystem.VOCABULARY_ENTITY_CODE.getRoot()));
 		this.bean.setDesc("some medicine containing ibuprofen");
-		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1)));
-//		this.bean.setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
+		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setFormCode(lookup(OrderableDrugForm.class, "DROP", CodeSystem.VOCABULARY_ADMINISTRABLE_DRUG_FORM.getRoot()));
 		this.bean.setLotNumberText("lot number 123");
 		this.bean.setManufacturerId(new Identifier("5.4.3", "1"));
@@ -61,7 +61,7 @@ public class MedicineBeanBuilder extends BaseBeanBuilder<MedicineBean> {
 
 	public MedicineBeanBuilder populateWithCompound() {
 		this.bean.setDesc("A compound made with ibuprofen");
-		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1)));
+		this.bean.setExpirationTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setFormCode(lookup(OrderableDrugForm.class, "CRM", CodeSystem.VOCABULARY_ADMINISTRABLE_DRUG_FORM.getRoot()));
 		this.bean.setName("Ibuprofen in 2% blah blah cream");
 		this.bean.setQuantity(new PhysicalQuantity(new BigDecimal(50), lookup(x_DrugUnitsOfMeasure.class, "ml")));

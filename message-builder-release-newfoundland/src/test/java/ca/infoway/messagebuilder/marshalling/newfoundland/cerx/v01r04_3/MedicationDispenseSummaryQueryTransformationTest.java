@@ -28,6 +28,7 @@ import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.junit.Assert;
@@ -135,7 +136,7 @@ public class MedicationDispenseSummaryQueryTransformationTest extends BaseTransf
 		
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		return criteria;
 	}

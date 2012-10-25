@@ -25,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -112,7 +113,7 @@ public class PersonNullifiedTransformationTest extends BaseTransformerTestCase {
 		IndeterminatePersonBean indeterminatePerson = new IndeterminatePersonBean(); 
 		indeterminatePerson.setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		indeterminatePerson.getNames().add(PersonName.createFirstNameLastName("Mabel", "Hauptman"));
-		indeterminatePerson.setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		indeterminatePerson.setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		registration.getRecord().setIndeterminatePerson(indeterminatePerson);
 		

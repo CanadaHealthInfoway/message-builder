@@ -27,6 +27,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.TimeZone;
 
 import junit.framework.Assert;
 
@@ -104,7 +105,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 		record.setDispenseId(new Identifier("3.2.1", "dispenseIdExt"));
 		record.setEffectiveTime(new Date(0));
 		MedicineBean medicineBean = new MedicineBeanBuilder().populate().create();
-		medicineBean.setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
+		medicineBean.setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		
 		record.setProduct(medicineBean);
 		record.setQuantity(new PhysicalQuantity(

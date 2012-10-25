@@ -23,13 +23,12 @@ package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ActUncertainty;
@@ -96,13 +95,13 @@ public class AllergyIntoleranceTestBeanBuilder {
 		allergy.getPatient().setId(new Identifier("2.16.840.1.113883.1.133", "9283488"));
 		allergy.getPatient().getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		allergy.getPatient().getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Mabel", "Hauptman"));
-		allergy.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		allergy.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		allergy.setStatus(lookup(ActStatus.class, "active", CodeSystem.VOCABULARY_ACT_STATUS.getRoot()));
 		allergy.setCode(lookup(ObservationIntoleranceType.class, "OINT", CodeSystem.VOCABULARY_ACT_CODE.getRoot()));
 		allergy.getConfidentiality().add(lookup(x_VeryBasicConfidentialityKind.class, "N", CodeSystem.VOCABULARY_CONFIDENTIALITY.getRoot()));
 		allergy.setSeverityObservation(lookup(SeverityObservation.class, "H", CodeSystem.VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
-		allergy.setEffectiveTime(DateUtil.getDate(2009, 3, 22));
+		allergy.setEffectiveTime(DateUtil.getDate(2009, 3, 22, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		allergy.setNegationInd(Boolean.TRUE);
 		allergy.setUncertainty(lookup(ActUncertainty.class, "N", CodeSystem.VOCABULARY_ACT_UNCERTAINTY.getRoot()));
 		allergy.setValue(lookup(IntoleranceValue.class, "NDA02", CodeSystem.VOCABULARY_ENTITY_CODE.getRoot()));
@@ -115,7 +114,7 @@ public class AllergyIntoleranceTestBeanBuilder {
 		assignedPersonBean.setName(PersonName.createFirstNameLastName("George", "Jungle"));
 		
 		allergy.setInformant(assignedPersonBean);
-		allergy.setInformantTime(DateUtil.getDate(1999, Calendar.DECEMBER, 28));
+		allergy.setInformantTime(DateUtil.getDate(1999, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		allergy.getNotes().add(createNote());
 		
@@ -128,7 +127,7 @@ public class AllergyIntoleranceTestBeanBuilder {
 		allergyTestEvent.setId(new Identifier("2.16.840.1.113883.1.13", "995"));
 		allergyTestEvent.setCode(lookup(ObservationAllergyTestType.class, "10921-5", CodeSystem.LOINC.getRoot()));
 		allergyTestEvent.setValue(lookup(AllergyTestValue.class, "A3", CodeSystem.VOCABULARY_ALLERGY_TEST_VALUE.getRoot()));
-		allergyTestEvent.setEffectiveTime(DateUtil.getDate(2009, 3, 10));
+		allergyTestEvent.setEffectiveTime(DateUtil.getDate(2009, 3, 10, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		return allergyTestEvent;
 	}
 	
@@ -147,7 +146,7 @@ public class AllergyIntoleranceTestBeanBuilder {
 	private ObservationEventBean createObservationEventBean() {
 		ObservationEventBean observationEventBean = new ObservationEventBean();
 		observationEventBean.setCode(lookup(ActCode.class, "DX", CodeSystem.VOCABULARY_ACT_CODE.getRoot()));
-		observationEventBean.setEffectiveTime(IntervalFactory.createLow(DateUtil.getDate(2008, 3, 17)));
+		observationEventBean.setEffectiveTime(IntervalFactory.createLow(DateUtil.getDate(2008, 3, 17, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		observationEventBean.setId(new Identifier("2.16.840.1.113883.1.133", "1456"));
 		observationEventBean.setNegationInd(true);
 		observationEventBean.setSeverityObservation(lookup(SeverityObservation.class, "H", CodeSystem.VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
@@ -162,7 +161,7 @@ public class AllergyIntoleranceTestBeanBuilder {
 		noteBean.setLanguageCode(lookup(HumanLanguage.class, "en", CodeSystem.VOCABULARY_HUMAN_LANGUAGE.getRoot()));
 		noteBean.getAuthor().setId(new Identifier("2.16.840.1.113883.1.133", "112233"));
 		noteBean.getAuthor().setLicenseNumber(new Identifier("2.16.840.1.113883.1.133", "332211"));
-		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20));
+		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		noteBean.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		return noteBean;
 	}

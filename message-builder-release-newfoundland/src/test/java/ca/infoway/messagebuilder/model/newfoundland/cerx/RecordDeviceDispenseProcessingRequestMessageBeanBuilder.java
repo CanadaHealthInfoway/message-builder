@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.model.newfoundland.cerx;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
@@ -53,7 +55,7 @@ public class RecordDeviceDispenseProcessingRequestMessageBeanBuilder extends Bas
 		dispenseRequestBean.getConfidentialityCode().add(Confidentiality.NORMAL);
 		IdentifiedPersonBean personBean = new IdentifiedPersonBeanBuilder().populate().create();
 		personBean.setId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
-		personBean.getIndeterminatePerson().setBirthTime(DateUtil.getDate(1987, 0, 1));
+		personBean.getIndeterminatePerson().setBirthTime(DateUtil.getDate(1987, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		dispenseRequestBean.setPatient(personBean);
 		dispenseRequestBean.setUsageInstructions("use as directed");
 		dispenseRequestBean.setSupplyEvent(new SupplyEventBeanBuilder().populateDevice().create());

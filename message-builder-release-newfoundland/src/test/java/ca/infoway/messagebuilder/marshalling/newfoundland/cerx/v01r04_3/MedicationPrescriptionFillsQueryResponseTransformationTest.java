@@ -25,6 +25,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.TimeZone;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -74,7 +76,7 @@ public class MedicationPrescriptionFillsQueryResponseTransformationTest extends 
 		MessageBeanBuilderSupport.populateQuerySummary(model.getQuerySummary(), model.getQueryId());
 		
 		model.getCriteria().setIssueFilterCode(CodeResolverRegistry.lookup(IssueFilterCode.class, "A"));
-		model.getCriteria().setPatientBirthDate(DateUtil.getDate(2009, 1, 1));
+		model.getCriteria().setPatientBirthDate(DateUtil.getDate(2009, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		model.getCriteria().setPatientGender(CodeResolverRegistry.lookup(AdministrativeGender.class, "M"));
 		model.getCriteria().setPatientId(new Identifier("1.2.3", "4"));
 		model.getCriteria().setPatientName(PersonName.createFirstNameLastName("John", "Doe"));

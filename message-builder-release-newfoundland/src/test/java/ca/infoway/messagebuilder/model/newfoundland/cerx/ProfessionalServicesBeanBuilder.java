@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.model.newfoundland.cerx;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
@@ -44,7 +46,7 @@ public class ProfessionalServicesBeanBuilder extends BaseBeanBuilder<Professiona
 		this.bean.setId(new Identifier("1.2.3.4.5", "1"));
 		this.bean.setStatus(ActStatus.ACTIVE);
 		this.bean.setCode(CodeResolverRegistry.lookup(ActProfessionalServiceCode.class, "SMC", "2.16.840.1.113883.6.95"));
-		this.bean.setEffectiveTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1)));
+		this.bean.setEffectiveTime(IntervalFactory.createSimple(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setPatient(new IdentifiedPersonBeanBuilder().populateMabelHauptman().create());
 		
 		this.bean.setPerformer(new PerformerBean());

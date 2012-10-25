@@ -24,6 +24,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import junit.framework.Assert;
 
@@ -38,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -81,11 +83,15 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
     
 	@Test
 	public void testBasicAbstract() throws Exception {
-		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(parseDate("2006-12-25T11:12:13"), parseDate("2007-01-02T10:11:12"));
+		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
+				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
+				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
+				
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.IVL_FULL_DATE_TIME);
 		
-		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, null, null, null), 
+		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATETIME\" value=\"20061225111213.0000-0500\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATETIME\" value=\"20070102101112.0000-0500\" xsi:type=\"TS\"/></name>", result);
@@ -93,11 +99,14 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testBasicAbstractInvalidSpecializationType() throws Exception {
-		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(parseDate("2006-12-25T11:12:13"), parseDate("2007-01-02T10:11:12"));
+		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
+				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
+				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.TS_FULLDATETIME);
 		
-		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, null, null, null), 
+		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size()); // incorrect ST (IVL<TS.FULLDATETIME> will be used)

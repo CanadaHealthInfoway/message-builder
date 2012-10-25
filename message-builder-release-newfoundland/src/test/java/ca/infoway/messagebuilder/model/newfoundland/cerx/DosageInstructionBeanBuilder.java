@@ -21,6 +21,9 @@
 package ca.infoway.messagebuilder.model.newfoundland.cerx;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
+
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
@@ -40,7 +43,7 @@ public class DosageInstructionBeanBuilder extends BaseBeanBuilder<DosageInstruct
 	public DosageInstructionBeanBuilder populate() {
 		this.bean.setAdministrationUnitCode(lookup(AdministrableDrugForm.class, "DROP", CodeSystem.VOCABULARY_ADMINISTRABLE_DRUG_FORM.getRoot()));
 		this.bean.setCode(lookup(ActCode.class, "INFA", CodeSystem.VOCABULARY_ACT_CODE.getRoot()));
-		this.bean.setEffectiveTime(IntervalUtil.createInterval(DateUtil.getDate(2007, 8, 20), DateUtil.getDate(2008, 3, 12)));
+		this.bean.setEffectiveTime(IntervalUtil.createInterval(DateUtil.getDate(2007, 8, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), DateUtil.getDate(2008, 3, 12, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setMoodCode(lookup(x_ActMoodDefEvnRqo.class, "DEF", CodeSystem.VOCABULARY_ACT_MOOD.getRoot()));
 		this.bean.setRouteCode(lookup(RouteOfAdministration.class, "CHEW", CodeSystem.VOCABULARY_ROUTE_OF_ADMINISTRATION.getRoot()));
 		this.bean.setText("some dosage instructions");

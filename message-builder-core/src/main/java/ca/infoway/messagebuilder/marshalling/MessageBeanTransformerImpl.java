@@ -35,20 +35,27 @@ public class MessageBeanTransformerImpl {
 	
 	private final MessageDefinitionService service;
 	private final RenderMode renderMode;
+	private final TimeZone dateTimeZone;
+	private final TimeZone dateTimeTimeZone;
 
-	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode) {
-		this.service = service;
-		this.renderMode = renderMode;
-	}
 	public MessageBeanTransformerImpl() {
 		this(new MessageDefinitionServiceFactory().create(), RenderMode.STRICT);
 	}
 	public MessageBeanTransformerImpl(RenderMode renderMode) {
 		this(new MessageDefinitionServiceFactory().create(), renderMode);
 	}
+	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode) {
+		this(service, renderMode, null, null);
+	}
+	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		this.service = service;
+		this.renderMode = renderMode;
+		this.dateTimeZone = dateTimeZone;
+		this.dateTimeTimeZone = dateTimeTimeZone;
+	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
-		return transformFromHl7(version, hl7Message, null, null);
+		return transformFromHl7(version, hl7Message, this.dateTimeZone, this.dateTimeTimeZone);
 	}
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
@@ -63,7 +70,7 @@ public class MessageBeanTransformerImpl {
 	}
 
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
-		return transformToHl7AndReturnResult(version, messageBean, null, null);
+		return transformToHl7AndReturnResult(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone);
 	}
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();

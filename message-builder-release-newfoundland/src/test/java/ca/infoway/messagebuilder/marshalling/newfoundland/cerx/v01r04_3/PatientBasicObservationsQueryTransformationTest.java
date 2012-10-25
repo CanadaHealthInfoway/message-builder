@@ -25,6 +25,8 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.TimeZone;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -105,13 +107,14 @@ public class PatientBasicObservationsQueryTransformationTest extends BaseTransfo
 	private PatientBasicObservationsQueryCriteriaBean createCriteriaBean() {
 		PatientBasicObservationsQueryCriteriaBean criteria = new PatientBasicObservationsQueryCriteriaBean();
 		criteria.setIncludeNotesIndicator(true);
-		criteria.setEffectivePeriod(IntervalUtil.createInterval(DateUtil.getDate(2007, 4, 12), DateUtil.getDate(2009, 9, 20)));
+		criteria.setEffectivePeriod(IntervalUtil.createInterval(DateUtil.getDate(2007, 4, 12, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2009, 9, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		criteria.getTypes().add(lookup(CommonClinicalObservationType.class, "8867-4", CodeSystem.LOINC.getRoot()));
 		criteria.getTypes().add(lookup(CommonClinicalObservationType.class, "11289-6", CodeSystem.LOINC.getRoot()));
 		criteria.getTypes().add(lookup(CommonClinicalObservationType.class, "2341-6", CodeSystem.LOINC.getRoot()));
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "M", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		return criteria;
 	}

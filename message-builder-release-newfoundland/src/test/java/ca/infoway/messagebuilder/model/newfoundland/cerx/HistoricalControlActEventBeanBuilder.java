@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.model.newfoundland.cerx;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
@@ -43,7 +45,7 @@ public class HistoricalControlActEventBeanBuilder extends
 	}
 	
 	public HistoricalControlActEventBeanBuilder populate() {
-		this.bean.setEffectiveTime(IntervalFactory.createLow(DateUtil.getDate(2009, 01, 01)));
+		this.bean.setEffectiveTime(IntervalFactory.createLow(DateUtil.getDate(2009, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		this.bean.setReasonCode(CodeResolverRegistry.lookup(ControlActReason.class, "EIE", CodeSystem.VOCABULARY_ACT_REASON.getRoot()));
 		this.bean.setResponsibleParty(new AssignedPersonBeanBuilder().populate().create());
 		this.bean.setAuthor(new AuthorBeanBuilder().populate().create());

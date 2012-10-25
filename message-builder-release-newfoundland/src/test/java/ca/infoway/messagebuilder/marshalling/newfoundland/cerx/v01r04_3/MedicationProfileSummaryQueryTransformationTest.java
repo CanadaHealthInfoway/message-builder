@@ -28,6 +28,7 @@ import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.junit.Assert;
@@ -147,10 +148,16 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 		
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
-		criteria.setAdministrationEffectivePeriod(IntervalUtil.createInterval(DateUtil.getDate(1970, 0, 1), DateUtil.getDate(2020, 0, 1)));
-		criteria.setAmendedInTimeRange(IntervalUtil.createInterval(DateUtil.getDate(1970, 0, 1), DateUtil.getDate(2020, 0, 1)));
+		criteria.setAdministrationEffectivePeriod(IntervalUtil.createInterval(
+				DateUtil.getDate(1970, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2020, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))
+				));
+		criteria.setAmendedInTimeRange(IntervalUtil.createInterval(
+				DateUtil.getDate(1970, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2020, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))
+				));
 		criteria.setIssueFilterCode(IssueFilterCode.ALL);
 		criteria.setMostRecentByDrugIndicator(false);
 		

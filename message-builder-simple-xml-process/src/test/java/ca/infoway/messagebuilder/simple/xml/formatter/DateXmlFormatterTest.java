@@ -80,6 +80,7 @@ public class DateXmlFormatterTest {
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
         Calendar calendar = new GregorianCalendar(2008, 2, 31, 15, 58, 57);
         calendar.set(Calendar.MILLISECOND, 862);
+        calendar.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
         assertValidValueAttribute(calendar.getTime(), "20080331155857.8620-0400");
     }
     

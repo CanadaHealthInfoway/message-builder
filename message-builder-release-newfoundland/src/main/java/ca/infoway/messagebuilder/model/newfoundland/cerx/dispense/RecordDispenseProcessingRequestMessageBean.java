@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.newfoundland.cerx.dispense;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.newfoundland.cerx.dispense.RecordDispenseProcessingRequestMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordRequestMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.DispenseRequest1Bean;
 import ca.infoway.messagebuilder.model.newfoundland.marker.HasTargetReference;

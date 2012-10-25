@@ -25,20 +25,19 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.CommonClinicalObservationType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.newfoundland.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.newfoundland.AuthorBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.IdentifiedPersonBean;
@@ -75,7 +74,8 @@ public class ObservationTestBeanBuilder {
 	private ObservationBean createBasicObservationBean() {
 		ObservationBean observationBean = new ObservationBean();
 		observationBean.setId(new Identifier("1.2.3.4.5.6", "11.22.33"));
-		observationBean.setEffectiveTime(new GregorianCalendar(2008, Calendar.DECEMBER, 12, 15, 30, 22).getTime());
+		observationBean.setEffectiveTime(DateUtil.getDate(2008, Calendar.DECEMBER, 12, 15, 30, 22, 0, TimeZone.getTimeZone("America/Toronto")));
+		
 		observationBean.setConfidentiality(Confidentiality.NORMAL);
 		observationBean.setPatient(createPatient());
 		observationBean.setResponsibleParty(createResponsibleParty());
@@ -105,14 +105,14 @@ public class ObservationTestBeanBuilder {
 		personBean.setId(new Identifier("1.2.49472.29.34.1", "patientId"));
 		personBean.getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		personBean.getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
-		personBean.getIndeterminatePerson().setBirthTime(new GregorianCalendar(1964, Calendar.JANUARY, 17).getTime());
+		personBean.getIndeterminatePerson().setBirthTime(DateUtil.getDate(1964, Calendar.JANUARY, 17, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		return personBean;
 	}
 
 	private NoteBean createNoteBean() {
 		NoteBean note = new NoteBean();
 		note.setText("super note");
-		note.getAuthor().setTime(new GregorianCalendar(2008, Calendar.DECEMBER, 12, 15, 30, 22).getTime());
+		note.getAuthor().setTime(DateUtil.getDate(2008, Calendar.DECEMBER, 12, 15, 30, 22, 0, TimeZone.getTimeZone("America/Toronto")));
 		note.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		return note;
 	}

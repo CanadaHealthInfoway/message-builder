@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.TimeZone;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -83,7 +85,7 @@ public class ProfessionalServicesQueryResponseTransformationTest extends BaseTra
 		
 		ProfessionalServicesQueryCriteria criteria = new ProfessionalServicesQueryCriteria();
 		criteria.setIncludeNotesIndicator(true);
-		criteria.setPatientBirthDate(DateUtil.getDate(2009, 0, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientGender(AdministrativeGender.FEMALE);
 		criteria.setPatientId(new Identifier("1.2.3.4.5.6", "1"));
 		criteria.setName(patientName);

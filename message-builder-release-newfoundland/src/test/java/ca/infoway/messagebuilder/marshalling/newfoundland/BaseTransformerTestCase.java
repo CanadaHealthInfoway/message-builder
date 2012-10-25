@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.marshalling.newfoundland;
 
 import static org.junit.Assert.assertNull;
 
+import java.util.TimeZone;
+
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
@@ -50,6 +52,7 @@ import ca.infoway.messagebuilder.resolver.CompositeCodeResolver;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
 
@@ -87,7 +90,7 @@ public abstract class BaseTransformerTestCase {
 	}
 	
 	protected MessageBeanTransformerImpl createTransformer() {
-		return new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
+		return new MessageBeanTransformerImpl(new MessageDefinitionServiceFactory().create(), RenderMode.PERMISSIVE, TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"));
 	}
 
 	protected void assertValidHl7Message(String xml) throws SAXException {

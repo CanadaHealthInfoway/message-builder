@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.newfoundland.cerx;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -60,9 +61,9 @@ public class ImmunizationBeanBuilder extends BaseBeanBuilder<ImmunizationBean> {
 		this.bean.setAnnotationIndicator(true);
 		this.bean.setAuthor(new AuthorBeanBuilder().populate().create());
 		this.bean.setNegationInd(true);
-		this.bean.setNextPlannedDoseDate(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 5), null));
-		this.bean.setRenewalDate(DateUtil.getDate(2008, 4, 5));
-		this.bean.setEffectiveTime(DateUtil.getDate(2008, 4, 5));
+		this.bean.setNextPlannedDoseDate(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), null));
+		this.bean.setRenewalDate(DateUtil.getDate(2008, 4, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
+		this.bean.setEffectiveTime(DateUtil.getDate(2008, 4, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		this.bean.setDoseSequenceNumber(3);
 		this.bean.setLocation(new ServiceDeliveryLocationBeanBuilder().populate().create());
 		this.bean.setMedicine(new MedicineBeanBuilder().populate().create());

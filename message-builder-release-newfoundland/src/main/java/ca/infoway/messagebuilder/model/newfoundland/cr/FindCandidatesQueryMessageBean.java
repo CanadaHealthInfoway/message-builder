@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.newfoundland.cr;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.newfoundland.cr.FindCandidatesCriteria;
 import ca.infoway.messagebuilder.model.newfoundland.NewQueryMessageBean;
 
 /**

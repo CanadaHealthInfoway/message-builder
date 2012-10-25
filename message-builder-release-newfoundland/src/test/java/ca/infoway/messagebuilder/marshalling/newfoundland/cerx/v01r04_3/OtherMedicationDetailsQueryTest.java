@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.junit.Before;
@@ -31,10 +32,8 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
@@ -110,7 +109,7 @@ public class OtherMedicationDetailsQueryTest extends BaseTransformerTestCase {
 		criteria.setIncludeIssuesIndicator(false);
 		criteria.setIncludeNotesIndicator(false);
 		criteria.setIssueFilterCode(IssueFilterCode.ALL);
-		criteria.setPatientBirthDate(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		criteria.setPatientBirthDate(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(patientName);
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "9283488"));
 		criteria.setPatientGender(AdministrativeGender.FEMALE);

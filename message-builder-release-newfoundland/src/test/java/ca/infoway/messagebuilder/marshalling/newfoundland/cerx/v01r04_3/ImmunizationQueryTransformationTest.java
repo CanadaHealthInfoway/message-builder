@@ -25,6 +25,8 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.TimeZone;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -115,13 +117,16 @@ public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase
 		ImmunizationQueryCriteriaBean criteria = new ImmunizationQueryCriteriaBean();
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "M", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		criteria.setIncludeNotesIndicator(true);
-		criteria.setImmunizationPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 18), DateUtil.getDate(2009, 2, 5)));
+		criteria.setImmunizationPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 4, 18, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), 
+				DateUtil.getDate(2009, 2, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		criteria.setIncludeIssuesIndicator(true);
-		criteria.setNextPlannedDosePeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 9, 20), DateUtil.getDate(2009, 2, 5)));
-		criteria.setRenewalPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 2, 4), DateUtil.getDate(2009, 2, 5)));
+		criteria.setNextPlannedDosePeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 9, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2009, 2, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
+		criteria.setRenewalPeriod(IntervalUtil.createInterval(DateUtil.getDate(2008, 2, 4, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2009, 2, 5, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		criteria.setVaccineCode(lookup(VaccineEntityType.class, "396422009", CodeSystem.SNOMED.getRoot()));
 		criteria.setVaccineDoseNumber(2);
 		return criteria;
@@ -151,7 +156,7 @@ public class ImmunizationQueryTransformationTest extends BaseTransformerTestCase
 		model.setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 		
 		ImmunizationBean immunization = new ImmunizationBeanBuilder().populate().create();
-		immunization.getMedicine().setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1)));
+		immunization.getMedicine().setExpirationTime(IntervalFactory.createHigh(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<ImmunizationBean>(immunization));
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<ImmunizationBean>(immunization));
 		

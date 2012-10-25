@@ -26,6 +26,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -109,7 +110,7 @@ public class ResolveDuplicatePersonRegistrationTransformationTest extends BaseTr
 		
 		registration.getRecord().getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		registration.getRecord().getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Mabel", "Hauptman"));
-		registration.getRecord().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		registration.getRecord().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		registration.getRecord().getIndeterminatePerson().getLanguageCommunications().add(
 				new LanguageCommunicationBeanBuilder().withLanguageCode("en").create());
 

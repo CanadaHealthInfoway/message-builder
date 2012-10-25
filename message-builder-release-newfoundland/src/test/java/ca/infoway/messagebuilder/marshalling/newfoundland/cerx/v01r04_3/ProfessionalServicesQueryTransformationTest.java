@@ -24,6 +24,8 @@ import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.TimeZone;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -72,12 +74,12 @@ public class ProfessionalServicesQueryTransformationTest extends BaseTransformer
 		
 		ProfessionalServicesQueryCriteria criteria = new ProfessionalServicesQueryCriteria();
 		criteria.setIncludeNotesIndicator(true);
-		criteria.setPatientBirthDate(DateUtil.getDate(2009, 0, 1));
+		criteria.setPatientBirthDate(DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientGender(AdministrativeGender.FEMALE);
 		criteria.setPatientId(new Identifier("1.2.3.4.5.6", "1"));
 		criteria.setName(patientName);
 		criteria.getTypes().add(CodeResolverRegistry.lookup(ActProfessionalServiceCode.class, "SMC", "2.16.840.1.113883.6.95"));
-		criteria.setServicePeriod(IntervalFactory.createLowHigh(DateUtil.getDate(2008, 0, 1), DateUtil.getDate(2009, 0, 1)));
+		criteria.setServicePeriod(IntervalFactory.createLowHigh(DateUtil.getDate(2008, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), DateUtil.getDate(2009, 0, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		
 		ProfessionalServicesQueryMessageBean model = new ProfessionalServicesQueryMessageBean(criteria);
 		model.getControlActEventBean().setCode(HL7TriggerEventCode.PATIENT_PHARMACY_PROF_SERVICES_QUERY);

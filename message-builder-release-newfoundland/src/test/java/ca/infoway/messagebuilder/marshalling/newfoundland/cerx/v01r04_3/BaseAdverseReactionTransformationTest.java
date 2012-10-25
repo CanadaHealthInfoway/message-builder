@@ -27,6 +27,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -35,12 +36,10 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ExposureAgentEntityType;
@@ -168,13 +167,13 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 		reaction.getPatient().setId(new Identifier("2.16.840.1.113883.1.133", "9283488"));
 		reaction.getPatient().getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		reaction.getPatient().getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Mabel", "Hauptman"));
-		reaction.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		reaction.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		reaction.setCode(lookup(ActCode.class, "DX", CodeSystem.VOCABULARY_ACT_CODE.getRoot()));
 		reaction.setConfidentialityCode(lookup(x_VeryBasicConfidentialityKind.class, "N", CodeSystem.VOCABULARY_CONFIDENTIALITY.getRoot()));
 		reaction.setSeverityObservation(lookup(SeverityObservation.class, "H", CodeSystem.VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
 		reaction.setSubjectReactionValue(lookup(SubjectReaction.class, "241938005", CodeSystem.SNOMED.getRoot()));
-		reaction.setReactionOnsetDate(IntervalFactory.createLow(DateUtil.getDate(2009, 3, 22)));
+		reaction.setReactionOnsetDate(IntervalFactory.createLow(DateUtil.getDate(2009, 3, 22, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		reaction.setText("some adverse reaction text");
 
 //		ResponsiblePartyBean responsibleParty = new ResponsiblePartyBean();
@@ -187,11 +186,11 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 		assignedPersonBean.setName(PersonName.createFirstNameLastName("George", "Jungle"));
 		
 		reaction.setInformant(assignedPersonBean);
-		reaction.setInformantTime(DateUtil.getDate(1999, Calendar.DECEMBER, 28));
+		reaction.setInformantTime(DateUtil.getDate(1999, 11, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		addCausalityAssessments(reaction.getCausalityAssessments(), 5);
 		
-		ActStatus status = lookup(ActStatus.class, "active", CodeSystem.VOCABULARY_ACT_STATUS.getRoot());
+		lookup(ActStatus.class, "active", CodeSystem.VOCABULARY_ACT_STATUS.getRoot());
 		
 		NoteBean noteBean = new NoteBean();
 		
@@ -199,7 +198,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 		noteBean.setLanguageCode(lookup(HumanLanguage.class, "en", CodeSystem.VOCABULARY_HUMAN_LANGUAGE.getRoot()));
 		noteBean.getAuthor().setId(new Identifier("2.16.840.1.113883.1.133", "112233"));
 		noteBean.getAuthor().setLicenseNumber(new Identifier("2.16.840.1.113883.1.133", "332211"));
-		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20));
+		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		noteBean.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 
 		reaction.getNotes().add(noteBean);

@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.BaseTealMlTransformerTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
 import ca.infoway.messagebuilder.model.newfoundland.AcknowledgementBeanBuilder;
@@ -48,7 +47,7 @@ import ca.infoway.messagebuilder.model.newfoundland.pr.UpdatePasswordRequestRefu
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 
-public class UpdatePasswordRequestTransformationTest extends BaseTealMlTransformerTestCase {
+public class UpdatePasswordRequestTransformationTest extends BaseTransformerTestCase {
 	
 	private static final String REQUEST_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/provider/newfoundland/updatePasswordRequest.xml";
 	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/provider/newfoundland/updatePasswordRequestAccepted.xml";

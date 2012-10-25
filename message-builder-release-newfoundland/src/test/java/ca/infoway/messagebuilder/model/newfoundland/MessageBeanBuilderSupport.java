@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.model.newfoundland;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.FAMILY;
-import static ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType.GIVEN;
 import static ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse.LEGAL;
 import static ca.infoway.messagebuilder.domainvalue.payload.QueryResponse.DATA_FOUND;
 import static ca.infoway.messagebuilder.domainvalue.payload.QueryResponse.NO_DATA_FOUND;
@@ -32,35 +30,34 @@ import static ca.infoway.messagebuilder.domainvalue.transport.ResponseMode.IMMED
 import static java.util.Calendar.JUNE;
 import static java.util.Calendar.SEPTEMBER;
 
+import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
-import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementType;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class MessageBeanBuilderSupport {
 
-	public static final Date EFFECTIVE_TIME = new GregorianCalendar(2008, SEPTEMBER, 18).getTime();
+	public static final Date EFFECTIVE_TIME = DateUtil.getDate(2008, SEPTEMBER, 18, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"));
 
 	public static final Interval<Date> EFFECTIVE_TIME_IVL = IntervalFactory.createLowHigh(
-			new GregorianCalendar(2008, SEPTEMBER, 18).getTime(), 
-			new GregorianCalendar(2008, SEPTEMBER, 20).getTime()); 
+			DateUtil.getDate(2008, SEPTEMBER, 18, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), 
+			DateUtil.getDate(2008, SEPTEMBER, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))); 
 
 	public static void populateStandardValues(ResponseMessageAttributesBean bean) {
 		populateStandardValuesV02(bean);
@@ -74,7 +71,7 @@ public class MessageBeanBuilderSupport {
 	
 	public static void populateStandardValuesV01(MessageAttributesBean bean) {
 		bean.setMessageId(new Identifier("2.16.124.113620.1.1.1.1.2", "293844"));
-		bean.setCreationDate(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
+		bean.setCreationDate(DateUtil.getDate(2008, JUNE, 25, 14, 16, 10, 0, TimeZone.getTimeZone("America/Toronto")));
 //		bean.getProfileId().add(new Identifier("2.16.840.1.113883.3.133.3.100", "EHR-0008"));
 		bean.setProcessingId(PRODUCTION);
 		bean.setProcessingMode(CURRENT_PROCESSING);
@@ -122,7 +119,7 @@ public class MessageBeanBuilderSupport {
 	
 	private static AuthorBean createAuthorV01() {
 		AuthorBean result = new AuthorBean();
-		result.setTime(new GregorianCalendar(2008, SEPTEMBER, 18, 18, 18).getTime());
+		result.setTime(DateUtil.getDate(2008, Calendar.SEPTEMBER, 18, 18, 18, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		result.setId(new Identifier("2.16.840.1.113883.4.267", "EHR ID EXT"));
 		result.setLicenseNumber(new Identifier("2.16.840.1.113883.4.268", "55555"));
 		

@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.TimeZone;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -97,7 +99,7 @@ public class MedicationPrescriptionFillsQueryTransformationTest extends BaseTran
 		model.getSender().setDeviceId(new Identifier("2.16.840.1.113883.4.262.12", "123"));
 		
 		model.getCriteria().setIssueFilterCode(CodeResolverRegistry.lookup(IssueFilterCode.class, "A"));
-		model.getCriteria().setPatientBirthDate(DateUtil.getDate(2009, 1, 1));
+		model.getCriteria().setPatientBirthDate(DateUtil.getDate(2009, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		model.getCriteria().setPatientGender(CodeResolverRegistry.lookup(AdministrativeGender.class, "M"));
 		model.getCriteria().setPatientId(new Identifier("1.2.3", "4"));
 		model.getCriteria().setPatientName(PersonName.createFirstNameLastName("John", "Doe"));

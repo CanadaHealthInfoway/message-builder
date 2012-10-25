@@ -26,13 +26,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.datatype.lang.util.NameFormatter;
-import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
@@ -152,7 +151,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		medicationCondition.getPatient().setId(new Identifier("2.16.840.1.113883.1.133", "9283488"));
 		medicationCondition.getPatient().getIndeterminatePerson().setAdministrativeGenderCode(AdministrativeGender.FEMALE);
 		medicationCondition.getPatient().getIndeterminatePerson().setName(PersonName.createFirstNameLastName("Mabel", "Hauptman"));
-		medicationCondition.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28));
+		medicationCondition.getPatient().getIndeterminatePerson().setBirthTime(DateUtil.getDate(1932, Calendar.DECEMBER, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		ActStatus status = lookup(ActStatus.class, "active", CodeSystem.VOCABULARY_ACT_STATUS.getRoot());
 		
@@ -160,7 +159,8 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		medicationCondition.setStatusCode(status);
 		medicationCondition.setConfidentialityCode(lookup(x_VeryBasicConfidentialityKind.class, "N", CodeSystem.VOCABULARY_CONFIDENTIALITY.getRoot()));
 		medicationCondition.setDiagnosisValue(lookup(DiagnosisValue.class, "402261004", CodeSystem.SNOMED.getRoot()));
-		medicationCondition.setEffectiveTime(IntervalUtil.createInterval(DateUtil.getDate(2009, 3, 22), DateUtil.getDate(2009, 5, 28)));
+		medicationCondition.setEffectiveTime(IntervalUtil.createInterval(DateUtil.getDate(2009, 3, 22, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), 
+				DateUtil.getDate(2009, 5, 28, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		medicationCondition.setChronicIndicator(true);
 		
 		NoteBean noteBean = new NoteBean();
@@ -168,7 +168,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 		noteBean.setLanguageCode(lookup(HumanLanguage.class, "en", CodeSystem.VOCABULARY_HUMAN_LANGUAGE.getRoot()));
 		noteBean.getAuthor().setId(new Identifier("2.16.840.1.113883.1.133", "112233"));
 		noteBean.getAuthor().setLicenseNumber(new Identifier("2.16.840.1.113883.1.133", "332211"));
-		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20));
+		noteBean.getAuthor().setTime(DateUtil.getDate(2008, 8, 20, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		noteBean.getAuthor().setName(PersonName.createFirstNameLastName("Michelle", "Obama"));
 		
 		medicationCondition.getNotes().add(noteBean);
@@ -183,7 +183,7 @@ public abstract class BaseMedicalConditionTransformationTest extends BaseTransfo
 				CodeResolverRegistry.lookup(URLScheme.class, "tel"), "4167620032"));
 		responsibleParty.setIndeterminatePerson(new IndeterminatePersonBeanBuilder().populate().create());		
 		medicationCondition.setInformant(responsibleParty);
-		medicationCondition.setInformantTime(DateUtil.getDate(2009, Calendar.SEPTEMBER, 29));
+		medicationCondition.setInformantTime(DateUtil.getDate(2009, 8, 29, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		
 		recordBean.setRecord(medicationCondition);
 		model.getControlActEvent().setRecordBean(recordBean);

@@ -23,7 +23,10 @@ package ca.infoway.messagebuilder.simple.xml.parser;
 import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
@@ -32,52 +35,57 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.simple.xml.ParserException;
 
 public class DateXmlParserTest extends AbstractXmlParserTest<TS> {
 	
+	private String currentTimeZone;
+
 	public DateXmlParserTest() {
 		super(new DateXmlParser(), "effectiveDate", new TSImpl());
+		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
+		this.currentTimeZone = tzformat.format(new Date());		
 	}
 	
 	@Test
 	public void shouldParseTsDate() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001\"/>",
-				parseDate(StandardDataType.TS_DATE, "20101001", "yyyyMMdd"));
+				parseDate(StandardDataType.TS_DATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, TimeZone.getDefault())));
 	}
 
 	@Test
 	public void shouldParseTsFullDate() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001\"/>",
-				parseDate(StandardDataType.TS_FULLDATE, "20101001", "yyyyMMdd"));
+				parseDate(StandardDataType.TS_FULLDATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, TimeZone.getDefault())));
 	}
 
 	@Test
 	public void shouldParseTs() throws Exception {
 		assertEquals(
-				"<effectiveDate value=\"20101001050607-0400\"/>",
-				parseDate(StandardDataType.TS, "20101001050607-0400", "yyyyMMddHHmmssZ"));
+				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
+				parseDate(StandardDataType.TS, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
 	}
 
 	@Test
 	public void shouldParseTsDateTime() throws Exception {
 		assertEquals(
-				"<effectiveDate value=\"20101001050607-0400\"/>",
-				parseDate(StandardDataType.TS_DATETIME, "20101001050607-0400", "yyyyMMddHHmmssZ"));
+				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
+				parseDate(StandardDataType.TS_DATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
 	}
 
 	@Test
 	public void shouldParseTsFullDateTime() throws Exception {
 		assertEquals(
-				"<effectiveDate value=\"20101001050607-0400\"/>",
-				parseDate(StandardDataType.TS_FULLDATETIME, "20101001050607-0400", "yyyyMMddHHmmssZ"));
+				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
+				parseDate(StandardDataType.TS_FULLDATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
 	}
 	
 	@Test
 	public void shouldParseTsDateWithPrecisionRemembered() throws Exception {
-		TSImpl ts = new TSImpl(new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(new GregorianCalendar(2010, 0, 1).getTime(), "yyyy"));
+		TSImpl ts = new TSImpl(new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(new GregorianCalendar(2010, 9, 1).getTime(), "yyyy"));
 		ts.setDataType(StandardDataType.TS_DATE);
 		
 		assertEquals(
@@ -90,14 +98,14 @@ public class DateXmlParserTest extends AbstractXmlParserTest<TS> {
 		return new TSImpl(nullFlavor);
 	}
 
-	private String parseDate(StandardDataType dataType, String date, String format) throws ParserException, ParseException {
+	private String parseDate(StandardDataType dataType, Date date) throws ParserException, ParseException {
 		return this.parser.parse(
 				new SimpleXmlParseContextImpl(this.elementName), 
-				createTs(dataType, date, format));
+				createTs(dataType, date));
 	}
 
-	private TSImpl createTs(StandardDataType dataType, String date, String format) throws ParseException {
-		TSImpl ts = new TSImpl(DateUtils.parseDate(date, new String[] {format}));
+	private TSImpl createTs(StandardDataType dataType, Date date) throws ParseException {
+		TSImpl ts = new TSImpl(date);
 		ts.setDataType(dataType);
 		return ts;
 	}

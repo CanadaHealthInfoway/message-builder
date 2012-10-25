@@ -20,12 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.newfoundland.cerx.v01r04_3;
 
-import static ca.infoway.messagebuilder.j5goodies.DateUtil.getDate;
 import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static ca.infoway.messagebuilder.model.newfoundland.cerx.medicalprofile.CombinedMedicationBeanBuilder.CombinedMedicationBeanType.PORX_MT060340CA;
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.TimeZone;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -114,8 +115,8 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 		model.getControlActEvent().setEventId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad21"));
 		model.setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 		
-		criteria.setAdministrationEffectivePeriod(IntervalFactory.createLowHigh(getDate(2009, 01, 01), getDate(2010, 01, 01)));
-		criteria.setAmendedInTimeRange(IntervalFactory.createLowHigh(getDate(2009, 02, 02), getDate(2010, 02, 02)));
+		criteria.setAdministrationEffectivePeriod(IntervalFactory.createLowHigh(DateUtil.getDate(2009, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), DateUtil.getDate(2010, 1, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
+		criteria.setAmendedInTimeRange(IntervalFactory.createLowHigh(DateUtil.getDate(2009, 2, 2, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")), DateUtil.getDate(2010, 2, 2, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))));
 		criteria.setDiagnosisCode(lookup(DiagnosisValue.class, "402261004", CodeSystem.SNOMED.getRoot()));
 		criteria.setDrugCode(lookup(ClinicalDrug.class, "02237726", CodeSystem.DRUG_IDENTIFICATION_NUMBER.getRoot()));
 		criteria.setIncludeEventHistoryIndicator(true);
@@ -135,7 +136,7 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 		criteria.getRxDispenseIndicator().add(lookup(PrescriptionDispenseFilterCode.class, "N", CodeSystem.VOCABULARY_QUERY_PARAMETER_VALUE.getRoot()));
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987,11,01));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		
 		return model;
@@ -167,7 +168,7 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 
 		criteria.setPatientId(new Identifier("2.16.840.1.113883.1.133", "8048151067070480384"));
 		criteria.setPatientGender(lookup(AdministrativeGender.class, "F", CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		criteria.setPatientBirthDate(DateUtil.getDate(1987,11,01));
+		criteria.setPatientBirthDate(DateUtil.getDate(1987, 11, 1, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")));
 		criteria.setPatientName(PersonName.createFirstNameLastName("Tim", "Eapen"));
 		criteria.setIssueFilterCode(lookup(IssueFilterCode.class, "A", CodeSystem.VOCABULARY_QUERY_PARAMETER_VALUE.getRoot()));
 		

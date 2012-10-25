@@ -21,6 +21,9 @@
 package ca.infoway.messagebuilder.model.newfoundland;
 
 import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
+
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -53,7 +56,10 @@ public class ResponsiblePartyBeanBuilder extends BaseBeanBuilder<ResponsiblePart
 		bean.setStatusCode(lookup(RoleStatus.class, "active", CodeSystem.VOCABULARY_ROLE_STATUS.getRoot()));
 		bean.setConfidentialityCode(
 				lookup(x_NormalRestrictedTabooConfidentialityKind.class, "N", CodeSystem.VOCABULARY_CONFIDENTIALITY.getRoot()));
-		bean.setEffectiveTime(IntervalUtil.createInterval(DateUtil.getDate(2000, 02, 03), DateUtil.getDate(2010, 03, 04)));
+		bean.setEffectiveTime(IntervalUtil.createInterval(
+				DateUtil.getDate(2000, 2, 3, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto")),
+				DateUtil.getDate(2010, 3, 4, 0, 0, 0, 0, TimeZone.getTimeZone("America/Toronto"))
+				));
 		return this;
 	}
 

@@ -24,6 +24,8 @@ import static ca.infoway.messagebuilder.junit.XmlAssert.assertTreeEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.TimeZone;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -66,7 +68,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean());
+		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean(), TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"));
 		String xmlMessage = result.getXmlMessage();
 		System.out.println(xmlMessage);
 		Document actual = this.factory.createFromString(xmlMessage);
