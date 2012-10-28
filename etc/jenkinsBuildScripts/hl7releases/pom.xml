@@ -20,11 +20,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-hl7v3-release-JENKINS_ARTIFACT_ID_SUFFIX</artifactId>
-	<version>${messageBuilderVersion}-SNAPSHOT</version>
+	<version>1.4.1-SNAPSHOT</version>
 
 	<properties>
+		<messageBuilderVersion>1.4.1-SNAPSHOT</messageBuilderVersion>
 		<messageSetSuffix>JENKINS_MESSAGE_SET_SUFFIX</messageSetSuffix>
-		<messageBuilderVersion>1.4</messageBuilderVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
