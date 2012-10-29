@@ -428,7 +428,7 @@
 			        <excludes>
 			            <exclude>**/LICENSE_main.txt</exclude>
 			            <exclude>**/LICENSE.txt</exclude>
-			            <exclude>pomCHI.xml</exclude>
+			            <exclude>**/etc/jenkinsBuildScripts/**</exclude>
 			            <exclude>**/*.xls</exclude>
 			            <exclude>**/*.svg</exclude>
 			            <exclude>**/translation-*</exclude>
