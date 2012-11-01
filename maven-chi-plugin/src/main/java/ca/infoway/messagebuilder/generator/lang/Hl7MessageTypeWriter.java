@@ -82,6 +82,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
         for (BaseRelationship relationship : nullSafeIterable(relationships)) {
             if (!relationship.isFixed()) {
             	writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+            	// pass in documentation object and callback to here? Or just allow the property generator to write docs?
             	createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
             	if (relationship.isChoice()) {
             		if (relationship.isCardinalityMultiple()) {

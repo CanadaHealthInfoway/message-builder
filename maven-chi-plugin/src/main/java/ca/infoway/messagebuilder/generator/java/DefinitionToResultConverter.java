@@ -41,7 +41,9 @@ import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -533,11 +535,44 @@ class DefinitionToResultConverter {
 			TypeName parentTypeName = getTypeNameForType(interaction.getSuperTypeName());
 			
 			interactionType.setParentType(result.getTypeByName(parentTypeName));
-			interactionType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
+			
+			Documentation interactionDocumentation = addAdditionalDocsToInteraction(interaction);
+			interactionType.setTypeDocumentation(new TypeDocumentation(interactionDocumentation));
+			
 			interactionType.setBusinessName(interaction.getBusinessName());
 			interactionType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments()));
 			result.getTypes().put(interactionType.getTypeName(), interactionType);
 		}
+	}
+
+	private Documentation addAdditionalDocsToInteraction(Interaction interaction) {
+		List<Annotation> extraDocs = createExtraDocInformation(interaction);
+		Documentation interactionDocumentation = interaction.getDocumentation();
+		if (interactionDocumentation == null) {
+			interactionDocumentation = new Documentation();
+		}
+		boolean hasBusinessName = interactionDocumentation.getBusinessName() != null;
+		interactionDocumentation.setBusinessName(interaction.getName() + (hasBusinessName ? (": " + interactionDocumentation.getBusinessName()) : ""));
+		interactionDocumentation.getAnnotations().addAll(extraDocs);
+		return interactionDocumentation;
+	}
+
+	private List<Annotation> createExtraDocInformation(Interaction interaction) {
+		List<Annotation> extraDocs = new ArrayList<Annotation>();
+		extraDocs.add(new Annotation("Message: " + interaction.getSuperTypeName()));
+		for (Argument argument : interaction.getArguments()) {
+			extraDocs.add(new Annotation("Payload: " + argument.getName()));
+			for (Relationship choice : argument.getChoices()) {
+				extraDocs.add(new Annotation("----> Payload Choice: " + choice.getType()));
+			}
+			for (Argument subArg : argument.getArguments()) {
+				extraDocs.add(new Annotation("--> Sub-Payload: " + subArg.getName()));
+				for (Relationship choice : subArg.getChoices()) {
+					extraDocs.add(new Annotation("----> Sub-Payload Choice: " + choice.getType()));
+				}
+			}
+		}
+		return extraDocs;
 	}
 
 	private TypeName getTypeNameForType(String type) {

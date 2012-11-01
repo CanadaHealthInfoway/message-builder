@@ -137,6 +137,8 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	 * @return - the documentation
 	 */
 	public Documentation getDocumentation() {
+		// trigger side effect to force Documentation creation if using an old message set that only contains a business name element
+		getBusinessName();
 		return this.documentation;
 	}
 	/**
