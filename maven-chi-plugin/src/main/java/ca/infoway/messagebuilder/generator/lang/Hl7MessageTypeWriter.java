@@ -62,7 +62,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 	private void writeAbstractRelationships(Writer writer, int indentLevel, List<BaseRelationship> relationships) throws IOException {
         for (BaseRelationship relationship : nullSafeIterable(relationships)) {
             if (!relationship.isFixed()) {
-            	createPropertyGenerator(relationship).createGettersAndSettersForInterface(indentLevel, writer);
+            	createGettersAndSettersForInterface(writer, indentLevel, relationship);
             	writer.write(LINE_SEPARATOR);
             }
         }
@@ -81,9 +81,9 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 
         for (BaseRelationship relationship : nullSafeIterable(relationships)) {
             if (!relationship.isFixed()) {
-            	writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
-            	// pass in documentation object and callback to here? Or just allow the property generator to write docs?
-            	createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
+            	
+            	createGettersAndSetters(writer, indentLevel, relationship);
+            	
             	if (relationship.isChoice()) {
             		if (relationship.isCardinalityMultiple()) {
             			// currently not straightforward to produce helper methods for multiple cardinality
@@ -98,7 +98,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
             }
         }
     }
-	
+
 	private void createChoiceProperties(BaseRelationship rootChoice, List<Choice> choices, int indentLevel, Writer writer) throws IOException {
 		for (Choice choice : choices) {
         	writer.write(LINE_SEPARATOR);
@@ -114,5 +114,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 	protected abstract PropertyGenerator createPropertyGenerator(BaseRelationship relationship);
 	protected abstract PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice);
 	protected abstract void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException;
+	protected abstract void createGettersAndSettersForInterface(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException;
+	protected abstract void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException;
 	
 }

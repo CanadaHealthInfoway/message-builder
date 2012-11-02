@@ -26,7 +26,11 @@ import java.io.Writer;
 public interface PropertyGenerator {
 
 	public void createAttributeDefinition(int indentLevel, Writer writer) throws IOException;
+	public void createGetters(int indentLevel, Writer writer) throws IOException;
+	public void createSetters(int indentLevel, Writer writer) throws IOException;
 	public void createGettersAndSetters(int indentLevel, Writer writer) throws IOException;
+	public void createGettersForInterface(int indentLevel, Writer writer) throws IOException;
+	public void createSettersForInterface(int indentLevel, Writer writer) throws IOException;
 	public void createGettersAndSettersForInterface(int indentLevel, Writer writer) throws IOException;
 	public void createDerivedChoiceGetterProperties(int indentLevel, Writer writer) throws IOException;
 	/**

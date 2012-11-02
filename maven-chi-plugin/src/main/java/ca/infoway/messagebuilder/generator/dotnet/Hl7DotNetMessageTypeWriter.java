@@ -250,4 +250,15 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 		new TypeDocumentation(documentation).write(C_SHARP, writer, indentLevel);
 	}
     
+	@Override
+	protected void createGettersAndSettersForInterface(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
+		createPropertyGenerator(relationship).createGettersAndSettersForInterface(indentLevel, writer);
+	}
+
+	@Override
+	protected void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
+		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
+	}
+	
 }

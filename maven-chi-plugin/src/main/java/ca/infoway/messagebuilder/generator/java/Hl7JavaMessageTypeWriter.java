@@ -220,4 +220,24 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 		new TypeDocumentation(documentation).write(JAVA, writer, indentLevel);
 	}
     
+	@Override
+	protected void createGettersAndSettersForInterface(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
+		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		createPropertyGenerator(relationship).createGettersForInterface(indentLevel, writer);
+		if (relationship.isWriteable()) {
+			writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+			createPropertyGenerator(relationship).createSettersForInterface(indentLevel, writer);
+		}
+	}
+
+	@Override
+	protected void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
+		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		createPropertyGenerator(relationship).createGetters(indentLevel, writer);
+		if (relationship.isWriteable()) {
+			writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+			createPropertyGenerator(relationship).createSetters(indentLevel, writer);
+		}
+	}
+	
 }

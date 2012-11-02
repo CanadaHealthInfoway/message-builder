@@ -140,14 +140,46 @@ public class PropertyGeneratorBuilder extends Indenter {
 			}
 		}
 
+		public void createGetters(int indentLevel, Writer writer) throws IOException {
+			createGetters(indentLevel, writer, false);
+		}
+		
+		public void createSetters(int indentLevel, Writer writer) throws IOException {
+			createSetters(indentLevel, writer, false);
+		}
+		
 		public void createGettersAndSetters(int indentLevel, Writer writer) throws IOException {
 			createGettersAndSetters(indentLevel, writer, false);
+		}
+		
+		public void createGettersForInterface(int indentLevel, Writer writer) throws IOException {
+			createGetters(indentLevel, writer, true);
+		}
+		
+		public void createSettersForInterface(int indentLevel, Writer writer) throws IOException {
+			createSetters(indentLevel, writer, true);
 		}
 		
 		public void createGettersAndSettersForInterface(int indentLevel, Writer writer) throws IOException {
 			createGettersAndSetters(indentLevel, writer, true);
 		}
 		
+		private void createGetters(int indentLevel, Writer writer, boolean isInterface) throws IOException {
+			if (fieldDefinition != null) {
+				fieldDefinition.initializeContext(this.manager, this.resolver);
+				new PropertyDefinitionGenerator(fieldDefinition).createGetterPropertyDefinition(indentLevel, writer, isInterface);
+				fieldDefinition.resetContext();
+			}			
+		}
+
+		private void createSetters(int indentLevel, Writer writer, boolean isInterface) throws IOException {
+			if (fieldDefinition != null) {
+				fieldDefinition.initializeContext(this.manager, this.resolver);
+				new PropertyDefinitionGenerator(fieldDefinition).createSetterPropertyDefinition(indentLevel, writer, isInterface);
+				fieldDefinition.resetContext();
+			}			
+		}
+
 		private void createGettersAndSetters(int indentLevel, Writer writer, boolean isInterface) throws IOException {
 			if (fieldDefinition != null) {
 				fieldDefinition.initializeContext(this.manager, this.resolver);
@@ -169,7 +201,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 			// this is same as for getters and setters (correct?)
 			if (fieldDefinition != null) {
 				fieldDefinition.initializeContext(this.manager, this.resolver);
-				new PropertyDefinitionGenerator(fieldDefinition).createPropertyDefinition(indentLevel, writer, false);
+				new PropertyDefinitionGenerator(fieldDefinition).createGetterPropertyDefinition(indentLevel, writer, false);
 				fieldDefinition.resetContext();
 			}			
 		}
