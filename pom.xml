@@ -559,10 +559,9 @@
     			</plugin>
 			</plugins>
 		</pluginManagement>
-		<resources>
 
-         <!-- UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!)
-
+      <!-- UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!)
+	<resources>
 		  <resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
@@ -579,9 +578,8 @@
 		      <include>**/*.*</include>
 		    </includes>
 		  </resource>
-		</resources>
-
-        UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!) -->
+	</resources>
+      UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!) -->
 
 	</build>
 	<reporting>
