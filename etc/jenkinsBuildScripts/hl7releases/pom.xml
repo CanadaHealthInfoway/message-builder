@@ -16,14 +16,14 @@
 	(2b)     mvn -f <name_of_this_pom_file> chi:xml-to-csharp
 	(2c)     mvn -f <name_of_this_pom_file> chi:xml-to-xsd
 	-->
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-hl7v3-release-JENKINS_ARTIFACT_ID_SUFFIX</artifactId>
 	<version>1.4.1a-SNAPSHOT</version>
 
 	<properties>
-		<messageBuilderVersion>1.4.1-SNAPSHOT</messageBuilderVersion>
+		<messageBuilderVersion>1.4</messageBuilderVersion>
 		<messageSetSuffix>JENKINS_MESSAGE_SET_SUFFIX</messageSetSuffix>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -36,7 +36,7 @@
 			<version>${messageBuilderVersion}</version>
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
 	<!-- 	<repository>
 	   	            <id>private-release</id>
@@ -55,7 +55,7 @@
 			<plugin>
 				<groupId>ca.infoway.messagebuilder</groupId>
 				<artifactId>maven-chi-plugin</artifactId>
-				<version>1.4</version>
+				<version>${messageBuilderVersion}</version>
 
 				<configuration>
 
