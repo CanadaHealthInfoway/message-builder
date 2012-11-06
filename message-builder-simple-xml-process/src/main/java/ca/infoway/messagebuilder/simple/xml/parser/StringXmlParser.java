@@ -47,7 +47,7 @@ public class StringXmlParser extends AbstractSimpleXmlParser<ST, String> impleme
 	}
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(ST dataTypeValue) {
+	protected Map<String, String> toNameValuePairs(ST dataTypeValue, SimpleXmlParseContext context) {
 		Map<String, String> attributes = Collections.emptyMap();
 		if (StandardDataType.ST_LANG.equals(dataTypeValue.getDataType())) {
 			attributes = new LinkedHashMap<String,String>();
@@ -59,7 +59,7 @@ public class StringXmlParser extends AbstractSimpleXmlParser<ST, String> impleme
 	}
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, String value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, String value, SimpleXmlParseContext context) {
 		throw new UnsupportedOperationException("Different toNameValuePairs handler used for ST");
 	}
 

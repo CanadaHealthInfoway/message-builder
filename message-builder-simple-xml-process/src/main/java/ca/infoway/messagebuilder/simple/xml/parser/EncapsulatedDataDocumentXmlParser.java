@@ -56,7 +56,7 @@ public class EncapsulatedDataDocumentXmlParser extends AbstractSimpleXmlParser<E
 	}
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, EncapsulatedData value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, EncapsulatedData value, SimpleXmlParseContext context) {
 		Map<String,String> attributes = new LinkedHashMap<String, String>();
 		if (value.getMediaType() != null) {
 			attributes.put("mediaType", value.getMediaType().getCodeValue());

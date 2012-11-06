@@ -41,7 +41,7 @@ public class MoneyXmlParser extends AbstractSimpleXmlParser<MO, Money> implement
     }
 
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Money money) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Money money, SimpleXmlParseContext context) {
 		Map<String, String> result = new LinkedHashMap<String, String>();
         if (money != null) {
             BigDecimal value = money.getAmount();

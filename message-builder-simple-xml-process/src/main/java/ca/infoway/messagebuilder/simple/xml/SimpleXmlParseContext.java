@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.simple.xml;
 
+import java.util.TimeZone;
+
 public interface SimpleXmlParseContext {
 	public String getElementName();
+	public TimeZone getTimeZone();
 }

@@ -64,7 +64,7 @@ public abstract class AbstractSimpleXmlParser<T extends ANY<V>, V> implements Si
 		if (dataTypeInstance.getValue()!=null) {
 			builder.append(XmlRenderingUtils.createStartElement(
 					context.getElementName(), 
-					toNameValuePairs(dataTypeInstance), 
+					toNameValuePairs(dataTypeInstance, context), 
 					0, closeStartElement(dataTypeInstance), false));
 			
 			if (!closeStartElement(dataTypeInstance)) {
@@ -74,15 +74,15 @@ public abstract class AbstractSimpleXmlParser<T extends ANY<V>, V> implements Si
 		}
 	}
 
-	protected Map<String, String> toNameValuePairs(T dataTypeValue) {
-		return toNameValuePairs(dataTypeValue.getDataType(), dataTypeValue.getValue());
+	protected Map<String, String> toNameValuePairs(T dataTypeValue, SimpleXmlParseContext context) {
+		return toNameValuePairs(dataTypeValue.getDataType(), dataTypeValue.getValue(), context);
 	}
 
 	protected void doRenderNonNullValue(StringBuilder builder, SimpleXmlParseContext context, T dataTypeInstance) throws ParserException {
 		doRenderNonNullValue(builder, context, dataTypeInstance.getDataType(), dataTypeInstance.getValue());
 	}
 
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, V value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, V value, SimpleXmlParseContext context) {
 		return Collections.emptyMap();
 	}
 

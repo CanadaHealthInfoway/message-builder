@@ -44,7 +44,7 @@ public class PeriodicIntervalOfTimeXmlParser extends AbstractSimpleXmlParser<PIV
     }
 
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PeriodicIntervalTime value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PeriodicIntervalTime value, SimpleXmlParseContext context) {
 		Map<String, String> attributes = new LinkedHashMap<String, String>();
 		if (value.getRepetitions()!=null) {
 			attributes.put("numberOfOccurrences", ""+value.getRepetitions());

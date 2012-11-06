@@ -41,7 +41,7 @@ public class ConceptDescriptorXmlParser extends AbstractSimpleXmlParser<CD, Code
 	}
 
 	@Override
-	protected Map<String, String> toNameValuePairs(CD cd) {
+	protected Map<String, String> toNameValuePairs(CD cd, SimpleXmlParseContext context) {
 		Code code = cd.getValue();
 		
 		Map<String, String> attributes = new LinkedHashMap<String, String>();

@@ -41,7 +41,7 @@ public class IdentifierXmlParser extends AbstractSimpleXmlParser<II, Identifier>
     }
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Identifier ii) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Identifier ii, SimpleXmlParseContext context) {
 		Map<String, String> attributes = new LinkedHashMap<String, String>();
         attributes.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
         

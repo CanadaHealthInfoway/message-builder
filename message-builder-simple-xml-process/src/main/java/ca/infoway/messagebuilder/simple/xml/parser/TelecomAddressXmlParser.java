@@ -88,7 +88,7 @@ public class TelecomAddressXmlParser extends AbstractSimpleXmlParser<TEL, Teleco
 	}
 
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, TelecommunicationAddress value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, TelecommunicationAddress value, SimpleXmlParseContext context) {
 		Map<String, String> pairs = new LinkedHashMap<String, String>();
 		
 		if (TEL_URI.equals(dataType)) {
@@ -98,7 +98,7 @@ public class TelecomAddressXmlParser extends AbstractSimpleXmlParser<TEL, Teleco
 				pairs.put("type", value.getUrlScheme().getCodeValue().toUpperCase());
 			}
 		} else {
-			pairs = super.toNameValuePairs(dataType, value);
+			pairs = super.toNameValuePairs(dataType, value, context);
 		}
 		
 		return pairs;

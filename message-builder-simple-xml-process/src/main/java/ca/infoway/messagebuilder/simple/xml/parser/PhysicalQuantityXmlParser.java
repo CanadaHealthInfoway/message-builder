@@ -45,7 +45,7 @@ public class PhysicalQuantityXmlParser extends AbstractSimpleXmlParser<PQ, Physi
 	}
 
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PhysicalQuantity physicalQuantity) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PhysicalQuantity physicalQuantity, SimpleXmlParseContext context) {
 		Map<String, String> result = new LinkedHashMap<String, String>();
         if (physicalQuantity.getQuantity() != null) {
             result.put(ATTRIBUTE_VALUE, formatQuantity(physicalQuantity.getQuantity()));

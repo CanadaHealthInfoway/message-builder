@@ -146,7 +146,7 @@ public class PersonNameXmlParser extends AbstractSimpleXmlParser<PN, PersonName>
 	}
 
     @Override
-    protected Map<String, String> toNameValuePairs(StandardDataType dataType, PersonName value) {
+    protected Map<String, String> toNameValuePairs(StandardDataType dataType, PersonName value, SimpleXmlParseContext context) {
     	return getUseAttributeMap(value);
     }
     

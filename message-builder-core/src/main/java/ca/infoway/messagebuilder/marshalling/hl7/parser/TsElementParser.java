@@ -211,7 +211,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			timeZone = TimeZone.getDefault();
 		} else if (isDate(context)) {
 			timeZone = getNonNullTimeZone(context.getDateTimeZone());
-		} else if (isDateTime(context)) {
+		} else {
 			timeZone = getNonNullTimeZone(context.getDateTimeTimeZone());
 		}
 		return timeZone;

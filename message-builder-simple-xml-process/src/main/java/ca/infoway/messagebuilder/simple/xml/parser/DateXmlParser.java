@@ -46,18 +46,22 @@ public class DateXmlParser extends AbstractSimpleXmlParser<TS, Date> implements 
     }
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Date value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Date value, SimpleXmlParseContext context) {
 		Map<String, String> attributes = new LinkedHashMap<String, String>();
-		attributes.put("value", renderDate(dataType, value));
+		attributes.put("value", renderDate(dataType, value, context));
 		return attributes;
 	}
 
-	private String renderDate(StandardDataType type, Date date) {
+	private String renderDate(StandardDataType type, Date date, SimpleXmlParseContext context) {
 		String datePattern = lookUpDateFormat(type);
 		if (date instanceof ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern) {
 			datePattern = ((ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern)date).getDatePattern();
 		}
-		return new SimpleDateFormat(datePattern).format(date);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
+		if (context.getTimeZone() != null) {
+			simpleDateFormat.setTimeZone(context.getTimeZone());
+		}
+		return simpleDateFormat.format(date);
 	}
 
 	private static String lookUpDateFormat(StandardDataType type) {

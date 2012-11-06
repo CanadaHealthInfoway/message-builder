@@ -27,6 +27,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -73,23 +74,31 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
+		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
 		return (Interval<Date>) this.parser.parse(
-				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, conformanceLevel), 
+				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}
 	
 	@Test
     public void testParseLowHigh() throws Exception {
-		int offset = TimeZone.getDefault().getOffset(System.currentTimeMillis());
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
+		Date expectedResultLow = format.parse("2006-08-10_12:00:00");
+		Date expectedResultHigh = format.parse("2006-08-12_15:00:00");
+
+		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
 		int hours = -1 * offset/(1000*60*60);
-        Node node = createNode(
+		
+		Node node = createNode(
                 "<effectiveTime><low value=\"20060810120000-0" + hours + "00\" /><high value=\"20060812150000-0" + hours + "00\" /></effectiveTime>");
         Interval<Date> interval = parse(node, "IVL<TS.DATETIME>");
         assertTrue("valid", this.result.isValid());
         assertNotNull("null", interval);
-        assertDateEquals("low", FULL_DATE_TIME, parseDate("2006-08-10T12:00:00"), interval.getLow());
-        assertDateEquals("high", FULL_DATE_TIME, parseDate("2006-08-12T15:00:00"), interval.getHigh());
+        assertDateEquals("low", FULL_DATE_TIME, expectedResultLow, interval.getLow());
+        assertDateEquals("high", FULL_DATE_TIME, expectedResultHigh, interval.getHigh());
     }
 
 	@Test
@@ -183,14 +192,21 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseLow() throws Exception {
-		int offset = TimeZone.getDefault().getOffset(System.currentTimeMillis());
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
+		Date expectedResultLow = format.parse("2005-08-10_14:34:56");
+
+		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
 		int hours = -1 * offset/(1000*60*60);
+		
         Node node = createNode(
                 "<effectiveTime><low value=\"20050810143456-0" + hours + "00\" /></effectiveTime>");
+        
         Interval<Date> interval = parse(node, "IVL.LOW<TS>");
         assertTrue("valid", this.result.isValid());
         assertNotNull("null", interval);
-        assertDateEquals("low", FULL_DATE_TIME, parseDate("2005-08-10T14:34:56"), interval.getLow());
+        assertDateEquals("low", FULL_DATE_TIME, expectedResultLow, interval.getLow());
         assertNull("high", interval.getHigh());
         assertNull("centre", interval.getCentre());
         assertNull("width", interval.getWidth());
@@ -342,4 +358,5 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     private Date parseDate(String date) throws ParseException {
         return DateUtils.parseDate(date, new String[] {"yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss"});
     }
+    
 }

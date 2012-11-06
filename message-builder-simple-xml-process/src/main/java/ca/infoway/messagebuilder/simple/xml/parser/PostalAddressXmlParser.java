@@ -77,7 +77,7 @@ public class PostalAddressXmlParser extends AbstractSimpleXmlParser<AD, PostalAd
 //	}
 
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PostalAddress value) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, PostalAddress value, SimpleXmlParseContext context) {
         String uses = "";
         for (PostalAddressUse postalAddressUse : value.getUses()) {
             uses += uses.length() == 0 ? "" : " ";

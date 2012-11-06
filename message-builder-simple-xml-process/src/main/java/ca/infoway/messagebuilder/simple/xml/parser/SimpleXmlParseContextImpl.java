@@ -20,18 +20,30 @@
 
 package ca.infoway.messagebuilder.simple.xml.parser;
 
+import java.util.TimeZone;
+
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 
 public class SimpleXmlParseContextImpl implements SimpleXmlParseContext {
 
 	private final String elementName;
+	private final TimeZone timeZone;
 	
 	public SimpleXmlParseContextImpl(String elementName) {
+		this(elementName, null);
+	}
+
+	public SimpleXmlParseContextImpl(String elementName, TimeZone timeZone) {
 		this.elementName = elementName;
+		this.timeZone = timeZone;
 	}
 
 	public String getElementName() {
 		return this.elementName;
+	}
+
+	public TimeZone getTimeZone() {
+		return this.timeZone;
 	}
 
 }

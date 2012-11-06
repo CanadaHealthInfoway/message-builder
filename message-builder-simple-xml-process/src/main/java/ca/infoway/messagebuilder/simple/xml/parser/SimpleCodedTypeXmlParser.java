@@ -40,7 +40,7 @@ public class SimpleCodedTypeXmlParser extends AbstractSimpleXmlParser<CS, Code> 
 	}
 	
 	@Override
-	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Code code) {
+	protected Map<String, String> toNameValuePairs(StandardDataType dataType, Code code, SimpleXmlParseContext context) {
 		Map<String, String> attributes = new LinkedHashMap<String, String>();
 
 		if (code.getCodeValue()!=null) {

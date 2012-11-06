@@ -28,7 +28,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -41,46 +40,51 @@ import ca.infoway.messagebuilder.simple.xml.ParserException;
 public class DateXmlParserTest extends AbstractXmlParserTest<TS> {
 	
 	private String currentTimeZone;
+	private TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
 
-	public DateXmlParserTest() {
+	public DateXmlParserTest() throws ParseException {
 		super(new DateXmlParser(), "effectiveDate", new TSImpl());
+		
+		Date date = DateUtil.getDate(2010, 9, 1, 12, 0, 0, 0, timeZone);
+		
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		this.currentTimeZone = tzformat.format(new Date());		
+		tzformat.setTimeZone(timeZone);
+		this.currentTimeZone = tzformat.format(date);
 	}
 	
 	@Test
 	public void shouldParseTsDate() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001\"/>",
-				parseDate(StandardDataType.TS_DATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, TimeZone.getDefault())));
+				parseDate(StandardDataType.TS_DATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, this.timeZone)));
 	}
 
 	@Test
 	public void shouldParseTsFullDate() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001\"/>",
-				parseDate(StandardDataType.TS_FULLDATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, TimeZone.getDefault())));
+				parseDate(StandardDataType.TS_FULLDATE, DateUtil.getDate(2010, 9, 1, 0, 0, 0, 0, this.timeZone)));
 	}
 
 	@Test
 	public void shouldParseTs() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
-				parseDate(StandardDataType.TS, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
+				parseDate(StandardDataType.TS, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, this.timeZone)));
 	}
 
 	@Test
 	public void shouldParseTsDateTime() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
-				parseDate(StandardDataType.TS_DATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
+				parseDate(StandardDataType.TS_DATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, this.timeZone)));
 	}
 
 	@Test
 	public void shouldParseTsFullDateTime() throws Exception {
 		assertEquals(
 				"<effectiveDate value=\"20101001050607" + currentTimeZone + "\"/>",
-				parseDate(StandardDataType.TS_FULLDATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, TimeZone.getDefault())));
+				parseDate(StandardDataType.TS_FULLDATETIME, DateUtil.getDate(2010, 9, 1, 5, 6, 7, 0, this.timeZone)));
 	}
 	
 	@Test
@@ -100,7 +104,7 @@ public class DateXmlParserTest extends AbstractXmlParserTest<TS> {
 
 	private String parseDate(StandardDataType dataType, Date date) throws ParserException, ParseException {
 		return this.parser.parse(
-				new SimpleXmlParseContextImpl(this.elementName), 
+				new SimpleXmlParseContextImpl(this.elementName, this.timeZone), 
 				createTs(dataType, date));
 	}
 
