@@ -561,7 +561,6 @@
 		</pluginManagement>
 
 	<resources>
-      <!-- UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!)
 		  <resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
@@ -570,7 +569,6 @@
 		      <include>RELEASE-NOTES.txt</include>
 		    </includes>
 		  </resource>
-      UNCOMMENT BY JENKINS DURING AUTOMATED BUILD (do NOT remove this line!) -->
 
 		  <resource>
 		    <directory>${basedir}/src/main/resources</directory>
