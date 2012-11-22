@@ -21,7 +21,7 @@
 -->
 
 <assembly>
-    <id>dev-${project.version}</id>
+    <id>dev</id>
     <formats>
         <format>zip</format>
     </formats>
@@ -129,6 +129,7 @@
         </binaries>
       </moduleSet>
 
+      <!--
       <moduleSet>
         <includes>
           <include>ca.infoway.messagebuilder:message-builder-simple-xml</include>
@@ -142,6 +143,7 @@
         </binaries>
       </moduleSet>
     </moduleSets>
+    -->
 
     <fileSets>
       <!-- Javadocs -->
@@ -208,6 +210,7 @@
         </includes>
           <outputDirectory>example-code/javadoc</outputDirectory>
       </fileSet>
+      <!--
       <fileSet>
         <directory>message-builder-simple-xml/target</directory>
         <includes>
@@ -222,6 +225,7 @@
         </includes>
           <outputDirectory>simple-xml/javadoc</outputDirectory>
       </fileSet>
+      -->
 
       <!-- Sources -->
       <fileSet>
@@ -287,6 +291,7 @@
         </includes>
           <outputDirectory>example-code/sources</outputDirectory>
       </fileSet>
+<!--
       <fileSet>
         <directory>message-builder-simple-xml/target</directory>
         <includes>
@@ -301,7 +306,7 @@
         </includes>
           <outputDirectory>simple-xml/sources</outputDirectory>
       </fileSet>
-
+-->
       <!-- install files -->
       <fileSet>
         <directory>etc/install</directory>

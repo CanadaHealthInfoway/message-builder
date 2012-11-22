@@ -268,7 +268,7 @@
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
 				  <descriptors>
-				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
+				    <!--<descriptor>./etc/assembly-descriptor-chi.xml</descriptor>-->
 				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
 				  </descriptors>
 			        </configuration>
