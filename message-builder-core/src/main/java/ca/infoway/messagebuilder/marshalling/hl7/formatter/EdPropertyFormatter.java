@@ -95,7 +95,7 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
 		Hl7Errors errors = context.getModelToXmlResult();
 		
-		this.edValidationUtils.doValidate(encapsulatedData, specializationType, baseVersion, type, errors);
+		this.edValidationUtils.doValidate(encapsulatedData, specializationType, baseVersion, type, context.getPropertyPath(), errors);
 	}
 
 	private void writeReference(EncapsulatedData data, StringBuffer buffer, int indentLevel) {

@@ -68,7 +68,7 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult);
 		
 		String type = context.getType();
-		TEL_VALIDATION_UTILS.validateTelecommunicationAddress(telecomAddress, type, specializationType, context.getVersion(), (Element) node, xmlToModelResult);
+		TEL_VALIDATION_UTILS.validateTelecommunicationAddress(telecomAddress, type, specializationType, context.getVersion(), (Element) node, null, xmlToModelResult);
 		
 		return telecomAddress;
 	}

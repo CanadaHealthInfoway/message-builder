@@ -484,19 +484,19 @@ public class TelPhonemailPropertyFormatterTest {
 		Hl7Errors errors = this.xmlResult;
 		
 		telecomAddress.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
-		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, errors, true));
+		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, null, errors, true));
 		assertTrue(this.xmlResult.isValid());
 		
 		telecomAddress.setUrlScheme(CeRxDomainTestValues.FAX);
-		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, errors, true));
+		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, null, errors, true));
 		assertTrue(this.xmlResult.isValid());
 		
 		telecomAddress.setUrlScheme(CeRxDomainTestValues.MAILTO);
-		assertEquals("TEL.EMAIL", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, errors, true));
+		assertEquals("TEL.EMAIL", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, null, errors, true));
 		assertTrue(this.xmlResult.isValid());
 		
 		telecomAddress.setUrlScheme(CeRxDomainTestValues.FTP); // this error will be caught elsewhere
-		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, errors, true));
+		assertEquals("TEL.PHONE", new TelValidationUtils().determineActualType(telecomAddress, type, null, version, null, null, errors, true));
 		assertTrue(this.xmlResult.isValid());
 		
 	}

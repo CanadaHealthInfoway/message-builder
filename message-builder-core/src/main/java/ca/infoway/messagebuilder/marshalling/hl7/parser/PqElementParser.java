@@ -62,9 +62,9 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		Element element = (Element) node;
 		
-		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), element, xmlToModelResult);
+		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), element, null, xmlToModelResult);
 		
-		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, xmlToModelResult);
+		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
 		
 		// TODO: TM - PQ.LAB in MR2009 allows for an originalText attribute. Since no current pan-Canadian standard uses PQ.LAB, this requirement has not been implemented.
 		

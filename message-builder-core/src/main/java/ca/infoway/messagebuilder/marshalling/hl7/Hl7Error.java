@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.util.xml.XmlDescriber.describeSingleElem
 
 import java.text.MessageFormat;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.w3c.dom.Attr;
@@ -43,9 +44,9 @@ public class Hl7Error {
 	
 	private transient boolean renderedToXml = false;
 	
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message) {
-		this(hl7ErrorCode, message, (String) null);
-	}
+//	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message) {
+//		this(hl7ErrorCode, message, (String) null);
+//	}
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, String beanPath) {
 		this.hl7ErrorCode = hl7ErrorCode;
 		this.message = message;
@@ -120,12 +121,12 @@ public class Hl7Error {
     	sb.append(this.hl7ErrorCode);
     	sb.append(" : ");
     	sb.append(this.message);
-    	if (this.path != null) {
+    	if (StringUtils.isNotBlank(this.path)) {
     		sb.append(" (");
     		sb.append(this.path);
     		sb.append(")");
     	}
-    	if (this.beanPath != null) {
+    	if (StringUtils.isNotBlank(this.beanPath)) {
     		sb.append(" (");
     		sb.append(this.beanPath);
     		sb.append(")");

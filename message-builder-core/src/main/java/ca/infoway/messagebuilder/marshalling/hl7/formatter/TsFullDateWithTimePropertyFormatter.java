@@ -79,14 +79,16 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 			context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("No specializationType provided. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType())
+							MessageFormat.format("No specializationType provided. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType()),
+							context.getPropertyPath()
 					)
 			);
 		} else if (specializationType != StandardDataType.TS_FULLDATE && specializationType != StandardDataType.TS_FULLDATETIME) {
 			context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("Invalid specializationType: {0}. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType())
+							MessageFormat.format("Invalid specializationType: {0}. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType()),
+							context.getPropertyPath()
 					)
 			);
 		}

@@ -72,83 +72,88 @@ class MoPropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	private void validate(Money money, FormatContext context) {
 
 		ModelToXmlResult modelToXmlResult = context.getModelToXmlResult();
+		String propertyPath = context.getPropertyPath(); 
 
 		BigDecimal amount = money.getAmount();
 		if (amount == null) {
-			recordMissingValueError(modelToXmlResult);
+			recordMissingValueError(propertyPath, modelToXmlResult);
 		} else {
 			String value = amount.toString();
 			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
 			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
 			
 			if (StringUtils.length(integerPart) > MAX_DIGITS_BEFORE_DECIMAL) {
-				recordTooManyDigitsBeforeDecimalError(value, modelToXmlResult);
+				recordTooManyDigitsBeforeDecimalError(value, propertyPath, modelToXmlResult);
 			}
 			if (StringUtils.length(decimalPart) > MAX_DIGITS_AFTER_DECIMAL) {
-				recordTooManyDigitsAfterDecimalError(value, modelToXmlResult);
+				recordTooManyDigitsAfterDecimalError(value, propertyPath, modelToXmlResult);
 			}
 			if (!StringUtils.isNumeric(integerPart) || !StringUtils.isNumeric(decimalPart)) {
-				recordMustContainDigitsOnlyError(value, modelToXmlResult);
+				recordMustContainDigitsOnlyError(value, propertyPath, modelToXmlResult);
 			}
 		}
 		
 		Currency currency = money.getCurrency();
 		if (currency == null) {
-			recordMissingCurrencyError(modelToXmlResult); 
+			recordMissingCurrencyError(propertyPath, modelToXmlResult); 
 		} else if (!Currency.CANADIAN_DOLLAR.getCodeValue().equals(currency.getCodeValue())) {
-			recordCurrencyMustBeCadError(modelToXmlResult); 
+			recordCurrencyMustBeCadError(propertyPath, modelToXmlResult); 
 		}
-		
-
 		
 	}
 
-	private void recordTooManyDigitsAfterDecimalError(String value, ModelToXmlResult result) {
+	private void recordTooManyDigitsAfterDecimalError(String value, String propertyPath, ModelToXmlResult result) {
 		result.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
 						+ value + " of type MO.CAD" 
 						+ " should have no more than " + MAX_DIGITS_AFTER_DECIMAL 
-						+ " digits after the decimal"));
+						+ " digits after the decimal",
+						propertyPath));
 	}
 
-	private void recordTooManyDigitsBeforeDecimalError(String value, ModelToXmlResult result) {
+	private void recordTooManyDigitsBeforeDecimalError(String value, String propertyPath, ModelToXmlResult result) {
 		result.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, "Value " 
 						+ value + " of type MO.CAD" 
 						+ " should have no more than " + MAX_DIGITS_BEFORE_DECIMAL 
-						+ " digits before the decimal"));
+						+ " digits before the decimal",
+						propertyPath));
 	}
 
-	private void recordMustContainDigitsOnlyError(String value, ModelToXmlResult result) {
+	private void recordMustContainDigitsOnlyError(String value, String propertyPath, ModelToXmlResult result) {
 		result.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR,
 						"Value \"" + value + "\" can only contain digits, with a maximum of " + MAX_DIGITS_BEFORE_DECIMAL +
-						" before the decimal and " + MAX_DIGITS_AFTER_DECIMAL + " after the decimal."
+						" before the decimal and " + MAX_DIGITS_AFTER_DECIMAL + " after the decimal.",
+						propertyPath
 						));
 	}
 	
-	private void recordCurrencyMustBeCadError(ModelToXmlResult modelToXmlResult) {
+	private void recordCurrencyMustBeCadError(String propertyPath, ModelToXmlResult modelToXmlResult) {
 		modelToXmlResult.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"currency\" has been provided, but it must be CAD."));
+						"The attribute \"currency\" has been provided, but it must be CAD.",
+						propertyPath));
 	}
 
-	private void recordMissingCurrencyError(ModelToXmlResult modelToXmlResult) {
+	private void recordMissingCurrencyError(String propertyPath, ModelToXmlResult modelToXmlResult) {
 		modelToXmlResult.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"currency\" is mandatory and must be specified."));
+						"The attribute \"currency\" is mandatory and must be specified.",
+						propertyPath));
 	}
 	
-	private void recordMissingValueError(ModelToXmlResult modelToXmlResult) {
+	private void recordMissingValueError(String propertyPath, ModelToXmlResult modelToXmlResult) {
 		modelToXmlResult.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" is mandatory and must be specified."));
+						"The attribute \"value\" is mandatory and must be specified.",
+						propertyPath));
 	}
 	
 }

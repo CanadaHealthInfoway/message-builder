@@ -85,7 +85,7 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
         result.setUses(getNameUses(getAttributeValue(node, "use"), node, xmlToModelResult));
         // FIXME - VALIDATION - TM - missing useablePeriod (only for MR2009 AD.FULL)
 
-        AD_VALIDATION_UTILS.validatePostalAddress(result, context.getType(), context.getVersion().getBaseVersion(), (Element) node, xmlToModelResult);
+        AD_VALIDATION_UTILS.validatePostalAddress(result, context.getType(), context.getVersion().getBaseVersion(), (Element) node, null, xmlToModelResult);
         
         return result;
     }

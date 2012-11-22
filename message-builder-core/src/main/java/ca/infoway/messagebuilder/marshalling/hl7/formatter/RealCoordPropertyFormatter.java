@@ -78,19 +78,19 @@ public class RealCoordPropertyFormatter extends AbstractValueNullFlavorPropertyF
 		String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
 		
     	if (integerPart.length() > realFormat.getMaxIntegerPartLength()){
-    		recordTooManyCharactersToLeftOfDecimalError(modelToXmlResult);
+    		recordTooManyCharactersToLeftOfDecimalError(context.getPropertyPath(), modelToXmlResult);
     	}
     	if (decimalPart.length() > realFormat.getMaxDecimalPartLength()) {
-    		recordTooManyDigitsToRightOfDecimalError(modelToXmlResult);
+    		recordTooManyDigitsToRightOfDecimalError(context.getPropertyPath(), modelToXmlResult);
     	}
 	}
 
-	private void recordTooManyCharactersToLeftOfDecimalError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxIntegerPartLength() + " characters to the left of the decimal. Value has been modified to fit format requirements."));
+	private void recordTooManyCharactersToLeftOfDecimalError(String propertyPath, ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxIntegerPartLength() + " characters to the left of the decimal. Value has been modified to fit format requirements.", propertyPath));
 	}
 	
-	private void recordTooManyDigitsToRightOfDecimalError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements."));
+	private void recordTooManyDigitsToRightOfDecimalError(String propertyPath, ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.COORD must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements.", propertyPath));
 	}
 	
 }

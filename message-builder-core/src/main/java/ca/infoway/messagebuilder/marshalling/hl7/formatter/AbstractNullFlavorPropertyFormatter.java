@@ -100,7 +100,7 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 
 	protected void createMissingMandatoryWarning(FormatContext context) {
 		context.getModelToXmlResult().addHl7Error(
-			new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, context.getElementName() + " is a mandatory field, but no value is specified")
+			new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, context.getElementName() + " is a mandatory field, but no value is specified", context.getPropertyPath())
 		);
 	}
 

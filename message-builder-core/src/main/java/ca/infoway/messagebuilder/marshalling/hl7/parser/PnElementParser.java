@@ -76,7 +76,7 @@ class PnElementParser extends AbstractEntityNameElementParser {
 
 	@Override
 	protected void validateName(EntityName result, ParseContext context, Element element, Hl7Errors errors) {
-		PN_VALIDATION_UTILS.validatePersonName((PersonName) result, context.getType(), context.getVersion().getBaseVersion(), element, errors);
+		PN_VALIDATION_UTILS.validatePersonName((PersonName) result, context.getType(), context.getVersion().getBaseVersion(), element, null, errors);
 	}
 	
     @Override

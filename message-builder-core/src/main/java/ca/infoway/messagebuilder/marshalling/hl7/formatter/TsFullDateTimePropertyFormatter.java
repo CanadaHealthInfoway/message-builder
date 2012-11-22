@@ -79,14 +79,16 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 				context.getModelToXmlResult().addHl7Error(
 						new Hl7Error(
 								Hl7ErrorCode.DATA_TYPE_ERROR, 
-								MessageFormat.format("Date format {0} supplied for value of type {1} should also have a timezone (ZZZZZ)", datePattern, context == null ? "TS" : context.getType())
+								MessageFormat.format("Date format {0} supplied for value of type {1} should also have a timezone (ZZZZZ)", datePattern, context == null ? "TS" : context.getType()),
+								context.getPropertyPath()
 								));
 			}
 		} else {
 			context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(
 							Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType())
+							MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()),
+							context.getPropertyPath()
 							));
 		}
 	}

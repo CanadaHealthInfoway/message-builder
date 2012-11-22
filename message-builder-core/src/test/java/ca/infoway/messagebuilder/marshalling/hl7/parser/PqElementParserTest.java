@@ -200,7 +200,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"123456789012.12\"/>) for MR2007/PQ.BASIC can contain a maximum of 11 integer places", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("PhysicalQuantity for MR2007/PQ.BASIC can contain a maximum of 11 integer places (<something unit=\"kg\" value=\"123456789012.12\"/>)", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -216,7 +216,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"123456789.12\"/>) for CERX/PQ.BASIC can contain a maximum of 8 integer places", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("PhysicalQuantity for CERX/PQ.BASIC can contain a maximum of 8 integer places (<something unit=\"kg\" value=\"123456789.12\"/>)", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -227,7 +227,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"12345678901.1234\"/>) for MR2007/PQ.BASIC can contain a maximum of 2 decimal places", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("PhysicalQuantity for MR2007/PQ.BASIC can contain a maximum of 2 decimal places (<something unit=\"kg\" value=\"12345678901.1234\"/>)", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test
@@ -243,7 +243,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(physicalQuantity);
 		assertFalse("result", this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("PhysicalQuantity (<something unit=\"kg\" value=\"12345678901.12345\"/>) for MR2009/PQ.DRUG can contain a maximum of 4 decimal places", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("PhysicalQuantity for MR2009/PQ.DRUG can contain a maximum of 4 decimal places (<something unit=\"kg\" value=\"12345678901.12345\"/>)", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 }

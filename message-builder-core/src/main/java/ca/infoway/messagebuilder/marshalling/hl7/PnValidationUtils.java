@@ -79,12 +79,12 @@ public class PnValidationUtils {
     	ALLOWABLE_NAME_PART_QUALIFIERS.add("CL");
     }
 
-	public void validatePersonName(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
-    	validatePersonNameUses(personName, type, baseVersion, element, errors);
-    	validatePersonNameParts(personName, type, baseVersion, element, errors);
+	public void validatePersonName(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+    	validatePersonNameUses(personName, type, baseVersion, element, errors, propertyPath);
+    	validatePersonNameParts(personName, type, baseVersion, element, propertyPath, errors);
 	}
 
-	private void validatePersonNameParts(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
+	private void validatePersonNameParts(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
     	boolean isBasic = StandardDataType.PN_BASIC.getType().equals(type);
     	boolean isSimple = StandardDataType.PN_SIMPLE.getType().equals(type);
     	boolean isFull = StandardDataType.PN_FULL.getType().equals(type);
@@ -95,13 +95,13 @@ public class PnValidationUtils {
     	
     	int numParts = personName.getParts().size();
 		if (numParts > MAX_PARTS) {
-			createError("A maximum of " + MAX_PARTS + " name parts are allowed. Found: " + numParts, element, errors);
+			createError("A maximum of " + MAX_PARTS + " name parts are allowed. Found: " + numParts, element, propertyPath, errors);
     	}
     	
     	for (EntityNamePart personNamePart : personName.getParts()) {
 			int partLength = StringUtils.length(personNamePart.getValue());
 			if ((isCeRx && partLength > MAX_PART_LENGTH_CERX) || partLength > MAX_PART_LENGTH) {
-    			createError("Address part types have a maximum allowed length of " + (isCeRx ? MAX_PART_LENGTH_CERX : MAX_PART_LENGTH) + " (length found: " + partLength + ")", element, errors);
+    			createError("Name part types have a maximum allowed length of " + (isCeRx ? MAX_PART_LENGTH_CERX : MAX_PART_LENGTH) + " (length found: " + partLength + ")", element, propertyPath, errors);
 			}
 
 			// error if part type not allowed
@@ -110,49 +110,49 @@ public class PnValidationUtils {
 				countBlankParts++;
 				// no part type : only allowed for SIMPLE or, if CeRx, BASIC (max 1 in both cases)
 	    		if (!isSimple && !(isBasic && isCeRx)) {
-	    			createError("Names without a part type are not allowed", element, errors);
+	    			createError("Names without a part type are not allowed", element, propertyPath, errors);
 	    		}
 	    	} else if (!ALLOWABLE_NAME_PARTS.contains(partType.getValue())) {
-    			createError("Part type " + partType.getValue() + " is not allowed for " + type, element, errors);
+    			createError("Part type " + partType.getValue() + " is not allowed for " + type, element, propertyPath, errors);
 			}
 			
 			String qualifier = personNamePart.getQualifier();
 			if (StringUtils.isNotBlank(qualifier)) {
 				if (isCeRx || (isMr2009(baseVersion) && isBasic)) {
 					if (!"IN".equals(qualifier)) {
-		    			createError("Qualifier '" + qualifier + "' not valid. Only 'IN' is allowed.", element, errors);
+		    			createError("Qualifier '" + qualifier + "' not valid. Only 'IN' is allowed.", element, propertyPath, errors);
 					}
 				} else if (!ALLOWABLE_NAME_PART_QUALIFIERS.contains(qualifier)) {
-	    			createError("Qualifier '" + qualifier + "' not valid.", element, errors);
+	    			createError("Qualifier '" + qualifier + "' not valid.", element, propertyPath, errors);
 				}
 			}
 		}
 
     	if (isSimple && (countBlankParts > 1 || numParts > 1 || (numParts > 0 && countBlankParts == 0))) {
-			createError("For PN.SIMPLE, only one simple name (a name without a part type) is allowed, and no other name parts are allowed.", element, errors);
+			createError("For PN.SIMPLE, only one simple name (a name without a part type) is allowed, and no other name parts are allowed.", element, propertyPath, errors);
     	}
     	if ((isBasic && isCeRx) && (countBlankParts > 1 || numParts > 1)) {
-			createError("For CeRx PN.BASIC, only a single simple name (a name without a part type) is allowed. Multiple name parts can be provided, but none of them may be simple.", element, errors);
+			createError("For CeRx PN.BASIC, only a single simple name (a name without a part type) is allowed. Multiple name parts can be provided, but none of them may be simple.", element, propertyPath, errors);
     	}
     	
     	// confirmed with CHI that simple and basic types do not have to provide any name parts 
     	if (numParts == 0 && (isFull || isSearch)) {
-			createError("At least one name part must be specified.", element, errors);
+			createError("At least one name part must be specified.", element, propertyPath, errors);
     	}
     	
 	}
 
-	private void validatePersonNameUses(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
+	private void validatePersonNameUses(PersonName personName, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors, String propertyPath) {
     	boolean isSearch = StandardDataType.PN_SEARCH.getType().equals(type);
 		int numUses = personName.getUses().size();
 		// confirmed with CHI that multiple uses are allowed (specs don't indicate either way)
 		if (numUses == 0 && !isSearch) {
-			createError("PersonName 'use' property is mandatory.", element, errors);
+			createError("PersonName 'use' property is mandatory.", element, propertyPath, errors);
 		}
     	
 		for (EntityNameUse personNameUse : personName.getUses()) {
 			if (!isAllowableUse(type, personNameUse, baseVersion)) {
-   				createError("PersonNameUse is not valid: " + (personNameUse == null ? "null" : personNameUse.getCodeValue()), element, errors);
+   				createError("PersonNameUse is not valid: " + (personNameUse == null ? "null" : personNameUse.getCodeValue()), element, propertyPath, errors);
 			}
 		}
 	}
@@ -170,14 +170,21 @@ public class PnValidationUtils {
 		return baseVersion == Hl7BaseVersion.MR2009;
 	}
 
-	private void createError(String errorMessage, Element element, Hl7Errors errors) {
-		errors.addHl7Error(
-				new Hl7Error(
-						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						errorMessage + 
-						(element == null ? "" : (" (" + XmlDescriber.describeSingleElement(element) + ")")), 
-						element));
+	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
+		Hl7Error error = null;
+		if (element != null) {
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage + 	" (" + XmlDescriber.describeSingleElement(element) + ")", 
+					element);		
+		} else { // assuming this has a property path
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage, 
+					propertyPath);		
+		}
+		
+		errors.addHl7Error(error);
 	}
 	
-
 }

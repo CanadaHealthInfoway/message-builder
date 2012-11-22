@@ -77,11 +77,11 @@ public class PqValidationUtils {
 		return exceptionValue == null ? MAXIMUM_INTEGER_DIGITS : exceptionValue;
 	}
 
-	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(StandardDataType dataType, Hl7Errors errors) {
-		return getUnitTypeByHl7Type(dataType == null ? null : dataType.getType(), null, errors);
+	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(StandardDataType dataType, String propertyPath, Hl7Errors errors) {
+		return getUnitTypeByHl7Type(dataType == null ? null : dataType.getType(), null, propertyPath, errors);
 	}
 	
-	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(String typeAsString, Element element, Hl7Errors errors) {
+	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(String typeAsString, Element element, String propertyPath, Hl7Errors errors) {
 		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
 		if (PQ_BASIC.equals(type)) {
 			return x_BasicUnitsOfMeasure.class;
@@ -96,52 +96,38 @@ public class PqValidationUtils {
 		} else if (PQ_DISTANCE.equals(type)) {
 			return x_DistanceObservationUnitsOfMeasure.class;
 		} else {
-			String elementString = element == null ? "" : (" (" + XmlDescriber.describeSingleElement(element) + ")");
-			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-					MessageFormat.format("Type \"{0}\" is not a valid PQ type{1}",
-							typeAsString, elementString, typeAsString), element)); 
+			createError(MessageFormat.format("Type \"{0}\" is not a valid PQ type",	typeAsString), element, propertyPath, errors);
 			return UnitsOfMeasureCaseSensitive.class;
 		}
 	}
 
-    public BigDecimal validateValue(String value, VersionNumber version, String type, Element element, Hl7Errors errors) {
+    public BigDecimal validateValue(String value, VersionNumber version, String type, Element element, String propertyPath, Hl7Errors errors) {
     	int maxIntDigits = this.getMaxIntDigits(version, type);
     	int maxFractionDigits = this.getMaxFractionDigits(version, type);
     	boolean alreadyWarnedAboutValue = false;
     	
-    	String elementString = element == null ? "" : (" (" + XmlDescriber.describeSingleElement(element) + ")");
-    	
 		BigDecimal result = null;
 		
 		if (StringUtils.isBlank(value)) {
-			errors.addHl7Error(new Hl7Error(
-					Hl7ErrorCode.DATA_TYPE_ERROR, 
-					MessageFormat.format("No value provided for physical quantity{0}",elementString), 
-					element));
+			createError("No value provided for physical quantity", element, propertyPath, errors);
 		} else {
 			if (NumberUtil.isNumber(value)) {
 				String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
 				String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
 				
-				String errorMessage = "PhysicalQuantity{0} for {1}/{2} can contain a maximum of {3} {4} places";
+				String errorMessage = "PhysicalQuantity for {0}/{1} can contain a maximum of {2} {3} places";
 				
 				if (StringUtils.length(decimalPart) > maxFractionDigits) {
-					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format(errorMessage,
-									elementString, version.getBaseVersion(), type, maxFractionDigits, "decimal"), element));
+					createError(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxFractionDigits, "decimal"), element, propertyPath, errors);
 		        }
 				
 				if (StringUtils.length(integerPart) > maxIntDigits) {
-					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format(errorMessage,
-									elementString, version.getBaseVersion(), type, maxIntDigits, "integer"), element));
+					createError(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxIntDigits, "integer"), element, propertyPath, errors);
 		        }
 	
 				if (!StringUtils.isNumeric(integerPart) || !StringUtils.isNumeric(decimalPart)) {
 					alreadyWarnedAboutValue = true;
-					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("value \"{0}\" must contain digits only{1}",
-									value, elementString), element));
+					createError(MessageFormat.format("value \"{0}\" must contain digits only", value), element, propertyPath, errors);
 				}
 			}
 			
@@ -149,9 +135,7 @@ public class PqValidationUtils {
 				result = new BigDecimal(value);
 			} catch (NumberFormatException e) {
 				if (!alreadyWarnedAboutValue) {
-					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("value \"{0}\" is not a valid decimal value ({1})",
-									value, XmlDescriber.describeSingleElement(element)), element));
+					createError(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
 				}
 			}
 		}
@@ -159,18 +143,32 @@ public class PqValidationUtils {
 		return result;
     }
 
-	public UnitsOfMeasureCaseSensitive validateUnits(String type, String unitsAsString, Element element, Hl7Errors errors) {
+	public UnitsOfMeasureCaseSensitive validateUnits(String type, String unitsAsString, Element element, String propertyPath, Hl7Errors errors) {
 		UnitsOfMeasureCaseSensitive units = null;
 		if (StringUtils.isNotBlank(unitsAsString)) {
-			units = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.getUnitTypeByHl7Type(type, element, errors), unitsAsString);
+			units = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.getUnitTypeByHl7Type(type, element, propertyPath, errors), unitsAsString);
 			if (units == null) {
-				String elementString = element == null ? "" : (" (" + XmlDescriber.describeSingleElement(element) + ")");
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
-						MessageFormat.format("Unit \"{0}\" is not valid for type {2}{1}",
-								unitsAsString, elementString, type), element));
+				createError(MessageFormat.format("Unit \"{0}\" is not valid for type {1}", unitsAsString, type), element, propertyPath, errors);
 			}
 		}
 		return units;
 	}
 
+	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
+		Hl7Error error = null;
+		if (element != null) {
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage + 	" (" + XmlDescriber.describeSingleElement(element) + ")", 
+					element);		
+		} else { // assuming this has a property path
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage, 
+					propertyPath);		
+		}
+		
+		errors.addHl7Error(error);
+	}
+	
 }

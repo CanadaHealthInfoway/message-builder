@@ -72,19 +72,19 @@ public class RealConfPropertyFormatter extends AbstractValueNullFlavorPropertyFo
 	private void validate(FormatContext context, BigDecimal bigDecimal) {
 		ModelToXmlResult modelToXmlResult = context.getModelToXmlResult();
     	if (bigDecimal.compareTo(BigDecimal.ZERO) < 0 || bigDecimal.compareTo(BigDecimal.ONE) > 0){
-    		recordValueMustBeBetweenZeroAndOneError(modelToXmlResult);
+    		recordValueMustBeBetweenZeroAndOneError(context.getPropertyPath(), modelToXmlResult);
     	}
     	if (bigDecimal.scale() > realFormat.getMaxDecimalPartLength()) {
-    		recordTooManyDigitsToRightOfDecimalError(modelToXmlResult);
+    		recordTooManyDigitsToRightOfDecimalError(context.getPropertyPath(), modelToXmlResult);
     	}
 	}
 
-	private void recordValueMustBeBetweenZeroAndOneError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must be between 0 and 1 (inclusive). Value may have been modified to fit format requirements."));
+	private void recordValueMustBeBetweenZeroAndOneError(String propertyPath, ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must be between 0 and 1 (inclusive). Value may have been modified to fit format requirements.", propertyPath));
 	}
 	
-	private void recordTooManyDigitsToRightOfDecimalError(ModelToXmlResult modelToXmlResult) {
-		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements."));
+	private void recordTooManyDigitsToRightOfDecimalError(String propertyPath, ModelToXmlResult modelToXmlResult) {
+		modelToXmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Value for REAL.CONF must have no more than " + realFormat.getMaxDecimalPartLength() + " digits to the right of the decimal. Value has been modified to fit format requirements.", propertyPath));
 	}
 	
 }

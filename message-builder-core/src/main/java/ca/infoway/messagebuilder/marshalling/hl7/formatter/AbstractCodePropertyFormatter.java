@@ -74,7 +74,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
 	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
 	    		
-	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, errors);
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
 	    		
 	    		for (Hl7Error hl7Error : errors.getHl7Errors()) {
 	    			System.out.println(hl7Error);
@@ -118,7 +118,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
 	private void logMandatoryError(FormatContext context) {
 		String errorMessage = context.getElementName() + " is a mandatory field, but no value is specified";
-		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage));
+		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, context.getPropertyPath()));
 	}
 
 	protected boolean hasChildContent(CD cd, FormatContext context) {

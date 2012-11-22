@@ -59,10 +59,10 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
         ModelToXmlResult errors = context.getModelToXmlResult();
         
         String quantityAsString = physicalQuantity.getQuantity() == null ? null : physicalQuantity.getQuantity().toPlainString();
-		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, null, errors);
+		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, null, context.getPropertyPath(), errors);
         
 		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
-		this.pqValidationUtils.validateUnits(type, unitsAsString, null, errors);
+		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors);
 	}
 
 	private Map<String, String> createPhysicalQuantityAttributes(PhysicalQuantity physicalQuantity) {

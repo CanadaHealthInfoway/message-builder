@@ -59,7 +59,7 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
     	VersionNumber version = context.getVersion();
     	Hl7Errors errors = context.getModelToXmlResult();
     	
-    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(phonemail, type, specializationType, version, null, errors);
+    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(phonemail, type, specializationType, version, null, context.getPropertyPath(), errors);
     	
         return phonemail.toString();
     }
@@ -67,7 +67,7 @@ public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorProper
     @Override
     protected void addOtherAttributesIfNecessary(TelecommunicationAddress phonemail, Map<String, String> attributes, FormatContext context,	BareANY bareAny) {
         if (!phonemail.getAddressUses().isEmpty()) {
-    		String actualType = TEL_VALIDATION_UTILS.determineActualType(phonemail, context.getType(), bareAny.getDataType().getType(), context.getVersion(), null, context.getModelToXmlResult(), false);
+    		String actualType = TEL_VALIDATION_UTILS.determineActualType(phonemail, context.getType(), bareAny.getDataType().getType(), context.getVersion(), null, context.getPropertyPath(), context.getModelToXmlResult(), false);
 
     		StringBuffer useValue = new StringBuffer();
             boolean isFirst = true;

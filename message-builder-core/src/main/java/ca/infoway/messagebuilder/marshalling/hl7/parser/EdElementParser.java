@@ -112,7 +112,7 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 		
 		boolean hasCompression = element.hasAttribute(ATTRIBUTE_COMPRESSION);
 		
-		this.edValidationUtils.doValidate(specializationType, compression, hasCompression, mediaType, language, representation, reference, content, baseVersion, type, errors, element);
+		this.edValidationUtils.doValidate(specializationType, compression, hasCompression, mediaType, language, representation, reference, content, baseVersion, type, element, null, errors);
 		
 	}
 

@@ -65,7 +65,7 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
     	
     	Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
 		String dataType = context.getType();
-		AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, dataType, baseVersion, null, context.getModelToXmlResult());
+		AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, dataType, baseVersion, null, context.getPropertyPath(), context.getModelToXmlResult());
     	
     	PostalAddress basicAddress = new PostalAddress();
     	

@@ -77,7 +77,8 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
 		if (!ArrayUtils.contains(allowedDateFormats, datePattern)) {
 			Hl7Error hl7Error = new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR, 
-					MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()));
+					MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()),
+					context.getPropertyPath());
 			context.getModelToXmlResult().addHl7Error(hl7Error);
 		}
 	}

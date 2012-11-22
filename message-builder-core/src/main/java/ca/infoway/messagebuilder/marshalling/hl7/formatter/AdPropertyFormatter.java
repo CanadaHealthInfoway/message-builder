@@ -50,7 +50,7 @@ class AdPropertyFormatter extends AbstractAdPropertyFormatter {
     @Override
     final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
     	
-    	AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), context.getVersion().getBaseVersion(), null, context.getModelToXmlResult());
+    	AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), context.getVersion().getBaseVersion(), null, context.getPropertyPath(), context.getModelToXmlResult());
     	
     	return super.formatNonNullValue(context, postalAddress, indentLevel);
     }

@@ -44,6 +44,6 @@ class PnPropertyFormatter extends AbstractEntityNamePropertyFormatter<PersonName
 
     @Override
     protected void validateName(PersonName value, FormatContext context) {
-		PN_VALIDATION_UTILS.validatePersonName(value, context.getType(), context.getVersion().getBaseVersion(), null, context.getModelToXmlResult());
+		PN_VALIDATION_UTILS.validatePersonName(value, context.getType(), context.getVersion().getBaseVersion(), null, context.getPropertyPath(), context.getModelToXmlResult());
     }
 }

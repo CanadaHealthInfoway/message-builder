@@ -56,15 +56,16 @@ class IntPosPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<I
     
     private void validate(Integer integer, FormatContext context, BareANY bareAny) {
     	if (integer.intValue() <= 0) {
-    		recordMustBeGreaterThanZeroError(integer, context.getModelToXmlResult());
+    		recordMustBeGreaterThanZeroError(integer, context.getPropertyPath(), context.getModelToXmlResult());
     	}
 	}
 
-	private void recordMustBeGreaterThanZeroError(Integer integer, ModelToXmlResult modelToXmlResult) {
+	private void recordMustBeGreaterThanZeroError(Integer integer, String propertyPath, ModelToXmlResult modelToXmlResult) {
 		modelToXmlResult.addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"The attribute \"value\" must be greater than zero for INT.POS.")); 
+						"The attribute \"value\" must be greater than zero for INT.POS.",
+						propertyPath)); 
 	}
 
 }

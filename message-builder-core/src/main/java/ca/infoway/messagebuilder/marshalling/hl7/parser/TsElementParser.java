@@ -117,7 +117,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		} else {
             try {
                 result = parseDate(unparsedDate, getAllDateFormats(context), context);
-				checkForMissingTimezone(context, xmlToModelResult, result, unparsedDate);
+				checkForMissingTimezone(context, xmlToModelResult, result, unparsedDate, element);
             } catch (IllegalArgumentException e) {
                 result = tryEveryFormat(context, unparsedDate, element, xmlToModelResult);
                 if (result == null) {
@@ -130,11 +130,15 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		return result;
 	}
 
-	private void checkForMissingTimezone(ParseContext context, XmlToModelResult xmlToModelResult, Date result, String unparsedDate) {
+	private void checkForMissingTimezone(ParseContext context, XmlToModelResult xmlToModelResult, Date result, String unparsedDate, Element element) {
 		// issue a warning if a datetime (partial or otherwise) was passed in without a timezone (non-CeRx only)
 		if (context == null || context.getVersion() == null || !SpecificationVersion.isVersion(context.getVersion(), Hl7BaseVersion.CERX)) {
 			if (result instanceof DateWithPattern && TsDateFormats.datetimeFormatsRequiringWarning.contains(((DateWithPattern) result).getDatePattern()))  {
-				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timezone should be specified for datetime " + unparsedDate + ". Value processed without timezone."));
+				xmlToModelResult.addHl7Error(
+						new Hl7Error(
+								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								"Timezone should be specified for datetime " + unparsedDate + ". Value processed without timezone.", 
+								element));
 			}
 		}
 	}
@@ -226,11 +230,11 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		return timeZone == null ? TimeZone.getDefault() : timeZone;
 	}
 
-	private boolean isDateTime(ParseContext context) {
-		return StandardDataType.TS_DATETIME.equals(StandardDataType.getByTypeName(context)) ||
-				StandardDataType.TS_FULLDATETIME.equals(StandardDataType.getByTypeName(context)) ||
-				StandardDataType.TS_FULLDATEWITHTIME.equals(StandardDataType.getByTypeName(context));
-	}
+//	private boolean isDateTime(ParseContext context) {
+//		return StandardDataType.TS_DATETIME.equals(StandardDataType.getByTypeName(context)) ||
+//				StandardDataType.TS_FULLDATETIME.equals(StandardDataType.getByTypeName(context)) ||
+//				StandardDataType.TS_FULLDATEWITHTIME.equals(StandardDataType.getByTypeName(context));
+//	}
 
 	private boolean isDate(ParseContext context) {
 		return StandardDataType.TS_DATE.equals(StandardDataType.getByTypeName(context)) ||

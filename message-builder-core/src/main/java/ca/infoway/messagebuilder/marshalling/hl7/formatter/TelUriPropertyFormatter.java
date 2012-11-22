@@ -55,7 +55,7 @@ public class TelUriPropertyFormatter extends AbstractValueNullFlavorPropertyForm
     	VersionNumber version = context.getVersion();
     	Hl7Errors errors = context.getModelToXmlResult();
     	
-    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(uri, type, specializationType.getType(), version, null, errors);
+    	TEL_VALIDATION_UTILS.validateTelecommunicationAddress(uri, type, specializationType.getType(), version, null, context.getPropertyPath(), errors);
     	
         return uri.toString();
     }

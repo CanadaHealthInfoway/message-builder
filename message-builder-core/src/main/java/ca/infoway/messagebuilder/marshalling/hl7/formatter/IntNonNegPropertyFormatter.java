@@ -54,14 +54,16 @@ class IntNonNegPropertyFormatter extends AbstractValueNullFlavorPropertyFormatte
     
     private void validate(Integer integer, FormatContext context, BareANY bareAny) {
     	if (integer.intValue() < 0) {
-    		recordNotNegativeError(integer, context.getModelToXmlResult());
+    		recordNotNegativeError(integer, context.getPropertyPath(), context.getModelToXmlResult());
     	}
 	}
 
-	private void recordNotNegativeError(Integer integer, ModelToXmlResult modelToXmlResult) {
+	private void recordNotNegativeError(Integer integer, String propertyPath, ModelToXmlResult modelToXmlResult) {
 		modelToXmlResult.addHl7Error(
 				new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR, 
-					"The attribute \"value\" must not be negative for INT.NONNEG.")); 
+					"The attribute \"value\" must not be negative for INT.NONNEG.",
+					propertyPath
+					)); 
 	}
 }

@@ -36,7 +36,7 @@ public class XmlToModelResultTest {
 		XmlToModelResult xmlResult = new XmlToModelResult();
 		assertTrue("is valid", xmlResult.isValid());
 		
-		xmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "monkey"));
+		xmlResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "monkey", "a.property.path"));
 		assertFalse("is not valid", xmlResult.isValid());
 	}
 }

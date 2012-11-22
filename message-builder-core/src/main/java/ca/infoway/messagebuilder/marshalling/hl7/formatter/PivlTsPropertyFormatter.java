@@ -153,7 +153,8 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 		context.getModelToXmlResult().addHl7Error(
 				new Hl7Error(
 						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						"Both repetitions and quantity must be non-null for values of type PIVL<TS.DATETIME>")
+						"Both repetitions and quantity must be non-null for values of type PIVL<TS.DATETIME>",
+						context.getPropertyPath())
 		);
 	}
 

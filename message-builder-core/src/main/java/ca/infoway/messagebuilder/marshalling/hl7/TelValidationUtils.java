@@ -78,14 +78,14 @@ public class TelValidationUtils {
         ALLOWABLE_SCHEMES_BY_TYPE.put("TEL.URI", ALLOWABLE_URI_SCHEMES);
     }
 
-	public void validateTelecommunicationAddress(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, Hl7Errors errors) {
-		String actualType = determineActualType(telecomAddress, type, specializationType, version, element, errors, true);
-    	validateTelecomAddressUses(telecomAddress, actualType, version, element, errors);
-    	validateTelecomAddressScheme(telecomAddress, actualType, version.getBaseVersion(), element, errors);
-    	validateTelecomAddressValue(telecomAddress, actualType, version, element, errors);
+	public void validateTelecommunicationAddress(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
+		String actualType = determineActualType(telecomAddress, type, specializationType, version, element, propertyPath, errors, true);
+    	validateTelecomAddressUses(telecomAddress, actualType, version, element, propertyPath, errors);
+    	validateTelecomAddressScheme(telecomAddress, actualType, version.getBaseVersion(), element, propertyPath, errors);
+    	validateTelecomAddressValue(telecomAddress, actualType, version, element, propertyPath, errors);
 	}
 
-	public String determineActualType(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, Hl7Errors errors, boolean logErrors) {
+	public String determineActualType(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, String propertyPath, Hl7Errors errors, boolean logErrors) {
 		String actualType = type;
 		if (StandardDataType.TEL_PHONEMAIL.getType().equals(type)) {
 			if (isCeRxOrNewfoundland(version)) {
@@ -98,12 +98,12 @@ public class TelValidationUtils {
 			} else {
 				if (StringUtils.isBlank(specializationType)) {
 					if (logErrors) {
-						createError("No specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+						createError("No specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, propertyPath, errors);
 					}
 					actualType = "TEL.PHONE";
 				} else if (!StandardDataType.TEL_PHONE.getType().equals(specializationType) && !StandardDataType.TEL_EMAIL.getType().equals(specializationType)) {
 					if (logErrors) {
-						createError("Invalid specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, errors);
+						createError("Invalid specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, propertyPath, errors);
 					}
 					actualType = "TEL.PHONE";
 				} else {
@@ -114,64 +114,64 @@ public class TelValidationUtils {
 		return actualType;
 	}
 
-	private void validateTelecomAddressValue(TelecommunicationAddress telecomAddress, String type, VersionNumber version, Element element, Hl7Errors errors) {
+	private void validateTelecomAddressValue(TelecommunicationAddress telecomAddress, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		Hl7BaseVersion baseVersion = version.getBaseVersion();
 		String address = telecomAddress.getAddress();
 		int schemePlusAddressLength = telecomAddress.toString().length();
 
 		if (StringUtils.isBlank(address)) {
-			createError("TelecomAddress must have a value for the actual address", element, errors);
+			createError("TelecomAddress must have a value for the actual address", element, propertyPath, errors);
 		} else if (StandardDataType.TEL_EMAIL.getType().equals(type) && schemePlusAddressLength > MAX_VALUE_LENGTH_EMAIL) {
-			createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_EMAIL, type, baseVersion, element, errors);
+			createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_EMAIL, type, baseVersion, element, propertyPath, errors);
 		} else if (StandardDataType.TEL_URI.getType().equals(type) && schemePlusAddressLength > MAX_VALUE_LENGTH_URI) {
-			createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_URI, type, baseVersion, element, errors);
+			createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_URI, type, baseVersion, element, propertyPath, errors);
 		} else if (StandardDataType.TEL_PHONE.getType().equals(type)) {
 			if (isMr2007(baseVersion) || isCeRxOrNewfoundland(version)) {
 				if (schemePlusAddressLength > MAX_VALUE_LENGTH_PHONE_MR2007_CERX) {
-					createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_PHONE_MR2007_CERX, type, baseVersion, element, errors);
+					createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_PHONE_MR2007_CERX, type, baseVersion, element, propertyPath, errors);
 				}
 			} else {
 				if (schemePlusAddressLength > MAX_VALUE_LENGTH_PHONE_MR2009) {
-					createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_PHONE_MR2009, type, baseVersion, element, errors);
+					createMaxLengthError(schemePlusAddressLength, MAX_VALUE_LENGTH_PHONE_MR2009, type, baseVersion, element, propertyPath, errors);
 				}
 			}
 		}
 	}
 
-	private void createMaxLengthError(int addressLength, int maxLength,	String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
-		createError(type + " value (scheme + address) limited to a length of " + maxLength + " for " + baseVersion + " (length was " + addressLength + ")", element, errors);
+	private void createMaxLengthError(int addressLength, int maxLength,	String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+		createError(type + " value (scheme + address) limited to a length of " + maxLength + " for " + baseVersion + " (length was " + addressLength + ")", element, propertyPath, errors);
 	}
 
-	private void validateTelecomAddressScheme(TelecommunicationAddress telecomAddress, String type, Hl7BaseVersion baseVersion, Element element, Hl7Errors errors) {
+	private void validateTelecomAddressScheme(TelecommunicationAddress telecomAddress, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
     	URLScheme urlScheme = telecomAddress.getUrlScheme();
     	
     	if (urlScheme == null) {
-			createError("TelecomAddress must have a valid URL scheme (e.g. 'http://')", element, errors);
+			createError("TelecomAddress must have a valid URL scheme (e.g. 'http://')", element, propertyPath, errors);
     	} else {
     		Set<String> allowableSchemes = ALLOWABLE_SCHEMES_BY_TYPE.get(type);
     		if (allowableSchemes == null || !allowableSchemes.contains(urlScheme.getCodeValue())) {
-    			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, errors);
+    			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, propertyPath, errors);
     		}
     	}
 	}
 
-	private void validateTelecomAddressUses(TelecommunicationAddress telecomAddress, String type, VersionNumber version, Element element, Hl7Errors errors) {
+	private void validateTelecomAddressUses(TelecommunicationAddress telecomAddress, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		int numUses = telecomAddress.getAddressUses().size();
     	boolean isUri = StandardDataType.TEL_URI.getType().equals(type);
 		if (isUri && numUses > 0) {
     		// error if > 0 and URI
-			createError("TelecomAddressUses are not allowed for TEL.URI", element, errors);
+			createError("TelecomAddressUses are not allowed for TEL.URI", element, propertyPath, errors);
     	} else {
 			if (numUses > MAX_USES) {
 				// error if more than 3 uses
-				createError("A maximum of 3 TelecomAddressUses are allowed (number found: " + numUses + ")", element, errors);
+				createError("A maximum of 3 TelecomAddressUses are allowed (number found: " + numUses + ")", element, propertyPath, errors);
 			}
 		}
     	
 		if (!isUri) {
 			for (TelecommunicationAddressUse telecomAddressUse : telecomAddress.getAddressUses()) {
 				if (!isAllowableUse(type, telecomAddressUse, version)) {
-	   				createError("TelecomAddressUse is not valid: " + (telecomAddressUse == null ? "null" : telecomAddressUse.getCodeValue()), element, errors);
+	   				createError("TelecomAddressUse is not valid: " + (telecomAddressUse == null ? "null" : telecomAddressUse.getCodeValue()), element, propertyPath, errors);
 				}
 			}
 		}
@@ -209,14 +209,21 @@ public class TelValidationUtils {
 				|| isConfOrDir(telecomAddressUse);
 	}
 
-	private void createError(String errorMessage, Element element, Hl7Errors errors) {
-		errors.addHl7Error(
-				new Hl7Error(
-						Hl7ErrorCode.DATA_TYPE_ERROR, 
-						errorMessage + 
-						(element == null ? "" : (" (" + XmlDescriber.describeSingleElement(element) + ")")), 
-						element));
+	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
+		Hl7Error error = null;
+		if (element != null) {
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage + 	" (" + XmlDescriber.describeSingleElement(element) + ")", 
+					element);		
+		} else { // assuming this has a property path
+			error = new Hl7Error(
+					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					errorMessage, 
+					propertyPath);		
+		}
+		
+		errors.addHl7Error(error);
 	}
-	
 
 }
