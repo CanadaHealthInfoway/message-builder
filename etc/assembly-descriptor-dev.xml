@@ -142,8 +142,9 @@
           <outputDirectory>simple-xml/bin</outputDirectory>
         </binaries>
       </moduleSet>
+      -->
     </moduleSets>
-    -->
+
 
     <fileSets>
       <!-- Javadocs -->
