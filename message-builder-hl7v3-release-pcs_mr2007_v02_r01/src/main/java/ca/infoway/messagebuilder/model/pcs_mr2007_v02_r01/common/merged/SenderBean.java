@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -57,20 +57,36 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IB:Sending Network Address</p>
      * 
-     * <p><p>The network address of the application which sent the 
-     * message.</p></p>
+     * <p>The network address of the application which sent the 
+     * message.</p>
      * 
-     * <p><p>soap:Header\wsa:From</p></p>
+     * <p>soap:Header\wsa:From</p>
      * 
-     * <p><p>May be important for sender validation. Usually also 
-     * the address to which responses are sent. This is optional 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
      * because not all environments require network addresses. It 
-     * is mandatory when communicating using SOAP.</p></p>
+     * is mandatory when communicating using SOAP.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
         return this.telecom.getValue();
     }
+
+    /**
+     * <p>SendingNetworkAddress</p>
+     * 
+     * <p>IB:Sending Network Address</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>soap:Header\wsa:From</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses. It 
+     * is mandatory when communicating using SOAP.</p>
+     */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
     }
@@ -81,18 +97,32 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IA:Sending Application Identifier</p>
      * 
-     * <p><p>The unique identifier of the application or system to 
-     * whom the message is being routed.</p></p>
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
      * 
-     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
+     * <p>soap:Header\wsa:From\@endpointID</p>
      * 
-     * <p><p>Because this is the key identifier of where the 
-     * message is intended to go, this attribute is mandatory.</p></p>
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
         return this.deviceId.getValue();
     }
+
+    /**
+     * <p>SendingApplicationIdentifier</p>
+     * 
+     * <p>IA:Sending Application Identifier</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>soap:Header\wsa:From\@endpointID</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     */
     public void setDeviceId(Identifier deviceId) {
         this.deviceId.setValue(deviceId);
     }
@@ -103,15 +133,26 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IE:Sending Application Name</p>
      * 
-     * <p><p>This is the name associated with the system or 
-     * application sending the message.</p></p>
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
      * 
-     * <p><p>Provides useful information when debugging.</p></p>
+     * <p>Provides useful information when debugging.</p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
         return this.deviceName.getValue();
     }
+
+    /**
+     * <p>SendingApplicationName</p>
+     * 
+     * <p>IE:Sending Application Name</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
+     */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
     }
@@ -122,17 +163,28 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>II:Sending Application Configuration Information</p>
      * 
-     * <p><p>Provides additional information about the 
-     * configuration of the sending application. Useful when 
-     * debugging.</p></p>
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
      * 
-     * <p><p>Provides additional information that may assist in 
-     * debugging interactions.</p></p>
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
      */
     @Hl7XmlMapping({"device/desc"})
     public String getDeviceDesc() {
         return this.deviceDesc.getValue();
     }
+
+    /**
+     * <p>SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     */
     public void setDeviceDesc(String deviceDesc) {
         this.deviceDesc.setValue(deviceDesc);
     }
@@ -143,16 +195,28 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IH:Sending Application Version Date</p>
      * 
-     * <p><p>Indicates the last time the sending application was 
-     * modified or reconfigured.</p></p>
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
      * 
-     * <p><p>Can help to isolate the source of a problem when 
-     * debugging.</p></p>
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
      */
     @Hl7XmlMapping({"device/existenceTime"})
     public Interval<Date> getDeviceExistenceTime() {
         return this.deviceExistenceTime.getValue();
     }
+
+    /**
+     * <p>SendingApplicationVersionDate</p>
+     * 
+     * <p>IH:Sending Application Version Date</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     */
     public void setDeviceExistenceTime(Interval<Date> deviceExistenceTime) {
         this.deviceExistenceTime.setValue(deviceExistenceTime);
     }
@@ -163,16 +227,28 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IG:Sending Software Version Number</p>
      * 
-     * <p><p>Indicates the version number of the piece of software 
-     * used to construct the message.</p></p>
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
      * 
-     * <p><p>May be used to filter messages based on the compliance 
-     * testing of the sending software.</p></p>
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
      */
     @Hl7XmlMapping({"device/manufacturerModelName"})
     public String getDeviceManufacturerModelName() {
         return this.deviceManufacturerModelName.getValue();
     }
+
+    /**
+     * <p>SendingSoftwareVersionNumber</p>
+     * 
+     * <p>IG:Sending Software Version Number</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     */
     public void setDeviceManufacturerModelName(String deviceManufacturerModelName) {
         this.deviceManufacturerModelName.setValue(deviceManufacturerModelName);
     }
@@ -183,16 +259,28 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>IF:Sending Application Software Name</p>
      * 
-     * <p><p>Indicates the name of the software used to construct 
-     * the message.</p></p>
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
      * 
-     * <p><p>May be used to filter messages based on sending 
-     * application compliance testing.</p></p>
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
      */
     @Hl7XmlMapping({"device/softwareName"})
     public String getDeviceSoftwareName() {
         return this.deviceSoftwareName.getValue();
     }
+
+    /**
+     * <p>SendingApplicationSoftwareName</p>
+     * 
+     * <p>IF:Sending Application Software Name</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     */
     public void setDeviceSoftwareName(String deviceSoftwareName) {
         this.deviceSoftwareName.setValue(deviceSoftwareName);
     }

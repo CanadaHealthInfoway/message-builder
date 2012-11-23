@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 
+/**
+ * <p>COMT_IN300002CA: Add patient note request accepted</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: COMT_MT001103CA.ActEvent</p>
+ */
 @Hl7PartTypeMapping({"COMT_IN300002CA"})
 public class AddPatientNoteRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

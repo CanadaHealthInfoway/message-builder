@@ -29,9 +29,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 
+/**
+ * <p>QUCR_IN810102CA: SOFA Payment Advice Query Response, Rx</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120008CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: QUCR_MT810201CA.AdjudResultsGroup</p>
+ * 
+ * <p>--> Sub-Payload: QUCR_MT800201CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"QUCR_IN810102CA"})
 public class SOFAPaymentAdviceQueryResponseRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

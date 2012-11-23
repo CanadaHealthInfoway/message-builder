@@ -29,27 +29,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p><p>Association is required, 1..1 and not mandatory, as 
- * EOB may have been generated from a non-HL7 EOB and the 
- * Provider s/w will not know the Policy Type to put in the 
- * target act.</p></p>
+ * <p>Association is required, 1..1 and not mandatory, as EOB 
+ * may have been generated from a non-HL7 EOB and the Provider 
+ * s/w will not know the Policy Type to put in the target 
+ * act.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT sequenceNumber = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
 
 
     /**
-     * <p><p>COB priority as adjudicated primary, secondary, 
-     * etc.</p></p>
+     * <p>COB priority as adjudicated primary, secondary, etc.</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
+    /**
+     * <p>COB priority as adjudicated primary, secondary, etc.</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -59,6 +62,7 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     public PolicyOrAccountBean getPolicyOrAccount() {
         return this.policyOrAccount;
     }
+
     public void setPolicyOrAccount(PolicyOrAccountBean policyOrAccount) {
         this.policyOrAccount = policyOrAccount;
     }

@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PayeeRelationshipRoleBean asPayeeRelationshipRole;
     private PN name = new PNImpl();
     private AD addr = new ADImpl();
@@ -54,6 +54,7 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
         return this.asPayeeRelationshipRole;
     }
+
     public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
         this.asPayeeRelationshipRole = asPayeeRelationshipRole;
     }
@@ -66,6 +67,10 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public PersonName getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>payee name</p>
+     */
     public void setName(PersonName name) {
         this.name.setValue(name);
     }
@@ -78,6 +83,10 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public PostalAddress getAddr() {
         return this.addr.getValue();
     }
+
+    /**
+     * <p>payee address</p>
+     */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
     }
@@ -87,6 +96,7 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public HumanLanguage getPayeeLanguageLanguageCode() {
         return (HumanLanguage) this.payeeLanguageLanguageCode.getValue();
     }
+
     public void setPayeeLanguageLanguageCode(HumanLanguage payeeLanguageLanguageCode) {
         this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
     }
@@ -99,6 +109,10 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public LanguageAbilityMode getPayeeLanguageModeCode() {
         return (LanguageAbilityMode) this.payeeLanguageModeCode.getValue();
     }
+
+    /**
+     * <p>Received Written</p>
+     */
     public void setPayeeLanguageModeCode(LanguageAbilityMode payeeLanguageModeCode) {
         this.payeeLanguageModeCode.setValue(payeeLanguageModeCode);
     }
@@ -108,6 +122,7 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public Boolean getPayeeLanguagePreferenceInd() {
         return this.payeeLanguagePreferenceInd.getValue();
     }
+
     public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
         this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
     }

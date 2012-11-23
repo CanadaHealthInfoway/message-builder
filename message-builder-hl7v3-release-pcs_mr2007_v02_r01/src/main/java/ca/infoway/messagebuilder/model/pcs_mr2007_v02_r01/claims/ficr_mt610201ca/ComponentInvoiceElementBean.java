@@ -31,21 +31,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.Adjudica
 /**
  * <p>Component Invoice element</p>
  * 
- * <p><p>At most 5 levels of recursion, with n children at each 
- * level. Root level counts as level 1.</p></p>
+ * <p>At most 5 levels of recursion, with n children at each 
+ * level. Root level counts as level 1.</p>
  * 
- * <p><p>Note: Levels of nesting cannot be specified, as the 
+ * <p>Note: Levels of nesting cannot be specified, as the 
  * maximum cardinality only applies to immediate children of 
- * this act, not the levels of nesting.</p></p>
+ * this act, not the levels of nesting.</p>
  * 
- * <p><p>Levels of nesting cannot be specified, as the maximum 
+ * <p>Levels of nesting cannot be specified, as the maximum 
  * cardinality only applies to immediate children of this act, 
- * not the levels of nesting.</p></p>
+ * not the levels of nesting.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class ComponentInvoiceElementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
@@ -53,6 +53,7 @@ public class ComponentInvoiceElementBean extends MessagePartBean {
     public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
+
     public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }

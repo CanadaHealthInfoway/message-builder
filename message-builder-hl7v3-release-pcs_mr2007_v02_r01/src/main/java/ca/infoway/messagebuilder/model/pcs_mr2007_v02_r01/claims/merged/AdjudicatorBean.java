@@ -40,29 +40,29 @@ import java.util.Date;
  * 
  * <p>QUCR_MT830201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
  * 
- * <p><p>This is used to indicate that the submitted Invoice 
+ * <p>This is used to indicate that the submitted Invoice 
  * Grouping was adjudicated (&amp; submitted) electronic or 
  * written (manual). This is important for Payment Advices, 
  * where it can be used to indicate manually adjudicated 
- * Invoice Groupings.</p></p>
+ * Invoice Groupings.</p>
  * 
- * <p><p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p></p>
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
  * 
  * <p>FICR_MT610201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
  * 
- * <p><p>Adjudicator Information</p></p>
+ * <p>Adjudicator Information</p>
  * 
- * <p><p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p></p>
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
  * 
- * <p><p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p></p>
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor","QUCR_MT830201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS contextControlCode = new CSImpl();
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
@@ -73,6 +73,7 @@ public class AdjudicatorBean extends MessagePartBean {
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
+
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
@@ -83,27 +84,50 @@ public class AdjudicatorBean extends MessagePartBean {
      * 
      * <p>Adjudication date/time</p>
      * 
-     * <p><p>Adjudication date/time</p></p>
+     * <p>Adjudication date/time</p>
      * 
-     * <p><p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p></p>
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
      * 
-     * <p><p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p></p>
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
      * 
-     * <p><p>Used in RX for daily totals.</p></p>
+     * <p>Used in RX for daily totals.</p>
      * 
      * <p>(Adjudication date/time</p>
      * 
-     * <p><p>Date and time of Adjudication</p></p>
+     * <p>Date and time of Adjudication</p>
      * 
-     * <p><p>Used in Pharmacy for daily totals. For Invoice COB: 
-     * Will only be value for electronic EOBs</p></p>
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
         return this.time.getValue();
     }
+
+    /**
+     * <p>AdjudicationDateTime</p>
+     * 
+     * <p>Adjudication date/time</p>
+     * 
+     * <p>Adjudication date/time</p>
+     * 
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
+     * 
+     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
+     * (COB): Will only be valued for electronic EOBs.</p>
+     * 
+     * <p>Used in RX for daily totals.</p>
+     * 
+     * <p>(Adjudication date/time</p>
+     * 
+     * <p>Date and time of Adjudication</p>
+     * 
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
+     */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
@@ -112,30 +136,54 @@ public class AdjudicatorBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>EOB Communication Method</p></p>
+     * <p>EOB Communication Method</p>
      * 
-     * <p><p>For Invoice (COB): If Invoice submitted WRITTEN, then 
-     * EOB must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
      * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
      * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p></p>
+     * only</p>
      * 
-     * <p><p>For Invoice (COB): If Invoice submitted WRITTEN, then 
-     * EOB must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
      * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
      * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p></p>
+     * only</p>
      * 
-     * <p><p>For Invoice (COB): If Invoice submitted WRITTEN, then 
-     * EOB must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
      * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
      * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p></p>
+     * only</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
         return (ParticipationMode) this.modeCode.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>EOB Communication Method</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
+     */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
@@ -145,6 +193,7 @@ public class AdjudicatorBean extends MessagePartBean {
     public AdjudicatorRoleBean getAdjudicatorRole() {
         return this.adjudicatorRole;
     }
+
     public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
         this.adjudicatorRole = adjudicatorRole;
     }

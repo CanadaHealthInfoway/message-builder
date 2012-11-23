@@ -31,26 +31,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Animal Patient</p>
  * 
- * <p><p>Animal Patient</p></p>
+ * <p>Animal Patient</p>
  * 
- * <p><p>Used when invoice is for animal patient.</p></p>
+ * <p>Used when invoice is for animal patient.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientAnimal"})
 public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST name = new STImpl();
 
 
     /**
      * <p>Name of the animal</p>
      * 
-     * <p><p>Name of animal</p></p>
+     * <p>Name of animal</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>Name of the animal</p>
+     * 
+     * <p>Name of animal</p>
+     */
     public void setName(String name) {
         this.name.setValue(name);
     }

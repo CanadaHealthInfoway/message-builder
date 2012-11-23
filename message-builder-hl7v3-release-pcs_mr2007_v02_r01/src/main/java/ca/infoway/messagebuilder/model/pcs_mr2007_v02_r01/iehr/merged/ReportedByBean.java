@@ -34,68 +34,68 @@ import java.util.Date;
  * 
  * <p>REPC_MT000005CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  * 
  * <p>REPC_MT000001CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  * 
  * <p>REPC_MT000013CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  * 
  * <p>REPC_MT000006CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  * 
  * <p>REPC_MT000009CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  * 
  * <p>REPC_MT000002CA.Informant: d:reported by</p>
  * 
- * <p><p>Indicates where the information that led to the 
- * recording of this information came from. The possible 3 
- * sources of the information are: the patient, the patient's 
- * representative or a health-care provider.</p></p>
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  * 
- * <p><p>The original source of the information can be 
- * important in evaluating its accuracy and importance.</p></p>
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TS time = new TSImpl();
     private Party party;
 
@@ -103,35 +103,60 @@ public class ReportedByBean extends MessagePartBean {
     /**
      * <p>Reported Date</p>
      * 
-     * <p><p>The date on which the adverse reaction was 
-     * reported.</p></p>
+     * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p><p>Allows for establishment of timelines between onset 
-     * date, reported date and recorded date, and is therefore 
-     * mandatory.</p></p>
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
      * 
      * <p>Reported Timestamp</p>
      * 
-     * <p><p>The date on which the adverse reaction was 
-     * reported.</p></p>
+     * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p><p>Allows for establishment of timelines between onset 
-     * date, reported date and recorded date, and is therefore 
-     * mandatory.</p></p>
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
      * 
      * <p>Reported Date</p>
      * 
-     * <p><p>The date on which the allergy/intolerance was 
-     * reported.</p></p>
+     * <p>The date on which the allergy/intolerance was 
+     * reported.</p>
      * 
-     * <p><p>Allows for establishment of timelines between onset 
-     * date, reported date and recorded date, and is therefore 
-     * mandatory.</p></p>
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
         return this.time.getValue();
     }
+
+    /**
+     * <p>Reported Date</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Reported Timestamp</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Reported Date</p>
+     * 
+     * <p>The date on which the allergy/intolerance was 
+     * reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
@@ -141,6 +166,7 @@ public class ReportedByBean extends MessagePartBean {
     public Party getParty() {
         return this.party;
     }
+
     public void setParty(Party party) {
         this.party = party;
     }

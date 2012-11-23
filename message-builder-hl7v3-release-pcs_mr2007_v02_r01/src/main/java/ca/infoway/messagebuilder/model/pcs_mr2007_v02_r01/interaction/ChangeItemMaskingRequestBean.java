@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.comt_mt400001ca.Mas
 
 
 
+/**
+ * <p>COMT_IN400001CA: Change item masking request</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: COMT_MT400001CA.MaskableActType</p>
+ */
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

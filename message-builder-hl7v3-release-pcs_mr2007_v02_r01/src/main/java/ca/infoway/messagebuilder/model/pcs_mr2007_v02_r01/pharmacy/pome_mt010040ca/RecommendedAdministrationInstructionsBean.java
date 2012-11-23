@@ -34,17 +34,17 @@ import java.util.List;
 /**
  * <p>Recommended Administration Instructions</p>
  * 
- * <p><p>This comprises the route of administration, 
+ * <p>This comprises the route of administration, 
  * maximum/minimum daily dose, and overall use instructions for 
- * the drug.</p></p>
+ * the drug.</p>
  * 
- * <p><p>Gives guidance to prescribers on how the drug might 
- * be/should be used</p></p>
+ * <p>Gives guidance to prescribers on how the drug might 
+ * be/should be used</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PatientBean subjectPatient;
     private HealthcareWorkerBean authorAssignedEntity;
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -56,6 +56,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -65,6 +66,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     public HealthcareWorkerBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
+
     public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }

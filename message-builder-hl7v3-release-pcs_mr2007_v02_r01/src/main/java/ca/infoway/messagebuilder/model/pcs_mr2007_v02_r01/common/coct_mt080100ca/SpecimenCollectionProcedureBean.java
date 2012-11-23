@@ -40,18 +40,18 @@ import java.util.List;
 /**
  * <p>Specimen Collection Procedure</p>
  * 
- * <p><p>This is the procedure act which describes the 
+ * <p>This is the procedure act which describes the 
  * process/procedure used to collect the associated 
- * specimen.</p></p>
+ * specimen.</p>
  * 
- * <p><p>For certain laboratory tests, the specimen collection 
+ * <p>For certain laboratory tests, the specimen collection 
  * procedure information is relevant in determining the result 
- * value.</p></p>
+ * value.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
@@ -61,26 +61,44 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     /**
      * <p>G:Specimen Collection Text</p>
      * 
-     * <p><p>Used to describe any additional information regarding 
-     * the specimen collection procedure or the collected material, 
+     * <p>Used to describe any additional information regarding the 
+     * specimen collection procedure or the collected material, 
      * e.g. left ear; where &quot;ear&quot; is atomically 
      * represented by the Natural entity code but the 
      * &quot;left&quot; is not able, at this time, to also be 
      * communicated within the Natural entity. This attribute is 
      * not used for notes or comments regarding the specimen 
      * collection process. Notes and annotations are documented 
-     * using the Annotation CMET.</p></p>
+     * using the Annotation CMET.</p>
      * 
-     * <p><p>The text attribute documents any additional 
-     * information regarding this specimen collection procedure 
-     * event that is not able to be communicated using the other 
-     * attribution of this act e.g. for granularity of coding 
-     * reasons.</p></p>
+     * <p>The text attribute documents any additional information 
+     * regarding this specimen collection procedure event that is 
+     * not able to be communicated using the other attribution of 
+     * this act e.g. for granularity of coding reasons.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>G:Specimen Collection Text</p>
+     * 
+     * <p>Used to describe any additional information regarding the 
+     * specimen collection procedure or the collected material, 
+     * e.g. left ear; where &quot;ear&quot; is atomically 
+     * represented by the Natural entity code but the 
+     * &quot;left&quot; is not able, at this time, to also be 
+     * communicated within the Natural entity. This attribute is 
+     * not used for notes or comments regarding the specimen 
+     * collection process. Notes and annotations are documented 
+     * using the Annotation CMET.</p>
+     * 
+     * <p>The text attribute documents any additional information 
+     * regarding this specimen collection procedure event that is 
+     * not able to be communicated using the other attribution of 
+     * this act e.g. for granularity of coding reasons.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }
@@ -89,22 +107,38 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     /**
      * <p>E:Specimen Collection Date/Time</p>
      * 
-     * <p><p>The date/time the specimen was collected. This can be 
-     * a date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p></p>
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
      * 
-     * <p><p>The date/time the specimen was collected. This can be 
-     * a date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p></p>
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
      * 
-     * <p><p>The specimen collection date/time is relevant to the 
+     * <p>The specimen collection date/time is relevant to the 
      * testing and resulting outcome of that specimen for some 
-     * laboratory tests.</p></p>
+     * laboratory tests.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>E:Specimen Collection Date/Time</p>
+     * 
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
+     * 
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
+     * 
+     * <p>The specimen collection date/time is relevant to the 
+     * testing and resulting outcome of that specimen for some 
+     * laboratory tests.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -114,6 +148,7 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     public HealthcareWorkerBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
+
     public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }

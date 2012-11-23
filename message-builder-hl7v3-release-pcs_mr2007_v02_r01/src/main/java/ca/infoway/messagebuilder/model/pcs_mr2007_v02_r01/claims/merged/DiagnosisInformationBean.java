@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.DiagnosisBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.DiagnosisInformation","COCT_MT490000CA.DiagnosisInformation"})
 public class DiagnosisInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT sequenceNumber = new INTImpl();
     private DiagnosisBean diagnosis;
 
@@ -40,16 +40,26 @@ public class DiagnosisInformationBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>1=Primary, 2=Secondary, etc.</p></p>
+     * <p>1=Primary, 2=Secondary, etc.</p>
      * 
      * <p>(no business name)</p>
      * 
-     * <p><p>1=Primary, 2=Secondary, etc.</p></p>
+     * <p>1=Primary, 2=Secondary, etc.</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>1=Primary, 2=Secondary, etc.</p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p>1=Primary, 2=Secondary, etc.</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -59,6 +69,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
     public DiagnosisBean getDiagnosis() {
         return this.diagnosis;
     }
+
     public void setDiagnosis(DiagnosisBean diagnosis) {
         this.diagnosis = diagnosis;
     }

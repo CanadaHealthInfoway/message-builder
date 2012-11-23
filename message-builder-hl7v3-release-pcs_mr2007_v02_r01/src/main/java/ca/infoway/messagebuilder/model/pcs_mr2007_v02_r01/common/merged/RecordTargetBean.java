@@ -32,13 +32,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>QUQI_MT120006CA.RecordTarget: (no business name)</p>
  * 
- * <p><p>Associated patient record for which this message 
- * applies. Record target can be one of either identified 
- * patient (id, name, gender, date of birth), indeterminate 
- * patient (name, gender, date of birth) or a patient token 
- * (suggesting client identity).</p></p>
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -56,9 +56,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -66,17 +66,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700230CA.RecordTarget: (no business name)</p>
  * 
- * <p><p>Associated patient record for which this message 
- * applies. Record target can be one of either identified 
- * patient (id, name, gender, date of birth), indeterminate 
- * patient (name, gender, date of birth) or a patient token 
- * (suggesting client identity).</p></p>
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -84,9 +84,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -94,9 +94,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -104,17 +104,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700216CA.RecordTarget: (no business name)</p>
  * 
- * <p><p>Associated patient record for which this message 
- * applies. Record target can be one of either identified 
- * patient (id, name, gender, date of birth), indeterminate 
- * patient (name, gender, date of birth) or a patient token 
- * (suggesting client identity).</p></p>
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -122,9 +122,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -132,9 +132,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -142,17 +142,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700220CA.RecordTarget: (no business name)</p>
  * 
- * <p><p>Associated patient record for which this message 
- * applies. Record target can be one of either identified 
- * patient (id, name, gender, date of birth), indeterminate 
- * patient (name, gender, date of birth) or a patient token 
- * (suggesting client identity).</p></p>
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -160,9 +160,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -170,9 +170,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -180,17 +180,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700211CA.RecordTarget: (no business name)</p>
  * 
- * <p><p>Associated patient record for which this message 
- * applies. Record target can be one of either identified 
- * patient (id, name, gender, date of birth), indeterminate 
- * patient (name, gender, date of birth) or a patient token 
- * (suggesting client identity).</p></p>
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -198,9 +198,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
  * and application of data access constraints such as masking 
@@ -208,18 +208,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p></p>
+ * patient to potential privacy violation.</p>
  * 
- * <p><p>Inferring patient identity opens up the potential for 
+ * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
- * and appl
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to pot
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.RecordTarget","MCAI_MT700211CA.RecordTarget","MCAI_MT700216CA.RecordTarget","MCAI_MT700217CA.RecordTarget","MCAI_MT700220CA.RecordTarget","MCAI_MT700221CA.RecordTarget","MCAI_MT700226CA.RecordTarget","MCAI_MT700227CA.RecordTarget","MCAI_MT700230CA.RecordTarget","MCAI_MT700231CA.RecordTarget","MCAI_MT700236CA.RecordTarget","MCAI_MT700237CA.RecordTarget","QUQI_MT020000CA.RecordTarget","QUQI_MT120006CA.RecordTarget"})
 public class RecordTargetBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS typeCode = new CSImpl();
     private Patient_2 patient1;
 
@@ -228,6 +233,7 @@ public class RecordTargetBean extends MessagePartBean {
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
+
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
@@ -237,6 +243,7 @@ public class RecordTargetBean extends MessagePartBean {
     public Patient_2 getPatient1() {
         return this.patient1;
     }
+
     public void setPatient1(Patient_2 patient1) {
         this.patient1 = patient1;
     }

@@ -51,51 +51,50 @@ import java.util.List;
  * 
  * <p>PORX_MT010120CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>Specification of how the prescribed medication is to 
- * be dispensed to the patient. Dispensed instruction 
- * information includes the quantity to be dispensed, how often 
- * the quantity is to be dispensed, etc.</p></p>
+ * <p>Specification of how the prescribed medication is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  * 
  * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>Specification of how the prescribed device is to be 
+ * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p></p>
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
  * 
  * <p>PORX_MT010140CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>This is the information that describes the 
- * authorization for a dispenser to dispense the 
- * prescription.</p></p>
+ * <p>This is the information that describes the authorization 
+ * for a dispenser to dispense the prescription.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate.</p>
  * 
  * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>One of 'quantity' and 'expectedUseTime' must be 
- * specified</p></p>
+ * <p>One of 'quantity' and 'expectedUseTime' must be 
+ * specified</p>
  * 
- * <p><p>Specification of how the prescribed device is to be 
+ * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p></p>
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT010120CA.SupplyRequest","PORX_MT010140CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private CreatedAtBean location;
@@ -116,7 +115,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>A:Dispensing Allowed Period</p>
      * 
-     * <p><p>This indicates the validity period of a prescription 
+     * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
      * prescriber perspective for the validity of the prescription. 
      * Dispenses must not be made against the prescription outside 
@@ -125,9 +124,9 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * prescription can be filled for the first time. If an 
      * upper-bound is not specified then the Prescription is 
      * open-ended or will default to a stale-date based on 
-     * regulations.</p></p>
+     * regulations.</p>
      * 
-     * <p><p>This indicates the validity period of a prescription 
+     * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
      * prescriber perspective for the validity of the prescription. 
      * Dispenses must not be made against the prescription outside 
@@ -136,24 +135,64 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * prescription can be filled for the first time. If an 
      * upper-bound is not specified then the Prescription is 
      * open-ended or will default to a stale-date based on 
-     * regulations.</p></p>
+     * regulations.</p>
      * 
-     * <p><p>Indicates when the Prescription becomes valid, and 
-     * when it ceases to be a dispensable Prescription.</p><p>Some 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
      * jurisdictions place a 'stale date' on prescriptions that 
      * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p></p>
+     * they are written. This time may vary by medication.</p>
      * 
-     * <p><p>Indicates when the Prescription becomes valid, and 
-     * when it ceases to be a dispensable Prescription.</p><p>Some 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
      * jurisdictions place a 'stale date' on prescriptions that 
      * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p></p>
+     * they are written. This time may vary by medication.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>DispensingAllowedPeriod</p>
+     * 
+     * <p>A:Dispensing Allowed Period</p>
+     * 
+     * <p>This indicates the validity period of a prescription 
+     * (stale dating the Prescription).</p><p>It reflects the 
+     * prescriber perspective for the validity of the prescription. 
+     * Dispenses must not be made against the prescription outside 
+     * of this period. The lower-bound of the Prescription 
+     * Effective Period signifies the earliest date that the 
+     * prescription can be filled for the first time. If an 
+     * upper-bound is not specified then the Prescription is 
+     * open-ended or will default to a stale-date based on 
+     * regulations.</p>
+     * 
+     * <p>This indicates the validity period of a prescription 
+     * (stale dating the Prescription).</p><p>It reflects the 
+     * prescriber perspective for the validity of the prescription. 
+     * Dispenses must not be made against the prescription outside 
+     * of this period. The lower-bound of the Prescription 
+     * Effective Period signifies the earliest date that the 
+     * prescription can be filled for the first time. If an 
+     * upper-bound is not specified then the Prescription is 
+     * open-ended or will default to a stale-date based on 
+     * regulations.</p>
+     * 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p>
+     * 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -169,6 +208,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public CreatedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
@@ -178,6 +218,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
+
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
@@ -194,34 +235,60 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p><p>The overall number of devices to be dispensed under 
-     * this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p></p>
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p><p>Sets upper limit for device to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall prescription. Used for comparison when 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p></p>
+     * the context of a part-fill prescription.</p>
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p><p>The overall number of devices to be dispensed under 
-     * this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p></p>
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p><p>Sets upper limit for devices to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall prescription. Used for comparison when 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p></p>
+     * the context of a part-fill prescription.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>TotalPrescribedQuantity</p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
     }
@@ -237,6 +304,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public SubstanceAdministrationRequestBean getComponentOfActRequest() {
         return this.componentOfActRequest;
     }
+
     public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
         this.componentOfActRequest = componentOfActRequest;
     }
@@ -247,20 +315,36 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>C:Total Days Supply</p>
      * 
-     * <p><p>The number of days that the overall prescribed item is 
+     * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p></p>
+     * dispensing and use of the prescription.</p>
      * 
-     * <p><p>Used to specify a total authorization as a duration 
+     * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p></p>
+     * the quantity prescribed.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
         return this.expectedUseTime.getValue();
     }
+
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p>
+     */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
@@ -270,6 +354,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public ActRelationshipType getSourceOfTypeCode() {
         return (ActRelationshipType) this.sourceOfTypeCode.getValue();
     }
+
     public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
         this.sourceOfTypeCode.setValue(sourceOfTypeCode);
     }
@@ -279,6 +364,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public ContextControl getSourceOfContextControlCode() {
         return (ContextControl) this.sourceOfContextControlCode.getValue();
     }
+
     public void setSourceOfContextControlCode(ContextControl sourceOfContextControlCode) {
         this.sourceOfContextControlCode.setValue(sourceOfContextControlCode);
     }
@@ -288,6 +374,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public Boolean getSourceOfContextConductionInd() {
         return this.sourceOfContextConductionInd.getValue();
     }
+
     public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
         this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
     }
@@ -297,6 +384,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
         return this.sourceOfSupplementalFillInformation;
     }
+
     public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
         this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
     }

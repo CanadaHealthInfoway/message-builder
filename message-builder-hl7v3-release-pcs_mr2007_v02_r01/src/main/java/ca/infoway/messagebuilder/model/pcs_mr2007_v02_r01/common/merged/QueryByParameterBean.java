@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II queryId = new IIImpl();
     private CS responseModalityCode = new CSImpl();
     private INT initialQuantity = new INTImpl();
@@ -59,15 +59,26 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>H:Query Identifier</p>
      * 
-     * <p><p>Unique number for this particular query.</p></p>
+     * <p>Unique number for this particular query.</p>
      * 
-     * <p><p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p></p>
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
         return this.queryId.getValue();
     }
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
     }
@@ -78,32 +89,56 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>K: Expedited Query Indicator</p>
      * 
-     * <p><p>This allows the sender to indicate to the receiver 
-     * that this query should follow an expedited processing 
-     * flow.</p></p>
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
      * 
-     * <p><p>&gt;Intended to cover situations in which the HIAL 
-     * issues a query with an ID to obtain a very limited amount of 
-     * information, or issues a query with basic provider 
-     * information to obtain IDs and othe information, such as 
-     * licence status</p></p>
-     * 
-     * <p>K: Expedited Query Indicator</p>
-     * 
-     * <p><p>This allows the sender to indicate to the receiver 
-     * that this query should follow an expedited processing 
-     * flow.</p></p>
-     * 
-     * <p><p>Intended to cover situations in which the HIAL issues 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
      * a query with an ID to obtain a very limited amount of 
      * information, or issues a query with basic provider 
      * information to obtain IDs and othe information, such as 
-     * licence status</p></p>
+     * licence status</p>
+     * 
+     * <p>K: Expedited Query Indicator</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
      */
     @Hl7XmlMapping({"responseModalityCode"})
     public ResponseModality getResponseModalityCode() {
         return (ResponseModality) this.responseModalityCode.getValue();
     }
+
+    /**
+     * <p>ExpeditedQueryIndicator</p>
+     * 
+     * <p>K: Expedited Query Indicator</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
+     * a query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>K: Expedited Query Indicator</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     */
     public void setResponseModalityCode(ResponseModality responseModalityCode) {
         this.responseModalityCode.setValue(responseModalityCode);
     }
@@ -114,35 +149,66 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>I:Query Limit</p>
      * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      * 
-     * <p><p>There may be a very large number of matching rows. To 
+     * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
      * be returned with further data retrieved by using query 
-     * continuations.</p></p>
+     * continuations.</p>
      * 
      * <p>I:Query Limit</p>
      * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      * 
-     * <p><p>There may be a very large number of matching rows. To 
+     * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
      * be returned with further data retrieved by using query 
-     * continuations.</p></p>
+     * continuations.</p>
      * 
-     * <p><p>If not specified, the default behavior is to return 
-     * all repetitions. However the recipient of a query may always 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
      * choose to limit the quantity returned to be less than the 
      * number requested. Regardless of the number specified here, 
      * the number of rows returned will never exceed the number of 
-     * matching rows based on the query parameters.</p></p>
+     * matching rows based on the query parameters.</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
     public Integer getInitialQuantity() {
         return this.initialQuantity.getValue();
     }
+
+    /**
+     * <p>QueryLimit</p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
     }
@@ -153,17 +219,30 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>J:Query Limit Type</p>
      * 
-     * <p><p>Defines the units associated with the magnitude of the 
+     * <p>Defines the units associated with the magnitude of the 
      * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p></p>
+     * by the requesting application.</p>
      * 
-     * <p><p>Needed to quantify the types of records requested to 
-     * be returned in the query.</p></p>
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
      */
     @Hl7XmlMapping({"initialQuantityCode"})
     public QueryRequestLimit getInitialQuantityCode() {
         return (QueryRequestLimit) this.initialQuantityCode.getValue();
     }
+
+    /**
+     * <p>QueryLimitType</p>
+     * 
+     * <p>J:Query Limit Type</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     */
     public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
         this.initialQuantityCode.setValue(initialQuantityCode);
     }
@@ -173,6 +252,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     public PL getParameterList() {
         return this.parameterList;
     }
+
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;
     }
@@ -183,16 +263,28 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>Sequence Number</p>
      * 
-     * <p><p>When more than one sort control is specified, this is 
-     * the order of this sort element amongst the others.</p></p>
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
      * 
-     * <p><p>This number determines which sort element is using 
-     * primarily, secondary, etc. and is therefore mandatory.</p></p>
+     * <p>This number determines which sort element is using 
+     * primarily, secondary, etc. and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"sortControl/sequenceNumber"})
     public Integer getSortControlSequenceNumber() {
         return this.sortControlSequenceNumber.getValue();
     }
+
+    /**
+     * <p>SequenceNumber</p>
+     * 
+     * <p>Sequence Number</p>
+     * 
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
+     * 
+     * <p>This number determines which sort element is using 
+     * primarily, secondary, etc. and is therefore mandatory.</p>
+     */
     public void setSortControlSequenceNumber(Integer sortControlSequenceNumber) {
         this.sortControlSequenceNumber.setValue(sortControlSequenceNumber);
     }
@@ -203,14 +295,24 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>Sort Element Name</p>
      * 
-     * <p><p>Name of the element to sort.</p></p>
+     * <p>Name of the element to sort.</p>
      * 
-     * <p><p>The name of the element is mandatory.</p></p>
+     * <p>The name of the element is mandatory.</p>
      */
     @Hl7XmlMapping({"sortControl/elementName"})
     public String getSortControlElementName() {
         return this.sortControlElementName.getValue();
     }
+
+    /**
+     * <p>SortElementName</p>
+     * 
+     * <p>Sort Element Name</p>
+     * 
+     * <p>Name of the element to sort.</p>
+     * 
+     * <p>The name of the element is mandatory.</p>
+     */
     public void setSortControlElementName(String sortControlElementName) {
         this.sortControlElementName.setValue(sortControlElementName);
     }
@@ -221,15 +323,26 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>Sort Control Direction</p>
      * 
-     * <p><p>Sets the ascending or descending nature of the sort 
-     * request.</p></p>
+     * <p>Sets the ascending or descending nature of the sort 
+     * request.</p>
      * 
-     * <p><p>This element is required.</p></p>
+     * <p>This element is required.</p>
      */
     @Hl7XmlMapping({"sortControl/directionCode"})
     public Sequencing getSortControlDirectionCode() {
         return (Sequencing) this.sortControlDirectionCode.getValue();
     }
+
+    /**
+     * <p>SortControlDirection</p>
+     * 
+     * <p>Sort Control Direction</p>
+     * 
+     * <p>Sets the ascending or descending nature of the sort 
+     * request.</p>
+     * 
+     * <p>This element is required.</p>
+     */
     public void setSortControlDirectionCode(Sequencing sortControlDirectionCode) {
         this.sortControlDirectionCode.setValue(sortControlDirectionCode);
     }

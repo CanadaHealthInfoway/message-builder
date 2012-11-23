@@ -37,165 +37,162 @@ import java.util.Date;
 /**
  * <p>PORX_MT060040CA.Author4: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060340CA.Author4: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>RCMR_MT010001CA.Author2: c:overridden by</p>
  * 
- * <p><p>Indicates that information access was approved by a 
+ * <p>Indicates that information access was approved by a 
  * provider rather than a patient. I.e. This is an override 
- * rather than an actual consent.</p></p>
+ * rather than an actual consent.</p>
  * 
- * <p><p>Clinical circumstances may demand that a patient's 
+ * <p>Clinical circumstances may demand that a patient's 
  * information be accessed without consent to ensure patient 
- * safety.</p></p>
+ * safety.</p>
  * 
  * <p>PORX_MT060160CA.Author4: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060190CA.Author2: *c:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060060CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>COCT_MT260010CA.Author2: is created by</p>
  * 
- * <p><p>Identity of the organization who is responsible for 
- * the contents of the monograph.</p></p>
+ * <p>Identity of the organization who is responsible for the 
+ * contents of the monograph.</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>Provides a means of evaluating accuracy of 
- * content.</p></p>
+ * <p>Provides a means of evaluating accuracy of content.</p>
  * 
  * <p>COCT_MT470002CA.Author2: c:consent overridden by</p>
  * 
- * <p><p>Indicates that information access was approved by a 
+ * <p>Indicates that information access was approved by a 
  * provider rather than a patient. I.e. This is an override 
  * rather than an actual consent, and is used for the purposes 
- * of 'breaking the glass' only.</p></p>
+ * of 'breaking the glass' only.</p>
  * 
- * <p><p>Authorization.signatory(PROV)</p></p>
+ * <p>Authorization.signatory(PROV)</p>
  * 
- * <p><p>Clinical circumstances may demand that a patient's 
+ * <p>Clinical circumstances may demand that a patient's 
  * information be accessed without consent to ensure patient 
- * safety.</p></p>
+ * safety.</p>
  * 
  * <p>PORX_MT030040CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT020050CA.Author2: prescribed by</p>
  * 
- * <p><p>The person who ordered the office supply.</p></p>
+ * <p>The person who ordered the office supply.</p>
  * 
- * <p><p>Used to create an 'inferred' prescription if an 
+ * <p>Used to create an 'inferred' prescription if an 
  * electronic prescription does not already exist in the 
  * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
  * as the prescriber must be known or null flavour 
- * specified.</p></p>
+ * specified.</p>
  * 
- * <p><p>Used to create an 'inferred' prescription if an 
+ * <p>Used to create an 'inferred' prescription if an 
  * electronic prescription does not already exist in the 
  * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
  * as the prescriber must be known or null flavour 
- * specified.</p></p>
+ * specified.</p>
  * 
  * <p>COCT_MT260030CA.Author2: is created by</p>
  * 
- * <p><p>Identity of the organization who is responsible for 
- * the contents of the monograph.</p></p>
+ * <p>Identity of the organization who is responsible for the 
+ * contents of the monograph.</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>Provides a means of evaluating accuracy of 
- * content.</p></p>
+ * <p>Provides a means of evaluating accuracy of content.</p>
  * 
  * <p>PORX_MT060020CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>COCT_MT260020CA.Author2: is created by</p>
  * 
- * <p><p>Identity of the organization who is responsible for 
- * the contents of the monograph.</p></p>
+ * <p>Identity of the organization who is responsible for the 
+ * contents of the monograph.</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p></p>
+ * <p>ZPE.1</p><p>ZDU.5.1</p><p>Contraindication.dataSource</p>
  * 
- * <p><p>Provides a means of evaluating accuracy of 
- * content.</p></p>
+ * <p>Provides a means of evaluating accuracy of content.</p>
  * 
  * <p>PORX_MT060100CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.Author2","COCT_MT260020CA.Author2","COCT_MT260030CA.Author2","COCT_MT470002CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -205,170 +202,334 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Prescription Order Date</p>
      * 
-     * <p><p>The date at which the drug was prescribed. This may 
+     * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p></p>
+     * valid to be dispensed or administered for two weeks.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
      * <p>B:Issue Monograph Effective Date</p>
      * 
-     * <p><p>The date and time on which the monograph becomes valid 
-     * and applicable.</p></p>
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
      * 
-     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p><p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p></p>
+     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p><p>Allows detailed matching of local knowledgebase record 
+     * <p>Allows detailed matching of local knowledgebase record 
      * with that of the central. (The monograph id may remain the 
-     * same, but the effective date will always change).</p></p>
+     * same, but the effective date will always change).</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date that the prescription was written by the 
-     * prescriber.</p></p>
+     * <p>The date that the prescription was written by the 
+     * prescriber.</p>
      * 
-     * <p><p>Essential information for a prescription to be 
+     * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p></p>
+     * &quot;populated&quot;.</p>
      * 
-     * <p><p>Essential information for a prescription to be 
+     * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p></p>
+     * &quot;populated&quot;.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the device was prescribed/dispensed. 
+     * <p>The date at which the device was prescribed/dispensed. 
      * This may differ from the date on which the prescription 
      * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p></p>
+     * be valid to be dispensed or used for two weeks.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * mandatory because the creation date of the prescription will 
-     * always be known.</p></p>
+     * always be known.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * mandatory because the creation date of the prescription will 
-     * always be known.</p></p>
+     * always be known.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the device was prescribed/dispensed. 
+     * <p>The date at which the device was prescribed/dispensed. 
      * This may differ from the date on which the prescription 
      * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p></p>
+     * be valid to be dispensed or used for two weeks.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p></p>
+     * always be known, except for inferred prescriptions.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p></p>
+     * always be known, except for inferred prescriptions.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the drug was prescribed/dispensed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or administered for two weeks.</p></p>
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription will 
      * not always be known (as in the case of 'inferred 
-     * prescription').</p></p>
+     * prescription').</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription will 
      * not always be known (as in the case of 'inferred 
-     * prescription').</p></p>
+     * prescription').</p>
      * 
      * <p>Prescription Order Date</p>
      * 
-     * <p><p>The date at which the device was prescribed. This may 
+     * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p></p>
+     * valid to be dispensed or used for two weeks.</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the drug was prescribed/dispensed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or administered for two weeks.</p></p>
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p></p>
+     * not be known, as in the case of 'inferred prescription'.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p></p>
+     * not be known, as in the case of 'inferred prescription'.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
         return this.time.getValue();
     }
+
+    /**
+     * <p>Prescription Order Date</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>B:Issue Monograph Effective Date</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date that the prescription was written by the 
+     * prescriber.</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the device was prescribed/dispensed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the device was prescribed/dispensed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
+     */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
@@ -379,18 +540,32 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Prescription Transmission Method</p>
      * 
-     * <p><p>Indicates the medium in which a prescription was 
+     * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
-     * the electronic record.</p></p>
+     * the electronic record.</p>
      * 
-     * <p><p>Some jurisdictions have a requirement to track how an 
+     * <p>Some jurisdictions have a requirement to track how an 
      * order was received. May also be important when orders are 
-     * entered into a central repository from the pharmacy.</p></p>
+     * entered into a central repository from the pharmacy.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
         return (ParticipationMode) this.modeCode.getValue();
     }
+
+    /**
+     * <p>PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Prescription Transmission Method</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
+     */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
@@ -401,17 +576,30 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Signature</p>
      * 
-     * <p><p>An electronic signature of the prescription by the 
-     * prescriber.</p></p>
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
      * 
-     * <p><p>Allows for pure electronic prescriptions without a 
+     * <p>Allows for pure electronic prescriptions without a 
      * trusted intermediary. The attribute is optional because all 
-     * jurisdictions may not support digital signatures.</p></p>
+     * jurisdictions may not support digital signatures.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
         return this.signatureText.getValue();
     }
+
+    /**
+     * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
@@ -421,6 +609,7 @@ public class PrescribedByBean extends MessagePartBean {
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
+
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }

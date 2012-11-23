@@ -29,9 +29,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.porx_mt050010
 
 
 
+/**
+ * <p>PORX_IN050020CA: Drug regimen contraindications query 
+ * response</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120008CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: COCT_MT260020CA.DetectedIssueEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT050010CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

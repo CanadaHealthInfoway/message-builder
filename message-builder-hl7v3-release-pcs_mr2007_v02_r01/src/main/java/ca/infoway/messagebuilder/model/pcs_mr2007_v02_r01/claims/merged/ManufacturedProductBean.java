@@ -44,21 +44,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt490000ca
 /**
  * <p>COCT_MT490000CA.ManufacturedProduct: (no business name)</p>
  * 
- * <p><p>Must have Organization if you dont have UPC/GTIN or 
- * pseudo UPC</p></p>
+ * <p>Must have Organization if you dont have UPC/GTIN or 
+ * pseudo UPC</p>
  * 
- * <p><p>Scoped by Manufacturer</p></p>
+ * <p>Scoped by Manufacturer</p>
  * 
  * <p>COCT_MT290000CA.ManufacturedProduct: (no business name)</p>
  * 
- * <p><p>Must have Role.cd or ManufacturedMaterial.cd</p></p>
+ * <p>Must have Role.cd or ManufacturedMaterial.cd</p>
  * 
- * <p><p>Scoped by Manufacturer</p></p>
+ * <p>Scoped by Manufacturer</p>
  */
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;
@@ -70,12 +70,18 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>serial number</p></p>
+     * <p>serial number</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>serial number</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -84,13 +90,20 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>(UPC/GTIN/pseudo UPC number manufacturers 
-     * item/catalogue number</p></p>
+     * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
+     * number</p>
      */
     @Hl7XmlMapping({"code"})
     public RoleCode getCode() {
         return (RoleCode) this.code.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
+     * number</p>
+     */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
     }
@@ -100,6 +113,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
         return this.manufacturedMaterialKind;
     }
+
     public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
         this.manufacturedMaterialKind = manufacturedMaterialKind;
     }
@@ -108,12 +122,18 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>Organisation Name</p></p>
+     * <p>Organisation Name</p>
      */
     @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/name"})
     public String getManufacturerManufacturedProductOrganizationName() {
         return this.manufacturerManufacturedProductOrganizationName.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>Organisation Name</p>
+     */
     public void setManufacturerManufacturedProductOrganizationName(String manufacturerManufacturedProductOrganizationName) {
         this.manufacturerManufacturedProductOrganizationName.setValue(manufacturerManufacturedProductOrganizationName);
     }
@@ -122,12 +142,18 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>Organisation telephone/email</p></p>
+     * <p>Organisation telephone/email</p>
      */
     @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
     public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
         return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>Organisation telephone/email</p>
+     */
     public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
         this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
     }
@@ -136,12 +162,18 @@ public class ManufacturedProductBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>DIN/PIN</p></p>
+     * <p>DIN/PIN</p>
      */
     @Hl7XmlMapping({"manufacturedMaterial/code"})
     public EntityCode getManufacturedMaterialCode() {
         return (EntityCode) this.manufacturedMaterialCode.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>DIN/PIN</p>
+     */
     public void setManufacturedMaterialCode(EntityCode manufacturedMaterialCode) {
         this.manufacturedMaterialCode.setValue(manufacturedMaterialCode);
     }

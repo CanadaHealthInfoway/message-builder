@@ -32,17 +32,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsProviderRole"})
 public class ProviderIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
 
 
     /**
-     * <p><p>Identity of provider for summary breakdowns.</p></p>
+     * <p>Identity of provider for summary breakdowns.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Identity of provider for summary breakdowns.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }

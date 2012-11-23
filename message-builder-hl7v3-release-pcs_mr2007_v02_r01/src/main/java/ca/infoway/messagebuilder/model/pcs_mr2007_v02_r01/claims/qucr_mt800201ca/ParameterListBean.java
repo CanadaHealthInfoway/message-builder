@@ -36,17 +36,16 @@ import java.util.Date;
 
 
 /**
- * <p><p>At least one parameter item must be specified.</p></p>
+ * <p>At least one parameter item must be specified.</p>
  * 
- * <p><p>Either a AdjudResultsGroup.ID (which implies date, 
- * payee, payor) or date, payee, payor needs to be 
- * specified.</p></p>
+ * <p>Either a AdjudResultsGroup.ID (which implies date, payee, 
+ * payor) or date, payee, payor needs to be specified.</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT800201CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> adjudResultsGroupAuthorTimeValue = new IVLImpl<TS, Interval<Date>>();
     private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
@@ -62,6 +61,7 @@ public class ParameterListBean extends MessagePartBean {
     public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
         return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
+
     public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
         this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
@@ -71,6 +71,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getAdjudResultsGroupIdValue() {
         return this.adjudResultsGroupIdValue.getValue();
     }
+
     public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
         this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
     }
@@ -80,6 +81,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getFinancialContractIdValue() {
         return this.financialContractIdValue.getValue();
     }
+
     public void setFinancialContractIdValue(Identifier financialContractIdValue) {
         this.financialContractIdValue.setValue(financialContractIdValue);
     }
@@ -89,6 +91,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getInsuranceCarrierRoleIdValue() {
         return this.insuranceCarrierRoleIdValue.getValue();
     }
+
     public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
     }
@@ -98,6 +101,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getLocationIdValue() {
         return this.locationIdValue.getValue();
     }
+
     public void setLocationIdValue(Identifier locationIdValue) {
         this.locationIdValue.setValue(locationIdValue);
     }
@@ -107,6 +111,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getPayeeIdValue() {
         return this.payeeIdValue.getValue();
     }
+
     public void setPayeeIdValue(Identifier payeeIdValue) {
         this.payeeIdValue.setValue(payeeIdValue);
     }
@@ -116,6 +121,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getPayorIdValue() {
         return this.payorIdValue.getValue();
     }
+
     public void setPayorIdValue(Identifier payorIdValue) {
         this.payorIdValue.setValue(payorIdValue);
     }
@@ -125,6 +131,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getProviderIdValue() {
         return this.providerIdValue.getValue();
     }
+
     public void setProviderIdValue(Identifier providerIdValue) {
         this.providerIdValue.setValue(providerIdValue);
     }
@@ -134,6 +141,7 @@ public class ParameterListBean extends MessagePartBean {
     public Identifier getSendingApplicationIdValue() {
         return this.sendingApplicationIdValue.getValue();
     }
+
     public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
         this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }

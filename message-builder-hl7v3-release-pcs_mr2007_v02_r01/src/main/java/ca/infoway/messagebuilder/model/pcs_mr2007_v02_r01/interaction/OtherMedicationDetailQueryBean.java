@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.porx_mt060220
 
 
 
+/**
+ * <p>PORX_IN060450CA: Other medication detail query</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060220CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060450CA"})
 public class OtherMedicationDetailQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

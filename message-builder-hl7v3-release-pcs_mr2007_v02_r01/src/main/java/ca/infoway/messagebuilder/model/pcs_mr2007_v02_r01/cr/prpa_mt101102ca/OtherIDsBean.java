@@ -40,7 +40,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private II scopingIdOrganizationId = new IIImpl();
@@ -59,17 +59,28 @@ public class OtherIDsBean extends MessagePartBean {
     /**
      * <p>NonHealthcare Identification Code</p>
      * 
-     * <p><p>A pan Canadian code further specifying the kind of 
-     * Role such as Drivers License, RCMP, DND, Social Insurance 
-     * Number</p></p>
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"code"})
     public OtherIDsRoleCode getCode() {
         return (OtherIDsRoleCode) this.code.getValue();
     }
+
+    /**
+     * <p>NonHealthcare Identification Code</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     */
     public void setCode(OtherIDsRoleCode code) {
         this.code.setValue(code);
     }
@@ -82,6 +93,10 @@ public class OtherIDsBean extends MessagePartBean {
     public Identifier getScopingIdOrganizationId() {
         return this.scopingIdOrganizationId.getValue();
     }
+
+    /**
+     * <p>NonHealthcare Organization Identifier</p>
+     */
     public void setScopingIdOrganizationId(Identifier scopingIdOrganizationId) {
         this.scopingIdOrganizationId.setValue(scopingIdOrganizationId);
     }
@@ -94,6 +109,10 @@ public class OtherIDsBean extends MessagePartBean {
     public String getScopingIdOrganizationName() {
         return this.scopingIdOrganizationName.getValue();
     }
+
+    /**
+     * <p>NonHealthcare Organization Name</p>
+     */
     public void setScopingIdOrganizationName(String scopingIdOrganizationName) {
         this.scopingIdOrganizationName.setValue(scopingIdOrganizationName);
     }

@@ -31,17 +31,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReason"})
 public class AdjudicationResultReasonBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST value = new STImpl();
 
 
     /**
-     * <p><p>ActAdjudicationReason</p></p>
+     * <p>ActAdjudicationReason</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>ActAdjudicationReason</p>
+     */
     public void setValue(String value) {
         this.value.setValue(value);
     }

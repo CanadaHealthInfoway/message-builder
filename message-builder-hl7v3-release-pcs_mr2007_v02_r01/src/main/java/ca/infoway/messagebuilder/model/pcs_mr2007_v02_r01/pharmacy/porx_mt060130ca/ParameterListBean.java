@@ -46,16 +46,16 @@ import java.util.List;
 
 
 /**
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response.</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
  * 
- * <p><p>Root class for query definition</p></p>
+ * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060130CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
@@ -68,22 +68,38 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Administration Effective Period</p>
      * 
-     * <p><p>Indicates the period for which the request/query 
+     * <p>Indicates the period for which the request/query 
      * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p></p>
+     * items that are 'effective' in the indicated period.</p>
      * 
-     * <p><p>Indicates the period for which the request/query 
+     * <p>Indicates the period for which the request/query 
      * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p></p>
+     * items that are 'effective' in the indicated period.</p>
      * 
-     * <p><p>Allows the requester to specify the period of interest 
+     * <p>Allows the requester to specify the period of interest 
      * for the retrieval. Useful for constraining run-away 
-     * queries.</p></p>
+     * queries.</p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
     public Interval<Date> getAdministrationEffectivePeriodValue() {
         return this.administrationEffectivePeriodValue.getValue();
     }
+
+    /**
+     * <p>Administration Effective Period</p>
+     * 
+     * <p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p>
+     * 
+     * <p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval. Useful for constraining run-away 
+     * queries.</p>
+     */
     public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
         this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
     }
@@ -92,25 +108,44 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Amended in Time Range</p>
      * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to 'retrieve everything that has been 
-     * amended since xxx'.</p></p>
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
      * 
-     * <p><p>Allows the requester to specify the event period of 
+     * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p><p>Allows the requester to specify the event period of 
+     * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
         return this.amendedInTimeRangeValue.getValue();
     }
+
+    /**
+     * <p>Amended in Time Range</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
+     */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
     }
@@ -119,7 +154,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Care Composition IDs</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
+     * <p>Filters the records retrieved to only include those 
      * associated with the specified encounter, episode or care 
      * event. If unspecified, no filter is applied.</p><p>Note: 
      * When matching on care composition id, systems should also 
@@ -127,9 +162,9 @@ public class ParameterListBean extends MessagePartBean {
      * associated with the care composition. E.g. When retrieving 
      * records associated with an encounter which includes a 
      * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
+     * summary created in fulfillment of the referral.</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
+     * <p>Filters the records retrieved to only include those 
      * associated with the specified encounter, episode or care 
      * event. If unspecified, no filter is applied.</p><p>Note: 
      * When matching on care composition id, systems should also 
@@ -137,10 +172,10 @@ public class ParameterListBean extends MessagePartBean {
      * associated with the care composition. E.g. When retrieving 
      * records associated with an encounter which includes a 
      * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
+     * summary created in fulfillment of the referral.</p>
      * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
+     * <p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -151,14 +186,14 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Care Composition Types</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
+     * <p>Filters the records retrieved to only include those 
      * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
+     * or care event. If unspecified, no filter is applied.</p>
      * 
-     * <p><p>Allows retrieving all records associated with a 
+     * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * encounter, etc.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -169,23 +204,40 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Issue Filter Code</p>
      * 
-     * <p><p>Indicates whether records to be returned (e.g. 
+     * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
      * medication) should be filtered to those with at least one 
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
-     * independent of the presence of persistent issues.</p></p>
+     * independent of the presence of persistent issues.</p>
      * 
-     * <p><p>By filtering returned records to include only those 
-     * which have unmanaged issues or any issues at all, allows a 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
      * provider to focus on those aspects of care where extra 
      * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p></p>
+     * is mandatory.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
         return (IssueFilterCode) this.issueFilterCodeValue.getValue();
     }
+
+    /**
+     * <p>Issue Filter Code</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
     }
@@ -194,31 +246,56 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Most Recent By Drug Indicator</p>
      * 
-     * <p><p>Indicates whether or not the medication records are to 
-     * be retrieved based on the most recent by Drug Code. If true, 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
      * only the most recent prescription, dispense or other active 
      * medication for a particular drug generic classification will 
      * be returned. The default is 'FALSE' indicating that 
      * retrieval of prescription, dispense and other active 
      * medication records should not be limited to one per 
-     * drug.</p></p>
+     * drug.</p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
+     * <p>Helps decrease the volume of records returned, while 
      * still maintaining information on all drugs that the patient 
      * is on.</p><p>Because this is a boolean attribute whose value 
      * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>Helps decrease the volume of records returned, while 
+     * <p>Helps decrease the volume of records returned, while 
      * still maintaining information on all drugs that the patient 
      * is on.</p><p>Because this is a boolean attribute whose value 
      * must be known to evaluate the query, the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
     public Boolean getMostRecentByDrugIndicatorValue() {
         return this.mostRecentByDrugIndicatorValue.getValue();
     }
+
+    /**
+     * <p>Most Recent By Drug Indicator</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     */
     public void setMostRecentByDrugIndicatorValue(Boolean mostRecentByDrugIndicatorValue) {
         this.mostRecentByDrugIndicatorValue.setValue(mostRecentByDrugIndicatorValue);
     }
@@ -227,22 +304,22 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Rx Dispenser Indicators</p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
      * Dispense Indicators include: ND (Never Dispensed), DRR 
      * (Dispensed with Refills Remaining), etc.</p><p>The 
      * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
+     * Dispense Indicators.</p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
      * Dispense Indicators include: ND (Never Dispensed), DRR 
      * (Dispensed with Refills Remaining), etc.</p><p>The 
      * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
+     * Dispense Indicators.</p>
      * 
-     * <p><p>Allows for finer sub-set of prescriptions to be 
-     * retrieved based on the fill status of the prescription.</p></p>
+     * <p>Allows for finer sub-set of prescriptions to be retrieved 
+     * based on the fill status of the prescription.</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {

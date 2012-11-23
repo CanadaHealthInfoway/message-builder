@@ -35,17 +35,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.merged.PatientBean;
 /**
  * <p>b:consented to by</p>
  * 
- * <p><p>Indicates that the consent was provided by the patient 
- * or representative.</p></p>
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  * 
- * <p><p>Consent can be provided by the patient or 
- * representative or be overridden by a provider. It is 
- * important to know which occurred for audit purposes.</p></p>
+ * <p>Consent can be provided by the patient or representative 
+ * or be overridden by a provider. It is important to know 
+ * which occurred for audit purposes.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV modeCode = new CVImpl();
     private Consenter consenter;
 
@@ -53,16 +53,26 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Patient Consent Mechanism</p>
      * 
-     * <p><p>Indicates whether the patient's consent is written or 
-     * verbal.</p></p>
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      * 
-     * <p><p>Verbal consents may trigger a higher level of 
-     * auditing.</p></p>
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
         return (x_PhysicalVerbalParticipationMode) this.modeCode.getValue();
     }
+
+    /**
+     * <p>Patient Consent Mechanism</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
+     * 
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
+     */
     public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
@@ -72,6 +82,7 @@ public class ConsentedToByBean extends MessagePartBean {
     public Consenter getConsenter() {
         return this.consenter;
     }
+
     public void setConsenter(Consenter consenter) {
         this.consenter = consenter;
     }

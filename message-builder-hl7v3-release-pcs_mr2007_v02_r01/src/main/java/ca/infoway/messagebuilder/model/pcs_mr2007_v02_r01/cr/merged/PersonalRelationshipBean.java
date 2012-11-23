@@ -41,72 +41,69 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>PRPA_MT101001CA.PersonalRelationship: Personal 
  * Relationship</p>
  * 
- * <p><p>Associations between persons in the Person Registry, 
- * such as spouse or parent, can be sent in a 
- * PersonalRelationship class. The exact nature of a 
- * association is described by the code attribute with a value 
- * drawn from the PersonalRelationshipRoleType domain. Most 
- * associations can be represented in either of two ways 
- * depending on who is the player and who is the scoper. For 
- * example, the association between a father and his daughter 
- * can be represented by a code of &quot;father&quot; where the 
- * parent is the player and the child is the scoper, or by a 
- * code of &quot;daughter&quot; where the child is the player 
- * and the parent is the scoper.</p></p>
+ * <p>Associations between persons in the Person Registry, such 
+ * as spouse or parent, can be sent in a PersonalRelationship 
+ * class. The exact nature of a association is described by the 
+ * code attribute with a value drawn from the 
+ * PersonalRelationshipRoleType domain. Most associations can 
+ * be represented in either of two ways depending on who is the 
+ * player and who is the scoper. For example, the association 
+ * between a father and his daughter can be represented by a 
+ * code of &quot;father&quot; where the parent is the player 
+ * and the child is the scoper, or by a code of 
+ * &quot;daughter&quot; where the child is the player and the 
+ * parent is the scoper.</p>
  * 
- * <p><p>Supports the business requirement to capture 
- * additional information about the Identified Client's Next of 
- * Kin</p></p>
+ * <p>Supports the business requirement to capture additional 
+ * information about the Identified Client's Next of Kin</p>
  * 
  * <p>PRPA_MT101104CA.PersonalRelationship: Personal 
  * Relationship</p>
  * 
- * <p><p>Associations between persons in the Person Registry, 
- * such as spouse or parent, can be sent in a 
- * PersonalRelationship class. The exact nature of a 
- * association is described by the code attribute with a value 
- * drawn from the PersonalRelationshipRoleType domain. Most 
- * associations can be represented in either of two ways 
- * depending on who is the player and who is the scoper. For 
- * example, the association between a father and his daughter 
- * can be represented by a code of &quot;father&quot; where the 
- * parent is the player and the child is the scoper, or by a 
- * code of &quot;daughter&quot; where the child is the player 
- * and the parent is the scoper.</p></p>
+ * <p>Associations between persons in the Person Registry, such 
+ * as spouse or parent, can be sent in a PersonalRelationship 
+ * class. The exact nature of a association is described by the 
+ * code attribute with a value drawn from the 
+ * PersonalRelationshipRoleType domain. Most associations can 
+ * be represented in either of two ways depending on who is the 
+ * player and who is the scoper. For example, the association 
+ * between a father and his daughter can be represented by a 
+ * code of &quot;father&quot; where the parent is the player 
+ * and the child is the scoper, or by a code of 
+ * &quot;daughter&quot; where the child is the player and the 
+ * parent is the scoper.</p>
  * 
- * <p><p>Supports the business requirement to capture 
- * additional information about the Identified Client's Next of 
- * Kin</p></p>
+ * <p>Supports the business requirement to capture additional 
+ * information about the Identified Client's Next of Kin</p>
  * 
  * <p>PRPA_MT101002CA.PersonalRelationship: Personal 
  * Relationship</p>
  * 
- * <p><p>Associations between persons in the Person Registry, 
- * such as spouse or parent, can be sent in a 
- * PersonalRelationship class. The exact nature of a 
- * association is described by the code attribute with a value 
- * drawn from the PersonalRelationshipRoleType domain. Most 
- * associations can be represented in either of two ways 
- * depending on who is the player and who is the scoper. For 
- * example, the association between a father and his daughter 
- * can be represented by a code of &quot;father&quot; where the 
- * parent is the player and the child is the scoper, or by a 
- * code of &quot;daughter&quot; where the child is the player 
- * and the parent is the scoper.</p></p>
+ * <p>Associations between persons in the Person Registry, such 
+ * as spouse or parent, can be sent in a PersonalRelationship 
+ * class. The exact nature of a association is described by the 
+ * code attribute with a value drawn from the 
+ * PersonalRelationshipRoleType domain. Most associations can 
+ * be represented in either of two ways depending on who is the 
+ * player and who is the scoper. For example, the association 
+ * between a father and his daughter can be represented by a 
+ * code of &quot;father&quot; where the parent is the player 
+ * and the child is the scoper, or by a code of 
+ * &quot;daughter&quot; where the child is the player and the 
+ * parent is the scoper.</p>
  * 
- * <p><p>Supports the business requirement to capture 
- * additional information about the Identified Client's Next of 
- * Kin</p></p>
+ * <p>Supports the business requirement to capture additional 
+ * information about the Identified Client's Next of Kin</p>
  * 
- * <p><p>Links two people in a personal relationship. The 
+ * <p>Links two people in a personal relationship. The 
  * character of the relationship must be defined by a 
  * PersonalRelationshipRoleType code. The player and scoper are 
- * determined by PersonalRelationshipRoleType code as well.</p></p>
+ * determined by PersonalRelationshipRoleType code as well.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101001CA.PersonalRelationship","PRPA_MT101002CA.PersonalRelationship","PRPA_MT101102CA.PersonalRelationship","PRPA_MT101104CA.PersonalRelationship"})
 public class PersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private II relationshipHolderId = new IIImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -117,26 +114,48 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>Client Next of Kin</p>
      * 
-     * <p><p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p></p>
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p><p>Mandatory attribute that supports understanding the 
-     * relationship between the client and the ParentClient</p></p>
-     * 
-     * <p>Client Next of Kin</p>
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
      * 
      * <p>Client Next of Kin</p>
      * 
-     * <p><p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p></p>
+     * <p>Client Next of Kin</p>
      * 
-     * <p><p>Mandatory attribute that supports understanding the 
-     * relationship between the client and the Next of Kin</p></p>
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the Next of Kin</p>
      */
     @Hl7XmlMapping({"code"})
     public PersonalRelationshipRoleType getCode() {
         return (PersonalRelationshipRoleType) this.code.getValue();
     }
+
+    /**
+     * <p>ClientNextOfKin</p>
+     * 
+     * <p>Client Next of Kin</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
+     * 
+     * <p>Client Next of Kin</p>
+     * 
+     * <p>Client Next of Kin</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the Next of Kin</p>
+     */
     public void setCode(PersonalRelationshipRoleType code) {
         this.code.setValue(code);
     }
@@ -149,15 +168,28 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>Next of Kin Identifier</p>
      * 
-     * <p><p>A unique identifier for the next of kin</p></p>
+     * <p>A unique identifier for the next of kin</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * next of kin</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
      */
     @Hl7XmlMapping({"relationshipHolder/id"})
     public Identifier getRelationshipHolderId() {
         return this.relationshipHolderId.getValue();
     }
+
+    /**
+     * <p>NextOfKinIdentifier</p>
+     * 
+     * <p>Next of Kin Identifier</p>
+     * 
+     * <p>Next of Kin Identifier</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     */
     public void setRelationshipHolderId(Identifier relationshipHolderId) {
         this.relationshipHolderId.setValue(relationshipHolderId);
     }
@@ -168,10 +200,10 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>Next of Kin Name</p>
      * 
-     * <p><p>A name for the next of kin</p></p>
+     * <p>A name for the next of kin</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * next of kin</p></p>
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
      * 
      * <p>Next of Kin Name</p>
      */
@@ -179,6 +211,19 @@ public class PersonalRelationshipBean extends MessagePartBean {
     public PersonName getRelationshipHolderName() {
         return this.relationshipHolderName.getValue();
     }
+
+    /**
+     * <p>NextOfKinName</p>
+     * 
+     * <p>Next of Kin Name</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Next of Kin Name</p>
+     */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {
         this.relationshipHolderName.setValue(relationshipHolderName);
     }

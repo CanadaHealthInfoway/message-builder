@@ -33,36 +33,36 @@ import java.util.Set;
 
 
 /**
- * <p><p>Used to reference a previous act (e.g. billable act) 
- * by including its Act.id. May only be used to reference a 
+ * <p>Used to reference a previous act (e.g. billable act) by 
+ * including its Act.id. May only be used to reference a 
  * billable act in the SAME message, not for past messages 
  * (this would require adjudicators to keep a lot of 
- * history).</p></p>
+ * history).</p>
  * 
- * <p><p>Used to reference a previous act (e.g. billable act) 
- * by including its Act.id. May only be used to reference a 
+ * <p>Used to reference a previous act (e.g. billable act) by 
+ * including its Act.id. May only be used to reference a 
  * billable act in the SAME message, not for past messages 
  * (this would require adjudicators to keep a lot of 
- * history).</p></p>
+ * history).</p>
  */
 @Hl7PartTypeMapping({"COCT_MT280001CA.CrossReference"})
 public class CrossReferenceBean extends MessagePartBean implements A_BillableActChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
      * <p>) (Act.id.</p>
      * 
-     * <p><p>Act.id. referencing a previous act (e.g. billable act) 
-     * in the SAME message,</p></p>
+     * <p>Act.id. referencing a previous act (e.g. billable act) in 
+     * the SAME message,</p>
      * 
-     * <p><p>Used to reference a previous act (e.g. billable act) 
-     * by including its Act.id. May only be used to reference a 
+     * <p>Used to reference a previous act (e.g. billable act) by 
+     * including its Act.id. May only be used to reference a 
      * billable act in the SAME message, not for past messages 
      * (this would require adjudicators to keep a lot of 
-     * history).</p></p>
+     * history).</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

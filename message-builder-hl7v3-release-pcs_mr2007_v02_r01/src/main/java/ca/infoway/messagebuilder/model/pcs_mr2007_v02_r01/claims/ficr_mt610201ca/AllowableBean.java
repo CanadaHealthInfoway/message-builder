@@ -32,17 +32,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.Allowable"})
 public class AllowableBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private MO netAmt = new MOImpl();
 
 
     /**
-     * <p><p>Allowable or eligibile amount, as per fee schedule</p></p>
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
         return this.netAmt.getValue();
     }
+
+    /**
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
+     */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }

@@ -29,9 +29,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.porx_mt060040
 
 
 
+/**
+ * <p>PORX_IN060100CA: Device prescription detail query 
+ * response</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120006CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060040CA.DeviceRequest</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060280CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060100CA"})
 public class DevicePrescriptionDetailQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<PrescriptionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

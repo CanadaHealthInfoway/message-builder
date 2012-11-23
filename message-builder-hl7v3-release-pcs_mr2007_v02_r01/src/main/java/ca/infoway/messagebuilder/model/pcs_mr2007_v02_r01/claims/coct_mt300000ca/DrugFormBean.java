@@ -32,19 +32,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.ManufacturedMaterialKind"})
 public class DrugFormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV formCode = new CVImpl();
 
 
     /**
      * <p>Drug Form</p>
      * 
-     * <p><p>required for compounds</p></p>
+     * <p>required for compounds</p>
      */
     @Hl7XmlMapping({"formCode"})
     public OrderableDrugForm getFormCode() {
         return (OrderableDrugForm) this.formCode.getValue();
     }
+
+    /**
+     * <p>Drug Form</p>
+     * 
+     * <p>required for compounds</p>
+     */
     public void setFormCode(OrderableDrugForm formCode) {
         this.formCode.setValue(formCode);
     }

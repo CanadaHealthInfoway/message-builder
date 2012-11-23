@@ -25,14 +25,16 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 /**
- * <p><p>Want sum of all adjudication details (info &amp; 
+ * <p>Want sum of all adjudication details (info &amp; 
  * non-info) to equal what was submitted. For example, the 
- * reasons why you refused to pay part of the invoice</p></p>
+ * reasons why you refused to pay part of the invoice</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementChoice"})
 public interface AdjudicatedInvoiceElementChoice {
 
+
     public AllowableBean getReference1Allowable();
+
     public void setReference1Allowable(AllowableBean reference1Allowable);
 
 }

@@ -35,7 +35,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
@@ -43,16 +43,26 @@ public class PatientEncounterBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>Encounter id</p></p>
+     * <p>Encounter id</p>
      * 
      * <p>(no business name)</p>
      * 
-     * <p><p>encounter id</p></p>
+     * <p>encounter id</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>Encounter id</p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p>encounter id</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -61,12 +71,18 @@ public class PatientEncounterBean extends MessagePartBean {
     /**
      * <p>(no business name)</p>
      * 
-     * <p><p>admit/discharge date</p></p>
+     * <p>admit/discharge date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>(no business name)</p>
+     * 
+     * <p>admit/discharge date</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }

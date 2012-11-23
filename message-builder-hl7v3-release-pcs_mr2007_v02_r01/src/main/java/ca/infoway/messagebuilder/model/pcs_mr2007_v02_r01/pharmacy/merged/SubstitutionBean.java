@@ -35,40 +35,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT060160CA.SubstitutionMade: Substitution</p>
  * 
- * <p><p>An indication of what kind of substitution made, if 
- * any.</p></p>
+ * <p>An indication of what kind of substitution made, if 
+ * any.</p>
  * 
- * <p><p>May explain why prescribed and dispensed medications 
- * differ.</p></p>
+ * <p>May explain why prescribed and dispensed medications 
+ * differ.</p>
  * 
  * <p>PORX_MT060090CA.SubstitutionMade: Substitution</p>
  * 
- * <p><p>An indication of what kind of substitution made, if 
- * any.</p></p>
+ * <p>An indication of what kind of substitution made, if 
+ * any.</p>
  * 
- * <p><p>May explain why prescribed and dispensed medications 
- * differ.</p></p>
+ * <p>May explain why prescribed and dispensed medications 
+ * differ.</p>
  * 
  * <p>PORX_MT060340CA.SubstitutionMade: Substitution</p>
  * 
- * <p><p>An indication of what kind of substitution made, if 
- * any.</p></p>
+ * <p>An indication of what kind of substitution made, if 
+ * any.</p>
  * 
- * <p><p>May explain why prescribed and dispensed medications 
- * differ.</p></p>
+ * <p>May explain why prescribed and dispensed medications 
+ * differ.</p>
  * 
  * <p>PORX_MT020070CA.SubstitutionMade: Substitution</p>
  * 
- * <p><p>An indication of what kind of substitution was made, 
- * if any.</p></p>
+ * <p>An indication of what kind of substitution was made, if 
+ * any.</p>
  * 
- * <p><p>May explain why prescribed and dispensed medications 
- * may differ.</p></p>
+ * <p>May explain why prescribed and dispensed medications may 
+ * differ.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
@@ -79,17 +79,30 @@ public class SubstitutionBean extends MessagePartBean {
      * 
      * <p>Substitution Code</p>
      * 
-     * <p><p>A code signifying whether a different drug was 
-     * dispensed from what was prescribed.</p></p>
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
      * 
-     * <p><p>Indicates that substitution was done (or not). This 
+     * <p>Indicates that substitution was done (or not). This 
      * attribute is mandatory because it is essential to 
-     * understanding the substitution.</p></p>
+     * understanding the substitution.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdminSubstitutionCode getCode() {
         return (ActSubstanceAdminSubstitutionCode) this.code.getValue();
     }
+
+    /**
+     * <p>SubstitutionCode</p>
+     * 
+     * <p>Substitution Code</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     */
     public void setCode(ActSubstanceAdminSubstitutionCode code) {
         this.code.setValue(code);
     }
@@ -98,37 +111,58 @@ public class SubstitutionBean extends MessagePartBean {
     /**
      * <p>Product Selection Code</p>
      * 
-     * <p><p>Indicates the reason for the substitution of (or 
-     * failure to substitute) the medication from what was 
-     * prescribed.</p></p>
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
      * 
-     * <p><p>Standardized reasons for substitution performed (or 
-     * not performed). Useful in analysis of dispensing 
-     * patterns.</p></p>
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
      * 
      * <p>Product Selection Reason Code</p>
      * 
-     * <p><p>Indicates the reason for the substitution of (or lack 
-     * of substitution) from what was prescribed.</p></p>
+     * <p>Indicates the reason for the substitution of (or lack of 
+     * substitution) from what was prescribed.</p>
      * 
-     * <p><p>Standardized reasons for substitution performed (or 
-     * not performed). Useful in analysis of dispensing 
-     * patterns.</p></p>
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
      * 
      * <p>Product Selection Reason Code</p>
      * 
-     * <p><p>Indicates the reason for the substitution of (or 
-     * failure to substitute) the medication from what was 
-     * prescribed.</p></p>
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
      * 
-     * <p><p>Standardized reasons for substitution performed (or 
-     * not performed). Useful in analysis of dispensing 
-     * patterns.</p></p>
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getReasonCode() {
         return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>Product Selection Code</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Product Selection Reason Code</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or lack of 
+     * substitution) from what was prescribed.</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Product Selection Reason Code</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     */
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -138,6 +172,7 @@ public class SubstitutionBean extends MessagePartBean {
     public AgentBean getResponsiblePartyAgent() {
         return this.responsiblePartyAgent;
     }
+
     public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
         this.responsiblePartyAgent = responsiblePartyAgent;
     }

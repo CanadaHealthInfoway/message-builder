@@ -28,15 +28,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.InvoiceT
 
 
 /**
- * <p><p>Multiple references to submitted invoice elements 
+ * <p>Multiple references to submitted invoice elements 
  * provides support for code substitution where the number of 
  * submitted fee items is consolidated on the adjudication 
- * results (e.g. 3 items to 1).</p></p>
+ * results (e.g. 3 items to 1).</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private InvoiceTypeBean invoiceElementGroup;
 
 
@@ -44,6 +44,7 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
     public InvoiceTypeBean getInvoiceElementGroup() {
         return this.invoiceElementGroup;
     }
+
     public void setInvoiceElementGroup(InvoiceTypeBean invoiceElementGroup) {
         this.invoiceElementGroup = invoiceElementGroup;
     }

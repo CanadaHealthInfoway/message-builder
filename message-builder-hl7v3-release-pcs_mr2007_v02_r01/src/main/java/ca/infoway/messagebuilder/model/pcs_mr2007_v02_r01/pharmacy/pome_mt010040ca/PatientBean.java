@@ -32,31 +32,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Patient</p>
  * 
- * <p><p>Indicates the type of patient for whom the dosage 
- * instruction applies.</p></p>
+ * <p>Indicates the type of patient for whom the dosage 
+ * instruction applies.</p>
  * 
- * <p><p>Important for qualifying and filtering dosage 
- * specifications.</p></p>
+ * <p>Important for qualifying and filtering dosage 
+ * specifications.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
      * <p>Patient Gender</p>
      * 
-     * <p><p>Indicates the gender of patient to whom the dosage 
-     * specification applies.</p></p>
+     * <p>Indicates the gender of patient to whom the dosage 
+     * specification applies.</p>
      * 
-     * <p><p>Some dosage specifications are gender-specific.</p></p>
+     * <p>Some dosage specifications are gender-specific.</p>
      */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
     public AdministrativeGender getPatientLivingSubjectKindAdministrativeGenderCode() {
         return (AdministrativeGender) this.patientLivingSubjectKindAdministrativeGenderCode.getValue();
     }
+
+    /**
+     * <p>Patient Gender</p>
+     * 
+     * <p>Indicates the gender of patient to whom the dosage 
+     * specification applies.</p>
+     * 
+     * <p>Some dosage specifications are gender-specific.</p>
+     */
     public void setPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender patientLivingSubjectKindAdministrativeGenderCode) {
         this.patientLivingSubjectKindAdministrativeGenderCode.setValue(patientLivingSubjectKindAdministrativeGenderCode);
     }

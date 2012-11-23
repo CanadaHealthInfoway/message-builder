@@ -48,12 +48,12 @@ import java.util.Date;
 /**
  * <p>Person Patient</p>
  * 
- * <p><p>The information of the person patient.</p></p>
+ * <p>The information of the person patient.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientPerson"})
 public class PersonPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PN name = new PNImpl();
     private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();
@@ -67,14 +67,22 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Patient Name</p>
      * 
-     * <p><p>Person Name</p></p>
+     * <p>Person Name</p>
      * 
-     * <p><p>Name of the Patient</p></p>
+     * <p>Name of the Patient</p>
      */
     @Hl7XmlMapping({"name"})
     public PersonName getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>Patient Name</p>
+     * 
+     * <p>Person Name</p>
+     * 
+     * <p>Name of the Patient</p>
+     */
     public void setName(PersonName name) {
         this.name.setValue(name);
     }
@@ -83,30 +91,54 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Person Gender</p>
      * 
-     * <p><p>The gender of the patient</p></p>
+     * <p>The gender of the patient</p>
      * 
-     * <p><p>Administrative Gender is mandatory for Invoices 
-     * without a policy identifier (e.g. WCB or Auto 
-     * claim).</p><p>This would also be mandatory for active 
-     * enrollment.</p><p>May not be provided based on privacy 
-     * legislation, so cannot be mandatory and then NP'd b</p></p>
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
      * 
-     * <p><p>Administrative Gender is mandatory for Invoices 
-     * without a policy identifier (e.g. WCB or Auto 
-     * claim).</p><p>This would also be mandatory for active 
-     * enrollment.</p><p>May not be provided based on privacy 
-     * legislation, so cannot be mandatory and then NP'd b</p></p>
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
      * 
-     * <p><p>Administrative Gender is mandatory for Invoices 
-     * without a policy identifier (e.g. WCB or Auto 
-     * claim).</p><p>This would also be mandatory for active 
-     * enrollment.</p><p>May not be provided based on privacy 
-     * legislation, so cannot be mandatory and then NP'd b</p></p>
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
     public AdministrativeGender getAdministrativeGenderCode() {
         return (AdministrativeGender) this.administrativeGenderCode.getValue();
     }
+
+    /**
+     * <p>Person Gender</p>
+     * 
+     * <p>The gender of the patient</p>
+     * 
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
+     * 
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
+     * 
+     * <p>Administrative Gender is mandatory for Invoices without a 
+     * policy identifier (e.g. WCB or Auto claim).</p><p>This would 
+     * also be mandatory for active enrollment.</p><p>May not be 
+     * provided based on privacy legislation, so cannot be 
+     * mandatory and then NP'd b</p>
+     */
     public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
         this.administrativeGenderCode.setValue(administrativeGenderCode);
     }
@@ -115,9 +147,9 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Person Date of birth</p>
      * 
-     * <p><p>Patient Date of Birth</p></p>
+     * <p>Patient Date of Birth</p>
      * 
-     * <p><p>Patient Date of Birth + Patient Name and/or Patient 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
      * Gender is used to help confirm the policy 
      * identifier.</p><p>Birth date is mandatory for Invoices 
      * without a policy identifier (e.g. WCB or Auto 
@@ -125,9 +157,9 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
      * enrollment.</p><p>May not be provided based on privacy 
      * legislation, so cannot be mandatory and then NP'd by a 
      * benefit group (e.g. Rx).</p><p>Only date portion should be 
-     * specified.</p></p>
+     * specified.</p>
      * 
-     * <p><p>Patient Date of Birth + Patient Name and/or Patient 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
      * Gender is used to help confirm the policy 
      * identifier.</p><p>Birth date is mandatory for Invoices 
      * without a policy identifier (e.g. WCB or Auto 
@@ -135,9 +167,9 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
      * enrollment.</p><p>May not be provided based on privacy 
      * legislation, so cannot be mandatory and then NP'd by a 
      * benefit group (e.g. Rx).</p><p>Only date portion should be 
-     * specified.</p></p>
+     * specified.</p>
      * 
-     * <p><p>Patient Date of Birth + Patient Name and/or Patient 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
      * Gender is used to help confirm the policy 
      * identifier.</p><p>Birth date is mandatory for Invoices 
      * without a policy identifier (e.g. WCB or Auto 
@@ -145,9 +177,9 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
      * enrollment.</p><p>May not be provided based on privacy 
      * legislation, so cannot be mandatory and then NP'd by a 
      * benefit group (e.g. Rx).</p><p>Only date portion should be 
-     * specified.</p></p>
+     * specified.</p>
      * 
-     * <p><p>Patient Date of Birth + Patient Name and/or Patient 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
      * Gender is used to help confirm the policy 
      * identifier.</p><p>Birth date is mandatory for Invoices 
      * without a policy identifier (e.g. WCB or Auto 
@@ -155,9 +187,9 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
      * enrollment.</p><p>May not be provided based on privacy 
      * legislation, so cannot be mandatory and then NP'd by a 
      * benefit group (e.g. Rx).</p><p>Only date portion should be 
-     * specified.</p></p>
+     * specified.</p>
      * 
-     * <p><p>Patient Date of Birth + Patient Name and/or Patient 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
      * Gender is used to help confirm the policy 
      * identifier.</p><p>Birth date is mandatory for Invoices 
      * without a policy identifier (e.g. WCB or Auto 
@@ -165,14 +197,72 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
      * enrollment.</p><p>May not be provided based on privacy 
      * legislation, so cannot be mandatory and then NP'd by a 
      * benefit group (e.g. Rx).</p><p>Only date portion should be 
-     * specified.</p></p>
+     * specified.</p>
      * 
-     * <p><p>RxS1: Specify as YYYYMMDD.</p></p>
+     * <p>RxS1: Specify as YYYYMMDD.</p>
      */
     @Hl7XmlMapping({"birthTime"})
     public Date getBirthTime() {
         return this.birthTime.getValue();
     }
+
+    /**
+     * <p>Person Date of birth</p>
+     * 
+     * <p>Patient Date of Birth</p>
+     * 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
+     * Gender is used to help confirm the policy 
+     * identifier.</p><p>Birth date is mandatory for Invoices 
+     * without a policy identifier (e.g. WCB or Auto 
+     * claim).</p><p>This would also be mandatory for active 
+     * enrollment.</p><p>May not be provided based on privacy 
+     * legislation, so cannot be mandatory and then NP'd by a 
+     * benefit group (e.g. Rx).</p><p>Only date portion should be 
+     * specified.</p>
+     * 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
+     * Gender is used to help confirm the policy 
+     * identifier.</p><p>Birth date is mandatory for Invoices 
+     * without a policy identifier (e.g. WCB or Auto 
+     * claim).</p><p>This would also be mandatory for active 
+     * enrollment.</p><p>May not be provided based on privacy 
+     * legislation, so cannot be mandatory and then NP'd by a 
+     * benefit group (e.g. Rx).</p><p>Only date portion should be 
+     * specified.</p>
+     * 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
+     * Gender is used to help confirm the policy 
+     * identifier.</p><p>Birth date is mandatory for Invoices 
+     * without a policy identifier (e.g. WCB or Auto 
+     * claim).</p><p>This would also be mandatory for active 
+     * enrollment.</p><p>May not be provided based on privacy 
+     * legislation, so cannot be mandatory and then NP'd by a 
+     * benefit group (e.g. Rx).</p><p>Only date portion should be 
+     * specified.</p>
+     * 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
+     * Gender is used to help confirm the policy 
+     * identifier.</p><p>Birth date is mandatory for Invoices 
+     * without a policy identifier (e.g. WCB or Auto 
+     * claim).</p><p>This would also be mandatory for active 
+     * enrollment.</p><p>May not be provided based on privacy 
+     * legislation, so cannot be mandatory and then NP'd by a 
+     * benefit group (e.g. Rx).</p><p>Only date portion should be 
+     * specified.</p>
+     * 
+     * <p>Patient Date of Birth + Patient Name and/or Patient 
+     * Gender is used to help confirm the policy 
+     * identifier.</p><p>Birth date is mandatory for Invoices 
+     * without a policy identifier (e.g. WCB or Auto 
+     * claim).</p><p>This would also be mandatory for active 
+     * enrollment.</p><p>May not be provided based on privacy 
+     * legislation, so cannot be mandatory and then NP'd by a 
+     * benefit group (e.g. Rx).</p><p>Only date portion should be 
+     * specified.</p>
+     * 
+     * <p>RxS1: Specify as YYYYMMDD.</p>
+     */
     public void setBirthTime(Date birthTime) {
         this.birthTime.setValue(birthTime);
     }
@@ -181,15 +271,24 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Person multiple birth indicator</p>
      * 
-     * <p><p>An indicator used to specify if the patient is part of 
-     * a multiple birth, as in a twin, triplet, etc.</p></p>
+     * <p>An indicator used to specify if the patient is part of a 
+     * multiple birth, as in a twin, triplet, etc.</p>
      * 
-     * <p><p>RxS1: Not permitted for this scenario.</p></p>
+     * <p>RxS1: Not permitted for this scenario.</p>
      */
     @Hl7XmlMapping({"multipleBirthInd"})
     public Boolean getMultipleBirthInd() {
         return this.multipleBirthInd.getValue();
     }
+
+    /**
+     * <p>Person multiple birth indicator</p>
+     * 
+     * <p>An indicator used to specify if the patient is part of a 
+     * multiple birth, as in a twin, triplet, etc.</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
+     */
     public void setMultipleBirthInd(Boolean multipleBirthInd) {
         this.multipleBirthInd.setValue(multipleBirthInd);
     }
@@ -198,19 +297,28 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Person multiple birth order number</p>
      * 
-     * <p><p>The order of birth of the patient in the situation 
-     * that the patient is indicated as part of a multiple 
-     * birth.</p></p>
+     * <p>The order of birth of the patient in the situation that 
+     * the patient is indicated as part of a multiple birth.</p>
      * 
-     * <p><p>Valid only if MultipleBirthIndicator set to 
-     * positive</p></p>
+     * <p>Valid only if MultipleBirthIndicator set to positive</p>
      * 
-     * <p><p>RxS1: Not permitted for this scenario.</p></p>
+     * <p>RxS1: Not permitted for this scenario.</p>
      */
     @Hl7XmlMapping({"multipleBirthOrderNumber"})
     public Integer getMultipleBirthOrderNumber() {
         return this.multipleBirthOrderNumber.getValue();
     }
+
+    /**
+     * <p>Person multiple birth order number</p>
+     * 
+     * <p>The order of birth of the patient in the situation that 
+     * the patient is indicated as part of a multiple birth.</p>
+     * 
+     * <p>Valid only if MultipleBirthIndicator set to positive</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
+     */
     public void setMultipleBirthOrderNumber(Integer multipleBirthOrderNumber) {
         this.multipleBirthOrderNumber.setValue(multipleBirthOrderNumber);
     }
@@ -219,30 +327,54 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Id of parent</p>
      * 
-     * <p><p>The parent or guardian information of the patient.</p></p>
+     * <p>The parent or guardian information of the patient.</p>
      * 
-     * <p><p>Guardian or Parent of new born. For example, use by 
+     * <p>Guardian or Parent of new born. For example, use by 
      * FNIHB, as the newborn child under 1 is assumed to be a 
      * covered party under the policy. This would allow the 
      * specification of guardian, as this is not a familial 
      * relationship.</p><p>Guardian information is typically noted 
      * at time of claim enrollment (registration) and therefore may 
-     * not be required on an invoice by invoice basis.</p></p>
+     * not be required on an invoice by invoice basis.</p>
      * 
-     * <p><p>Guardian or Parent of new born. For example, use by 
+     * <p>Guardian or Parent of new born. For example, use by 
      * FNIHB, as the newborn child under 1 is assumed to be a 
      * covered party under the policy. This would allow the 
      * specification of guardian, as this is not a familial 
      * relationship.</p><p>Guardian information is typically noted 
      * at time of claim enrollment (registration) and therefore may 
-     * not be required on an invoice by invoice basis.</p></p>
+     * not be required on an invoice by invoice basis.</p>
      * 
-     * <p><p>RxS1: Not permitted for this scenario.</p></p>
+     * <p>RxS1: Not permitted for this scenario.</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/id"})
     public Identifier getParentOrGuardianRoleId() {
         return this.parentOrGuardianRoleId.getValue();
     }
+
+    /**
+     * <p>Id of parent</p>
+     * 
+     * <p>The parent or guardian information of the patient.</p>
+     * 
+     * <p>Guardian or Parent of new born. For example, use by 
+     * FNIHB, as the newborn child under 1 is assumed to be a 
+     * covered party under the policy. This would allow the 
+     * specification of guardian, as this is not a familial 
+     * relationship.</p><p>Guardian information is typically noted 
+     * at time of claim enrollment (registration) and therefore may 
+     * not be required on an invoice by invoice basis.</p>
+     * 
+     * <p>Guardian or Parent of new born. For example, use by 
+     * FNIHB, as the newborn child under 1 is assumed to be a 
+     * covered party under the policy. This would allow the 
+     * specification of guardian, as this is not a familial 
+     * relationship.</p><p>Guardian information is typically noted 
+     * at time of claim enrollment (registration) and therefore may 
+     * not be required on an invoice by invoice basis.</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
+     */
     public void setParentOrGuardianRoleId(Identifier parentOrGuardianRoleId) {
         this.parentOrGuardianRoleId.setValue(parentOrGuardianRoleId);
     }
@@ -251,21 +383,36 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Parent or Guardian Relationship to patient</p>
      * 
-     * <p><p>The relationship of the parent or the guardian to the 
-     * Patient. I.e.. Father, Mother, Aunt</p></p>
+     * <p>The relationship of the parent or the guardian to the 
+     * Patient. I.e.. Father, Mother, Aunt</p>
      * 
-     * <p><p>The allowable values are PRN (parent), MTH (mother) 
-     * and FTH (father).</p><p>RxS1: Not permitted for this 
-     * scenario.</p></p>
+     * <p>The allowable values are PRN (parent), MTH (mother) and 
+     * FTH (father).</p><p>RxS1: Not permitted for this 
+     * scenario.</p>
      * 
-     * <p><p>The allowable values are PRN (parent), MTH (mother) 
-     * and FTH (father).</p><p>RxS1: Not permitted for this 
-     * scenario.</p></p>
+     * <p>The allowable values are PRN (parent), MTH (mother) and 
+     * FTH (father).</p><p>RxS1: Not permitted for this 
+     * scenario.</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/code"})
     public PersonalRelationshipRoleType getParentOrGuardianRoleCode() {
         return (PersonalRelationshipRoleType) this.parentOrGuardianRoleCode.getValue();
     }
+
+    /**
+     * <p>Parent or Guardian Relationship to patient</p>
+     * 
+     * <p>The relationship of the parent or the guardian to the 
+     * Patient. I.e.. Father, Mother, Aunt</p>
+     * 
+     * <p>The allowable values are PRN (parent), MTH (mother) and 
+     * FTH (father).</p><p>RxS1: Not permitted for this 
+     * scenario.</p>
+     * 
+     * <p>The allowable values are PRN (parent), MTH (mother) and 
+     * FTH (father).</p><p>RxS1: Not permitted for this 
+     * scenario.</p>
+     */
     public void setParentOrGuardianRoleCode(PersonalRelationshipRoleType parentOrGuardianRoleCode) {
         this.parentOrGuardianRoleCode.setValue(parentOrGuardianRoleCode);
     }
@@ -274,14 +421,22 @@ public class PersonPatientBean extends MessagePartBean implements CoveredPartyAs
     /**
      * <p>Name of Parent or Guardian</p>
      * 
-     * <p><p>Name of Parent or Guardian</p></p>
+     * <p>Name of Parent or Guardian</p>
      * 
-     * <p><p>RxS1: Not permitted for this scenario.</p></p>
+     * <p>RxS1: Not permitted for this scenario.</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/relationshipHolder/name"})
     public PersonName getParentOrGuardianRoleRelationshipHolderName() {
         return this.parentOrGuardianRoleRelationshipHolderName.getValue();
     }
+
+    /**
+     * <p>Name of Parent or Guardian</p>
+     * 
+     * <p>Name of Parent or Guardian</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
+     */
     public void setParentOrGuardianRoleRelationshipHolderName(PersonName parentOrGuardianRoleRelationshipHolderName) {
         this.parentOrGuardianRoleRelationshipHolderName.setValue(parentOrGuardianRoleRelationshipHolderName);
     }

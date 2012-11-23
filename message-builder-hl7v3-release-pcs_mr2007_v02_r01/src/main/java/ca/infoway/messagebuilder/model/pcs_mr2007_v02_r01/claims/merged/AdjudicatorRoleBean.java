@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private PN playingAdjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
@@ -47,18 +47,32 @@ public class AdjudicatorRoleBean extends MessagePartBean {
      * 
      * <p>(no business name)</p>
      * 
-     * <p><p>Set of identifiers that uniquely identify the 
-     * adjudicator of the invoice.</p></p>
+     * <p>Set of identifiers that uniquely identify the adjudicator 
+     * of the invoice.</p>
      * 
      * <p>Adjudicator ID</p>
      * 
-     * <p><p>Adjudicator Id -Set of identifiers that uniquely 
-     * identify the adjudicator of the invoice.</p></p>
+     * <p>Adjudicator Id -Set of identifiers that uniquely identify 
+     * the adjudicator of the invoice.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>AdjudicatorID</p>
+     * 
+     * <p>(no business name)</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the adjudicator 
+     * of the invoice.</p>
+     * 
+     * <p>Adjudicator ID</p>
+     * 
+     * <p>Adjudicator Id -Set of identifiers that uniquely identify 
+     * the adjudicator of the invoice.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -73,6 +87,12 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     public PersonName getPlayingAdjudicatorPersonName() {
         return this.playingAdjudicatorPersonName.getValue();
     }
+
+    /**
+     * <p>AdjudicatorPersonName</p>
+     * 
+     * <p>Adjudicator Person Name</p>
+     */
     public void setPlayingAdjudicatorPersonName(PersonName playingAdjudicatorPersonName) {
         this.playingAdjudicatorPersonName.setValue(playingAdjudicatorPersonName);
     }
@@ -82,6 +102,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {
         return this.directAuthorityInsuranceCarrierRole;
     }
+
     public void setDirectAuthorityInsuranceCarrierRole(InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole) {
         this.directAuthorityInsuranceCarrierRole = directAuthorityInsuranceCarrierRole;
     }

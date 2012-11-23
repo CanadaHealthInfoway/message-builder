@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.DispenseInstructions"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ExpectedStartTimeBean substanceAdministrationIntent;
 
 
@@ -37,6 +37,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
     public ExpectedStartTimeBean getSubstanceAdministrationIntent() {
         return this.substanceAdministrationIntent;
     }
+
     public void setSubstanceAdministrationIntent(ExpectedStartTimeBean substanceAdministrationIntent) {
         this.substanceAdministrationIntent = substanceAdministrationIntent;
     }

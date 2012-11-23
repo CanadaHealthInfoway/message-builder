@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
@@ -42,12 +42,18 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     /**
      * <p>Substitution Type</p>
      * 
-     * <p><p>type of substitution</p></p>
+     * <p>type of substitution</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdminSubstitutionCode getCode() {
         return (ActSubstanceAdminSubstitutionCode) this.code.getValue();
     }
+
+    /**
+     * <p>Substitution Type</p>
+     * 
+     * <p>type of substitution</p>
+     */
     public void setCode(ActSubstanceAdminSubstitutionCode code) {
         this.code.setValue(code);
     }
@@ -56,15 +62,24 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     /**
      * <p>Substitution Reason</p>
      * 
-     * <p><p>Reason why the substitution occurred.</p></p>
+     * <p>Reason why the substitution occurred.</p>
      * 
-     * <p><p>Reason for substituting or not substituting, e.g. 
-     * because prescriber requested</p></p>
+     * <p>Reason for substituting or not substituting, e.g. because 
+     * prescriber requested</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getReasonCode() {
         return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>Substitution Reason</p>
+     * 
+     * <p>Reason why the substitution occurred.</p>
+     * 
+     * <p>Reason for substituting or not substituting, e.g. because 
+     * prescriber requested</p>
+     */
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -74,6 +89,7 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     public SubstitutionRoleBean getPerformerSubstitutionRole() {
         return this.performerSubstitutionRole;
     }
+
     public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
         this.performerSubstitutionRole = performerSubstitutionRole;
     }

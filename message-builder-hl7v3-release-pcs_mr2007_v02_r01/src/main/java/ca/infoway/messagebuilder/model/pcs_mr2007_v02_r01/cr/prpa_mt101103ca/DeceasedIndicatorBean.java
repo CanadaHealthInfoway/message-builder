@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.DeceasedIndicator"})
 public class DeceasedIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL value = new BLImpl();
 
 
@@ -42,6 +42,10 @@ public class DeceasedIndicatorBean extends MessagePartBean {
     public Boolean getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>Deceased Indicator</p>
+     */
     public void setValue(Boolean value) {
         this.value.setValue(value);
     }

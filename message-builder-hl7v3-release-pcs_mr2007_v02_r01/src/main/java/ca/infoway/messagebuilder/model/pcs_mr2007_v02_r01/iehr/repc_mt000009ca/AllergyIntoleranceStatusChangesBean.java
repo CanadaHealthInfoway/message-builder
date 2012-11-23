@@ -40,18 +40,18 @@ import java.util.Date;
 /**
  * <p>Allergy/Intolerance Status Changes</p>
  * 
- * <p><p>This records the history of changes that have been 
- * made to the allergy/intolerance, including why the changes 
- * were made, who made them and when.</p></p>
+ * <p>This records the history of changes that have been made 
+ * to the allergy/intolerance, including why the changes were 
+ * made, who made them and when.</p>
  * 
- * <p><p>Provides a record of a patient's allergy changes, 
+ * <p>Provides a record of a patient's allergy changes, 
  * providing deeper clinical understanding, particularly of 
- * past clinical decisions.</p></p>
+ * past clinical decisions.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -62,17 +62,28 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>A:Allergy/Intolerance Status Change Type</p>
      * 
-     * <p><p>Identifies what kind of change occurred. 
+     * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
-     * Complete.</p></p>
+     * Complete.</p>
      * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Identifies what kind of change occurred. 
+     * Allergy/Intolerance change types are Revise, Reactivate and 
+     * Complete.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -81,17 +92,28 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>B:Allergy/intolerance Status Change Effective Date</p>
      * 
-     * <p><p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p></p>
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory.</p></p>
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -100,17 +122,28 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>C:Allergy/Intolerance Status Change Reason</p>
      * 
-     * <p><p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p></p>
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      * 
-     * <p><p>Ensures consistent terminology in capturing and 
+     * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p></p>
+     * reasons will correspond to a pre-defined code.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -120,6 +153,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
+
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
@@ -129,6 +163,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     public ChangedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(ChangedByBean author) {
         this.author = author;
     }

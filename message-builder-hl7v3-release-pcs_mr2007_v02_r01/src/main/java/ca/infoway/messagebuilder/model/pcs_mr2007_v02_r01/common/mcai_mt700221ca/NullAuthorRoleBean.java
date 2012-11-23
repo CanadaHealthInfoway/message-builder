@@ -32,15 +32,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Null Author Role</p>
  * 
- * <p><p>This is a messaging artifact used by HL7 to allow the 
+ * <p>This is a messaging artifact used by HL7 to allow the 
  * time, signiture and method to be captured when the author is 
  * not sent. This will happen in circumstances where the author 
- * information is sent as part of the authentication token.</p></p>
+ * information is sent as part of the authentication token.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700221CA.AuthorRole"})
 public class NullAuthorRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.AuthorPerson {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS classCode = new CSImpl();
 
 
@@ -48,6 +48,7 @@ public class NullAuthorRoleBean extends MessagePartBean implements ca.infoway.me
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
+
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }

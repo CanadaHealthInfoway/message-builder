@@ -50,22 +50,22 @@ import java.util.List;
 /**
  * <p>Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700726CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -80,21 +80,36 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     /**
      * <p>B:Event Identifier</p>
      * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
+     * <p>Allows the event to be referenced (for undos) and also 
      * indicates whether multiple interactions were caused by the 
-     * same triggering event. Also used for audit purposes.</p></p>
+     * same triggering event. Also used for audit purposes.</p>
      * 
-     * <p><p>Identifier needs to be persisted by receiving 
+     * <p>Identifier needs to be persisted by receiving 
      * applications, except for queries (queries cannot be 
-     * retracted or undone).</p></p>
+     * retracted or undone).</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>B:Event Identifier</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p>
+     * 
+     * <p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -103,15 +118,24 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     /**
      * <p>A:Event Type</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>A:Event Type</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -120,19 +144,32 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     /**
      * <p>C:Event Effective Period</p>
      * 
-     * <p><p>Indicates the time the event (e.g. query, change, 
+     * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
-     * end.</p></p>
+     * end.</p>
      * 
-     * <p><p>The time an event becomes effective may differ from 
-     * the time the event is recorded (i.e. it may be in the future 
-     * or the past). For events such as 'suspend', an intended end 
-     * date may also be indicated.</p></p>
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p>
+     * 
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -141,22 +178,38 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     /**
      * <p>E:Event Reason</p>
      * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
+     * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
-     * occurred.</p></p>
+     * occurred.</p>
      * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
      * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>E:Event Reason</p>
+     * 
+     * <p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -165,63 +218,120 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     /**
      * <p>Cascade Responsibility Indicator</p>
      * 
-     * <p><p>On creation interactions (where the state transition 
-     * is null-&gt;active), this must be true otherwise it must be 
-     * false.</p></p>
+     * <p>On creation interactions (where the state transition is 
+     * null-&gt;active), this must be true otherwise it must be 
+     * false.</p>
      * 
-     * <p><p>Indicates whether or not objects of the trigger event 
-     * are to be cascaded to the payload.</p><p>If true, 
-     * associations in the parent act are conducted across the 
-     * ActRelationship to the message payload (act). Conduction for 
-     * each association is specifically indicated by each 
-     * associations' contextControlCode value.</p><p>In other 
-     * words, if the &quot;subject&quot; act relationship has 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
      * contextConductionInd=true; THEN the subjectOf association is 
      * carried (to the regsitrationEvent act) according to the 
      * subjectOf.contextControlCode (AP = propogate to the reg 
      * event and add to any subject(s) (issues) already 
-     * present).</p></p>
+     * present).</p>
      * 
-     * <p><p>Indicates whether or not objects of the trigger event 
-     * are to be cascaded to the payload.</p><p>If true, 
-     * associations in the parent act are conducted across the 
-     * ActRelationship to the message payload (act). Conduction for 
-     * each association is specifically indicated by each 
-     * associations' contextControlCode value.</p><p>In other 
-     * words, if the &quot;subject&quot; act relationship has 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
      * contextConductionInd=true; THEN the subjectOf association is 
      * carried (to the regsitrationEvent act) according to the 
      * subjectOf.contextControlCode (AP = propogate to the reg 
      * event and add to any subject(s) (issues) already 
-     * present).</p></p>
+     * present).</p>
      * 
-     * <p><p>Indicates whether or not objects of the trigger event 
-     * are to be cascaded to the payload.</p><p>If true, 
-     * associations in the parent act are conducted across the 
-     * ActRelationship to the message payload (act). Conduction for 
-     * each association is specifically indicated by each 
-     * associations' contextControlCode value.</p><p>In other 
-     * words, if the &quot;subject&quot; act relationship has 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
      * contextConductionInd=true; THEN the subjectOf association is 
      * carried (to the regsitrationEvent act) according to the 
      * subjectOf.contextControlCode (AP = propogate to the reg 
      * event and add to any subject(s) (issues) already 
-     * present).</p></p>
+     * present).</p>
      * 
-     * <p><p>Cascading of trigger event objects allows different 
+     * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p></p>
+     * cascading will be specified one way or another.</p>
      * 
-     * <p><p>Cascading of trigger event objects allows different 
+     * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p></p>
+     * cascading will be specified one way or another.</p>
      */
     @Hl7XmlMapping({"subject/contextConductionInd"})
     public Boolean getSubjectContextConductionInd() {
         return this.subjectContextConductionInd.getValue();
     }
+
+    /**
+     * <p>Cascade Responsibility Indicator</p>
+     * 
+     * <p>On creation interactions (where the state transition is 
+     * null-&gt;active), this must be true otherwise it must be 
+     * false.</p>
+     * 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
+     * contextConductionInd=true; THEN the subjectOf association is 
+     * carried (to the regsitrationEvent act) according to the 
+     * subjectOf.contextControlCode (AP = propogate to the reg 
+     * event and add to any subject(s) (issues) already 
+     * present).</p>
+     * 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
+     * contextConductionInd=true; THEN the subjectOf association is 
+     * carried (to the regsitrationEvent act) according to the 
+     * subjectOf.contextControlCode (AP = propogate to the reg 
+     * event and add to any subject(s) (issues) already 
+     * present).</p>
+     * 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p><p>If true, associations 
+     * in the parent act are conducted across the ActRelationship 
+     * to the message payload (act). Conduction for each 
+     * association is specifically indicated by each associations' 
+     * contextControlCode value.</p><p>In other words, if the 
+     * &quot;subject&quot; act relationship has 
+     * contextConductionInd=true; THEN the subjectOf association is 
+     * carried (to the regsitrationEvent act) according to the 
+     * subjectOf.contextControlCode (AP = propogate to the reg 
+     * event and add to any subject(s) (issues) already 
+     * present).</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
+     */
     public void setSubjectContextConductionInd(Boolean subjectContextConductionInd) {
         this.subjectContextConductionInd.setValue(subjectContextConductionInd);
     }
@@ -231,6 +341,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     public RegisteredItemBean<RR> getSubjectRegistrationEventSubject() {
         return this.subjectRegistrationEventSubject;
     }
+
     public void setSubjectRegistrationEventSubject(RegisteredItemBean<RR> subjectRegistrationEventSubject) {
         this.subjectRegistrationEventSubject = subjectRegistrationEventSubject;
     }
@@ -240,6 +351,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     public EHRRepositoryBean getSubjectRegistrationEventCustodianAssignedDevice() {
         return this.subjectRegistrationEventCustodianAssignedDevice;
     }
+
     public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
         this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
     }

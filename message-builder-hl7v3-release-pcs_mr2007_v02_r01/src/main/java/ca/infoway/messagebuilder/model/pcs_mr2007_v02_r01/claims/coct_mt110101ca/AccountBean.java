@@ -34,20 +34,20 @@ import java.util.Set;
 
 
 /**
- * <p><p>Payor identifier, assigned by adjudicator.</p></p>
+ * <p>Payor identifier, assigned by adjudicator.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110101CA.Account"})
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SET<II, Identifier> holderPayorRoleId = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
      * <p>Payor identifier</p>
      * 
-     * <p><p>assigned by adjudicator</p></p>
+     * <p>assigned by adjudicator</p>
      */
     @Hl7XmlMapping({"holder/payorRole/id"})
     public Set<Identifier> getHolderPayorRoleId() {

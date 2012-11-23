@@ -27,7 +27,9 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementChoice"})
 public interface AdjudicatedInvoiceElementChoice {
 
+
     public AdjudicatedResultOutcomeBean getOutcomeOf();
+
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

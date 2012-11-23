@@ -34,18 +34,18 @@ import java.util.List;
 /**
  * <p>Registration Event</p>
  * 
- * <p><p>This class contains information relevant to the 
+ * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
  * Registry. This message is a response to a request to 
- * register (therefore, the mood is an event).</p></p>
+ * register (therefore, the mood is an event).</p>
  * 
- * <p><p>The RegistrationProcess act is the focal act of the 
- * message and therefore is mandatory</p></p>
+ * <p>The RegistrationProcess act is the focal act of the 
+ * message and therefore is mandatory</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
@@ -55,6 +55,7 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     public RegisteredItemBean<RR> getSubject() {
         return this.subject;
     }
+
     public void setSubject(RegisteredItemBean<RR> subject) {
         this.subject = subject;
     }
@@ -64,6 +65,7 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     public EHRRepositoryBean getCustodianAssignedDevice() {
         return this.custodianAssignedDevice;
     }
+
     public void setCustodianAssignedDevice(EHRRepositoryBean custodianAssignedDevice) {
         this.custodianAssignedDevice = custodianAssignedDevice;
     }

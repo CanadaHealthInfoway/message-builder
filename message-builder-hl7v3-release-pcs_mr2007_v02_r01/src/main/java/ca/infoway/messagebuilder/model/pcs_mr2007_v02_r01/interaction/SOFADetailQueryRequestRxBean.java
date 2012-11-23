@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 
+/**
+ * <p>QUCR_IN820102CA: SOFA Detail Query Request, Rx</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT020002CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: QUCR_MT820201CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"QUCR_IN820102CA"})
 public class SOFADetailQueryRequestRxBean extends HL7Message_1Bean<TriggerEvent_4Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

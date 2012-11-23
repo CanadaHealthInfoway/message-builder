@@ -43,51 +43,51 @@ import java.util.List;
  * 
  * <p>FICR_MT610201CA.PaymentIntent: Payment Intent</p>
  * 
- * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * <p>Amt must be positive or 0 for</p><p>completed 
  * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p></p>
+ * negative or 0 for Invoice Cancel Results messages</p>
  * 
- * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * <p>Amt must be positive or 0 for</p><p>completed 
  * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p></p>
+ * negative or 0 for Invoice Cancel Results messages</p>
  * 
- * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * <p>Amt must be positive or 0 for</p><p>completed 
  * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p></p>
+ * negative or 0 for Invoice Cancel Results messages</p>
  * 
- * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * <p>Amt must be positive or 0 for</p><p>completed 
  * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p></p>
+ * negative or 0 for Invoice Cancel Results messages</p>
  * 
- * <p><p>If an Adjudicator adjudicates for multiple insurance 
+ * <p>If an Adjudicator adjudicates for multiple insurance 
  * policies (EOBs) for multiple Payors and/or Payees, there 
  * would be more than 1 Payment Intent payload in the Results 
- * message</p></p>
+ * message</p>
  * 
  * <p>FICR_MT630000CA.PaymentIntent: Payment Intent</p>
  * 
- * <p><p>Net_amt must be positive or 0 for</p><p>Adjudication 
+ * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
  * Results messages</p><p>Net_amt must be negative or 0 for 
- * Invoice Cancel messages</p></p>
+ * Invoice Cancel messages</p>
  * 
- * <p><p>Net_amt must be positive or 0 for</p><p>Adjudication 
+ * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
  * Results messages</p><p>Net_amt must be negative or 0 for 
- * Invoice Cancel messages</p></p>
+ * Invoice Cancel messages</p>
  * 
- * <p><p>Net_amt must be positive or 0 for</p><p>Adjudication 
+ * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
  * Results messages</p><p>Net_amt must be negative or 0 for 
- * Invoice Cancel messages</p></p>
+ * Invoice Cancel messages</p>
  * 
- * <p><p>If an Adjudicator adjudicates for multiple insurance 
+ * <p>If an Adjudicator adjudicates for multiple insurance 
  * policies (EOBs) for multiple Payors and/or Payees, there 
  * would be more than 1 Payment Intent payload in the Results 
- * message</p></p>
+ * message</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntent","FICR_MT630000CA.PaymentIntent"})
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
@@ -101,40 +101,76 @@ public class PaymentIntentBean extends MessagePartBean {
      * 
      * <p>Payment Intent Date/Time</p>
      * 
-     * <p><p>Parment Intent Date/Time - Time payor intends to make 
-     * payment (e.g. date of cheque/EFT run).</p></p>
+     * <p>Parment Intent Date/Time - Time payor intends to make 
+     * payment (e.g. date of cheque/EFT run).</p>
      * 
-     * <p><p>For nullify, this would also be the date the payor 
+     * <p>For nullify, this would also be the date the payor 
      * intends to make the payment.</p><p>For Invoice Nullify 
      * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p></p>
+     * control act wrapper.</p>
      * 
-     * <p><p>For nullify, this would also be the date the payor 
+     * <p>For nullify, this would also be the date the payor 
      * intends to make the payment.</p><p>For Invoice Nullify 
      * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p></p>
+     * control act wrapper.</p>
      * 
      * <p>Payment Intent Date/Time</p>
      * 
-     * <p><p>Time payor intends to make payment (e.g. date of 
+     * <p>Time payor intends to make payment (e.g. date of 
      * cheque/EFT run). For nullify, this would also be the date 
      * the payor intends to make the payment.</p><p>For Invoice 
      * Nullify Results: Effective time of the cancel is noted in 
-     * the control act wrapper.</p></p>
+     * the control act wrapper.</p>
      * 
-     * <p><p>Time payor intends to make payment (e.g. date of 
+     * <p>Time payor intends to make payment (e.g. date of 
      * cheque/EFT run). For nullify, this would also be the date 
      * the payor intends to make the payment.</p><p>For Invoice 
      * Nullify Results: Effective time of the cancel is noted in 
-     * the control act wrapper.</p></p>
+     * the control act wrapper.</p>
      * 
-     * <p><p>For Invoice Nullify Results: Effective time of the 
-     * cancel is noted in the control act wrapper.</p></p>
+     * <p>For Invoice Nullify Results: Effective time of the cancel 
+     * is noted in the control act wrapper.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>PaymentIntentDateTime</p>
+     * 
+     * <p>Payment Intent Date/Time</p>
+     * 
+     * <p>Parment Intent Date/Time - Time payor intends to make 
+     * payment (e.g. date of cheque/EFT run).</p>
+     * 
+     * <p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p>
+     * 
+     * <p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p>
+     * 
+     * <p>Payment Intent Date/Time</p>
+     * 
+     * <p>Time payor intends to make payment (e.g. date of 
+     * cheque/EFT run). For nullify, this would also be the date 
+     * the payor intends to make the payment.</p><p>For Invoice 
+     * Nullify Results: Effective time of the cancel is noted in 
+     * the control act wrapper.</p>
+     * 
+     * <p>Time payor intends to make payment (e.g. date of 
+     * cheque/EFT run). For nullify, this would also be the date 
+     * the payor intends to make the payment.</p><p>For Invoice 
+     * Nullify Results: Effective time of the cancel is noted in 
+     * the control act wrapper.</p>
+     * 
+     * <p>For Invoice Nullify Results: Effective time of the cancel 
+     * is noted in the control act wrapper.</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -143,120 +179,220 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Total intent payment amount</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is 
-     * mandatory.</p><p>Amt must be positive or 0 
-     * for</p><p>completed Adjudication 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
      * Results</p><p>messages</p><p>Amt must be negative or 0 for 
-     * Invoice Cancel Results messages</p></p>
+     * Invoice Cancel Results messages</p>
      * 
      * <p>payment amount</p>
      * 
-     * <p><p>payment amount</p></p>
+     * <p>payment amount</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      * 
-     * <p><p>Adjudication Results: The payment intent amount cannot 
-     * be mandatory for active adjudication results.</p><p>For 
-     * Invoice Nullify Results: the payment intent is completed 
-     * only, and therefore the amount must be specified.</p><p>For 
-     * completed Payment Intents, this field is mandatory.</p></p>
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
      */
     @Hl7XmlMapping({"amt"})
     public Money getAmt() {
         return this.amt.getValue();
     }
+
+    /**
+     * <p>Total intent payment amount</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p><p>Amt must be 
+     * positive or 0 for</p><p>completed Adjudication 
+     * Results</p><p>messages</p><p>Amt must be negative or 0 for 
+     * Invoice Cancel Results messages</p>
+     * 
+     * <p>payment amount</p>
+     * 
+     * <p>payment amount</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     */
     public void setAmt(Money amt) {
         this.amt.setValue(amt);
     }
@@ -272,6 +408,7 @@ public class PaymentIntentBean extends MessagePartBean {
     public AccountBean getCreditAccount() {
         return this.creditAccount;
     }
+
     public void setCreditAccount(AccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
@@ -281,6 +418,7 @@ public class PaymentIntentBean extends MessagePartBean {
     public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean getDebitAccount() {
         return this.debitAccount;
     }
+
     public void setDebitAccount(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt110101ca.AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }

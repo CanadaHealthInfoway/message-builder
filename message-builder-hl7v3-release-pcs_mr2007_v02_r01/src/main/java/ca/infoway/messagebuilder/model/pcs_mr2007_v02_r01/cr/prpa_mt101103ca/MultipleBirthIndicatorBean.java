@@ -31,23 +31,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthIndicator"})
 public class MultipleBirthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL value = new BLImpl();
 
 
     /**
      * <p>Client Multiple Birth Indicator</p>
      * 
-     * <p><p>An indication as to whether the client is part of a 
-     * multiple birth.</p></p>
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
+     * <p>Required attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"value"})
     public Boolean getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>Client Multiple Birth Indicator</p>
+     * 
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * client</p>
+     */
     public void setValue(Boolean value) {
         this.value.setValue(value);
     }

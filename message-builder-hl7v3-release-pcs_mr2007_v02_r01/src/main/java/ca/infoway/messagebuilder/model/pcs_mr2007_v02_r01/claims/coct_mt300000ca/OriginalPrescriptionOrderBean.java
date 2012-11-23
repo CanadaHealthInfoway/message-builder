@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PresriberRoleBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
     private OriginalPrescriptionBean component2SupplyOrder;
@@ -39,6 +39,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     public PresriberRoleBean getAuthorPresriberRole() {
         return this.authorPresriberRole;
     }
+
     public void setAuthorPresriberRole(PresriberRoleBean authorPresriberRole) {
         this.authorPresriberRole = authorPresriberRole;
     }
@@ -48,6 +49,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     public DispenseSubstitutionBean getComponent1Substitution() {
         return this.component1Substitution;
     }
+
     public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
         this.component1Substitution = component1Substitution;
     }
@@ -57,6 +59,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     public OriginalPrescriptionBean getComponent2SupplyOrder() {
         return this.component2SupplyOrder;
     }
+
     public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
         this.component2SupplyOrder = component2SupplyOrder;
     }

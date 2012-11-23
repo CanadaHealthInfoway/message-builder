@@ -29,9 +29,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.pome_mt010100
 
 
 
+/**
+ * <p>POME_IN010080CA: Drug search query response</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120008CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: POME_MT010100CA.Medication</p>
+ * 
+ * <p>--> Sub-Payload: POME_MT010090CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"POME_IN010080CA"})
 public class DrugSearchQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

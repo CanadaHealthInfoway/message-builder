@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 
+/**
+ * <p>PORX_IN040080CA: Update other medication request accepted</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: COMT_MT001103CA.ActEvent</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN040080CA"})
 public class UpdateOtherMedicationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

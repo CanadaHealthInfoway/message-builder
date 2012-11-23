@@ -27,19 +27,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p><p>Each submitted invoice element must have 1 
+ * <p>Each submitted invoice element must have 1 
  * AdjudicationResults instance unless its parent is 
- * adjudicated as submitted</p></p>
+ * adjudicated as submitted</p>
  * 
- * <p><p>Multiple references to submitted invoice elements 
+ * <p>Multiple references to submitted invoice elements 
  * provides support for code substitution where the number of 
  * submitted fee items is consolidated on the adjudication 
- * results (e.g. 3 items to 1)</p></p>
+ * results (e.g. 3 items to 1)</p>
  */
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private InvoiceElementChoice invoiceElementChoice;
 
 
@@ -47,6 +47,7 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
     public InvoiceElementChoice getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
+
     public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
     }

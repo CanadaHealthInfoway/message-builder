@@ -30,24 +30,24 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.PolicyId
 
 
 /**
- * <p><p>Coverage must be specified for Root Adjudicated 
- * Invoice Element Group and may not be specified for any other 
- * Adjudicated Invoice Element Group.</p></p>
+ * <p>Coverage must be specified for Root Adjudicated Invoice 
+ * Element Group and may not be specified for any other 
+ * Adjudicated Invoice Element Group.</p>
  * 
- * <p><p>Allows Payor to adj &amp; pay on different policy</p></p>
+ * <p>Allows Payor to adj &amp; pay on different policy</p>
  * 
- * <p><p>For Adjudication Results: On net new policies (i.e. 
+ * <p>For Adjudication Results: On net new policies (i.e. 
  * adjudicated policies for which the provider did not request 
  * adjudication on the Invoice), any policy holder information 
  * will be communicated to the provider with adjudication 
  * information codes. A required action could be used to 
  * instruct the provider s/w to communicate this information to 
- * the patient.</p></p>
+ * the patient.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT sequenceNumber = new INTImpl();
     private PolicyIdentifierBean policyOrAccount;
 
@@ -55,13 +55,20 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     /**
      * <p>COB Sequence as Adjudicated</p>
      * 
-     * <p><p>The Coordination of Benefits order of the insurance 
-     * policy as determined by the adjudicator.</p></p>
+     * <p>The Coordination of Benefits order of the insurance 
+     * policy as determined by the adjudicator.</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
+    /**
+     * <p>COB Sequence as Adjudicated</p>
+     * 
+     * <p>The Coordination of Benefits order of the insurance 
+     * policy as determined by the adjudicator.</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -71,6 +78,7 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     public PolicyIdentifierBean getPolicyOrAccount() {
         return this.policyOrAccount;
     }
+
     public void setPolicyOrAccount(PolicyIdentifierBean policyOrAccount) {
         this.policyOrAccount = policyOrAccount;
     }

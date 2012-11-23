@@ -30,15 +30,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p><p>ID must be that of the patient, ordering provider or 
- * dispensing provider</p></p>
+ * <p>ID must be that of the patient, ordering provider or 
+ * dispensing provider</p>
  * 
- * <p><p>Who did the substitution</p></p>
+ * <p>Who did the substitution</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstitutionRole"})
 public class SubstitutionRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
 
 
@@ -46,6 +46,7 @@ public class SubstitutionRoleBean extends MessagePartBean {
     public Identifier getId() {
         return this.id.getValue();
     }
+
     public void setId(Identifier id) {
         this.id.setValue(id);
     }

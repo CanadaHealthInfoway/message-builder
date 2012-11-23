@@ -43,6 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.Diagnosi
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.HealthCareProviderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.ManufacturedProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.PatientEncounterBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActBillableClinicalServiceReason;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActProcedureCode;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,15 +54,15 @@ import java.util.Set;
 
 
 /**
- * <p><p>Patient classes are not referenced in the billable 
- * acts, as they are noted in the parent model (e.g. Invoice 
- * message) as the CoveredPartyAsPatient</p></p>
+ * <p>Patient classes are not referenced in the billable acts, 
+ * as they are noted in the parent model (e.g. Invoice message) 
+ * as the CoveredPartyAsPatient</p>
  */
 @Hl7PartTypeMapping({"COCT_MT290000CA.BillableClinicalService"})
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
@@ -81,6 +83,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public x_ActMoodIntentEvent getMoodCode() {
         return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
+
     public void setMoodCode(x_ActMoodIntentEvent moodCode) {
         this.moodCode.setValue(moodCode);
     }
@@ -89,12 +92,18 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     /**
      * <p>Service event ID</p>
      * 
-     * <p><p>Can be used to uniquely identify a service event</p></p>
+     * <p>Can be used to uniquely identify a service event</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Service event ID</p>
+     * 
+     * <p>Can be used to uniquely identify a service event</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -103,13 +112,19 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     /**
      * <p>Procedure code</p>
      * 
-     * <p><p>procedure cd, CPT cd, supply cd</p></p>
+     * <p>procedure cd, CPT cd, supply cd</p>
      */
     @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
+    public ActProcedureCode getCode() {
+        return (ActProcedureCode) this.code.getValue();
     }
-    public void setCode(Code code) {
+
+    /**
+     * <p>Procedure code</p>
+     * 
+     * <p>procedure cd, CPT cd, supply cd</p>
+     */
+    public void setCode(ActProcedureCode code) {
         this.code.setValue(code);
     }
 
@@ -117,29 +132,35 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     /**
      * <p>Duration, date/time of occurrence</p>
      * 
-     * <p><p>Duration, date/time of occurrence</p></p>
+     * <p>Duration, date/time of occurrence</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Duration, date/time of occurrence</p>
+     * 
+     * <p>Duration, date/time of occurrence</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
     /**
-     * <p><p>clinical reasons for service, not related or specified 
-     * by diagnosis. e.g. duplicate therapy, fraudulent 
-     * prescription</p></p>
+     * <p>clinical reasons for service, not related or specified by 
+     * diagnosis. e.g. duplicate therapy, fraudulent 
+     * prescription</p>
      * 
-     * <p><p>(clinical reasons for service, not related or 
-     * specified by a diagnosis e.g. duplicate therapy, fraudulent 
-     * prescription</p></p>
+     * <p>(clinical reasons for service, not related or specified 
+     * by a diagnosis e.g. duplicate therapy, fraudulent 
+     * prescription</p>
      */
     @Hl7XmlMapping({"reasonCode"})
-    public Set<Code> getReasonCode() {
-        return this.reasonCode.rawSet(Code.class);
+    public Set<ActBillableClinicalServiceReason> getReasonCode() {
+        return this.reasonCode.rawSet(ActBillableClinicalServiceReason.class);
     }
 
 
@@ -153,6 +174,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public HealthCareProviderBean getPerformerHealthCareProvider() {
         return this.performerHealthCareProvider;
     }
+
     public void setPerformerHealthCareProvider(HealthCareProviderBean performerHealthCareProvider) {
         this.performerHealthCareProvider = performerHealthCareProvider;
     }
@@ -162,6 +184,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public HealthCareProviderBean getSecondaryPerformerHealthCareProvider() {
         return this.secondaryPerformerHealthCareProvider;
     }
+
     public void setSecondaryPerformerHealthCareProvider(HealthCareProviderBean secondaryPerformerHealthCareProvider) {
         this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
     }
@@ -171,6 +194,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public HealthCareProviderBean getReferrerHealthCareProvider() {
         return this.referrerHealthCareProvider;
     }
+
     public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
         this.referrerHealthCareProvider = referrerHealthCareProvider;
     }
@@ -180,6 +204,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public HealthCareProviderBean getConsultantHealthCareProvider() {
         return this.consultantHealthCareProvider;
     }
+
     public void setConsultantHealthCareProvider(HealthCareProviderBean consultantHealthCareProvider) {
         this.consultantHealthCareProvider = consultantHealthCareProvider;
     }
@@ -189,6 +214,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
+
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
@@ -204,6 +230,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     public PatientEncounterBean getPertinentInformation2PatientEncounter() {
         return this.pertinentInformation2PatientEncounter;
     }
+
     public void setPertinentInformation2PatientEncounter(PatientEncounterBean pertinentInformation2PatientEncounter) {
         this.pertinentInformation2PatientEncounter = pertinentInformation2PatientEncounter;
     }

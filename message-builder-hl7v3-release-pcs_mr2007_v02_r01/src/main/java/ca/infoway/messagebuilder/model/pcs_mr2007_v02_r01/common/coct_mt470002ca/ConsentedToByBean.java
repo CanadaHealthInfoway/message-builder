@@ -35,20 +35,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBe
 /**
  * <p>b:consented to by</p>
  * 
- * <p><p>Indicates that the consent was provided by the patient 
- * or representative.</p></p>
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Consent can be provided by the patient or 
- * representative or the provider.</p></p>
+ * <p>Consent can be provided by the patient or representative 
+ * or the provider.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;
@@ -57,16 +57,26 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Patient Consent Mechanism</p>
      * 
-     * <p><p>Indicates whether the patient's consent is written or 
-     * verbal.</p></p>
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      * 
-     * <p><p>Verbal consents may trigger a higher level of 
-     * auditing.</p></p>
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
         return (x_PhysicalVerbalParticipationMode) this.modeCode.getValue();
     }
+
+    /**
+     * <p>Patient Consent Mechanism</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
+     * 
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
+     */
     public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
@@ -75,16 +85,26 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Keyword</p>
      * 
-     * <p><p>Indicates the keyword appropriate to the action being 
-     * performed by the message.</p></p>
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
      * 
-     * <p><p>Allows providers who know the keyword to access 
-     * information protected by patient keywords.</p></p>
+     * <p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
         return this.signatureText.getValue();
     }
+
+    /**
+     * <p>Keyword</p>
+     * 
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
+     * 
+     * <p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p>
+     */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
@@ -94,6 +114,7 @@ public class ConsentedToByBean extends MessagePartBean {
     public RelatedPersonBean getPersonalRelationship() {
         return this.personalRelationship;
     }
+
     public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
         this.personalRelationship = personalRelationship;
     }

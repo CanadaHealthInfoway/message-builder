@@ -31,18 +31,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.Adjudica
 /**
  * <p>Payment Reason</p>
  * 
- * <p><p>For spontaneous EOBs, there may be more than 1 EOB for 
- * the same Payment Intent.</p></p>
+ * <p>For spontaneous EOBs, there may be more than 1 EOB for 
+ * the same Payment Intent.</p>
  * 
- * <p><p>For deferred adjudication, this may be of value. 
+ * <p>For deferred adjudication, this may be of value. 
  * Spontaneous EOBs for policies that were not asked for on an 
  * invoice will likely require separate Payment Intents and/or 
- * EOBs.</p></p>
+ * EOBs.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntentReason"})
 public class PaymentReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
@@ -50,6 +50,7 @@ public class PaymentReasonBean extends MessagePartBean {
     public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
+
     public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }

@@ -32,17 +32,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsSendingAppRole"})
 public class AdjudResultsSendingAppRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II playingAdjudResultsSendingAppDeviceId = new IIImpl();
 
 
     /**
-     * <p><p>Sending application identifier</p></p>
+     * <p>Sending application identifier</p>
      */
     @Hl7XmlMapping({"playingAdjudResultsSendingAppDevice/id"})
     public Identifier getPlayingAdjudResultsSendingAppDeviceId() {
         return this.playingAdjudResultsSendingAppDeviceId.getValue();
     }
+
+    /**
+     * <p>Sending application identifier</p>
+     */
     public void setPlayingAdjudResultsSendingAppDeviceId(Identifier playingAdjudResultsSendingAppDeviceId) {
         this.playingAdjudResultsSendingAppDeviceId.setValue(playingAdjudResultsSendingAppDeviceId);
     }

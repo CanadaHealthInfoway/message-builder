@@ -36,17 +36,16 @@ import java.util.List;
 /**
  * <p>Information Access</p>
  * 
- * <p><p>Describes the type of information access being 
- * consented to.</p></p>
+ * <p>Describes the type of information access being consented 
+ * to.</p>
  * 
- * <p><p>Allows fine-grained control over the types of 
- * information access is granted to and who is granted 
- * access.</p></p>
+ * <p>Allows fine-grained control over the types of information 
+ * access is granted to and who is granted access.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
@@ -55,6 +54,7 @@ public class InformationAccessBean extends MessagePartBean {
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
+
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
@@ -63,15 +63,15 @@ public class InformationAccessBean extends MessagePartBean {
     /**
      * <p>B:Consent Information Types</p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified.</p></p>
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
      * 
-     * <p><p>Different consents may need access to different types 
-     * of patient information (e.g. demographics, medications, 
+     * <p>Different consents may need access to different types of 
+     * patient information (e.g. demographics, medications, 
      * allergies, lab results). Understanding the type of 
      * information the consent applies to is critical to 
      * controlling access, and therefore the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {

@@ -33,32 +33,42 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ED<String> signatureText = new EDImpl<String>();
     private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
 
 
     /**
-     * <p><p>EOB signature</p></p>
+     * <p>EOB signature</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
         return this.signatureText.getValue();
     }
+
+    /**
+     * <p>EOB signature</p>
+     */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
     /**
-     * <p><p>(COB Source. Which s/w rules were used to create the 
-     * COB CMET such as CPhA, NeCST. Use modifier for Invoice or 
-     * PreDet</p></p>
+     * <p>(COB Source. Which s/w rules were used to create the COB 
+     * CMET such as CPhA, NeCST. Use modifier for Invoice or 
+     * PreDet</p>
      */
     @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
     public String getAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName() {
         return this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.getValue();
     }
+
+    /**
+     * <p>(COB Source. Which s/w rules were used to create the COB 
+     * CMET such as CPhA, NeCST. Use modifier for Invoice or 
+     * PreDet</p>
+     */
     public void setAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName(String adjudicatorRolePlayingAdjudicatorDeviceSoftwareName) {
         this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.setValue(adjudicatorRolePlayingAdjudicatorDeviceSoftwareName);
     }

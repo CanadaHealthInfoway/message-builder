@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole","PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ST underwritingCarrierOrganizationName = new STImpl();
     private ST underwritingOrganizationName = new STImpl();
@@ -43,30 +43,54 @@ public class CarrierRoleBean extends MessagePartBean {
     /**
      * <p>Payor Identifier</p>
      * 
-     * <p><p>A unique identifier for the payor organization 
-     * responsible for the coverage extension.</p></p>
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
      * 
-     * <p><p>Gives context to the coverage extension identifier and 
+     * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
-     * location to know where to send a claim.</p></p>
+     * location to know where to send a claim.</p>
      * 
      * <p>Carrier ID</p>
      * 
-     * <p><p>Unique identifier of the Policy Carrier - OID, made up 
-     * of OID root and extension that identifies the insurance 
-     * carrier.</p></p>
+     * <p>Unique identifier of the Policy Carrier - OID, made up of 
+     * OID root and extension that identifies the insurance 
+     * carrier.</p>
      * 
      * <p>Carrier ID</p>
      * 
-     * <p><p>The unique identifier of the policy carrier.</p></p>
+     * <p>The unique identifier of the policy carrier.</p>
      * 
-     * <p><p>RxS1: OID, made up of OID root and extension that 
-     * identifies the insurance carrier.</p></p>
+     * <p>RxS1: OID, made up of OID root and extension that 
+     * identifies the insurance carrier.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Payor Identifier</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
+     * 
+     * <p>Carrier ID</p>
+     * 
+     * <p>Unique identifier of the Policy Carrier - OID, made up of 
+     * OID root and extension that identifies the insurance 
+     * carrier.</p>
+     * 
+     * <p>Carrier ID</p>
+     * 
+     * <p>The unique identifier of the policy carrier.</p>
+     * 
+     * <p>RxS1: OID, made up of OID root and extension that 
+     * identifies the insurance carrier.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -77,15 +101,26 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Payor Name</p>
      * 
-     * <p><p>The name of the organization responsible for issuing 
-     * the coverage extension.</p></p>
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      * 
-     * <p><p>Mandatory for display purposes.</p></p>
+     * <p>Mandatory for display purposes.</p>
      */
     @Hl7XmlMapping({"underwritingCarrierOrganization/name"})
     public String getUnderwritingCarrierOrganizationName() {
         return this.underwritingCarrierOrganizationName.getValue();
     }
+
+    /**
+     * <p>PayorName</p>
+     * 
+     * <p>Payor Name</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     */
     public void setUnderwritingCarrierOrganizationName(String underwritingCarrierOrganizationName) {
         this.underwritingCarrierOrganizationName.setValue(underwritingCarrierOrganizationName);
     }
@@ -96,15 +131,26 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>Payor Name</p>
      * 
-     * <p><p>The name of the organization responsible for issuing 
-     * the coverage extension.</p></p>
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      * 
-     * <p><p>Mandatory for display purposes.</p></p>
+     * <p>Mandatory for display purposes.</p>
      */
     @Hl7XmlMapping({"underwritingOrganization/name"})
     public String getUnderwritingOrganizationName() {
         return this.underwritingOrganizationName.getValue();
     }
+
+    /**
+     * <p>PayorName</p>
+     * 
+     * <p>Payor Name</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     */
     public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
         this.underwritingOrganizationName.setValue(underwritingOrganizationName);
     }

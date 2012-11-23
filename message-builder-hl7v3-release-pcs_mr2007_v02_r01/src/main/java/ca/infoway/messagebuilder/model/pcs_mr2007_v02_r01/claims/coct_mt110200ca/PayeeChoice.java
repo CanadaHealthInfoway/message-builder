@@ -27,7 +27,9 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeChoice"})
 public interface PayeeChoice {
 
+
     public PayeeRelationshipRoleBean getAsPayeeRelationshipRole();
+
     public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole);
 
 }

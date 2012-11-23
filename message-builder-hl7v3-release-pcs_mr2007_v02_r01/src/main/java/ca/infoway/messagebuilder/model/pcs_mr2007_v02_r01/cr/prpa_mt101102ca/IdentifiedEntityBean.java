@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -106,6 +106,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public RoleStatus getStatusCode() {
         return (RoleStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>Client Status Code</p>
+     */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -118,6 +122,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Client Effective Time</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -130,6 +138,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public x_NormalRestrictedTabooConfidentialityKind getConfidentialityCode() {
         return (x_NormalRestrictedTabooConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>Client Masked Information</p>
+     */
     public void setConfidentialityCode(x_NormalRestrictedTabooConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -160,6 +172,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public AdministrativeGender getIdentifiedPersonAdministrativeGenderCode() {
         return (AdministrativeGender) this.identifiedPersonAdministrativeGenderCode.getValue();
     }
+
+    /**
+     * <p>Client Gender</p>
+     */
     public void setIdentifiedPersonAdministrativeGenderCode(AdministrativeGender identifiedPersonAdministrativeGenderCode) {
         this.identifiedPersonAdministrativeGenderCode.setValue(identifiedPersonAdministrativeGenderCode);
     }
@@ -172,6 +188,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public Date getIdentifiedPersonBirthTime() {
         return this.identifiedPersonBirthTime.getValue();
     }
+
+    /**
+     * <p>Client Date of Birth</p>
+     */
     public void setIdentifiedPersonBirthTime(Date identifiedPersonBirthTime) {
         this.identifiedPersonBirthTime.setValue(identifiedPersonBirthTime);
     }
@@ -184,6 +204,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public Boolean getIdentifiedPersonDeceasedInd() {
         return this.identifiedPersonDeceasedInd.getValue();
     }
+
+    /**
+     * <p>Client Deceased Indicator</p>
+     */
     public void setIdentifiedPersonDeceasedInd(Boolean identifiedPersonDeceasedInd) {
         this.identifiedPersonDeceasedInd.setValue(identifiedPersonDeceasedInd);
     }
@@ -192,12 +216,18 @@ public class IdentifiedEntityBean extends MessagePartBean {
     /**
      * <p>Client Deceased Date</p>
      * 
-     * <p><p>deceasedTime only present if deceasedInd is = TRUE</p></p>
+     * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      */
     @Hl7XmlMapping({"identifiedPerson/deceasedTime"})
     public Date getIdentifiedPersonDeceasedTime() {
         return this.identifiedPersonDeceasedTime.getValue();
     }
+
+    /**
+     * <p>Client Deceased Date</p>
+     * 
+     * <p>deceasedTime only present if deceasedInd is = TRUE</p>
+     */
     public void setIdentifiedPersonDeceasedTime(Date identifiedPersonDeceasedTime) {
         this.identifiedPersonDeceasedTime.setValue(identifiedPersonDeceasedTime);
     }
@@ -210,6 +240,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public Boolean getIdentifiedPersonMultipleBirthInd() {
         return this.identifiedPersonMultipleBirthInd.getValue();
     }
+
+    /**
+     * <p>Client Multiple Birth Indicator</p>
+     */
     public void setIdentifiedPersonMultipleBirthInd(Boolean identifiedPersonMultipleBirthInd) {
         this.identifiedPersonMultipleBirthInd.setValue(identifiedPersonMultipleBirthInd);
     }
@@ -222,6 +256,10 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public Integer getIdentifiedPersonMultipleBirthOrderNumber() {
         return this.identifiedPersonMultipleBirthOrderNumber.getValue();
     }
+
+    /**
+     * <p>Client Multiple Birth Order Number</p>
+     */
     public void setIdentifiedPersonMultipleBirthOrderNumber(Integer identifiedPersonMultipleBirthOrderNumber) {
         this.identifiedPersonMultipleBirthOrderNumber.setValue(identifiedPersonMultipleBirthOrderNumber);
     }
@@ -258,6 +296,7 @@ public class IdentifiedEntityBean extends MessagePartBean {
     public ConfidenceValueBean getSubjectOfObservationEvent() {
         return this.subjectOfObservationEvent;
     }
+
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;
     }

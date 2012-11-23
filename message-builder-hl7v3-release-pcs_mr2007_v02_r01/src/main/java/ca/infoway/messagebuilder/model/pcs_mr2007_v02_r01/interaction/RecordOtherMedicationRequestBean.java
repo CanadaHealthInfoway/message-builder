@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.OtherM
 
 
 
+/**
+ * <p>PORX_IN040020CA: Record other medication request</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT040010CA.OtherMedication</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN040020CA"})
 public class RecordOtherMedicationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }
