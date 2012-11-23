@@ -54,87 +54,87 @@ import java.util.List;
  * 
  * <p>MCAI_MT700230CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>MCAI_MT700237CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>MCAI_MT700232CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>MCAI_MT700231CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>MCAI_MT700236CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>QUQI_MT000001CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700230CA.ControlActEvent","MCAI_MT700231CA.ControlActEvent","MCAI_MT700232CA.ControlActEvent","MCAI_MT700236CA.ControlActEvent","MCAI_MT700237CA.ControlActEvent","QUQI_MT000001CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEvent_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -158,21 +158,38 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>B:Event Identifier</p>
      * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
+     * <p>Allows the event to be referenced (for undos) and also 
      * indicates whether multiple interactions were caused by the 
-     * same triggering event. Also used for audit purposes.</p></p>
+     * same triggering event. Also used for audit purposes.</p>
      * 
-     * <p><p>Identifier needs to be persisted by receiving 
+     * <p>Identifier needs to be persisted by receiving 
      * applications, except for queries (queries cannot be 
-     * retracted or undone).</p></p>
+     * retracted or undone).</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>EventIdentifier</p>
+     * 
+     * <p>B:Event Identifier</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p>
+     * 
+     * <p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -183,15 +200,26 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>A:Event Type</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -202,19 +230,34 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>C:Event Effective Period</p>
      * 
-     * <p><p>Indicates the time the event (e.g. query, change, 
+     * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
-     * end.</p></p>
+     * end.</p>
      * 
-     * <p><p>The time an event becomes effective may differ from 
-     * the time the event is recorded (i.e. it may be in the future 
-     * or the past). For events such as 'suspend', an intended end 
-     * date may also be indicated.</p></p>
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p>
+     * 
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -225,22 +268,40 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>E:Event Reason</p>
      * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
+     * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
-     * occurred.</p></p>
+     * occurred.</p>
      * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
      * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -250,6 +311,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public Patient_2 getRecordTargetPatient1() {
         return this.recordTargetPatient1;
     }
+
     public void setRecordTargetPatient1(Patient_2 recordTargetPatient1) {
         this.recordTargetPatient1 = recordTargetPatient1;
     }
@@ -259,6 +321,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
+
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
@@ -268,6 +331,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public CreatedBy_1Bean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(CreatedBy_1Bean author) {
         this.author = author;
     }
@@ -277,6 +341,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public ActingPerson getDataEntererActingPerson() {
         return this.dataEntererActingPerson;
     }
+
     public void setDataEntererActingPerson(ActingPerson dataEntererActingPerson) {
         this.dataEntererActingPerson = dataEntererActingPerson;
     }
@@ -286,6 +351,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
+
     public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
@@ -295,6 +361,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public CreatedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
@@ -304,6 +371,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
         return this.pertinentInformationAuthorizationToken;
     }
+
     public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
         this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
     }
@@ -319,6 +387,7 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     public ParticipationType getRecordTargetTypeCode() {
         return (ParticipationType) this.recordTargetTypeCode.getValue();
     }
+
     public void setRecordTargetTypeCode(ParticipationType recordTargetTypeCode) {
         this.recordTargetTypeCode.setValue(recordTargetTypeCode);
     }
@@ -329,17 +398,30 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>H:Query Identifier</p>
      * 
-     * <p><p>Unique number for the query to be continued.</p></p>
+     * <p>Unique number for the query to be continued.</p>
      * 
-     * <p><p>Links to the query for which continuation is desired. 
+     * <p>Links to the query for which continuation is desired. 
      * Needed to ensure that the query is not re-executed, as the 
      * results may have changed. As a result, the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"queryContinuation/queryId"})
     public Identifier getQueryContinuationQueryId() {
         return this.queryContinuationQueryId.getValue();
     }
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p>Unique number for the query to be continued.</p>
+     * 
+     * <p>Links to the query for which continuation is desired. 
+     * Needed to ensure that the query is not re-executed, as the 
+     * results may have changed. As a result, the attribute is 
+     * mandatory.</p>
+     */
     public void setQueryContinuationQueryId(Identifier queryContinuationQueryId) {
         this.queryContinuationQueryId.setValue(queryContinuationQueryId);
     }
@@ -350,16 +432,28 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>I:Start Position</p>
      * 
-     * <p><p>Indicates the record number at which to start the 
-     * returned result set.</p></p>
+     * <p>Indicates the record number at which to start the 
+     * returned result set.</p>
      * 
-     * <p><p>Indicates what point the query should continue from 
-     * and is therefore mandatory.</p></p>
+     * <p>Indicates what point the query should continue from and 
+     * is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"queryContinuation/startResultNumber"})
     public Integer getQueryContinuationStartResultNumber() {
         return this.queryContinuationStartResultNumber.getValue();
     }
+
+    /**
+     * <p>StartPosition</p>
+     * 
+     * <p>I:Start Position</p>
+     * 
+     * <p>Indicates the record number at which to start the 
+     * returned result set.</p>
+     * 
+     * <p>Indicates what point the query should continue from and 
+     * is therefore mandatory.</p>
+     */
     public void setQueryContinuationStartResultNumber(Integer queryContinuationStartResultNumber) {
         this.queryContinuationStartResultNumber.setValue(queryContinuationStartResultNumber);
     }
@@ -370,17 +464,30 @@ public class TriggerEvent_2Bean extends MessagePartBean {
      * 
      * <p>J:Query Limit</p>
      * 
-     * <p><p>Indicates how many records should be returned for this 
-     * query.</p></p>
+     * <p>Indicates how many records should be returned for this 
+     * query.</p>
      * 
-     * <p><p>Allows an application to control the number of 
-     * returned records. If not specified, the EHR may apply a 
-     * default limit.</p></p>
+     * <p>Allows an application to control the number of returned 
+     * records. If not specified, the EHR may apply a default 
+     * limit.</p>
      */
     @Hl7XmlMapping({"queryContinuation/continuationQuantity"})
     public Integer getQueryContinuationContinuationQuantity() {
         return this.queryContinuationContinuationQuantity.getValue();
     }
+
+    /**
+     * <p>QueryLimit</p>
+     * 
+     * <p>J:Query Limit</p>
+     * 
+     * <p>Indicates how many records should be returned for this 
+     * query.</p>
+     * 
+     * <p>Allows an application to control the number of returned 
+     * records. If not specified, the EHR may apply a default 
+     * limit.</p>
+     */
     public void setQueryContinuationContinuationQuantity(Integer queryContinuationContinuationQuantity) {
         this.queryContinuationContinuationQuantity.setValue(queryContinuationContinuationQuantity);
     }

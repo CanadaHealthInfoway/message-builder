@@ -29,9 +29,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.GenericQueryPar
 
 
 
+/**
+ * <p>REPC_IN000016CA: Patient allergy/intolerance query 
+ * response</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120006CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: REPC_MT000005CA.IntoleranceCondition</p>
+ * 
+ * <p>--> Sub-Payload: REPC_MT000004CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000016CA"})
 public class PatientAllergyIntoleranceQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<AllergyIntoleranceBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

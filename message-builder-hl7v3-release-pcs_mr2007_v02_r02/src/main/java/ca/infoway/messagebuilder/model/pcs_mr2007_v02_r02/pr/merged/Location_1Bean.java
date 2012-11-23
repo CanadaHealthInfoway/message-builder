@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToL
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Location","PRPM_MT303010CA.Location"})
 public class Location_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT sequenceNumber = new INTImpl();
     private DispenseShipToLocationBean serviceDeliveryLocation;
 
@@ -41,6 +41,7 @@ public class Location_1Bean extends MessagePartBean {
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -50,6 +51,7 @@ public class Location_1Bean extends MessagePartBean {
     public DispenseShipToLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
+
     public void setServiceDeliveryLocation(DispenseShipToLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }

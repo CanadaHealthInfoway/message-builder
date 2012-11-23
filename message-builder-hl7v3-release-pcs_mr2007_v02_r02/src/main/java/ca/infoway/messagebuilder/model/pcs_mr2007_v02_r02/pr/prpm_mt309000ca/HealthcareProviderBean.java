@@ -46,16 +46,16 @@ import java.util.Set;
 /**
  * <p>Healthcare Provider</p>
  * 
- * <p><p>This roles the specific Healthcare provider role such 
- * as a Physician, Nurse or other type of caregivers.</p></p>
+ * <p>This roles the specific Healthcare provider role such as 
+ * a Physician, Nurse or other type of caregivers.</p>
  * 
- * <p><p>Roleclass required to support the identification of 
- * person responsible for providing healthcare services</p></p>
+ * <p>Roleclass required to support the identification of 
+ * person responsible for providing healthcare services</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -74,11 +74,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     /**
      * <p>Healthcare Provider Role Identification</p>
      * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
+     * <p>A unique identifier for a provider in a specific 
+     * healthcare role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -95,16 +95,26 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     /**
      * <p>Healthcare Provider Role Type</p>
      * 
-     * <p><p>The code identifying the specific healthcare provider 
-     * role.</p></p>
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
         return (HealthcareProviderRoleType) this.code.getValue();
     }
+
+    /**
+     * <p>Healthcare Provider Role Type</p>
+     * 
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
     }
@@ -113,11 +123,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
-     * <p><p>The providers name pertaining to the specific 
-     * healthcare provider role.</p></p>
+     * <p>The providers name pertaining to the specific healthcare 
+     * provider role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -129,6 +139,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
+
     public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
@@ -138,6 +149,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     public OrganizationBean getIssuingOrganization() {
         return this.issuingOrganization;
     }
+
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
     }

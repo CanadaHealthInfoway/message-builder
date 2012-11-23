@@ -39,26 +39,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POME_MT010100CA.Content: dispensed in</p>
  * 
- * <p><p>Information about how the dispensed drug is or should 
- * be contained</p></p>
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
- * <p><p>May influence prescribing quantities, and also allows 
+ * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
- * such as compliance packaging.</p></p>
+ * such as compliance packaging.</p>
  * 
  * <p>POME_MT010040CA.Content: dispensed in</p>
  * 
- * <p><p>Information about how the dispensed drug is or should 
- * be contained</p></p>
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
- * <p><p>May influence prescribing quantities, and also allows 
+ * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
- * such as compliance packaging.</p></p>
+ * such as compliance packaging.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private RTO<PhysicalQuantity, PhysicalQuantity> quantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 
@@ -68,22 +68,40 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Package Quantity</p>
      * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
      * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * <p>Sometimes ordering and dispensing is by package rather 
      * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
+     * calculating total amount supplied.</p>
      * 
-     * <p><p>Because of the constraint imposed by the RIM that in a 
+     * <p>Because of the constraint imposed by the RIM that in a 
      * role, PQ.DRUG must be expressed as a ratio, the numerator 
      * should be the package quantity and the denominator a 
-     * '1'.</p></p>
+     * '1'.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Ratio<PhysicalQuantity, PhysicalQuantity> getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>PackageQuantity</p>
+     * 
+     * <p>Package Quantity</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Because of the constraint imposed by the RIM that in a 
+     * role, PQ.DRUG must be expressed as a ratio, the numerator 
+     * should be the package quantity and the denominator a 
+     * '1'.</p>
+     */
     public void setQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> quantity) {
         this.quantity.setValue(quantity);
     }
@@ -94,28 +112,52 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>Container Type</p>
      * 
-     * <p><p>A coded value denoting a specific kind of a container. 
+     * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
-     * compliance packaging</p></p>
+     * compliance packaging</p>
      * 
-     * <p><p>Many insurance plans require that a prescriber 
+     * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p></p>
+     * before it will be covered by the plan.</p>
      * 
      * <p>H:Container Type</p>
      * 
-     * <p><p>A coded value denoting a specific kind of a container. 
+     * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
-     * compliance packaging</p></p>
+     * compliance packaging</p>
      * 
-     * <p><p>Many insurance plans require that a prescriber 
+     * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p></p>
+     * before it will be covered by the plan.</p>
      */
     @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
     public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {
         return (CompliancePackageEntityType) this.containerPackagedMedicineFormCode.getValue();
     }
+
+    /**
+     * <p>ContainerType</p>
+     * 
+     * <p>Container Type</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>H:Container Type</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     */
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
     }

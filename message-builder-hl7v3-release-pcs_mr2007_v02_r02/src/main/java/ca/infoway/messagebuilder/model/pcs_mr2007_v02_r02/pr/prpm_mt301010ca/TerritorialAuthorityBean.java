@@ -33,17 +33,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Territorial Authority</p>
  * 
- * <p><p>RoleClass necessary to support the Jurisdiction within 
- * which the scoping organization exists</p></p>
+ * <p>RoleClass necessary to support the Jurisdiction within 
+ * which the scoping organization exists</p>
  * 
- * <p><p>Supports business requirement to provide additional 
+ * <p>Supports business requirement to provide additional 
  * information regarding the jurisdication within the scoping 
- * organization exists.</p></p>
+ * organization exists.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private CV territoryCode = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
@@ -52,16 +52,26 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     /**
      * <p>Territorial Authority Type</p>
      * 
-     * <p><p>The code identifying the specific Territorial 
-     * Authority</p></p>
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
      */
     @Hl7XmlMapping({"code"})
     public RoleCode getCode() {
         return (RoleCode) this.code.getValue();
     }
+
+    /**
+     * <p>Territorial Authority Type</p>
+     * 
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
+     */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
     }
@@ -70,20 +80,34 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     /**
      * <p>Jurisdiction Type</p>
      * 
-     * <p><p>A character value that represents the Canadian 
-     * provincial or territorial geographical area within which the 
-     * Provider is operating.</p></p>
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
      * 
-     * <p><p>If Jurisdiction is included in the message, then 
-     * Territorial Authority Type is Expected to Exist.</p></p>
+     * <p>If Jurisdiction is included in the message, then 
+     * Territorial Authority Type is Expected to Exist.</p>
      */
     @Hl7XmlMapping({"territory/code"})
     public PlaceEntityType getTerritoryCode() {
         return (PlaceEntityType) this.territoryCode.getValue();
     }
+
+    /**
+     * <p>Jurisdiction Type</p>
+     * 
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
+     * 
+     * <p>If Jurisdiction is included in the message, then 
+     * Territorial Authority Type is Expected to Exist.</p>
+     */
     public void setTerritoryCode(PlaceEntityType territoryCode) {
         this.territoryCode.setValue(territoryCode);
     }
@@ -93,6 +117,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     public TerritorialAuthorityBean getPartTerritorialAuthority() {
         return this.partTerritorialAuthority;
     }
+
     public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
         this.partTerritorialAuthority = partTerritorialAuthority;
     }

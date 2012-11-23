@@ -31,7 +31,9 @@ import java.util.List;
 @Hl7RootType
 public interface RoleChoice {
 
+
     public List<ResponsiblePartyBean> getResponsibleFor();
+
 
     public List<RelatedToBean> getRelatedTo();
 

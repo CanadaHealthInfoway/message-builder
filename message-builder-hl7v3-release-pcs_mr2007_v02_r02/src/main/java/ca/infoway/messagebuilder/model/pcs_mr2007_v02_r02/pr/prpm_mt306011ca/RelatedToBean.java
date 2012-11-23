@@ -37,7 +37,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS typeCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
@@ -47,6 +47,7 @@ public class RelatedToBean extends MessagePartBean {
     public RoleLinkType getTypeCode() {
         return (RoleLinkType) this.typeCode.getValue();
     }
+
     public void setTypeCode(RoleLinkType typeCode) {
         this.typeCode.setValue(typeCode);
     }
@@ -56,6 +57,7 @@ public class RelatedToBean extends MessagePartBean {
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -65,6 +67,7 @@ public class RelatedToBean extends MessagePartBean {
     public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
+
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }

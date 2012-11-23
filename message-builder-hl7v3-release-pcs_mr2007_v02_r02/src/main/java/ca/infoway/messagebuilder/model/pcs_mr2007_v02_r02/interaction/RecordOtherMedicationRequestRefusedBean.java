@@ -27,9 +27,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 
+/**
+ * <p>PORX_IN040040CA: Record other medication request refused</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700236CA.ControlActEvent</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN040040CA"})
 public class RecordOtherMedicationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

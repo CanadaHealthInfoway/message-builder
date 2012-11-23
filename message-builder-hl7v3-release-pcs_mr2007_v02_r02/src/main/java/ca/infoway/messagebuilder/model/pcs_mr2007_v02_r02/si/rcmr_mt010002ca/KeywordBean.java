@@ -41,18 +41,18 @@ import java.util.List;
 /**
  * <p>Keyword</p>
  * 
- * <p><p>Information pertaining to a patient's secret password 
- * used to control access to his/her health information.</p></p>
+ * <p>Information pertaining to a patient's secret password 
+ * used to control access to his/her health information.</p>
  * 
- * <p><p>Allows a patient to control access to their health 
+ * <p>Allows a patient to control access to their health 
  * information. Provides authorization for providers to view 
- * patient information.</p></p>
+ * patient information.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010002CA.KeywordEvent"})
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
@@ -61,18 +61,30 @@ public class KeywordBean extends MessagePartBean {
     /**
      * <p>Keyword</p>
      * 
-     * <p><p>Indicate the keyword associated with a particular 
-     * consent.</p></p>
+     * <p>Indicate the keyword associated with a particular 
+     * consent.</p>
      * 
-     * <p><p>Allows patients to change their keyword. If explicitly 
+     * <p>Allows patients to change their keyword. If explicitly 
      * set to null, removes the keyword for the identified record 
      * types. Because of this, the attribute is set to 
-     * 'populated'.</p></p>
+     * 'populated'.</p>
      */
     @Hl7XmlMapping({"author/signatureText"})
     public String getAuthorSignatureText() {
         return this.authorSignatureText.getValue();
     }
+
+    /**
+     * <p>Keyword</p>
+     * 
+     * <p>Indicate the keyword associated with a particular 
+     * consent.</p>
+     * 
+     * <p>Allows patients to change their keyword. If explicitly 
+     * set to null, removes the keyword for the identified record 
+     * types. Because of this, the attribute is set to 
+     * 'populated'.</p>
+     */
     public void setAuthorSignatureText(String authorSignatureText) {
         this.authorSignatureText.setValue(authorSignatureText);
     }
@@ -82,6 +94,7 @@ public class KeywordBean extends MessagePartBean {
     public Consenter getAuthorConsenter() {
         return this.authorConsenter;
     }
+
     public void setAuthorConsenter(Consenter authorConsenter) {
         this.authorConsenter = authorConsenter;
     }
@@ -104,23 +117,23 @@ public class KeywordBean extends MessagePartBean {
     /**
      * <p>B:Consent Information Types</p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified. Examples are: demographics, medications, lab, 
-     * DI, etc</p><p>The keyword revisioning process may also 
-     * involve revising the list of information types covered by 
-     * the keyword.</p></p>
+     * <p>The type of patient information that can be accessed or 
+     * modified. Examples are: demographics, medications, lab, DI, 
+     * etc</p><p>The keyword revisioning process may also involve 
+     * revising the list of information types covered by the 
+     * keyword.</p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified. Examples are: demographics, medications, lab, 
-     * DI, etc</p><p>The keyword revisioning process may also 
-     * involve revising the list of information types covered by 
-     * the keyword.</p></p>
+     * <p>The type of patient information that can be accessed or 
+     * modified. Examples are: demographics, medications, lab, DI, 
+     * etc</p><p>The keyword revisioning process may also involve 
+     * revising the list of information types covered by the 
+     * keyword.</p>
      * 
-     * <p><p>Different keywords may be needed to access different 
+     * <p>Different keywords may be needed to access different 
      * types of patient information (e.g. demographics, 
      * medications, allergies, lab results). Understanding the type 
      * of information the keyword applies to is critical, and 
-     * therefore the attribute is mandatory.</p></p>
+     * therefore the attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {

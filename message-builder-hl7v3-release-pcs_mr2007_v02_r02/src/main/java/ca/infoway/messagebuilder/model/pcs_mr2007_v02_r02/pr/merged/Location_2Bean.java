@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class Location_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS typeCode = new CSImpl();
     private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
@@ -44,6 +44,7 @@ public class Location_2Bean extends MessagePartBean {
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
+
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
@@ -53,6 +54,7 @@ public class Location_2Bean extends MessagePartBean {
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -62,6 +64,7 @@ public class Location_2Bean extends MessagePartBean {
     public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
+
     public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }

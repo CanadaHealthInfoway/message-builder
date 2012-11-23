@@ -36,17 +36,16 @@ import java.util.List;
 /**
  * <p>Organization</p>
  * 
- * <p><p>The scoping organization for the specified role 
- * class</p></p>
+ * <p>The scoping organization for the specified role class</p>
  * 
- * <p><p>Supports the requirement to supply additional 
- * information regarding the assigning Organization of the 
- * specified RoleClass</p></p>
+ * <p>Supports the requirement to supply additional information 
+ * regarding the assigning Organization of the specified 
+ * RoleClass</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306051CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
@@ -55,15 +54,24 @@ public class OrganizationBean extends MessagePartBean {
     /**
      * <p>Organization Id</p>
      * 
-     * <p><p>The unique identifier of the Organization.</p></p>
+     * <p>The unique identifier of the Organization.</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p>The unique identifier of the Organization.</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -73,41 +81,77 @@ public class OrganizationBean extends MessagePartBean {
      * <p>(Issuing Representing Qualification Granting Organization 
      * Name(s</p>
      * 
-     * <p><p>The name of the organization supporting the following 
+     * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
      * with a providers functional role.</p><p>3. Organization that 
-     * grants the qualifications or expertise.</p></p>
+     * grants the qualifications or expertise.</p>
      * 
-     * <p><p>The name of the organization supporting the following 
+     * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
      * with a providers functional role.</p><p>3. Organization that 
-     * grants the qualifications or expertise.</p></p>
+     * grants the qualifications or expertise.</p>
      * 
-     * <p><p>The name of the organization supporting the following 
+     * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
      * with a providers functional role.</p><p>3. Organization that 
-     * grants the qualifications or expertise.</p></p>
+     * grants the qualifications or expertise.</p>
      * 
-     * <p><p>The name of the organization supporting the following 
+     * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
      * with a providers functional role.</p><p>3. Organization that 
-     * grants the qualifications or expertise.</p></p>
+     * grants the qualifications or expertise.</p>
      * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider.</p></p>
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>(Issuing Representing Qualification Granting Organization 
+     * Name(s</p>
+     * 
+     * <p>The name of the organization supporting the following 
+     * three role classes:</p><p>1. Organization that is 
+     * responsible for registering the provider for a specific 
+     * healthcare provider role.</p><p>2. Organization associated 
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p>
+     * 
+     * <p>The name of the organization supporting the following 
+     * three role classes:</p><p>1. Organization that is 
+     * responsible for registering the provider for a specific 
+     * healthcare provider role.</p><p>2. Organization associated 
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p>
+     * 
+     * <p>The name of the organization supporting the following 
+     * three role classes:</p><p>1. Organization that is 
+     * responsible for registering the provider for a specific 
+     * healthcare provider role.</p><p>2. Organization associated 
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p>
+     * 
+     * <p>The name of the organization supporting the following 
+     * three role classes:</p><p>1. Organization that is 
+     * responsible for registering the provider for a specific 
+     * healthcare provider role.</p><p>2. Organization associated 
+     * with a providers functional role.</p><p>3. Organization that 
+     * grants the qualifications or expertise.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider.</p>
+     */
     public void setName(String name) {
         this.name.setValue(name);
     }

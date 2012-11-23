@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 
+/**
+ * <p>PORX_IN010540CA: Resume prescription request refused</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: COMT_MT001101CA.ActRequest</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN010540CA"})
 public class ResumePrescriptionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

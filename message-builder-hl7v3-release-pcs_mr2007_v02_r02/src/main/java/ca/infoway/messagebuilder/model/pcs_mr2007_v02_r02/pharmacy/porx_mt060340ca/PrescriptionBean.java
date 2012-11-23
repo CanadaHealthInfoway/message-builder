@@ -73,30 +73,30 @@ import java.util.Set;
 /**
  * <p>Prescription</p>
  * 
- * <p><p>Reported Issue is only permitted if Issue Indicator is 
+ * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present and vice versa</p><p>Annotation is only 
  * permitted if Annotation Indicator is not present and vice 
- * versa</p></p>
+ * versa</p>
  * 
- * <p><p>Reported Issue is only permitted if Issue Indicator is 
+ * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present and vice versa</p><p>Annotation is only 
  * permitted if Annotation Indicator is not present and vice 
- * versa</p></p>
+ * versa</p>
  * 
- * <p><p>Information pertaining to a Prescriber's authorization 
+ * <p>Information pertaining to a Prescriber's authorization 
  * for a drug to be dispensed to a patient, as well as the 
  * instruction on when and how the drug is to be administered 
- * to the patient.</p></p>
+ * to the patient.</p>
  * 
- * <p><p>This is a 'core' class of the medication model and is 
+ * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
- * intended to be receiving.</p></p>
+ * intended to be receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060340CA.CombinedMedicationRequest"})
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -134,36 +134,66 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>A:Prescription Order Number</p>
      * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
      * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
      * 
-     * <p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>The number is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>The number is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p><p>Local systems may assign their own internal number to 
-     * a prescription, and MAY display and print that number on the 
+     * <p>Local systems may assign their own internal number to a 
+     * prescription, and MAY display and print that number on the 
      * printed prescription, bottle labels, etc. However, the 
      * globally-unique DIS-assigned number MUST be displayed and 
-     * printed.</p></p>
+     * printed.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Prescription Order Number</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
+     * 
+     * <p>Local systems may assign their own internal number to a 
+     * prescription, and MAY display and print that number on the 
+     * printed prescription, bottle labels, etc. However, the 
+     * globally-unique DIS-assigned number MUST be displayed and 
+     * printed.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -172,22 +202,38 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Prescription Type</p>
      * 
-     * <p><p>Indicates that this is a prescription for a drug as 
+     * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
-     * information regarding drug and route.</p></p>
+     * information regarding drug and route.</p>
      * 
-     * <p><p>Needed to convey the meaning of this class and is 
+     * <p>Needed to convey the meaning of this class and is 
      * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
+     * provide support for SNOMED.</p>
      * 
-     * <p><p>Needed to convey the meaning of this class and is 
+     * <p>Needed to convey the meaning of this class and is 
      * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
+     * provide support for SNOMED.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Prescription Type</p>
+     * 
+     * <p>Indicates that this is a prescription for a drug as 
+     * opposed to an immunization. For SNOMED, may also contain 
+     * information regarding drug and route.</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -196,23 +242,40 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>C:Prescription Status</p>
      * 
-     * <p><p>This denotes the state of the prescription in the 
+     * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
      * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
-     * NULLIFIED.</p></p>
+     * NULLIFIED.</p>
      * 
-     * <p><p>Indicates what actions are allowed to be performed 
+     * <p>Indicates what actions are allowed to be performed 
      * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p></p>
+     * because every prescription needs to be in some state.</p>
      * 
-     * <p><p>Indicates what actions are allowed to be performed 
+     * <p>Indicates what actions are allowed to be performed 
      * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p></p>
+     * because every prescription needs to be in some state.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>C:Prescription Status</p>
+     * 
+     * <p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: NEW, 
+     * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
+     * NULLIFIED.</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -221,91 +284,91 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>F:Prescription Masking Indicators</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Allows a 
      * provider to request restricted access by the 
      * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
      * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
      * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * 'normal' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Allows a 
      * provider to request restricted access by the 
      * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
      * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
      * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * 'normal' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Allows a 
      * provider to request restricted access by the 
      * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
      * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
      * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * 'normal' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Allows a 
      * provider to request restricted access by the 
      * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
      * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
      * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * 'normal' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Allows a 
      * provider to request restricted access by the 
      * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
      * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
      * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
+     * 'normal' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>Taboo allows the provider to 
+     * request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
+     * masked data returned from other jurisdictions.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>Taboo allows the provider to 
+     * request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
+     * masked data returned from other jurisdictions.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>Taboo allows the provider to 
+     * request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
+     * masked data returned from other jurisdictions.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>Taboo allows the provider to 
+     * request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
+     * masked data returned from other jurisdictions.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -317,6 +380,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
+
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
@@ -326,6 +390,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
+
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
@@ -335,6 +400,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public PrescribedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
@@ -344,6 +410,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public CreatedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
@@ -359,6 +426,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
+
     public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
@@ -374,6 +442,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
+
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
@@ -389,6 +458,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
     }
+
     public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
         this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
     }
@@ -410,6 +480,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public NotEligibleForTrialBean getComponent2() {
         return this.component2;
     }
+
     public void setComponent2(NotEligibleForTrialBean component2) {
         this.component2 = component2;
     }
@@ -419,6 +490,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public IncludesBean getComponent3() {
         return this.component3;
     }
+
     public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }
@@ -434,6 +506,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public LastDispenseInformation_1Bean getFulfillment2SupplyEventLastSummary() {
         return this.fulfillment2SupplyEventLastSummary;
     }
+
     public void setFulfillment2SupplyEventLastSummary(LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary) {
         this.fulfillment2SupplyEventLastSummary = fulfillment2SupplyEventLastSummary;
     }
@@ -443,6 +516,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public FirstDispenseInformation_1Bean getFulfillment3SupplyEventFirstSummary() {
         return this.fulfillment3SupplyEventFirstSummary;
     }
+
     public void setFulfillment3SupplyEventFirstSummary(FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary) {
         this.fulfillment3SupplyEventFirstSummary = fulfillment3SupplyEventFirstSummary;
     }
@@ -452,6 +526,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public RemainingDispenseInformation_1Bean getFulfillment4SupplyEventFutureSummary() {
         return this.fulfillment4SupplyEventFutureSummary;
     }
+
     public void setFulfillment4SupplyEventFutureSummary(RemainingDispenseInformation_1Bean fulfillment4SupplyEventFutureSummary) {
         this.fulfillment4SupplyEventFutureSummary = fulfillment4SupplyEventFutureSummary;
     }
@@ -461,6 +536,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public PreviousDispenseInformation_1Bean getFulfillment5SupplyEventPastSummary() {
         return this.fulfillment5SupplyEventPastSummary;
     }
+
     public void setFulfillment5SupplyEventPastSummary(PreviousDispenseInformation_1Bean fulfillment5SupplyEventPastSummary) {
         this.fulfillment5SupplyEventPastSummary = fulfillment5SupplyEventPastSummary;
     }
@@ -476,6 +552,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
+
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
@@ -497,6 +574,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public AllowedSubstitutionBean getSubjectOf5SubstitutionPermission() {
         return this.subjectOf5SubstitutionPermission;
     }
+
     public void setSubjectOf5SubstitutionPermission(AllowedSubstitutionBean subjectOf5SubstitutionPermission) {
         this.subjectOf5SubstitutionPermission = subjectOf5SubstitutionPermission;
     }
@@ -512,6 +590,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public Boolean getSubjectOf7DetectedIssueIndicator() {
         return this.subjectOf7DetectedIssueIndicator.getValue();
     }
+
     public void setSubjectOf7DetectedIssueIndicator(Boolean subjectOf7DetectedIssueIndicator) {
         this.subjectOf7DetectedIssueIndicator.setValue(subjectOf7DetectedIssueIndicator);
     }
@@ -527,6 +606,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     public ClassifiesBean getComponentOf2() {
         return this.componentOf2;
     }
+
     public void setComponentOf2(ClassifiesBean componentOf2) {
         this.componentOf2 = componentOf2;
     }

@@ -42,17 +42,16 @@ import java.util.Set;
 /**
  * <p>Organization</p>
  * 
- * <p><p>The scoping organization for the specified role 
- * class</p></p>
+ * <p>The scoping organization for the specified role class</p>
  * 
- * <p><p>Supports the requirement to supply additional 
- * information regarding the assigning Organization of the 
- * specified RoleClass</p></p>
+ * <p>Supports the requirement to supply additional information 
+ * regarding the assigning Organization of the specified 
+ * RoleClass</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private SET<AD, PostalAddress> addr = new SETImpl<AD, PostalAddress>(ADImpl.class);
@@ -62,17 +61,28 @@ public class OrganizationBean extends MessagePartBean {
     /**
      * <p>Organization Id</p>
      * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the specified roleClass identifier.</p></p>
+     * <p>Unique identifier for the organization that assigned the 
+     * specified roleClass identifier.</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the scoping organization assigning the id 
-     * to the specified roleClass</p></p>
+     * to the specified roleClass</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * specified roleClass identifier.</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the scoping organization assigning the id 
+     * to the specified roleClass</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -82,61 +92,84 @@ public class OrganizationBean extends MessagePartBean {
      * <p>(Issuing Representing Qualification Granting Organization 
      * Name(s</p>
      * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a providers 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
      * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a providers 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
      * 
-     * <p><p>1. Organization that is responsible for registering 
-     * the provider for a specific healthcare provider 
-     * role.</p><p>2. Organization associated with a providers 
-     * functional role.</p><p>3. Organization that grants the 
-     * qualifications or expertise.</p></p>
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
      * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>(Issuing Representing Qualification Granting Organization 
+     * Name(s</p>
+     * 
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
+     * 
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
+     * 
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p>
+     */
     public void setName(String name) {
         this.name.setValue(name);
     }
 
 
     /**
-     * <p>Address(es</p>
+     * <p>(Issuing Representing Qualification Granting Organization 
+     * Address(es</p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
+     * <p>Address for any of the supported roles</p><p>1. Issuing 
+     * Oganization</p><p>2. Representing Organization</p><p>3. 
+     * Qualification Granting Organization</p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
+     * <p>Address for any of the supported roles</p><p>1. Issuing 
+     * Oganization</p><p>2. Representing Organization</p><p>3. 
+     * Qualification Granting Organization</p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
+     * <p>Address for any of the supported roles</p><p>1. Issuing 
+     * Oganization</p><p>2. Representing Organization</p><p>3. 
+     * Qualification Granting Organization</p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
+     * <p>Address for any of the supported roles</p><p>1. Issuing 
+     * Oganization</p><p>2. Representing Organization</p><p>3. 
+     * Qualification Granting Organization</p>
      * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p>
      */
     @Hl7XmlMapping({"addr"})
     public Set<PostalAddress> getAddr() {

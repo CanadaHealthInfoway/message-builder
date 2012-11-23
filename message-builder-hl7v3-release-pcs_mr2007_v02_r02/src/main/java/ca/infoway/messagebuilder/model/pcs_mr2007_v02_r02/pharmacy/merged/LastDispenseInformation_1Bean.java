@@ -40,43 +40,43 @@ import java.util.Date;
  * <p>PORX_MT060160CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
- * <p><p>Provides summary information about the most recent 
- * dispense event performed against the prescription</p></p>
+ * <p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  * 
  * <p>PORX_MT060190CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
- * <p><p>Provides summary information about the most recent 
- * dispense event performed against the prescription</p></p>
+ * <p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  * 
  * <p>PORX_MT060340CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
- * <p><p>Provides summary information about the most recent 
- * dispense event performed against the prescription</p></p>
+ * <p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  * 
  * <p>PORX_MT030040CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
  * 
- * <p><p>Provides summary information about the most recent 
- * dispense event performed against the prescription</p></p>
+ * <p>Provides summary information about the most recent 
+ * dispense event performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventLastSummary","PORX_MT060160CA.SupplyEventLastSummary","PORX_MT060190CA.SupplyEventLastSummary","PORX_MT060340CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
 
@@ -86,17 +86,30 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * 
      * <p>Last Dispense Pickup Date</p>
      * 
-     * <p><p>Indicates the most recent date on which a dispense on 
-     * the prescription was picked up.</p></p>
+     * <p>Indicates the most recent date on which a dispense on the 
+     * prescription was picked up.</p>
      * 
-     * <p><p>Useful in determining when a prescription will next 
-     * need to be dispensed. Also provides an indication of 
-     * compliance.</p></p>
+     * <p>Useful in determining when a prescription will next need 
+     * to be dispensed. Also provides an indication of 
+     * compliance.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>LastDispensePickupDate</p>
+     * 
+     * <p>Last Dispense Pickup Date</p>
+     * 
+     * <p>Indicates the most recent date on which a dispense on the 
+     * prescription was picked up.</p>
+     * 
+     * <p>Useful in determining when a prescription will next need 
+     * to be dispensed. Also provides an indication of 
+     * compliance.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -105,76 +118,146 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     /**
      * <p>Last Quantity Dispensed.</p>
      * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>If the most recent dispense information is 
      * known, the quantity must be known and therefore is 
-     * mandatory</p></p>
+     * mandatory</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>If the most recent dispense information is 
      * known, the quantity must be known and therefore is 
-     * mandatory</p></p>
+     * mandatory</p>
      * 
      * <p>Last Dispense Quantity</p>
      * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
      * <p>Last Quantity Dispensed</p>
      * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
      * 
-     * <p><p>Useful in determining the amount of medication that a 
+     * <p>Useful in determining the amount of medication that a 
      * patient should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>Useful in determining the amount of medication that a 
+     * <p>Useful in determining the amount of medication that a 
      * patient should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
      * <p>Last Quantity Dispensed</p>
      * 
-     * <p><p>Indicates the most recent quantity of the drug that 
-     * was picked up for the prescription.</p></p>
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>Useful in determining amount of medication that a 
-     * patient should have on-hand. Also provides an indication of 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>Last Quantity Dispensed.</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the most recent dispense information is 
+     * known, the quantity must be known and therefore is 
+     * mandatory</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the most recent dispense information is 
+     * known, the quantity must be known and therefore is 
+     * mandatory</p>
+     * 
+     * <p>Last Dispense Quantity</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Last Quantity Dispensed</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining the amount of medication that a 
+     * patient should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Useful in determining the amount of medication that a 
+     * patient should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Last Quantity Dispensed</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Useful in determining amount of medication that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>Because the quantity should always be 
+     * known if the last dispense is known, this attribute is 
+     * mandatory.</p>
+     */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
     }

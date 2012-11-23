@@ -39,34 +39,34 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
  * <p>COCT_MT260030CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p><p>This is the decision support rule that triggered the 
- * issue.</p></p>
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
- * <p><p>Provides detailed background for providers in 
- * evaluating the issue.</p></p>
+ * <p>Provides detailed background for providers in evaluating 
+ * the issue.</p>
  * 
  * <p>COCT_MT260020CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p><p>This is the decision support rule that triggered the 
- * issue.</p></p>
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
- * <p><p>Provides detailed background for providers in 
- * evaluating the issue.</p></p>
+ * <p>Provides detailed background for providers in evaluating 
+ * the issue.</p>
  * 
  * <p>COCT_MT260010CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p><p>This is the decision support rule that triggered the 
- * issue.</p></p>
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
- * <p><p>Provides detailed background for providers in 
- * evaluating the issue.</p></p>
+ * <p>Provides detailed background for providers in evaluating 
+ * the issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;
@@ -78,38 +78,70 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>A:Issue Monograph Id</p>
      * 
-     * <p><p>Knowledgebase organization specific identifier for the 
-     * issue definition.</p></p>
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p></p>
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
      * 
-     * <p><p>Allows applications to match with local 
-     * Knowledge-bases and avoid displaying duplicate issues to 
-     * providers.</p></p>
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>IssueMonographId</p>
+     * 
+     * <p>A:Issue Monograph Id</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
+     * Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -120,22 +152,36 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>C:Issue Description</p>
      * 
-     * <p><p>A free form textual description of the issue. This is 
-     * usually in the form of a monograph.</p></p>
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
      * 
-     * <p><p>Monograph URI (Reference)</p><p>Monograph 
-     * description</p></p>
+     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
      * 
-     * <p><p>Monograph URI (Reference)</p><p>Monograph 
-     * description</p></p>
+     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
      * 
-     * <p><p>Provides detailed clinical background on reasons for 
-     * issue.</p></p>
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>IssueDescription</p>
+     * 
+     * <p>C:Issue Description</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
+     * 
+     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * 
+     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
+     */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
@@ -145,6 +191,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     public PrescribedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
@@ -154,6 +201,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
         return this.componentSubstanceAdministrationEventCriterion;
     }
+
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
     }

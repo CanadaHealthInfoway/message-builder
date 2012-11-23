@@ -59,7 +59,7 @@ import java.util.List;
 /**
  * <p>Assigned Entity</p>
  * 
- * <p><p>The role class, assigned entity, captures the critical 
+ * <p>The role class, assigned entity, captures the critical 
  * information of the provider playing the role of interest. 
  * This includes an identifier for the role, mailing address, 
  * phone number, and the time within which the role is played 
@@ -67,16 +67,16 @@ import java.util.List;
  * omitted if not needed, provides the organizational context 
  * for the entity that actually plays the role. For example, 
  * the role scoper will normally be the party that assigns the 
- * identifier for the role.</p></p>
+ * identifier for the role.</p>
  * 
- * <p><p>Roleclass required to provide additional information 
- * for the person responsible for providing healthcare services 
- * within a specific healthcare setting</p></p>
+ * <p>Roleclass required to provide additional information for 
+ * the person responsible for providing healthcare services 
+ * within a specific healthcare setting</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT303010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -100,16 +100,26 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Identifier</p>
      * 
-     * <p><p>Identifies specific functional role that a provider 
-     * may play within an organization.</p></p>
+     * <p>Identifies specific functional role that a provider may 
+     * play within an organization.</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Functional Role Identifier</p>
+     * 
+     * <p>Identifies specific functional role that a provider may 
+     * play within an organization.</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -124,15 +134,24 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Type</p>
      * 
-     * <p><p>The code identifying the specific functional role.</p></p>
+     * <p>The code identifying the specific functional role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"code"})
     public AssignedRoleType getCode() {
         return (AssignedRoleType) this.code.getValue();
     }
+
+    /**
+     * <p>Functional Role Type</p>
+     * 
+     * <p>The code identifying the specific functional role.</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setCode(AssignedRoleType code) {
         this.code.setValue(code);
     }
@@ -141,11 +160,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Name</p>
      * 
-     * <p><p>The providers name pertaining to the specific 
-     * functional role.</p></p>
+     * <p>The providers name pertaining to the specific functional 
+     * role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -156,11 +175,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Address</p>
      * 
-     * <p><p>Address of the provider when playing the functional 
-     * role.</p></p>
+     * <p>Address of the provider when playing the functional 
+     * role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -171,11 +190,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Telecom</p>
      * 
-     * <p><p>Telecom of the provider when playing the functional 
-     * role.</p></p>
+     * <p>Telecom of the provider when playing the functional 
+     * role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -186,16 +205,26 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Status Code</p>
      * 
-     * <p><p>The status of the provider in the functional role i.e. 
-     * Active</p></p>
+     * <p>The status of the provider in the functional role i.e. 
+     * Active</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
         return (RoleStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>Functional Role Status Code</p>
+     * 
+     * <p>The status of the provider in the functional role i.e. 
+     * Active</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -204,16 +233,26 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Functional Role Effective Date</p>
      * 
-     * <p><p>The effective date of the provider in the functional 
-     * role.</p></p>
+     * <p>The effective date of the provider in the functional 
+     * role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Functional Role Effective Date</p>
+     * 
+     * <p>The effective date of the provider in the functional 
+     * role.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -223,6 +262,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     public PrinicpalPerson_1Bean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
+
     public void setAssignedPrincipalPerson(PrinicpalPerson_1Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
@@ -232,6 +272,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     public OrganizationBean getRepresentedOrganization() {
         return this.representedOrganization;
     }
+
     public void setRepresentedOrganization(OrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }

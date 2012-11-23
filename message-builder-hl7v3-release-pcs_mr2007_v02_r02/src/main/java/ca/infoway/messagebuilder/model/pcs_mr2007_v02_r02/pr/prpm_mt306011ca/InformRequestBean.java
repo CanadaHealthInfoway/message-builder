@@ -42,21 +42,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.merged.ServiceDeliv
 /**
  * <p>Inform Request</p>
  * 
- * <p><p>A record of something that is being done, has been 
- * done, can be done, or is intended or requested to be 
- * done.</p></p>
+ * <p>A record of something that is being done, has been done, 
+ * can be done, or is intended or requested to be done.</p>
  * 
- * <p><p>Acts are the pivot of the RIM; all domain information 
- * and processes are represented primarily in Acts. Any 
- * profession or business, including healthcare, is primarily 
- * constituted of intentional and occasionally non-intentional 
- * actions, performed and recorded by responsible actors. An 
- * Act-instance is a record of such an action.</p></p>
+ * <p>Acts are the pivot of the RIM; all domain information and 
+ * processes are represented primarily in Acts. Any profession 
+ * or business, including healthcare, is primarily constituted 
+ * of intentional and occasionally non-intentional actions, 
+ * performed and recorded by responsible actors. An 
+ * Act-instance is a record of such an action.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
@@ -70,6 +69,7 @@ public class InformRequestBean extends MessagePartBean {
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
+
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
@@ -79,6 +79,7 @@ public class InformRequestBean extends MessagePartBean {
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
+
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
@@ -87,18 +88,28 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Inform Request Code</p>
      * 
-     * <p><p>A code specifying the particular kind of Act that the 
+     * <p>A code specifying the particular kind of Act that the 
      * Act-instance represents within its class. Ex. Document 
-     * Type</p></p>
+     * Type</p>
      * 
-     * <p><p>Populated attribute supports the business requirement 
-     * to provide coded information about the Act being 
-     * described</p></p>
+     * <p>Populated attribute supports the business requirement to 
+     * provide coded information about the Act being described</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Inform Request Code</p>
+     * 
+     * <p>A code specifying the particular kind of Act that the 
+     * Act-instance represents within its class. Ex. Document 
+     * Type</p>
+     * 
+     * <p>Populated attribute supports the business requirement to 
+     * provide coded information about the Act being described</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -108,6 +119,7 @@ public class InformRequestBean extends MessagePartBean {
     public ParticipationMode getSubjectModeCode() {
         return (ParticipationMode) this.subjectModeCode.getValue();
     }
+
     public void setSubjectModeCode(ParticipationMode subjectModeCode) {
         this.subjectModeCode.setValue(subjectModeCode);
     }
@@ -117,6 +129,7 @@ public class InformRequestBean extends MessagePartBean {
     public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
+
     public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
@@ -126,6 +139,7 @@ public class InformRequestBean extends MessagePartBean {
     public ParticipationType getIndirectTargetTypeCode() {
         return (ParticipationType) this.indirectTargetTypeCode.getValue();
     }
+
     public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
         this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
     }
@@ -135,6 +149,7 @@ public class InformRequestBean extends MessagePartBean {
     public Choice getIndirectTargetChoice() {
         return this.indirectTargetChoice;
     }
+
     public void setIndirectTargetChoice(Choice indirectTargetChoice) {
         this.indirectTargetChoice = indirectTargetChoice;
     }

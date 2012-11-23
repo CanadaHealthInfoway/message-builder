@@ -27,9 +27,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 
+/**
+ * <p>RCMR_IN010004CA: Update keyword request accepted</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700236CA.ControlActEvent</p>
+ */
 @Hl7PartTypeMapping({"RCMR_IN010004CA"})
 public class UpdateKeywordRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

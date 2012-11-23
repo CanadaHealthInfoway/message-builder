@@ -26,9 +26,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Messa
 
 
 
+/**
+ * <p>MCCI_IN000002CA: Accept Ack</p>
+ * 
+ * <p>Message: MCCI_MT002200CA.Message</p>
+ */
 @Hl7PartTypeMapping({"MCCI_IN000002CA"})
 public class AcceptAckBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

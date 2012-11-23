@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV administrativeGenderValue = new CVImpl();
     private List<II> clientIdValue = new ArrayList<II>();
     private DeceasedIndicatorBean deceasedIndicator;
@@ -70,33 +70,45 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Client Gender</p>
      * 
-     * <p><p>Gender of the Client, this is not to be confused with 
+     * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
      * typically restricted to Male (M), Female (F) or Unknown 
-     * (U)</p></p>
+     * (U)</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"administrativeGender/value"})
     public AdministrativeGender getAdministrativeGenderValue() {
         return (AdministrativeGender) this.administrativeGenderValue.getValue();
     }
+
+    /**
+     * <p>Client Gender</p>
+     * 
+     * <p>Gender of the Client, this is not to be confused with 
+     * Clinical Gender of a client. Administrative Gender is 
+     * typically restricted to Male (M), Female (F) or Unknown 
+     * (U)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     */
     public void setAdministrativeGenderValue(AdministrativeGender administrativeGenderValue) {
         this.administrativeGenderValue.setValue(administrativeGenderValue);
     }
 
 
     /**
-     * <p>Identification</p>
+     * <p>(Client Healthcare Identification Number And Or 
+     * NonHealthcare Identification</p>
      * 
-     * <p><p>Healthcare identiers may be assigned jurisdictionally 
-     * or by care facility and/or non-healthcare identifiers for 
-     * the Client (e.g. Passport, SIN, DND, DIAND, Drivers 
-     * License)</p></p>
+     * <p>Healthcare identiers may be assigned jurisdictionally or 
+     * by care facility and/or non-healthcare identifiers for the 
+     * Client (e.g. Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"clientId/value"})
     public List<Identifier> getClientIdValue() {
@@ -108,6 +120,7 @@ public class ParameterListBean extends MessagePartBean {
     public DeceasedIndicatorBean getDeceasedIndicator() {
         return this.deceasedIndicator;
     }
+
     public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
         this.deceasedIndicator = deceasedIndicator;
     }
@@ -117,6 +130,7 @@ public class ParameterListBean extends MessagePartBean {
     public DeceasedTimeBean getDeceasedTime() {
         return this.deceasedTime;
     }
+
     public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
         this.deceasedTime = deceasedTime;
     }
@@ -126,6 +140,7 @@ public class ParameterListBean extends MessagePartBean {
     public LanguageCodeBean getLanguageCode() {
         return this.languageCode;
     }
+
     public void setLanguageCode(LanguageCodeBean languageCode) {
         this.languageCode = languageCode;
     }
@@ -135,6 +150,7 @@ public class ParameterListBean extends MessagePartBean {
     public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
         return this.multipleBirthIndicator;
     }
+
     public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
         this.multipleBirthIndicator = multipleBirthIndicator;
     }
@@ -144,6 +160,7 @@ public class ParameterListBean extends MessagePartBean {
     public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
         return this.multipleBirthOrderNumber;
     }
+
     public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
         this.multipleBirthOrderNumber = multipleBirthOrderNumber;
     }
@@ -152,10 +169,10 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Client Address</p>
      * 
-     * <p><p>Address(es) of the Client</p></p>
+     * <p>Address(es) of the Client</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"personAddress/value"})
     public List<PostalAddress> getPersonAddressValue() {
@@ -166,15 +183,24 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Client Date of Birth</p>
      * 
-     * <p><p>Date of birth of the Client</p></p>
+     * <p>Date of birth of the Client</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"personBirthtime/value"})
     public Date getPersonBirthtimeValue() {
         return this.personBirthtimeValue.getValue();
     }
+
+    /**
+     * <p>Client Date of Birth</p>
+     * 
+     * <p>Date of birth of the Client</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     */
     public void setPersonBirthtimeValue(Date personBirthtimeValue) {
         this.personBirthtimeValue.setValue(personBirthtimeValue);
     }
@@ -183,10 +209,10 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Client Name</p>
      * 
-     * <p><p>Name(s) for the Client</p></p>
+     * <p>Name(s) for the Client</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"personName/value"})
     public List<PersonName> getPersonNameValue() {
@@ -197,10 +223,10 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Client Telecom</p>
      * 
-     * <p><p>Provides information about telecom</p></p>
+     * <p>Provides information about telecom</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"personTelecom/value"})
     public List<TelecommunicationAddress> getPersonTelecomValue() {
@@ -212,6 +238,7 @@ public class ParameterListBean extends MessagePartBean {
     public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
         return this.personalRelationshipCode;
     }
+
     public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
         this.personalRelationshipCode = personalRelationshipCode;
     }

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Part"})
 public class PartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS typeCode = new CSImpl();
     private TerritorialAuthorityBean territorialAuthority;
 
@@ -41,6 +41,7 @@ public class PartBean extends MessagePartBean {
     public RoleLinkType getTypeCode() {
         return (RoleLinkType) this.typeCode.getValue();
     }
+
     public void setTypeCode(RoleLinkType typeCode) {
         this.typeCode.setValue(typeCode);
     }
@@ -50,6 +51,7 @@ public class PartBean extends MessagePartBean {
     public TerritorialAuthorityBean getTerritorialAuthority() {
         return this.territorialAuthority;
     }
+
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;
     }

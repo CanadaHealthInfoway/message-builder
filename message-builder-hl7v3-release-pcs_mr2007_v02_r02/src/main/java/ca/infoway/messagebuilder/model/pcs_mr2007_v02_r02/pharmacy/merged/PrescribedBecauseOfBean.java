@@ -33,190 +33,195 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca
 /**
  * <p>PORX_MT060060CA.Reason: d:prescribed because of</p>
  * 
- * <p><p>Denotes the reason(s) for this specific prescription; 
- * it must not be interpreted as a permanent diagnosis.</p></p>
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
  * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * usage instructions for the device, and may influence 
- * education or literature provided to the patient on the use 
- * of the device.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care.</p><p>This field is 
- * marked as populated because of its high clinical importance, 
- * however 'Nulls' are allowed because the individual recording 
- * the prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * usage instructions for the device, and may influence 
- * education or literature provided to the patient on the use 
- * of the device.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care.</p><p>This field is 
- * marked as populated because of its high clinical importance, 
- * however 'Nulls' are allowed because the individual recording 
- * the prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * usage instructions for the device, and may influence 
- * education or literature provided to the patient on the use 
- * of the device.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care.</p><p>This field is 
- * marked as populated because of its high clinical importance, 
- * however 'Nulls' are allowed because the individual recording 
- * the prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p>PORX_MT010120CA.Reason2: *d:has prescribing reasons</p>
- * 
- * <p><p>Denotes the reason(s) for this specific prescription; 
- * it must not be interpreted as a permanent diagnosis.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p>PORX_MT060340CA.Reason2: d:prescribed because of</p>
- * 
- * <p><p>Denotes the reason(s) for this specific prescription; 
- * it must not be interpreted as a permanent diagnosis.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p>PORX_MT030040CA.Reason: d:prescribed because of</p>
- * 
- * <p><p>Denotes the reason(s) for this specific prescription; 
- * it must not be interpreted as a permanent diagnosis.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
- * dosage instructions for the medication, and may influence 
- * education or literature provided to the patient on the use 
- * of the medication.</p><p>Provided at the discretion of the 
- * prescriber to enhance patient care. E.g., take 1 tab bid for 
- * migraine. Also needed for drug-disease interaction checking 
- * software to work properly.</p><p>This field is marked as 
- * populated because of its high clinical importance, however 
- * 'Nulls' are allowed because the individual recording the 
- * prescription (e.g. pharmacist) may not be aware of the 
- * indication or the prescriber may choose to withhold (mask) 
- * the information due to patient sensitivity.</p></p>
- * 
- * <p>PORX_MT060040CA.Reason2: d:prescribed because of</p>
- * 
- * <p><p>Denotes the reason(s) for this specific prescription; 
- * it must not be interpreted as a permanent diagnosis.</p></p>
- * 
- * <p><p>Helps providers evaluate the appropriateness of the 
+ * <p>Helps providers evaluate the appropriateness of the usage 
  * instructions for the device, and may influence education or 
  * literature provided to the patient on the use of the 
  * device.</p><p>Provided at the discretion of the prescriber 
- * to enhance patient care. E.g., take 1 
+ * to enhance patient care.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the usage 
+ * instructions for the device, and may influence education or 
+ * literature provided to the patient on the use of the 
+ * device.</p><p>Provided at the discretion of the prescriber 
+ * to enhance patient care.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the usage 
+ * instructions for the device, and may influence education or 
+ * literature provided to the patient on the use of the 
+ * device.</p><p>Provided at the discretion of the prescriber 
+ * to enhance patient care.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>PORX_MT010120CA.Reason2: *d:has prescribing reasons</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>PORX_MT060340CA.Reason2: d:prescribed because of</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>PORX_MT030040CA.Reason: d:prescribed because of</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * dosage instructions for the medication, and may influence 
+ * education or literature provided to the patient on the use 
+ * of the medication.</p><p>Provided at the discretion of the 
+ * prescriber to enhance patient care. E.g., take 1 tab bid for 
+ * migraine. Also needed for drug-disease interaction checking 
+ * software to work properly.</p><p>This field is marked as 
+ * populated because of its high clinical importance, however 
+ * 'Nulls' are allowed because the individual recording the 
+ * prescription (e.g. pharmacist) may not be aware of the 
+ * indication or the prescriber may choose to withhold (mask) 
+ * the information due to patient sensitivity.</p>
+ * 
+ * <p>PORX_MT060040CA.Reason2: d:prescribed because of</p>
+ * 
+ * <p>Denotes the reason(s) for this specific prescription; it 
+ * must not be interpreted as a permanent diagnosis.</p>
+ * 
+ * <p>Helps providers evaluate the appropriateness of the 
+ * instructions for the device, and may influence education or 
+ * literature provided to the patient on the use of the 
+ * device.</p><p>Provided at the discretion of the prescriber 
+ * to enhance patient care. E.g., take 1 tab bid for migraine. 
+ * Also needed for drug-disease interaction checking software 
+ * to work properly.</p><p>This field is marked as populated 
+ * because of its high clinical importance, however 'Nulls' are 
+ * allowed because the individual recording the prescription 
+ * (e.g. pharmacist) may no
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT priorityNumber = new INTImpl();
     private Indications indications;
     private AdministrationInstructionsBean dosageInstruction;
@@ -227,32 +232,60 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * 
      * <p>B:Indication Priority</p>
      * 
-     * <p><p>Ordering of prescribing indications from primary 
+     * <p>Ordering of prescribing indications from primary 
      * indication (low number) to minor indication (higher number). 
      * Multiple indications are permitted to have the same priority 
-     * if they're considered of equivalent importance.</p></p>
+     * if they're considered of equivalent importance.</p>
      * 
-     * <p><p>Allows providers to indicate whether indication is the 
+     * <p>Allows providers to indicate whether indication is the 
      * primary or secondary target of the therapy. E.g., Terazosin 
      * for Benign Prostatic Hypertrophy as primary and Hypertension 
-     * as secondary or vice-versa.</p></p>
+     * as secondary or vice-versa.</p>
      * 
      * <p>Indication Priority</p>
      * 
-     * <p><p>Ordering of prescribing indications from primary 
+     * <p>Ordering of prescribing indications from primary 
      * indication (low number) to minor indication (higher number). 
      * Multiple indications are permitted to have the same priority 
-     * if they're considered of equivalent importance.</p></p>
+     * if they're considered of equivalent importance.</p>
      * 
-     * <p><p>Allows providers to indicate whether indication is the 
+     * <p>Allows providers to indicate whether indication is the 
      * primary or secondary target of the therapy. E.g., Terazosin 
      * for Benign Prostatic Hypertrophy as primary and Hypertension 
-     * as secondary or vice-versa.</p></p>
+     * as secondary or vice-versa.</p>
      */
     @Hl7XmlMapping({"priorityNumber"})
     public Integer getPriorityNumber() {
         return this.priorityNumber.getValue();
     }
+
+    /**
+     * <p>IndicationPriority</p>
+     * 
+     * <p>B:Indication Priority</p>
+     * 
+     * <p>Ordering of prescribing indications from primary 
+     * indication (low number) to minor indication (higher number). 
+     * Multiple indications are permitted to have the same priority 
+     * if they're considered of equivalent importance.</p>
+     * 
+     * <p>Allows providers to indicate whether indication is the 
+     * primary or secondary target of the therapy. E.g., Terazosin 
+     * for Benign Prostatic Hypertrophy as primary and Hypertension 
+     * as secondary or vice-versa.</p>
+     * 
+     * <p>Indication Priority</p>
+     * 
+     * <p>Ordering of prescribing indications from primary 
+     * indication (low number) to minor indication (higher number). 
+     * Multiple indications are permitted to have the same priority 
+     * if they're considered of equivalent importance.</p>
+     * 
+     * <p>Allows providers to indicate whether indication is the 
+     * primary or secondary target of the therapy. E.g., Terazosin 
+     * for Benign Prostatic Hypertrophy as primary and Hypertension 
+     * as secondary or vice-versa.</p>
+     */
     public void setPriorityNumber(Integer priorityNumber) {
         this.priorityNumber.setValue(priorityNumber);
     }
@@ -262,6 +295,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     public Indications getIndications() {
         return this.indications;
     }
+
     public void setIndications(Indications indications) {
         this.indications = indications;
     }
@@ -271,6 +305,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     public AdministrationInstructionsBean getDosageInstruction() {
         return this.dosageInstruction;
     }
+
     public void setDosageInstruction(AdministrationInstructionsBean dosageInstruction) {
         this.dosageInstruction = dosageInstruction;
     }

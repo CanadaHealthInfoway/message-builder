@@ -49,42 +49,42 @@ import java.util.Date;
 /**
  * <p>Consent</p>
  * 
- * <p><p>One and only one of author2 (Consenter) and author1 
+ * <p>One and only one of author2 (Consenter) and author1 
  * (Provider) must be specified.</p><p>If author1 (provider) is 
- * specified, reason code must be specified.</p></p>
+ * specified, reason code must be specified.</p>
  * 
- * <p><p>One and only one of author2 (Consenter) and author1 
+ * <p>One and only one of author2 (Consenter) and author1 
  * (Provider) must be specified.</p><p>If author1 (provider) is 
- * specified, reason code must be specified.</p></p>
+ * specified, reason code must be specified.</p>
  * 
- * <p><p>Information pertaining to a patient's 
+ * <p>Information pertaining to a patient's 
  * agreement/acceptance to have his/her clinical information 
- * electronically stored and shared.</p></p>
+ * electronically stored and shared.</p>
  * 
- * <p><p>Provides authorization to record and/or view patient 
+ * <p>Provides authorization to record and/or view patient 
  * information.</p><p>Indicates the consent or keyword used to 
  * authorize access or update, including a reason for access; 
  * May also be used to override access restriction to the 
  * information ('break the glass') on a message by message 
  * basis. May be required on a Prescription Request to indicate 
- * a keyword for DUR processing.</p></p>
+ * a keyword for DUR processing.</p>
  * 
- * <p><p>Provides authorization to record and/or view patient 
+ * <p>Provides authorization to record and/or view patient 
  * information.</p><p>Indicates the consent or keyword used to 
  * authorize access or update, including a reason for access; 
  * May also be used to override access restriction to the 
  * information ('break the glass') on a message by message 
  * basis. May be required on a Prescription Request to indicate 
- * a keyword for DUR processing.</p></p>
+ * a keyword for DUR processing.</p>
  * 
- * <p><p>The keywords will not be passed from prescriber to 
- * dispenser by the DIS.</p></p>
+ * <p>The keywords will not be passed from prescriber to 
+ * dispenser by the DIS.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.ConsentEvent"})
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -97,18 +97,30 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>D:Consent Form Number</p>
      * 
-     * <p><p>A unique identifier for a specific consent for a 
-     * patient.</p></p>
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
      * 
-     * <p><p>Authorization.formNumber</p></p>
+     * <p>Authorization.formNumber</p>
      * 
-     * <p><p>Provides a traceable audit link between a physical 
-     * consent form and its electronic record</p></p>
+     * <p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>D:Consent Form Number</p>
+     * 
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
+     * 
+     * <p>Authorization.formNumber</p>
+     * 
+     * <p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -117,18 +129,30 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>C:Consent Effective and End Time</p>
      * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
      * 
-     * <p><p>Authorization.endTime (high)</p></p>
+     * <p>Authorization.endTime (high)</p>
      * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient retains a level of control.</p></p>
+     * <p>Most consents are not open-ended, to ensure the patient 
+     * retains a level of control.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>C:Consent Effective and End Time</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
+     * 
+     * <p>Authorization.endTime (high)</p>
+     * 
+     * <p>Most consents are not open-ended, to ensure the patient 
+     * retains a level of control.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -137,21 +161,36 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>E:Consent Override Reason</p>
      * 
-     * <p><p>Indicates a reason for overriding a patient's consent 
-     * rules.</p></p>
+     * <p>Indicates a reason for overriding a patient's consent 
+     * rules.</p>
      * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * <p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p>
      * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * <p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p>
      * 
-     * <p><p>Important for audit purposes</p></p>
+     * <p>Important for audit purposes</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActConsentInformationAccessReason getReasonCode() {
         return (ActConsentInformationAccessReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>E:Consent Override Reason</p>
+     * 
+     * <p>Indicates a reason for overriding a patient's consent 
+     * rules.</p>
+     * 
+     * <p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p>
+     * 
+     * <p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p>
+     * 
+     * <p>Important for audit purposes</p>
+     */
     public void setReasonCode(ActConsentInformationAccessReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -161,6 +200,7 @@ public class ConsentBean extends MessagePartBean {
     public SubjectChoice getSubject1SubjectChoice() {
         return this.subject1SubjectChoice;
     }
+
     public void setSubject1SubjectChoice(SubjectChoice subject1SubjectChoice) {
         this.subject1SubjectChoice = subject1SubjectChoice;
     }
@@ -205,6 +245,7 @@ public class ConsentBean extends MessagePartBean {
     public PrescribedByBean getAuthor1() {
         return this.author1;
     }
+
     public void setAuthor1(PrescribedByBean author1) {
         this.author1 = author1;
     }
@@ -214,6 +255,7 @@ public class ConsentBean extends MessagePartBean {
     public ConsentedToByBean getAuthor2() {
         return this.author2;
     }
+
     public void setAuthor2(ConsentedToByBean author2) {
         this.author2 = author2;
     }
@@ -223,6 +265,7 @@ public class ConsentBean extends MessagePartBean {
     public AccessTypeBean getSubject2InformDefinition() {
         return this.subject2InformDefinition;
     }
+
     public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
         this.subject2InformDefinition = subject2InformDefinition;
     }

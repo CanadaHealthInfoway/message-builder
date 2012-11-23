@@ -40,51 +40,51 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>PRPA_MT101104CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
- * <p><p>Identifiers used for the focal person by other 
+ * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
- * Class</p></p>
+ * Class</p>
  * 
- * <p><p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p></p>
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101002CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
- * <p><p>Identifiers used for the focal person by other 
+ * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
- * Class</p></p>
+ * Class</p>
  * 
- * <p><p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p></p>
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101106CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
- * <p><p>Identifiers used for the focal person by other 
+ * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
- * Class</p></p>
+ * Class</p>
  * 
- * <p><p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p></p>
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101001CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
- * <p><p>Identifiers used for the focal person by other 
+ * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
- * Class</p></p>
+ * Class</p>
  * 
- * <p><p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p></p>
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101001CA.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningIdOrganizationId = new IIImpl();
@@ -96,24 +96,44 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>NonHealthcare Identification</p>
      * 
-     * <p><p>Other non-healthcare identifiers for the Client (e.g. 
-     * Drivers License, RCMP, DND, Social Insurance Number)</p></p>
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      * 
      * <p>NonHealthcare Identification</p>
      * 
-     * <p><p>Other non-healthcare identifiers for the Client (e.g. 
-     * Passport, SIN, DND, DIAND, Drivers License)</p></p>
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>NonHealthcareIdentification</p>
+     * 
+     * <p>NonHealthcare Identification</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Drivers License, RCMP, DND, Social Insurance Number)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>NonHealthcare Identification</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -124,17 +144,30 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>NonHealthcare Identification Code</p>
      * 
-     * <p><p>A pan Canadian code further specifying the kind of 
-     * Role such as Drivers License, RCMP, DND, Social Insurance 
-     * Number</p></p>
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      */
     @Hl7XmlMapping({"code"})
     public OtherIDsRoleCode getCode() {
         return (OtherIDsRoleCode) this.code.getValue();
     }
+
+    /**
+     * <p>NonHealthcareIdentificationCode</p>
+     * 
+     * <p>NonHealthcare Identification Code</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     */
     public void setCode(OtherIDsRoleCode code) {
         this.code.setValue(code);
     }
@@ -145,16 +178,28 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>NonHealthcare Organization Identifier</p>
      * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the non-healthcare identifier for the client.</p></p>
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * organization assigning the identifier to the client</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
      */
     @Hl7XmlMapping({"assigningIdOrganization/id"})
     public Identifier getAssigningIdOrganizationId() {
         return this.assigningIdOrganizationId.getValue();
     }
+
+    /**
+     * <p>NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>NonHealthcare Organization Identifier</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     */
     public void setAssigningIdOrganizationId(Identifier assigningIdOrganizationId) {
         this.assigningIdOrganizationId.setValue(assigningIdOrganizationId);
     }
@@ -165,15 +210,26 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>NonHealthcare Organization Name</p>
      * 
-     * <p><p>A name for the non-healthcare organization</p></p>
+     * <p>A name for the non-healthcare organization</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * organization assigning the identifier to the client</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
      */
     @Hl7XmlMapping({"assigningIdOrganization/name"})
     public String getAssigningIdOrganizationName() {
         return this.assigningIdOrganizationName.getValue();
     }
+
+    /**
+     * <p>NonHealthcareOrganizationName</p>
+     * 
+     * <p>NonHealthcare Organization Name</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     */
     public void setAssigningIdOrganizationName(String assigningIdOrganizationName) {
         this.assigningIdOrganizationName.setValue(assigningIdOrganizationName);
     }

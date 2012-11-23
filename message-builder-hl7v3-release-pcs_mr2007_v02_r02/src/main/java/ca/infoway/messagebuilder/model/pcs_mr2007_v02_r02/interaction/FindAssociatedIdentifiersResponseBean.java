@@ -29,9 +29,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101106ca.Ide
 
 
 
+/**
+ * <p>PRPA_IN101106CA: Find Associated Identifiers Response</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MFMI_MT700746CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PRPA_MT101106CA.IdentifiedEntity</p>
+ * 
+ * <p>--> Sub-Payload: PRPA_MT101101CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PRPA_IN101106CA"})
 public class FindAssociatedIdentifiersResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

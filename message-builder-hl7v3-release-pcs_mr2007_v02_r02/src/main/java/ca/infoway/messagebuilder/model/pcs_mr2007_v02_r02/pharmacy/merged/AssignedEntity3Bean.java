@@ -33,42 +33,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","PORR_MT050016CA.AssignedEntity"})
 public class AssignedEntity3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST assignedOrganizationName = new STImpl();
 
 
     /**
      * <p>Formulary Owner Name</p>
      * 
-     * <p><p>The name of the organization or facility responsible 
-     * for the formulary.</p></p>
+     * <p>The name of the organization or facility responsible for 
+     * the formulary.</p>
      * 
-     * <p><p>Helps identify the circumstances in which the 
-     * formulary applies.</p></p>
+     * <p>Helps identify the circumstances in which the formulary 
+     * applies.</p>
      * 
      * <p>D:Medication Document Author Name</p>
      * 
-     * <p><p>The name of the organization responsible for creating 
-     * the medication document.</p></p>
+     * <p>The name of the organization responsible for creating the 
+     * medication document.</p>
      * 
-     * <p><p>Helps the receiver evaluate the supplied 
-     * information.</p></p>
+     * <p>Helps the receiver evaluate the supplied information.</p>
      * 
      * <p>Monitoring Organization Name</p>
      * 
-     * <p><p>The name of the organization responsible for the 
-     * monitoring program</p></p>
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
      * 
-     * <p><p>Helps identify the program and understand its context. 
-     * May also indicate who to send reports to.</p></p>
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
      * 
      * <p>Monograph Author Name</p>
      * 
-     * <p><p>The name of the organization responsible for creating 
-     * the monograph</p></p>
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
      * 
-     * <p><p>Helps the receiver evaluate the supplied 
-     * information.</p></p>
+     * <p>Helps the receiver evaluate the supplied information.</p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({
@@ -79,6 +77,38 @@ public class AssignedEntity3Bean extends MessagePartBean {
     public String getAssignedOrganizationName() {
         return this.assignedOrganizationName.getValue();
     }
+
+    /**
+     * <p>Formulary Owner Name</p>
+     * 
+     * <p>The name of the organization or facility responsible for 
+     * the formulary.</p>
+     * 
+     * <p>Helps identify the circumstances in which the formulary 
+     * applies.</p>
+     * 
+     * <p>D:Medication Document Author Name</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * medication document.</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>Monitoring Organization Name</p>
+     * 
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
+     * 
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
+     * 
+     * <p>Monograph Author Name</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * monograph</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     */
     public void setAssignedOrganizationName(String assignedOrganizationName) {
         this.assignedOrganizationName.setValue(assignedOrganizationName);
     }

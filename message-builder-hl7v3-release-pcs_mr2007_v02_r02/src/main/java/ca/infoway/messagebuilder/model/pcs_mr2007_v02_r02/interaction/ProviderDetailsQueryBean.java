@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt306010ca.Par
 
 
 
+/**
+ * <p>PRPM_IN306010CA: Provider Details Query</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: MFMI_MT700751CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PRPM_MT306010CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PRPM_IN306010CA"})
 public class ProviderDetailsQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

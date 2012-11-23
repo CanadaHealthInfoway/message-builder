@@ -48,17 +48,17 @@ import java.util.Set;
 /**
  * <p>Prescription Dispense</p>
  * 
- * <p><p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient.</p></p>
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient.</p>
  * 
- * <p><p>Dispensing is an integral part of the overall 
- * medication process.</p></p>
+ * <p>Dispensing is an integral part of the overall medication 
+ * process.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
@@ -72,15 +72,24 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>A:Local Dispense Id</p>
      * 
-     * <p><p>Identifier assigned by the dispensing facility.</p></p>
+     * <p>Identifier assigned by the dispensing facility.</p>
      * 
-     * <p><p>Allows formal tracking of centrally recorded dispenses 
-     * to local records for audit and related purposes.</p></p>
+     * <p>Allows formal tracking of centrally recorded dispenses to 
+     * local records for audit and related purposes.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Local Dispense Id</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
+     * 
+     * <p>Allows formal tracking of centrally recorded dispenses to 
+     * local records for audit and related purposes.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -89,59 +98,59 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>E:Prescription Masking Indicators</p>
      * 
-     * <p><p>Communicates the intent that the dispense should be 
+     * <p>Communicates the intent that the dispense should be 
      * masked if it is created; If the dispense is masked, this 
      * makes the complete prescription and all dispenses 
-     * masked.</p></p>
+     * masked.</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p><p>Allows the patient to have 
+     * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
      * Cant have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
+     * all systems will support masking.</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p><p>Allows the patient to have 
+     * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
      * Cant have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
+     * all systems will support masking.</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p><p>Allows the patient to have 
+     * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
      * Cant have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
+     * all systems will support masking.</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p><p>Allows the patient to have 
+     * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
      * Cant have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
+     * all systems will support masking.</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p><p>Allows the patient to have 
+     * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
      * Cant have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
+     * all systems will support masking.</p>
      * 
-     * <p><p>If a dispense is masked, it implicitly masks the 
+     * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
-     * dispense if the prescription is unmasked.)</p></p>
+     * dispense if the prescription is unmasked.)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -153,6 +162,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public Boolean getSubject() {
         return this.subject.getValue();
     }
+
     public void setSubject(Boolean subject) {
         this.subject.setValue(subject);
     }
@@ -162,6 +172,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
+
     public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
@@ -171,6 +182,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;
     }
+
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
     }
@@ -186,6 +198,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
+
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }
@@ -195,6 +208,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
+
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

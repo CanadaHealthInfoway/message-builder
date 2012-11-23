@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private INT repeatNumber = new INTImpl();
@@ -46,6 +46,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
+
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
@@ -55,6 +56,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
+
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
@@ -65,15 +67,26 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * 
      * <p>Number of Fills</p>
      * 
-     * <p><p>Allows the prescriber to specify the number of fills 
-     * authorized by this prescription.</p></p>
+     * <p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p>
      * 
-     * <p><p>A prescription can authorize multiple fills.</p></p>
+     * <p>A prescription can authorize multiple fills.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
         return this.repeatNumber.getValue();
     }
+
+    /**
+     * <p>NumberOfFills</p>
+     * 
+     * <p>Number of Fills</p>
+     * 
+     * <p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p>
+     * 
+     * <p>A prescription can authorize multiple fills.</p>
+     */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
     }
@@ -84,15 +97,26 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * 
      * <p>Fill Quantity</p>
      * 
-     * <p><p>Specifies the quantity for each fill.</p></p>
+     * <p>Specifies the quantity for each fill.</p>
      * 
-     * <p><p>The prescription is usually authorized for a specific 
-     * quantity for each fill.</p></p>
+     * <p>The prescription is usually authorized for a specific 
+     * quantity for each fill.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>Fill Quantity</p>
+     * 
+     * <p>Specifies the quantity for each fill.</p>
+     * 
+     * <p>The prescription is usually authorized for a specific 
+     * quantity for each fill.</p>
+     */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
     }

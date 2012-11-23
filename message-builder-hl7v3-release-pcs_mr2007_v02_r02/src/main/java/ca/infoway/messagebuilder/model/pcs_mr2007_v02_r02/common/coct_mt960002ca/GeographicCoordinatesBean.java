@@ -35,19 +35,19 @@ import java.util.List;
 /**
  * <p>Geographic Coordinates</p>
  * 
- * <p><p>Allows the capturing of a physical location according 
- * to a particular coordinate system, such as GPS, legal 
- * designation (lot, block, plan), range-meridian, etc.</p></p>
+ * <p>Allows the capturing of a physical location according to 
+ * a particular coordinate system, such as GPS, legal 
+ * designation (lot, block, plan), range-meridian, etc.</p>
  * 
- * <p><p>Some locations cannot be described by postal 
- * addresses. Also, geographic coordinates allow calculation of 
- * distances and proximity</p></p>
+ * <p>Some locations cannot be described by postal addresses. 
+ * Also, geographic coordinates allow calculation of distances 
+ * and proximity</p>
  */
 @Hl7PartTypeMapping({"COCT_MT960002CA.Position"})
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 
@@ -55,16 +55,26 @@ public class GeographicCoordinatesBean extends MessagePartBean {
     /**
      * <p>Coordinate System</p>
      * 
-     * <p><p>Identifies the coordinate system inclusive of any 
-     * transformation projections.</p></p>
+     * <p>Identifies the coordinate system inclusive of any 
+     * transformation projections.</p>
      * 
-     * <p><p>Essential for interpretting the specified coordinates 
-     * and therefore mandatory</p></p>
+     * <p>Essential for interpretting the specified coordinates and 
+     * therefore mandatory</p>
      */
     @Hl7XmlMapping({"code"})
     public PositionObservationCode getCode() {
         return (PositionObservationCode) this.code.getValue();
     }
+
+    /**
+     * <p>Coordinate System</p>
+     * 
+     * <p>Identifies the coordinate system inclusive of any 
+     * transformation projections.</p>
+     * 
+     * <p>Essential for interpretting the specified coordinates and 
+     * therefore mandatory</p>
+     */
     public void setCode(PositionObservationCode code) {
         this.code.setValue(code);
     }

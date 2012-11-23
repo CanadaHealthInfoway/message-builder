@@ -32,43 +32,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p><p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p></p>
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
- * <p><p>Used to associate (replace) a current registration 
- * with a regsitration already received (supports merges).</p></p>
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
  * 
  * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p><p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p></p>
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
- * <p><p>Used to associate (replace) a current registration 
- * with a regsitration already received (supports merges).</p></p>
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
  * 
  * <p>MFMI_MT700726CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p><p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p></p>
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
- * <p><p>Used to associate (replace) a current registration 
- * with a regsitration already received (supports merges).</p></p>
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
  * 
  * <p>MFMI_MT700716CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p><p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p></p>
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
- * <p><p>Used to associate (replace) a current registration 
- * with a regsitration already received (supports merges).</p></p>
+ * <p>Used to associate (replace) a current registration with a 
+ * regsitration already received (supports merges).</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PriorRegistrationRoleIdsBean subjectPriorRegisteredRole;
 
 
@@ -76,6 +76,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
     public PriorRegistrationRoleIdsBean getSubjectPriorRegisteredRole() {
         return this.subjectPriorRegisteredRole;
     }
+
     public void setSubjectPriorRegisteredRole(PriorRegistrationRoleIdsBean subjectPriorRegisteredRole) {
         this.subjectPriorRegisteredRole = subjectPriorRegisteredRole;
     }

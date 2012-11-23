@@ -38,33 +38,33 @@ import java.util.Set;
  * 
  * <p>COMT_MT001101CA.ActRequest: Referenced Record</p>
  * 
- * <p><p>References an existing event record by identifier.</p></p>
+ * <p>References an existing event record by identifier.</p>
  * 
- * <p><p>As a request, refers to the event to be acted upon or 
+ * <p>As a request, refers to the event to be acted upon or 
  * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p></p>
+ * to indicate the identifier assigned to a created object.</p>
  * 
- * <p><p>As a request, refers to the event to be acted upon or 
+ * <p>As a request, refers to the event to be acted upon or 
  * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p></p>
+ * to indicate the identifier assigned to a created object.</p>
  * 
  * <p>COMT_MT001103CA.ActEvent: Referenced Record</p>
  * 
- * <p><p>References an existing event record by identifier.</p></p>
+ * <p>References an existing event record by identifier.</p>
  * 
- * <p><p>As a request, refers to the event to be acted upon or 
+ * <p>As a request, refers to the event to be acted upon or 
  * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p></p>
+ * to indicate the identifier assigned to a created object.</p>
  * 
- * <p><p>As a request, refers to the event to be acted upon or 
+ * <p>As a request, refers to the event to be acted upon or 
  * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p></p>
+ * to indicate the identifier assigned to a created object.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT001101CA.ActRequest","COMT_MT001103CA.ActEvent"})
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
@@ -73,11 +73,11 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Record Ids</p>
      * 
-     * <p><p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p></p>
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p>
      * 
-     * <p><p>Allows the event record to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
+     * <p>Allows the event record to be uniquely referenced and is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

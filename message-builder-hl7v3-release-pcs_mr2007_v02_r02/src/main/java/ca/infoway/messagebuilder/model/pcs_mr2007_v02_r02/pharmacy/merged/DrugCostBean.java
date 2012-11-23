@@ -34,22 +34,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POME_MT010100CA.PotentialCharge: I:Drug Cost</p>
  * 
- * <p><p>Suggested cost of a drug (unit cost).</p></p>
+ * <p>Suggested cost of a drug (unit cost).</p>
  * 
- * <p><p>Allows providers to evaluate patient's affordability 
- * status before prescribing a drug.</p></p>
+ * <p>Allows providers to evaluate patient's affordability 
+ * status before prescribing a drug.</p>
  * 
  * <p>POME_MT010040CA.PotentialCharge: Drug Cost</p>
  * 
- * <p><p>Suggested cost of a drug (unit cost).</p></p>
+ * <p>Suggested cost of a drug (unit cost).</p>
  * 
- * <p><p>Allows providers to evaluate patient's affordability 
- * status before prescribing a drug.</p></p>
+ * <p>Allows providers to evaluate patient's affordability 
+ * status before prescribing a drug.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private MO unitPriceAmt = new MOImpl();
 
 
@@ -58,22 +58,40 @@ public class DrugCostBean extends MessagePartBean {
      * 
      * <p>Drug Cost</p>
      * 
-     * <p><p>The average unit dose cost of the drug.</p></p>
+     * <p>The average unit dose cost of the drug.</p>
      * 
-     * <p><p>May influence prescriber and pharmacists decisions as 
-     * cost can impact compliance.</p></p>
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
      * 
      * <p>I:Drug Cost</p>
      * 
-     * <p><p>The average unit dose cost of the drug.</p></p>
+     * <p>The average unit dose cost of the drug.</p>
      * 
-     * <p><p>May influence prescriber and pharmacists decisions as 
-     * cost can impact compliance.</p></p>
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Money getUnitPriceAmt() {
         return this.unitPriceAmt.getValue();
     }
+
+    /**
+     * <p>DrugCost</p>
+     * 
+     * <p>Drug Cost</p>
+     * 
+     * <p>The average unit dose cost of the drug.</p>
+     * 
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
+     * 
+     * <p>I:Drug Cost</p>
+     * 
+     * <p>The average unit dose cost of the drug.</p>
+     * 
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
+     */
     public void setUnitPriceAmt(Money unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
     }

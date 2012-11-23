@@ -61,16 +61,16 @@ import java.util.Set;
 /**
  * <p>Healthcare Provider</p>
  * 
- * <p><p>This roles the specific Healthcare provider role such 
- * as a Physician, Nurse or other type of caregivers.</p></p>
+ * <p>This roles the specific Healthcare provider role such as 
+ * a Physician, Nurse or other type of caregivers.</p>
  * 
- * <p><p>Roleclass required to support the identification of 
- * person responsible for providing healthcare services</p></p>
+ * <p>Roleclass required to support the identification of 
+ * person responsible for providing healthcare services</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -93,11 +93,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Identification</p>
      * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
+     * <p>A unique identifier for a provider in a specific 
+     * healthcare role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -114,16 +114,26 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Type</p>
      * 
-     * <p><p>The code identifying the specific healthcare provider 
-     * role.</p></p>
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
         return (HealthcareProviderRoleType) this.code.getValue();
     }
+
+    /**
+     * <p>Healthcare Provider Role Type</p>
+     * 
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
     }
@@ -132,11 +142,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Name</p>
      * 
-     * <p><p>The providers name pertaining to the specific 
-     * healthcare provider role.</p></p>
+     * <p>The providers name pertaining to the specific healthcare 
+     * provider role.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -147,11 +157,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Address</p>
      * 
-     * <p><p>The address for the provider when playing the role of 
-     * healthcare provider.</p></p>
+     * <p>The address for the provider when playing the role of 
+     * healthcare provider.</p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -162,11 +172,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Telecom</p>
      * 
-     * <p><p>The telecom for the provider when playing the role of 
-     * healthcare provider.</p></p>
+     * <p>The telecom for the provider when playing the role of 
+     * healthcare provider.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -177,16 +187,26 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Status Code</p>
      * 
-     * <p><p>The status of the provider in the healthcare provider 
-     * role i.e. Active</p></p>
+     * <p>The status of the provider in the healthcare provider 
+     * role i.e. Active</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
         return (RoleStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>Healthcare Provider Role Status Code</p>
+     * 
+     * <p>The status of the provider in the healthcare provider 
+     * role i.e. Active</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -195,16 +215,26 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Healthcare Provider Role Effective Date</p>
      * 
-     * <p><p>The effective date of the provider in the healthcare 
-     * provider role.</p></p>
+     * <p>The effective date of the provider in the healthcare 
+     * provider role.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Healthcare Provider Role Effective Date</p>
+     * 
+     * <p>The effective date of the provider in the healthcare 
+     * provider role.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -214,6 +244,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
+
     public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
@@ -223,6 +254,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     public OrganizationBean getIssuingOrganization() {
         return this.issuingOrganization;
     }
+
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
     }

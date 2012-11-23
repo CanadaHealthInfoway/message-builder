@@ -37,32 +37,30 @@ import java.math.BigDecimal;
  * 
  * <p>PRPA_MT101102CA.ObservationEvent: Confidence Value</p>
  * 
- * <p><p>Each returned IdentifiedPerson can have an associated 
+ * <p>Each returned IdentifiedPerson can have an associated 
  * ObservationEvent reporting the confidence value (degree of 
  * certainty) and the name of the matching algorithm that 
- * resulted in that record's inclusion in the result set.</p></p>
+ * resulted in that record's inclusion in the result set.</p>
  * 
- * <p><p>Supports the business requirement to provide a 
- * confidence value associated with the identifiedEntity 
- * returned in the response distinguishes these different 
- * representations.</p></p>
+ * <p>Supports the business requirement to provide a confidence 
+ * value associated with the identifiedEntity returned in the 
+ * response distinguishes these different representations.</p>
  * 
  * <p>PRPA_MT101104CA.ObservationEvent: Confidence Value</p>
  * 
- * <p><p>Each returned IdentifiedPerson can have an associated 
+ * <p>Each returned IdentifiedPerson can have an associated 
  * ObservationEvent reporting the confidence value (degree of 
  * certainty) and the name of the matching algorithm that 
- * resulted in that record's inclusion in the result set.</p></p>
+ * resulted in that record's inclusion in the result set.</p>
  * 
- * <p><p>Supports the business requirement to provide a 
- * confidence value associated with the identifiedEntity 
- * returned in the responsedistinguishes these different 
- * representations.</p></p>
+ * <p>Supports the business requirement to provide a confidence 
+ * value associated with the identifiedEntity returned in the 
+ * responsedistinguishes these different representations.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
@@ -72,17 +70,30 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>*Probability Match Code</p>
      * 
-     * <p><p>Supports the business requirement to identify type of 
+     * <p>Supports the business requirement to identify type of 
      * confidence matching used i.e. the code would be the name for 
-     * the algorithm for the confidence value</p></p>
+     * the algorithm for the confidence value</p>
      * 
-     * <p><p>Mandatory attribute supports confident identification 
-     * of intended client</p></p>
+     * <p>Mandatory attribute supports confident identification of 
+     * intended client</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>ProbabilityMatchCode</p>
+     * 
+     * <p>*Probability Match Code</p>
+     * 
+     * <p>Supports the business requirement to identify type of 
+     * confidence matching used i.e. the code would be the name for 
+     * the algorithm for the confidence value</p>
+     * 
+     * <p>Mandatory attribute supports confident identification of 
+     * intended client</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -93,17 +104,30 @@ public class ConfidenceValueBean extends MessagePartBean {
      * 
      * <p>Confidence Value</p>
      * 
-     * <p><p>A real number value indicating the confidence of the 
+     * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target client i.e. 
-     * the value would be the computed confidence value.</p></p>
+     * the value would be the computed confidence value.</p>
      * 
-     * <p><p>Required attribute to provide information about 
-     * success of query</p></p>
+     * <p>Required attribute to provide information about success 
+     * of query</p>
      */
     @Hl7XmlMapping({"value"})
     public BigDecimal getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>ConfidenceValue</p>
+     * 
+     * <p>Confidence Value</p>
+     * 
+     * <p>A real number value indicating the confidence of the 
+     * query with regard to finding the intended target client i.e. 
+     * the value would be the computed confidence value.</p>
+     * 
+     * <p>Required attribute to provide information about success 
+     * of query</p>
+     */
     public void setValue(BigDecimal value) {
         this.value.setValue(value);
     }

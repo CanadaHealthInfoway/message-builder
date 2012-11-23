@@ -38,43 +38,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>MFMI_MT700716CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
- * <p><p>Identifies &quot;duplicate&quot; records of the 
+ * <p>Identifies &quot;duplicate&quot; records of the 
  * registered item that have been superseded by this 
- * record.</p></p>
+ * record.</p>
  * 
- * <p><p>Provides support for merges.</p></p>
+ * <p>Provides support for merges.</p>
  * 
  * <p>MFMI_MT700711CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
- * <p><p>Identifies &quot;duplicate&quot; records of the 
+ * <p>Identifies &quot;duplicate&quot; records of the 
  * registered item that have been superseded by this 
- * record.</p></p>
+ * record.</p>
  * 
- * <p><p>Provides support for merges.</p></p>
+ * <p>Provides support for merges.</p>
  * 
  * <p>MFMI_MT700746CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
- * <p><p>Identifies &quot;duplicate&quot; records of the 
+ * <p>Identifies &quot;duplicate&quot; records of the 
  * registered item that have been superseded by this 
- * record.</p></p>
+ * record.</p>
  * 
- * <p><p>Provides support for merges.</p></p>
+ * <p>Provides support for merges.</p>
  * 
  * <p>MFMI_MT700726CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
  * 
- * <p><p>Identifies &quot;duplicate&quot; records of the 
+ * <p>Identifies &quot;duplicate&quot; records of the 
  * registered item that have been superseded by this 
- * record.</p></p>
+ * record.</p>
  * 
- * <p><p>Provides support for merges.</p></p>
+ * <p>Provides support for merges.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegisteredRole","MFMI_MT700716CA.PriorRegisteredRole","MFMI_MT700726CA.PriorRegisteredRole","MFMI_MT700746CA.PriorRegisteredRole"})
 public class PriorRegistrationRoleIdsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
@@ -83,6 +83,7 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
+
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
@@ -93,16 +94,28 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
      * 
      * <p>Prior Registered Role Ids</p>
      * 
-     * <p><p>Identifies &quot;duplicate&quot; records of the 
+     * <p>Identifies &quot;duplicate&quot; records of the 
      * registered item that have been superseded by this 
-     * record.</p></p>
+     * record.</p>
      * 
-     * <p><p>Provides support for merges.</p></p>
+     * <p>Provides support for merges.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PriorRegisteredRoleIds</p>
+     * 
+     * <p>Prior Registered Role Ids</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }

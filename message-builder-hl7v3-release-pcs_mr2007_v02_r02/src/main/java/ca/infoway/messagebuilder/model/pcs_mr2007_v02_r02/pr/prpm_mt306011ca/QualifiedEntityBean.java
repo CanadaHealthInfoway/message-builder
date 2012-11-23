@@ -47,21 +47,20 @@ import java.util.Set;
 /**
  * <p>Qualified Entity</p>
  * 
- * <p><p>This role describes specific qualifications that may 
- * be held the provider as a result of training or experience, 
- * but having no legal force. Example: a medical degree or 
- * diploma. The current model does not include role attributes 
- * such as name, addr and telecom because there are no known 
- * use cases in this domain where this role is contactable.</p></p>
+ * <p>This role describes specific qualifications that may be 
+ * held the provider as a result of training or experience, but 
+ * having no legal force. Example: a medical degree or diploma. 
+ * The current model does not include role attributes such as 
+ * name, addr and telecom because there are no known use cases 
+ * in this domain where this role is contactable.</p>
  * 
- * <p><p>Roleclass required to provide additional information 
- * for the person responsible for providing healthcare 
- * services</p></p>
+ * <p>Roleclass required to provide additional information for 
+ * the person responsible for providing healthcare services</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -80,10 +79,10 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Expertise or Credentials Role Identifier</p>
      * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * <p>Unique identifier for the Expertise or Credential.</p>
      * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider credentials</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -100,20 +99,34 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Expertise or Credentials Role Type</p>
      * 
-     * <p><p>A code for the degree or educational rank that the 
+     * <p>A code for the degree or educational rank that the 
      * credential specifies. May also apply to an Expertise 
-     * type.</p></p>
+     * type.</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider credentials</p>
      * 
-     * <p><p>If Expertise or Credentials are included in the 
-     * message, then Role Type Must Exist.</p></p>
+     * <p>If Expertise or Credentials are included in the message, 
+     * then Role Type Must Exist.</p>
      */
     @Hl7XmlMapping({"code"})
     public QualifiedRoleType getCode() {
         return (QualifiedRoleType) this.code.getValue();
     }
+
+    /**
+     * <p>Expertise or Credentials Role Type</p>
+     * 
+     * <p>A code for the degree or educational rank that the 
+     * credential specifies. May also apply to an Expertise 
+     * type.</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider credentials</p>
+     * 
+     * <p>If Expertise or Credentials are included in the message, 
+     * then Role Type Must Exist.</p>
+     */
     public void setCode(QualifiedRoleType code) {
         this.code.setValue(code);
     }
@@ -122,19 +135,32 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     /**
      * <p>Expertise or Credentials Role Effective Date</p>
      * 
-     * <p><p>The effective date of the provider expertise or 
-     * credentials in the healthcare provider role.</p></p>
+     * <p>The effective date of the provider expertise or 
+     * credentials in the healthcare provider role.</p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider credentials</p>
      * 
-     * <p><p>If Expertise or Credentials are included in the 
-     * message, then Role Effective Date Must Exist</p></p>
+     * <p>If Expertise or Credentials are included in the message, 
+     * then Role Effective Date Must Exist</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Expertise or Credentials Role Effective Date</p>
+     * 
+     * <p>The effective date of the provider expertise or 
+     * credentials in the healthcare provider role.</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider credentials</p>
+     * 
+     * <p>If Expertise or Credentials are included in the message, 
+     * then Role Effective Date Must Exist</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -144,6 +170,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
+
     public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
@@ -153,6 +180,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     public OrganizationBean getQualificationGrantingOrganization() {
         return this.qualificationGrantingOrganization;
     }
+
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }

@@ -32,23 +32,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.PersonalRelationshipCode"})
 public class PersonalRelationshipCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV value = new CVImpl();
 
 
     /**
      * <p>Client Next of Kin</p>
      * 
-     * <p><p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p></p>
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p><p>Mandatory attribute that supports understanding the 
-     * relationship between the client and the ParentClient</p></p>
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
      */
     @Hl7XmlMapping({"value"})
     public QueryParameterValue getValue() {
         return (QueryParameterValue) this.value.getValue();
     }
+
+    /**
+     * <p>Client Next of Kin</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
+     */
     public void setValue(QueryParameterValue value) {
         this.value.setValue(value);
     }

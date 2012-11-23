@@ -53,32 +53,31 @@ import java.util.List;
  * 
  * <p>COCT_MT050207CA.Patient: Patient</p>
  * 
- * <p><p>A person who is receiving or may receive healthcare 
+ * <p>A person who is receiving or may receive healthcare 
  * services and has personal attributes (e.g. name, birth 
- * date).</p></p>
+ * date).</p>
  * 
- * <p><p>Information used to identify the patient and to 
- * support clinical decisions. This is used when the patient is 
- * not known to the client registry but information still needs 
- * to be communicated. E.g. lab or drug reporting to PHS for an 
- * unconscious or otherwise unidentifiable patient.</p></p>
+ * <p>Information used to identify the patient and to support 
+ * clinical decisions. This is used when the patient is not 
+ * known to the client registry but information still needs to 
+ * be communicated. E.g. lab or drug reporting to PHS for an 
+ * unconscious or otherwise unidentifiable patient.</p>
  * 
  * <p>COCT_MT050208CA.Patient: Patient</p>
  * 
- * <p><p>A person who is receiving or may receive healthcare 
+ * <p>A person who is receiving or may receive healthcare 
  * services and has personal attributes (e.g. name, birth 
- * date).</p></p>
+ * date).</p>
  * 
- * <p><p>Information used to identify the patient and to 
- * support clinical decisions. This information is that 
- * captured within the client registry record for the 
- * patient.</p></p>
+ * <p>Information used to identify the patient and to support 
+ * clinical decisions. This information is that captured within 
+ * the client registry record for the patient.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -92,219 +91,452 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>A:Patient Identifier</p>
      * 
-     * <p><p>Unique identifier assigned to a person, possibly by a 
+     * <p>Unique identifier assigned to a person, possibly by a 
      * local system or some other non-client-registry 
-     * identifier.</p></p>
+     * identifier.</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this CMET deals with patients not confirmable 
-     * against a client registry, it's possible that no identifier 
-     * will be known and therefore the attribute is only 
-     * 'populated'.</p></p>
+     * <p>Allows a patient to be referred to unambiguously. Because 
+     * this CMET deals with patients not confirmable against a 
+     * client registry, it's possible that no identifier will be 
+     * known and therefore the attribute is only 'populated'.</p>
      * 
      * <p>A:Patient Identifier</p>
      * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
+     * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
      * uniquely identifying the person within the EHR.</p><p>The 
      * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
+     * jurisdiction.</p>
      * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
+     * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
      * uniquely identifying the person within the EHR.</p><p>The 
      * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
+     * jurisdiction.</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
      * (Root)</p><p>Claim.330-CW</p><p>Health Card 
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Ex
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PatientIdentifier</p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>Allows a patient to be referred to unambiguously. Because 
+     * this CMET deals with patients not confirmable against a 
+     * client registry, it's possible that no identifier will be 
+     * known and therefore the attribute is only 'populated'.</p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
+     * 
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p>
+     * 
+     * <p>C39 
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -315,10 +547,10 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>C:Patient Contact Address</p>
      * 
-     * <p><p>Physical address for the patient where they may be 
-     * visited or found.</p></p>
+     * <p>Physical address for the patient where they may be 
+     * visited or found.</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -339,9 +571,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -362,9 +594,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -385,9 +617,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -408,9 +640,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -431,9 +663,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -454,9 +686,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -477,9 +709,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -500,9 +732,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=SAL)</p><p>Patient.323-CN 
      * (partType=CTY)</p><p>Patient.324-CO 
      * (partType=STA)</p><p>Patient.325-CP 
-     * (partType=ZIP)</p><p>PID.11</p></p>
+     * (partType=ZIP)</p><p>PID.11</p>
      * 
-     * <p><p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
      * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
@@ -514,13 +746,233 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
      * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
      * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
         return this.addr.getValue();
     }
+
+    /**
+     * <p>PatientContactAddress</p>
+     * 
+     * <p>C:Patient Contact Address</p>
+     * 
+     * <p>Physical address for the patient where they may be 
+     * visited or found.</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (partType=SAL)</p><p>Patient.323-CN 
+     * (partType=CTY)</p><p>Patient.324-CO 
+     * (partType=STA)</p><p>Patient.325-CP 
+     * (partType=ZIP)</p><p>PID.11</p>
+     * 
+     * <p>ZPA2.1 (use)</p><p>ZPA2.2 
+     * (usablePeriod(IVL&lt;TS).low)</p><p>ZPA2.4 
+     * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
+     * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
+     * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
+     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
+     * by carriage return)</p><p>PTT.060-01 
+     * (partType=SAL)</p><p>PTT.060-02 
+     * (partType=CTY)</p><p>PTT.060-03 
+     * (partType=CNT)</p><p>PTT.060-04 
+     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
+     * (
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
     }
@@ -531,198 +983,203 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>D:Patient Contact Phone and E-mails</p>
      * 
-     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
-     * principal means of contact for the patient.</p></p>
+     * <p>Telephone, fax and/or e-mail addresses intended as the 
+     * principal means of contact for the patient.</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>Provides basic contact information for the 
+     * <p>Provides basic contact information for the 
      * patient.</p><p>Important for following up with patient but 
      * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
+     * 'populated'.</p>
      * 
-     * <p><p>Provides basic contact information for the 
+     * <p>Provides basic contact information for the 
      * patient.</p><p>Important for following up with patient but 
      * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
+     * 'populated'.</p>
      * 
-     * <p><p>Contact information specific to the patient for a 
+     * <p>Contact information specific to the patient for a 
      * particular action (prescription, lab test, etc.) will be 
-     * conveyed as part of the payload.</p></p>
+     * conveyed as part of the payload.</p>
      * 
      * <p>D:Patient Contact Phone and E-mails</p>
      * 
-     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
-     * principal means of contact for the patient.</p></p>
+     * <p>Telephone, fax and/or e-mail addresses intended as the 
+     * principal means of contact for the patient.</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * <p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 (usablePeriod 
+     * (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.4 (url.address - as per 
      * RFC2396)</p><p>ZPA1.5 (usablePeriod 
      * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
      * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p>
      * 
-     * <p><p>Provides basic contact information for the patient 
+     * <p>Provides basic contact information for the patient 
      * avoiding the need to separately query the client 
      * registry.</p><p>Important for following up with patient but 
      * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
+     * 'populated'.</p>
      * 
-     * <p><p>Provides basic contact information for the patient 
+     * <p>Provides basic contact information for the patient 
      * avoiding the need to separately query the client 
-     * registry.</p><p>Impor
-     * ... [rest of documentation truncated due to excessive length]
+     * registry.</p><p>Important for following up with patient but 
+     * not always available, and therefore only marked as 
+     * 'populated'.</p>
+     * 
+     * <p>Contact information specific to the patient for a 
+     * particular action (prescription, lab test, etc.) will be 
+     * conveyed as part of the payload.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -735,9 +1192,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>B:Patient Name</p>
      * 
-     * <p><p>The name by which the patient is known.</p></p>
+     * <p>The name by which the patient is known.</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -753,9 +1210,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -771,9 +1228,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -789,9 +1246,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -807,9 +1264,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -825,9 +1282,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -843,9 +1300,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -861,9 +1318,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -879,9 +1336,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -897,9 +1354,9 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
      * repetitions except first)</p><p>C37 
      * (partType=Given)</p><p>C38 
@@ -915,17 +1372,220 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-    
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
     public PersonName getPatientPersonName() {
         return this.patientPersonName.getValue();
     }
+
+    /**
+     * <p>PatientName</p>
+     * 
+     * <p>B:Patient Name</p>
+     * 
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setPatientPersonName(PersonName patientPersonName) {
         this.patientPersonName.setValue(patientPersonName);
     }
@@ -936,84 +1596,164 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>F:Patient Gender</p>
      * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
+     * <p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
      * appropriateness, etc.</p><p>The element is 'populated' 
      * because there are some situations where the patient's gender 
      * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
+     * non-client registry patients.</p>
      * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
+     * <p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
      * appropriateness, etc.</p><p>The element is 'populated' 
      * because there are some situations where the patient's gender 
      * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
+     * non-client registry patients.</p>
      * 
      * <p>F:Patient Gender</p>
      * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
+     * <p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
      * appropriateness, etc.</p><p>Element is mandatory because the 
      * patient's gender is necessary for positive identification of 
      * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
+     * always be known.</p>
      * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
+     * <p>Used to confirm patient identity. May affect clinical 
      * decision support such as drug dosing, lab test 
      * appropriateness, etc.</p><p>Element is mandatory because the 
      * patient's gender is necessary for positive identification of 
      * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
+     * always be known.</p>
      */
     @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
     public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
         return (AdministrativeGender) this.patientPersonAdministrativeGenderCode.getValue();
     }
+
+    /**
+     * <p>PatientGender</p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
+     */
     public void setPatientPersonAdministrativeGenderCode(AdministrativeGender patientPersonAdministrativeGenderCode) {
         this.patientPersonAdministrativeGenderCode.setValue(patientPersonAdministrativeGenderCode);
     }
@@ -1024,91 +1764,178 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>E:Patient Birth Date</p>
      * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
+     * <p>Indicates the date on which the patient was born as known 
+     * by the client registry.</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date is necessary for positive 
      * identification of the patient in the jurisdictional client 
      * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
+     * be known to the client registry</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date is necessary for positive 
      * identification of the patient in the jurisdictional client 
      * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
+     * be known to the client registry</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date is necessary for positive 
      * identification of the patient in the jurisdictional client 
      * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
+     * be known to the client registry</p>
      * 
      * <p>E:Patient Birth Date</p>
      * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
+     * <p>Indicates the date on which the patient was born as known 
+     * by the client registry.</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date may not be known, 
      * particularly for patients not found in the client 
-     * registry.</p></p>
+     * registry.</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date may not be known, 
      * particularly for patients not found in the client 
-     * registry.</p></p>
+     * registry.</p>
      * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * <p>Used to confirm patient identity.</p><p>May also 
      * influence clinical decision support such as dosage and 
      * therapy appropriateness.</p><p>The element is populated 
      * because the patient's birth date may not be known, 
      * particularly for patients not found in the client 
-     * registry.</p></p>
+     * registry.</p>
      */
     @Hl7XmlMapping({"patientPerson/birthTime"})
     public Date getPatientPersonBirthTime() {
         return this.patientPersonBirthTime.getValue();
     }
+
+    /**
+     * <p>PatientBirthDate</p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p>Indicates the date on which the patient was born as known 
+     * by the client registry.</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p>Indicates the date on which the patient was born as known 
+     * by the client registry.</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p>
+     */
     public void setPatientPersonBirthTime(Date patientPersonBirthTime) {
         this.patientPersonBirthTime.setValue(patientPersonBirthTime);
     }

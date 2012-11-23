@@ -35,17 +35,17 @@ import java.util.List;
 /**
  * <p>Recommended Administration Instructions</p>
  * 
- * <p><p>This comprises the route of administration, 
+ * <p>This comprises the route of administration, 
  * maximum/minimum daily dose, and overall use instructions for 
- * the drug.</p></p>
+ * the drug.</p>
  * 
- * <p><p>Gives guidance to prescribers on how the drug might 
- * be/should be used</p></p>
+ * <p>Gives guidance to prescribers on how the drug might 
+ * be/should be used</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PatientBean subjectPatient;
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -57,6 +57,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -65,17 +66,28 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Recommending Authority Name</p>
      * 
-     * <p><p>Indicates the name of the organization or agency that 
-     * created the dosage recommendation</p></p>
+     * <p>Indicates the name of the organization or agency that 
+     * created the dosage recommendation</p>
      * 
-     * <p><p>The source of a recommendation may influence 
-     * prescriber's willingness to use the recommended dose and is 
-     * therefore mandatory</p></p>
+     * <p>The source of a recommendation may influence prescriber's 
+     * willingness to use the recommended dose and is therefore 
+     * mandatory</p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
     public String getAuthorAssignedEntityAssignedOrganizationName() {
         return this.authorAssignedEntityAssignedOrganizationName.getValue();
     }
+
+    /**
+     * <p>Recommending Authority Name</p>
+     * 
+     * <p>Indicates the name of the organization or agency that 
+     * created the dosage recommendation</p>
+     * 
+     * <p>The source of a recommendation may influence prescriber's 
+     * willingness to use the recommended dose and is therefore 
+     * mandatory</p>
+     */
     public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
         this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }

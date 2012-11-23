@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -49,19 +49,34 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JB:Receiver Network Address</p>
      * 
-     * <p><p>The address to which this message is being sent.</p></p>
+     * <p>The address to which this message is being sent.</p>
      * 
-     * <p><p>soap:Header\wsa:To</p></p>
+     * <p>soap:Header\wsa:To</p>
      * 
-     * <p><p>Indicates where the message should be sent. This is 
+     * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
      * addresses. It is mandatory when communicating using 
-     * SOAP.</p></p>
+     * SOAP.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
         return this.telecom.getValue();
     }
+
+    /**
+     * <p>ReceiverNetworkAddress</p>
+     * 
+     * <p>JB:Receiver Network Address</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p>
+     */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
     }
@@ -72,20 +87,36 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JA:Receiver Application Identifier</p>
      * 
-     * <p><p>The unique identifier of the application to which the 
-     * message is being sent.</p></p>
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
      * 
-     * <p><p>soap:Header\wsa:To\@endpointID</p></p>
+     * <p>soap:Header\wsa:To\@endpointID</p>
      * 
-     * <p><p>Used for routing and for verification that &quot;yes, 
+     * <p>Used for routing and for verification that &quot;yes, 
      * this message is intended for me.&quot; This is mandatory 
      * because it is the key identifier of the receiving 
-     * application.</p></p>
+     * application.</p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
         return this.deviceId.getValue();
     }
+
+    /**
+     * <p>ReceiverApplicationIdentifier</p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To\@endpointID</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     */
     public void setDeviceId(Identifier deviceId) {
         this.deviceId.setValue(deviceId);
     }
@@ -94,30 +125,54 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>JE:Receiver Application Name</p>
      * 
-     * <p><p>Name of receiver application.</p></p>
+     * <p>Name of receiver application.</p>
      * 
-     * <p><p>Optional name of receiver application</p></p>
+     * <p>Optional name of receiver application</p>
      * 
      * <p>JE:Receiving Application Name</p>
      * 
-     * <p><p>Name of the receiving application.</p></p>
+     * <p>Name of the receiving application.</p>
      * 
-     * <p><p>Optional name of the receiving application.</p></p>
-     * 
-     * <p>JE:Receiver Application Name</p>
-     * 
-     * <p><p>Name of receiver application.</p></p>
+     * <p>Optional name of the receiving application.</p>
      * 
      * <p>JE:Receiver Application Name</p>
      * 
-     * <p><p>Optional name of receiver application.</p></p>
+     * <p>Name of receiver application.</p>
      * 
-     * <p><p>Optional application name.</p></p>
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p>Optional name of receiver application.</p>
+     * 
+     * <p>Optional application name.</p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
         return this.deviceName.getValue();
     }
+
+    /**
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p>Name of receiver application.</p>
+     * 
+     * <p>Optional name of receiver application</p>
+     * 
+     * <p>JE:Receiving Application Name</p>
+     * 
+     * <p>Name of the receiving application.</p>
+     * 
+     * <p>Optional name of the receiving application.</p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p>Name of receiver application.</p>
+     * 
+     * <p>JE:Receiver Application Name</p>
+     * 
+     * <p>Optional name of receiver application.</p>
+     * 
+     * <p>Optional application name.</p>
+     */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
     }
@@ -128,43 +183,80 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
-     * <p><p>Name of receiver application.</p></p>
+     * <p>Name of receiver application.</p>
      * 
-     * <p><p>Identifier is the only non-structure attribute in this 
+     * <p>Identifier is the only non-structure attribute in this 
      * class and is therefore mandatory. The agent association from 
      * the receiver device (application) to the agent role is 
-     * optional.</p></p>
+     * optional.</p>
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
-     * <p><p>Receiver organization.</p></p>
+     * <p>Receiver organization.</p>
      * 
-     * <p><p>The identifier of the receiver organization. This is 
-     * the only non-structural attribute in this class and is 
-     * therefore mandatory. Receiver organization is optional (as 
-     * the scoper association from the receiver application is 
-     * optional).</p></p>
+     * <p>The identifier of the receiver organization. This is the 
+     * only non-structural attribute in this class and is therefore 
+     * mandatory. Receiver organization is optional (as the scoper 
+     * association from the receiver application is optional).</p>
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
-     * <p><p>Organization intended to receive this message</p></p>
+     * <p>Organization intended to receive this message</p>
      * 
-     * <p><p>Id is the only attribute in this class which is 
+     * <p>Id is the only attribute in this class which is 
      * non-structural and is therefore mandatory. The agent 
-     * association (from the receiver device) is optional.</p></p>
+     * association (from the receiver device) is optional.</p>
      * 
      * <p>JK:Receiver Organization Identifier</p>
      * 
-     * <p><p>Unique identifier for the receiver organization.</p></p>
+     * <p>Unique identifier for the receiver organization.</p>
      * 
-     * <p><p>The identifier is the only non-structural attribute in 
+     * <p>The identifier is the only non-structural attribute in 
      * this class and is therefore mandatory. The association from 
-     * receiver device to agent is optional.</p></p>
+     * receiver device to agent is optional.</p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id"})
     public Identifier getDeviceAgentAgentOrganizationId() {
         return this.deviceAgentAgentOrganizationId.getValue();
     }
+
+    /**
+     * <p>ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Name of receiver application.</p>
+     * 
+     * <p>Identifier is the only non-structure attribute in this 
+     * class and is therefore mandatory. The agent association from 
+     * the receiver device (application) to the agent role is 
+     * optional.</p>
+     * 
+     * <p>JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Receiver organization.</p>
+     * 
+     * <p>The identifier of the receiver organization. This is the 
+     * only non-structural attribute in this class and is therefore 
+     * mandatory. Receiver organization is optional (as the scoper 
+     * association from the receiver application is optional).</p>
+     * 
+     * <p>JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Organization intended to receive this message</p>
+     * 
+     * <p>Id is the only attribute in this class which is 
+     * non-structural and is therefore mandatory. The agent 
+     * association (from the receiver device) is optional.</p>
+     * 
+     * <p>JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Unique identifier for the receiver organization.</p>
+     * 
+     * <p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * receiver device to agent is optional.</p>
+     */
     public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
         this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);
     }

@@ -36,222 +36,232 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCAI_MT700222CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MFMI_MT700711CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MFMI_MT700751CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MCAI_MT700212CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MCAI_MT700220CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>QUQI_MT020002CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MCAI_MT700211CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys an authentication token associated with the 
+ * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p></p>
+ * location and dataEntryLocation.</p>
  * 
- * <p><p>Conveys information related to the individuals and/or 
+ * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
- * per-message basis.</p></p>
+ * per-message basis.</p>
  * 
  * <p>MCAI_MT700210CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p><p>If specified, then the concepts covered by the token 
- * must not be specified (i.e. at least one participation of 
- * author, dataEnterer, responsibleParty, location and 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
  * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p></p>
+ * Id or Text must be specified.</p>
  * 
- * <p><p>If specified, then the conc
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p><p>Only one of 
+ * Id or Text must be specified.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 
@@ -261,23 +271,42 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Authorization Token as Id</p>
      * 
-     * <p><p>An authorization token expressed as a GUID.</p><p>The 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
      * Authorization token may represent the concepts of author, 
      * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p></p>
+     * location and/or data entry location.</p>
      * 
-     * <p><p>An authorization token expressed as a GUID.</p><p>The 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
      * Authorization token may represent the concepts of author, 
      * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p></p>
+     * location and/or data entry location.</p>
      * 
-     * <p><p>GUIDs are an effective way of conveying a temporary 
-     * authentication token</p></p>
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>AuthorizationTokenAsId</p>
+     * 
+     * <p>Authorization Token as Id</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -288,23 +317,42 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * 
      * <p>Authorization Token</p>
      * 
-     * <p><p>An authentication token expressed as a non-GUID 
+     * <p>An authentication token expressed as a non-GUID 
      * string.</p><p>The Authorization token may represent the 
      * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p></p>
+     * party), responsible location and/or data entry location.</p>
      * 
-     * <p><p>An authentication token expressed as a non-GUID 
+     * <p>An authentication token expressed as a non-GUID 
      * string.</p><p>The Authorization token may represent the 
      * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p></p>
+     * party), responsible location and/or data entry location.</p>
      * 
-     * <p><p>Some systems may choose to use a hashcode or other 
-     * approach to token construction.</p></p>
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>AuthorizationToken</p>
+     * 
+     * <p>Authorization Token</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }

@@ -36,51 +36,51 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>PRPM_MT306011CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
- * <p><p>An act that is intended to result in new information 
+ * <p>An act that is intended to result in new information 
  * about a subject. In this instance, regarding restrictions to 
- * practice for a specified healthcare provider.</p></p>
+ * practice for a specified healthcare provider.</p>
  * 
- * <p><p>Supports the business requirement to provide 
- * information about a healthcare provider where privileges 
- * have been restricted.</p></p>
+ * <p>Supports the business requirement to provide information 
+ * about a healthcare provider where privileges have been 
+ * restricted.</p>
  * 
  * <p>PRPM_MT309000CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
- * <p><p>An act that is intended to result in new information 
+ * <p>An act that is intended to result in new information 
  * about a subject. In this instance, regarding restrictions to 
- * practice for a specified healthcare provider.</p></p>
+ * practice for a specified healthcare provider.</p>
  * 
- * <p><p>Supports the business requirement to provide 
- * information about a healthcare provider where privileges 
- * have been restricted.</p></p>
+ * <p>Supports the business requirement to provide information 
+ * about a healthcare provider where privileges have been 
+ * restricted.</p>
  * 
  * <p>PRPM_MT303010CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
- * <p><p>An act that is intended to result in new information 
+ * <p>An act that is intended to result in new information 
  * about a subject. In this instance, regarding restrictions to 
- * practice for a specified healthcare provider.</p></p>
+ * practice for a specified healthcare provider.</p>
  * 
- * <p><p>Supports the business requirement to provide 
- * information about a healthcare provider where privileges 
- * have been restricted.</p></p>
+ * <p>Supports the business requirement to provide information 
+ * about a healthcare provider where privileges have been 
+ * restricted.</p>
  * 
  * <p>PRPM_MT301010CA.PrivilegeCategorization: Privilege 
  * Categorization</p>
  * 
- * <p><p>An act that is intended to result in new information 
+ * <p>An act that is intended to result in new information 
  * about a subject. In this instance, regarding restrictions to 
- * practice for a specified healthcare provider.</p></p>
+ * practice for a specified healthcare provider.</p>
  * 
- * <p><p>Supports the business requirement to provide 
- * information about a healthcare provider where privileges 
- * have been restricted.</p></p>
+ * <p>Supports the business requirement to provide information 
+ * about a healthcare provider where privileges have been 
+ * restricted.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
@@ -90,41 +90,78 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * 
      * <p>Restrictions Categorization Type</p>
      * 
-     * <p><p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      * 
      * <p>Restrictions Categorization Type</p>
      * 
-     * <p><p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      * 
      * <p>Restrictions Categorization Type</p>
      * 
-     * <p><p>The code identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      * 
      * <p>Restrictions Categorization Type</p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      */
     @Hl7XmlMapping({"code"})
     public ActPrivilegeCategorization getCode() {
         return (ActPrivilegeCategorization) this.code.getValue();
     }
+
+    /**
+     * <p>RestrictionsCategorizationType</p>
+     * 
+     * <p>Restrictions Categorization Type</p>
+     * 
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Restrictions Categorization Type</p>
+     * 
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Restrictions Categorization Type</p>
+     * 
+     * <p>The code identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Restrictions Categorization Type</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     */
     public void setCode(ActPrivilegeCategorization code) {
         this.code.setValue(code);
     }
@@ -135,26 +172,48 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * 
      * <p>Restrictions Categorization Value</p>
      * 
-     * <p><p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      * 
      * <p>Restrictions Categorization Value</p>
      * 
-     * <p><p>The value identifying the specific privilege and/or 
-     * restrictions on those privileges</p></p>
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
      * 
-     * <p><p>Populated attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
+     * privileges</p>
      */
     @Hl7XmlMapping({"value"})
     public ObservationValue getValue() {
         return (ObservationValue) this.value.getValue();
     }
+
+    /**
+     * <p>RestrictionsCategorizationValue</p>
+     * 
+     * <p>Restrictions Categorization Value</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Restrictions Categorization Value</p>
+     * 
+     * <p>The value identifying the specific privilege and/or 
+     * restrictions on those privileges</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     */
     public void setValue(ObservationValue value) {
         this.value.setValue(value);
     }

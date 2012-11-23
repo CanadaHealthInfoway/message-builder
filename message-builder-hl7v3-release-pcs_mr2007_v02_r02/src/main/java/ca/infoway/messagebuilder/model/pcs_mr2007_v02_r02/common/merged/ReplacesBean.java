@@ -33,40 +33,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MFMI_MT700716CA.ReplacementOf: replaces</p>
  * 
- * <p><p>Associates a new registration which is intended to 
- * replace a registration received prior to this message.</p></p>
+ * <p>Associates a new registration which is intended to 
+ * replace a registration received prior to this message.</p>
  * 
- * <p><p>Supports this message &quot;replacing&quot; a prior 
- * registration with a current regsitration (merges).</p></p>
+ * <p>Supports this message &quot;replacing&quot; a prior 
+ * registration with a current regsitration (merges).</p>
  * 
  * <p>MFMI_MT700726CA.ReplacementOf: replaces</p>
  * 
- * <p><p>Associates a new registration which is intended to 
- * replace a registration received prior to this message.</p></p>
+ * <p>Associates a new registration which is intended to 
+ * replace a registration received prior to this message.</p>
  * 
- * <p><p>Supports this message &quot;replacing&quot; a prior 
- * registration with a current regsitration (merges).</p></p>
+ * <p>Supports this message &quot;replacing&quot; a prior 
+ * registration with a current regsitration (merges).</p>
  * 
  * <p>MFMI_MT700746CA.ReplacementOf: replaces</p>
  * 
- * <p><p>Associates a new registration which is intended to 
- * replace a registration received prior to this message.</p></p>
+ * <p>Associates a new registration which is intended to 
+ * replace a registration received prior to this message.</p>
  * 
- * <p><p>Supports this message &quot;replacing&quot; a prior 
- * registration with a current regsitration (merges).</p></p>
+ * <p>Supports this message &quot;replacing&quot; a prior 
+ * registration with a current regsitration (merges).</p>
  * 
  * <p>MFMI_MT700711CA.ReplacementOf: replaces</p>
  * 
- * <p><p>Associates a new registration which is intended to 
- * replace a registration received prior to this message.</p></p>
+ * <p>Associates a new registration which is intended to 
+ * replace a registration received prior to this message.</p>
  * 
- * <p><p>Supports this message &quot;replacing&quot; a prior 
- * registration with a current regsitration (merges).</p></p>
+ * <p>Supports this message &quot;replacing&quot; a prior 
+ * registration with a current regsitration (merges).</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.ReplacementOf","MFMI_MT700716CA.ReplacementOf","MFMI_MT700726CA.ReplacementOf","MFMI_MT700746CA.ReplacementOf"})
 public class ReplacesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL contextConductionInd = new BLImpl();
     private PriorRegistrationEventBean priorRegistration;
 
@@ -75,6 +75,7 @@ public class ReplacesBean extends MessagePartBean {
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
+
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
@@ -84,6 +85,7 @@ public class ReplacesBean extends MessagePartBean {
     public PriorRegistrationEventBean getPriorRegistration() {
         return this.priorRegistration;
     }
+
     public void setPriorRegistration(PriorRegistrationEventBean priorRegistration) {
         this.priorRegistration = priorRegistration;
     }

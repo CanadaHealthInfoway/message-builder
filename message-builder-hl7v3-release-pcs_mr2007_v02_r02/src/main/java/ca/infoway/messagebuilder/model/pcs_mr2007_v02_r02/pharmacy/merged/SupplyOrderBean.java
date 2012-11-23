@@ -34,25 +34,24 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 /**
  * <p>PORX_MT060020CA.SupplyRequest: Prescription Reference</p>
  * 
- * <p><p>A reference to the prescription order being 
- * dispensed</p></p>
+ * <p>A reference to the prescription order being dispensed</p>
  * 
- * <p><p>Links a dispense with its parent prescription.</p></p>
+ * <p>Links a dispense with its parent prescription.</p>
  * 
  * <p>PORX_MT020050CA.SupplyRequest: Supply Order</p>
  * 
- * <p><p>Identification of the supply information. This 
+ * <p>Identification of the supply information. This 
  * prescription will have a supply order portion but no 
- * administration part.</p></p>
+ * administration part.</p>
  * 
- * <p><p>Ensures that dispenses to offices (non-patient 
+ * <p>Ensures that dispenses to offices (non-patient 
  * identifiable dispenses) follow the normal dispensing 
- * rules.</p></p>
+ * rules.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
@@ -63,25 +62,46 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>A:Prescription Identifier</p>
      * 
-     * <p><p>This is an identifier assigned to a specific device 
+     * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p></p>
+     * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p><p>Allows prescriptions to be uniquely referenced and 
+     * <p>Allows prescriptions to be uniquely referenced and 
      * associated with the dispense.</p><p>The ID is mandatory 
      * because the DIS would always assign a Prescription 
-     * Number.</p></p>
+     * Number.</p>
      * 
-     * <p><p>Allows prescriptions to be uniquely referenced and 
+     * <p>Allows prescriptions to be uniquely referenced and 
      * associated with the dispense.</p><p>The ID is mandatory 
      * because the DIS would always assign a Prescription 
-     * Number.</p></p>
+     * Number.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PrescriptionIdentifier</p>
+     * 
+     * <p>A:Prescription Identifier</p>
+     * 
+     * <p>This is an identifier assigned to a specific device 
+     * order. The number remains constant across the lifetime of 
+     * the order, regardless of the number of providers or 
+     * pharmacies involved in fulfilling the order.</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS would always assign a Prescription 
+     * Number.</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS would always assign a Prescription 
+     * Number.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -91,6 +111,7 @@ public class SupplyOrderBean extends MessagePartBean {
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
+
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
@@ -100,6 +121,7 @@ public class SupplyOrderBean extends MessagePartBean {
     public PrescribedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }

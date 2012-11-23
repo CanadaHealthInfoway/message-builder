@@ -34,31 +34,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>PORX_MT060040CA.SupplyEventFutureSummary: Remaining 
  * Dispense Information</p>
  * 
- * <p><p>At least one of quantity and repeatNumber must be 
- * specified.</p></p>
+ * <p>At least one of quantity and repeatNumber must be 
+ * specified.</p>
  * 
- * <p><p>Provides summary information about what dispenses 
- * remain to be performed against the prescription</p></p>
+ * <p>Provides summary information about what dispenses remain 
+ * to be performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  * 
  * <p>PORX_MT060060CA.SupplyEventFutureSummary: Remaining 
  * Dispense Information</p>
  * 
- * <p><p>At least one of quantity and repeatNumber must be 
- * specified.</p></p>
+ * <p>At least one of quantity and repeatNumber must be 
+ * specified.</p>
  * 
- * <p><p>Provides summary information about what dispenses 
- * remain to be performed against the prescription</p></p>
+ * <p>Provides summary information about what dispenses remain 
+ * to be performed against the prescription</p>
  * 
- * <p><p>Useful in understanding the status of a prescription 
- * and in planning for renewals.</p></p>
+ * <p>Useful in understanding the status of a prescription and 
+ * in planning for renewals.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFutureSummary","PORX_MT060060CA.SupplyEventFutureSummary"})
 public class RemainingDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
@@ -68,17 +68,30 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>A:Fills Remaining</p>
      * 
-     * <p><p>Indicates the number of remaining dispenses estimated, 
+     * <p>Indicates the number of remaining dispenses estimated, 
      * assuming that each fill is equal to the quantity prescribed 
-     * for a single fill, rounding up.</p></p>
+     * for a single fill, rounding up.</p>
      * 
-     * <p><p>Indicates the number of dispenses that may still 
-     * occur.</p></p>
+     * <p>Indicates the number of dispenses that may still 
+     * occur.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
         return this.repeatNumber.getValue();
     }
+
+    /**
+     * <p>FillsRemaining</p>
+     * 
+     * <p>A:Fills Remaining</p>
+     * 
+     * <p>Indicates the number of remaining dispenses estimated, 
+     * assuming that each fill is equal to the quantity prescribed 
+     * for a single fill, rounding up.</p>
+     * 
+     * <p>Indicates the number of dispenses that may still 
+     * occur.</p>
+     */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
     }
@@ -89,15 +102,26 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>B:Remaining Total Quantity</p>
      * 
-     * <p><p>Indicates the total remaining undispensed quantity 
-     * authorized against the prescription.</p></p>
+     * <p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p>
      * 
-     * <p><p>Indicates how much can still be dispensed.</p></p>
+     * <p>Indicates how much can still be dispensed.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>RemainingTotalQuantity</p>
+     * 
+     * <p>B:Remaining Total Quantity</p>
+     * 
+     * <p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p>
+     * 
+     * <p>Indicates how much can still be dispensed.</p>
+     */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
     }

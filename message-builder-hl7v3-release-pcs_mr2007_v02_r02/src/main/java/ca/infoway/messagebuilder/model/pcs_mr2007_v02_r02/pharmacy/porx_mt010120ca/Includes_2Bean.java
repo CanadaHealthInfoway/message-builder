@@ -32,28 +32,28 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
 /**
  * <p>g:includes</p>
  * 
- * <p><p>Indicates other patient information that is an 
- * important consideration for the prescription. This 
- * information is limited to height and weight.</p></p>
+ * <p>Indicates other patient information that is an important 
+ * consideration for the prescription. This information is 
+ * limited to height and weight.</p>
  * 
- * <p><p>Allows patient height and weight to be conveyed to the 
+ * <p>Allows patient height and weight to be conveyed to the 
  * pharmacy for dosage calculation or verification</p><p>The 
  * additional repetitions are to allow for capturing of 
  * additional concepts beyond height and weight without 
  * impacting the message structure should future versions of 
- * the specification allow.</p></p>
+ * the specification allow.</p>
  * 
- * <p><p>Allows patient height and weight to be conveyed to the 
+ * <p>Allows patient height and weight to be conveyed to the 
  * pharmacy for dosage calculation or verification</p><p>The 
  * additional repetitions are to allow for capturing of 
  * additional concepts beyond height and weight without 
  * impacting the message structure should future versions of 
- * the specification allow.</p></p>
+ * the specification allow.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.PertinentInformation"})
 public class Includes_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL contextConductionInd = new BLImpl();
     private PrescriptionPatientMeasurementsBean quantityObservationEvent;
 
@@ -62,6 +62,7 @@ public class Includes_2Bean extends MessagePartBean {
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
+
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
@@ -71,6 +72,7 @@ public class Includes_2Bean extends MessagePartBean {
     public PrescriptionPatientMeasurementsBean getQuantityObservationEvent() {
         return this.quantityObservationEvent;
     }
+
     public void setQuantityObservationEvent(PrescriptionPatientMeasurementsBean quantityObservationEvent) {
         this.quantityObservationEvent = quantityObservationEvent;
     }

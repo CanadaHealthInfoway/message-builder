@@ -38,24 +38,24 @@ import java.util.List;
  * 
  * <p>COCT_MT470012CA.InformDefinition: Access Type</p>
  * 
- * <p><p>Defines the types of information permission is being 
- * granted to access.</p></p>
+ * <p>Defines the types of information permission is being 
+ * granted to access.</p>
  * 
- * <p><p>Allows discrete control over different types of 
- * information.</p></p>
+ * <p>Allows discrete control over different types of 
+ * information.</p>
  * 
  * <p>COCT_MT470002CA.InformDefinition: Access Type</p>
  * 
- * <p><p>Defines the types of information permission is being 
- * granted to access.</p></p>
+ * <p>Defines the types of information permission is being 
+ * granted to access.</p>
  * 
- * <p><p>Allows discrete control over different types of 
- * information.</p></p>
+ * <p>Allows discrete control over different types of 
+ * information.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
@@ -64,6 +64,7 @@ public class AccessTypeBean extends MessagePartBean {
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
+
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
@@ -74,26 +75,26 @@ public class AccessTypeBean extends MessagePartBean {
      * 
      * <p>B:Consent Information Types</p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified.</p></p>
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
      * 
-     * <p><p>Different consents (or even keywords) may be needed to 
+     * <p>Different consents (or even keywords) may be needed to 
      * access different types of patient information (e.g. 
      * demographics, medications, allergies, lab results). 
      * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p></p>
+     * is critical, and therefore the attribute is mandatory.</p>
      * 
      * <p>B:Consent Information Types</p>
      * 
-     * <p><p>The type of patient, client, or provider information 
-     * that can be accessed or modified.</p></p>
+     * <p>The type of patient, client, or provider information that 
+     * can be accessed or modified.</p>
      * 
-     * <p><p>Different consents (or even keywords) may be needed to 
+     * <p>Different consents (or even keywords) may be needed to 
      * access different types of patient, client, or provider 
      * information (e.g. demographics, medications, allergies, lab 
      * results). Understanding the type of information the consent 
      * applies to is critical, and therefore the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"subject/actDefinition/code"})
     public List<ActInformationAccessTypeCode> getSubjectActDefinitionCode() {

@@ -32,18 +32,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Protoc
 /**
  * <p>references</p>
  * 
- * <p><p>Enables the communication of a reference to a 
- * protocol, study or guideline id, specific to the 
- * jurisdiction;</p></p>
+ * <p>Enables the communication of a reference to a protocol, 
+ * study or guideline id, specific to the jurisdiction;</p>
  * 
- * <p><p>Provides support for non-traditional therapies. Needed 
+ * <p>Provides support for non-traditional therapies. Needed 
  * when seeking to prescribe Special Access medications, for 
- * example, Ontario Limited Use.</p></p>
+ * example, Ontario Limited Use.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 
@@ -52,6 +51,7 @@ public class ReferencesBean extends MessagePartBean {
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
+
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
@@ -61,6 +61,7 @@ public class ReferencesBean extends MessagePartBean {
     public ProtocolsBean getSubstanceAdministrationDefinition() {
         return this.substanceAdministrationDefinition;
     }
+
     public void setSubstanceAdministrationDefinition(ProtocolsBean substanceAdministrationDefinition) {
         this.substanceAdministrationDefinition = substanceAdministrationDefinition;
     }

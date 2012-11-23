@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Subject4","PRPM_MT303010CA.Subject4","PRPM_MT306011CA.Subject4","PRPM_MT309000CA.Subject4"})
 public class Subject4Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PrivilegeCategorizationBean privilegeCategorization;
     private CS typeCode = new CSImpl();
 
@@ -41,6 +41,7 @@ public class Subject4Bean extends MessagePartBean {
     public PrivilegeCategorizationBean getPrivilegeCategorization() {
         return this.privilegeCategorization;
     }
+
     public void setPrivilegeCategorization(PrivilegeCategorizationBean privilegeCategorization) {
         this.privilegeCategorization = privilegeCategorization;
     }
@@ -50,6 +51,7 @@ public class Subject4Bean extends MessagePartBean {
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
+
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }

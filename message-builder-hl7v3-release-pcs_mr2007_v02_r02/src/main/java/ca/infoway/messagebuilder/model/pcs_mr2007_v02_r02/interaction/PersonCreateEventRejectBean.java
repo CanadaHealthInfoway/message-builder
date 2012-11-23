@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101106ca.Ide
 
 
 
+/**
+ * <p>PRPA_IN101203CA: Person Create Event Reject</p>
+ * 
+ * <p>Message: MCCI_MT002300CA.Message</p>
+ * 
+ * <p>Payload: MFMI_MT700726CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PRPA_MT101106CA.IdentifiedEntity</p>
+ */
 @Hl7PartTypeMapping({"PRPA_IN101203CA"})
 public class PersonCreateEventRejectBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

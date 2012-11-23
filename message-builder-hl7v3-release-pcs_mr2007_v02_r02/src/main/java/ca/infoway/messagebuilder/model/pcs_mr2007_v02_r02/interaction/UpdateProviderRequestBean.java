@@ -28,9 +28,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.Rol
 
 
 
+/**
+ * <p>PRPM_IN303010CA: Update Provider Request</p>
+ * 
+ * <p>Message: MCCI_MT002100CA.Message</p>
+ * 
+ * <p>Payload: MFMI_MT700711CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PRPM_MT303010CA.RoleChoice</p>
+ * 
+ * <p>----> Sub-Payload Choice: PRPM_MT303010CA.AssignedEntity</p>
+ * 
+ * <p>----> Sub-Payload Choice: PRPM_MT303010CA.QualifiedEntity</p>
+ * 
+ * <p>----> Sub-Payload Choice: 
+ * PRPM_MT303010CA.HealthCareProvider</p>
+ */
 @Hl7PartTypeMapping({"PRPM_IN303010CA"})
 public class UpdateProviderRequestBean extends HL7Message_1Bean<TriggerEvent_3Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

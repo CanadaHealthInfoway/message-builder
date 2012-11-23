@@ -50,54 +50,53 @@ import java.util.List;
  * 
  * <p>PORX_MT060040CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>At least one of &quot;Days Supply&quot; and &quot;Fill 
- * Quantity&quot; must be identified.</p></p>
+ * <p>At least one of &quot;Days Supply&quot; and &quot;Fill 
+ * Quantity&quot; must be identified.</p>
  * 
- * <p><p>Specification of how the prescribed device is to be 
+ * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p></p>
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
  * 
  * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>Specification of how the prescribed device is to be 
+ * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p></p>
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
  * 
  * <p>PORX_MT010140CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>This is the information that describes the 
- * authorization for a dispenser to dispense the 
- * prescription.</p></p>
+ * <p>This is the information that describes the authorization 
+ * for a dispenser to dispense the prescription.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate.</p>
  * 
  * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
  * 
- * <p><p>One of 'quantity' and 'expectedUseTime' must be 
- * specified</p></p>
+ * <p>One of 'quantity' and 'expectedUseTime' must be 
+ * specified</p>
  * 
- * <p><p>Specification of how the prescribed device is to be 
+ * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p></p>
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT010140CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private CreatedAtBean location;
@@ -115,34 +114,60 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p><p>The overall number of devices to be dispensed under 
-     * this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p></p>
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p><p>Sets upper limit for device to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall prescription. Used for comparison when 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p></p>
+     * the context of a part-fill prescription.</p>
      * 
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p><p>The overall number of devices to be dispensed under 
-     * this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p></p>
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p><p>Sets upper limit for devices to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall prescription. Used for comparison when 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p></p>
+     * the context of a part-fill prescription.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>TotalPrescribedQuantity</p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Sets upper limit for device to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
     }
@@ -153,20 +178,36 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>C:Total Days Supply</p>
      * 
-     * <p><p>The number of days that the overall prescribed item is 
+     * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p></p>
+     * dispensing and use of the prescription.</p>
      * 
-     * <p><p>Used to specify a total authorization as a duration 
+     * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p></p>
+     * the quantity prescribed.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
         return this.expectedUseTime.getValue();
     }
+
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p>
+     */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
@@ -176,6 +217,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public CreatedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
@@ -185,6 +227,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
+
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
@@ -194,6 +237,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public ActRelationshipType getComponentTypeCode() {
         return (ActRelationshipType) this.componentTypeCode.getValue();
     }
+
     public void setComponentTypeCode(ActRelationshipType componentTypeCode) {
         this.componentTypeCode.setValue(componentTypeCode);
     }
@@ -203,6 +247,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public ContextControl getComponentContextControlCode() {
         return (ContextControl) this.componentContextControlCode.getValue();
     }
+
     public void setComponentContextControlCode(ContextControl componentContextControlCode) {
         this.componentContextControlCode.setValue(componentContextControlCode);
     }
@@ -212,6 +257,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public Boolean getComponentContextConductionInd() {
         return this.componentContextConductionInd.getValue();
     }
+
     public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
         this.componentContextConductionInd.setValue(componentContextConductionInd);
     }
@@ -221,6 +267,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
         return this.componentSupplementalFillInformation;
     }
+
     public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
         this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
@@ -236,6 +283,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     public SubstanceAdministrationRequestBean getComponentOfActRequest() {
         return this.componentOfActRequest;
     }
+
     public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
         this.componentOfActRequest = componentOfActRequest;
     }

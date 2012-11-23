@@ -35,15 +35,15 @@ import java.math.BigDecimal;
 /**
  * <p>Coordinate Axis</p>
  * 
- * <p><p>Describes the postion of the location along a specific 
- * axis.</p></p>
+ * <p>Describes the postion of the location along a specific 
+ * axis.</p>
  * 
- * <p><p>Defines the position of the location</p></p>
+ * <p>Defines the position of the location</p>
  */
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
@@ -51,25 +51,44 @@ public class CoordinateAxisBean extends MessagePartBean {
     /**
      * <p>Coordinate Axis Type</p>
      * 
-     * <p><p>Identifies the individual coordinate in the coordinate 
+     * <p>Identifies the individual coordinate in the coordinate 
      * system inclusive of any transformations or 
      * projections.</p><p>Examples of corordinate types are: 
      * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p></p>
+     * etc.</p>
      * 
-     * <p><p>Identifies the individual coordinate in the coordinate 
+     * <p>Identifies the individual coordinate in the coordinate 
      * system inclusive of any transformations or 
      * projections.</p><p>Examples of corordinate types are: 
      * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p></p>
+     * etc.</p>
      * 
-     * <p><p>Acts as the &quot;name&quot; in the name-value pair 
-     * that expresses a coordinate and is therefore mandatory</p></p>
+     * <p>Acts as the &quot;name&quot; in the name-value pair that 
+     * expresses a coordinate and is therefore mandatory</p>
      */
     @Hl7XmlMapping({"code"})
     public PositionCoordinateObservationCode getCode() {
         return (PositionCoordinateObservationCode) this.code.getValue();
     }
+
+    /**
+     * <p>Coordinate Axis Type</p>
+     * 
+     * <p>Identifies the individual coordinate in the coordinate 
+     * system inclusive of any transformations or 
+     * projections.</p><p>Examples of corordinate types are: 
+     * meridian, range, township, longitude, latitude, lot, block, 
+     * etc.</p>
+     * 
+     * <p>Identifies the individual coordinate in the coordinate 
+     * system inclusive of any transformations or 
+     * projections.</p><p>Examples of corordinate types are: 
+     * meridian, range, township, longitude, latitude, lot, block, 
+     * etc.</p>
+     * 
+     * <p>Acts as the &quot;name&quot; in the name-value pair that 
+     * expresses a coordinate and is therefore mandatory</p>
+     */
     public void setCode(PositionCoordinateObservationCode code) {
         this.code.setValue(code);
     }
@@ -78,18 +97,30 @@ public class CoordinateAxisBean extends MessagePartBean {
     /**
      * <p>Coordinate Axis Value</p>
      * 
-     * <p><p>Denotes the individual coordinate value as a a 
-     * physical quantity. For example, lot number, range number, 
-     * latitude, etc.</p></p>
+     * <p>Denotes the individual coordinate value as a a physical 
+     * quantity. For example, lot number, range number, latitude, 
+     * etc.</p>
      * 
-     * <p><p>Actually expresses the location along the axis. 
-     * Because unknown axis positions can simply be omitted, this 
-     * attribute is mandatory.</p></p>
+     * <p>Actually expresses the location along the axis. Because 
+     * unknown axis positions can simply be omitted, this attribute 
+     * is mandatory.</p>
      */
     @Hl7XmlMapping({"value"})
     public BigDecimal getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>Coordinate Axis Value</p>
+     * 
+     * <p>Denotes the individual coordinate value as a a physical 
+     * quantity. For example, lot number, range number, latitude, 
+     * etc.</p>
+     * 
+     * <p>Actually expresses the location along the axis. Because 
+     * unknown axis positions can simply be omitted, this attribute 
+     * is mandatory.</p>
+     */
     public void setValue(BigDecimal value) {
         this.value.setValue(value);
     }

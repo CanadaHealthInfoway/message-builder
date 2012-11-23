@@ -33,32 +33,42 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Condition History Query Parameters</p>
  * 
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response</p>
  * 
- * <p><p>Root class for query definition</p></p>
+ * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000019CA.ParameterList"})
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II allergyIntoleranceIDValue = new IIImpl();
 
 
     /**
      * <p>F:Allergy Intolerance Identifier</p>
      * 
-     * <p><p>Identifier of the Allergy Intolerance record to be 
-     * retrieved.</p></p>
+     * <p>Identifier of the Allergy Intolerance record to be 
+     * retrieved.</p>
      * 
-     * <p><p>Identifies the specific allergy intolerance record to 
-     * retrieve and is therefore mandatory.</p></p>
+     * <p>Identifies the specific allergy intolerance record to 
+     * retrieve and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceID/value"})
     public Identifier getAllergyIntoleranceIDValue() {
         return this.allergyIntoleranceIDValue.getValue();
     }
+
+    /**
+     * <p>F:Allergy Intolerance Identifier</p>
+     * 
+     * <p>Identifier of the Allergy Intolerance record to be 
+     * retrieved.</p>
+     * 
+     * <p>Identifies the specific allergy intolerance record to 
+     * retrieve and is therefore mandatory.</p>
+     */
     public void setAllergyIntoleranceIDValue(Identifier allergyIntoleranceIDValue) {
         this.allergyIntoleranceIDValue.setValue(allergyIntoleranceIDValue);
     }

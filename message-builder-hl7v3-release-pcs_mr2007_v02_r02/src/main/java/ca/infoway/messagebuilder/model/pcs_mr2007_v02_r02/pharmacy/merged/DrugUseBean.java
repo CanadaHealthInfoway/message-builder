@@ -34,124 +34,202 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT060340CA.WorkingListEvent: Drug Use</p>
  * 
- * <p><p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p></p>
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
- * <p><p>Useful in establishing compliance for drug renewals 
- * and refills.</p></p>
+ * <p>Useful in establishing compliance for drug renewals and 
+ * refills.</p>
  * 
  * <p>PORX_MT060160CA.WorkingListEvent: Drug Use</p>
  * 
- * <p><p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p></p>
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
- * <p><p>Useful in establishing compliance for drug renewals 
- * and refills.</p></p>
+ * <p>Useful in establishing compliance for drug renewals and 
+ * refills.</p>
  * 
  * <p>PORX_MT030040CA.WorkingListEvent: Drug Use</p>
  * 
- * <p><p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p></p>
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
- * <p><p>Useful in establishing compliance for drug renewals 
- * and refills.</p></p>
+ * <p>Useful in establishing compliance for drug renewals and 
+ * refills.</p>
  * 
  * <p>PORX_MT060190CA.WorkingListEvent: Drug Use</p>
  * 
- * <p><p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p></p>
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
- * <p><p>Useful in establishing compliance for drug renewals 
- * and refills.</p></p>
+ * <p>Useful in establishing compliance for drug renewals and 
+ * refills.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.WorkingListEvent","PORX_MT030040CA.WorkingListEvent","PORX_MT060160CA.WorkingListEvent","PORX_MT060190CA.WorkingListEvent","PORX_MT060340CA.WorkingListEvent"})
 public class DrugUseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
 
 
     /**
      * <p>D:Treatment Type</p>
      * 
-     * <p><p>Describes the categorization of the therapy envisioned 
-     * by this prescription (e.g. Continuous/Chronic, 
-     * Short-Term/Acute and &quot;As-Needed).</p></p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed. The field is 
      * marked as &quot;mandatory&quot; because the intended 
      * duration of the therapy should be known at prescribe 
-     * time.</p></p>
+     * time.</p>
      * 
      * <p>D:Treatment Type</p>
      * 
-     * <p><p>Describes the categorization of the therapy envisioned 
-     * by this prescription (e.g Continuous/Chronic, 
-     * Short-Term/Acute and &quot;As-Needed).</p></p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed.</p><p>The field 
      * is marked as &quot;mandatory&quot; because the intended 
      * duration of the therapy should be known at prescribe 
-     * time.</p></p>
+     * time.</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed.</p><p>The field 
      * is marked as &quot;mandatory&quot; because the intended 
      * duration of the therapy should be known at prescribe 
-     * time.</p></p>
+     * time.</p>
      * 
      * <p>D:Prescription Treatment Type</p>
      * 
-     * <p><p>Describes the categorization of the therapy envisioned 
-     * by this prescription (e.g. Continuous/Chronic, 
-     * Short-Term/Acute and &quot;As-Needed).</p></p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed. The field is 
      * marked as &quot;mandatory&quot; because the intended 
      * duration of the therapy should be known at prescribe 
-     * time.</p></p>
+     * time.</p>
      * 
      * <p>D:Treatment Type</p>
      * 
-     * <p><p>Describes the categorization of the therapy envisioned 
-     * by this prescription (e.g. Continuous/Chronic, 
-     * Short-Term/Acute and &quot;As-Needed).</p></p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed. The code is 
      * mandatory as this information should be known at prescribe 
-     * time.</p></p>
+     * time.</p>
      * 
      * <p>D:Prescription Treatment Type</p>
      * 
-     * <p><p>Describes the categorization of the therapy envisioned 
-     * by this prescription (e.g. Continuous/Chronic, 
-     * Short-Term/Acute and &quot;As-Needed).</p></p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed.</p><p>The field 
      * is marked mandatory because the intended duration of the 
-     * therapy should be known at prescribe time.</p></p>
+     * therapy should be known at prescribe time.</p>
      * 
-     * <p><p>Allows categorizing prescription for presentation. May 
+     * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
      * to affect how DUR processing is completed.</p><p>The field 
      * is marked mandatory because the intended duration of the 
-     * therapy should be known at prescribe time.</p></p>
+     * therapy should be known at prescribe time.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActTherapyDurationWorkingListCode getCode() {
         return (ActTherapyDurationWorkingListCode) this.code.getValue();
     }
+
+    /**
+     * <p>D:Treatment Type</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>D:Treatment Type</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>D:Prescription Treatment Type</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;mandatory&quot; because the intended 
+     * duration of the therapy should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>D:Treatment Type</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The code is 
+     * mandatory as this information should be known at prescribe 
+     * time.</p>
+     * 
+     * <p>D:Prescription Treatment Type</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked mandatory because the intended duration of the 
+     * therapy should be known at prescribe time.</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked mandatory because the intended duration of the 
+     * therapy should be known at prescribe time.</p>
+     */
     public void setCode(ActTherapyDurationWorkingListCode code) {
         this.code.setValue(code);
     }
