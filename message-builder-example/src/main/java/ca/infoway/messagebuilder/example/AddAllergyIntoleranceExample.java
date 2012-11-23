@@ -88,6 +88,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Receiv
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagnosisCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AgentCategoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AllergyTestsBean;
@@ -366,7 +367,7 @@ public class AddAllergyIntoleranceExample {
 		ReportedReactionsBean subjectObservationEvent = new ReportedReactionsBean();
 		subjectObservationEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.133", "15"));
-		subjectObservationEvent.setCode(lookup(ActCode.class, "371627004",
+		subjectObservationEvent.setCode(lookup(ActDiagnosisCode.class, "371627004",
 				SNOMED.getRoot()));
 		subjectObservationEvent.setNegationInd(Boolean.FALSE);
 		subjectObservationEvent.setText("description of assessment");
@@ -382,7 +383,7 @@ public class AddAllergyIntoleranceExample {
 		ReportedReactionsBean assessmentBean = new ReportedReactionsBean();
 		// assessmentBean.setAssessmentType(lookup(ObservationCausalityAssessmentType.class,
 		// "RXNASSESS", VOCABULARY_ACT_CODE.getRoot()));
-		assessmentBean.setCode(lookup(ActCode.class, "371627004", SNOMED
+		assessmentBean.setCode(lookup(ActDiagnosisCode.class, "371627004", SNOMED
 				.getRoot()));
 		assessmentBean.setStartsAfterStartOfExposureEvent(exposureEvent);
 		assessmentBean.setSubjectObservationEvent(subjectObservationEvent);
