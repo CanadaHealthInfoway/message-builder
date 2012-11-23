@@ -36,89 +36,83 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>COCT_MT220210CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>Must specify at least one of Drug Ingredient 
- * Identifier and Drug Ingredient Name</p></p>
+ * <p>Must specify at least one of Drug Ingredient Identifier 
+ * and Drug Ingredient Name</p>
  * 
- * <p><p>A list of drugs, chemicals or excipients that may or 
- * may not be present in a manufactured drug or a custom 
- * compound.</p></p>
+ * <p>A list of drugs, chemicals or excipients that may or may 
+ * not be present in a manufactured drug or a custom 
+ * compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  * 
  * <p>COCT_MT220200CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>Must specify at least one of Drug Ingredient 
- * Identifier and Drug Ingredient Name</p></p>
+ * <p>Must specify at least one of Drug Ingredient Identifier 
+ * and Drug Ingredient Name</p>
  * 
- * <p><p>A list of drugs, chemicals or excipients that may or 
- * may not be present in a manufactured drug or a custom 
- * compound.</p></p>
+ * <p>A list of drugs, chemicals or excipients that may or may 
+ * not be present in a manufactured drug or a custom 
+ * compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  * 
  * <p>POME_MT010100CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>At least one of ingredient code or ingredient name 
- * must be specified.</p></p>
+ * <p>At least one of ingredient code or ingredient name must 
+ * be specified.</p>
  * 
- * <p><p>A list of drugs or raw chemicals that may be present 
- * in a manufactured drug or a custom compound.</p></p>
+ * <p>A list of drugs or raw chemicals that may be present in a 
+ * manufactured drug or a custom compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  * 
  * <p>COCT_MT220110CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>Must specify at least one of Drug Ingredient 
- * Identifier and Drug Ingredient Name</p></p>
+ * <p>Must specify at least one of Drug Ingredient Identifier 
+ * and Drug Ingredient Name</p>
  * 
- * <p><p>A list of drugs, chemicals or excipients that may or 
- * may not be present in a manufactured drug or a custom 
- * compound.</p></p>
+ * <p>A list of drugs, chemicals or excipients that may or may 
+ * not be present in a manufactured drug or a custom 
+ * compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  * 
  * <p>COCT_MT220100CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>Must specify at least one of Drug Ingredient 
- * Identifier and Drug Ingredient Name</p></p>
+ * <p>Must specify at least one of Drug Ingredient Identifier 
+ * and Drug Ingredient Name</p>
  * 
- * <p><p>A list of drugs, chemicals or excipients that may or 
- * may not be present in a manufactured drug or a custom 
- * compound.</p></p>
+ * <p>A list of drugs, chemicals or excipients that may or may 
+ * not be present in a manufactured drug or a custom 
+ * compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  * 
  * <p>POME_MT010040CA.Substance: Drug Ingredients</p>
  * 
- * <p><p>Either a code or name must be specified.</p></p>
+ * <p>Either a code or name must be specified.</p>
  * 
- * <p><p>A list of drugs or raw chemicals that may be present 
- * in a manufactured drug or a custom compound.</p></p>
+ * <p>A list of drugs or raw chemicals that may be present in a 
+ * manufactured drug or a custom compound.</p>
  * 
- * <p><p>Important for expressing strength of active 
- * ingredients within a drug product, for expressing compound 
- * recipes, and for identifying potential causes for adverse 
- * reactions.</p></p>
+ * <p>Important for expressing strength of active ingredients 
+ * within a drug product, for expressing compound recipes, and 
+ * for identifying potential causes for adverse reactions.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT220100CA.Substance","COCT_MT220110CA.Substance","COCT_MT220200CA.Substance","COCT_MT220210CA.Substance","POME_MT010040CA.Substance","POME_MT010100CA.Substance"})
 public class DrugIngredientsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
@@ -128,127 +122,264 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p>A:Drug Ingredient Identifier</p>
      * 
-     * <p><p>The unique identifier for the drug or chemical.</p></p>
+     * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
      * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p></p>
+     * of ingredients in vaccines.</p>
      * 
-     * <p><p>Allows un-ambiguous identification of the ingredients 
-     * of a drug for performing various alert checking.</p><p>Also 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
      * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p></p>
+     * of ingredients in vaccines.</p>
      * 
      * <p>A:Drug Ingredient Identifier</p>
      * 
-     * <p><p>The unique identifier for the drug or chemical.</p></p>
+     * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p></p>
+     * name)</p><p>ZCP.2</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
      * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
- 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
     public ActiveIngredientDrugEntityType getCode() {
         return (ActiveIngredientDrugEntityType) this.code.getValue();
     }
+
+    /**
+     * <p>DrugIngredientIdentifier</p>
+     * 
+     * <p>A:Drug Ingredient Identifier</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>A:Drug Ingredient Identifier</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
+     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
+     * name)</p><p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * 
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setCode(ActiveIngredientDrugEntityType code) {
         this.code.setValue(code);
     }
@@ -257,49 +388,92 @@ public class DrugIngredientsBean extends MessagePartBean {
     /**
      * <p>K:Ingredient Name</p>
      * 
-     * <p><p>The name of the contained drug or chemical.</p></p>
+     * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.drugProductName</p></p>
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
      * 
-     * <p><p>Used for communication between and display to 
+     * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
      * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p></p>
+     * available in most cases.</p>
      * 
-     * <p><p>Used for communication between and display to 
+     * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
      * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p></p>
+     * available in most cases.</p>
      * 
      * <p>Ingredient Name</p>
      * 
-     * <p><p>The name of the contained drug or chemical.</p></p>
+     * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.drugProductName</p></p>
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
      * 
-     * <p><p>Used for communication between and display to 
+     * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
      * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p></p>
+     * available in most cases.</p>
      * 
-     * <p><p>Used for communication between and display to 
+     * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
      * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p></p>
+     * available in most cases.</p>
      * 
      * <p>B:Drug Ingredient Name</p>
      * 
-     * <p><p>The name of the contained drug or chemical.</p></p>
+     * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p><p>CompoundIngredient.IngredientDrug.drugProductName</p></p>
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
      * 
-     * <p><p>Used for communication between and display to 
-     * providers.</p></p>
+     * <p>Used for communication between and display to 
+     * providers.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>K:Ingredient Name</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Ingredient Name</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>B:Drug Ingredient Name</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     */
     public void setName(String name) {
         this.name.setValue(name);
     }

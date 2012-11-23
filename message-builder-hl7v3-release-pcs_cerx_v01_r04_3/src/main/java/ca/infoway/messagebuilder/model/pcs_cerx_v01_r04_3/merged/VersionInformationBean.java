@@ -44,38 +44,38 @@ import java.util.Date;
  * <p>REPC_MT000010CA.ControlActEvent: Medical Condition Status 
  * Changes</p>
  * 
- * <p><p>This indicates the history of changes that have been 
- * made to the medical condition record, including why the 
- * changes were made, who made them and when.</p></p>
+ * <p>This indicates the history of changes that have been made 
+ * to the medical condition record, including why the changes 
+ * were made, who made them and when.</p>
  * 
- * <p><p>Provides an audit trail of a patient's medical 
- * condition changes.</p></p>
+ * <p>Provides an audit trail of a patient's medical condition 
+ * changes.</p>
  * 
  * <p>REPC_MT000009CA.ControlActEvent: Allergy/Intolerance 
  * Status Changes</p>
  * 
- * <p><p>This records the history of changes that have been 
- * made to the allergy/intolerance, including why the changes 
- * were made, who made them and when.</p></p>
+ * <p>This records the history of changes that have been made 
+ * to the allergy/intolerance, including why the changes were 
+ * made, who made them and when.</p>
  * 
- * <p><p>Provides a record of a patient's allergy changes, 
+ * <p>Provides a record of a patient's allergy changes, 
  * providing deeper clinical understanding, particularly of 
- * past clinical decisions.</p></p>
+ * past clinical decisions.</p>
  * 
  * <p>COCT_MT130001CA.ControlActEvent: Version Information</p>
  * 
- * <p><p>This records the history of changes that have been 
- * made to the record, including why the changes were made, who 
- * made them and when.</p></p>
+ * <p>This records the history of changes that have been made 
+ * to the record, including why the changes were made, who made 
+ * them and when.</p>
  * 
- * <p><p>Provides a record changes, providing deeper clinical 
- * understanding, particularly of past clinical decisions.</p></p>
+ * <p>Provides a record changes, providing deeper clinical 
+ * understanding, particularly of past clinical decisions.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT130001CA.ControlActEvent","REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -87,31 +87,56 @@ public class VersionInformationBean extends MessagePartBean {
     /**
      * <p>A:Allergy/Intolerance Status Change Type</p>
      * 
-     * <p><p>Identifies what kind of change occurred. 
+     * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
-     * Complete.</p></p>
+     * Complete.</p>
      * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>A:Change Type</p>
      * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
+     * <p>Identifies what kind of change occurred.</p>
      * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>C:Medical Condition Status Change Type</p>
      * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
+     * <p>Identifies what kind of change occurred.</p>
      * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Identifies what kind of change occurred. 
+     * Allergy/Intolerance change types are Revise, Reactivate and 
+     * Complete.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>A:Change Type</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>C:Medical Condition Status Change Type</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -120,42 +145,78 @@ public class VersionInformationBean extends MessagePartBean {
     /**
      * <p>B:Allergy/intolerance Status Change Effective Date</p>
      * 
-     * <p><p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p></p>
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory.</p></p>
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
      * 
      * <p>C:Change Effective Date and End Date</p>
      * 
-     * <p><p>The date on which the various changes of an event 
-     * become valid and applicable and potentially when the change 
-     * is supposed to cease.</p></p>
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
      * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory. The end date may be left unspecified 
-     * if there isn't a specific targetted end date (e.g. with a 
-     * suspend including a planned release date).</p></p>
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory. The end date may be left unspecified if 
+     * there isn't a specific targetted end date (e.g. with a 
+     * suspend including a planned release date).</p>
      * 
      * <p>A:Medical Condition Status Change Effective Date</p>
      * 
-     * <p><p>The date on which the changes to the medical condition 
-     * become valid and applicable.</p></p>
+     * <p>The date on which the changes to the medical condition 
+     * become valid and applicable.</p>
      * 
-     * <p><p>Allows applications to sort and filter by 
-     * time.</p><p>The effective date can be defaulted to change 
-     * date, and thus is mandatory.</p></p>
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
      * 
-     * <p><p>Allows applications to sort and filter by 
-     * time.</p><p>The effective date can be defaulted to change 
-     * date, and thus is mandatory.</p></p>
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
+     * 
+     * <p>C:Change Effective Date and End Date</p>
+     * 
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory. The end date may be left unspecified if 
+     * there isn't a specific targetted end date (e.g. with a 
+     * suspend including a planned release date).</p>
+     * 
+     * <p>A:Medical Condition Status Change Effective Date</p>
+     * 
+     * <p>The date on which the changes to the medical condition 
+     * become valid and applicable.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -164,34 +225,62 @@ public class VersionInformationBean extends MessagePartBean {
     /**
      * <p>B:Medical Condition Status Change Reason</p>
      * 
-     * <p><p>Denotes the reason the medical condition record was 
-     * changed.</p></p>
+     * <p>Denotes the reason the medical condition record was 
+     * changed.</p>
      * 
-     * <p><p>Ensures consistent terminology in capturing and 
+     * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p></p>
+     * reasons will correspond to a pre-defined code.</p>
      * 
      * <p>D:Change Reason</p>
      * 
-     * <p><p>Denotes the reason the record was modified.</p></p>
+     * <p>Denotes the reason the record was modified.</p>
      * 
-     * <p><p>Ensures consistent terminology in capturing and 
+     * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p></p>
+     * reasons will correspond to a pre-defined code.</p>
      * 
      * <p>C:Allergy/Intolerance Status Change Reason</p>
      * 
-     * <p><p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p></p>
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      * 
-     * <p><p>Ensures consistent terminology in capturing and 
+     * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p></p>
+     * reasons will correspond to a pre-defined code.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>B:Medical Condition Status Change Reason</p>
+     * 
+     * <p>Denotes the reason the medical condition record was 
+     * changed.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>D:Change Reason</p>
+     * 
+     * <p>Denotes the reason the record was modified.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -201,6 +290,7 @@ public class VersionInformationBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -210,6 +300,7 @@ public class VersionInformationBean extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
@@ -220,16 +311,28 @@ public class VersionInformationBean extends MessagePartBean {
      * 
      * <p>B:Change Identifier</p>
      * 
-     * <p><p>A unique identifier for this particular change.</p></p>
+     * <p>A unique identifier for this particular change.</p>
      * 
-     * <p><p>Allows referencing (and potentially undoing) a 
-     * specific change. Every status change has an identifier, thus 
-     * this attribute is mandatory.</p></p>
+     * <p>Allows referencing (and potentially undoing) a specific 
+     * change. Every status change has an identifier, thus this 
+     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>ChangeIdentifier</p>
+     * 
+     * <p>B:Change Identifier</p>
+     * 
+     * <p>A unique identifier for this particular change.</p>
+     * 
+     * <p>Allows referencing (and potentially undoing) a specific 
+     * change. Every status change has an identifier, thus this 
+     * attribute is mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }

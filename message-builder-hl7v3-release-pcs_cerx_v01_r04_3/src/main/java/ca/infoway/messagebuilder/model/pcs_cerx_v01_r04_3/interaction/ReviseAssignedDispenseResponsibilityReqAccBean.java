@@ -28,9 +28,24 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Prescr
 
 
 
+/**
+ * <p>PORX_IN010110CA: Revise assigned dispense responsibility 
+ * req. acc.</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700220CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060350CA.Prescription</p>
+ * 
+ * <p>----> Sub-Payload Choice: 
+ * PORX_MT060340CA.CombinedMedicationRequest</p>
+ * 
+ * <p>----> Sub-Payload Choice: PORX_MT060040CA.DeviceRequest</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN010110CA"})
 public class ReviseAssignedDispenseResponsibilityReqAccBean extends HL7Message_1Bean<TriggerEvent_2Bean<Prescription_1>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

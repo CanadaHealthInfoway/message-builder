@@ -27,9 +27,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 
+/**
+ * <p>COMT_IN400002CA: Change item masking request accepted</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700222CA.ControlActEvent</p>
+ */
 @Hl7PartTypeMapping({"COMT_IN400002CA"})
 public class ChangeItemMaskingRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

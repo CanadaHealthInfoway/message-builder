@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 
+/**
+ * <p>PORX_IN060230CA: Medication dispense summary query</p>
+ * 
+ * <p>Message: MCCI_MT000100CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060110CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060230CA"})
 public class MedicationDispenseSummaryQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

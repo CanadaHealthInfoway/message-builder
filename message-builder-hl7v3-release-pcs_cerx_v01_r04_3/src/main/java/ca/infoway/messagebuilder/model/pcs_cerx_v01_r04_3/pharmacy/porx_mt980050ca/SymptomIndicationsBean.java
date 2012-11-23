@@ -37,21 +37,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Symptom Indications</p>
  * 
- * <p><p>Code must be fixed to SYMPT if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p></p>
+ * <p>Code must be fixed to SYMPT if not using 
+ * SNOMED</p><p>Value is mandatory if not using SNOMED</p>
  * 
- * <p><p>Code must be fixed to SYMPT if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p></p>
+ * <p>Code must be fixed to SYMPT if not using 
+ * SNOMED</p><p>Value is mandatory if not using SNOMED</p>
  * 
- * <p><p>Describes symptom-related indications</p></p>
+ * <p>Describes symptom-related indications</p>
  * 
- * <p><p>Allows separation of conditions from symptoms from 
- * other forms of indication.</p></p>
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();
@@ -60,20 +60,34 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     /**
      * <p>Symptom Type</p>
      * 
-     * <p><p>Identifies the category of symptom being 
-     * communicated.</p></p>
+     * <p>Identifies the category of symptom being 
+     * communicated.</p>
      * 
-     * <p><p>Indicates that this observation is expressing a 
-     * symptom, and is therefore mandatory. It is set to CD because 
-     * SNOMED codes may require post-coordination</p></p>
+     * <p>Indicates that this observation is expressing a symptom, 
+     * and is therefore mandatory. It is set to CD because SNOMED 
+     * codes may require post-coordination</p>
      * 
-     * <p><p>For SNOMED, this will communicate the full symptom. 
-     * For non-SNOMED this will be a fixed value of SYMPT</p></p>
+     * <p>For SNOMED, this will communicate the full symptom. For 
+     * non-SNOMED this will be a fixed value of SYMPT</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Symptom Type</p>
+     * 
+     * <p>Identifies the category of symptom being 
+     * communicated.</p>
+     * 
+     * <p>Indicates that this observation is expressing a symptom, 
+     * and is therefore mandatory. It is set to CD because SNOMED 
+     * codes may require post-coordination</p>
+     * 
+     * <p>For SNOMED, this will communicate the full symptom. For 
+     * non-SNOMED this will be a fixed value of SYMPT</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -82,16 +96,26 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     /**
      * <p>Free Form Symptom Indication</p>
      * 
-     * <p><p>A free form description to augment the specified 
-     * symptom.</p></p>
+     * <p>A free form description to augment the specified 
+     * symptom.</p>
      * 
-     * <p><p>Provides greater flexibility in specifying 
-     * indication.</p></p>
+     * <p>Provides greater flexibility in specifying 
+     * indication.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>Free Form Symptom Indication</p>
+     * 
+     * <p>A free form description to augment the specified 
+     * symptom.</p>
+     * 
+     * <p>Provides greater flexibility in specifying 
+     * indication.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }
@@ -100,17 +124,28 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     /**
      * <p>A:Symptom Code</p>
      * 
-     * <p><p>A coded representation of the symptom that is the 
-     * reason for the current therapy.</p></p>
+     * <p>A coded representation of the symptom that is the reason 
+     * for the current therapy.</p>
      * 
-     * <p><p>Allows cross-checking the use of a therapy against its 
+     * <p>Allows cross-checking the use of a therapy against its 
      * indication. Also allows analysis of best practices, etc. The 
-     * attribute is optional because it is not used for SNOMED.</p></p>
+     * attribute is optional because it is not used for SNOMED.</p>
      */
     @Hl7XmlMapping({"value"})
     public SymptomValue getValue() {
         return (SymptomValue) this.value.getValue();
     }
+
+    /**
+     * <p>A:Symptom Code</p>
+     * 
+     * <p>A coded representation of the symptom that is the reason 
+     * for the current therapy.</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. The 
+     * attribute is optional because it is not used for SNOMED.</p>
+     */
     public void setValue(SymptomValue value) {
         this.value.setValue(value);
     }

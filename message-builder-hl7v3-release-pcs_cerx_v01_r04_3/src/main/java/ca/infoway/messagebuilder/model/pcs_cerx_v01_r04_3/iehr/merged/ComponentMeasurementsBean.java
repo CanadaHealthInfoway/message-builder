@@ -38,31 +38,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>REPC_MT100002CA.SubObservationEvent: Component 
  * Measurements</p>
  * 
- * <p><p>The same Measurement Type may not be specified in both 
- * the SubObservationEvent and the CommonObservationEvent.</p></p>
+ * <p>The same Measurement Type may not be specified in both 
+ * the SubObservationEvent and the CommonObservationEvent.</p>
  * 
- * <p><p>Represents one of the two components (systolic and 
- * diastolic) of a blood pressure measurement.</p></p>
+ * <p>Represents one of the two components (systolic and 
+ * diastolic) of a blood pressure measurement.</p>
  * 
- * <p><p>Allows both parts to be captured as part of a single 
- * measurement.</p></p>
+ * <p>Allows both parts to be captured as part of a single 
+ * measurement.</p>
  * 
  * <p>REPC_MT000018CA.SubObservationEvent: Component 
  * Measurements</p>
  * 
- * <p><p>The same Measurement Type may not be specified in both 
- * the SubObservationEvent and the CommonObservationEvent.</p></p>
+ * <p>The same Measurement Type may not be specified in both 
+ * the SubObservationEvent and the CommonObservationEvent.</p>
  * 
- * <p><p>Represents one of the two components (systolic and 
- * diastolic) of a blood pressure measurement.</p></p>
+ * <p>Represents one of the two components (systolic and 
+ * diastolic) of a blood pressure measurement.</p>
  * 
- * <p><p>Allows both parts to be captured as part of a single 
- * measurement.</p></p>
+ * <p>Allows both parts to be captured as part of a single 
+ * measurement.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000018CA.SubObservationEvent","REPC_MT100002CA.SubObservationEvent"})
 public class ComponentMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CD code = new CDImpl();
     private PQ value = new PQImpl();
 
@@ -72,40 +72,72 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>Blood Pressure Measurement Type</p>
      * 
-     * <p><p>Distinguishes between the two types of blood 
-     * measurement. This can either be code for SYSTOLIC or 
-     * DYSTOLIC</p></p>
+     * <p>Distinguishes between the two types of blood measurement. 
+     * This can either be code for SYSTOLIC or DYSTOLIC</p>
      * 
-     * <p><p>Distinguishes between the two types of blood pressure 
+     * <p>Distinguishes between the two types of blood pressure 
      * measurements.</p><p>Code is mandatory to ensure that blood 
      * pressure observations are distinguishable. The attribute is 
-     * CD to support SNOMED</p></p>
+     * CD to support SNOMED</p>
      * 
-     * <p><p>Distinguishes between the two types of blood pressure 
+     * <p>Distinguishes between the two types of blood pressure 
      * measurements.</p><p>Code is mandatory to ensure that blood 
      * pressure observations are distinguishable. The attribute is 
-     * CD to support SNOMED</p></p>
+     * CD to support SNOMED</p>
      * 
      * <p>A:Blood Pressure Measurement Type</p>
      * 
-     * <p><p>Distinguishes bwtween the two types of blood 
-     * measurement. This can either be code for SYSTOLIC or 
-     * DYSTOLIC</p></p>
+     * <p>Distinguishes bwtween the two types of blood measurement. 
+     * This can either be code for SYSTOLIC or DYSTOLIC</p>
      * 
-     * <p><p>Distinguishes between the two twtype of blood pressure 
+     * <p>Distinguishes between the two twtype of blood pressure 
      * measurements.</p><p>Code is mandatory to ensure that blood 
      * pressure observations are distinguishable. The attribute is 
-     * CD to support SNOMED</p></p>
+     * CD to support SNOMED</p>
      * 
-     * <p><p>Distinguishes between the two twtype of blood pressure 
+     * <p>Distinguishes between the two twtype of blood pressure 
      * measurements.</p><p>Code is mandatory to ensure that blood 
      * pressure observations are distinguishable. The attribute is 
-     * CD to support SNOMED</p></p>
+     * CD to support SNOMED</p>
      */
     @Hl7XmlMapping({"code"})
     public CommonClinicalObservationType getCode() {
         return (CommonClinicalObservationType) this.code.getValue();
     }
+
+    /**
+     * <p>BloodPressureMeasurementType</p>
+     * 
+     * <p>Blood Pressure Measurement Type</p>
+     * 
+     * <p>Distinguishes between the two types of blood measurement. 
+     * This can either be code for SYSTOLIC or DYSTOLIC</p>
+     * 
+     * <p>Distinguishes between the two types of blood pressure 
+     * measurements.</p><p>Code is mandatory to ensure that blood 
+     * pressure observations are distinguishable. The attribute is 
+     * CD to support SNOMED</p>
+     * 
+     * <p>Distinguishes between the two types of blood pressure 
+     * measurements.</p><p>Code is mandatory to ensure that blood 
+     * pressure observations are distinguishable. The attribute is 
+     * CD to support SNOMED</p>
+     * 
+     * <p>A:Blood Pressure Measurement Type</p>
+     * 
+     * <p>Distinguishes bwtween the two types of blood measurement. 
+     * This can either be code for SYSTOLIC or DYSTOLIC</p>
+     * 
+     * <p>Distinguishes between the two twtype of blood pressure 
+     * measurements.</p><p>Code is mandatory to ensure that blood 
+     * pressure observations are distinguishable. The attribute is 
+     * CD to support SNOMED</p>
+     * 
+     * <p>Distinguishes between the two twtype of blood pressure 
+     * measurements.</p><p>Code is mandatory to ensure that blood 
+     * pressure observations are distinguishable. The attribute is 
+     * CD to support SNOMED</p>
+     */
     public void setCode(CommonClinicalObservationType code) {
         this.code.setValue(code);
     }
@@ -116,18 +148,32 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * 
      * <p>B:Blood Pressure Measurement Value</p>
      * 
-     * <p><p>The amount (quantity and unit) that has been recorded 
-     * for the blood pressure.</p></p>
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the blood pressure.</p>
      * 
-     * <p><p>Provides standard representation of the blood pressure 
+     * <p>Provides standard representation of the blood pressure 
      * measurement. May be used in calculations. Attribute is 
      * defined as mandatory to ensure that a value is always 
-     * supplied, if there is a blood pressure measurement.</p></p>
+     * supplied, if there is a blood pressure measurement.</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>BloodPressureMeasurementValue</p>
+     * 
+     * <p>B:Blood Pressure Measurement Value</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the blood pressure.</p>
+     * 
+     * <p>Provides standard representation of the blood pressure 
+     * measurement. May be used in calculations. Attribute is 
+     * defined as mandatory to ensure that a value is always 
+     * supplied, if there is a blood pressure measurement.</p>
+     */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);
     }

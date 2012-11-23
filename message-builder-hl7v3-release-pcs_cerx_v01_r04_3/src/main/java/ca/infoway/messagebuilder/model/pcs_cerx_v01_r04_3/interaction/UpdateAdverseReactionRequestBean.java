@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000012ca.R
 
 
 
+/**
+ * <p>REPC_IN000008CA: Update adverse reaction request</p>
+ * 
+ * <p>Message: MCCI_MT000100CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: REPC_MT000012CA.ReactionObservationEvent</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000008CA"})
 public class UpdateAdverseReactionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

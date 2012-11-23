@@ -46,36 +46,36 @@ import java.util.List;
 /**
  * <p>POME_MT010050CA.ParameterList: Generic Query Parameters</p>
  * 
- * <p><p>One and only one of Drug Code, Prescribing Indication 
- * Code, or Medication Document ID must be specified.</p></p>
+ * <p>One and only one of Drug Code, Prescribing Indication 
+ * Code, or Medication Document ID must be specified.</p>
  * 
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response.</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
  * 
- * <p><p>Root class for query parameters.</p></p>
+ * <p>Root class for query parameters.</p>
  * 
  * <p>POME_MT010030CA.ParameterList: Drug Query Parameters</p>
  * 
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response.</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
  * 
- * <p><p>Root class for query parameters</p></p>
+ * <p>Root class for query parameters</p>
  * 
  * <p>POME_MT010090CA.ParameterList: Drug Query Parameters</p>
  * 
- * <p><p>At least one of drug code or drug name must be 
- * specified</p></p>
+ * <p>At least one of drug code or drug name must be 
+ * specified</p>
  * 
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response.</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
  * 
- * <p><p>Root class for query parameters</p></p>
+ * <p>Root class for query parameters</p>
  */
 @Hl7PartTypeMapping({"POME_MT010030CA.ParameterList","POME_MT010050CA.ParameterList","POME_MT010090CA.ParameterList"})
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV drugCodeValue = new CVImpl();
     private II medicationDocumentIDValue = new IIImpl();
     private CV medicationDocumentTypeValue = new CVImpl();
@@ -93,61 +93,118 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>B:Drug Code</p>
      * 
-     * <p><p>An identifier for a specific drug product. Types of 
-     * drugs identified by drug code include: Manufactured drug, 
-     * generic formulation, generic, therapeutic class, etc.</p></p>
+     * <p>An identifier for a specific drug product. Types of drugs 
+     * identified by drug code include: Manufactured drug, generic 
+     * formulation, generic, therapeutic class, etc.</p>
      * 
-     * <p><p>Allows the requester to retrieve detail information 
-     * about a specific drug product.</p></p>
+     * <p>Allows the requester to retrieve detail information about 
+     * a specific drug product.</p>
      * 
      * <p>B:Drug Code</p>
      * 
-     * <p><p>An identifier that describes a drug at any level of 
-     * the clinical drug hierarchy. The code may describe (point 
-     * to) a Manufactured drug, generic drug formulation, generic 
-     * drug, therapeutic classification, etc.</p><p>For example, 
-     * using a therapeutic class code in the DrugCode parameter 
-     * would return a list of all drugs that are within that class. 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
      * Sending a drug name in the DrugName parameter would return a 
      * list of all drugs that have that name e.g. sending 
      * acetaminophen would return all of the acetaminophen products 
      * in the drug data base. By including the DoseForm, DoseRoute, 
      * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p></p>
+     * be further constrained.</p>
      * 
-     * <p><p>An identifier that describes a drug at any level of 
-     * the clinical drug hierarchy. The code may describe (point 
-     * to) a Manufactured drug, generic drug formulation, generic 
-     * drug, therapeutic classification, etc.</p><p>For example, 
-     * using a therapeutic class code in the DrugCode parameter 
-     * would return a list of all drugs that are within that class. 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
      * Sending a drug name in the DrugName parameter would return a 
      * list of all drugs that have that name e.g. sending 
      * acetaminophen would return all of the acetaminophen products 
      * in the drug data base. By including the DoseForm, DoseRoute, 
      * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p></p>
+     * be further constrained.</p>
      * 
-     * <p><p>Allows the requester to retrieve drugs of certain 
+     * <p>Allows the requester to retrieve drugs of certain 
      * abstraction only. These drug abstractions include: 
      * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p></p>
+     * class, etc.</p>
      * 
      * <p>B:Drug Code</p>
      * 
-     * <p><p>An identifier for a type of drug. Types of drugs 
-     * include: Manufactured drug, generic formulation, generic, 
-     * therapeutic class, etc.</p></p>
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
      * 
-     * <p><p>Allows the requester to retrieve drugs of certain 
+     * <p>Allows the requester to retrieve drugs of certain 
      * abstraction only. These drug abstractions include: 
      * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p></p>
+     * class, etc.</p>
      */
     @Hl7XmlMapping({"drugCode/value"})
     public ClinicalDrug getDrugCodeValue() {
         return (ClinicalDrug) this.drugCodeValue.getValue();
     }
+
+    /**
+     * <p>DrugCode</p>
+     * 
+     * <p>B:Drug Code</p>
+     * 
+     * <p>An identifier for a specific drug product. Types of drugs 
+     * identified by drug code include: Manufactured drug, generic 
+     * formulation, generic, therapeutic class, etc.</p>
+     * 
+     * <p>Allows the requester to retrieve detail information about 
+     * a specific drug product.</p>
+     * 
+     * <p>B:Drug Code</p>
+     * 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
+     * Sending a drug name in the DrugName parameter would return a 
+     * list of all drugs that have that name e.g. sending 
+     * acetaminophen would return all of the acetaminophen products 
+     * in the drug data base. By including the DoseForm, DoseRoute, 
+     * DrugManufacturerName or DrugCharacteristic, the list could 
+     * be further constrained.</p>
+     * 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
+     * Sending a drug name in the DrugName parameter would return a 
+     * list of all drugs that have that name e.g. sending 
+     * acetaminophen would return all of the acetaminophen products 
+     * in the drug data base. By including the DoseForm, DoseRoute, 
+     * DrugManufacturerName or DrugCharacteristic, the list could 
+     * be further constrained.</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>B:Drug Code</p>
+     * 
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     */
     public void setDrugCodeValue(ClinicalDrug drugCodeValue) {
         this.drugCodeValue.setValue(drugCodeValue);
     }
@@ -158,19 +215,34 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>E:Medication Document ID</p>
      * 
-     * <p><p>Unique identifier for a particular medication 
-     * document. This will reference a specific kind of 
-     * documentation (e.g. DDI Monograph, Patient Education 
-     * Monograph, Allergy Monograph, etc) created by a specific 
-     * author organization (e.g. Health Canada, FDB, WHO, etc).</p></p>
+     * <p>Unique identifier for a particular medication document. 
+     * This will reference a specific kind of documentation (e.g. 
+     * DDI Monograph, Patient Education Monograph, Allergy 
+     * Monograph, etc) created by a specific author organization 
+     * (e.g. Health Canada, FDB, WHO, etc).</p>
      * 
-     * <p><p>Use of an identifier allows for a quick retrieval of 
-     * the information of interest.</p></p>
+     * <p>Use of an identifier allows for a quick retrieval of the 
+     * information of interest.</p>
      */
     @Hl7XmlMapping({"medicationDocumentID/value"})
     public Identifier getMedicationDocumentIDValue() {
         return this.medicationDocumentIDValue.getValue();
     }
+
+    /**
+     * <p>MedicationDocumentID</p>
+     * 
+     * <p>E:Medication Document ID</p>
+     * 
+     * <p>Unique identifier for a particular medication document. 
+     * This will reference a specific kind of documentation (e.g. 
+     * DDI Monograph, Patient Education Monograph, Allergy 
+     * Monograph, etc) created by a specific author organization 
+     * (e.g. Health Canada, FDB, WHO, etc).</p>
+     * 
+     * <p>Use of an identifier allows for a quick retrieval of the 
+     * information of interest.</p>
+     */
     public void setMedicationDocumentIDValue(Identifier medicationDocumentIDValue) {
         this.medicationDocumentIDValue.setValue(medicationDocumentIDValue);
     }
@@ -181,25 +253,46 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>D:Medication Document Type</p>
      * 
-     * <p><p>Indicates that the result set is to be filtered to 
+     * <p>Indicates that the result set is to be filtered to 
      * include only those medication documents pertaining to the 
      * specified document category.</p><p>Valid medication document 
      * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p></p>
+     * Monograph, Indication Protocol, etc.</p>
      * 
-     * <p><p>Indicates that the result set is to be filtered to 
+     * <p>Indicates that the result set is to be filtered to 
      * include only those medication documents pertaining to the 
      * specified document category.</p><p>Valid medication document 
      * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p></p>
+     * Monograph, Indication Protocol, etc.</p>
      * 
-     * <p><p>Allows for the retrieval of all medication documents 
-     * pertaining to a specific document category.</p></p>
+     * <p>Allows for the retrieval of all medication documents 
+     * pertaining to a specific document category.</p>
      */
     @Hl7XmlMapping({"medicationDocumentType/value"})
     public ActMedicationDocumentCode getMedicationDocumentTypeValue() {
         return (ActMedicationDocumentCode) this.medicationDocumentTypeValue.getValue();
     }
+
+    /**
+     * <p>MedicationDocumentType</p>
+     * 
+     * <p>D:Medication Document Type</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those medication documents pertaining to the 
+     * specified document category.</p><p>Valid medication document 
+     * categories include: Drug Monograph, Contraindication 
+     * Monograph, Indication Protocol, etc.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those medication documents pertaining to the 
+     * specified document category.</p><p>Valid medication document 
+     * categories include: Drug Monograph, Contraindication 
+     * Monograph, Indication Protocol, etc.</p>
+     * 
+     * <p>Allows for the retrieval of all medication documents 
+     * pertaining to a specific document category.</p>
+     */
     public void setMedicationDocumentTypeValue(ActMedicationDocumentCode medicationDocumentTypeValue) {
         this.medicationDocumentTypeValue.setValue(medicationDocumentTypeValue);
     }
@@ -210,16 +303,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>C:Prescribing Indication Diagnosis Code</p>
      * 
-     * <p><p>Returns documents which relate to a particular 
-     * diagnosis</p></p>
+     * <p>Returns documents which relate to a particular 
+     * diagnosis</p>
      * 
-     * <p><p>Useful for finding protocols and drug monographs 
-     * associated with an indication</p></p>
+     * <p>Useful for finding protocols and drug monographs 
+     * associated with an indication</p>
      */
     @Hl7XmlMapping({"prescribingDiagnosisCode/value"})
     public DiagnosisValue getPrescribingDiagnosisCodeValue() {
         return (DiagnosisValue) this.prescribingDiagnosisCodeValue.getValue();
     }
+
+    /**
+     * <p>PrescribingIndicationDiagnosisCode</p>
+     * 
+     * <p>C:Prescribing Indication Diagnosis Code</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * diagnosis</p>
+     * 
+     * <p>Useful for finding protocols and drug monographs 
+     * associated with an indication</p>
+     */
     public void setPrescribingDiagnosisCodeValue(DiagnosisValue prescribingDiagnosisCodeValue) {
         this.prescribingDiagnosisCodeValue.setValue(prescribingDiagnosisCodeValue);
     }
@@ -230,16 +335,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>Prescribing Indication Symptom Code</p>
      * 
-     * <p><p>Returns documents which relate to a particular 
-     * symptom</p></p>
+     * <p>Returns documents which relate to a particular 
+     * symptom</p>
      * 
-     * <p><p>Useful for finding protocols and drug monographs 
-     * associated with an indication</p></p>
+     * <p>Useful for finding protocols and drug monographs 
+     * associated with an indication</p>
      */
     @Hl7XmlMapping({"prescribingSymptomCode/value"})
     public SymptomValue getPrescribingSymptomCodeValue() {
         return (SymptomValue) this.prescribingSymptomCodeValue.getValue();
     }
+
+    /**
+     * <p>PrescribingIndicationSymptomCode</p>
+     * 
+     * <p>Prescribing Indication Symptom Code</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * symptom</p>
+     * 
+     * <p>Useful for finding protocols and drug monographs 
+     * associated with an indication</p>
+     */
     public void setPrescribingSymptomCodeValue(SymptomValue prescribingSymptomCodeValue) {
         this.prescribingSymptomCodeValue.setValue(prescribingSymptomCodeValue);
     }
@@ -256,17 +373,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>D:Orderable Drug Form</p>
      * 
-     * <p><p>Indicates the form in which the drug product must is 
-     * manufactured.</p></p>
+     * <p>Indicates the form in which the drug product must is 
+     * manufactured.</p>
      * 
-     * <p><p>Useful filter for searching drugs. Allows the 
-     * requester to specify the drug form of interest for the 
-     * retrieval.</p></p>
+     * <p>Useful filter for searching drugs. Allows the requester 
+     * to specify the drug form of interest for the retrieval.</p>
      */
     @Hl7XmlMapping({"drugForm/value"})
     public OrderableDrugForm getDrugFormValue() {
         return (OrderableDrugForm) this.drugFormValue.getValue();
     }
+
+    /**
+     * <p>OrderableDrugForm</p>
+     * 
+     * <p>D:Orderable Drug Form</p>
+     * 
+     * <p>Indicates the form in which the drug product must is 
+     * manufactured.</p>
+     * 
+     * <p>Useful filter for searching drugs. Allows the requester 
+     * to specify the drug form of interest for the retrieval.</p>
+     */
     public void setDrugFormValue(OrderableDrugForm drugFormValue) {
         this.drugFormValue.setValue(drugFormValue);
     }
@@ -277,18 +405,32 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>F:Drug Manufacturer Name</p>
      * 
-     * <p><p>The name of a drug manufacturer.</p></p>
+     * <p>The name of a drug manufacturer.</p>
      * 
-     * <p><p>Allows for the retrieval of drug products based on the 
-     * manufacturer.</p></p>
+     * <p>Allows for the retrieval of drug products based on the 
+     * manufacturer.</p>
      * 
-     * <p><p>Manufacturer name search will be 'Starts with...' type 
-     * of a search.</p></p>
+     * <p>Manufacturer name search will be 'Starts with...' type of 
+     * a search.</p>
      */
     @Hl7XmlMapping({"drugManufacturerName/value"})
     public String getDrugManufacturerNameValue() {
         return this.drugManufacturerNameValue.getValue();
     }
+
+    /**
+     * <p>DrugManufacturerName</p>
+     * 
+     * <p>F:Drug Manufacturer Name</p>
+     * 
+     * <p>The name of a drug manufacturer.</p>
+     * 
+     * <p>Allows for the retrieval of drug products based on the 
+     * manufacturer.</p>
+     * 
+     * <p>Manufacturer name search will be 'Starts with...' type of 
+     * a search.</p>
+     */
     public void setDrugManufacturerNameValue(String drugManufacturerNameValue) {
         this.drugManufacturerNameValue.setValue(drugManufacturerNameValue);
     }
@@ -299,15 +441,26 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>C:Drug Name</p>
      * 
-     * <p><p>The name assigned to a drug.</p></p>
+     * <p>The name assigned to a drug.</p>
      * 
-     * <p><p>Name may be the only identification of a drug known by 
-     * many prescribers.</p></p>
+     * <p>Name may be the only identification of a drug known by 
+     * many prescribers.</p>
      */
     @Hl7XmlMapping({"drugName/value"})
     public String getDrugNameValue() {
         return this.drugNameValue.getValue();
     }
+
+    /**
+     * <p>DrugName</p>
+     * 
+     * <p>C:Drug Name</p>
+     * 
+     * <p>The name assigned to a drug.</p>
+     * 
+     * <p>Name may be the only identification of a drug known by 
+     * many prescribers.</p>
+     */
     public void setDrugNameValue(String drugNameValue) {
         this.drugNameValue.setValue(drugNameValue);
     }
@@ -318,16 +471,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * 
      * <p>E:Drug Route Code</p>
      * 
-     * <p><p>A filter based on how the drug should be introduced 
-     * into the patient's body (e.g. Oral, topical, etc.)</p></p>
+     * <p>A filter based on how the drug should be introduced into 
+     * the patient's body (e.g. Oral, topical, etc.)</p>
      * 
-     * <p><p>Allows limiting the returned list of drugs to a single 
-     * route.</p></p>
+     * <p>Allows limiting the returned list of drugs to a single 
+     * route.</p>
      */
     @Hl7XmlMapping({"drugRoute/value"})
     public RouteOfAdministration getDrugRouteValue() {
         return (RouteOfAdministration) this.drugRouteValue.getValue();
     }
+
+    /**
+     * <p>DrugRouteCode</p>
+     * 
+     * <p>E:Drug Route Code</p>
+     * 
+     * <p>A filter based on how the drug should be introduced into 
+     * the patient's body (e.g. Oral, topical, etc.)</p>
+     * 
+     * <p>Allows limiting the returned list of drugs to a single 
+     * route.</p>
+     */
     public void setDrugRouteValue(RouteOfAdministration drugRouteValue) {
         this.drugRouteValue.setValue(drugRouteValue);
     }

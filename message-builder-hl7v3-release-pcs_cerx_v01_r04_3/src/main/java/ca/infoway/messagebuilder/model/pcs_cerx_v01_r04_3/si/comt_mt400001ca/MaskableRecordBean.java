@@ -38,17 +38,17 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 /**
  * <p>Maskable Record</p>
  * 
- * <p><p>A particular record or type of record for which 
- * masking is supported.</p></p>
+ * <p>A particular record or type of record for which masking 
+ * is supported.</p>
  * 
- * <p><p>The root construct for masking and unmasking specific 
- * record or type of record.</p></p>
+ * <p>The root construct for masking and unmasking specific 
+ * record or type of record.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT400001CA.MaskableActType"})
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
@@ -60,22 +60,38 @@ public class MaskableRecordBean extends MessagePartBean {
     /**
      * <p>C:Record Identifier</p>
      * 
-     * <p><p>The identifier of the prescription, dispense, allergy, 
+     * <p>The identifier of the prescription, dispense, allergy, 
      * lab test result or other record for which the masking status 
-     * is being changed.</p></p>
+     * is being changed.</p>
      * 
-     * <p><p>Allows unique reference to a particular record to be 
-     * masked or unmasked.</p></p>
+     * <p>Allows unique reference to a particular record to be 
+     * masked or unmasked.</p>
      * 
-     * <p><p>In many systems, masking a 'child' may result in 
+     * <p>In many systems, masking a 'child' may result in 
      * automatic masking of the parent. For example, masking a 
      * dispense record may cause the prescription to become masked 
-     * as well.</p></p>
+     * as well.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>C:Record Identifier</p>
+     * 
+     * <p>The identifier of the prescription, dispense, allergy, 
+     * lab test result or other record for which the masking status 
+     * is being changed.</p>
+     * 
+     * <p>Allows unique reference to a particular record to be 
+     * masked or unmasked.</p>
+     * 
+     * <p>In many systems, masking a 'child' may result in 
+     * automatic masking of the parent. For example, masking a 
+     * dispense record may cause the prescription to become masked 
+     * as well.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -84,17 +100,28 @@ public class MaskableRecordBean extends MessagePartBean {
     /**
      * <p>B:Record Type</p>
      * 
-     * <p><p>Indicates a detailed type of record to be masked. E.g. 
-     * All lab tests of a given type.</p></p>
+     * <p>Indicates a detailed type of record to be masked. E.g. 
+     * All lab tests of a given type.</p>
      * 
-     * <p><p>Allows automatic masking of a particular type of 
-     * record rather than requiring each occurrence to be masked 
-     * individually.</p></p>
+     * <p>Allows automatic masking of a particular type of record 
+     * rather than requiring each occurrence to be masked 
+     * individually.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInformationCategoryCode getCode() {
         return (ActInformationCategoryCode) this.code.getValue();
     }
+
+    /**
+     * <p>B:Record Type</p>
+     * 
+     * <p>Indicates a detailed type of record to be masked. E.g. 
+     * All lab tests of a given type.</p>
+     * 
+     * <p>Allows automatic masking of a particular type of record 
+     * rather than requiring each occurrence to be masked 
+     * individually.</p>
+     */
     public void setCode(ActInformationCategoryCode code) {
         this.code.setValue(code);
     }
@@ -103,18 +130,30 @@ public class MaskableRecordBean extends MessagePartBean {
     /**
      * <p>A:Masked Indicator</p>
      * 
-     * <p><p>Indicates the new value for the masking status of the 
-     * item.</p></p>
+     * <p>Indicates the new value for the masking status of the 
+     * item.</p>
      * 
-     * <p><p>Forces the sender of the message to assert what the 
-     * new value should be, rather than performing a 'toggle' and 
+     * <p>Forces the sender of the message to assert what the new 
+     * value should be, rather than performing a 'toggle' and 
      * potentially ending up in the wrong state. Therefore, the 
-     * attribute is mandatory.</p></p>
+     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>A:Masked Indicator</p>
+     * 
+     * <p>Indicates the new value for the masking status of the 
+     * item.</p>
+     * 
+     * <p>Forces the sender of the message to assert what the new 
+     * value should be, rather than performing a 'toggle' and 
+     * potentially ending up in the wrong state. Therefore, the 
+     * attribute is mandatory.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -124,6 +163,7 @@ public class MaskableRecordBean extends MessagePartBean {
     public RoleBean getDirectTargetRole() {
         return this.directTargetRole;
     }
+
     public void setDirectTargetRole(RoleBean directTargetRole) {
         this.directTargetRole = directTargetRole;
     }
@@ -133,6 +173,7 @@ public class MaskableRecordBean extends MessagePartBean {
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
+
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -142,6 +183,7 @@ public class MaskableRecordBean extends MessagePartBean {
     public DiagnosisBean getReasonDiagnosis() {
         return this.reasonDiagnosis;
     }
+
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
     }

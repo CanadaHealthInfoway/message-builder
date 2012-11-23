@@ -42,58 +42,58 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt301001ca.Ann
 /**
  * <p>COMT_MT300001CA.Annotation: Comment</p>
  * 
- * <p><p>Identifies the comments to be recorded against a 
- * Patient's record.</p></p>
+ * <p>Identifies the comments to be recorded against a 
+ * Patient's record.</p>
  * 
- * <p><p>Allows comments to be attached to a Patient record. A 
+ * <p>Allows comments to be attached to a Patient record. A 
  * Patient record can pertain to demographic or clinical (Drug, 
- * Condition, Lab, DI, Immunization, etc) information.</p></p>
+ * Condition, Lab, DI, Immunization, etc) information.</p>
  * 
  * <p>COMT_MT300003CA.Annotation: Comment</p>
  * 
- * <p><p>Identifies the comments to be recorded against a 
- * Patient's record.</p></p>
+ * <p>Identifies the comments to be recorded against a 
+ * Patient's record.</p>
  * 
- * <p><p>Allows comments to be attached to a Patient record. A 
+ * <p>Allows comments to be attached to a Patient record. A 
  * Patient record can pertain to demographic or clinical (Drug, 
- * Condition, Lab, DI, etc) information.</p></p>
+ * Condition, Lab, DI, etc) information.</p>
  * 
  * <p>COMT_MT301001CA.Annotation: Comment</p>
  * 
- * <p><p>Identifies the comments to be recorded against a 
- * Patient's record.</p></p>
+ * <p>Identifies the comments to be recorded against a 
+ * Patient's record.</p>
  * 
- * <p><p>Allows comments to be attached to a Patient record. A 
+ * <p>Allows comments to be attached to a Patient record. A 
  * Patient record can pertain to demographic or clinical (Drug, 
- * Condition, Lab, DI, etc) information.</p></p>
+ * Condition, Lab, DI, etc) information.</p>
  * 
  * <p>COCT_MT120600CA.Annotation: Notes</p>
  * 
- * <p><p>This is a list of comments made about the record by 
+ * <p>This is a list of comments made about the record by 
  * providers. Information captured here includes the provider 
  * making the comments; and excludes information that would 
  * render the record invalid. This information will only be 
  * seen when another provider reviews the record. Urgent or 
  * targeted messages should be sent using a different mechanism 
- * (e.g. phone).</p></p>
+ * (e.g. phone).</p>
  * 
- * <p><p>Public Health requires all clinical notes to be 
+ * <p>Public Health requires all clinical notes to be 
  * 'verified' by a responsible party if not created by 
  * physician in charge. This model conveys the correct 
  * semantics, but is inconsistent with other uses of 
  * &quot;author&quot; participation in POIZ models. Any changes 
  * here will have to be reconciled with other projects using 
- * this same cmet.</p></p>
+ * this same cmet.</p>
  * 
- * <p><p>Allows various Providers to attach comments to an 
+ * <p>Allows various Providers to attach comments to an 
  * existing record, and thus improving cross-provider 
- * communications.</p></p>
+ * communications.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120600CA.Annotation","COMT_MT300001CA.Annotation","COMT_MT300003CA.Annotation","COMT_MT301001CA.Annotation"})
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
@@ -110,32 +110,60 @@ public class CommentBean extends MessagePartBean {
      * 
      * <p>A:Patient Note Category</p>
      * 
-     * <p><p>A coded value denoting the category of note being 
+     * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, etc.</p></p>
+     * General, Medication, Lab, DI, etc.</p>
      * 
-     * <p><p>Allows patient notes of different purposes and use, to 
-     * be attached to a patient. Attribute is mandatory to ensure 
-     * that patient notes are categorized accordingly. This 
-     * attribute may also be used by DISs to enforce different 
-     * access control to different types of notes.</p></p>
+     * <p>Allows patient notes of different purposes and use, to be 
+     * attached to a patient. Attribute is mandatory to ensure that 
+     * patient notes are categorized accordingly. This attribute 
+     * may also be used by DISs to enforce different access control 
+     * to different types of notes.</p>
      * 
      * <p>Patient Note Category</p>
      * 
-     * <p><p>A coded value denoting the category of note being 
+     * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, Immunization, etc</p></p>
+     * General, Medication, Lab, DI, Immunization, etc</p>
      * 
-     * <p><p>Allows patient notes of different purposes and use, to 
-     * be attached to a patient. Attribute is mandatory to ensure 
-     * that patient notes are categorized accordingly. This 
-     * attribute may also be used by DISs to enforce different 
-     * access control to different types of notes.</p></p>
+     * <p>Allows patient notes of different purposes and use, to be 
+     * attached to a patient. Attribute is mandatory to ensure that 
+     * patient notes are categorized accordingly. This attribute 
+     * may also be used by DISs to enforce different access control 
+     * to different types of notes.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActPatientAnnotationCode getCode() {
         return (ActPatientAnnotationCode) this.code.getValue();
     }
+
+    /**
+     * <p>PatientNoteCategory</p>
+     * 
+     * <p>A:Patient Note Category</p>
+     * 
+     * <p>A coded value denoting the category of note being 
+     * attached to a Patient's record. Categories of note include: 
+     * General, Medication, Lab, DI, etc.</p>
+     * 
+     * <p>Allows patient notes of different purposes and use, to be 
+     * attached to a patient. Attribute is mandatory to ensure that 
+     * patient notes are categorized accordingly. This attribute 
+     * may also be used by DISs to enforce different access control 
+     * to different types of notes.</p>
+     * 
+     * <p>Patient Note Category</p>
+     * 
+     * <p>A coded value denoting the category of note being 
+     * attached to a Patient's record. Categories of note include: 
+     * General, Medication, Lab, DI, Immunization, etc</p>
+     * 
+     * <p>Allows patient notes of different purposes and use, to be 
+     * attached to a patient. Attribute is mandatory to ensure that 
+     * patient notes are categorized accordingly. This attribute 
+     * may also be used by DISs to enforce different access control 
+     * to different types of notes.</p>
+     */
     public void setCode(ActPatientAnnotationCode code) {
         this.code.setValue(code);
     }
@@ -144,38 +172,70 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>C:Patient Note Text</p>
      * 
-     * <p><p>Free textual description of the patient note.</p></p>
+     * <p>Free textual description of the patient note.</p>
      * 
-     * <p><p>Allows a provider to attach comments to a patient as a 
+     * <p>Allows a provider to attach comments to a patient as a 
      * whole or to the patient's profile (such as medication, lab. 
      * DI, etc). This attribute is mandatory because there's no 
      * point in having a patient note unless there's actually 
-     * content in the note.</p></p>
+     * content in the note.</p>
      * 
      * <p>Note Text</p>
      * 
-     * <p><p>Free text comments. Additional textual iinformation 
-     * entered about an object.</p></p>
+     * <p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p>
      * 
-     * <p><p>Allows a provider to attach comments to objects for 
+     * <p>Allows a provider to attach comments to objects for 
      * communication. This attribute is mandatory because there's 
      * no point in having a note class unless there's actually 
-     * content in the note.</p></p>
+     * content in the note.</p>
      * 
      * <p>C:Annotation Text</p>
      * 
-     * <p><p>Free text comment to be attached to a record.</p></p>
+     * <p>Free text comment to be attached to a record.</p>
      * 
-     * <p><p>Allows a provider to attach arbitrary comments to 
+     * <p>Allows a provider to attach arbitrary comments to 
      * clinical records (prescription, dispenses, lab results, 
      * allergies, etc) for communication. This attribute is 
      * mandatory because there's no point in having an annotation 
-     * unless there's actually content in the note.</p></p>
+     * unless there's actually content in the note.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>C:Patient Note Text</p>
+     * 
+     * <p>Free textual description of the patient note.</p>
+     * 
+     * <p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
+     * content in the note.</p>
+     * 
+     * <p>Note Text</p>
+     * 
+     * <p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p>
+     * 
+     * <p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p>
+     * 
+     * <p>C:Annotation Text</p>
+     * 
+     * <p>Free text comment to be attached to a record.</p>
+     * 
+     * <p>Allows a provider to attach arbitrary comments to 
+     * clinical records (prescription, dispenses, lab results, 
+     * allergies, etc) for communication. This attribute is 
+     * mandatory because there's no point in having an annotation 
+     * unless there's actually content in the note.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }
@@ -185,6 +245,7 @@ public class CommentBean extends MessagePartBean {
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
+
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -195,22 +256,40 @@ public class CommentBean extends MessagePartBean {
      * 
      * <p>B:Patient Note Id</p>
      * 
-     * <p><p>Identifier of the patient note record.</p></p>
+     * <p>Identifier of the patient note record.</p>
      * 
-     * <p><p>Allows for the unique reference of a patient note and 
-     * is therefore mandatory.</p><p>Allows for referencing of a 
+     * <p>Allows for the unique reference of a patient note and is 
+     * therefore mandatory.</p><p>Allows for referencing of a 
      * particular patient note and thus allows for the removal of 
-     * the note.</p></p>
+     * the note.</p>
      * 
-     * <p><p>Allows for the unique reference of a patient note and 
-     * is therefore mandatory.</p><p>Allows for referencing of a 
+     * <p>Allows for the unique reference of a patient note and is 
+     * therefore mandatory.</p><p>Allows for referencing of a 
      * particular patient note and thus allows for the removal of 
-     * the note.</p></p>
+     * the note.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PatientNoteId</p>
+     * 
+     * <p>B:Patient Note Id</p>
+     * 
+     * <p>Identifier of the patient note record.</p>
+     * 
+     * <p>Allows for the unique reference of a patient note and is 
+     * therefore mandatory.</p><p>Allows for referencing of a 
+     * particular patient note and thus allows for the removal of 
+     * the note.</p>
+     * 
+     * <p>Allows for the unique reference of a patient note and is 
+     * therefore mandatory.</p><p>Allows for referencing of a 
+     * particular patient note and thus allows for the removal of 
+     * the note.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -220,6 +299,7 @@ public class CommentBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -229,6 +309,7 @@ public class CommentBean extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
@@ -238,6 +319,7 @@ public class CommentBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -248,18 +330,18 @@ public class CommentBean extends MessagePartBean {
      * 
      * <p>Written in</p>
      * 
-     * <p><p>A coded value denoting the language in which the note 
-     * is written.</p></p>
+     * <p>A coded value denoting the language in which the note is 
+     * written.</p>
      * 
-     * <p><p>Allows providers to write notes in the language of 
-     * their choice.</p><p>This attribute is marked as 'populated' 
+     * <p>Allows providers to write notes in the language of their 
+     * choice.</p><p>This attribute is marked as 'populated' 
      * because the language of the note must always be 
-     * known/available or a null flavor must be specified.</p></p>
+     * known/available or a null flavor must be specified.</p>
      * 
-     * <p><p>Allows providers to write notes in the language of 
-     * their choice.</p><p>This attribute is marked as 'populated' 
+     * <p>Allows providers to write notes in the language of their 
+     * choice.</p><p>This attribute is marked as 'populated' 
      * because the language of the note must always be 
-     * known/available or a null flavor must be specified.</p></p>
+     * known/available or a null flavor must be specified.</p>
      * 
      * <p>D:Written in</p>
      */
@@ -267,6 +349,27 @@ public class CommentBean extends MessagePartBean {
     public HumanLanguage getLanguageCode() {
         return (HumanLanguage) this.languageCode.getValue();
     }
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     * 
+     * <p>A coded value denoting the language in which the note is 
+     * written.</p>
+     * 
+     * <p>Allows providers to write notes in the language of their 
+     * choice.</p><p>This attribute is marked as 'populated' 
+     * because the language of the note must always be 
+     * known/available or a null flavor must be specified.</p>
+     * 
+     * <p>Allows providers to write notes in the language of their 
+     * choice.</p><p>This attribute is marked as 'populated' 
+     * because the language of the note must always be 
+     * known/available or a null flavor must be specified.</p>
+     * 
+     * <p>D:Written in</p>
+     */
     public void setLanguageCode(HumanLanguage languageCode) {
         this.languageCode.setValue(languageCode);
     }
@@ -276,6 +379,7 @@ public class CommentBean extends MessagePartBean {
     public AnnotatedActBean getSubjectAnnotatedAct() {
         return this.subjectAnnotatedAct;
     }
+
     public void setSubjectAnnotatedAct(AnnotatedActBean subjectAnnotatedAct) {
         this.subjectAnnotatedAct = subjectAnnotatedAct;
     }

@@ -28,9 +28,19 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 
+/**
+ * <p>PORX_IN060010CA: Device prescr. with hist. and disp. 
+ * query</p>
+ * 
+ * <p>Message: MCCI_MT000100CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060280CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060010CA"})
 public class DevicePrescrWithHistAndDispQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Receiver","MCCI_MT000200CA.Receiver","MCCI_MT000300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
@@ -47,16 +47,28 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JB:Receiver Network Address</p>
      * 
-     * <p><p>The address to which this message is being sent.</p></p>
+     * <p>The address to which this message is being sent.</p>
      * 
-     * <p><p>Indicates where the message should be sent. This is 
+     * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
-     * addresses.</p></p>
+     * addresses.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
         return this.telecom.getValue();
     }
+
+    /**
+     * <p>ReceiverNetworkAddress</p>
+     * 
+     * <p>JB:Receiver Network Address</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p>
+     */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
     }
@@ -67,18 +79,32 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JA:Receiver Application Identifier</p>
      * 
-     * <p><p>The unique identifier of the application to which the 
-     * message is being sent.</p></p>
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
      * 
-     * <p><p>Used for routing and for verification that &quot;yes, 
+     * <p>Used for routing and for verification that &quot;yes, 
      * this message is intended for me.&quot; This is mandatory 
      * because it is the key identifier of the receiving 
-     * application.</p></p>
+     * application.</p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
         return this.deviceId.getValue();
     }
+
+    /**
+     * <p>ReceiverApplicationIdentifier</p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     */
     public void setDeviceId(Identifier deviceId) {
         this.deviceId.setValue(deviceId);
     }
@@ -89,18 +115,32 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JC:Receiver Organization Identifier</p>
      * 
-     * <p><p>The unique identifier of the organization with 
-     * responsibility to act on the contents of this message.</p></p>
+     * <p>The unique identifier of the organization with 
+     * responsibility to act on the contents of this message.</p>
      * 
-     * <p><p>Important when the eventual entity responsible for 
-     * acting on an interaction may be reached through several 
-     * routing steps. This attribute is optional because not all 
-     * environments require communicating this information.</p></p>
+     * <p>Important when the eventual entity responsible for acting 
+     * on an interaction may be reached through several routing 
+     * steps. This attribute is optional because not all 
+     * environments require communicating this information.</p>
      */
     @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
     public Identifier getDeviceAsAgentRepresentedOrganizationId() {
         return this.deviceAsAgentRepresentedOrganizationId.getValue();
     }
+
+    /**
+     * <p>ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>JC:Receiver Organization Identifier</p>
+     * 
+     * <p>The unique identifier of the organization with 
+     * responsibility to act on the contents of this message.</p>
+     * 
+     * <p>Important when the eventual entity responsible for acting 
+     * on an interaction may be reached through several routing 
+     * steps. This attribute is optional because not all 
+     * environments require communicating this information.</p>
+     */
     public void setDeviceAsAgentRepresentedOrganizationId(Identifier deviceAsAgentRepresentedOrganizationId) {
         this.deviceAsAgentRepresentedOrganizationId.setValue(deviceAsAgentRepresentedOrganizationId);
     }
@@ -111,17 +151,30 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>JD:Receiver Facility Identifier</p>
      * 
-     * <p><p>Identifies the facility expected to receive the 
-     * message.</p></p>
+     * <p>Identifies the facility expected to receive the 
+     * message.</p>
      * 
-     * <p><p>May be used to assist in routing the message. This 
+     * <p>May be used to assist in routing the message. This 
      * attribute is optional because not all environments require 
-     * communicating this information.</p></p>
+     * communicating this information.</p>
      */
     @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
     public Identifier getDeviceAsLocatedEntityLocationId() {
         return this.deviceAsLocatedEntityLocationId.getValue();
     }
+
+    /**
+     * <p>ReceiverFacilityIdentifier</p>
+     * 
+     * <p>JD:Receiver Facility Identifier</p>
+     * 
+     * <p>Identifies the facility expected to receive the 
+     * message.</p>
+     * 
+     * <p>May be used to assist in routing the message. This 
+     * attribute is optional because not all environments require 
+     * communicating this information.</p>
+     */
     public void setDeviceAsLocatedEntityLocationId(Identifier deviceAsLocatedEntityLocationId) {
         this.deviceAsLocatedEntityLocationId.setValue(deviceAsLocatedEntityLocationId);
     }

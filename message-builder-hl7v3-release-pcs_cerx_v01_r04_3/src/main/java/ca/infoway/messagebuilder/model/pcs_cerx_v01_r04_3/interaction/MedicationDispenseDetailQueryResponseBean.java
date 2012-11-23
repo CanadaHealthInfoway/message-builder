@@ -29,9 +29,21 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Medica
 
 
 
+/**
+ * <p>PORX_IN060220CA: Medication dispense detail query 
+ * response</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060090CA.MedicationDispense</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060360CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060220CA"})
 public class MedicationDispenseDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationDispense_1Bean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

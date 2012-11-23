@@ -35,73 +35,73 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>REPC_MT000002CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000009CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000001CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000006CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000013CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>Indicates both the product and how related they are 
- * determined to be to the reaction.</p></p>
+ * <p>Indicates both the product and how related they are 
+ * determined to be to the reaction.</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000012CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  * 
  * <p>REPC_MT000005CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p><p>This is a ranking/ an assertion of the seriouness of 
- * the diagnosed/reported medical condition.</p></p>
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
- * <p><p>Allows providers to determine appropriate managements 
- * for contraindications involving such medical conditions.</p></p>
+ * <p>Allows providers to determine appropriate managements for 
+ * contraindications involving such medical conditions.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
 public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV value = new CVImpl();
 
 
@@ -110,114 +110,224 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of reactions. May influence whether 
+     * <p>Allows for sorting of reactions. May influence whether 
      * contraindications must be managed.</p><p>Because SNOMED 
      * pre-coordinates severity into code, this association is 
-     * optional</p></p>
+     * optional</p>
      * 
-     * <p><p>Allows for sorting of reactions. May influence whether 
+     * <p>Allows for sorting of reactions. May influence whether 
      * contraindications must be managed.</p><p>Because SNOMED 
      * pre-coordinates severity into code, this association is 
-     * optional</p></p>
+     * optional</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed. Because this 
      * concept is pre-coordinated with code for SNOMED, the 
-     * association is optional.</p></p>
+     * association is optional.</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of reactions. May influence whether 
+     * <p>Allows for sorting of reactions. May influence whether 
      * contraindications must be managed. Because SNOMED 
      * pre-coordinates this concept into code, the association is 
-     * optional</p></p>
+     * optional</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of reactions. May influence whether 
+     * <p>Allows for sorting of reactions. May influence whether 
      * contraindications must be managed. Because SNOMED 
      * pre-coordinates this concept with code, the association is 
-     * optional.</p></p>
+     * optional.</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p></p>
+     * is optional</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p></p>
+     * is optional</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed. Because SNOMED 
      * pre-coordinates severity into 'code', the attribute is 
-     * optional.</p></p>
+     * optional.</p>
      * 
      * <p>C:Severity Level</p>
      * 
-     * <p><p>Indicates the gravity of the allergy, intolerance or 
+     * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>AllergyIntolerance.severity</p></p>
+     * <p>AllergyIntolerance.severity</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p></p>
+     * code, this association is optional.</p>
      * 
-     * <p><p>Allows for sorting of allergy records. May influence 
+     * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p></p>
+     * code, this association is optional.</p>
      */
     @Hl7XmlMapping({"value"})
     public SeverityObservation getValue() {
         return (SeverityObservation) this.value.getValue();
     }
+
+    /**
+     * <p>SeverityLevel</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed.</p><p>Because SNOMED 
+     * pre-coordinates severity into code, this association is 
+     * optional</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed.</p><p>Because SNOMED 
+     * pre-coordinates severity into code, this association is 
+     * optional</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed. Because this 
+     * concept is pre-coordinated with code for SNOMED, the 
+     * association is optional.</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed. Because SNOMED 
+     * pre-coordinates this concept into code, the association is 
+     * optional</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed. Because SNOMED 
+     * pre-coordinates this concept with code, the association is 
+     * optional.</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed.</p><p>Because 
+     * SNOMED pre-coordinates severity into code, this association 
+     * is optional</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed.</p><p>Because 
+     * SNOMED pre-coordinates severity into code, this association 
+     * is optional</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed. Because SNOMED 
+     * pre-coordinates severity into 'code', the attribute is 
+     * optional.</p>
+     * 
+     * <p>C:Severity Level</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed.</p><p>Because 
+     * SNOMED handles this concept by pre-coordinating it into 
+     * code, this association is optional.</p>
+     * 
+     * <p>Allows for sorting of allergy records. May influence 
+     * whether contraindications must be managed.</p><p>Because 
+     * SNOMED handles this concept by pre-coordinating it into 
+     * code, this association is optional.</p>
+     */
     public void setValue(SeverityObservation value) {
         this.value.setValue(value);
     }

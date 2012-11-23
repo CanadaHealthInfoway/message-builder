@@ -33,68 +33,68 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCAI_MT700210CA.Subject2: f:refers to</p>
  * 
- * <p><p>Indicates the item(s) being acted upon by this trigger 
- * event.</p></p>
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p>
  * 
- * <p><p>Provides information about the thing being created or 
- * modified.</p></p>
+ * <p>Provides information about the thing being created or 
+ * modified.</p>
  * 
- * <p><p>If there are multiple subject items, the changes to 
- * all of them must be either accepted or rejected as a single 
- * action. I.e. One trigger event = 1 unit of work.</p></p>
+ * <p>If there are multiple subject items, the changes to all 
+ * of them must be either accepted or rejected as a single 
+ * action. I.e. One trigger event = 1 unit of work.</p>
  * 
  * <p>MCAI_MT700211CA.Subject2: f:refers to</p>
  * 
- * <p><p>Indicates the item(s) being acted upon by this trigger 
- * event.</p></p>
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p>
  * 
- * <p><p>Provides information about the thing being created or 
- * modified.</p></p>
+ * <p>Provides information about the thing being created or 
+ * modified.</p>
  * 
- * <p><p>If there are multiple subject items, the changes to 
- * all of them must be either accepted or rejected as a single 
- * action. I.e. One trigger event = 1 unit of work.</p></p>
+ * <p>If there are multiple subject items, the changes to all 
+ * of them must be either accepted or rejected as a single 
+ * action. I.e. One trigger event = 1 unit of work.</p>
  * 
  * <p>MCAI_MT700221CA.Subject2: f:refers to</p>
  * 
- * <p><p>Indicates the item(s) being acted upon by this trigger 
- * event.</p></p>
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p>
  * 
- * <p><p>Provides information about the thing being created or 
- * modified.</p></p>
+ * <p>Provides information about the thing being created or 
+ * modified.</p>
  * 
- * <p><p>If there are multiple subject items, the changes to 
- * all of them must be either accepted or rejected as a single 
- * action. I.e. One trigger event = 1 unit of work.</p></p>
+ * <p>If there are multiple subject items, the changes to all 
+ * of them must be either accepted or rejected as a single 
+ * action. I.e. One trigger event = 1 unit of work.</p>
  * 
  * <p>QUQI_MT120000CA.Subject2: f:refers to</p>
  * 
- * <p><p>Indicates the item(s) being acted upon by this trigger 
- * event.</p></p>
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p>
  * 
- * <p><p>Provides information about the thing being created or 
- * modified.</p></p>
+ * <p>Provides information about the thing being created or 
+ * modified.</p>
  * 
- * <p><p>If there are multiple subject items, the changes to 
- * all of them must be either accepted or rejected as a single 
- * action. I.e. One trigger event = 1 unit of work.</p></p>
+ * <p>If there are multiple subject items, the changes to all 
+ * of them must be either accepted or rejected as a single 
+ * action. I.e. One trigger event = 1 unit of work.</p>
  * 
  * <p>MCAI_MT700220CA.Subject2: f:refers to</p>
  * 
- * <p><p>Indicates the item(s) being acted upon by this trigger 
- * event.</p></p>
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p>
  * 
- * <p><p>Provides information about the thing being created or 
- * modified.</p></p>
+ * <p>Provides information about the thing being created or 
+ * modified.</p>
  * 
- * <p><p>If there are multiple subject items, the changes to 
- * all of them must be either accepted or rejected as a single 
- * action. I.e. One trigger event = 1 unit of work.</p></p>
+ * <p>If there are multiple subject items, the changes to all 
+ * of them must be either accepted or rejected as a single 
+ * action. I.e. One trigger event = 1 unit of work.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","QUQI_MT120000CA.Subject2"})
 public class RefersToBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
@@ -104,27 +104,50 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Cascade Responsibility Indicator</p>
      * 
-     * <p><p>On creation interactions (where the state transition 
-     * is null-&gt;active), this must be true otherwise it must be 
-     * false.</p></p>
+     * <p>On creation interactions (where the state transition is 
+     * null-&gt;active), this must be true otherwise it must be 
+     * false.</p>
      * 
-     * <p><p>Indicates whether or not objects of the trigger event 
-     * are to be cascaded to the payload.</p></p>
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p>
      * 
-     * <p><p>Cascading of trigger event objects allows different 
+     * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p></p>
+     * cascading will be specified one way or another.</p>
      * 
-     * <p><p>Cascading of trigger event objects allows different 
+     * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p></p>
+     * cascading will be specified one way or another.</p>
      */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
+
+    /**
+     * <p>CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Cascade Responsibility Indicator</p>
+     * 
+     * <p>On creation interactions (where the state transition is 
+     * null-&gt;active), this must be true otherwise it must be 
+     * false.</p>
+     * 
+     * <p>Indicates whether or not objects of the trigger event are 
+     * to be cascaded to the payload.</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
@@ -134,6 +157,7 @@ public class RefersToBean<ACT> extends MessagePartBean {
     public ACT getAct() {
         return this.act;
     }
+
     public void setAct(ACT act) {
         this.act = act;
     }

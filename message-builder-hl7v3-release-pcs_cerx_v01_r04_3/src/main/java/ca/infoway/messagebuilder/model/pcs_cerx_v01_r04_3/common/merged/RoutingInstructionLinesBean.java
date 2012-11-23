@@ -33,44 +33,44 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCCI_MT000300CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p><p>Provides information on how the message should be 
- * routed within the receiving application.</p></p>
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
- * <p><p>Allows direction of messages within complex 
- * applications. This association is optional because not all 
- * applications will require this level of routing.</p></p>
+ * <p>Allows direction of messages within complex applications. 
+ * This association is optional because not all applications 
+ * will require this level of routing.</p>
  * 
  * <p>MCCI_MT102001CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p><p>Provides information on how the message should be 
- * routed within the receiving application.</p></p>
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
- * <p><p>Allows direction of messages within complex 
- * applications. This association is optional because not all 
- * applications will require this level of routing.</p></p>
+ * <p>Allows direction of messages within complex applications. 
+ * This association is optional because not all applications 
+ * will require this level of routing.</p>
  * 
  * <p>MCCI_MT000100CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p><p>Provides information on how the message should be 
- * routed within the receiving application.</p></p>
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
- * <p><p>Allows direction of messages within complex 
- * applications. This association is optional because not all 
- * applications will require this level of routing.</p></p>
+ * <p>Allows direction of messages within complex applications. 
+ * This association is optional because not all applications 
+ * will require this level of routing.</p>
  * 
  * <p>MCCI_MT000200CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p><p>Provides information on how the message should be 
- * routed within the receiving application.</p></p>
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
- * <p><p>Allows direction of messages within complex 
- * applications. This association is optional because not all 
- * applications will require this level of routing.</p></p>
+ * <p>Allows direction of messages within complex applications. 
+ * This association is optional because not all applications 
+ * will require this level of routing.</p>
  */
 @Hl7PartTypeMapping({"MCCI_MT000100CA.AttentionLine","MCCI_MT000200CA.AttentionLine","MCCI_MT000300CA.AttentionLine","MCCI_MT102001CA.AttentionLine"})
 public class RoutingInstructionLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ST keyWordText = new STImpl();
     private ST value = new STImpl();
 
@@ -80,17 +80,30 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>A:Routing Type</p>
      * 
-     * <p><p>A particular type of guidance for routing the 
-     * message.</p></p>
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
      * 
-     * <p><p>Allows categorization of routing types or support for 
+     * <p>Allows categorization of routing types or support for 
      * multiple route pieces. Mandatory to understand the routing 
-     * information.</p></p>
+     * information.</p>
      */
     @Hl7XmlMapping({"keyWordText"})
     public String getKeyWordText() {
         return this.keyWordText.getValue();
     }
+
+    /**
+     * <p>RoutingType</p>
+     * 
+     * <p>A:Routing Type</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
+     * 
+     * <p>Allows categorization of routing types or support for 
+     * multiple route pieces. Mandatory to understand the routing 
+     * information.</p>
+     */
     public void setKeyWordText(String keyWordText) {
         this.keyWordText.setValue(keyWordText);
     }
@@ -101,15 +114,24 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>B:Routing Name</p>
      * 
-     * <p><p>Indicates the specific value used to route the 
-     * item.</p></p>
+     * <p>Indicates the specific value used to route the item.</p>
      * 
-     * <p><p>Allows internal routing within an application.</p></p>
+     * <p>Allows internal routing within an application.</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>RoutingName</p>
+     * 
+     * <p>B:Routing Name</p>
+     * 
+     * <p>Indicates the specific value used to route the item.</p>
+     * 
+     * <p>Allows internal routing within an application.</p>
+     */
     public void setValue(String value) {
         this.value.setValue(value);
     }

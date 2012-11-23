@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 
+/**
+ * <p>REPC_IN000054CA: Patient basic observations query</p>
+ * 
+ * <p>Message: MCCI_MT000100CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: REPC_MT120002CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000054CA"})
 public class PatientBasicObservationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

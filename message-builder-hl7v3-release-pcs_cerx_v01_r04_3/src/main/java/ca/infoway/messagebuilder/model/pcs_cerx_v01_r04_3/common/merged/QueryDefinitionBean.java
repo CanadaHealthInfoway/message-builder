@@ -39,26 +39,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>QUQI_MT020000CA.QueryByParameter: Query definition</p>
  * 
- * <p><p>initialQuantityCode must be populated if and only if 
- * initialQuantity is populated</p></p>
+ * <p>initialQuantityCode must be populated if and only if 
+ * initialQuantity is populated</p>
  * 
- * <p><p>Identifies the content desired within a query.</p></p>
+ * <p>Identifies the content desired within a query.</p>
  * 
- * <p><p>Provides support for queries</p></p>
+ * <p>Provides support for queries</p>
  * 
  * <p>QUQI_MT120000CA.QueryByParameter: Query definition</p>
  * 
- * <p><p>initialQuantityCode must be populated if and only if 
- * initialQuantity is populated</p></p>
+ * <p>initialQuantityCode must be populated if and only if 
+ * initialQuantity is populated</p>
  * 
- * <p><p>Identifies the content desired within a query.</p></p>
+ * <p>Identifies the content desired within a query.</p>
  * 
- * <p><p>Provides support for queries</p></p>
+ * <p>Provides support for queries</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
     private CV initialQuantityCode = new CVImpl();
@@ -70,15 +70,26 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>H:Query Identifier</p>
      * 
-     * <p><p>Unique number for this particular query.</p></p>
+     * <p>Unique number for this particular query.</p>
      * 
-     * <p><p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p></p>
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
         return this.queryId.getValue();
     }
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
     }
@@ -89,38 +100,72 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p>I:Query Limit</p>
      * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      * 
-     * <p><p>There may be a very large number of matching rows. To 
+     * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
      * be returned with further data retrieved by using query 
-     * continuations.</p></p>
+     * continuations.</p>
      * 
-     * <p><p>If not specified, the default behavior is to return 
-     * all repetitions. However the recipient of a query may always 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
      * choose to limit the quantity returned to be less than the 
      * number requested. Regardless of the number specified here, 
      * the number of rows returned will never exceed the number of 
-     * matching rows based on the query parameters.</p></p>
+     * matching rows based on the query parameters.</p>
      * 
      * <p>I:Query Limit</p>
      * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      * 
-     * <p><p>There may be a very large number of matching rows. To 
+     * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
      * be returned with further data retrieved by using query 
      * continuations. If not specified, the default behavior is to 
      * return all repetitions. However the recipient of a query may 
      * always choose to limit the quantity returned to be less than 
-     * the number requested.</p></p>
+     * the number requested.</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
     public Integer getInitialQuantity() {
         return this.initialQuantity.getValue();
     }
+
+    /**
+     * <p>QueryLimit</p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations. If not specified, the default behavior is to 
+     * return all repetitions. However the recipient of a query may 
+     * always choose to limit the quantity returned to be less than 
+     * the number requested.</p>
+     */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
     }
@@ -130,6 +175,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     public QueryRequestLimit getInitialQuantityCode() {
         return (QueryRequestLimit) this.initialQuantityCode.getValue();
     }
+
     public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
         this.initialQuantityCode.setValue(initialQuantityCode);
     }
@@ -139,6 +185,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     public PL getParameterList() {
         return this.parameterList;
     }
+
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;
     }

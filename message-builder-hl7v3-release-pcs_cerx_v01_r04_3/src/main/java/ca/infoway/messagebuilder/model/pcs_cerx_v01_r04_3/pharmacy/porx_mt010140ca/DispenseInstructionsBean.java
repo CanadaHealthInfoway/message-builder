@@ -35,20 +35,19 @@ import java.util.List;
 /**
  * <p>Dispense Instructions</p>
  * 
- * <p><p>This is the information that describes the 
- * authorization for a dispenser to dispense the 
- * prescription.</p></p>
+ * <p>This is the information that describes the authorization 
+ * for a dispenser to dispense the prescription.</p>
  * 
- * <p><p>A_BillablePharmacyDispense</p></p>
+ * <p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyRequest"})
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PatientBean subjectPatient;
     private RecordedAtBean location;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
@@ -59,6 +58,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -68,6 +68,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -83,6 +84,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
     public ReferencedRecordBean getComponentOfActRequest() {
         return this.componentOfActRequest;
     }
+
     public void setComponentOfActRequest(ReferencedRecordBean componentOfActRequest) {
         this.componentOfActRequest = componentOfActRequest;
     }

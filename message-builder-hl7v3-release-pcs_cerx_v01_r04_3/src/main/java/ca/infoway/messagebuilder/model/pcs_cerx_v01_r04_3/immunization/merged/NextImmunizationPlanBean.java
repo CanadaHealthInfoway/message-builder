@@ -32,52 +32,78 @@ import java.util.Date;
 /**
  * <p>POIZ_MT030060CA.NextImmunizationPlan: (no business name)</p>
  * 
- * <p><p>The NextImmunizationPlan is when you need your next 
+ * <p>The NextImmunizationPlan is when you need your next 
  * &quot;series&quot; of immunizations, often referred to as 
- * booster shots.</p></p>
+ * booster shots.</p>
  * 
  * <p>POIZ_MT030050CA.NextImmunizationPlan: (no business name)</p>
  * 
- * <p><p>The NextImmunizationPlan is when you need your next 
+ * <p>The NextImmunizationPlan is when you need your next 
  * &quot;series&quot; of immunizations, often referred to as 
- * booster shots.</p></p>
+ * booster shots.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NextImmunizationPlan","POIZ_MT030060CA.NextImmunizationPlan","POIZ_MT060150CA.NextImmunizationPlan"})
 public class NextImmunizationPlanBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private TS effectiveTime = new TSImpl();
 
 
     /**
      * <p>Renewal Date</p>
      * 
-     * <p><p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p></p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
-     * <p><p>Necessary reminder to a patient and his/or provider 
-     * for a follow-up therapy.</p></p>
-     * 
-     * <p>Next Planned Series Repeat Date</p>
-     * 
-     * <p><p>The date on which the overall immunization therapy is 
-     * to be repeated.</p></p>
-     * 
-     * <p><p>Allows for immunization therapy planning for a 
-     * patient.</p></p>
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
      * 
      * <p>Next Planned Series Repeat Date</p>
      * 
-     * <p><p>Indicates the date on which the next series is 
-     * scheduled to be administered.</p></p>
+     * <p>The date on which the overall immunization therapy is to 
+     * be repeated.</p>
      * 
-     * <p><p>Allows for the scheduling of a multi-dose immunization 
-     * course.</p></p>
+     * <p>Allows for immunization therapy planning for a 
+     * patient.</p>
+     * 
+     * <p>Next Planned Series Repeat Date</p>
+     * 
+     * <p>Indicates the date on which the next series is scheduled 
+     * to be administered.</p>
+     * 
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Renewal Date</p>
+     * 
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
+     * 
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
+     * 
+     * <p>Next Planned Series Repeat Date</p>
+     * 
+     * <p>The date on which the overall immunization therapy is to 
+     * be repeated.</p>
+     * 
+     * <p>Allows for immunization therapy planning for a 
+     * patient.</p>
+     * 
+     * <p>Next Planned Series Repeat Date</p>
+     * 
+     * <p>Indicates the date on which the next series is scheduled 
+     * to be administered.</p>
+     * 
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }

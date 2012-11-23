@@ -54,29 +54,29 @@ import java.util.Date;
  * <p>PORX_MT980020CA.SubstanceAdministration: Active 
  * Medication</p>
  * 
- * <p><p>Indicates an active medication (prescription or 
+ * <p>Indicates an active medication (prescription or 
  * non-prescription medication) that is recorded in the 
  * patient's record and which contributed to triggering the 
- * issue.</p></p>
+ * issue.</p>
  * 
- * <p><p>Allows providers to identify the implicated drugs when 
- * determining their management approach.</p></p>
+ * <p>Allows providers to identify the implicated drugs when 
+ * determining their management approach.</p>
  * 
  * <p>PORX_MT980010CA.SubstanceAdministration: Active 
  * Medication</p>
  * 
- * <p><p>Indicates an active medication (prescription or 
+ * <p>Indicates an active medication (prescription or 
  * non-prescription medication) that is recorded in the 
  * patients record and which contributed to triggering the 
- * issue.</p></p>
+ * issue.</p>
  * 
- * <p><p>Allows providers to identify the offending drugs when 
- * determining their management approach.</p></p>
+ * <p>Allows providers to identify the offending drugs when 
+ * determining their management approach.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministration","PORX_MT980020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -92,28 +92,52 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Other Medication Indicator</p>
      * 
-     * <p><p>If the attribute is 'RQO', represents a prescription 
-     * or dispense record. Otherwise if 'EVN', it represents an 
-     * 'Other Medication' record.</p></p>
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
      * 
-     * <p><p>Knowing whether a drug is prescribed or not can 
-     * influence actions taken to mitigate an issue. The element is 
-     * therefore mandatory.</p></p>
+     * <p>Knowing whether a drug is prescribed or not can influence 
+     * actions taken to mitigate an issue. The element is therefore 
+     * mandatory.</p>
      * 
      * <p>Other Medication Indicator</p>
      * 
-     * <p><p>If the attribute is 'RQO', represents a prescription 
-     * or dispense record. Otherwise if 'EVN', it represents an 
-     * 'Other Medication' record.</p></p>
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
      * 
-     * <p><p>Knowing whether a drug is prescribed or not can 
-     * influence actions taken to mitigate an issue. This attribute 
-     * is therefore mandatory.</p></p>
+     * <p>Knowing whether a drug is prescribed or not can influence 
+     * actions taken to mitigate an issue. This attribute is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodOrderEvent getMoodCode() {
         return (x_ActMoodOrderEvent) this.moodCode.getValue();
     }
+
+    /**
+     * <p>OtherMedicationIndicator</p>
+     * 
+     * <p>Other Medication Indicator</p>
+     * 
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
+     * 
+     * <p>Knowing whether a drug is prescribed or not can influence 
+     * actions taken to mitigate an issue. The element is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Medication Indicator</p>
+     * 
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
+     * 
+     * <p>Knowing whether a drug is prescribed or not can influence 
+     * actions taken to mitigate an issue. This attribute is 
+     * therefore mandatory.</p>
+     */
     public void setMoodCode(x_ActMoodOrderEvent moodCode) {
         this.moodCode.setValue(moodCode);
     }
@@ -124,78 +148,152 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>A:Active Medication Record Number</p>
      * 
-     * <p><p>Unique identifier of the prescription or other 
-     * medication drug record that triggered the issue.</p></p>
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>Allows provider to drill-down and retrieve additional 
+     * <p>Allows provider to drill-down and retrieve additional 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the 
      * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p></p>
+     * may be masked.</p>
      * 
-     * <p><p>Allows provider to drill-down and retrieve additional 
+     * <p>Allows provider to drill-down and retrieve additional 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the 
      * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p></p>
+     * may be masked.</p>
      * 
      * <p>A:Active Medication Record Number</p>
      * 
-     * <p><p>Unique identifier of the prescription or other 
-     * medication drug record that triggered the issue.</p></p>
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
      * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p></p>
+     * prescriptions on request)</p>
      * 
-     * <p><p>Allows provider to drill-down and retrieve additional 
+     * <p>Allows provider to drill-down and retrieve additional 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the 
      * issue</p><p>The attribute is only marked as 'populated' 
-     * because it may be masked.</p></p>
+     * because it may be masked.</p>
      * 
-     * <p><p>Allows provider to drill-down and retrieve additional 
+     * <p>Allows provider to drill-down and retrieve additional 
      * information about the implicated drug therapy to either 
      * modify the therapy or to learn more information in 
      * determining their management approach for the 
      * issue</p><p>The attribute is only marked as 'populated' 
-     * because it may be masked.</p></p>
+     * because it may be masked.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>ActiveMedicationRecordNumber</p>
+     * 
+     * <p>A:Active Medication Record Number</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
+     * 
+     * <p>A:Active Medication Record Number</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue</p><p>The attribute is only marked as 'populated' 
+     * because it may be masked.</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue</p><p>The attribute is only marked as 'populated' 
+     * because it may be masked.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -206,24 +304,44 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Administration Type</p>
      * 
-     * <p><p>Identifies whether the interaction is with a drug or a 
+     * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
-     * vaccine at issue.</p></p>
+     * vaccine at issue.</p>
      * 
-     * <p><p>Needed to determine what to do about the issue. 
-     * Because the medication can be masked, this element is only 
-     * marked as 'populated'.</p><p>The element allows a full 'CD' 
-     * type to support SNOMED implementations.</p></p>
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
      * 
-     * <p><p>Needed to determine what to do about the issue. 
-     * Because the medication can be masked, this element is only 
-     * marked as 'populated'.</p><p>The element allows a full 'CD' 
-     * type to support SNOMED implementations.</p></p>
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdministrationCode getCode() {
         return (ActSubstanceAdministrationCode) this.code.getValue();
     }
+
+    /**
+     * <p>AdministrationType</p>
+     * 
+     * <p>Administration Type</p>
+     * 
+     * <p>Identifies whether the interaction is with a drug or a 
+     * vaccine. For SNOMED, may also indicate the specific drug or 
+     * vaccine at issue.</p>
+     * 
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
+     * 
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
+     */
     public void setCode(ActSubstanceAdministrationCode code) {
         this.code.setValue(code);
     }
@@ -234,21 +352,38 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>B:Active Medication Status</p>
      * 
-     * <p><p>Indicates the status of the medication record at the 
-     * time of the issue.</p></p>
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
      * 
-     * <p><p>ZPB3.8 (aborted = discontinued; nullified = 
-     * reversed/system reversed; active=filled/not-filled)</p></p>
+     * <p>ZPB3.8 (aborted = discontinued; nullified = 
+     * reversed/system reversed; active=filled/not-filled)</p>
      * 
-     * <p><p>Used to determine the relevance of the issue and the 
-     * need to manage it. For example, if the medication is on 
-     * hold, it may be less of an issue than if it is being 
-     * actively taken.</p></p>
+     * <p>Used to determine the relevance of the issue and the need 
+     * to manage it. For example, if the medication is on hold, it 
+     * may be less of an issue than if it is being actively 
+     * taken.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>ActiveMedicationStatus</p>
+     * 
+     * <p>B:Active Medication Status</p>
+     * 
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
+     * 
+     * <p>ZPB3.8 (aborted = discontinued; nullified = 
+     * reversed/system reversed; active=filled/not-filled)</p>
+     * 
+     * <p>Used to determine the relevance of the issue and the need 
+     * to manage it. For example, if the medication is on hold, it 
+     * may be less of an issue than if it is being actively 
+     * taken.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -259,28 +394,52 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>C:Active Medication Time-range</p>
      * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
      * 
-     * <p><p>Requested Duration</p></p>
+     * <p>Requested Duration</p>
      * 
-     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
-     * and similar timing-based issues.</p></p>
+     * <p>Allows the provider to evaluate 'duplicate therapy' and 
+     * similar timing-based issues.</p>
      * 
      * <p>C:Active Medication Time-range</p>
      * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
      * 
-     * <p><p>Requested Duration</p></p>
+     * <p>Requested Duration</p>
      * 
-     * <p><p>Allows the provider to evaluate duplicate therapy and 
-     * similar timing-based issues.</p></p>
+     * <p>Allows the provider to evaluate duplicate therapy and 
+     * similar timing-based issues.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>ActiveMedicationTimeRange</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
+     * 
+     * <p>Requested Duration</p>
+     * 
+     * <p>Allows the provider to evaluate 'duplicate therapy' and 
+     * similar timing-based issues.</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
+     * 
+     * <p>Requested Duration</p>
+     * 
+     * <p>Allows the provider to evaluate duplicate therapy and 
+     * similar timing-based issues.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -291,36 +450,68 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>E:Active Medication Masking Indicator</p>
      * 
-     * <p><p>An indication of sensitivity surrounding the 
-     * implicated drug, and thus defines the required sensitivity 
-     * for the detected issue.</p></p>
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
      * 
      * <p>E:Active Medication Masking Indicator</p>
      * 
-     * <p><p>An indication of sensitivity surrounding the related 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
+     * detected issue.</p>
      * 
-     * <p><p>Conveys the patients wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Conveys the patients wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Conveys the patients wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Conveys the patients wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>E:Active Medication Masking Indicator</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>E:Active Medication Masking Indicator</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Conveys the patients wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Conveys the patients wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -331,27 +522,48 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>D:Active Medication Dose Quantity</p>
      * 
-     * <p><p>The amount of medication administered to the 
-     * patient</p></p>
+     * <p>The amount of medication administered to the patient</p>
      * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
      * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
      * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
      * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
      * 
-     * <p><p>Used in Low Dose/High Dose issues.</p></p>
+     * <p>Used in Low Dose/High Dose issues.</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public PhysicalQuantity getDoseQuantity() {
         return this.doseQuantity.getValue();
     }
+
+    /**
+     * <p>ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>D:Active Medication Dose Quantity</p>
+     * 
+     * <p>The amount of medication administered to the patient</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Used in Low Dose/High Dose issues.</p>
+     */
     public void setDoseQuantity(PhysicalQuantity doseQuantity) {
         this.doseQuantity.setValue(doseQuantity);
     }
@@ -361,6 +573,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
+
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }

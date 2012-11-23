@@ -50,23 +50,23 @@ import java.util.Set;
  * 
  * <p>MCCI_MT000300CA.Message: HL7 Message</p>
  * 
- * <p><p>The root class of all messages.</p></p>
+ * <p>The root class of all messages.</p>
  * 
- * <p><p>Conveys information about the interaction and how it 
- * is to be processed</p></p>
+ * <p>Conveys information about the interaction and how it is 
+ * to be processed</p>
  * 
  * <p>MCCI_MT000100CA.Message: HL7 Message</p>
  * 
- * <p><p>The root class of all messages.</p></p>
+ * <p>The root class of all messages.</p>
  * 
- * <p><p>Conveys information about the interaction and how it 
- * is to be processed</p></p>
+ * <p>Conveys information about the interaction and how it is 
+ * to be processed</p>
  */
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Message","MCCI_MT000300CA.Message"})
 @Hl7RootType
 public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -88,16 +88,28 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>A:Message Identifier</p>
      * 
-     * <p><p>A unique identifier for the message.</p></p>
+     * <p>A unique identifier for the message.</p>
      * 
-     * <p><p>Allows detection of duplicate messages, and allows 
-     * tying acknowledgments to the message they are acknowledging. 
-     * The attribute is therefore mandatory.</p></p>
+     * <p>Allows detection of duplicate messages, and allows tying 
+     * acknowledgments to the message they are acknowledging. The 
+     * attribute is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     * 
+     * <p>A unique identifier for the message.</p>
+     * 
+     * <p>Allows detection of duplicate messages, and allows tying 
+     * acknowledgments to the message they are acknowledging. The 
+     * attribute is therefore mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -108,18 +120,32 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>G:Message Timestamp</p>
      * 
-     * <p><p>Indicates the time this particular message instance 
-     * was constructed.</p></p>
+     * <p>Indicates the time this particular message instance was 
+     * constructed.</p>
      * 
-     * <p><p>Allows identification of how current the information 
-     * in a message is. Also provides a baseline for identifying 
-     * the time-zone of other times within the message. As a 
-     * result, the attribute is mandatory.</p></p>
+     * <p>Allows identification of how current the information in a 
+     * message is. Also provides a baseline for identifying the 
+     * time-zone of other times within the message. As a result, 
+     * the attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"creationTime"})
     public Date getCreationTime() {
         return this.creationTime.getValue();
     }
+
+    /**
+     * <p>MessageTimestamp</p>
+     * 
+     * <p>G:Message Timestamp</p>
+     * 
+     * <p>Indicates the time this particular message instance was 
+     * constructed.</p>
+     * 
+     * <p>Allows identification of how current the information in a 
+     * message is. Also provides a baseline for identifying the 
+     * time-zone of other times within the message. As a result, 
+     * the attribute is mandatory.</p>
+     */
     public void setCreationTime(Date creationTime) {
         this.creationTime.setValue(creationTime);
     }
@@ -130,19 +156,34 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>H:Security Token</p>
      * 
-     * <p><p>A locally-defined field used to maintain a session, 
+     * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
-     * to authenticating the message source.</p></p>
+     * to authenticating the message source.</p>
      * 
-     * <p><p>Allows jurisdictions and applications to communicate 
+     * <p>Allows jurisdictions and applications to communicate 
      * authentication and session information. The attribute is 
      * optional because not all jurisdictions will require this 
-     * capability.</p></p>
+     * capability.</p>
      */
     @Hl7XmlMapping({"securityText"})
     public String getSecurityText() {
         return this.securityText.getValue();
     }
+
+    /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     * 
+     * <p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p>
+     * 
+     * <p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p>
+     */
     public void setSecurityText(String securityText) {
         this.securityText.setValue(securityText);
     }
@@ -153,17 +194,30 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>C: HL7 Standard Version</p>
      * 
-     * <p><p>Indicates the version of the messaging standard being 
-     * referenced.</p></p>
+     * <p>Indicates the version of the messaging standard being 
+     * referenced.</p>
      * 
-     * <p><p>Needed to know how to validate message definition, 
-     * CMET definition, vocabulary and other information and is 
-     * therefore mandatory.</p></p>
+     * <p>Needed to know how to validate message definition, CMET 
+     * definition, vocabulary and other information and is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"versionCode"})
     public HL7StandardVersionCode getVersionCode() {
         return (HL7StandardVersionCode) this.versionCode.getValue();
     }
+
+    /**
+     * <p>HL7StandardVersion</p>
+     * 
+     * <p>C: HL7 Standard Version</p>
+     * 
+     * <p>Indicates the version of the messaging standard being 
+     * referenced.</p>
+     * 
+     * <p>Needed to know how to validate message definition, CMET 
+     * definition, vocabulary and other information and is 
+     * therefore mandatory.</p>
+     */
     public void setVersionCode(HL7StandardVersionCode versionCode) {
         this.versionCode.setValue(versionCode);
     }
@@ -174,17 +228,28 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>B:Interaction Type</p>
      * 
-     * <p><p>Indicates the interaction conveyed by this 
-     * message.</p></p>
+     * <p>Indicates the interaction conveyed by this message.</p>
      * 
-     * <p><p>Identifies what the receiving application should do, 
-     * and how the message should be validated. The attribute is 
-     * therefore mandatory.</p></p>
+     * <p>Identifies what the receiving application should do, and 
+     * how the message should be validated. The attribute is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"interactionId"})
     public Identifier getInteractionId() {
         return this.interactionId.getValue();
     }
+
+    /**
+     * <p>InteractionType</p>
+     * 
+     * <p>B:Interaction Type</p>
+     * 
+     * <p>Indicates the interaction conveyed by this message.</p>
+     * 
+     * <p>Identifies what the receiving application should do, and 
+     * how the message should be validated. The attribute is 
+     * therefore mandatory.</p>
+     */
     public void setInteractionId(Identifier interactionId) {
         this.interactionId.setValue(interactionId);
     }
@@ -195,12 +260,12 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>F:Conformance Profile Identifiers</p>
      * 
-     * <p><p>Identifies the conformance profile(s) this message 
-     * complies with.</p></p>
+     * <p>Identifies the conformance profile(s) this message 
+     * complies with.</p>
      * 
-     * <p><p>Indicates any additional validation that may be 
+     * <p>Indicates any additional validation that may be 
      * appropriate. Also influences what extensions can be 
-     * processed.</p></p>
+     * processed.</p>
      */
     @Hl7XmlMapping({"profileId"})
     public Set<Identifier> getProfileId() {
@@ -213,16 +278,28 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>D:Processing Code</p>
      * 
-     * <p><p>Indicates whether this message is intended to be 
-     * processed as production, test or debug message.</p></p>
+     * <p>Indicates whether this message is intended to be 
+     * processed as production, test or debug message.</p>
      * 
-     * <p><p>Indicates how the message should be handled and is 
-     * therefore mandatory.</p></p>
+     * <p>Indicates how the message should be handled and is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"processingCode"})
     public ProcessingID getProcessingCode() {
         return (ProcessingID) this.processingCode.getValue();
     }
+
+    /**
+     * <p>ProcessingCode</p>
+     * 
+     * <p>D:Processing Code</p>
+     * 
+     * <p>Indicates whether this message is intended to be 
+     * processed as production, test or debug message.</p>
+     * 
+     * <p>Indicates how the message should be handled and is 
+     * therefore mandatory.</p>
+     */
     public void setProcessingCode(ProcessingID processingCode) {
         this.processingCode.setValue(processingCode);
     }
@@ -233,17 +310,30 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
      * 
      * <p>E:Desired Acknowledgment Type</p>
      * 
-     * <p><p>Indicates how the message is expected to be 
-     * acknowledged.</p></p>
+     * <p>Indicates how the message is expected to be 
+     * acknowledged.</p>
      * 
-     * <p><p>Provides support for immediate, deferred and polling 
-     * mode and distinguishes which mode is desired. The attribute 
-     * is therefore mandatory.</p></p>
+     * <p>Provides support for immediate, deferred and polling mode 
+     * and distinguishes which mode is desired. The attribute is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"acceptAckCode"})
     public AcknowledgementCondition getAcceptAckCode() {
         return (AcknowledgementCondition) this.acceptAckCode.getValue();
     }
+
+    /**
+     * <p>DesiredAcknowledgmentType</p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     * 
+     * <p>Indicates how the message is expected to be 
+     * acknowledged.</p>
+     * 
+     * <p>Provides support for immediate, deferred and polling mode 
+     * and distinguishes which mode is desired. The attribute is 
+     * therefore mandatory.</p>
+     */
     public void setAcceptAckCode(AcknowledgementCondition acceptAckCode) {
         this.acceptAckCode.setValue(acceptAckCode);
     }
@@ -253,6 +343,7 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     public ReceiverBean getReceiver() {
         return this.receiver;
     }
+
     public void setReceiver(ReceiverBean receiver) {
         this.receiver = receiver;
     }
@@ -262,6 +353,7 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
     }
+
     public void setRespondTo(ToBeRespondedToByBean respondTo) {
         this.respondTo = respondTo;
     }
@@ -271,6 +363,7 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     public SenderBean getSender() {
         return this.sender;
     }
+
     public void setSender(SenderBean sender) {
         this.sender = sender;
     }
@@ -286,6 +379,7 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     public AcknowledgementBean getAcknowledgement() {
         return this.acknowledgement;
     }
+
     public void setAcknowledgement(AcknowledgementBean acknowledgement) {
         this.acknowledgement = acknowledgement;
     }
@@ -295,6 +389,7 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     public CAP getControlActProcess() {
         return this.controlActProcess;
     }
+
     public void setControlActProcess(CAP controlActProcess) {
         this.controlActProcess = controlActProcess;
     }

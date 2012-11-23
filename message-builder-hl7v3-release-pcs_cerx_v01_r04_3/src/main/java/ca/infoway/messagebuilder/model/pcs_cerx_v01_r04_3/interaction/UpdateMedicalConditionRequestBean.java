@@ -28,9 +28,18 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
 
 
 
+/**
+ * <p>REPC_IN000032CA: Update medical condition request</p>
+ * 
+ * <p>Message: MCCI_MT000100CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: REPC_MT000014CA.MedicalCondition</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000032CA"})
 public class UpdateMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

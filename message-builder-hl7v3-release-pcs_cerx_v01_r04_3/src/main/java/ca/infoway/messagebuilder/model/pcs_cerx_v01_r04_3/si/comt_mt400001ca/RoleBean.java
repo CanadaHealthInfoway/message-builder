@@ -32,27 +32,41 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Role"})
 public class RoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV playingEntityKindCode = new CVImpl();
 
 
     /**
      * <p>Maskable Material</p>
      * 
-     * <p><p>Indicates the materia (e.g drug) whose associated 
-     * records should be masked.</p></p>
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
      * 
-     * <p><p>Allows masking a drug, avoiding the requirement to 
-     * mask each prescription and dispense individually.</p></p>
+     * <p>Allows masking a drug, avoiding the requirement to mask 
+     * each prescription and dispense individually.</p>
      * 
-     * <p><p>Usually specified at the generic or 
+     * <p>Usually specified at the generic or 
      * therapeutic-equivalent level to ensure related medications 
-     * are also covered.</p></p>
+     * are also covered.</p>
      */
     @Hl7XmlMapping({"playingEntityKind/code"})
     public MaskableMaterialEntityType getPlayingEntityKindCode() {
         return (MaskableMaterialEntityType) this.playingEntityKindCode.getValue();
     }
+
+    /**
+     * <p>Maskable Material</p>
+     * 
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
+     * 
+     * <p>Allows masking a drug, avoiding the requirement to mask 
+     * each prescription and dispense individually.</p>
+     * 
+     * <p>Usually specified at the generic or 
+     * therapeutic-equivalent level to ensure related medications 
+     * are also covered.</p>
+     */
     public void setPlayingEntityKindCode(MaskableMaterialEntityType playingEntityKindCode) {
         this.playingEntityKindCode.setValue(playingEntityKindCode);
     }

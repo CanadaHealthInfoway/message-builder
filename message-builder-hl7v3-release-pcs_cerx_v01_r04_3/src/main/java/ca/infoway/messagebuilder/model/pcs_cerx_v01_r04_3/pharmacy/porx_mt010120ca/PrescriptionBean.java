@@ -55,24 +55,24 @@ import java.util.List;
 /**
  * <p>Prescription</p>
  * 
- * <p><p>Id should not be specified if the order is being sent 
- * by prescriber; Id is mandatory if the order is being sent by 
- * the DIS</p></p>
+ * <p>Id should not be specified if the order is being sent by 
+ * prescriber; Id is mandatory if the order is being sent by 
+ * the DIS</p>
  * 
- * <p><p>Information pertaining to a prescriber's authorization 
+ * <p>Information pertaining to a prescriber's authorization 
  * for a drug to be dispensed to a patient, as well as the 
  * instruction on when and how the drug is to be consumed by 
- * the patient</p></p>
+ * the patient</p>
  * 
- * <p><p>This is a 'core' class of the medication model and is 
+ * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
- * intended to be receiving.</p></p>
+ * intended to be receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.CombinedMedicationRequest"})
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -96,40 +96,74 @@ public class PrescriptionBean extends MessagePartBean {
     /**
      * <p>A:Prescription Number</p>
      * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
      * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
      * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
      * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
      * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Prescription Number</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -138,17 +172,28 @@ public class PrescriptionBean extends MessagePartBean {
     /**
      * <p>Prescription Type</p>
      * 
-     * <p><p>Indicates that this is a prescription for a drug as 
+     * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
-     * information regarding drug and route.</p></p>
+     * information regarding drug and route.</p>
      * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p></p>
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Prescription Type</p>
+     * 
+     * <p>Indicates that this is a prescription for a drug as 
+     * opposed to an immunization. For SNOMED, may also contain 
+     * information regarding drug and route.</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -157,22 +202,38 @@ public class PrescriptionBean extends MessagePartBean {
     /**
      * <p>C:Prescription Status</p>
      * 
-     * <p><p>This denotes the state of the prescription in the 
+     * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
      * active, suspended, aborted, completed, obsolete and 
      * nullified. Use 'new' when submitting a clinical 
      * pre-determination. Use 'active' when registering a new 
      * prescription or converting a predetermination into a valid 
-     * prescription.</p></p>
+     * prescription.</p>
      * 
-     * <p><p>Indicates what actions are allowed to be performed 
+     * <p>Indicates what actions are allowed to be performed 
      * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p></p>
+     * every prescription needs to be in some state.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>C:Prescription Status</p>
+     * 
+     * <p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'new' when submitting a clinical 
+     * pre-determination. Use 'active' when registering a new 
+     * prescription or converting a predetermination into a valid 
+     * prescription.</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -181,28 +242,48 @@ public class PrescriptionBean extends MessagePartBean {
     /**
      * <p>F:Prescription Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Valid values are: 
-     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
-     * 'Masked'). The default is 'NORMAL' signifying 'Not 
-     * Masked'.</p></p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions. Provides support for additional 
+     * confidentiality constraint, giving patients a level of 
+     * control over their information. Valid values are: 'NORMAL' 
+     * (denotes 'Not Masked'); and 'RESTRICTED' (denotes 'Masked'). 
+     * The default is 'NORMAL' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Prescription.masked</p></p>
+     * <p>Prescription.masked</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>F:Prescription Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions. Provides support for additional 
+     * confidentiality constraint, giving patients a level of 
+     * control over their information. Valid values are: 'NORMAL' 
+     * (denotes 'Not Masked'); and 'RESTRICTED' (denotes 'Masked'). 
+     * The default is 'NORMAL' signifying 'Not Masked'.</p>
+     * 
+     * <p>Prescription.masked</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -212,6 +293,7 @@ public class PrescriptionBean extends MessagePartBean {
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
+
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
@@ -221,6 +303,7 @@ public class PrescriptionBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -236,6 +319,7 @@ public class PrescriptionBean extends MessagePartBean {
     public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
+
     public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
@@ -251,6 +335,7 @@ public class PrescriptionBean extends MessagePartBean {
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
+
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
@@ -278,6 +363,7 @@ public class PrescriptionBean extends MessagePartBean {
     public Component2Bean getComponent2() {
         return this.component2;
     }
+
     public void setComponent2(Component2Bean component2) {
         this.component2 = component2;
     }
@@ -287,6 +373,7 @@ public class PrescriptionBean extends MessagePartBean {
     public IncludesBean getComponent3() {
         return this.component3;
     }
+
     public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }
@@ -296,6 +383,7 @@ public class PrescriptionBean extends MessagePartBean {
     public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
         return this.subjectOf1SubstitutionPermission;
     }
+
     public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
         this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
     }
@@ -305,6 +393,7 @@ public class PrescriptionBean extends MessagePartBean {
     public CommentBean getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
+
     public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
         this.subjectOf2Annotation = subjectOf2Annotation;
     }
@@ -314,6 +403,7 @@ public class PrescriptionBean extends MessagePartBean {
     public ClassifiesBean getComponentOf() {
         return this.componentOf;
     }
+
     public void setComponentOf(ClassifiesBean componentOf) {
         this.componentOf = componentOf;
     }

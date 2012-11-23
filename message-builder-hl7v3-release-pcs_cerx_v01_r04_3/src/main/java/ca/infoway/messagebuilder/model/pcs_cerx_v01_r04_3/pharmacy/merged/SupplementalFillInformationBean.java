@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
@@ -45,6 +45,12 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     public Integer getRepeatNumber() {
         return this.repeatNumber.getValue();
     }
+
+    /**
+     * <p>NumberOfFills</p>
+     * 
+     * <p>G:Number of Fills</p>
+     */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
     }
@@ -59,6 +65,12 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     public Integer getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>D:Fill Quantity</p>
+     */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
     }

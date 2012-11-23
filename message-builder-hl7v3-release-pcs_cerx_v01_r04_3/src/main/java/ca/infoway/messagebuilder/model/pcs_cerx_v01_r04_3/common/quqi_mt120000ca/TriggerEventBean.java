@@ -45,21 +45,21 @@ import java.util.List;
 /**
  * <p>Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
- * reasonCode attribute in the definition of the interaction or 
- * the trigger events which are conveyed with this wrapper.</p></p>
+ * <p>There may be constraints on the usage of the reasonCode 
+ * attribute in the definition of the interaction or the 
+ * trigger events which are conveyed with this wrapper.</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -73,15 +73,24 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     /**
      * <p>B:Event Identifier</p>
      * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      * 
-     * <p><p>Used for audit purposes and therefore mandatory.</p></p>
+     * <p>Used for audit purposes and therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>B:Event Identifier</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Used for audit purposes and therefore mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -90,15 +99,24 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     /**
      * <p>A:Event Type</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>A:Event Type</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -107,18 +125,30 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     /**
      * <p>C:Event Effective Period</p>
      * 
-     * <p><p>Indicates when the query was performed. If not 
-     * specified, the assumption is that the query was performed at 
-     * the same time the message was constructed.</p></p>
+     * <p>Indicates when the query was performed. If not specified, 
+     * the assumption is that the query was performed at the same 
+     * time the message was constructed.</p>
      * 
-     * <p><p>Sometimes messages may be constructed and sent at a 
+     * <p>Sometimes messages may be constructed and sent at a 
      * significantly different time than the query was actually 
-     * processed.</p></p>
+     * processed.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p>Indicates when the query was performed. If not specified, 
+     * the assumption is that the query was performed at the same 
+     * time the message was constructed.</p>
+     * 
+     * <p>Sometimes messages may be constructed and sent at a 
+     * significantly different time than the query was actually 
+     * processed.</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -127,15 +157,24 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     /**
      * <p>E:Event Reason</p>
      * 
-     * <p><p>Indicates the reason for the response given</p></p>
+     * <p>Indicates the reason for the response given</p>
      * 
-     * <p><p>Usually used to indicate a reason why a query was 
-     * unsuccessful or was not processed.</p></p>
+     * <p>Usually used to indicate a reason why a query was 
+     * unsuccessful or was not processed.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>E:Event Reason</p>
+     * 
+     * <p>Indicates the reason for the response given</p>
+     * 
+     * <p>Usually used to indicate a reason why a query was 
+     * unsuccessful or was not processed.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -157,6 +196,7 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     public QueryResponseInformationBean getQueryAck() {
         return this.queryAck;
     }
+
     public void setQueryAck(QueryResponseInformationBean queryAck) {
         this.queryAck = queryAck;
     }
@@ -166,6 +206,7 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     public QueryDefinitionBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
+
     public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
     }

@@ -34,27 +34,39 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
      * <p>Refill period</p>
      * 
-     * <p><p>The interval within which subsequent dispensing can be 
+     * <p>The interval within which subsequent dispensing can be 
      * made against a prescription, after the first/initial 
-     * fill.</p></p>
+     * fill.</p>
      * 
-     * <p><p>DrugProduct.refillPeriod (second or only 
-     * occurrence)</p></p>
+     * <p>DrugProduct.refillPeriod (second or only occurrence)</p>
      * 
-     * <p><p>Certain prescribers have time limitations or certain 
-     * drugs must be filled in a finite period of time.</p></p>
+     * <p>Certain prescribers have time limitations or certain 
+     * drugs must be filled in a finite period of time.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>Refill period</p>
+     * 
+     * <p>The interval within which subsequent dispensing can be 
+     * made against a prescription, after the first/initial 
+     * fill.</p>
+     * 
+     * <p>DrugProduct.refillPeriod (second or only occurrence)</p>
+     * 
+     * <p>Certain prescribers have time limitations or certain 
+     * drugs must be filled in a finite period of time.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }

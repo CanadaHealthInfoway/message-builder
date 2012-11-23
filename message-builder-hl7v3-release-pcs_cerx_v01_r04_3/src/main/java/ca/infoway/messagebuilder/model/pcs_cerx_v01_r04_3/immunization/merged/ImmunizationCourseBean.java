@@ -31,38 +31,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POIZ_MT060150CA.ImmunizationPlan: Immunization Course</p>
  * 
- * <p><p>Specifies whether there is more than 1 dose in the 
- * course of immunizations.</p></p>
+ * <p>Specifies whether there is more than 1 dose in the course 
+ * of immunizations.</p>
  * 
- * <p><p>Allows the system to record a specific immunization 
- * event as one of several within a course of immunizations. 
- * Allows tracking whether immunization plans have been 
- * completed.</p></p>
+ * <p>Allows the system to record a specific immunization event 
+ * as one of several within a course of immunizations. Allows 
+ * tracking whether immunization plans have been completed.</p>
  * 
  * <p>POIZ_MT030050CA.ImmunizationPlan: Immunization Course</p>
  * 
- * <p><p>Specifies whether there is more that 1 dose in the 
- * course of immunizations.</p></p>
+ * <p>Specifies whether there is more that 1 dose in the course 
+ * of immunizations.</p>
  * 
- * <p><p>Allows the system to record a specific immunization 
- * event as one of several within a course of immunizations. 
- * Allows tracking whether immunization plans have been 
- * completed.</p></p>
+ * <p>Allows the system to record a specific immunization event 
+ * as one of several within a course of immunizations. Allows 
+ * tracking whether immunization plans have been completed.</p>
  * 
  * <p>POIZ_MT030060CA.ImmunizationPlan: Immunization Course</p>
  * 
- * <p><p>Specifies whether there is more that 1 dose in the 
- * course of immunizations.</p></p>
+ * <p>Specifies whether there is more that 1 dose in the course 
+ * of immunizations.</p>
  * 
- * <p><p>Allows the system to record a specific immunization 
- * event as one of several within a course of immunizations. 
- * Allows tracking whether immunization plans have been 
- * completed.</p></p>
+ * <p>Allows the system to record a specific immunization event 
+ * as one of several within a course of immunizations. Allows 
+ * tracking whether immunization plans have been completed.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationPlan","POIZ_MT030060CA.ImmunizationPlan","POIZ_MT060150CA.ImmunizationPlan"})
 public class ImmunizationCourseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private NextPlannedImmunizationBean fulfillmentNextPlannedImmunization;
     private NextImmunizationPlanBean successorNextImmunizationPlan;
 
@@ -71,6 +68,7 @@ public class ImmunizationCourseBean extends MessagePartBean {
     public NextPlannedImmunizationBean getFulfillmentNextPlannedImmunization() {
         return this.fulfillmentNextPlannedImmunization;
     }
+
     public void setFulfillmentNextPlannedImmunization(NextPlannedImmunizationBean fulfillmentNextPlannedImmunization) {
         this.fulfillmentNextPlannedImmunization = fulfillmentNextPlannedImmunization;
     }
@@ -80,6 +78,7 @@ public class ImmunizationCourseBean extends MessagePartBean {
     public NextImmunizationPlanBean getSuccessorNextImmunizationPlan() {
         return this.successorNextImmunizationPlan;
     }
+
     public void setSuccessorNextImmunizationPlan(NextImmunizationPlanBean successorNextImmunizationPlan) {
         this.successorNextImmunizationPlan = successorNextImmunizationPlan;
     }

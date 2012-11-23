@@ -57,42 +57,42 @@ import java.util.List;
  * <p>REPC_MT100002CA.CommonObservationEvent: Patient 
  * Measurement</p>
  * 
- * <p><p>Measurement Type with a nullFlavor value must have 
+ * <p>Measurement Type with a nullFlavor value must have 
  * SubObservations Measurement Type without a nullFlavor value 
  * must not have SubObservations.</p><p>Annotation is only 
  * permitted if Annotation Indicator is not present and vice 
- * versa</p></p>
+ * versa</p>
  * 
- * <p><p>Measurement Type with a nullFlavor value must have 
+ * <p>Measurement Type with a nullFlavor value must have 
  * SubObservations Measurement Type without a nullFlavor value 
  * must not have SubObservations.</p><p>Annotation is only 
  * permitted if Annotation Indicator is not present and vice 
- * versa</p></p>
+ * versa</p>
  * 
- * <p><p>This comprises a single point-in-time measurement made 
- * about a patient.</p></p>
+ * <p>This comprises a single point-in-time measurement made 
+ * about a patient.</p>
  * 
- * <p><p>Allows pertinent patient measurements to be recorded 
- * for clinical purposes.</p></p>
+ * <p>Allows pertinent patient measurements to be recorded for 
+ * clinical purposes.</p>
  * 
  * <p>REPC_MT000018CA.CommonObservationEvent: Patient 
  * Measurements</p>
  * 
- * <p><p>Measurement Type with a nullFlavorvalue must have 
+ * <p>Measurement Type with a nullFlavorvalue must have 
  * SubObservations Measurement Type without a nullFlavor value 
- * must not have SubObservations.</p></p>
+ * must not have SubObservations.</p>
  * 
- * <p><p>This comprises a single point-in-time measurement made 
- * about a patient.</p></p>
+ * <p>This comprises a single point-in-time measurement made 
+ * about a patient.</p>
  * 
- * <p><p>Allows pertinent patient measurements to be recorded 
- * for clinical purposes.</p></p>
+ * <p>Allows pertinent patient measurements to be recorded for 
+ * clinical purposes.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000018CA.CommonObservationEvent","REPC_MT100002CA.CommonObservationEvent"})
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -112,17 +112,30 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>E:Observation Measurement Id</p>
      * 
-     * <p><p>Unique identifier assigned to a record of observation 
-     * measurement.</p></p>
+     * <p>Unique identifier assigned to a record of observation 
+     * measurement.</p>
      * 
-     * <p><p>Allows observation measurement record to be directly 
+     * <p>Allows observation measurement record to be directly 
      * accessed for &quot;undo's&quot;, and thus the attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>ObservationMeasurementId</p>
+     * 
+     * <p>E:Observation Measurement Id</p>
+     * 
+     * <p>Unique identifier assigned to a record of observation 
+     * measurement.</p>
+     * 
+     * <p>Allows observation measurement record to be directly 
+     * accessed for &quot;undo's&quot;, and thus the attribute is 
+     * mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -133,30 +146,56 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>A:MeasurementType</p>
      * 
-     * <p><p>Identification of the type of measurement/observation 
+     * <p>Identification of the type of measurement/observation 
      * that was made about the patient. Observation types include: 
-     * height, weight, blood pressure, body mass, etc</p></p>
+     * height, weight, blood pressure, body mass, etc</p>
      * 
-     * <p><p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p></p>
+     * <p>Distinguishes what kind of information is being 
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
      * 
-     * <p><p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p></p>
+     * <p>Distinguishes what kind of information is being 
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
      * 
      * <p>A:Measurement Type</p>
      * 
-     * <p><p>Identification of the type of measurement/observation 
+     * <p>Identification of the type of measurement/observation 
      * that was made about the patient. Observation types include: 
-     * height, weight, blood pressure, body mass, etc.</p></p>
+     * height, weight, blood pressure, body mass, etc.</p>
      * 
-     * <p><p>Distinguishes what kind of information is being 
+     * <p>Distinguishes what kind of information is being 
      * specified. Code is mandatory to ensure that observations are 
-     * distinguishable. The attribute is CD to support SNOMED.</p></p>
+     * distinguishable. The attribute is CD to support SNOMED.</p>
      */
     @Hl7XmlMapping({"code"})
     public CommonClinicalObservationType getCode() {
         return (CommonClinicalObservationType) this.code.getValue();
     }
+
+    /**
+     * <p>MeasurementType</p>
+     * 
+     * <p>A:MeasurementType</p>
+     * 
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. Observation types include: 
+     * height, weight, blood pressure, body mass, etc</p>
+     * 
+     * <p>Distinguishes what kind of information is being 
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * 
+     * <p>Distinguishes what kind of information is being 
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * 
+     * <p>A:Measurement Type</p>
+     * 
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. Observation types include: 
+     * height, weight, blood pressure, body mass, etc.</p>
+     * 
+     * <p>Distinguishes what kind of information is being 
+     * specified. Code is mandatory to ensure that observations are 
+     * distinguishable. The attribute is CD to support SNOMED.</p>
+     */
     public void setCode(CommonClinicalObservationType code) {
         this.code.setValue(code);
     }
@@ -165,37 +204,68 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>C:Observation Timestamp</p>
      * 
-     * <p><p>The dateand time at which the observation applies. 
-     * E.g., if blood was drawn two days ago and White Blood Count 
-     * (WBC) was done today, then WBC observation date should 
-     * reflect the date of two days ago.</p></p>
+     * <p>The dateand time at which the observation applies. E.g., 
+     * if blood was drawn two days ago and White Blood Count (WBC) 
+     * was done today, then WBC observation date should reflect the 
+     * date of two days ago.</p>
      * 
-     * <p><p>OBS.010-04 NCPDP:Clinical.494-ZE 
-     * NCPDP:Clinical.495-H1</p></p>
+     * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
+     * NCPDP:Clinical.495-H1</p>
      * 
-     * <p><p>Allows providers to evaluate currency of the 
-     * information. Because the date of observation/measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'. Also allows tracking of 
-     * observations over time.</p></p>
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
      * 
      * <p>C:Observation Measurement Timestamp</p>
      * 
-     * <p><p>The date to which the observation applies. E.g., if 
-     * blood was drawn two days ago and White Blood Count (WBC) was 
-     * done today, then WBC observation date should reflect the 
-     * date of two days ago.</p></p>
+     * <p>The date to which the observation applies. E.g., if blood 
+     * was drawn two days ago and White Blood Count (WBC) was done 
+     * today, then WBC observation date should reflect the date of 
+     * two days ago.</p>
      * 
-     * <p><p>Allows providers to evaluate currency of the 
-     * information. Because the date of observation/measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'. Also allows tracking of 
-     * observations over time.</p></p>
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>C:Observation Timestamp</p>
+     * 
+     * <p>The dateand time at which the observation applies. E.g., 
+     * if blood was drawn two days ago and White Blood Count (WBC) 
+     * was done today, then WBC observation date should reflect the 
+     * date of two days ago.</p>
+     * 
+     * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
+     * NCPDP:Clinical.495-H1</p>
+     * 
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
+     * 
+     * <p>C:Observation Measurement Timestamp</p>
+     * 
+     * <p>The date to which the observation applies. E.g., if blood 
+     * was drawn two days ago and White Blood Count (WBC) was done 
+     * today, then WBC observation date should reflect the date of 
+     * two days ago.</p>
+     * 
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -206,28 +276,48 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>D:Common Observation Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their common observations. Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their common observations. Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information. Valid values are: 
      * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
-     * Masked'.</p></p>
+     * Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their common observation data.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their common observation data.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>CommonObservationMaskingIndicator</p>
+     * 
+     * <p>D:Common Observation Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their common observations. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -238,38 +328,72 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>B:Observation Measurement Value</p>
      * 
-     * <p><p>The amount (quantity and unit) that has been recorded 
-     * for the specific type of observation. E.g. height in 
-     * centimeters, weight in kilograms, etc. Valid observation</p></p>
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc. Valid observation</p>
      * 
-     * <p><p>Provides standard representation of the measurement. 
-     * May be used in calculations.</p></p>
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
      * 
      * <p>B:Observation Measurement Value</p>
      * 
-     * <p><p>The amount (quantity and unit) that has been recorded 
-     * for the specific type of observation. E.g. height in 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc.</p><p>Valid 
      * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p></p>
+     * 1/min, etc</p>
      * 
-     * <p><p>The amount (quantity and unit) that has been recorded 
-     * for the specific type of observation. E.g. height in 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc.</p><p>Valid 
      * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p></p>
+     * 1/min, etc</p>
      * 
-     * <p><p>OBS.010-02 (value) eScript:OBS.010-03 (unit) 
+     * <p>OBS.010-02 (value) eScript:OBS.010-03 (unit) 
      * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
-     * (unit)</p></p>
+     * (unit)</p>
      * 
-     * <p><p>Provides standard representation of the measurement. 
-     * May be used in calculations.</p></p>
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
         return this.value.getValue();
     }
+
+    /**
+     * <p>ObservationMeasurementValue</p>
+     * 
+     * <p>B:Observation Measurement Value</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc. Valid observation</p>
+     * 
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
+     * 
+     * <p>B:Observation Measurement Value</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc.</p><p>Valid 
+     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
+     * 1/min, etc</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc.</p><p>Valid 
+     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
+     * 1/min, etc</p>
+     * 
+     * <p>OBS.010-02 (value) eScript:OBS.010-03 (unit) 
+     * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
+     * (unit)</p>
+     * 
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
+     */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);
     }
@@ -279,6 +403,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -288,6 +413,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -297,6 +423,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
@@ -306,6 +433,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -321,6 +449,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
+
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
@@ -335,6 +464,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
+
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

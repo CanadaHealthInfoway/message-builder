@@ -27,9 +27,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 
+/**
+ * <p>COMT_IN700003CA: Add issue management request refused</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700222CA.ControlActEvent</p>
+ */
 @Hl7PartTypeMapping({"COMT_IN700003CA"})
 public class AddIssueManagementRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

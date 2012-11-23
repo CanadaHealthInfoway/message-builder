@@ -31,67 +31,67 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT060060CA.Component6: f:includes</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p></p>
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p><p>An 
- * essential part of most prescriptions is the authorization to 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p><p>An essential part 
+ * of most prescriptions is the authorization to 
  * dispense.</p><p>The association is marked as Populated 
  * because the authorization to dispense is a critical portion 
  * of a prescription. However the association is allowed to be 
  * 'null' when the order is for a device which requires no 
  * dispense authorization, or when the patient already has 
  * sufficient supply of the device on hand to complete the 
- * therapy.</p></p>
+ * therapy.</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p><p>An 
- * essential part of most prescriptions is the authorization to 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p><p>An essential part 
+ * of most prescriptions is the authorization to 
  * dispense.</p><p>The association is marked as Populated 
  * because the authorization to dispense is a critical portion 
  * of a prescription. However the association is allowed to be 
  * 'null' when the order is for a device which requires no 
  * dispense authorization, or when the patient already has 
  * sufficient supply of the device on hand to complete the 
- * therapy.</p></p>
+ * therapy.</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p><p>An 
- * essential part of most prescriptions is the authorization to 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p><p>An essential part 
+ * of most prescriptions is the authorization to 
  * dispense.</p><p>The association is marked as Populated 
  * because the authorization to dispense is a critical portion 
  * of a prescription. However the association is allowed to be 
  * 'null' when the order is for a device which requires no 
  * dispense authorization, or when the patient already has 
  * sufficient supply of the device on hand to complete the 
- * therapy.</p></p>
+ * therapy.</p>
  * 
  * <p>PORX_MT020060CA.Component2: (no business name)</p>
  * 
- * <p><p>Component must be specified if the id is null and can 
- * not be specified if the id is not null.</p></p>
+ * <p>Component must be specified if the id is null and can not 
+ * be specified if the id is not null.</p>
  * 
  * <p>PORX_MT060040CA.Component6: f:includes</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p></p>
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  * 
- * <p><p>An essential part of most prescriptions is the 
- * authorization to dispense.</p></p>
+ * <p>An essential part of most prescriptions is the 
+ * authorization to dispense.</p>
  * 
  * <p>PORX_MT010110CA.Component6: f:includes</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * device should be dispensed to the patient.</p></p>
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  * 
- * <p><p>An essential part of most prescriptions is the 
- * authorization to dispense.</p></p>
+ * <p>An essential part of most prescriptions is the 
+ * authorization to dispense.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Component6","PORX_MT020060CA.Component2","PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component2_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private DispenseInstructions_1Bean supplyRequest;
 
 
@@ -99,6 +99,7 @@ public class Component2_1Bean extends MessagePartBean {
     public DispenseInstructions_1Bean getSupplyRequest() {
         return this.supplyRequest;
     }
+
     public void setSupplyRequest(DispenseInstructions_1Bean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

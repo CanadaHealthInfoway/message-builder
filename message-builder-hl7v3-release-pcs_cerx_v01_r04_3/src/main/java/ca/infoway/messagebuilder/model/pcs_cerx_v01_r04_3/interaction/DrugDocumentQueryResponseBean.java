@@ -29,9 +29,20 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Monogr
 
 
 
+/**
+ * <p>POME_IN010020CA: Drug document query response</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORR_MT050016CA.Document</p>
+ * 
+ * <p>--> Sub-Payload: POME_MT010050CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MonographsBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

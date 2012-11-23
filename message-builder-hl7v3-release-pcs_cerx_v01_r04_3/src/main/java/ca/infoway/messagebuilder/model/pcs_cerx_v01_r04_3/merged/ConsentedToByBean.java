@@ -36,33 +36,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>COCT_MT470000CA.Author: b:consented to by</p>
  * 
- * <p><p>Indicates that the consent was provided by the patient 
- * or representative.</p></p>
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Consent can be provided by the patient or 
- * representative or the provider.</p></p>
+ * <p>Consent can be provided by the patient or representative 
+ * or the provider.</p>
  * 
  * <p>RCMR_MT010001CA.Author: b:consented to by</p>
  * 
- * <p><p>Indicates that the consent was provided by the patient 
- * or representative.</p></p>
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Authorization.Person</p><p>Authorization.signatory(PT)</p></p>
+ * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
  * 
- * <p><p>Consent can be provided by the patient or 
- * representative or be overridden by a provider. It is 
- * important to know which occurred for audit purposes.</p></p>
+ * <p>Consent can be provided by the patient or representative 
+ * or be overridden by a provider. It is important to know 
+ * which occurred for audit purposes.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV modeCode = new CVImpl();
     private ST signatureText = new STImpl();
     private Consenter consenter;
@@ -73,16 +73,28 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Patient Consent Mechanism</p>
      * 
-     * <p><p>Indicates whether the patient's consent is written or 
-     * verbal.</p></p>
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      * 
-     * <p><p>Verbal consents may trigger a higher level of 
-     * auditing.</p></p>
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
         return (x_PhysicalVerbalParticipationMode) this.modeCode.getValue();
     }
+
+    /**
+     * <p>PatientConsentMechanism</p>
+     * 
+     * <p>Patient Consent Mechanism</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
+     * 
+     * <p>Verbal consents may trigger a higher level of 
+     * auditing.</p>
+     */
     public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
@@ -93,16 +105,28 @@ public class ConsentedToByBean extends MessagePartBean {
      * 
      * <p>Keyword</p>
      * 
-     * <p><p>Indicates the keyword appropriate to the action being 
-     * performed by the message.</p></p>
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
      * 
-     * <p><p>Allows providers who know the keyword to access 
-     * information protected by patient keywords.</p></p>
+     * <p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
         return this.signatureText.getValue();
     }
+
+    /**
+     * <p>Keyword</p>
+     * 
+     * <p>Keyword</p>
+     * 
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
+     * 
+     * <p>Allows providers who know the keyword to access 
+     * information protected by patient keywords.</p>
+     */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
@@ -112,6 +136,7 @@ public class ConsentedToByBean extends MessagePartBean {
     public Consenter getConsenter() {
         return this.consenter;
     }
+
     public void setConsenter(Consenter consenter) {
         this.consenter = consenter;
     }

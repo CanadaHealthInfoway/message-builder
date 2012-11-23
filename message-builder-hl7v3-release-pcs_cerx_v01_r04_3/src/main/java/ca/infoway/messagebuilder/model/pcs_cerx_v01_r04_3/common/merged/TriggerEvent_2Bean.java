@@ -49,35 +49,35 @@ import java.util.List;
  * 
  * <p>MCAI_MT700221CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  * 
  * <p>MCAI_MT700220CA.ControlActEvent: Trigger Event</p>
  * 
- * <p><p>Identifies the action that resulted in this message 
- * being sent.</p></p>
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  * 
- * <p><p>Key to understanding what action a message 
- * represents.</p></p>
+ * <p>Key to understanding what action a message 
+ * represents.</p>
  * 
- * <p><p>There may be constraints on the usage of the 
+ * <p>There may be constraints on the usage of the 
  * effectiveTime and reasonCode attributes in the definition of 
  * the interaction or the trigger events which are conveyed 
- * with this wrapper.</p></p>
+ * with this wrapper.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700220CA.ControlActEvent","MCAI_MT700221CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -96,25 +96,46 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>B:Event Identifier</p>
      * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      * 
-     * <p><p>Allows the event to be referenced (for retractions) 
-     * and also indicates whether multiple interactions were caused 
-     * by the same triggering event. The attribute is therefore 
-     * mandatory.</p></p>
+     * <p>Allows the event to be referenced (for retractions) and 
+     * also indicates whether multiple interactions were caused by 
+     * the same triggering event. The attribute is therefore 
+     * mandatory.</p>
      * 
-     * <p><p>These identifiers should be stored for use in 
+     * <p>These identifiers should be stored for use in 
      * 'retractions'. They should be stored in such a way that they 
      * are associated with the item that was modified by this 
      * event. For example, a system should be able to show the list 
      * of trigger event identifiers for the actions that have been 
-     * recorded against a particular prescription.</p></p>
+     * recorded against a particular prescription.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>EventIdentifier</p>
+     * 
+     * <p>B:Event Identifier</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Allows the event to be referenced (for retractions) and 
+     * also indicates whether multiple interactions were caused by 
+     * the same triggering event. The attribute is therefore 
+     * mandatory.</p>
+     * 
+     * <p>These identifiers should be stored for use in 
+     * 'retractions'. They should be stored in such a way that they 
+     * are associated with the item that was modified by this 
+     * event. For example, a system should be able to show the list 
+     * of trigger event identifiers for the actions that have been 
+     * recorded against a particular prescription.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -125,15 +146,26 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>A:Event Type</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
         return (HL7TriggerEventCode) this.code.getValue();
     }
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
     }
@@ -144,30 +176,56 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>C:Event Effective Period</p>
      * 
-     * <p><p>Indicates the time the change occurred. If not 
-     * populated, the assumption is the same time the message was 
-     * constructed.</p></p>
+     * <p>Indicates the time the change occurred. If not populated, 
+     * the assumption is the same time the message was 
+     * constructed.</p>
      * 
-     * <p><p>The time a change becomes effective may differ from 
-     * the time the event is recorded. (I.e. it may be in the 
-     * future or the past). For changes such as 'suspend', an 
-     * intended end date may also be indicated.</p></p>
+     * <p>The time a change becomes effective may differ from the 
+     * time the event is recorded. (I.e. it may be in the future or 
+     * the past). For changes such as 'suspend', an intended end 
+     * date may also be indicated.</p>
      * 
      * <p>C:Event Effective Period</p>
      * 
-     * <p><p>Indicates the time the occurred. If not specified, 
+     * <p>Indicates the time the occurred. If not specified, 
      * assumption is that the event occurred at the same time the 
-     * message was constructed.</p></p>
+     * message was constructed.</p>
      * 
-     * <p><p>The time a change becomes effective may differ from 
-     * the time the event is recorded. (I.e. it may be in the 
-     * future or the past). For changes such as 'suspend', an 
-     * intended end date may also be indicated.</p></p>
+     * <p>The time a change becomes effective may differ from the 
+     * time the event is recorded. (I.e. it may be in the future or 
+     * the past). For changes such as 'suspend', an intended end 
+     * date may also be indicated.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p>Indicates the time the change occurred. If not populated, 
+     * the assumption is the same time the message was 
+     * constructed.</p>
+     * 
+     * <p>The time a change becomes effective may differ from the 
+     * time the event is recorded. (I.e. it may be in the future or 
+     * the past). For changes such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p>Indicates the time the occurred. If not specified, 
+     * assumption is that the event occurred at the same time the 
+     * message was constructed.</p>
+     * 
+     * <p>The time a change becomes effective may differ from the 
+     * time the event is recorded. (I.e. it may be in the future or 
+     * the past). For changes such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -178,21 +236,38 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>E:Event Reason</p>
      * 
-     * <p><p>Identifies why this specific query, modification 
-     * request, or modification occurred.</p></p>
+     * <p>Identifies why this specific query, modification request, 
+     * or modification occurred.</p>
      * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold'. Also allows identifying reason 
-     * for accessing information for a query.</p></p>
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold'. Also allows identifying reason for 
+     * accessing information for a query.</p>
      * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
         return (ControlActReason) this.reasonCode.getValue();
     }
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     * 
+     * <p>Identifies why this specific query, modification request, 
+     * or modification occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold'. Also allows identifying reason for 
+     * accessing information for a query.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
+     */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
@@ -202,6 +277,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -211,6 +287,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
@@ -220,6 +297,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
     }
+
     public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
         this.dataEntererAssignedPerson = dataEntererAssignedPerson;
     }
@@ -229,6 +307,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -238,6 +317,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
+
     public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
@@ -247,6 +327,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     public RefersToBean<ACT> getSubject() {
         return this.subject;
     }
+
     public void setSubject(RefersToBean<ACT> subject) {
         this.subject = subject;
     }

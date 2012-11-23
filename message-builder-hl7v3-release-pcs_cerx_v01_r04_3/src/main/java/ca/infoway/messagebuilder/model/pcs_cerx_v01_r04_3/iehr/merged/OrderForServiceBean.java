@@ -32,16 +32,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
  * 
  * <p>REPC_MT100001CA.ActRequest: Order for Service</p>
  * 
- * <p><p>Represents the order or prescription against which the 
- * service was performed.</p></p>
+ * <p>Represents the order or prescription against which the 
+ * service was performed.</p>
  * 
- * <p><p>Allows linking the service to the person responsible 
- * for requesting it.</p></p>
+ * <p>Allows linking the service to the person responsible for 
+ * requesting it.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000017CA.ActRequest","REPC_MT100001CA.ActRequest"})
 public class OrderForServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private RefusedByBean author;
 
 
@@ -49,6 +49,7 @@ public class OrderForServiceBean extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }

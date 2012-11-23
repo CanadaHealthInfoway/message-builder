@@ -28,9 +28,19 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 
+/**
+ * <p>REPC_IN000021CA: Update allergy/intolerance request 
+ * accepted</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: MCAI_MT700220CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT990010CA.ActEvent</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000021CA"})
 public class UpdateAllergyIntoleranceRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

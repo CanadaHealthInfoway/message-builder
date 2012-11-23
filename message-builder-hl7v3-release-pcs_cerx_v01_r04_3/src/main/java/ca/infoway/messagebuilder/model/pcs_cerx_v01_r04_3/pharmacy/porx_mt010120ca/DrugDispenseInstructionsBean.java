@@ -40,17 +40,17 @@ import java.util.Date;
 /**
  * <p>Drug Dispense Instructions</p>
  * 
- * <p><p>Specification of the overall use duration of the 
+ * <p>Specification of the overall use duration of the 
  * prescrbed medication and/or overall quantity to be 
- * dispensed.</p></p>
+ * dispensed.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -61,29 +61,52 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>B:Total Prescribed Quantity</p>
      * 
-     * <p><p>The overall amount of amount medication to be 
-     * dispensed under this prescription. Includes any first fills 
-     * (trials, aligning quantities), the initial standard fill 
-     * plus all refills.</p></p>
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
      * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
+     * must always be specified as a total.</p>
      * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
+     * must always be specified as a total.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p>
+     */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
     }
@@ -92,32 +115,58 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>A:Total Days Supply</p>
      * 
-     * <p><p>The number of days that the overall prescribed item is 
+     * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p></p>
+     * dispensing and administration of the prescription.</p>
      * 
-     * <p><p>Used to specify a total authorization as a duration 
+     * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
      * the quantity prescribed.</p><p>This attribute is mandatory 
      * because the prescriber (in discussion with the patient) has 
      * a better understanding of the days supply needed by the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>Used to specify a total authorization as a duration 
+     * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
      * the quantity prescribed.</p><p>This attribute is mandatory 
      * because the prescriber (in discussion with the patient) has 
      * a better understanding of the days supply needed by the 
-     * patient.</p></p>
+     * patient.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
         return this.expectedUseTime.getValue();
     }
+
+    /**
+     * <p>A:Total Days Supply</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p><p>This attribute is mandatory 
+     * because the prescriber (in discussion with the patient) has 
+     * a better understanding of the days supply needed by the 
+     * patient.</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p><p>This attribute is mandatory 
+     * because the prescriber (in discussion with the patient) has 
+     * a better understanding of the days supply needed by the 
+     * patient.</p>
+     */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
@@ -127,6 +176,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
+
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }
@@ -136,6 +186,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
         return this.component1SubsequentSupplyRequest;
     }
+
     public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
         this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
@@ -145,6 +196,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     public FirstFillBean getComponent2InitialSupplyRequest() {
         return this.component2InitialSupplyRequest;
     }
+
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }

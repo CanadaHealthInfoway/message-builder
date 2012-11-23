@@ -36,40 +36,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POME_MT010040CA.Manufacturer: Manufacturer</p>
  * 
- * <p><p>Identity of the organization that manufactured the 
- * drug product.</p></p>
+ * <p>Identity of the organization that manufactured the drug 
+ * product.</p>
  * 
- * <p><p>Useful in distinguishing and grouping drug 
- * products</p></p>
+ * <p>Useful in distinguishing and grouping drug products</p>
  * 
  * <p>POME_MT010100CA.Manufacturer: Manufacturer</p>
  * 
- * <p><p>Identity of the organization that manufactured the 
- * drug product.</p></p>
+ * <p>Identity of the organization that manufactured the drug 
+ * product.</p>
  * 
- * <p><p>Useful in distinguishing and grouping drug 
- * products</p></p>
+ * <p>Useful in distinguishing and grouping drug products</p>
  * 
  * <p>COCT_MT220210CA.Manufacturer: Manufacturer</p>
  * 
- * <p><p>Identity of the organization that manufactured the 
- * drug product.</p></p>
+ * <p>Identity of the organization that manufactured the drug 
+ * product.</p>
  * 
- * <p><p>Useful in distinguishing and grouping drug 
- * products</p></p>
+ * <p>Useful in distinguishing and grouping drug products</p>
  * 
  * <p>COCT_MT220110CA.Manufacturer: Manufacturer</p>
  * 
- * <p><p>Identity of the organization that manufactured the 
- * drug product.</p></p>
+ * <p>Identity of the organization that manufactured the drug 
+ * product.</p>
  * 
- * <p><p>Useful in distinguishing and grouping drug 
- * products</p></p>
+ * <p>Useful in distinguishing and grouping drug products</p>
  */
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
@@ -77,26 +73,42 @@ public class ManufacturerBean extends MessagePartBean {
     /**
      * <p>Manufacturer Id</p>
      * 
-     * <p><p>An identifier denoting a specific drug 
-     * manufacturer.</p></p>
+     * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * <p>Allows sending of identifiers in place of manufacturer 
      * name. May be used in drug search where specific manufacturer 
-     * is a criterion.</p></p>
+     * is a criterion.</p>
      * 
      * <p>Organization Id</p>
      * 
-     * <p><p>An identifier denoting a specific drug 
-     * manufacturer.</p></p>
+     * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * <p>Allows sending of identifiers in place of manufacturer 
      * name. May be used in drug search where specific manufacturer 
-     * is a criterion.</p></p>
+     * is a criterion.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Manufacturer Id</p>
+     * 
+     * <p>An identifier denoting a specific drug manufacturer.</p>
+     * 
+     * <p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p>
+     * 
+     * <p>Organization Id</p>
+     * 
+     * <p>An identifier denoting a specific drug manufacturer.</p>
+     * 
+     * <p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -107,54 +119,104 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>Manufacturer Name</p>
      * 
-     * <p><p>The name of the drug manufacturer.</p></p>
+     * <p>The name of the drug manufacturer.</p>
      * 
-     * <p><p>Used for reporting.</p><p>The attribute is marked as 
+     * <p>Used for reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      * 
-     * <p><p>Used for reporting.</p><p>The attribute is marked as 
+     * <p>Used for reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      * 
      * <p>Manufacturer Name</p>
      * 
-     * <p><p>The name of the drug manufacturer.</p></p>
+     * <p>The name of the drug manufacturer.</p>
      * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      * 
      * <p>Manufacturer Name</p>
      * 
-     * <p><p>The name of the drug manufacturer.</p></p>
+     * <p>The name of the drug manufacturer.</p>
      * 
-     * <p><p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p></p>
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
      * 
-     * <p><p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p></p>
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
      * 
-     * <p><p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p></p>
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
      * 
-     * <p><p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p></p>
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
      * 
-     * <p><p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p></p>
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
      * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      * 
-     * <p><p>Used in reporting.</p><p>The attribute is marked as 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p></p>
+     * for an organization.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
         return this.name.getValue();
     }
+
+    /**
+     * <p>ManufacturerName</p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used for reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used for reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Manufacturer Name</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
+     * 
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
+     * 
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
+     * 
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
+     * 
+     * <p>DrugProduct.ManufacturerName</p><p>ZPC.6</p><p>RXA.17</p><p>C.1c</p><p>Manufacturer</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     */
     public void setName(String name) {
         this.name.setValue(name);
     }

@@ -45,19 +45,19 @@ import java.util.List;
 /**
  * <p>Prescription Dispense</p>
  * 
- * <p><p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient</p></p>
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient</p>
  * 
- * <p><p>A_BillablePharmacyDispense</p></p>
+ * <p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Dispensing is an integral part of the overall 
- * medication process.</p></p>
+ * <p>Dispensing is an integral part of the overall medication 
+ * process.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -72,15 +72,24 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>A:Local Dispense Id</p>
      * 
-     * <p><p>Identifier assigned by the dispensing facility.</p></p>
+     * <p>Identifier assigned by the dispensing facility.</p>
      * 
-     * <p><p>Allows formal tracking of centrally recorded dispenses 
-     * to local records for audit and related purposes.</p></p>
+     * <p>Allows formal tracking of centrally recorded dispenses to 
+     * local records for audit and related purposes.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Local Dispense Id</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
+     * 
+     * <p>Allows formal tracking of centrally recorded dispenses to 
+     * local records for audit and related purposes.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -89,24 +98,42 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>E:Prescription Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent that the dispense should be 
+     * <p>Communicates the intent that the dispense should be 
      * masked if it is created; If the dispense is masked, this 
      * makes the complete prescription and all dispenses 
-     * masked.</p></p>
+     * masked.</p>
      * 
-     * <p><p>DispensedItem.masked</p></p>
+     * <p>DispensedItem.masked</p>
      * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p></p>
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p>
      * 
-     * <p><p>If a dispense is masked, it implicitly masks the 
+     * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
-     * dispense if the prescription is unmasked.)</p></p>
+     * dispense if the prescription is unmasked.)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>E:Prescription Masking Indicator</p>
+     * 
+     * <p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p>
+     * 
+     * <p>DispensedItem.masked</p>
+     * 
+     * <p>Can be used to set a mask for a new dispense, if present 
+     * in a new dispense request.</p>
+     * 
+     * <p>If a dispense is masked, it implicitly masks the 
+     * prescription being dispensed. (There's no point in masking a 
+     * dispense if the prescription is unmasked.)</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -116,6 +143,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public Patient getSubjectPatient1() {
         return this.subjectPatient1;
     }
+
     public void setSubjectPatient1(Patient subjectPatient1) {
         this.subjectPatient1 = subjectPatient1;
     }
@@ -139,6 +167,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
+
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -148,6 +177,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public SupplyRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
+
     public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
@@ -157,6 +187,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;
     }
+
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
     }
@@ -172,6 +203,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
+
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }
@@ -181,6 +213,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
+
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

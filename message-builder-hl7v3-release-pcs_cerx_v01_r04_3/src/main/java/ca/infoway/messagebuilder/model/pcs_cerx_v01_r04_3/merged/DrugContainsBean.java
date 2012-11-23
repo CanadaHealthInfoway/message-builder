@@ -36,86 +36,86 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POME_MT010040CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  * 
  * <p>POME_MT010100CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  * 
  * <p>COCT_MT220100CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  * 
  * <p>COCT_MT220200CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  * 
  * <p>COCT_MT220210CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  * 
  * <p>COCT_MT220110CA.Ingredient: drug contains</p>
  * 
- * <p><p>Identification of which ingredients are contained (or 
- * are not contained) in a drug, along with their respective 
- * quantities.</p></p>
+ * <p>Identification of which ingredients are contained (or are 
+ * not contained) in a drug, along with their respective 
+ * quantities.</p>
  * 
- * <p><p>Useful to providers in deciding appropriate use 
+ * <p>Useful to providers in deciding appropriate use 
  * instruction (dosage specification) for patients. Also 
  * important in checking for potential adverse reactions to 
  * non-active ingredients. For compounds, allows 
  * contraindication checking against ingredients of custom 
- * compounds.</p></p>
+ * compounds.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private DrugIngredientsBean ingredient;
@@ -124,88 +124,166 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>D:Drug Does Not Contain Indicator</p>
      * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'mandatory' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential.</p></p>
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'mandatory' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential.</p></p>
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
      * 
      * <p>D:Drug Does Not Contain Indicator</p>
      * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'populated' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential, however in 
-     * some circumstances it is necessary to say &quot;may 
-     * contain&quot;.</p></p>
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'populated' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential, however in some circumstances it 
+     * is necessary to say &quot;may contain&quot;.</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
-     * etc.</p><p>The attribute is 'populated' because the 
-     * distinction between &quot;does/must contain&quot; and 
-     * &quot;does/must not contain&quot; is essential, however in 
-     * some circumstances it is necessary to say &quot;may 
-     * contain&quot;.</p></p>
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'populated' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential, however in some circumstances it 
+     * is necessary to say &quot;may contain&quot;.</p>
      * 
      * <p>L:Does Not Contain Indicator</p>
      * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
      * etc.</p><p>Because product descriptions (particularly 
      * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
      * etc.</p><p>Because product descriptions (particularly 
      * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * contain&quot;, this attribute allows null values.</p>
      * 
      * <p>Does Not Contain Indicator</p>
      * 
-     * <p><p>An indication that a drug does not contain the 
-     * specified ingredient (active or inactive).</p></p>
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
      * etc.</p><p>Because product descriptions (particularly 
      * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p><p>Useful for filtering searches. Allows providers to 
-     * search for drugs not containing a specific active 
-     * ingredients or excipients. E.g. lactose-free, gluten-free, 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
      * etc.</p><p>Because product descriptions (particularly 
      * herbals) occasionally use the phrase &quot;may 
-     * contain&quot;, this attribute allows null values.</p></p>
+     * contain&quot;, this attribute allows null values.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
         return this.negationInd.getValue();
     }
+
+    /**
+     * <p>D:Drug Does Not Contain Indicator</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'mandatory' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential.</p>
+     * 
+     * <p>D:Drug Does Not Contain Indicator</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'populated' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential, however in some circumstances it 
+     * is necessary to say &quot;may contain&quot;.</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, etc.</p><p>The 
+     * attribute is 'populated' because the distinction between 
+     * &quot;does/must contain&quot; and &quot;does/must not 
+     * contain&quot; is essential, however in some circumstances it 
+     * is necessary to say &quot;may contain&quot;.</p>
+     * 
+     * <p>L:Does Not Contain Indicator</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>Does Not Contain Indicator</p>
+     * 
+     * <p>An indication that a drug does not contain the specified 
+     * ingredient (active or inactive).</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     * 
+     * <p>Useful for filtering searches. Allows providers to search 
+     * for drugs not containing a specific active ingredients or 
+     * excipients. E.g. lactose-free, gluten-free, 
+     * etc.</p><p>Because product descriptions (particularly 
+     * herbals) occasionally use the phrase &quot;may 
+     * contain&quot;, this attribute allows null values.</p>
+     */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
     }
@@ -214,184 +292,194 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>C:Drug Ingredient Quantity</p>
      * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
+     * <p>The quantity of the ingredient in a drug. This is 
      * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
+     * mg/vol, %, etc.</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>Essential for evaluating appropriate dosage based on 
+     * <p>Essential for evaluating appropriate dosage based on 
      * strength, as well as for creating custom compounds with 
-     * proper composition.</p></p>
+     * proper composition.</p>
      * 
      * <p>Ingredient Quantity</p>
      * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
+     * <p>The quantity of the ingredient in a drug. This is 
      * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
+     * mg/vol, %, etc.</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
      * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
      * 10% = 
      * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>M:Ingredient Quantity</p>
+     * 
      
      * ... [rest of documentation truncated due to excessive length]
      */
@@ -399,6 +487,201 @@ public class DrugContainsBean extends MessagePartBean {
     public PhysicalQuantity getQuantity() {
         return this.quantity.getValue();
     }
+
+    /**
+     * <p>C:Drug Ingredient Quantity</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>Ingredient Quantity</p>
+     * 
+     * <p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p>
+     * 
+     * <p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p>
+     * 
+     * <p>M:Ingredient Quantity</p>
+     * 
+     
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
     }
@@ -408,6 +691,7 @@ public class DrugContainsBean extends MessagePartBean {
     public DrugIngredientsBean getIngredient() {
         return this.ingredient;
     }
+
     public void setIngredient(DrugIngredientsBean ingredient) {
         this.ingredient = ingredient;
     }

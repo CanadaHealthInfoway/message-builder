@@ -37,17 +37,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Query response information</p>
  * 
- * <p><p>Describes the results of a particular query.</p></p>
+ * <p>Describes the results of a particular query.</p>
  * 
- * <p><p>Links a query response to the query that invoked it, 
- * and provides information about the overall result-set (which 
- * may not have been completely returned as part of the 
- * response.)</p></p>
+ * <p>Links a query response to the query that invoked it, and 
+ * provides information about the overall result-set (which may 
+ * not have been completely returned as part of the 
+ * response.)</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -58,17 +58,28 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>M:Query Identifier</p>
      * 
-     * <p><p>The identifier of the query this response is related 
-     * to.</p></p>
+     * <p>The identifier of the query this response is related 
+     * to.</p>
      * 
-     * <p><p>A single query may involve multiple messages. 
-     * (Multiple continuations.). This attribute links all messages 
-     * related to the same query and is therefore mandatory.</p></p>
+     * <p>A single query may involve multiple messages. (Multiple 
+     * continuations.). This attribute links all messages related 
+     * to the same query and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
         return this.queryId.getValue();
     }
+
+    /**
+     * <p>M:Query Identifier</p>
+     * 
+     * <p>The identifier of the query this response is related 
+     * to.</p>
+     * 
+     * <p>A single query may involve multiple messages. (Multiple 
+     * continuations.). This attribute links all messages related 
+     * to the same query and is therefore mandatory.</p>
+     */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
     }
@@ -77,15 +88,24 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>N:Query Result Status</p>
      * 
-     * <p><p>Indicates the overall result status of the query.</p></p>
+     * <p>Indicates the overall result status of the query.</p>
      * 
-     * <p><p>Indicates whether the query was successful and is 
-     * therefore mandatory</p></p>
+     * <p>Indicates whether the query was successful and is 
+     * therefore mandatory</p>
      */
     @Hl7XmlMapping({"queryResponseCode"})
     public QueryResponse getQueryResponseCode() {
         return (QueryResponse) this.queryResponseCode.getValue();
     }
+
+    /**
+     * <p>N:Query Result Status</p>
+     * 
+     * <p>Indicates the overall result status of the query.</p>
+     * 
+     * <p>Indicates whether the query was successful and is 
+     * therefore mandatory</p>
+     */
     public void setQueryResponseCode(QueryResponse queryResponseCode) {
         this.queryResponseCode.setValue(queryResponseCode);
     }
@@ -94,18 +114,30 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>O:Query Result-set Size</p>
      * 
-     * <p><p>The total number of matching rows found by the query. 
+     * <p>The total number of matching rows found by the query. 
      * (This may differ from the number of rows actually 
-     * returned.)</p></p>
+     * returned.)</p>
      * 
-     * <p><p>Indicates whether additional content exists that may 
-     * need to be retrieved by query continuations and is therefore 
-     * mandatory</p></p>
+     * <p>Indicates whether additional content exists that may need 
+     * to be retrieved by query continuations and is therefore 
+     * mandatory</p>
      */
     @Hl7XmlMapping({"resultTotalQuantity"})
     public Integer getResultTotalQuantity() {
         return this.resultTotalQuantity.getValue();
     }
+
+    /**
+     * <p>O:Query Result-set Size</p>
+     * 
+     * <p>The total number of matching rows found by the query. 
+     * (This may differ from the number of rows actually 
+     * returned.)</p>
+     * 
+     * <p>Indicates whether additional content exists that may need 
+     * to be retrieved by query continuations and is therefore 
+     * mandatory</p>
+     */
     public void setResultTotalQuantity(Integer resultTotalQuantity) {
         this.resultTotalQuantity.setValue(resultTotalQuantity);
     }
@@ -114,17 +146,28 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>P:Query Items Returned</p>
      * 
-     * <p><p>The number of item repetitions returned in the current 
-     * response.</p></p>
+     * <p>The number of item repetitions returned in the current 
+     * response.</p>
      * 
-     * <p><p>Provides a quick overview of the number of items 
-     * without having to go through and count the data and is 
-     * therefore mandatory.</p></p>
+     * <p>Provides a quick overview of the number of items without 
+     * having to go through and count the data and is therefore 
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"resultCurrentQuantity"})
     public Integer getResultCurrentQuantity() {
         return this.resultCurrentQuantity.getValue();
     }
+
+    /**
+     * <p>P:Query Items Returned</p>
+     * 
+     * <p>The number of item repetitions returned in the current 
+     * response.</p>
+     * 
+     * <p>Provides a quick overview of the number of items without 
+     * having to go through and count the data and is therefore 
+     * mandatory.</p>
+     */
     public void setResultCurrentQuantity(Integer resultCurrentQuantity) {
         this.resultCurrentQuantity.setValue(resultCurrentQuantity);
     }
@@ -133,16 +176,26 @@ public class QueryResponseInformationBean extends MessagePartBean {
     /**
      * <p>Q:Query Items Remaining</p>
      * 
-     * <p><p>The number of item repetitions yet to be returned in 
-     * the current response.</p></p>
+     * <p>The number of item repetitions yet to be returned in the 
+     * current response.</p>
      * 
-     * <p><p>Provides a means of evaluating the magnitude of the 
-     * result and is therefore mandatory.</p></p>
+     * <p>Provides a means of evaluating the magnitude of the 
+     * result and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"resultRemainingQuantity"})
     public Integer getResultRemainingQuantity() {
         return this.resultRemainingQuantity.getValue();
     }
+
+    /**
+     * <p>Q:Query Items Remaining</p>
+     * 
+     * <p>The number of item repetitions yet to be returned in the 
+     * current response.</p>
+     * 
+     * <p>Provides a means of evaluating the magnitude of the 
+     * result and is therefore mandatory.</p>
+     */
     public void setResultRemainingQuantity(Integer resultRemainingQuantity) {
         this.resultRemainingQuantity.setValue(resultRemainingQuantity);
     }

@@ -32,24 +32,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InformantionSourceRole"})
 public class InformantionSourceRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CS classCode = new CSImpl();
 
 
     /**
      * <p>Information Source</p>
      * 
-     * <p><p>A coded value denoting a patient, patient's agent, or 
-     * a provider as the source of the recorded immunization 
-     * information.</p></p>
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
      * 
-     * <p><p>Allows for the explicit identification of the source 
-     * of the recorded information.</p></p>
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
      */
     @Hl7XmlMapping({"classCode"})
     public x_InformationSource getClassCode() {
         return (x_InformationSource) this.classCode.getValue();
     }
+
+    /**
+     * <p>Information Source</p>
+     * 
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
+     * 
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
+     */
     public void setClassCode(x_InformationSource classCode) {
         this.classCode.setValue(classCode);
     }

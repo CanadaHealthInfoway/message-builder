@@ -33,114 +33,114 @@ import java.util.Date;
 /**
  * <p>COCT_MT470000CA.Author2: c:consent overridden by</p>
  * 
- * <p><p>Indicates that information access was approved by a 
+ * <p>Indicates that information access was approved by a 
  * provider rather than a patient. I.e. This is an override 
  * rather than an actual consent, and is used for the purposes 
- * of 'breaking the glass' only.</p></p>
+ * of 'breaking the glass' only.</p>
  * 
- * <p><p>Authorization.signatory(PROV)</p></p>
+ * <p>Authorization.signatory(PROV)</p>
  * 
- * <p><p>Clinical circumstances may demand that a patient's 
+ * <p>Clinical circumstances may demand that a patient's 
  * information be accessed without consent to ensure patient 
- * safety.</p></p>
+ * safety.</p>
  * 
  * <p>PORX_MT030040CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT020050CA.Author2: prescribed by</p>
  * 
- * <p><p>The person who ordered the office supply.</p></p>
+ * <p>The person who ordered the office supply.</p>
  * 
- * <p><p>Used to create an 'inferred' prescription if an 
+ * <p>Used to create an 'inferred' prescription if an 
  * electronic prescription does not already exist in the 
  * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
  * as the prescriber must be known or null flavour 
- * specified.</p></p>
+ * specified.</p>
  * 
- * <p><p>Used to create an 'inferred' prescription if an 
+ * <p>Used to create an 'inferred' prescription if an 
  * electronic prescription does not already exist in the 
  * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
  * as the prescriber must be known or null flavour 
- * specified.</p></p>
+ * specified.</p>
  * 
  * <p>RCMR_MT010001CA.Author2: c:overridden by</p>
  * 
- * <p><p>Indicates that information access was approved by a 
+ * <p>Indicates that information access was approved by a 
  * provider rather than a patient. I.e. This is an override 
- * rather than an actual consent.</p></p>
+ * rather than an actual consent.</p>
  * 
- * <p><p>Authorization.signatory(PROV)</p></p>
+ * <p>Authorization.signatory(PROV)</p>
  * 
- * <p><p>Clinical circumstances may demand that a patient's 
+ * <p>Clinical circumstances may demand that a patient's 
  * information be accessed without consent to ensure patient 
- * safety.</p></p>
+ * safety.</p>
  * 
  * <p>PORX_MT060020CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060100CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060190CA.Author2: *c:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the medication to 
- * be dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  * 
  * <p>PORX_MT060060CA.Author2: *b:prescribed by</p>
  * 
- * <p><p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p></p>
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p></p>
+ * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
  * 
- * <p><p>To be a legal order, the person responsible for its 
+ * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
- * mandatory.</p></p>
+ * mandatory.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060190CA.Author2","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private ProviderBean assignedPerson;
     private TS time = new TSImpl();
 
@@ -149,6 +149,7 @@ public class PrescribedByBean extends MessagePartBean {
     public ProviderBean getAssignedPerson() {
         return this.assignedPerson;
     }
+
     public void setAssignedPerson(ProviderBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
@@ -157,202 +158,418 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date that the prescription was written by the 
-     * prescriber.</p></p>
+     * <p>The date that the prescription was written by the 
+     * prescriber.</p>
      * 
-     * <p><p>Essential information for a prescription to be 
+     * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p></p>
+     * &quot;populated&quot;.</p>
      * 
-     * <p><p>Essential information for a prescription to be 
+     * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p></p>
+     * &quot;populated&quot;.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the device was prescribed. This may 
+     * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p></p>
+     * valid to be dispensed or used for two weeks.</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * mandatory because the creation date of the prescription will 
-     * always be known.</p></p>
+     * always be known.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * mandatory because the creation date of the prescription will 
-     * always be known.</p></p>
+     * always be known.</p>
      * 
      * <p>Prescription Order Date</p>
      * 
-     * <p><p>The date at which the drug was prescribed. This may 
+     * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p></p>
+     * valid to be dispensed or administered for two weeks.</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
      * <p>Prescription Order Date</p>
      * 
-     * <p><p>The date at which the device was prescribed. This may 
+     * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p></p>
+     * valid to be dispensed or used for two weeks.</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
-     * <p><p>Indicates when the action was performed, and may 
+     * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
-     * prescriptions.</p></p>
+     * prescriptions.</p>
      * 
      * <p>Prescribed Date</p>
      * 
-     * <p><p>The date at which the drug was prescribed. This may 
+     * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p></p>
+     * valid to be dispensed or administered for two weeks.</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p></p>
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
      * 
-     * <p><p>Prescription.prescribedDate</p><p>Date prescription 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
      * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * will not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * po
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
         return this.time.getValue();
     }
+
+    /**
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date that the prescription was written by the 
+     * prescriber.</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>Prescribed Date</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * will not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * po
+     * ... [rest of documentation truncated due to excessive length]
+     */
     public void setTime(Date time) {
         this.time.setValue(time);
     }

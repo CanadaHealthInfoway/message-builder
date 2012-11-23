@@ -34,18 +34,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Other indications</p>
  * 
- * <p><p>Must have at least one of code or text</p></p>
+ * <p>Must have at least one of code or text</p>
  * 
- * <p><p>Describes indications that are not diagnosis or 
- * symptom-related (e.g. contrast agents)</p></p>
+ * <p>Describes indications that are not diagnosis or 
+ * symptom-related (e.g. contrast agents)</p>
  * 
- * <p><p>Allows separation of conditions from symptoms from 
- * other forms of indication.</p></p>
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980050CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
@@ -53,17 +53,28 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Other Indication</p>
      * 
-     * <p><p>A code indicating some other action which is the 
-     * reason for a therapy.</p></p>
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
      * 
-     * <p><p>Allows for coded representation of a non-condition 
-     * based indication such as administration of a contrast agent 
-     * for a lab test.</p></p>
+     * <p>Allows for coded representation of a non-condition based 
+     * indication such as administration of a contrast agent for a 
+     * lab test.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActNonConditionIndicationCode getCode() {
         return (ActNonConditionIndicationCode) this.code.getValue();
     }
+
+    /**
+     * <p>Other Indication</p>
+     * 
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
+     * 
+     * <p>Allows for coded representation of a non-condition based 
+     * indication such as administration of a contrast agent for a 
+     * lab test.</p>
+     */
     public void setCode(ActNonConditionIndicationCode code) {
         this.code.setValue(code);
     }
@@ -72,17 +83,28 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Other indication ad-hoc description</p>
      * 
-     * <p><p>A textual description of an indication not meant to be 
-     * either diagnosis or symptom.</p></p>
+     * <p>A textual description of an indication not meant to be 
+     * either diagnosis or symptom.</p>
      * 
-     * <p><p>Provides ability to describe indication without 
-     * labeling it a diagnosis or symptom. Attribute as free form 
-     * text is the only information allowed.</p></p>
+     * <p>Provides ability to describe indication without labeling 
+     * it a diagnosis or symptom. Attribute as free form text is 
+     * the only information allowed.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>Other indication ad-hoc description</p>
+     * 
+     * <p>A textual description of an indication not meant to be 
+     * either diagnosis or symptom.</p>
+     * 
+     * <p>Provides ability to describe indication without labeling 
+     * it a diagnosis or symptom. Attribute as free form text is 
+     * the only information allowed.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }

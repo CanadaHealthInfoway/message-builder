@@ -32,32 +32,32 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca
  * 
  * <p>PORX_MT980020CA.Product: *a:dispensed</p>
  * 
- * <p><p>Indicates the implicated drug that was dispensed.</p></p>
+ * <p>Indicates the implicated drug that was dispensed.</p>
  * 
- * <p><p>Important information for issue management.</p><p>The 
+ * <p>Important information for issue management.</p><p>The 
  * association is only marked as 'populated' because it may be 
- * masked.</p></p>
+ * masked.</p>
  * 
- * <p><p>Important information for issue management.</p><p>The 
+ * <p>Important information for issue management.</p><p>The 
  * association is only marked as 'populated' because it may be 
- * masked.</p></p>
+ * masked.</p>
  * 
  * <p>PORX_MT980010CA.Product: *a:dispensed</p>
  * 
- * <p><p>Indicates the drug that was dispensed</p></p>
+ * <p>Indicates the drug that was dispensed</p>
  * 
- * <p><p>Important information for issue management.</p><p>The 
+ * <p>Important information for issue management.</p><p>The 
  * association is marked as populated because it may be 
- * masked.</p></p>
+ * masked.</p>
  * 
- * <p><p>Important information for issue management.</p><p>The 
+ * <p>Important information for issue management.</p><p>The 
  * association is marked as populated because it may be 
- * masked.</p></p>
+ * masked.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private DrugProductBean medication;
 
 
@@ -65,6 +65,7 @@ public class DispensedBean extends MessagePartBean {
     public DrugProductBean getMedication() {
         return this.medication;
     }
+
     public void setMedication(DrugProductBean medication) {
         this.medication = medication;
     }

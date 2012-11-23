@@ -37,21 +37,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Diagnosis Indications</p>
  * 
- * <p><p>Code must be fixed to DX if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p></p>
+ * <p>Code must be fixed to DX if not using SNOMED</p><p>Value 
+ * is mandatory if not using SNOMED</p>
  * 
- * <p><p>Code must be fixed to DX if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p></p>
+ * <p>Code must be fixed to DX if not using SNOMED</p><p>Value 
+ * is mandatory if not using SNOMED</p>
  * 
- * <p><p>Describes diagnosis-related indications</p></p>
+ * <p>Describes diagnosis-related indications</p>
  * 
- * <p><p>Allows separation of conditions from symptoms from 
- * other forms of indication.</p></p>
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationDiagnosis"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();
@@ -60,20 +60,34 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     /**
      * <p>Diagnosis Type</p>
      * 
-     * <p><p>Identifies the type of diagnosis</p></p>
+     * <p>Identifies the type of diagnosis</p>
      * 
-     * <p><p>Identifies this measurement as a type of diagnosis and 
-     * is therefore mandatory. It is set to CD because SNOMED codes 
-     * may require post-coordination</p></p>
+     * <p>Identifies this measurement as a type of diagnosis and is 
+     * therefore mandatory. It is set to CD because SNOMED codes 
+     * may require post-coordination</p>
      * 
-     * <p><p>For SNOMED, the complete diagnosis appears here. For 
+     * <p>For SNOMED, the complete diagnosis appears here. For 
      * non-SNOMED this should be a fixed value of 
-     * &quot;DX&quot;.</p></p>
+     * &quot;DX&quot;.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
+     * 
+     * <p>Identifies this measurement as a type of diagnosis and is 
+     * therefore mandatory. It is set to CD because SNOMED codes 
+     * may require post-coordination</p>
+     * 
+     * <p>For SNOMED, the complete diagnosis appears here. For 
+     * non-SNOMED this should be a fixed value of 
+     * &quot;DX&quot;.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -82,16 +96,26 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     /**
      * <p>Free Form Diagnosis Indication</p>
      * 
-     * <p><p>A free form description augmenting the specified 
-     * diagnosis code.</p></p>
+     * <p>A free form description augmenting the specified 
+     * diagnosis code.</p>
      * 
-     * <p><p>Provides greater flexibility in specifying 
-     * indication.</p></p>
+     * <p>Provides greater flexibility in specifying 
+     * indication.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>Free Form Diagnosis Indication</p>
+     * 
+     * <p>A free form description augmenting the specified 
+     * diagnosis code.</p>
+     * 
+     * <p>Provides greater flexibility in specifying 
+     * indication.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }
@@ -100,18 +124,30 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     /**
      * <p>A:Diagnosis Code</p>
      * 
-     * <p><p>A coded form of the diagnosis that is the reason for 
-     * the current action.</p></p>
+     * <p>A coded form of the diagnosis that is the reason for the 
+     * current action.</p>
      * 
-     * <p><p>Allows cross-checking the use of a therapy against its 
+     * <p>Allows cross-checking the use of a therapy against its 
      * indication. Also allows analysis of best practices, etc. 
      * This attribute is optional because it is not used by 
-     * SNOMED.</p></p>
+     * SNOMED.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
         return (DiagnosisValue) this.value.getValue();
     }
+
+    /**
+     * <p>A:Diagnosis Code</p>
+     * 
+     * <p>A coded form of the diagnosis that is the reason for the 
+     * current action.</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. 
+     * This attribute is optional because it is not used by 
+     * SNOMED.</p>
+     */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
     }

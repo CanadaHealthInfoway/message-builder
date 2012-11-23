@@ -35,17 +35,17 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 /**
  * <p>Dispense Pickup</p>
  * 
- * <p><p>Captures information about what prescription was 
- * picked up and who received it.</p></p>
+ * <p>Captures information about what prescription was picked 
+ * up and who received it.</p>
  * 
- * <p><p>The root class for the message. The time of pickup is 
- * specified on the ControlAct wrapper.</p></p>
+ * <p>The root class for the message. The time of pickup is 
+ * specified on the ControlAct wrapper.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020020CA.SupplyEvent"})
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
@@ -54,17 +54,28 @@ public class DispensePickupBean extends MessagePartBean {
     /**
      * <p>Dispense Id</p>
      * 
-     * <p><p>Identity of prescription dispense that has been picked 
-     * up.</p></p>
+     * <p>Identity of prescription dispense that has been picked 
+     * up.</p>
      * 
-     * <p><p>Allows dispenses to be uniquely identified. This 
+     * <p>Allows dispenses to be uniquely identified. This 
      * attribute is mandatory because the identity of the dispense 
-     * record must be known.</p></p>
+     * record must be known.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>Dispense Id</p>
+     * 
+     * <p>Identity of prescription dispense that has been picked 
+     * up.</p>
+     * 
+     * <p>Allows dispenses to be uniquely identified. This 
+     * attribute is mandatory because the identity of the dispense 
+     * record must be known.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -74,6 +85,7 @@ public class DispensePickupBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -83,6 +95,7 @@ public class DispensePickupBean extends MessagePartBean {
     public ResponsiblePersonBean getReceiverResponsibleParty() {
         return this.receiverResponsibleParty;
     }
+
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
     }

@@ -29,9 +29,26 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Medica
 
 
 
+/**
+ * <p>PORX_IN060400CA: Medication profile summary query 
+ * response</p>
+ * 
+ * <p>Message: MCCI_MT000300CA.Message</p>
+ * 
+ * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060190CA.MedicationRecord</p>
+ * 
+ * <p>----> Sub-Payload Choice: 
+ * PORX_MT060190CA.CombinedMedicationRequest</p>
+ * 
+ * <p>----> Sub-Payload Choice: PORX_MT060190CA.OtherMedication</p>
+ * 
+ * <p>--> Sub-Payload: PORX_MT060200CA.ParameterList</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060400CA"})
 public class MedicationProfileSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
 
 }

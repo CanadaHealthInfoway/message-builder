@@ -34,37 +34,37 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT060040CA.PriorSupplyRequest: Parent Prescription</p>
  * 
- * <p><p>This is the original prescription that is being 
- * renewed. The current prescription uses the original 
- * prescription as the basis for its information.</p></p>
+ * <p>This is the original prescription that is being renewed. 
+ * The current prescription uses the original prescription as 
+ * the basis for its information.</p>
  * 
- * <p><p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p></p>
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
  * 
  * <p>PORX_MT060340CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
- * <p><p>This is the original prescription that is being 
- * renewed. The current prescription uses the original 
- * prescription as the basis for its information.</p></p>
+ * <p>This is the original prescription that is being renewed. 
+ * The current prescription uses the original prescription as 
+ * the basis for its information.</p>
  * 
- * <p><p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p></p>
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
  * 
  * <p>PORX_MT060160CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
- * <p><p>This is the original prescription that is being 
- * renewed. The current prescription uses the original 
- * prescription as the basis for its information.</p></p>
+ * <p>This is the original prescription that is being renewed. 
+ * The current prescription uses the original prescription as 
+ * the basis for its information.</p>
  * 
- * <p><p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p></p>
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest","PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
 
 
@@ -73,25 +73,46 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * 
      * <p>B:Previous Prescription Order Number</p>
      * 
-     * <p><p>A reference to a previous prescription which the 
-     * current prescription replaces.</p></p>
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
      * 
-     * <p><p>New or Repeat (if present, then Repeat)</p></p>
+     * <p>New or Repeat (if present, then Repeat)</p>
      * 
-     * <p><p>Allows a prescription renewal (this prescription) to 
-     * note the previous prescription id that was 
-     * renewed;</p><p>Allows tracking a therapy across multiple 
-     * renewal prescriptions.</p></p>
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
      * 
-     * <p><p>Allows a prescription renewal (this prescription) to 
-     * note the previous prescription id that was 
-     * renewed;</p><p>Allows tracking a therapy across multiple 
-     * renewal prescriptions.</p></p>
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>B:Previous Prescription Order Number</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }

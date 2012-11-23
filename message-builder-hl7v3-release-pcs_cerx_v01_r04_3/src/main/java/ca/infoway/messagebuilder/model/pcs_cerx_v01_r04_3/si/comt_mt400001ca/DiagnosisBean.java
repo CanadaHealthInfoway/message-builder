@@ -33,18 +33,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Diagnosis</p>
  * 
- * <p><p>If code is SNOMED, value must not be specified. 
- * Otherwise value is mandatory and code must be DX</p></p>
+ * <p>If code is SNOMED, value must not be specified. Otherwise 
+ * value is mandatory and code must be DX</p>
  * 
- * <p><p>Conveys information about a diagnosis to be masked</p></p>
+ * <p>Conveys information about a diagnosis to be masked</p>
  * 
- * <p><p>Allows masking of items related to a particular 
- * medical condition.</p></p>
+ * <p>Allows masking of items related to a particular medical 
+ * condition.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
@@ -52,17 +52,28 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>A:Diagnosis Type</p>
      * 
-     * <p><p>Used to indicate that this observation is a diagnosis, 
+     * <p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
-     * is.</p></p>
+     * is.</p>
      * 
-     * <p><p>Needed to convey the diagnosis information to be 
-     * masked, and attribute is therefore mandatory.</p></p>
+     * <p>Needed to convey the diagnosis information to be masked, 
+     * and attribute is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>A:Diagnosis Type</p>
+     * 
+     * <p>Used to indicate that this observation is a diagnosis, 
+     * and for SNOMED, provides details of what the diagnosis 
+     * is.</p>
+     * 
+     * <p>Needed to convey the diagnosis information to be masked, 
+     * and attribute is therefore mandatory.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -71,18 +82,30 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>B:Diagnosis</p>
      * 
-     * <p><p>The diagnosis whose associated records should be 
-     * masked.</p></p>
+     * <p>The diagnosis whose associated records should be 
+     * masked.</p>
      * 
-     * <p><p>Allows masking of all records (prescriptions, 
-     * dispenses, encounters, lab tests, etc.) associated with the 
-     * specified diagnosis. This element is optional because it is 
-     * not used for SNOMED.</p></p>
+     * <p>Allows masking of all records (prescriptions, dispenses, 
+     * encounters, lab tests, etc.) associated with the specified 
+     * diagnosis. This element is optional because it is not used 
+     * for SNOMED.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
         return (DiagnosisValue) this.value.getValue();
     }
+
+    /**
+     * <p>B:Diagnosis</p>
+     * 
+     * <p>The diagnosis whose associated records should be 
+     * masked.</p>
+     * 
+     * <p>Allows masking of all records (prescriptions, dispenses, 
+     * encounters, lab tests, etc.) associated with the specified 
+     * diagnosis. This element is optional because it is not used 
+     * for SNOMED.</p>
+     */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
     }

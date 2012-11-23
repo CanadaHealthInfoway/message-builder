@@ -51,27 +51,27 @@ import java.util.List;
 /**
  * <p>Reported Reaction</p>
  * 
- * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p></p>
+ * <p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p>
  * 
- * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p></p>
+ * <p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p>
  * 
- * <p><p>This is a record of an adverse reaction considered 
- * relevant to the patient's clincal record.</p></p>
+ * <p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clincal record.</p>
  * 
- * <p><p>Useful in tracking reactions when it is not known 
+ * <p>Useful in tracking reactions when it is not known 
  * precisely what product they are associated with and whether 
  * the reaction is due to an allergy or intolerance, a drug 
  * interaction or some other cause. Effectively gives a 'heads 
  * up' to clinicians using the drug or combination of 
- * drugs.</p></p>
+ * drugs.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000002CA.ReactionObservationEvent"})
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -87,19 +87,32 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>Diagnosis Type</p>
      * 
-     * <p><p>Indicates the type of diagnosis being captured.</p></p>
+     * <p>Indicates the type of diagnosis being captured.</p>
      * 
-     * <p><p>Indicates that the observation is actually a diagnosis 
+     * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p></p>
+     * SNOMED post-coordination.</p>
      * 
-     * <p><p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p></p>
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -108,8 +121,8 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>G:Description</p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
      * annotations on the reaction.</p><p>Annotations and text are 
      * quite different. Think of it from a user interface. Notes 
      * might be things like &quot;patient didn't have the problem 
@@ -117,10 +130,10 @@ public class ReportedReactionBean extends MessagePartBean {
      * &quot;patient thinks it might have been related to the two 
      * bottles of scotch they drank the night prior&quot;, which 
      * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * reaction record</p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
      * annotations on the reaction.</p><p>Annotations and text are 
      * quite different. Think of it from a user interface. Notes 
      * might be things like &quot;patient didn't have the problem 
@@ -128,10 +141,10 @@ public class ReportedReactionBean extends MessagePartBean {
      * &quot;patient thinks it might have been related to the two 
      * bottles of scotch they drank the night prior&quot;, which 
      * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * reaction record</p>
      * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
      * annotations on the reaction.</p><p>Annotations and text are 
      * quite different. Think of it from a user interface. Notes 
      * might be things like &quot;patient didn't have the problem 
@@ -139,17 +152,59 @@ public class ReportedReactionBean extends MessagePartBean {
      * &quot;patient thinks it might have been related to the two 
      * bottles of scotch they drank the night prior&quot;, which 
      * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
+     * reaction record</p>
      * 
-     * <p><p>B.4</p></p>
+     * <p>B.4</p>
      * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
         return this.text.getValue();
     }
+
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when the took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p>
+     * 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when the took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p>
+     * 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when the took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     */
     public void setText(String text) {
         this.text.setValue(text);
     }
@@ -158,16 +213,26 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>F:Reaction Onset Date</p>
      * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * <p>The date on which the reaction occurrence began.</p>
      * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -176,28 +241,44 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>G:Adverse Reaction Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their adverse reactions. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Valid values are: 
-     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
-     * 'Masked'). The default is 'NORMAL' signifying 'Not 
-     * Masked'.</p></p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their adverse reactions. Provides support for additional 
+     * confidentiality constraint, giving patients a level of 
+     * control over their information. Valid values are: 'NORMAL' 
+     * (denotes 'Not Masked'); and 'RESTRICTED' (denotes 'Masked'). 
+     * The default is 'NORMAL' signifying 'Not Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their adverse reaction data.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their adverse reaction data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their adverse reaction data.</p><p>The attribute 
-     * is optional because not all systems will support 
-     * masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their adverse reaction data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>G:Adverse Reaction Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their adverse reactions. Provides support for additional 
+     * confidentiality constraint, giving patients a level of 
+     * control over their information. Valid values are: 'NORMAL' 
+     * (denotes 'Not Masked'); and 'RESTRICTED' (denotes 'Masked'). 
+     * The default is 'NORMAL' signifying 'Not Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their adverse reaction data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their adverse reaction data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -206,22 +287,38 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>B:Reaction</p>
      * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      * 
-     * <p><p>B.1</p></p>
+     * <p>B.1</p>
      * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
+     * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
      * categorized as allergy. The attribute is optional because it 
      * will not be used for SNOMED. The attribute is CWE because 
      * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
+     * values.</p>
      */
     @Hl7XmlMapping({"value"})
     public SubjectReaction getValue() {
         return (SubjectReaction) this.value.getValue();
     }
+
+    /**
+     * <p>B:Reaction</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>B.1</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     */
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);
     }
@@ -231,6 +328,7 @@ public class ReportedReactionBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -240,6 +338,7 @@ public class ReportedReactionBean extends MessagePartBean {
     public ReportedByBean getInformant() {
         return this.informant;
     }
+
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
@@ -249,6 +348,7 @@ public class ReportedReactionBean extends MessagePartBean {
     public CommentBean getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
+
     public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
         this.subjectOf1Annotation = subjectOf1Annotation;
     }
@@ -258,6 +358,7 @@ public class ReportedReactionBean extends MessagePartBean {
     public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
         return this.subjectOf2SeverityObservation;
     }
+
     public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
         this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
     }

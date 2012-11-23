@@ -29,19 +29,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Dispense Information</p>
  * 
- * <p><p>At least one of the 2 components of SupplyDefinition3 
- * First Fill Period or Refill Period must be specified.</p></p>
+ * <p>At least one of the 2 components of SupplyDefinition3 
+ * First Fill Period or Refill Period must be specified.</p>
  * 
- * <p><p>Indicates how the drug should be supplied and/or who 
- * can dispense it.</p></p>
+ * <p>Indicates how the drug should be supplied and/or who can 
+ * dispense it.</p>
  * 
- * <p><p>Needed to understand limits on how dispenses can be 
- * performed.</p></p>
+ * <p>Needed to understand limits on how dispenses can be 
+ * performed.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private SubsequentDispenseBean component1SubsequentDispense;
     private DrugValidityPeriodBean component2InitialDispense;
 
@@ -50,6 +50,7 @@ public class DispenseInformationBean extends MessagePartBean {
     public SubsequentDispenseBean getComponent1SubsequentDispense() {
         return this.component1SubsequentDispense;
     }
+
     public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
         this.component1SubsequentDispense = component1SubsequentDispense;
     }
@@ -59,6 +60,7 @@ public class DispenseInformationBean extends MessagePartBean {
     public DrugValidityPeriodBean getComponent2InitialDispense() {
         return this.component2InitialDispense;
     }
+
     public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
         this.component2InitialDispense = component2InitialDispense;
     }

@@ -46,26 +46,26 @@ import java.util.Date;
  * 
  * <p>PORX_MT980020CA.SupplyEvent: Dispense</p>
  * 
- * <p><p>Indicates a particular dispense event that resulted in 
- * the issue.</p></p>
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
  * 
- * <p><p>Used when the issue pertains to the supply of the drug 
+ * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
- * too soon, etc.</p></p>
+ * too soon, etc.</p>
  * 
  * <p>PORX_MT980010CA.SupplyEvent: Dispense</p>
  * 
- * <p><p>Indicates a particular dispense event that resulted in 
- * the issue.</p></p>
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
  * 
- * <p><p>Used when the issue pertains to the supply of the drug 
+ * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
- * too soon, etc.</p></p>
+ * too soon, etc.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -79,38 +79,72 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>Unique identifier of the dispensed event that 
-     * triggered the issue.</p></p>
+     * <p>Unique identifier of the dispensed event that triggered 
+     * the issue.</p>
      * 
-     * <p><p>Allows provider to drill down and retrieve additional 
+     * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p><p>The attribute is 
-     * marked as populated because it may be masked.</p></p>
+     * marked as populated because it may be masked.</p>
      * 
-     * <p><p>Allows provider to drill down and retrieve additional 
+     * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p><p>The attribute is 
-     * marked as populated because it may be masked.</p></p>
+     * marked as populated because it may be masked.</p>
      * 
      * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>Unique identifier of the dispense event that triggered 
-     * the issue.</p></p>
+     * <p>Unique identifier of the dispense event that triggered 
+     * the issue.</p>
      * 
-     * <p><p>Allows provider to drill down and retrieve additional 
+     * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p><p>The attribute is only 
-     * marked as 'populated' because it may be masked.</p></p>
+     * marked as 'populated' because it may be masked.</p>
      * 
-     * <p><p>Allows provider to drill down and retrieve additional 
+     * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p><p>The attribute is only 
-     * marked as 'populated' because it may be masked.</p></p>
+     * marked as 'populated' because it may be masked.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p>Unique identifier of the dispensed event that triggered 
+     * the issue.</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is 
+     * marked as populated because it may be masked.</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p>Unique identifier of the dispense event that triggered 
+     * the issue.</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is only 
+     * marked as 'populated' because it may be masked.</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p><p>The attribute is only 
+     * marked as 'populated' because it may be masked.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -121,21 +155,38 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>B:Dispense Status</p>
      * 
-     * <p><p>Indicates the status of the dispense record created on 
+     * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
      * processed but not yet given to the patient. If 'Complete', 
      * it indicates that the medication has been delivered to the 
-     * patient.</p></p>
+     * patient.</p>
      * 
-     * <p><p>Important in understanding what medication the patient 
+     * <p>Important in understanding what medication the patient 
      * actually has on hand, thus the attribute is mandatory. May 
      * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p></p>
+     * dispense the medication.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>DispenseStatus</p>
+     * 
+     * <p>B:Dispense Status</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -146,48 +197,92 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>B:Dispensed Date</p>
      * 
-     * <p><p>The date and time on which the product was dispensed 
-     * to the patient.</p></p>
+     * <p>The date and time on which the product was dispensed to 
+     * the patient.</p>
      * 
-     * <p><p>ZDU.4.5</p></p>
+     * <p>ZDU.4.5</p>
      * 
-     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * <p>Allows evaluation of 'refill too soon' and similar 
      * issues.</p><p>Attribute is marked as &quot;populated&quot; 
      * as a dispense record may not exist without processing 
-     * date.</p></p>
+     * date.</p>
      * 
-     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * <p>Allows evaluation of 'refill too soon' and similar 
      * issues.</p><p>Attribute is marked as &quot;populated&quot; 
      * as a dispense record may not exist without processing 
-     * date.</p></p>
+     * date.</p>
      * 
-     * <p><p>Applications should specify a null flavor of &quot;Not 
+     * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
-     * up.</p></p>
+     * up.</p>
      * 
      * <p>B:Dispensed Date</p>
      * 
-     * <p><p>The date and time on which the product was issued to 
-     * the patient.</p></p>
+     * <p>The date and time on which the product was issued to the 
+     * patient.</p>
      * 
-     * <p><p>ZDU.4.5</p></p>
+     * <p>ZDU.4.5</p>
      * 
-     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * <p>Allows evaluation of 'refill too soon' and similar 
      * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p></p>
+     * dispense record may not exist without processing date.</p>
      * 
-     * <p><p>Allows evaluation of 'refill too soon' and similar 
+     * <p>Allows evaluation of 'refill too soon' and similar 
      * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p></p>
+     * dispense record may not exist without processing date.</p>
      * 
-     * <p><p>Applications should specify a null flavor of &quot;Not 
+     * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
-     * up.</p></p>
+     * up.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>DispensedDate</p>
+     * 
+     * <p>B:Dispensed Date</p>
+     * 
+     * <p>The date and time on which the product was dispensed to 
+     * the patient.</p>
+     * 
+     * <p>ZDU.4.5</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p>
+     * 
+     * <p>Applications should specify a null flavor of &quot;Not 
+     * Applicable&quot; for dispenses that have not yet been picked 
+     * up.</p>
+     * 
+     * <p>B:Dispensed Date</p>
+     * 
+     * <p>The date and time on which the product was issued to the 
+     * patient.</p>
+     * 
+     * <p>ZDU.4.5</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
+     * 
+     * <p>Allows evaluation of 'refill too soon' and similar 
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
+     * 
+     * <p>Applications should specify a null flavor of &quot;Not 
+     * Applicable&quot; for dispenses that have not yet been picked 
+     * up.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -196,36 +291,66 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
     /**
      * <p>C:Dispense Masked Indicator</p>
      * 
-     * <p><p>An indication of sensitivity surrounding the 
-     * implicated drug, and thus defines the required sensitivity 
-     * for the detected issue.</p></p>
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
      * 
      * <p>C:Dispense Masking Indicator</p>
      * 
-     * <p><p>An indication of sensitivity surrounding the related 
+     * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
+     * detected issue.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>C:Dispense Masked Indicator</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>C:Dispense Masking Indicator</p>
+     * 
+     * <p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -235,6 +360,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
     public DispensedBean getProduct() {
         return this.product;
     }
+
     public void setProduct(DispensedBean product) {
         this.product = product;
     }
@@ -244,6 +370,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }

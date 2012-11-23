@@ -33,15 +33,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT020070CA.Component2: (no business name)</p>
  * 
- * <p><p>Component must be specified if the id is null and can 
- * not be specified if the id is not null.</p></p>
+ * <p>Component must be specified if the id is null and can not 
+ * be specified if the id is not null.</p>
  * 
  * <p>PORX_MT030040CA.Component6: f:includes</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * medication should be dispensed to the patient.</p></p>
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
  * 
- * <p><p>An essential part of most prescriptions is the 
+ * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
  * to accommodate circumstances where multiple drug products 
  * may need to be dispensed to complete a therapy. E.g. 100 x 
@@ -52,14 +52,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * medication which requires no dispense authorization (e.g. 
  * over-the-counter medications), or when the patient already 
  * has sufficient supply of the medication on hand to complete 
- * the therapy.</p></p>
+ * the therapy.</p>
  * 
  * <p>PORX_MT060190CA.Component6: f:includes</p>
  * 
- * <p><p>Identifies the instructions for how the prescribed 
- * medication should be dispensed to the patient.</p></p>
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
  * 
- * <p><p>An essential part of most prescriptions is the 
+ * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
  * to accommodate circumstances where multiple drug products 
  * may need to be dispensed to complete a therapy. E.g. 100 x 
@@ -70,12 +70,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * medication which requires no dispense authorization (e.g. 
  * over-the-counter medications), or when the patient already 
  * has sufficient supply of the medication on hand to complete 
- * the therapy.</p></p>
+ * the therapy.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.Component2","PORX_MT030040CA.Component6","PORX_MT060190CA.Component6"})
 public class Component2_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private BL contextConductionInd = new BLImpl();
     private DispenseInstructions_2Bean supplyRequest;
 
@@ -84,6 +84,7 @@ public class Component2_2Bean extends MessagePartBean {
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
+
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
@@ -93,6 +94,7 @@ public class Component2_2Bean extends MessagePartBean {
     public DispenseInstructions_2Bean getSupplyRequest() {
         return this.supplyRequest;
     }
+
     public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

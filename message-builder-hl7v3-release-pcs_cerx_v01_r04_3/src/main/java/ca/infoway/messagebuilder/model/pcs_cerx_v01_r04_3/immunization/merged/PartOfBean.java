@@ -33,30 +33,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POIZ_MT030050CA.InFulfillmentOf3: part of</p>
  * 
- * <p><p>Indicates the order of a specific immunization event 
- * with a planned/expected number of immunizations.</p></p>
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
  * 
- * <p><p>Allows tracking against a therapy plan.</p></p>
+ * <p>Allows tracking against a therapy plan.</p>
  * 
  * <p>POIZ_MT060150CA.InFulfillmentOf3: part of</p>
  * 
- * <p><p>Indicates the order of a specific immunization event 
- * with a planned/expected number of immunizations.</p></p>
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
  * 
- * <p><p>Allows tracking against a therapy plan.</p></p>
+ * <p>Allows tracking against a therapy plan.</p>
  * 
  * <p>POIZ_MT030060CA.InFulfillmentOf3: part of</p>
  * 
- * <p><p>Indicates the order of a specific immunization event 
- * with a planned/expected number of immunizations.</p></p>
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
  * 
- * <p><p>Allows changing what dose was administered after the 
- * fact.</p></p>
+ * <p>Allows changing what dose was administered after the 
+ * fact.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf3","POIZ_MT030060CA.InFulfillmentOf3","POIZ_MT060150CA.InFulfillmentOf3"})
 public class PartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private INT sequenceNumber = new INTImpl();
     private ImmunizationCourseBean immunizationPlan;
 
@@ -66,31 +66,58 @@ public class PartOfBean extends MessagePartBean {
      * 
      * <p>Vaccine Dose Number</p>
      * 
-     * <p><p>Indicates whether this is the initial immunization 
-     * (Dose Number = 1) or a specific booster (Dose Number = 2 
-     * means first booster, 3 means 2nd booster, etc.).</p></p>
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p><p>RXA.2</p></p>
+     * <p>RXA.2</p>
      * 
-     * <p><p>Used in compliance checking regarding completion of a 
-     * planned immunization therapy.</p></p>
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
      * 
      * <p>Vaccine Dose Number</p>
      * 
-     * <p><p>Indicates whether this is the initial immunization 
-     * (Dose Number = 1) or a specific booster (Dose Number = 2 
-     * means first booster, 3 means 2nd booster, etc.).</p></p>
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p><p>RXA.2</p></p>
+     * <p>RXA.2</p>
      * 
-     * <p><p>Used in compliance checking regarding completion of a 
+     * <p>Used in compliance checking regarding completion of a 
      * planned immunization therapy and is therefore marked as 
-     * &quot;populated&quot;.</p></p>
+     * &quot;populated&quot;.</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
+
+    /**
+     * <p>VaccineDoseNumber</p>
+     * 
+     * <p>Vaccine Dose Number</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Vaccine Dose Number</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy and is therefore marked as 
+     * &quot;populated&quot;.</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
@@ -100,6 +127,7 @@ public class PartOfBean extends MessagePartBean {
     public ImmunizationCourseBean getImmunizationPlan() {
         return this.immunizationPlan;
     }
+
     public void setImmunizationPlan(ImmunizationCourseBean immunizationPlan) {
         this.immunizationPlan = immunizationPlan;
     }

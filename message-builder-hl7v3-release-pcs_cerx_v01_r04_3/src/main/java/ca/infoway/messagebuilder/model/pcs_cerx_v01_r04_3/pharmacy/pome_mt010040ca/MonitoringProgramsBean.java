@@ -35,25 +35,25 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Assign
 /**
  * <p>Monitoring Programs</p>
  * 
- * <p><p>A system of additional business rules, documentation 
- * or reporting associated with a particular drug or group of 
+ * <p>A system of additional business rules, documentation or 
+ * reporting associated with a particular drug or group of 
  * drugs. These are typically instituted to detect potential 
  * abuse, or to monitor prescribing and/or dispensing patterns 
  * of a sensitive class of medications. Examples include 
  * triplicate programs, antibiotic monitoring programs, 
- * etc.</p></p>
+ * etc.</p>
  * 
- * <p><p>DrugProduct.triplicate</p><p>Prescription.triplicate</p></p>
+ * <p>DrugProduct.triplicate</p><p>Prescription.triplicate</p>
  * 
- * <p><p>DrugProduct.triplicate</p><p>Prescription.triplicate</p></p>
+ * <p>DrugProduct.triplicate</p><p>Prescription.triplicate</p>
  * 
- * <p><p>Allows association of additional business requirements 
- * with a particular drug</p></p>
+ * <p>Allows association of additional business requirements 
+ * with a particular drug</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
@@ -62,24 +62,42 @@ public class MonitoringProgramsBean extends MessagePartBean {
     /**
      * <p>Program Type</p>
      * 
-     * <p><p>A coded value denoting a specific kind of monitoring 
+     * <p>A coded value denoting a specific kind of monitoring 
      * program. For example, &quot;Drugs of potential abuse&quot;, 
-     * &quot;Antibiotics&quot;, etc.</p></p>
+     * &quot;Antibiotics&quot;, etc.</p>
      * 
-     * <p><p>DispensedItem.triplicate</p></p>
+     * <p>DispensedItem.triplicate</p>
      * 
-     * <p><p>Used for classifying and sorting monitoring 
+     * <p>Used for classifying and sorting monitoring 
      * programs.</p><p>This is mandatory because, different program 
-     * types have different business rules.</p></p>
+     * types have different business rules.</p>
      * 
-     * <p><p>Used for classifying and sorting monitoring 
+     * <p>Used for classifying and sorting monitoring 
      * programs.</p><p>This is mandatory because, different program 
-     * types have different business rules.</p></p>
+     * types have different business rules.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActMonitoringProtocolCode getCode() {
         return (ActMonitoringProtocolCode) this.code.getValue();
     }
+
+    /**
+     * <p>Program Type</p>
+     * 
+     * <p>A coded value denoting a specific kind of monitoring 
+     * program. For example, &quot;Drugs of potential abuse&quot;, 
+     * &quot;Antibiotics&quot;, etc.</p>
+     * 
+     * <p>DispensedItem.triplicate</p>
+     * 
+     * <p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p>
+     * 
+     * <p>Used for classifying and sorting monitoring 
+     * programs.</p><p>This is mandatory because, different program 
+     * types have different business rules.</p>
+     */
     public void setCode(ActMonitoringProtocolCode code) {
         this.code.setValue(code);
     }
@@ -88,16 +106,26 @@ public class MonitoringProgramsBean extends MessagePartBean {
     /**
      * <p>Program Name</p>
      * 
-     * <p><p>A user-friendly label assigned to the monitoring 
-     * program.</p></p>
+     * <p>A user-friendly label assigned to the monitoring 
+     * program.</p>
      * 
-     * <p><p>Provides a provider-recognizable label for the 
-     * program.</p></p>
+     * <p>Provides a provider-recognizable label for the 
+     * program.</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
         return this.title.getValue();
     }
+
+    /**
+     * <p>Program Name</p>
+     * 
+     * <p>A user-friendly label assigned to the monitoring 
+     * program.</p>
+     * 
+     * <p>Provides a provider-recognizable label for the 
+     * program.</p>
+     */
     public void setTitle(String title) {
         this.title.setValue(title);
     }
@@ -107,6 +135,7 @@ public class MonitoringProgramsBean extends MessagePartBean {
     public AssignedEntity3Bean getCustodianAssignedEntity() {
         return this.custodianAssignedEntity;
     }
+
     public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
         this.custodianAssignedEntity = custodianAssignedEntity;
     }

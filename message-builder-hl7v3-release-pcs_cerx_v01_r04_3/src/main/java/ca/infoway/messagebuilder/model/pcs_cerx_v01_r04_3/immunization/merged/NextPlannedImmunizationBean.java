@@ -35,19 +35,19 @@ import java.util.Date;
  * <p>POIZ_MT030050CA.NextPlannedImmunization: (no business 
  * name)</p>
  * 
- * <p><p>The NextPlannedImmunization is the next scheduled dose 
- * within a set or &quot;series&quot; of immunizations.</p></p>
+ * <p>The NextPlannedImmunization is the next scheduled dose 
+ * within a set or &quot;series&quot; of immunizations.</p>
  * 
  * <p>POIZ_MT030060CA.NextPlannedImmunization: (no business 
  * name)</p>
  * 
- * <p><p>The NextPlannedImmunization is the next scheduled dose 
- * within a set or &quot;series&quot; of immunizations.</p></p>
+ * <p>The NextPlannedImmunization is the next scheduled dose 
+ * within a set or &quot;series&quot; of immunizations.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NextPlannedImmunization","POIZ_MT030060CA.NextPlannedImmunization","POIZ_MT060150CA.NextPlannedImmunization"})
 public class NextPlannedImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -56,32 +56,60 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * 
      * <p>Next Planned Dose Date</p>
      * 
-     * <p><p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p></p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
-     * <p><p>Necessary reminder to a patient and his/or provider 
-     * for a follow-up therapy.</p></p>
-     * 
-     * <p>Next Planned Dose Date</p>
-     * 
-     * <p><p>Indicates the date on which the next dose is to be 
-     * administered.</p></p>
-     * 
-     * <p><p>Allows for the scheduling of a multi-dose immunization 
-     * course.</p></p>
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
      * 
      * <p>Next Planned Dose Date</p>
      * 
-     * <p><p>Indicates the date on which the next dose is to be 
-     * administered. .</p></p>
+     * <p>Indicates the date on which the next dose is to be 
+     * administered.</p>
      * 
-     * <p><p>Allows for the scheduling of a multi-dose immunization 
-     * course.</p></p>
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
+     * 
+     * <p>Next Planned Dose Date</p>
+     * 
+     * <p>Indicates the date on which the next dose is to be 
+     * administered. .</p>
+     * 
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>NextPlannedDoseDate</p>
+     * 
+     * <p>Next Planned Dose Date</p>
+     * 
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
+     * 
+     * <p>Necessary reminder to a patient and his/or provider for a 
+     * follow-up therapy.</p>
+     * 
+     * <p>Next Planned Dose Date</p>
+     * 
+     * <p>Indicates the date on which the next dose is to be 
+     * administered.</p>
+     * 
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
+     * 
+     * <p>Next Planned Dose Date</p>
+     * 
+     * <p>Indicates the date on which the next dose is to be 
+     * administered. .</p>
+     * 
+     * <p>Allows for the scheduling of a multi-dose immunization 
+     * course.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }

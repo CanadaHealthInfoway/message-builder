@@ -47,18 +47,18 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Supply
 /**
  * <p>Dispense</p>
  * 
- * <p><p>Describes the issuing of a drug in response to an 
- * authorizing prescription.</p></p>
+ * <p>Describes the issuing of a drug in response to an 
+ * authorizing prescription.</p>
  * 
- * <p><p>This is a 'core' class of the medication model and is 
+ * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
- * actually receiving.</p></p>
+ * actually receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060100CA.MedicationDispense"})
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -75,25 +75,44 @@ public class DispenseBean extends MessagePartBean {
     /**
      * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
+     * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a prescription dispense by the EHR/DIS 
      * irrespective of the source of the supply event</p><p>It is 
      * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
+     * edits and validation.</p>
      * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
+     * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a prescription dispense by the EHR/DIS 
      * irrespective of the source of the supply event</p><p>It is 
      * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
+     * edits and validation.</p>
      * 
-     * <p><p>Allows dispense events to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
+     * <p>Allows dispense events to be uniquely referenced and is 
+     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p>
+     * 
+     * <p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p>
+     * 
+     * <p>Allows dispense events to be uniquely referenced and is 
+     * therefore mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -102,17 +121,28 @@ public class DispenseBean extends MessagePartBean {
     /**
      * <p>C:Dispense Status</p>
      * 
-     * <p><p>Indicates whether the dispense has been picked up 
-     * ('complete') or has just been processed ('active').</p></p>
+     * <p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p>
      * 
-     * <p><p>Indicates how far along the process the dispense event 
+     * <p>Indicates how far along the process the dispense event 
      * is. It should always be known and is therefore 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>C:Dispense Status</p>
+     * 
+     * <p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p>
+     * 
+     * <p>Indicates how far along the process the dispense event 
+     * is. It should always be known and is therefore 
+     * mandatory.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -121,50 +151,94 @@ public class DispenseBean extends MessagePartBean {
     /**
      * <p>E:Prescription Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Valid values 
      * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
      * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p></p>
+     * 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Valid values 
      * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
      * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p></p>
+     * 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Valid values 
      * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
      * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p></p>
+     * 'Not Masked'.</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information.</p><p>Valid values 
      * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
      * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p></p>
+     * 'Not Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>E:Prescription Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -174,6 +248,7 @@ public class DispenseBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -183,6 +258,7 @@ public class DispenseBean extends MessagePartBean {
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
+
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
@@ -192,6 +268,7 @@ public class DispenseBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -201,6 +278,7 @@ public class DispenseBean extends MessagePartBean {
     public SupplyEventBean getComponent1SupplyEvent() {
         return this.component1SupplyEvent;
     }
+
     public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
     }
@@ -209,46 +287,84 @@ public class DispenseBean extends MessagePartBean {
     /**
      * <p>Rendered Dosage Instruction</p>
      * 
-     * <p><p>A free form textual specification generated from the 
+     * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
      * is made up of either an 'Ad-hoc dosage instruction' or 
      * 'Textual rendition of the structured dosage lines', plus 
      * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
+     * information specified by the provider.</p>
      * 
-     * <p><p>A free form textual specification generated from the 
+     * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
      * is made up of either an 'Ad-hoc dosage instruction' or 
      * 'Textual rendition of the structured dosage lines', plus 
      * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
+     * information specified by the provider.</p>
      * 
-     * <p><p>Allows the provider to verify the codified structured 
+     * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
      * instruction is consistent with the intended 
      * instructions.</p><p>Also useful in bringing back 
      * administration instructions on query responses. Because all 
      * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>Allows the provider to verify the codified structured 
+     * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
      * instruction is consistent with the intended 
      * instructions.</p><p>Also useful in bringing back 
      * administration instructions on query responses. Because all 
      * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
+     * mandatory.</p>
      * 
-     * <p><p>For dosage instructions which cannot be summarized in 
-     * the space allocated, a string such as &quot;Complex 
-     * dose&quot; or &quot;Scaling dose&quot; or something similar 
-     * should be sent. Dosage instructions should never be 
-     * truncated.</p></p>
+     * <p>For dosage instructions which cannot be summarized in the 
+     * space allocated, a string such as &quot;Complex dose&quot; 
+     * or &quot;Scaling dose&quot; or something similar should be 
+     * sent. Dosage instructions should never be truncated.</p>
      */
     @Hl7XmlMapping({"component2/administrationInstructions/text"})
     public String getComponent2AdministrationInstructionsText() {
         return this.component2AdministrationInstructionsText.getValue();
     }
+
+    /**
+     * <p>Rendered Dosage Instruction</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses. Because all 
+     * prescriptions and dispenses have dosage, this attribute is 
+     * mandatory.</p>
+     * 
+     * <p>For dosage instructions which cannot be summarized in the 
+     * space allocated, a string such as &quot;Complex dose&quot; 
+     * or &quot;Scaling dose&quot; or something similar should be 
+     * sent. Dosage instructions should never be truncated.</p>
+     */
     public void setComponent2AdministrationInstructionsText(String component2AdministrationInstructionsText) {
         this.component2AdministrationInstructionsText.setValue(component2AdministrationInstructionsText);
     }
@@ -258,6 +374,7 @@ public class DispenseBean extends MessagePartBean {
     public CombinedMedicationRequest_1Bean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
+
     public void setFulfillmentSubstanceAdministrationRequest(CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
@@ -267,6 +384,7 @@ public class DispenseBean extends MessagePartBean {
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
     }
+
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
     }
@@ -276,6 +394,7 @@ public class DispenseBean extends MessagePartBean {
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
+
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }

@@ -58,25 +58,24 @@ import java.util.List;
 /**
  * <p>Medical Condition</p>
  * 
- * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p></p>
+ * <p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p>
  * 
- * <p><p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p></p>
+ * <p>Value is mandatory if not using SNOMED</p><p>Code is 
+ * fixed to DX if not using SNOMED</p>
  * 
- * <p><p>A record of a patient's medical condition. Includes 
+ * <p>A record of a patient's medical condition. Includes 
  * diseases, disabilities, pregnancy, lactation and other 
- * clinical conditions of interest.</p></p>
+ * clinical conditions of interest.</p>
  * 
- * <p><p>Necessary component of a person's overall medication 
- * and clinical profile. Helps with contraindication 
- * checking.</p></p>
+ * <p>Necessary component of a person's overall medication and 
+ * clinical profile. Helps with contraindication checking.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000007CA.MedicalCondition"})
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -96,16 +95,26 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>A:Medical Condition Record Id</p>
      * 
-     * <p><p>Unique identifier for medical condition record.</p></p>
+     * <p>Unique identifier for medical condition record.</p>
      * 
-     * <p><p>Allows for direct referencing of a medical condition 
+     * <p>Allows for direct referencing of a medical condition 
      * record when querying or updating and is therefore 
-     * mandatory.</p></p>
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>A:Medical Condition Record Id</p>
+     * 
+     * <p>Unique identifier for medical condition record.</p>
+     * 
+     * <p>Allows for direct referencing of a medical condition 
+     * record when querying or updating and is therefore 
+     * mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -114,22 +123,36 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Condition Type</p>
      * 
-     * <p><p>Indicates what kind of condition is being 
-     * reported.</p></p>
+     * <p>Indicates what kind of condition is being reported.</p>
      * 
-     * <p><p>Identifies this observation as reporting a medical 
+     * <p>Identifies this observation as reporting a medical 
      * condition and is therefore mandatory. When using SNOMED, the 
      * actual condition may be post-coordinated into this 
-     * attribute, thus CD is used.</p></p>
+     * attribute, thus CD is used.</p>
      * 
-     * <p><p>If SNOMED is used, the diagnosis will appear here. 
+     * <p>If SNOMED is used, the diagnosis will appear here. 
      * Otherwise, a fixed value of &quot;DX&quot; should be 
-     * sent.</p></p>
+     * sent.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
         return (ActCode) this.code.getValue();
     }
+
+    /**
+     * <p>Condition Type</p>
+     * 
+     * <p>Indicates what kind of condition is being reported.</p>
+     * 
+     * <p>Identifies this observation as reporting a medical 
+     * condition and is therefore mandatory. When using SNOMED, the 
+     * actual condition may be post-coordinated into this 
+     * attribute, thus CD is used.</p>
+     * 
+     * <p>If SNOMED is used, the diagnosis will appear here. 
+     * Otherwise, a fixed value of &quot;DX&quot; should be 
+     * sent.</p>
+     */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
@@ -138,20 +161,34 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>D:Condition Status</p>
      * 
-     * <p><p>A coded value that indicates whether the condition is 
+     * <p>A coded value that indicates whether the condition is 
      * still impacting the patient. 'ACTIVE' means the condition is 
      * still affecting the patient. 'COMPLETE' means the condition 
-     * no longer holds</p></p>
+     * no longer holds</p>
      * 
-     * <p><p>Essential to evaluating the relevance of the condition 
+     * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
      * condition still exists or not. Therefore the status is 
-     * treated as 'populated'.</p></p>
+     * treated as 'populated'.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
+
+    /**
+     * <p>D:Condition Status</p>
+     * 
+     * <p>A coded value that indicates whether the condition is 
+     * still impacting the patient. 'ACTIVE' means the condition is 
+     * still affecting the patient. 'COMPLETE' means the condition 
+     * no longer holds</p>
+     * 
+     * <p>Essential to evaluating the relevance of the condition 
+     * record. In some cases, it may not be known whether the 
+     * condition still exists or not. Therefore the status is 
+     * treated as 'populated'.</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -160,34 +197,62 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>E:Condition Time Period</p>
      * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
      * diseases, the upper boundary may be unknown.</p><p>For 
      * transient conditions such as pregnancy, lactation, etc; the 
      * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
+     * signify the end of the condition.</p>
      * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
      * diseases, the upper boundary may be unknown.</p><p>For 
      * transient conditions such as pregnancy, lactation, etc; the 
      * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
+     * signify the end of the condition.</p>
      * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
      * diseases, the upper boundary may be unknown.</p><p>For 
      * transient conditions such as pregnancy, lactation, etc; the 
      * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
+     * signify the end of the condition.</p>
      * 
-     * <p><p>Allows providers to evaluate the period of relevance 
-     * for the medical condition.</p></p>
+     * <p>Allows providers to evaluate the period of relevance for 
+     * the medical condition.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>E:Condition Time Period</p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
+     * 
+     * <p>Allows providers to evaluate the period of relevance for 
+     * the medical condition.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -196,32 +261,58 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>F:Condition Masking Indicator</p>
      * 
-     * <p><p>Denotes access restriction placed on the medical 
+     * <p>Denotes access restriction placed on the medical 
      * condition record. Methods for accessing masked medical 
      * condition records will be governed by each jurisdiction 
      * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p></p>
+     * default confidentiality level is 'NORMAL'.</p>
      * 
-     * <p><p>Denotes access restriction placed on the medical 
+     * <p>Denotes access restriction placed on the medical 
      * condition record. Methods for accessing masked medical 
      * condition records will be governed by each jurisdiction 
      * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p></p>
+     * default confidentiality level is 'NORMAL'.</p>
      * 
-     * <p><p>Provides support for additional confidentiality 
+     * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * masking.</p>
      * 
-     * <p><p>Provides support for additional confidentiality 
+     * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
-     * masking.</p></p>
+     * masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>F:Condition Masking Indicator</p>
+     * 
+     * <p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p>
+     * 
+     * <p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -230,18 +321,30 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>C:Condition</p>
      * 
-     * <p><p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p></p>
+     * <p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p>
      * 
-     * <p><p>This is the central piece of information in recording 
-     * a condition. However because when using SNOMED the actual 
+     * <p>This is the central piece of information in recording a 
+     * condition. However because when using SNOMED the actual 
      * diagnosis will be sent in the 'code' attribute, this element 
-     * is optional.</p></p>
+     * is optional.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
         return (DiagnosisValue) this.value.getValue();
     }
+
+    /**
+     * <p>C:Condition</p>
+     * 
+     * <p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p>
+     * 
+     * <p>This is the central piece of information in recording a 
+     * condition. However because when using SNOMED the actual 
+     * diagnosis will be sent in the 'code' attribute, this element 
+     * is optional.</p>
+     */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
     }
@@ -251,6 +354,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -260,6 +364,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -269,6 +374,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public RefusedByBean getAuthor() {
         return this.author;
     }
+
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
@@ -278,6 +384,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public ReportedByBean getInformant() {
         return this.informant;
     }
+
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
@@ -287,6 +394,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -296,6 +404,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
+
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
@@ -311,6 +420,7 @@ public class MedicalConditionBean extends MessagePartBean {
     public Boolean getSubjectOf3ChronicIndicator() {
         return this.subjectOf3ChronicIndicator.getValue();
     }
+
     public void setSubjectOf3ChronicIndicator(Boolean subjectOf3ChronicIndicator) {
         this.subjectOf3ChronicIndicator.setValue(subjectOf3ChronicIndicator);
     }

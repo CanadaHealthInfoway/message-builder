@@ -54,36 +54,36 @@ import java.util.List;
  * 
  * <p>REPC_MT000017CA.ProcedureEvent: Professional Service</p>
  * 
- * <p><p>This is the information that is recorded and 
- * maintained on a consultative service provided to a patient. 
- * This service may or may not be related to a prescribed, 
- * dispensed or administered drug.</p></p>
+ * <p>This is the information that is recorded and maintained 
+ * on a consultative service provided to a patient. This 
+ * service may or may not be related to a prescribed, dispensed 
+ * or administered drug.</p>
  * 
- * <p><p>A_BillableClinicalService</p></p>
+ * <p>A_BillableClinicalService</p>
  * 
- * <p><p>May be pertinent information with respect to a 
- * patient's drug therapy regime.</p></p>
+ * <p>May be pertinent information with respect to a patient's 
+ * drug therapy regime.</p>
  * 
  * <p>REPC_MT100001CA.ProcedureEvent: Professional Service</p>
  * 
- * <p><p>Annotation is only permitted if Annotation Indicator 
- * is not present and vice versa</p></p>
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present and vice versa</p>
  * 
- * <p><p>This is the information that is recorded and 
- * maintained on a consultative service provided to a patient. 
- * This service may or may not be related to a prescribed, 
- * dispensed or administered drug.</p></p>
+ * <p>This is the information that is recorded and maintained 
+ * on a consultative service provided to a patient. This 
+ * service may or may not be related to a prescribed, dispensed 
+ * or administered drug.</p>
  * 
- * <p><p>A_BillableClinicalService</p></p>
+ * <p>A_BillableClinicalService</p>
  * 
- * <p><p>May be pertinent information with respect to a 
- * patient's drug therapy regime.</p></p>
+ * <p>May be pertinent information with respect to a patient's 
+ * drug therapy regime.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000017CA.ProcedureEvent","REPC_MT100001CA.ProcedureEvent"})
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20120215L;
+    private static final long serialVersionUID = 20121122L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
@@ -102,89 +102,174 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 
      * <p>B:Service Code</p>
      * 
-     * <p><p>Identifies the specific service that has been 
-     * performed. This is obtained from the professional service 
-     * catalog pertaining to the discipline of the health service 
-     * provider.</p></p>
+     * <p>Identifies the specific service that has been performed. 
+     * This is obtained from the professional service catalog 
+     * pertaining to the discipline of the health service 
+     * provider.</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
      * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
      * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
      * (modifier)</p><p>Claim.418-DI 
      * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
+     * (modifier)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>Allows the service to be sorted and filtered. Ensures 
+     * <p>Allows the service to be sorted and filtered. Ensures 
      * consistency for analysis and reporting purposes and is 
-     * therefore mandatory</p></p>
+     * therefore mandatory</p>
      */
     @Hl7XmlMapping({"code"})
     public ActProfessionalServiceCode getCode() {
         return (ActProfessionalServiceCode) this.code.getValue();
     }
+
+    /**
+     * <p>ServiceCode</p>
+     * 
+     * <p>B:Service Code</p>
+     * 
+     * <p>Identifies the specific service that has been performed. 
+     * This is obtained from the professional service catalog 
+     * pertaining to the discipline of the health service 
+     * provider.</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service to be sorted and filtered. Ensures 
+     * consistency for analysis and reporting purposes and is 
+     * therefore mandatory</p>
+     */
     public void setCode(ActProfessionalServiceCode code) {
         this.code.setValue(code);
     }
@@ -195,45 +280,86 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 
      * <p>C:Consultation Time and Length</p>
      * 
-     * <p><p>Center date cannot be null But duration can be left 
-     * unspecified if not known.</p></p>
+     * <p>Center date cannot be null But duration can be left 
+     * unspecified if not known.</p>
      * 
-     * <p><p>The date and time on which the professional service 
-     * was performed, as well as the duration of the service.</p></p>
+     * <p>The date and time on which the professional service was 
+     * performed, as well as the duration of the service.</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
      * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>Allows the service-event to be located in a particular 
+     * <p>Allows the service-event to be located in a particular 
      * time. Because a time won't always be known, the attribute is 
      * only marked as &quot;populated&quot;. The duration of the 
-     * consultation may also be of clinical interest.</p></p>
+     * consultation may also be of clinical interest.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
+
+    /**
+     * <p>ConsultationTimeAndLength</p>
+     * 
+     * <p>C:Consultation Time and Length</p>
+     * 
+     * <p>Center date cannot be null But duration can be left 
+     * unspecified if not known.</p>
+     * 
+     * <p>The date and time on which the professional service was 
+     * performed, as well as the duration of the service.</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service-event to be located in a particular 
+     * time. Because a time won't always be known, the attribute is 
+     * only marked as &quot;populated&quot;. The duration of the 
+     * consultation may also be of clinical interest.</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
@@ -244,44 +370,84 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 
      * <p>D:Professional Service Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their professional service records. Provides 
-     * support for additional confidentiality constraint, giving 
-     * patients a level of control over their information. Valid 
-     * values are: 'NORMAL' (denotes 'Not Masked'); and 
-     * 'RESTRICTED' (denotes 'Masked'). The default is 'NORMAL' 
-     * signifying 'Not Masked'.</p></p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their professional service records. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
      * <p>D:Professional Service Masking Indicator</p>
      * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their professional service record. Provides 
-     * support for additional confidentiality constraint, giving 
-     * patients a level of control over their information. Valid 
-     * values are: 'NORMAL' (denotes 'Not Masked'); and 
-     * 'RESTRICTED' (denotes 'Masked'). The default is 'NORMAL' 
-     * signifying 'Not Masked'.</p></p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their professional service record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
         return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
+
+    /**
+     * <p>ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>D:Professional Service Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their professional service records. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>D:Professional Service Masking Indicator</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their professional service record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
@@ -291,6 +457,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
+
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -300,6 +467,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public OrderForServiceBean getInFulfillmentOfActRequest() {
         return this.inFulfillmentOfActRequest;
     }
+
     public void setInFulfillmentOfActRequest(OrderForServiceBean inFulfillmentOfActRequest) {
         this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
@@ -321,48 +489,92 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 
      * <p>A:Service Record Identifier</p>
      * 
-     * <p><p>A unique identifier for a patient consultation service 
-     * record.</p></p>
+     * <p>A unique identifier for a patient consultation service 
+     * record.</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
      * (root)</p><p>Claim.402-D2 
-     * (extension)</p><p>A_BillableClinicalService</p></p>
+     * (extension)</p><p>A_BillableClinicalService</p>
      * 
-     * <p><p>Allows cognitive services to be uniquely referenced 
-     * and is therefore mandatory.</p></p>
+     * <p>Allows cognitive services to be uniquely referenced and 
+     * is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
         return this.id.getValue();
     }
+
+    /**
+     * <p>ServiceRecordIdentifier</p>
+     * 
+     * <p>A:Service Record Identifier</p>
+     * 
+     * <p>A unique identifier for a patient consultation service 
+     * record.</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.patientConsultationkey</p><p>PatientConsultation.externalId</p><p>ZRV.5</p><p>ZPS.2</p><p>ZPS.3</p><p>Claim.455-EM 
+     * (root)</p><p>Claim.402-D2 
+     * (extension)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows cognitive services to be uniquely referenced and 
+     * is therefore mandatory.</p>
+     */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
@@ -372,6 +584,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
+
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -381,6 +594,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
+
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
@@ -390,6 +604,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public RecordedAtBean getLocation() {
         return this.location;
     }
+
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -399,6 +614,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
+
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
