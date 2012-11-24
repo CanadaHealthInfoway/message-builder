@@ -74,7 +74,9 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	public void testHandlingOfSimpleCodes() throws Exception {
 		String result = new CdPropertyFormatter().format(getContext("name"), new CDImpl(CeRxDomainTestValues.CENTIMETRE));
 		
-		assertTrue(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
+		
 		assertEquals("result", "<name code=\"cm\" codeSystem=\"1.2.3.4\"/>", StringUtils.trim(result));
 	}
 	
@@ -128,7 +130,8 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
 		
 		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size()); // code/codeSystem mandatory (need a CWE coding strength to allow this run to pass without errors)
+		assertEquals(2, this.result.getHl7Errors().size()); // code/codeSystem mandatory (need a CWE coding strength to allow this run to pass without errors)
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
 		assertEquals("result", "<name/>", StringUtils.trim(result));
 	}
 	

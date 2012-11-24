@@ -51,7 +51,7 @@ public class SetCsPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CS>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE),
+        		new FormatContextImpl(this.result, null, "blah", "SET<CS>", "x_BasicUnitsOfMeasure", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE),
 				SETImpl.<CS, Code>create(CSImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());

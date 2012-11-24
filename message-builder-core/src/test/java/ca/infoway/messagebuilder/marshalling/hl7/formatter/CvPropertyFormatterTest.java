@@ -73,7 +73,9 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	public void testHandlingOfSimpleCodes() throws Exception {
 		String result = new CvPropertyFormatter().format(getContext("name"), new CVImpl(CeRxDomainTestValues.CENTIMETRE));
 		
-		assertTrue(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
+		
 		assertEquals("result", "<name code=\"cm\" codeSystem=\"1.2.3.4\"/>", StringUtils.trim(result));
 	}
 	

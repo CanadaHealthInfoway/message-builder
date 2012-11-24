@@ -40,20 +40,23 @@ class FormatContextImpl implements FormatContext {
 	private final TimeZone dateTimeTimeZone;
 	private final String propertyPath;
 	private CodingStrength codingStrength;
+	private final String domainType; 
+
 
 	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel) {
-		this(result, propertyPath, elementName, type, conformanceLevel, false, null, null, null, true, null);
+		this(result, propertyPath, elementName, type, null, conformanceLevel, false, null, null, null, true, null);
 	}
 	
 	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
-		this(result, propertyPath, elementName, type, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true, codingStrength);
+		this(result, propertyPath, elementName, type, null, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true, codingStrength);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType, CodingStrength codingStrength) {
+	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType, CodingStrength codingStrength) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.elementName = elementName;
 		this.type = type;
+		this.domainType = domainType;
 		this.conformanceLevel = conformanceLevel;
 		this.isSpecializationType = isSpecializationType;
 		this.version = version;
@@ -79,7 +82,8 @@ class FormatContextImpl implements FormatContext {
 		this(context.getModelToXmlResult(), 
 			 context.getPropertyPath(), 
 			 elementName, 
-			 newType, 
+			 newType,
+			 context.getDomainType(),
 			 newConformanceLevel, 
 			 isSpecializationType, 
 			 context.getVersion(), 
@@ -131,6 +135,10 @@ class FormatContextImpl implements FormatContext {
 
 	public CodingStrength getCodingStrength() {
 		return this.codingStrength;
+	}
+
+	public String getDomainType() {
+		return this.domainType;
 	}
 
 }

@@ -89,7 +89,8 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
         		getContext("character"),
                 cs);
         
-		assertTrue(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
         Document document = new DocumentFactory().createFromString(result);
         NodeList list = document.getElementsByTagName("originalText");
         assertEquals("originalText", 1, list.getLength());

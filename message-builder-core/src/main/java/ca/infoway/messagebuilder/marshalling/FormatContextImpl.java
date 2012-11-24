@@ -97,4 +97,8 @@ class FormatContextImpl implements FormatContext {
 		return this.codingStrength;
 	}
 
+	public String getDomainType() {
+		return this.relationship.getDomainType();
+	}
+
 }

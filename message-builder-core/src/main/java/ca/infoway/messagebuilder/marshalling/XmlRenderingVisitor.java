@@ -154,20 +154,35 @@ class XmlRenderingVisitor implements Visitor {
 
 	public void visitAssociationStart(PartBridge part, Relationship relationship) {
 		if (isSomethingToRender(part, relationship)) {
+			boolean validationWarning = false;
+			String warningMessage = null;
 			this.propertyPathNames.push(part.getPropertyName());
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.POPULATED) {
 				currentBuffer().getStructuralBuilder().append(
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
-				currentBuffer().setWarning("Mandatory association has no data. (" + relationship.getName() + ")");
+				validationWarning = true;
+				warningMessage = "Mandatory association has no data. (" + relationship.getName() + ")";
+				currentBuffer().setWarning(warningMessage);
 			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
-				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+				validationWarning = true;
+				warningMessage = MessageFormat.format(isIgnoredNotAllowed() ? 
 						ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED :
-						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+				currentBuffer().setWarning(warningMessage);
 			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
-				currentBuffer().setWarning(MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName()));
+				validationWarning = true;
+				warningMessage = MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName());
+				currentBuffer().setWarning(warningMessage);
 			}
+			
+			if (validationWarning) {
+				// also store error within error collection
+				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
+				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningMessage, propertyPath));
+			}
+			
 		}
 	}
 
@@ -229,12 +244,23 @@ class XmlRenderingVisitor implements Visitor {
 	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.propertyPathNames.push(tealBean.getPropertyName());
 		if (relationship.isStructural()) {
+			boolean validationWarning = false;
+			String warningMessage = null;
 			if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
-				currentBuffer().setWarning(MessageFormat.format(isIgnoredNotAllowed() ? 
+				validationWarning = true;
+				warningMessage = MessageFormat.format(isIgnoredNotAllowed() ? 
 						ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
-						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName()));
+						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+				currentBuffer().setWarning(warningMessage);
 			}  else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
-				currentBuffer().setWarning(MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName()));
+				warningMessage = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
+				currentBuffer().setWarning(warningMessage);
+			}
+			if (validationWarning) {
+				validationWarning = true;
+				// also store error within error collection
+				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
+				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningMessage, propertyPath));
 			}
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
 		} else {

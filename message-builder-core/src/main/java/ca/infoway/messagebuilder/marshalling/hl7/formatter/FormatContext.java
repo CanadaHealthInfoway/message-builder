@@ -33,6 +33,7 @@ public interface FormatContext extends Typed {
 	public String getPropertyPath();
 	public String getElementName();
 	public String getType();
+	public String getDomainType();
 	public CodingStrength getCodingStrength();
 	public boolean isSpecializationType();
 	public boolean isPassOnSpecializationType();

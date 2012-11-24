@@ -52,12 +52,13 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 							formatContext.getModelToXmlResult(), 
 							formatContext.getPropertyPath(), 
 							formatContext.getElementName(), 
-							specializationType, 
+							specializationType,
+							formatContext.getDomainType(),
 							formatContext.getConformanceLevel(), 
 							true, 
 							formatContext.getVersion(), 
 							formatContext.getDateTimeZone(), 
-							formatContext.getDateTimeTimeZone(), null), 
+							formatContext.getDateTimeTimeZone(), true, null), 
 					hl7Value, 
 					indentLevel);
 		}

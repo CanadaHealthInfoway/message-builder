@@ -26,17 +26,22 @@ import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.resolver.CodeResolver;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
 /**
@@ -74,11 +79,11 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
 	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
 	    		
-	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
-	    		
-	    		for (Hl7Error hl7Error : errors.getHl7Errors()) {
-	    			System.out.println(hl7Error);
+	    		if (cd.getValue() != null) {
+	    			validateCodeExists(cd.getValue(), context.getDomainType(), context.getVersion(), context.getPropertyPath(), errors);
 	    		}
+	    		
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
     		}
         	
     		Map<String, String> attributes = new HashMap<String, String>();
@@ -116,6 +121,31 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
         return result.toString();
     }
 
+	private void validateCodeExists(Code value, String domainType, VersionNumber version, String propertyPath, Hl7Errors errors) {
+		@SuppressWarnings("unchecked")
+		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version);
+		if (returnType == null) {
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not locate a registered domain type to match \"" + domainType + "\"", propertyPath));
+		} else if (getCode(returnType, value.getCodeValue(), value.getCodeSystem()) == null) {
+			errors.addHl7Error(createCodeValueNotFoundError(value, returnType, propertyPath));
+		}
+	}
+
+	protected Hl7Error createCodeValueNotFoundError(Code value, Class<? extends Code> type, String propertyPath) {
+		String message = "The code, \"" + value.getCodeValue() + "\" "
+				+ (value.getCodeSystem() == null ? "" : (" (" + value.getCodeSystem() + ")"))
+				+ "is not a valid value for domain type \"" 
+				+ ClassUtils.getShortClassName(type) + "\"";
+		return new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, message, propertyPath);
+	}
+
+	private Code getCode(Class<Code> returnType, String codeValue, String codeSystem) {
+		CodeResolver resolver = CodeResolverRegistry.getResolver(returnType);
+		return codeSystem == null 
+				? resolver.<Code>lookup(returnType, codeValue)
+				: resolver.<Code>lookup(returnType, codeValue, codeSystem);
+	}
+    
 	private void logMandatoryError(FormatContext context) {
 		String errorMessage = context.getElementName() + " is a mandatory field, but no value is specified";
 		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, context.getPropertyPath()));

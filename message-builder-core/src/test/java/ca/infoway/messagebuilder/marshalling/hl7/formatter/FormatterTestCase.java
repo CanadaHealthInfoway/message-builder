@@ -34,6 +34,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.After;
+import org.junit.Before;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
@@ -42,8 +43,14 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 public abstract class FormatterTestCase {
+	
+	@Before
+	public void setup() {
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+	}
 	
 	@After
 	public void tearDown() {

@@ -35,10 +35,14 @@ import ca.infoway.messagebuilder.xml.Relationship;
 public class DomainTypeHelper {
 
 	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version) {
-		Class<? extends Code> type = getReturnType(relationship);
+		return getReturnType(relationship.getDomainType(), version);
+	}
+	
+	public static Class<? extends Code> getReturnType(String domainType, VersionNumber version) {
+		Class<? extends Code> type = getReturnType(domainType);
 		if (type == Code.class) {
-			String domainType = sanitize(relationship.getDomainType());
-			Class<? extends Code> codeType = MessageBeanRegistry.getInstance().getCodeType(domainType, version.getVersionLiteral());
+			String sanitizedDomainType = sanitize(domainType);
+			Class<? extends Code> codeType = MessageBeanRegistry.getInstance().getCodeType(sanitizedDomainType, version.getVersionLiteral());
 			if (codeType != null) {
 				type = codeType;
 			}
@@ -47,16 +51,16 @@ public class DomainTypeHelper {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static Class<? extends Code> getReturnType(Relationship relationship) {
-		String domainType = sanitize(relationship.getDomainType());
-		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(domainType)) {
-			domainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
-		} else if (ClassUtils.getShortClassName(OtherIDsRoleCode.class).equals(domainType)) {
-			domainType = ClassUtils.getShortClassName(OtherIdentifierRoleType.class);
+	private static Class<? extends Code> getReturnType(String domainType) {
+		String sanitizedDomainType = sanitize(domainType);
+		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(sanitizedDomainType)) {
+			sanitizedDomainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
+		} else if (ClassUtils.getShortClassName(OtherIDsRoleCode.class).equals(sanitizedDomainType)) {
+			sanitizedDomainType = ClassUtils.getShortClassName(OtherIdentifierRoleType.class);
 		}
-		if (StringUtils.isNotBlank(domainType)) {
+		if (StringUtils.isNotBlank(sanitizedDomainType)) {
 			try {
-				return (Class<? extends Code>) Class.forName(ClassUtils.getPackageName(ActCode.class) + "." + domainType);
+				return (Class<? extends Code>) Class.forName(ClassUtils.getPackageName(ActCode.class) + "." + sanitizedDomainType);
 			} catch (ClassNotFoundException e) {
 				return Code.class;
 			}
@@ -87,8 +91,8 @@ public class DomainTypeHelper {
 	 */
 	public static String getCompatibleDomainType(Relationship relationship1, Relationship relationship2) {
 		// null will be returned for relationships that do not have a domain type
-		Class<? extends Code> code1 = getReturnType(relationship1);
-		Class<? extends Code> code2 = getReturnType(relationship2);
+		Class<? extends Code> code1 = getReturnType(relationship1.getDomainType());
+		Class<? extends Code> code2 = getReturnType(relationship2.getDomainType());
 
 		String result = null;
 		if (code1 != null && code2 != null) {
