@@ -4,11 +4,11 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.4.2.3</version>
+		<version>1.4.3-SNAPSHOT</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>junitUtils</artifactId>
-	<version>1.4.2.3</version>
+	<version>1.4.3-SNAPSHOT</version>
 	<name>junitUtils</name>
 	<dependencies>
 		<dependency>
