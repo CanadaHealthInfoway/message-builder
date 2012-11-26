@@ -3,14 +3,14 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.4.3-SNAPSHOT</version>
+		<version>1.4.2.3</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-terminology
 	</artifactId>
 	<name>message-builder-terminology</name>
-	<version>1.4.3-SNAPSHOT</version>
+	<version>1.4.2.3</version>
 	<dependencies>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
