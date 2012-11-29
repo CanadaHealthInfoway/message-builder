@@ -70,4 +70,8 @@ class MockPartBridge implements PartBridge {
 	public boolean hasNullFlavor() {
 		return this.nullFlavor != null;
 	}
+
+	public boolean isNullPart() {
+		return false;
+	}
 }

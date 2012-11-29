@@ -29,6 +29,7 @@ import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -37,7 +38,7 @@ public class TsDateFormats {
 
 	public static final Map<StandardDataType, List<String>> formats;
 	public static final Map<String, String> expandedFormats;
-	public static final Map<VersionNumber, Map<StandardDataType, List<String>>> versionFormatExceptions;
+	public static final Map<Hl7BaseVersion, Map<StandardDataType, List<String>>> versionFormatExceptions;
 	public static final List<String> datetimeFormatsRequiringWarning;
 
 	static {
@@ -118,10 +119,10 @@ public class TsDateFormats {
 				"yyyyMM",
 				"yyyy"));
 
-		Map<VersionNumber, Map<StandardDataType, List<String>>> versionMap = new HashMap<VersionNumber, Map<StandardDataType,List<String>>>();
-		versionMap.put(SpecificationVersion.V02R02, Collections.unmodifiableMap(exceptionMapMR2007));
-		versionMap.put(SpecificationVersion.V02R01, Collections.unmodifiableMap(exceptionMapV02R01));
-		versionMap.put(SpecificationVersion.V01R04_3, Collections.unmodifiableMap(exceptionMapCeRx));
+		Map<Hl7BaseVersion, Map<StandardDataType, List<String>>> versionMap = new HashMap<Hl7BaseVersion, Map<StandardDataType,List<String>>>();
+		versionMap.put(Hl7BaseVersion.MR2007, Collections.unmodifiableMap(exceptionMapMR2007));
+		versionMap.put(Hl7BaseVersion.MR2007_V02R01, Collections.unmodifiableMap(exceptionMapV02R01));
+		versionMap.put(Hl7BaseVersion.CERX, Collections.unmodifiableMap(exceptionMapCeRx));
 
 		versionFormatExceptions = Collections.unmodifiableMap(versionMap);
 	}

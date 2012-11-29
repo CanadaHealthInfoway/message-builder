@@ -75,11 +75,11 @@ class BridgeFactoryImpl implements BridgeFactory {
 
 	PartBridge createPartBridgeFromBean(String propertyPath, Object tealBean, Interaction interaction, MessagePartHolder currentMessagePart) {
 		RelationshipSorter sorter = RelationshipSorter.create(propertyPath, tealBean);
-		return createPartBridge(sorter, interaction, currentMessagePart, new BridgeContext());
+		return createPartBridge(sorter, interaction, currentMessagePart, new BridgeContext(), false);
 	}
 
 	private PartBridge createPartBridge(RelationshipSorter sorter,
-			Interaction interaction, MessagePartHolder currentMessagePart, BridgeContext context) {
+			Interaction interaction, MessagePartHolder currentMessagePart, BridgeContext context, boolean nullPart) {
 		List<BaseRelationshipBridge> relationships = new ArrayList<BaseRelationshipBridge>();
 		for (Relationship relationship : currentMessagePart.getRelationships()) {
 			Object o = sorter.get(relationship);
@@ -126,7 +126,11 @@ class BridgeFactoryImpl implements BridgeFactory {
 			}
 		}
 		
-		return new PartBridgeImpl(sorter.getPropertyName(), sorter.getBean(), currentMessagePart.getName(), relationships, context.isCollapsed());
+		if (sorter.getPropertyName() == null || sorter.getPropertyName().equals("null")) {
+			System.out.println("not correct");
+		}
+		
+		return new PartBridgeImpl(sorter.getPropertyName(), sorter.getBean(), currentMessagePart.getName(), relationships, context.isCollapsed(), nullPart);
 	}
 
 	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
@@ -151,7 +155,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		if (beanProperty == null || beanProperty.get() == null) {
 			partBridge = createNullPartBridge(relationship, interaction);
 		} else {
-			partBridge = createPartBridge(sorter, interaction, getMessagePart(interaction, relationship, null), new BridgeContext());
+			partBridge = createPartBridge(sorter, interaction, getMessagePart(interaction, relationship, null), new BridgeContext(), false);
 		}
 		return new IndicatorAssociationBridgeImpl(relationship, partBridge, beanProperty);
 	}
@@ -180,14 +184,14 @@ class BridgeFactoryImpl implements BridgeFactory {
 	}
 
 	private PartBridge createNullPartBridge(Relationship relationship, Interaction interaction) {
-		RelationshipSorter sorter = RelationshipSorter.create("null", null);
+		RelationshipSorter sorter = RelationshipSorter.create(relationship.getName(), null);
 		MessagePartHolder currentMessagePart = getMessagePart(interaction, relationship, null);
 		if (currentMessagePart != null) {
-			return createPartBridge(sorter, interaction, currentMessagePart, new BridgeContext());
+			return createPartBridge(sorter, interaction, currentMessagePart, new BridgeContext(), true);
 		} else {
-			return new PartBridgeImpl("null association", 
+			return new PartBridgeImpl(relationship.getName(), 
 							null, 
-							relationship.getType(), Collections.<BaseRelationshipBridge>emptyList(), false);
+							relationship.getType(), Collections.<BaseRelationshipBridge>emptyList(), false, true);
 		}
 	}
 
@@ -201,9 +205,13 @@ class BridgeFactoryImpl implements BridgeFactory {
 				return createCollectionRelationshipBridge(relationship, sorter, interaction);
 			} else {
 				RelationshipSorter collapsedSorter = sorter.getAsRelationshipSorter(relationship);
-				PartBridge bridge = createPartBridge(collapsedSorter, interaction, 
-						getMessagePart(interaction, relationship, collapsedSorter.getBean()), 
-						new BridgeContext(true, context.getOriginalIndex()));
+				PartBridge bridge = 
+						createPartBridge(
+							collapsedSorter, 
+							interaction, 
+							getMessagePart(interaction, relationship, collapsedSorter.getBean()), 
+							new BridgeContext(true, context.getOriginalIndex()), 
+							false);
 				return new AssociationBridgeImpl(relationship, bridge);
 			}
 		} else {
@@ -251,7 +259,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		int length = association.getSingleCollapsedPropertySize();
 		for (int i = 0; i < length; i++) {
 			list.add(createPartBridge(association, interaction, 
-					getMessagePart(interaction, relationship, null), new BridgeContext(true, i)));
+					getMessagePart(interaction, relationship, null), new BridgeContext(true, i), false));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
 		if (list.isEmpty() && (relationship.getConformance() == ConformanceLevel.POPULATED || relationship.getConformance() == ConformanceLevel.MANDATORY)) {

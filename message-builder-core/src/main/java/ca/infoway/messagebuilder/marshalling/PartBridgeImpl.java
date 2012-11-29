@@ -32,13 +32,19 @@ class PartBridgeImpl implements PartBridge {
 	private final boolean collapsed;
 	private final String propertyPath;
 	private final Object bean;
+	private final boolean nullPart;
 	
 	public PartBridgeImpl(String propertyPath, Object bean, String typeName, List<BaseRelationshipBridge> relationshipBridges, boolean collapsed) {
+		this(propertyPath, bean, typeName, relationshipBridges, collapsed, false);
+	}
+	
+	public PartBridgeImpl(String propertyPath, Object bean, String typeName, List<BaseRelationshipBridge> relationshipBridges, boolean collapsed, boolean nullPart) {
 		this.propertyPath = propertyPath;
 		this.bean = bean;
 		this.typeName = typeName;
 		this.relationshipBridges = relationshipBridges;
 		this.collapsed = collapsed;
+		this.nullPart = nullPart;
 	}
 
 	public List<BaseRelationshipBridge> getRelationshipBridges() {
@@ -96,5 +102,9 @@ class PartBridgeImpl implements PartBridge {
 
 	public String getPropertyName() {
 		return this.propertyPath;
+	}
+
+	public boolean isNullPart() {
+		return this.nullPart;
 	}
 }

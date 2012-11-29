@@ -142,7 +142,7 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
         // if a code is specified and there is no matching enum value for it,
 		// something is seriously wrong
         if (StringUtils.isNotBlank(code) && result == null) {
-        	xmlToModelResult.addHl7Error(createHl7Error(element, codeType, code));
+        	xmlToModelResult.addHl7Error(createInvalidCodeError(element, codeType, code));
         }
 
         // the following code will preserve the codeSystem even if the actual code can not be found

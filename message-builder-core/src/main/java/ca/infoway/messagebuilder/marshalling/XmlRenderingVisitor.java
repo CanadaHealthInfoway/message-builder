@@ -157,13 +157,16 @@ class XmlRenderingVisitor implements Visitor {
 			boolean validationWarning = false;
 			String warningMessage = null;
 			this.propertyPathNames.push(part.getPropertyName());
+			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
+			
 			if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.POPULATED) {
 				currentBuffer().getStructuralBuilder().append(
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
-				validationWarning = true;
-				warningMessage = "Mandatory association has no data. (" + relationship.getName() + ")";
+				// some errors are due to "null" parts MB has inserted to create structural XML; don't log error on these
+				validationWarning = !part.isNullPart();
+				warningMessage = "Mandatory association has no data. (" + propertyPath + ")";
 				currentBuffer().setWarning(warningMessage);
 			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
 				validationWarning = true;
@@ -179,7 +182,6 @@ class XmlRenderingVisitor implements Visitor {
 			
 			if (validationWarning) {
 				// also store error within error collection
-				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningMessage, propertyPath));
 			}
 			

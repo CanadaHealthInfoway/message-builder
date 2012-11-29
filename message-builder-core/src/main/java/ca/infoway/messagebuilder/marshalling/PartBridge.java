@@ -36,6 +36,7 @@ interface PartBridge {
 	public String getTypeName();
 	public List<BaseRelationshipBridge> getRelationshipBridges();
 	public boolean isEmpty();
+	public boolean isNullPart();
 	/**
 	 * <p>Indicates whether or not the part has been "collapsed" or "inlined" into 
 	 * another part type.  

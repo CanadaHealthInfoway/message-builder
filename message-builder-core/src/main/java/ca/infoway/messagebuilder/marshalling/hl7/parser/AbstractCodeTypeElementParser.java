@@ -47,7 +47,7 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 	protected static final String CODE_SYSTEM_ATTRIBUTE_NAME = "codeSystem";
 
 	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
-
+	
     @Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
     	boolean isTranslation = false;
@@ -111,7 +111,7 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
     	return StringUtils.isNotBlank(getOriginalText(element));
     }
 
-	protected Hl7Error createHl7Error(Node node, Class<? extends Code> type, String code) {
+	protected Hl7Error createInvalidCodeError(Node node, Class<? extends Code> type, String code) {
 		String message = "The code, \"" + code + "\", in element <" + NodeUtil.getLocalOrTagName(node) 
 			+ "> is not a valid value for domain type \"" 
 	    	+ ClassUtils.getShortClassName(type) + "\"";

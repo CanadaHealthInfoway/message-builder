@@ -111,4 +111,8 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 	public boolean hasNullFlavor() {
 		return false;
 	}
+
+	public boolean isNullPart() {
+		return false;
+	}
 }
