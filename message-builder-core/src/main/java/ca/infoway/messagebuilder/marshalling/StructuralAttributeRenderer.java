@@ -20,24 +20,23 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 abstract class StructuralAttributeRenderer {
 	
-	private final Log log = LogFactory.getLog(StructuralAttributeRenderer.class);
 	protected final Relationship relationship;
 
 	public StructuralAttributeRenderer(Relationship relationship) {
 		this.relationship = relationship;
 	}
 
-	public void render(StringBuilder builder) {
+	public void render(StringBuilder builder, String propertyPath, Hl7Errors errors) {
 		if (this.relationship.isFixed()) {
 			formatFixedValue(builder, relationship);
 		} else {
@@ -45,8 +44,9 @@ abstract class StructuralAttributeRenderer {
 			if (value != null) {
 				formatValue(builder, relationship, value);
 			} else if (this.relationship.getConformance() == ConformanceLevel.MANDATORY) {
-				this.log.info("Relationship " + this.relationship.getName() 
-						+ " is mandatory, but no value is specified");
+				String errorMessage = "Relationship " + this.relationship.getName()	+ " is mandatory (and not a fixed value), but no value is specified";
+				Hl7Error error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, propertyPath);
+				errors.addHl7Error(error);
 			}
 		}
 	}

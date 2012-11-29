@@ -37,6 +37,7 @@ import java.util.TimeZone;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
+import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
@@ -156,7 +157,7 @@ class XmlRenderingVisitor implements Visitor {
 		if (isSomethingToRender(part, relationship)) {
 			boolean validationWarning = false;
 			String warningMessage = null;
-			this.propertyPathNames.push(part.getPropertyName());
+			this.propertyPathNames.push(determinePropertyName(part.getPropertyName(), relationship));
 			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			
@@ -188,6 +189,11 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
+	private String determinePropertyName(String propertyName, Named nameFallBack) {
+		String backupName = (nameFallBack == null ? null : nameFallBack.getName());
+		return StringUtils.isNotBlank(propertyName) ? propertyName : StringUtils.defaultString(backupName);
+	}
+	
 	/**
 	 * <p>Very rarely, there's a mandatory association that has no data.  
 	 * 
@@ -244,10 +250,12 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		this.propertyPathNames.push(tealBean.getPropertyName());
+		this.propertyPathNames.push(determinePropertyName(tealBean.getPropertyName(), relationship));
 		if (relationship.isStructural()) {
 			boolean validationWarning = false;
 			String warningMessage = null;
+			String propertyPath = StringUtils.join(this.propertyPathNames, ".");
+			
 			if (StringUtils.isBlank(currentBuffer().getWarning()) && relationship.getConformance() == ConformanceLevel.IGNORED) {
 				validationWarning = true;
 				warningMessage = MessageFormat.format(isIgnoredNotAllowed() ? 
@@ -261,10 +269,9 @@ class XmlRenderingVisitor implements Visitor {
 			if (validationWarning) {
 				validationWarning = true;
 				// also store error within error collection
-				String propertyPath = StringUtils.join(this.propertyPathNames, ".");
 				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningMessage, propertyPath));
 			}
-			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder());
+			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder(), propertyPath, this.result);
 		} else {
 			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
 		}
@@ -330,7 +337,7 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	public void visitRootStart(PartBridge tealBean, Interaction interaction) {
-		this.propertyPathNames.push(tealBean.getPropertyName());
+		this.propertyPathNames.push(determinePropertyName(tealBean.getPropertyName(), interaction));
 		this.interaction = interaction;
 		this.buffers.clear();
 		this.buffers.push(new Buffer(interaction.getName(), 0));
