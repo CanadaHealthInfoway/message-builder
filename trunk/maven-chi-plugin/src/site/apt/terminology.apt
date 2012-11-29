@@ -1,0 +1,92 @@
+~~
+~~ Copyright 2012 Canada Health Infoway, Inc.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~        http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+~~
+~~ Author:        $LastChangedBy$
+~~ Last modified: $LastChangedDate$
+~~ Revision:      $LastChangedRevision$
+~~
+
+                         ---------------------------
+                         terminology-load Tool
+                         ---------------------------
+
+Terminology Load
+
+  The purpose of the terminology load process is to load the terminology tables with 
+  various codes that will be looked up while parsing a message.  In order to load the 
+  necessary tables, perform the following steps:
+  
+  [[1]] populate a spreadsheet with the required values.
+  
+  [[2]] run the terminology load goal via Maven.
+  
+
+Filling out the Spreadsheet
+
+  The terminology spreadsheet is a standard Excel spreadsheet with two types of data in 
+  it.  
+  
+* Concept Domain Sheet
+
+  The first tab in the spreadsheet should contain information about the various concept
+  domains that you want to load into the database.  A typical sheet looks like this:
+  
+[./domain_definition.png] 
+  
+  The list of domains starts on the second row, and the contents of the columns must
+  be as specified.
+  
+* Code Values
+
+  All other sheets in the spreadsheet are expected to contain lists of code values that
+  will be loaded into the database.  A typical sheet looks like this:
+  
+[./code_values.png] 
+
+
+Maven Configuration
+
+  The terminology load tool is run using Maven.  To set up the load, configure a Maven
+  POM file with the following plugin:
+
++----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>ca.infoway.messagebuilder</groupId>
+        <artifactId>maven-chi-plugin</artifactId>
+        <version>1.0b1-SNAPSHOT</version>
+        <configuration>
+          <spreadsheet>./etc/Terminology.xls</spreadsheet>
+          
+          <terminologyDatabaseUrl>jdbc:postgresql://localhost:5432/chi</terminologyDatabaseUrl>
+          <terminologyDatabaseUsername>postgres</terminologyDatabaseUsername>
+          <terminologyDatabasePassword>mypassword</terminologyDatabasePassword>
+          <terminologyDatabaseDriver>org.postgresql.Driver</terminologyDatabaseDriver>
+          <terminologyDatabaseDialect>org.hibernate.dialect.PostgreSQLDialect</terminologyDatabaseDialect>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>8.3-603.jdbc3</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
++----
+
+  To execute the end-result, type "mvn chi:terminology-load" on the command line.

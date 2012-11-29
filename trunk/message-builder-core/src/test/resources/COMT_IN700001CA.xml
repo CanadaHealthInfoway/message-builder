@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<COMT_IN700001CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
+  <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+  <creationTime value="20080625141610"/>
+  <versionCode code="V3-2007-05"/>
+  <interactionId extension="COMT_IN700001CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="AL"/>
+  <receiver typeCode="RCV">
+    <telecom value="http://123.456.789.10"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="1.2.3"/>
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="http://987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="1.2.3"/>
+      <manufacturerModelName>1.0</manufacturerModelName>
+      <softwareName>Panacea Pharmacy</softwareName>
+    </device>
+  </sender>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+    <id nullFlavor="NI"/>
+    <code nullFlavor="NI"/>
+    <statusCode nullFlavor="NI"/>
+    <author typeCode="AUT" contextControlCode="AP">
+      <time nullFlavor="NI"/>
+      <assignedPerson classCode="ASSIGNED">
+        <id nullFlavor="NI"/>
+        <representedPerson classCode="PSN" determinerCode="INSTANCE">
+          <name nullFlavor="NI"/>
+        </representedPerson>
+      </assignedPerson>
+    </author>
+    <location typeCode="LOC" contextControlCode="AP">
+      <serviceDeliveryLocation classCode="SDLOC">
+        <id nullFlavor="NI"/>
+        <addr nullFlavor="NI"/>
+        <telecom nullFlavor="NI"/>
+        <location classCode="PLC" determinerCode="INSTANCE">
+          <name nullFlavor="NI"/>
+        </location>
+      </serviceDeliveryLocation>
+    </location>
+    <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+      <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+        <code code="DOSE" codeSystem="2.16.840.1.113883.5.4"/>
+        <statusCode code="active"/>
+        <priorityCode code="I" codeSystem="2.16.840.1.113883.5.7"/>
+        <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+          <supplyEvent classCode="SPLY" moodCode="EVN">
+            <id extension="dispense_id" root="1.2.3.4.5.6.7.8.9.1"/>
+            <statusCode code="active"/>
+            <effectiveTime nullFlavor="NI"/>
+            <product typeCode="PRD">
+              <medication classCode="MED">
+                <player classCode="MMAT" determinerCode="KIND">
+                  <code nullFlavor="NI"/>
+                  <name nullFlavor="NI"/>
+                </player>
+              </medication>
+            </product>
+            <location typeCode="LOC">
+              <serviceDeliveryLocation classCode="SDLOC">
+                <id nullFlavor="NI"/>
+                <addr nullFlavor="NI"/>
+                <telecom nullFlavor="NI"/>
+                <location classCode="PLC" determinerCode="INSTANCE">
+                  <name nullFlavor="NI"/>
+                </location>
+              </serviceDeliveryLocation>
+            </location>
+          </supplyEvent>
+        </subject>
+        <mitigatedBy typeCode="MITGT" contextControlCode="ON" contextConductionInd="false">
+          <detectedIssueManagement classCode="ACT" moodCode="EVN">
+            <code code="10" codeSystem="2.16.840.1.113883.5.4"/>
+            <statusCode code="active"/>
+            <author typeCode="AUT">
+              <time value="20080918181800"/>
+              <assignedPerson classCode="ASSIGNED">
+                <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+                <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                  <name use="L"><given>Jane</given><family>Doe</family></name>
+                  <asLicensedEntity classCode="LIC">
+                    <id extension="55555" root="2.16.840.1.113883.4.268"/>
+                  </asLicensedEntity>
+                </representedPerson>
+              </assignedPerson>
+            </author>
+          </detectedIssueManagement>
+        </mitigatedBy>
+        <subjectOf typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+          <severityObservation classCode="OBS" moodCode="EVN">
+            <code code="INFA" codeSystem="2.16.840.1.113883.5.4"/>
+            <value code="H" codeSystem="2.16.840.1.113883.5.1063"/>
+          </severityObservation>
+        </subjectOf>
+      </detectedIssueEvent>
+    </subject>
+  </controlActEvent>
+</COMT_IN700001CA>

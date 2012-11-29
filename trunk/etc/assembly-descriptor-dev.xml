@@ -1,0 +1,355 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<assembly>
+    <id>dev</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeSiteDirectory>false</includeSiteDirectory>
+    <moduleSets>
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-core</include>
+          <include>ca.infoway.messagebuilder:message-builder-util</include>
+          <include>ca.infoway.messagebuilder:message-builder-xml</include>
+          <include>ca.infoway.messagebuilder:message-builder-terminology</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>core/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+      
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2009_r02_04_03</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2009_r02_04_02</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_02/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2007_v02_r02</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r02/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-ab_mr2007_v02_r02</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_mr2007_v02_r01</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r01/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-pcs_cerx_v01_r04_3</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/pcs_cerx_v01_r04_3/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-hl7v3-release-sk_cerx_v01_r04_3</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>hl7v3-releases/sk_cerx_v01_r04_3/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-example</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>example-code/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+
+      <moduleSet>
+        <includes>
+          <include>ca.infoway.messagebuilder:message-builder-simple-xml</include>
+          <include>ca.infoway.messagebuilder:message-builder-simple-xml-process</include>
+          <include>ca.infoway.messagebuilder:message-builder-simple-xml-process-web</include>
+        </includes>
+        <binaries>
+          <includeDependencies>false</includeDependencies>
+          <unpack>false</unpack>
+          <outputDirectory>simple-xml/bin</outputDirectory>
+        </binaries>
+      </moduleSet>
+    </moduleSets>
+
+    <fileSets>
+      <!-- Javadocs -->
+      <fileSet>
+        <directory>target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+        <outputDirectory>core/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_03/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_02/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2007_v02_r01/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r01/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r02/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-ab_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_cerx_v01_r04_3/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_cerx_v01_r04_3/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-sk_cerx_v01_r04_3/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/sk_cerx_v01_r04_3/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-example/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>example-code/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-simple-xml/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>simple-xml/javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-simple-xml-process/target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+          <outputDirectory>simple-xml/javadoc</outputDirectory>
+      </fileSet>
+
+      <!-- Sources -->
+      <fileSet>
+        <directory>target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+        <outputDirectory>core/src</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_03/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_03/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2009_r02_04_02/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2009_r02_04_02/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2007_v02_r01/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r01/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_mr2007_v02_r02/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-ab_mr2007_v02_r02/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/ab_mr2007_v02_r02/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-pcs_cerx_v01_r04_3/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/pcs_cerx_v01_r04_3/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-hl7v3-release-sk_cerx_v01_r04_3/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>hl7v3-releases/sk_cerx_v01_r04_3/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-example/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>example-code/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-simple-xml/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>simple-xml/sources</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-simple-xml-process/target</directory>
+        <includes>
+          <include>*-sources.jar</include>
+        </includes>
+          <outputDirectory>simple-xml/sources</outputDirectory>
+      </fileSet>
+
+      <!-- install files -->
+      <fileSet>
+        <directory>etc/install</directory>
+        <includes>
+          <include>*.bat</include>
+          <include>*.sh</include>
+        </includes>
+	<filtered>true</filtered>
+        <outputDirectory>core/bin</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>etc/install</directory>
+        <includes>
+          <include>*-pom.xml</include>
+        </includes>
+	<filtered>true</filtered>
+        <outputDirectory>core/bin/pom</outputDirectory>
+      </fileSet>
+    </fileSets>
+
+    <files>
+      <!-- poms -->
+      <file>
+        <source>pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-core/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-core-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-util/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-util-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-xml/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-xml-pom.xml</destName>
+      </file>
+      <file>
+        <source>message-builder-terminology/pom.xml</source>
+        <outputDirectory>core/bin/pom</outputDirectory>
+        <destName>message-builder-terminology-pom.xml</destName>
+      </file>
+    </files>
+	
+</assembly>
+

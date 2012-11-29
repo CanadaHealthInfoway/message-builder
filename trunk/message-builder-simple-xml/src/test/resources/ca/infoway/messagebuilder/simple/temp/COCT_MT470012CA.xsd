@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT911102CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240012CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="COCT_MT470012CA.Author">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="patientConsentMechanism" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="keyword" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="personalRelationship" type="chi:COCT_MT910107CA.PersonalRelationship"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT470012CA.ConsentEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="consentFormNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="consentEffectiveAndEndTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="consentOverrideReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="author1" type="chi:COCT_MT470012CA.Author"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="author2AssignedEntity" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT470012CA.SubjectChoice"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="subject2" type="chi:COCT_MT470012CA.Subject2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="COCT_MT470012CA.Recipient">
+    <xs:choice>
+      <xs:element name="serviceLocation" type="chi:COCT_MT240012CA.ServiceDeliveryLocation"/>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="COCT_MT470012CA.Subject2">
+    <xs:sequence>
+      <xs:element maxOccurs="10" minOccurs="1" name="consentInformationTypes" type="chi:CodedValue"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT470012CA.Recipient"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="COCT_MT470012CA.SubjectChoice">
+    <xs:choice>
+      <xs:group ref="chi:COCT_MT911102CA.ActingPerson"/>
+      <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
+    </xs:choice>
+  </xs:group>
+</xs:schema>

@@ -1,0 +1,411 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<PORX_IN060500CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610.0000-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="PORX_IN060500CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="CA"/>
+      <targetMessage>
+        <id extension="1234" root="11.22.33.44"/>
+      </targetMessage>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="PORX_TE060530UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <effectiveTime value="20080918000000.0000-0400"/>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <combinedMedicationRequest classCode="SBADM" moodCode="RQO">
+          <id extension="extention" root="1.2.3"/>
+          <code nullFlavor="NI"/>
+          <statusCode code="normal"/>
+          <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+          <directTarget typeCode="DIR" contextControlCode="OP">
+            <medication classCode="MED">
+              <player classCode="MMAT" determinerCode="KIND">
+                <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                <name>advil extra strength</name>
+                <desc>some medicine containing ibuprofen</desc>
+                <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
+                <ingredient classCode="INGR" negationInd="false">
+                  <quantity unit="g" value="250"/>
+                  <ingredient classCode="MMAT" determinerCode="KIND">
+                    <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                    <name>ibuprofen</name>
+                  </ingredient>
+                </ingredient>
+              </player>
+            </medication>
+          </directTarget>
+          <subject typeCode="SBJ" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="159" root="3.14"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19720321"/>
+              </patientPerson>
+            </patient>
+          </subject>
+          <responsibleParty typeCode="RESP" contextControlCode="AP">
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="12.34.56"/>
+              <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="77.33.22.11"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </responsibleParty>
+          <author typeCode="AUT" contextControlCode="AP">
+            <time value="19691231"/>
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="1.1.1"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="2.2.2"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </author>
+          <reason typeCode="RSON" contextControlCode="AN" contextConductionInd="true">
+            <priorityNumber value="1"/>
+            <observationDiagnosis classCode="OBS" moodCode="EVN">
+              <code code="402261004" codeSystem="2.16.840.1.113883.6.96"/>
+              <text>indication text</text>
+              <statusCode code="completed"/>
+            </observationDiagnosis>
+          </reason>
+          <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <administrationInstructions classCode="SBADM" moodCode="RQO">
+              <code code="DRUG" codeSystem="2.16.840.1.113883.5.4"/>
+              <text>usage instructions</text>
+            </administrationInstructions>
+          </component1>
+          <component2 typeCode="COMP" contextControlCode="AN" contextConductionInd="true">
+            <supplyRequest classCode="SPLY" moodCode="RQO">
+              <statusCode code="active"/>
+              <quantity unit="mg" value="1"/>
+              <location typeCode="LOC" contextControlCode="OP">
+                <serviceDeliveryLocation classCode="SDLOC">
+                  <id extension="3" root="2.2.2"/>
+                  <addr use="H">Bloor</addr>
+                  <telecom value="tel:4167620032"/>
+                  <location classCode="PLC" determinerCode="INSTANCE">
+                    <name>Intelliware&apos;s Pharmacy</name>
+                  </location>
+                </serviceDeliveryLocation>
+              </location>
+            </supplyRequest>
+          </component2>
+          <fulfillment1 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="FUTSUM"/>
+            <supplyEventFutureSummary classCode="SPLY" moodCode="EVN">
+              <repeatNumber value="1"/>
+              <quantity unit="U" value="1"/>
+            </supplyEventFutureSummary>
+          </fulfillment1>
+          <fulfillment2 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="FIRST"/>
+            <supplyEventFirstSummary classCode="SPLY" moodCode="EVN">
+              <effectiveTime>
+                <low value="19691231"/>
+              </effectiveTime>
+              <quantity unit="U" value="1"/>
+            </supplyEventFirstSummary>
+          </fulfillment2>
+          <fulfillment3 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="RECENT"/>
+            <supplyEventLastSummary classCode="SPLY" moodCode="EVN">
+              <effectiveTime>
+                <low value="19691231"/>
+              </effectiveTime>
+              <quantity unit="U" value="1"/>
+            </supplyEventLastSummary>
+          </fulfillment3>
+          <fulfillment4 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="PREVSUM"/>
+            <supplyEventPastSummary classCode="SPLY" moodCode="EVN">
+              <repeatNumber value="1"/>
+              <quantity unit="U" value="1"/>
+            </supplyEventPastSummary>
+          </fulfillment4>
+            <subjectOf3 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+              <refusalToFill classCode="CACT" moodCode="EVN">
+                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.1.18"/>
+                <statusCode code="completed"/>
+                <effectiveTime value="19691231"/>
+                <reasonCode code="FRR01" codeSystem="2.16.840.1.113883.5.8"/>
+                <author typeCode="AUT" contextControlCode="OP">
+                  <assignedPerson classCode="ASSIGNED">
+                    <id extension="1" root="1.1.1"/>
+                    <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                      <name use="L"><given>John</given><family>Doe</family></name>
+                      <asLicensedEntity classCode="LIC">
+                        <id extension="1" root="2.2.2"/>
+                      </asLicensedEntity>
+                    </representedPerson>
+                  </assignedPerson>
+                </author>
+                <location typeCode="LOC" contextControlCode="OP">
+                  <serviceDeliveryLocation classCode="SDLOC">
+                    <id extension="3" root="2.2.2"/>
+                    <addr use="H">Bloor</addr>
+                    <telecom value="tel:4167620032"/>
+                    <location classCode="PLC" determinerCode="INSTANCE">
+                      <name>Intelliware&apos;s Pharmacy</name>
+                    </location>
+                  </serviceDeliveryLocation>
+                </location>
+                  <reason typeCode="RSON" contextControlCode="ON" contextConductionInd="true">
+                    <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+                      <code code="VALIDAT" codeSystem="2.16.840.1.113883.5.4"/>
+                      <text>some detected issue text</text>
+                      <statusCode code="completed"/>
+                    </detectedIssueEvent>
+                  </reason>
+              </refusalToFill>
+            </subjectOf3>
+        </combinedMedicationRequest>
+      </subject>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <devicePrescription classCode="SPLY" moodCode="RQO">
+          <id extension="extention" root="1.2.3"/>
+          <statusCode code="normal"/>
+          <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+          <directTarget typeCode="DIR" contextControlCode="OP">
+            <manufacturedProduct classCode="MANU">
+              <manufacturedClinicalDevice classCode="DEV" determinerCode="KIND">
+                <code code="97799979" codeSystem="2.16.840.1.113883.5.1102"/>
+                <name>Onetouch Surestep Testing Strips (100)</name>
+                <desc>A concoction of this and that</desc>
+                <asContent classCode="CONT">
+                  <quantity value="1"/>
+                </asContent>
+              </manufacturedClinicalDevice>
+            </manufacturedProduct>
+          </directTarget>
+          <subject typeCode="SBJ" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="159" root="3.14"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19720321"/>
+              </patientPerson>
+            </patient>
+          </subject>
+          <responsibleParty typeCode="RESP" contextControlCode="AP">
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="12.34.56"/>
+              <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="77.33.22.11"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </responsibleParty>
+          <author typeCode="AUT" contextControlCode="AP">
+            <time value="19691231"/>
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="1.1.1"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="2.2.2"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </author>
+          <reason typeCode="RSON" contextControlCode="AN" contextConductionInd="true">
+            <priorityNumber value="1"/>
+            <observationDiagnosis classCode="OBS" moodCode="EVN">
+              <code code="402261004" codeSystem="2.16.840.1.113883.6.96"/>
+              <text>indication text</text>
+              <statusCode code="completed"/>
+            </observationDiagnosis>
+          </reason>
+          <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <procedureRequest classCode="PROC" moodCode="RQO">
+              <text>usage instructions</text>
+            </procedureRequest>
+          </component1>
+          <component2 typeCode="COMP" contextControlCode="AN" contextConductionInd="true">
+            <supplyRequest classCode="SPLY" moodCode="RQO">
+              <quantity value="1"/>
+              <location typeCode="LOC" contextControlCode="OP">
+                <substitutionConditionCode code="NOSUB" codeSystem="2.16.840.1.113883.5.1071"/>
+                <serviceDeliveryLocation classCode="SDLOC">
+                  <id extension="3" root="2.2.2"/>
+                  <addr use="H">Bloor</addr>
+                  <telecom value="tel:4167620032"/>
+                  <location classCode="PLC" determinerCode="INSTANCE">
+                    <name>Intelliware&apos;s Pharmacy</name>
+                  </location>
+                </serviceDeliveryLocation>
+              </location>
+            </supplyRequest>
+          </component2>
+          <fulfillment1 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="FUTSUM"/>
+            <supplyEventFutureSummary classCode="SPLY" moodCode="EVN">
+              <repeatNumber value="1"/>
+              <quantity value="1"/>
+            </supplyEventFutureSummary>
+          </fulfillment1>
+          <fulfillment2 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="FIRST"/>
+            <supplyEventFirstSummary classCode="SPLY" moodCode="EVN">
+              <effectiveTime>
+                <low value="19691231"/>
+              </effectiveTime>
+              <quantity value="1"/>
+            </supplyEventFirstSummary>
+          </fulfillment2>
+          <fulfillment3 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="RECENT"/>
+            <supplyEventLastSummary classCode="SPLY" moodCode="EVN">
+              <effectiveTime>
+                <low value="19691231"/>
+              </effectiveTime>
+              <quantity value="1"/>
+            </supplyEventLastSummary>
+          </fulfillment3>
+          <fulfillment4 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <subsetCode code="PREVSUM"/>
+            <supplyEventPastSummary classCode="SPLY" moodCode="EVN">
+              <repeatNumber value="1"/>
+              <quantity value="1"/>
+            </supplyEventPastSummary>
+          </fulfillment4>
+            <subjectOf3 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+              <refusalToFill classCode="CACT" moodCode="EVN">
+                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.1.18"/>
+                <statusCode code="completed"/>
+                <effectiveTime value="19691231"/>
+                <reasonCode code="FRR01" codeSystem="2.16.840.1.113883.5.8"/>
+                <author typeCode="AUT" contextControlCode="OP">
+                  <assignedPerson classCode="ASSIGNED">
+                    <id extension="1" root="1.1.1"/>
+                    <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                      <name use="L"><given>John</given><family>Doe</family></name>
+                      <asLicensedEntity classCode="LIC">
+                        <id extension="1" root="2.2.2"/>
+                      </asLicensedEntity>
+                    </representedPerson>
+                  </assignedPerson>
+                </author>
+                  <reason typeCode="RSON" contextControlCode="ON" contextConductionInd="true">
+                    <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+                      <code code="VALIDAT" codeSystem="2.16.840.1.113883.5.4"/>
+                      <text>some detected issue text</text>
+                      <statusCode code="completed"/>
+                    </detectedIssueEvent>
+                  </reason>
+              </refusalToFill>
+            </subjectOf3>
+        </devicePrescription>
+      </subject>
+        <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
+          <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+            <code code="VALIDAT" codeSystem="2.16.840.1.113883.5.4"/>
+            <text>patient not found</text>
+            <statusCode code="completed"/>
+            <priorityCode code="I" codeSystem="2.16.840.1.113883.5.7"/>
+            <subjectOf typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+              <severityObservation classCode="OBS" moodCode="EVN">
+                <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                <statusCode code="completed"/>
+                <value nullFlavor="NI"/>
+              </severityObservation>
+            </subjectOf>
+          </detectedIssueEvent>
+        </subjectOf>
+      <queryAck>
+        <queryId extension="4" root="1.2.3"/>
+        <queryResponseCode code="OK"/>
+        <resultTotalQuantity value="1"/>
+        <resultCurrentQuantity value="1"/>
+        <resultRemainingQuantity value="0"/>
+      </queryAck>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+        <parameterList>
+          <administrationEffectivePeriod>
+            <value>
+              <low value="19691231"/>
+              <high value="19691231"/>
+            </value>
+          </administrationEffectivePeriod>
+          <patientBirthDate>
+            <value value="19871201"/>
+          </patientBirthDate>
+          <patientGender>
+            <value code="F" codeSystem="2.16.840.1.113883.5.1"/>
+          </patientGender>
+          <patientID>
+            <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
+          </patientID>
+          <patientName>
+            <value use="L"><given>Tim</given><family>Eapen</family></value>
+          </patientName>
+            <prescriptionStatus>
+              <value code="normal" codeSystem="2.16.840.1.113883.5.14"/>
+            </prescriptionStatus>
+            <prescriptionStatus>
+              <value code="new" codeSystem="2.16.840.1.113883.5.14"/>
+            </prescriptionStatus>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</PORX_IN060500CA>

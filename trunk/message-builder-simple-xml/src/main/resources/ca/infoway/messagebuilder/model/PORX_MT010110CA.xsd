@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT141007CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="PORX_MT010110CA.Coverage">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="extensionGrantedIndicator"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="coverageExtensionId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="authorUnderwriter"
+                     type="chi:PORX_MT010110CA.Underwriter"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.DeviceRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="prescriptionNumber"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="prescriptionStatus"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="2" minOccurs="0" name="prescriptionMaskingIndicators"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="directTargetManufacturedProduct"
+                     type="chi:COCT_MT141007CA.ManufacturedProduct"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="predecessorPriorDeviceRequest"
+                     type="chi:PORX_MT010110CA.PriorDeviceRequest"/>
+         <xs:element maxOccurs="5" minOccurs="1" name="reason" type="chi:PORX_MT010110CA.Reason2"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="preconditionVerificationEventCriterion"
+                     type="xs:boolean"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="coverageCoverage"
+                     type="chi:PORX_MT010110CA.Coverage"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="component1ProcedureRequest"
+                     type="chi:PORX_MT010110CA.ProcedureRequest"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="component2SupplyRequest"
+                     type="chi:PORX_MT010110CA.SupplyRequest"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOfAnnotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.Location2">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="toBePickedUpWhen" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.PriorDeviceRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="previousPrescriptionOrderNumber"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.ProcedureRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="usageInstructions" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.Reason2">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="indicationPriority" type="xs:integer"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT120402CA.Indications"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.ServiceDeliveryLocation">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="prescriptionShipToAddress"
+                     type="chi:PostalAddress"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.SupplementalFillInformation">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="numberOfFills" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="fillQuantity" type="xs:integer"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.SupplyRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="totalPrescribedQuantity" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="totalDaysSupply" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="destinationServiceDeliveryLocation"
+                     type="chi:PORX_MT010110CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="location"
+                     type="chi:PORX_MT010110CA.Location2"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="componentSupplementalFillInformation"
+                     type="chi:PORX_MT010110CA.SupplementalFillInformation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT010110CA.Underwriter">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="payorIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="payorName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

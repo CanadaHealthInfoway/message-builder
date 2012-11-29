@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<PRPA_IN101104CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<creationTime value="20080625141610-0400" />
+	<responseModeCode code="I" />
+	<versionCode code="V3-2005-05" />
+	<interactionId extension="PRPA_IN101104CA" root="2.16.840.1.113883.1.6" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="ER" />
+	<receiver typeCode="RCV">
+		<telecom value="http://123.255.255.10" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123" root="2.16.840.1.113883.4.262.12" use="BUS" />
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<telecom value="http://987.654.321.0" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123" root="2.16.840.1.113883.4.262.12" use="BUS" />
+			<manufacturerModelName>1.0</manufacturerModelName>
+			<softwareName>Panacea Pharmacy</softwareName>
+		</device>
+	</sender>
+	<acknowledgement>
+		<typeCode code="AA" />
+		<targetMessage>
+			<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad41" />
+		</targetMessage>
+	</acknowledgement>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id extension="eventId" root="2.16.124.113620.1.1.1.1.1.1" use="BUS" />
+		<code code="PRPA_TE101104CA" codeSystem="2.16.840.1.113883.1.18" />
+		<statusCode code="completed" />
+		<subject typeCode="SUBJ" contextControlCode="ON"
+			contextConductionInd="false">
+			<registrationEvent classCode="REG" moodCode="EVN">
+				<statusCode code="completed" />
+				<subject typeCode="SBJ" contextControlCode="AN">
+					<identifiedEntity classCode="IDENT">
+						<id nullFlavor="NI" />
+						<statusCode code="active" />
+						<confidentialityCode nullFlavor="NI" />
+						<identifiedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name>
+								<given>John</given>
+								<family>Smith</family>
+							</name>
+							<telecom nullFlavor="NI" />
+							<administrativeGenderCode code="F"
+								codeSystem="2.16.840.1.113883.5.1" />
+							<birthTime value="19691231190000.0000-0500" />
+							<deceasedInd value="false" />
+							<deceasedTime nullFlavor="NI" />
+							<addr>
+								<houseNumber>354</houseNumber>
+								<streetNameBase>Oakwood</streetNameBase>
+								<streetNameType>BLVD</streetNameType>
+								<delimiter></delimiter>
+								<city>Toronto</city>
+								<delimiter>,</delimiter>
+								<state>CA-ON</state>
+								<delimiter></delimiter>
+								<postalCode>M5W 1E6</postalCode>
+								<deliveryAddressLine>Side door</deliveryAddressLine>
+							</addr>
+							<languageCommunication>
+								<languageCode code="EN" codeSystem="2.16.840.1.113883.6.84"/>
+							</languageCommunication>
+						</identifiedPerson>
+					</identifiedEntity>
+				</subject>
+				<custodian typeCode="CST" contextControlCode="AP">
+					<assignedDevice classCode="ASSIGNED">
+						<id root="1.2.3" extension="112233" use="BUS" />
+	    				<assignedRepository classCode="DEV" determinerCode="INSTANCE">
+	    					<name>Something</name>
+	    				</assignedRepository>
+	    				<representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+	    					<name>Somewhere</name>
+	    				</representedRepositoryJurisdiction>
+					</assignedDevice>
+				</custodian>
+			</registrationEvent>
+		</subject>
+		<queryAck>
+			<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21" />
+			<queryResponseCode code="OK" />
+			<resultTotalQuantity value="1" />
+			<resultCurrentQuantity value="1" />
+			<resultRemainingQuantity value="0" />
+		</queryAck>
+		<queryByParameter>
+			<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21" />
+			<parameterList>
+				<personAddress>
+					<value use="H">
+						<houseNumber>354</houseNumber>
+						<streetNameBase>Oakwood</streetNameBase>
+						<streetNameType>BLVD</streetNameType>
+						<city>Toronto</city>
+						<state>CA-ON</state>
+						<postalCode>M5W 1E6</postalCode>
+						<deliveryAddressLine>Side door</deliveryAddressLine>
+					</value>
+				</personAddress>
+			</parameterList>
+		</queryByParameter>
+	</controlActEvent>
+</PRPA_IN101104CA>

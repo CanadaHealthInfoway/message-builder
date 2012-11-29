@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120402CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911107CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT911108CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="REPC_MT230001CA.ActEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="reportedOnServiceLink"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.ActRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="requestType" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="requestId" type="chi:InstanceIdentifier"/>
+         <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.Author">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="authoredDatetime" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="attestedIndicator" type="chi:CodedType"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.Document">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="documentCategory" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="documentTitle" type="xs:string"/>
+         <xs:element maxOccurs="2" minOccurs="0" name="documentMaskingIndicators"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT230001CA.Author"/>
+         <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
+         <xs:group maxOccurs="10" minOccurs="0" ref="chi:REPC_MT230001CA.Recipients"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="predecessorOldClinicalDocumentEvent"
+                     type="chi:REPC_MT230001CA.OldClinicalDocumentEvent"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="componentStructuredBodyComponentSection"
+                     type="chi:REPC_MT230001CA.Section"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOfAnnotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent"
+                     type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="REPC_MT230001CA.DocumentContent">
+      <xs:choice>
+         <xs:element name="clinicalObservationDocument_2" type="chi:REPC_MT230001CA.Observation"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="REPC_MT230001CA.Observation">
+      <xs:sequence>
+         <xs:group maxOccurs="5" minOccurs="0" ref="chi:COCT_MT120402CA.Indications"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="clinicalObservationDocumentType"
+                     type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="clinicalObservationDocumentTimeRange"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation"
+                     type="chi:COCT_MT240007CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="inFulfillmentOfActRequest"
+                     type="chi:REPC_MT230001CA.ActRequest"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectActEvent"
+                     type="chi:REPC_MT230001CA.ActEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.OldClinicalDocumentEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="replacesRecordIds"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="REPC_MT230001CA.Recipients">
+      <xs:choice>
+         <xs:element name="serviceLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:group ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="REPC_MT230001CA.Reference">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="referenceRecordLinks"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.Section">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="documentOverviewContent"
+                     type="chi:EncapsulatedDocumentType"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:REPC_MT230001CA.DocumentContent"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="component2SubSection"
+                     type="chi:REPC_MT230001CA.SubSection"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="component3Reference"
+                     type="chi:REPC_MT230001CA.Reference"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT230001CA.SubSection">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="sectionType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sectionTitle" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sectionContent"
+                     type="chi:EncapsulatedDocumentType"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="componentReference"
+                     type="chi:REPC_MT230001CA.Reference"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

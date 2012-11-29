@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+MBT-Model-Version-Numbers: V02R02_AB
+MBT-Message-Set: /messageSet_ab_mr2007_v02_r02_hotfix5.xml

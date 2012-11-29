@@ -1,0 +1,99 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<POME_IN010060CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.7-SNAPSHOT -->
+    <id root="ce031e09-fed6-4136-915e-d79be4280426"/>
+    <creationTime value="20090916112259"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="POME_IN010060CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="NE"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://panaceatest.intelliware.ca"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id root="2.16.124.113620.1.1.4.1"/>
+        <manufacturerModelName>1.13-SNAPSHOT</manufacturerModelName>
+        <softwareName>Test Level 7</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="AA"/>
+      <messageWaitingNumber value="1"/>
+      <messageWaitingPriorityCode code="H" codeSystem="2.16.840.1.113883.5.1083"/>
+      <targetMessage>
+        <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+      </targetMessage>
+      <acknowledgementDetail typeCode="W">
+        <code code="SYN" codeSystem="2.16.840.1.113883.5.1100"/>
+        <text>The trigger event REPC_TE000054UV is not valid for the interaction root={2.16.840.1.113883.1.6},extension={POME_IN010050CA}</text>
+      </acknowledgementDetail>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21"/>
+      <code code="POME_TE010020UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <target classCode="MED">
+          <player classCode="MMAT" determinerCode="KIND">
+            <code code="02150352" codeSystem="2.16.840.1.113883.5.1105"/>
+            <name>Aspirin - Children&apos;s Size - Tablets</name>
+            <asManufacturedProduct classCode="MANU">
+              <manufacturer classCode="ORG" determinerCode="INSTANCE">
+                <id extension="5348" root="2.16.124.101.1.277"/>
+                <name>Bayer Inc., Consumer Care Division</name>
+              </manufacturer>
+            </asManufacturedProduct>
+            <ingredient classCode="INGR">
+              <ingredient classCode="MMAT" determinerCode="KIND">
+                <code nullFlavor="NI"/>
+                <name>Acetylsalicylic Acid</name>
+              </ingredient>
+            </ingredient>
+          </player>
+        </target>
+      </subject>
+      <queryAck>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <queryResponseCode code="OK"/>
+        <resultTotalQuantity value="1"/>
+        <resultCurrentQuantity value="1"/>
+        <resultRemainingQuantity value="0"/>
+      </queryAck>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+        <parameterList>
+          <drugCode>
+            <value code="02150352" codeSystem="2.16.840.1.113883.5.1105"/>
+          </drugCode>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</POME_IN010060CA>

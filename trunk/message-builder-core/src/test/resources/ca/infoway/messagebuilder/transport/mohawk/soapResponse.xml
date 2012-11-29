@@ -1,0 +1,263 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:a="http://www.w3.org/2005/08/addressing">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">submit</a:Action>
+		<a:MessageID>urn:uuid:cf555af6-b1f9-4544-ae5e-907b30b471ec
+		</a:MessageID>
+		<a:RelatesTo>-1c3e8921:126dd80e278:-8000
+		</a:RelatesTo>
+	</s:Header>
+	<s:Body>
+		<hl7:PRPA_IN101104CA ITSVersion="XML_1.0"
+			xmlns:hl7="urn:hl7-org:v3">
+			<hl7:id root="8a667aa35e7942b0b359989b06b773a8">
+			</hl7:id>
+			<hl7:creationTime value="20100217120447.657-0500">
+			</hl7:creationTime>
+			<hl7:responseModeCode code="I">
+			</hl7:responseModeCode>
+			<hl7:versionCode code="V3-2008N">
+			</hl7:versionCode>
+			<hl7:interactionId specializationType="PUBLIC"
+				root="2.16.840.1.113883.1.18" extension="PRPA_IN101104CA"
+				displayable="true">
+			</hl7:interactionId>
+			<hl7:profileId root="2.16.840.1.113883.2.20.2"
+				extension="2.04.1">
+			</hl7:profileId>
+			<hl7:processingCode code="P">
+			</hl7:processingCode>
+			<hl7:processingModeCode code="T">
+			</hl7:processingModeCode>
+			<hl7:acceptAckCode code="AL">
+			</hl7:acceptAckCode>
+			<hl7:receiver typeCode="RCV">
+				<hl7:telecom value="http://123.255.255.10">
+				</hl7:telecom>
+				<hl7:device classCode="DEV" determinerCode="INSTANCE">
+					<hl7:id root="1.3.6.1.4.1.33349.3.1.1.0" extension="BT-APP">
+					</hl7:id>
+					<hl7:name>Mohawk College HIAL</hl7:name>
+				</hl7:device>
+			</hl7:receiver>
+			<hl7:sender typeCode="SND">
+				<hl7:telecom value="http://987.654.321.0">
+				</hl7:telecom>
+				<hl7:device classCode="DEV" determinerCode="INSTANCE">
+					<hl7:id root="2.16.840.1.113883.4.262.12" extension="123">
+					</hl7:id>
+					<hl7:name>
+					</hl7:name>
+				</hl7:device>
+			</hl7:sender>
+			<hl7:acknowledgement>
+				<hl7:typeCode code="AA">
+				</hl7:typeCode>
+				<hl7:messageWaitingNumber value="0">
+				</hl7:messageWaitingNumber>
+				<hl7:targetMessage>
+					<hl7:id specializationType="TOKEN"
+						root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51">
+					</hl7:id>
+				</hl7:targetMessage>
+				<hl7:acknowledgementDetail>
+					<hl7:code code="SYN" codeSystem="2.16.840.1.113883.2.20.3.1">
+					</hl7:code>
+					<hl7:text representation="TXT" mediaType="text/plain"
+						language="en-US">Property Author in
+						MARC.Everest.Core.MR2009.MFMI_MT700751CA.ControlActEvent`1 is
+						marked mandatory and is either not assigned, or is assigned a null
+						flavor. This is not permitted.</hl7:text>
+				</hl7:acknowledgementDetail>
+				<hl7:acknowledgementDetail>
+					<hl7:code code="SYN" codeSystem="2.16.840.1.113883.2.20.3.1">
+					</hl7:code>
+					<hl7:text representation="TXT" mediaType="text/plain"
+						language="en-US">Property ProfileId in
+						MARC.Everest.Core.MR2009.Interactions.PRPA_IN101103CA is marked
+						mandatory and is either not assigned, or is assigned a null
+						flavor. This is not permitted.</hl7:text>
+				</hl7:acknowledgementDetail>
+			</hl7:acknowledgement>
+			<hl7:controlActEvent classCode="CACT" moodCode="EVN">
+				<hl7:realmCode>
+				</hl7:realmCode>
+				<hl7:typeId root="1.2.3.4" extension="7982a788-1b70-4332-af2a-f45cf5935e09">
+				</hl7:typeId>
+				<hl7:templateId>
+				</hl7:templateId>
+				<hl7:id specializationType="BUS"
+					root="05dba166-4af7-4ce0-afc0-4e03bbf93e44" use="BUS">
+				</hl7:id>
+				<hl7:code code="PRPA_TE101104CA" codeSystem="2.16.840.1.113883.1.18">
+				</hl7:code>
+				<hl7:statusCode code="completed">
+				</hl7:statusCode>
+				<hl7:effectiveTime>
+					<low value="20100217120447.228-0500" xmlns="urn:hl7-org:v3" />
+				</hl7:effectiveTime>
+				<hl7:reasonCode specializationType="Flavor" code="Code"
+					codeSystem="CodeSystem" codeSystemName="CodeSystemName"
+					codeSystemVersion="CodeSystemVersion" displayName="DisplayName">
+				</hl7:reasonCode>
+				<hl7:languageCode specializationType="Flavor" code="Code"
+					codeSystem="2.16.840.1.113883.2.20.3.51" codeSystemName="CodeSystemName"
+					codeSystemVersion="CodeSystemVersion" displayName="DisplayName">
+				</hl7:languageCode>
+				<hl7:queryAck>
+					<hl7:realmCode>
+					</hl7:realmCode>
+					<hl7:typeId root="1.2.3.4" extension="55f05b57-5ae9-4faa-afc0-72fbc4d15aaf">
+					</hl7:typeId>
+					<hl7:templateId>
+					</hl7:templateId>
+					<hl7:queryId specializationType="TOKEN"
+						root="18e8c8d6-d716-4917-9e24-6ccc230cc56f">
+					</hl7:queryId>
+					<hl7:queryResponseCode code="QE">
+					</hl7:queryResponseCode>
+					<hl7:resultTotalQuantity
+						specializationType="NONNEG" value="0">
+					</hl7:resultTotalQuantity>
+					<hl7:resultCurrentQuantity
+						specializationType="NONNEG" value="0">
+					</hl7:resultCurrentQuantity>
+					<hl7:resultRemainingQuantity
+						specializationType="NONNEG" value="0">
+					</hl7:resultRemainingQuantity>
+				</hl7:queryAck>
+				<hl7:queryByParameter>
+					<hl7:realmCode>
+					</hl7:realmCode>
+					<hl7:typeId root="1.2.3.4" extension="19ff6a5e-ee6e-4635-a28c-adc842cca307">
+					</hl7:typeId>
+					<hl7:templateId>
+					</hl7:templateId>
+					<hl7:queryId specializationType="TOKEN"
+						root="bb02d265-8b20-4b76-a574-a8317c8d8ff3">
+					</hl7:queryId>
+					<hl7:responseModalityCode code="B">
+					</hl7:responseModalityCode>
+					<hl7:initialQuantity specializationType="POS"
+						value="22">
+					</hl7:initialQuantity>
+					<hl7:initialQuantityCode code="RD"
+						codeSystem="2.16.840.1.113883.1.11.19911">
+					</hl7:initialQuantityCode>
+					<hl7:parameterList>
+						<hl7:realmCode>
+						</hl7:realmCode>
+						<hl7:typeId root="1.2.3.4" extension="d05a96bd-624e-41f1-b013-88e8bff313f7">
+						</hl7:typeId>
+						<hl7:templateId>
+						</hl7:templateId>
+						<hl7:administrativeGender semanticsText="administrativeGender">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="11e56cf7-e257-467f-b0bb-3164ff962699">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value code="UN" codeSystem="2.16.840.1.113883.1.11.1">
+							</hl7:value>
+						</hl7:administrativeGender>
+						<hl7:deceasedTime semanticsText="deceasedTime">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="a28d6557-064a-46eb-9f54-96062d410489">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value specializationType="DATETIME" value="20100216160546">
+							</hl7:value>
+						</hl7:deceasedTime>
+						<hl7:languageCode semanticsText="languageCode">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="3ab0ac1f-2b8f-4bdf-90a0-e4acd4b51a61">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value specializationType="Flavor" code="Code"
+								codeSystem="2.16.840.1.113883.2.20.3.51" codeSystemName="CodeSystemName"
+								codeSystemVersion="CodeSystemVersion" displayName="DisplayName">
+							</hl7:value>
+						</hl7:languageCode>
+						<hl7:multipleBirthIndicator
+							semanticsText="multipleBirthIndicator">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="d5eee0db-ac51-49f9-92bd-523c678c862a">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value value="true">
+							</hl7:value>
+						</hl7:multipleBirthIndicator>
+						<hl7:multipleBirthOrderNumber
+							semanticsText="multipleBirthOrderNumber">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="5bcfd057-9660-45c6-b436-6c95f7c49061">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value specializationType="POS" value="22">
+							</hl7:value>
+						</hl7:multipleBirthOrderNumber>
+						<hl7:personBirthtime semanticsText="personBirthtime">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="5106a681-e540-4e6a-9a85-4746f0633ff0">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value specializationType="DATETIME" value="20100216160546">
+							</hl7:value>
+						</hl7:personBirthtime>
+						<hl7:personalRelationshipCode
+							semanticsText="personalRelationshipCode">
+							<hl7:realmCode>
+							</hl7:realmCode>
+							<hl7:typeId root="1.2.3.4"
+								extension="40ebac54-407d-4594-aa10-a815529d389d">
+							</hl7:typeId>
+							<hl7:templateId>
+							</hl7:templateId>
+							<hl7:value code="COUSN" codeSystem="2.16.840.1.113883.2.20.3.89">
+							</hl7:value>
+						</hl7:personalRelationshipCode>
+					</hl7:parameterList>
+				</hl7:queryByParameter>
+			</hl7:controlActEvent>
+		</hl7:PRPA_IN101104CA>
+	</s:Body>
+</s:Envelope>

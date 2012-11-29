@@ -1,0 +1,105 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<COMT_IN300101CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610.0000-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="COMT_IN300101CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="NE"/>
+    <receiver typeCode="RCV">
+      <telecom value="tel:4167620032"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bae22"/>
+      <code code="COMT_TE300101UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/><high value="20080918"/>
+      </effectiveTime>
+      <responsibleParty typeCode="RESP" contextControlCode="AP">
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="1" root="12.34.56"/>
+          <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>John</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="1" root="77.33.22.11"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </responsibleParty>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="19691231190000.0000-0500"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="1" root="1.1.1"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>John</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="1" root="2.2.2"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+        <actEvent classCode="ACT" moodCode="EVN">
+          <id extension="11223344" root="1.2.3.4"/>
+          <recordTarget typeCode="RCT" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="159" root="3.14"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19720321"/>
+              </patientPerson>
+            </patient>
+          </recordTarget>
+        </actEvent>
+      </subject>
+    </controlActEvent>
+</COMT_IN300101CA>

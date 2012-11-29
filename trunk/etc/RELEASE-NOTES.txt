@@ -1,0 +1,193 @@
+====
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+====
+
+
+                          Infoway Message Builder(tm)
+                               Version 1.4.3
+                               Release Notes
+
+INTRODUCTION:
+============
+
+This document contains the release notes for this version of Infoway Message Builder, and highlights changes since the previous version.
+
+
+SYSTEM PROPERTIES USED WITHIN MESSAGEBUILDER:
+=============================================
+
+(new for 1.4) messagebuilder.abstract.ts.ignore.specializationtype.error
+- used to suppress errors caused by not specifying specializationType for the TS.FULLDATEWITHTIME type
+- defaults to "false"
+
+messagebuilder.output.warnings.in.generated.xml
+ - used to suppress xml warnings within generated xml
+ - defaults to "true"
+
+messagebuilder.date.format.override.<VERSION>
+ - override the TS.FULLDATETIME/TS.DATETIME date format for a specific HL7v3 release version when generating xml
+ - defaults to "yyyyMMddHHmmss" for CeRx and "yyyyMMddHHmmss.SSS0ZZZZZ" for everything else
+
+messagebuilder.simplexml.version
+ - used to specify the version to use within the SimpleXml component (most users of MB will not use this component)
+ - defaults to "R02_04_02"
+
+messagebuilder.simplexml.resturl
+ - used to specify the REST URL to use within the SimpleXml component (most users of MB will not use this component)
+ - defaults to "https://tl7.intelliware.ca/rest/nl"
+
+messagebuilder.simplexml.transportclass
+ - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
+ - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+BUGS FIXED in 1.4.3:
+=======================
+
+- minor miscellaneous bug fixes
+
+
+BUGS FIXED in 1.4.2:
+=======================
+
+13398 - Message Builder Validator is not reporting certain validations
+13365 - HL7Error class never displays error path
+
+
+BUGS FIXED in 1.4.1:
+=======================
+
+<Internal release only>
+
+
+BUGS FIXED in 1.4:
+=======================
+
+- this release incorporates massive changes to the entire MB validation mechanism (for marshalling and unmarshalling)
+- specifying a version (via the VersionNumber interface) has changed to use a new Hl7BaseVersion enum
+- 11430	[DATATYPE] MBT MR2009 Runtime coremif mismatch.
+- 11372	[DATATYPE] MBT does not validate the II.PUBLIC datatype correctly
+- 11322	[DATATYPE] MBT does not validate various definitions of the AD.BASIC datatype for both CeRx4.3 and MR2009
+- 11316	Refactor Message Builder datatype validation
+- 11302	Ensure lack of coding strength from MIFv2s won't cause problems when marshalling/unmarshalling
+- 11297	[DATATYPE] MBT does not validate various definitions of the PN.BASIC datatype for CeRx4.3
+- 11296	[DATATYPE] MBT does not pick up administrativeGenderCode being null as a problem.
+- 11267	[DATATYPE] Validator gaps (was FW: Mif or MBT CeRx problems)
+- 717   Need to finalize a process for ensuring that we have interfaces for all Domain Values
+
+
+BUGS FIXED in 1.3.4.1 (Remixer v2 branch):
+============================================
+
+Remixer 2.0 changes
+- Expanded AnnotationType to include missing types
+- Added RimClass To MessagePart
+- Added Vocabulary Mif processing
+- Generation of Vocabulary Classes (C# and java)
+- Added ConformanceLevel.IGNORED (as not allowed and as optional)- tight integration with
+
+
+BUGS FIXED in 1.3.4:
+===================
+
+11543 - modified the ED.REF formatter to accommodate the latest (MR2009) xml format for the reference value
+
+
+BUGS FIXED in 1.3.3:
+===================
+
+11543 - modified the ED.REF parser to accommodate the latest (MR2009) xml format for the reference value
+misc  - minor modification to SK API to use a proper ED datatype rather than just Object
+
+
+BUGS FIXED in 1.3.2:
+===================
+
+11463 - code modifications and manual message set changes for SK message set to work with SK Sandbox gaps
+misc  - added some additional code types tp the code configurator
+misc  - fixed a small bug where a version literal was being comapred to a version object
+misc  - fixed some issues around the old/deprecated interaction business name handling
+misc  - MR2009 (R02.04.03) had an incorrect version literal in message set
+misc  - added an older (CeRx) datatype (ED.REF) to StandardDatatype enum
+
+
+BUGS FIXED in 1.3.1:
+===================
+
+11455 - NullPointerException if unit of measure is null from code-to-XML
+
+
+BUGS FIXED in 1.3.0:
+===================
+
+11271 - NullPointerException if unit of measure is null
+11293 - use="BUS" for MR2009 id fields.
+11294 - Null Pointer exceptions thrown out of the Validate method
+11384 - MIF annotations on interactions not picked up when processing MIFv2s
+11385 - Interaction model has duplicated business name field
+11386 - MIFv1 annotations not processed properly - subtypes are missing
+11393 - Core Message Builder project tests fail when run with time zones other than EST
+
+
+BUGS FIXED in 1.2.9:
+===================
+
+Re-generate SK API using v01r04.2 (hotfix2)
+
+
+BUGS FIXED in 1.2.8:
+===================
+
+11087 - V01R04.3 API re-generated
+11078 - V02R01 API re-generated
+11077 - V02R02 API re-generated
+10239 - Creation Time value with 3 digits for millisecond now supported via system property using "messagebuilder.date.format.override.<INSERT_SPECIFIC_VERSION_HERE>"
+
+
+BUGS FIXED in 1.2.7:
+===================
+
+The following is a list of the bugs fixed in this release, with their Redmine numbers:
+
+10965 Missing sender sub-elements in some complex cases (AB Session Management messages in particular)
+10983 Re-generate SK API
+10990 Relax II validation constraints for AB (SpecializationType no longer required for II fields)
+
+
+BUGS FIXED in 1.2.6:
+===================
+
+The following is a list of the bugs fixed in this release, with their Redmine numbers:
+
+488	ControlActEvent->EventType for MedicationPrescriptionDetailQuery (PORX_IN060370CA)
+1228	Update tutorial applications and related documents
+1239	hello_world example - NullPointerException in FindCandidatesApp using REST
+1240	hello_world example - FindCandidatesApp failed to receive a response when using SOAP
+1242	Updating hello_world guide and code
+1466	Setting SpecializationType to a collection object
+1561	INT.NONNEG Value is changed to 0 if a negative number is given
+1562	INT.POS Value is not set and no warning/error if a negative number is given
+1570	PQ.Basic truncation provides no way to know what was the original value 
+1624	[SASK feature] Timezone can cause problems in general, and with TS.FULLDATE in particular
+2159	Question - Generate MB API using HL7 model element name (option #3) as the default option ?
+10245	Duplicate fingerprint found in AB Session Managment messages
+10266	Support pCS MR2009 R02.04.03
+10284	ValueHolder does not work in Message builder v1.2.5
+10285	MANIFEST.MF is missing the "Implementation-Version" property in the Message Builder hl7v3 releases
+10293	Create an official release for AB Session Managment API

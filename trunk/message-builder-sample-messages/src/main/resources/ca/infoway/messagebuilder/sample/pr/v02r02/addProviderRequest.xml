@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<PRPM_IN301010CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+  <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+	<creationTime value="20080625141610-0400" />
+	<responseModeCode code="I" />
+	<versionCode code="V3-2005-05" />
+	<interactionId extension="PRPM_IN306010CA" root="2.16.840.1.113883.1.6" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="ER" />
+	<receiver typeCode="RCV">
+		<telecom value="tel:4167620032" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123" root="2.16.840.1.113883.4.262.12" />
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<telecom value="http://987.654.321.0" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123" root="2.16.840.1.113883.4.262.12" />
+		</device>
+	</sender>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id extension="eventId" root="2.16.124.113620.1.1.1.1.1.1" />
+		<code code="PRPM_TE306010CA" />
+		<statusCode code="new" />
+		<subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+			<registrationRequest classCode="REG" moodCode="RQO">
+				<statusCode code="new" />
+				<subject contextControlCode="AN" typeCode="SBJ">
+					<healthCareProvider classCode="PROV">
+						<id root="2.16.840.1.113883.4.262" extension="12093810489230" />
+						<code code="MD" codeSystem="2.16.840.1.113883.5.111" />
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Cameron</given>
+							<family>Lowe</family>
+						</name>
+						<addr nullFlavor="NI" />
+						<telecom nullFlavor="NI" />
+						<statusCode code="active" codeSystem="2.16.840.1.113883.5.111" />
+						<effectiveTime>
+							<low value="20090101" />
+						</effectiveTime>
+						<healthCarePrincipalPerson>
+							<id root="2.16.840.1.113883.4.262" extension="12093810489230" />
+							<name>
+								<prefix>Dr.</prefix>
+								<given>Cameron</given>
+								<family>Lowe</family>
+							</name>
+							<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" />
+							<birthTime nullFlavor="NI" />
+						</healthCarePrincipalPerson>
+						<issuingOrganization>
+							<id root="1.2.3.4.5.6.7" extension="329487" />
+							<name>ABC Organization</name>
+						</issuingOrganization>
+					</healthCareProvider>
+				</subject>
+				<custodian>
+					<assignedDevice>
+						<id root="10.1.1.2.3.3.4" extension="12123123123" />
+						<assignedRepository><name>TL7</name></assignedRepository>
+						<representedRepositoryJurisdiction><name>Newfoundland</name></representedRepositoryJurisdiction>
+					</assignedDevice>
+				</custodian>
+			</registrationRequest>
+		</subject>
+	</controlActEvent>
+</PRPM_IN301010CA>

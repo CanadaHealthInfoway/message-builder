@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+  <module name="TreeWalker">
+  	<property name="fileExtensions" value=".java,.java1"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck">
+      <property name="scope" value="public"/>
+	  <property name="logLoadErrors" value="true"/>
+      <property name="suppressLoadErrors" value="true"/>     
+    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck">
+      <property name="scope" value="public"/>
+    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck">
+      <property name="scope" value="public"/>
+      <property name="checkEmptyJavadoc" value="true"/>
+    </module>
+	  <module name="RedundantThrows">
+	    <property name="suppressLoadErrors" value="true"/>
+	    <property name="logLoadErrors" value="true"/>
+	  </module>
+  </module>
+</module>

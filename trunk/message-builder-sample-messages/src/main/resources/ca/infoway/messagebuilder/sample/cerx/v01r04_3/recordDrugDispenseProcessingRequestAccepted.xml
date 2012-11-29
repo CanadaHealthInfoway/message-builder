@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<PORX_IN020130CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
+  <id extension="335f2bbe:11f4aa80c62:-7fef" root="2.16.124.113620.1.1.2"/>
+  <creationTime value="20090206105607"/>
+  <versionCode code="V3-2005-05"/>
+  <interactionId extension="PORX_IN020130CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="ER"/>
+  <receiver typeCode="RCV">
+    <telecom value="uri:198.203.1.23"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123456" root="2.16.124.113618.1234.1.1.x"/>
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="uri:198.203.1.23"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123456" root="2.16.840.1.113883.3.133.1.5.101"/>
+    </device>
+  </sender>
+  <acknowledgement>
+    <typeCode code="AA"/>
+    <messageWaitingNumber value="0"/>
+    <targetMessage>
+      <id root="2ebe34d5-54ac-44cb-89a2-017ae8bc8bbf"/>
+    </targetMessage>
+  </acknowledgement>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+    <id extension="1" root="2.16.124.113618.1234.1.1.2.1227543788248.2148.1233933814329.2148"/>
+    <code code="PORX_TE020190UV" codeSystem="2.16.840.1.113883.1.18"/>
+    <statusCode code="completed"/>
+    <subject typeCode="SUBJ" contextConductionInd="false">
+      <supplyEvent classCode="SPLY" moodCode="EVN">
+        <id extension="2313" root="1.2.3.4.5.6.7.8.9.1"/>
+        <inFulfillmentOf typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+          <actRequest classCode="ACT" moodCode="RQO">
+            <id extension="1426" root="1.2.3.4.5.6.7.8.9.2"/>
+          </actRequest>
+        </inFulfillmentOf>
+      </supplyEvent>
+    </subject>
+  </controlActEvent>
+</PORX_IN020130CA>
+
+					

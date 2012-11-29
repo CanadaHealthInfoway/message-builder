@@ -1,0 +1,145 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<RCMR_IN010003CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id extension="293844" root="2.16.124.113620.1.1.1.1.2"/>
+    <creationTime value="20080625141610.0000-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="RCMR_IN010003CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="tel:4167620032"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="RCMR_TE010003UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/><high value="20080918"/>
+      </effectiveTime>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800.0000-0400"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+        <consentEvent classCode="CONS" moodCode="EVN" negationInd="true">
+          <id extension="consentExtension" root="consentRoot"/>
+          <code code="INFA" codeSystem="2.16.840.1.113883.5.4"/>
+          <statusCode code="completed"/>
+          <effectiveTime>
+            <low value="19700107"/>
+            <high value="19700108"/>
+          </effectiveTime>
+          <reasonCode code="EMERG" codeSystem="2.16.840.1.113883.5.8"/>
+          <subject typeCode="SBJ" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="159" root="3.14"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19720321"/>
+              </patientPerson>
+            </patient>
+          </subject>
+          <author1 typeCode="AUT" contextControlCode="OP">
+            <modeCode code="PHYSICAL" codeSystem="2.16.840.1.113883.5.1064"/>
+            <responsibleParty classCode="AGNT">
+              <id extension="159" root="3.14"/>
+              <code code="SIB" codeSystem="2.16.840.1.113883.5.111"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <agentPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+              </agentPerson>
+            </responsibleParty>
+          </author1>
+          <author2 typeCode="AUT" contextControlCode="OP">
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="12.34.56"/>
+              <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="77.33.22.11"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </author2>
+          <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <permissionToInform classCode="INFRM" moodCode="PERM">
+              <receiver typeCode="RCV" contextControlCode="OP">
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="12.34.56"/>
+                  <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name use="L"><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="77.33.22.11"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </receiver>
+              <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+                <recordType classCode="ACT" moodCode="DEF">
+                  <code code="ACADR" codeSystem="2.16.840.1.113883.5.4"/>
+                </recordType>
+              </subject>
+            </permissionToInform>
+          </component>
+        </consentEvent>
+      </subject>
+    </controlActEvent>
+</RCMR_IN010003CA>

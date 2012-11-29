@@ -1,0 +1,20 @@
+
+<assembly>
+    <id>message-builder-javasource</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeSiteDirectory>false</includeSiteDirectory>
+
+    <fileSets>
+      <fileSet>
+        <directory>target/output/javaSource</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <outputDirectory></outputDirectory>
+      </fileSet>
+     </fileSets>
+
+</assembly>
+

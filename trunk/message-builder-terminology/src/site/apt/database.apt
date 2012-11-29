@@ -1,0 +1,58 @@
+~~
+~~ Copyright 2012 Canada Health Infoway, Inc.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~        http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+~~
+~~ Author:        $LastChangedBy$
+~~ Last modified: $LastChangedDate$
+~~ Revision:      $LastChangedRevision$
+~~
+
+Database-based Code Resolver
+
+  Many of the codes used in a typical HL7-enabled Point-of-Service application are simple:
+  telephone uses ("home", "work", etc), gender ("Male", "Female", etc.), personal 
+  relationships ("mother", "sister"), and so forth.  What we mean is that they have a 
+  relatively small number of values that change very rarely.  
+  
+  In code terms, those values can be easily represented using constants or, in a language
+  like Java, Enums.
+  
+  But some codes represent much broader, and richer, constructs.  For example, the 
+  codes that represent different drugs contain thousands of possible values (with a 
+  number of different ways of represnting them: DIN numbers, SNOMED codes, etc.), and 
+  they change frequently as new drugs are brought to the market.
+  
+  For such concepts, it's most convenient to have a database of valid code values.  
+  The Message Builder Tool comes with a standard Code Resolver mechanism that can support
+  looking up code values from a set of tables.
+  
+Database Product Support
+
+  The database-based code resolver uses Hibernate to access the database.  As a result,
+  the code resolver should work with any database product that Hibernate supports.  
+  
+  In practice, we've mostly used this code on the following databases:
+  
+  [[1]] PostgreSQL
+  
+  [[2]] Informix
+  
+  [[3]] DB2
+  
+Table Schema
+  
+  The following diagram shows the overall structure of underlying tables:
+  
+[./schema.png] Terminology table schema
+  
