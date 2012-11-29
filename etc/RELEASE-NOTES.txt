@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.4.2
+                               Version 1.4.3
                                Release Notes
 
 INTRODUCTION:
@@ -55,6 +55,12 @@ messagebuilder.simplexml.resturl
 messagebuilder.simplexml.transportclass
  - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+BUGS FIXED in 1.4.3:
+=======================
+
+- minor miscellaneous bug fixes
 
 
 BUGS FIXED in 1.4.2:
