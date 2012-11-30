@@ -1,0 +1,75 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<REPC_IN000033CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610.0000-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="REPC_IN000033CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="AA"/>
+      <targetMessage>
+        <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad11"/>
+      </targetMessage>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="REPC_TE000027UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <effectiveTime value="20080918"/>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <actEvent classCode="ACT" moodCode="EVN">
+          <id extension="11223344" root="1.2.3.4"/>
+          <recordTarget typeCode="RCT" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="159" root="3.14"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="tel:4167620032"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name use="L"><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19720321"/>
+              </patientPerson>
+            </patient>
+          </recordTarget>
+        </actEvent>
+      </subject>
+    </controlActEvent>
+</REPC_IN000033CA>

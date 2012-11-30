@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT110101CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT110200CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT680000CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT280001CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="FICR_MT500201CA.CarrierRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="carrierID" type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.ContactParty">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="administrativeContactID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="administrativeContactType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="contactPerson"
+                     type="chi:FICR_MT500201CA.ContactPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.ContactPerson">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="contactPersonName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="contactPersonTelephoneOrEmailDetails"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.CoveredPartyAsPatient">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyRelationshipToPolicyHolder"
+                     type="chi:CodedValue"/>
+         <xs:group maxOccurs="1" minOccurs="1"
+                   ref="chi:FICR_MT500201CA.CoveredPartyAsPatientChoice"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="subjectOf"
+                     type="chi:FICR_MT500201CA.Subject"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="indirectAuthorityPersonalRelationship"
+                     type="chi:FICR_MT500201CA.PersonalRelationship"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.CoveredPartyAsPatientAnimal">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="nameOfTheAnimal" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="FICR_MT500201CA.CoveredPartyAsPatientChoice">
+      <xs:choice>
+         <xs:element name="coveredPartyAsPatientAnimal"
+                     type="chi:FICR_MT500201CA.CoveredPartyAsPatientAnimal"/>
+         <xs:element name="coveredPartyAsPatientPerson"
+                     type="chi:FICR_MT500201CA.CoveredPartyAsPatientPerson"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="FICR_MT500201CA.CoveredPartyAsPatientPerson">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="patientName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="personGender" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="personDateOfBirth" type="chi:FullDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="timeOfDeath" type="chi:PartialDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="personMultipleBirthIndicator"
+                     type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="personMultipleBirthOrderNumber"
+                     type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="parentOrGuardianRole"
+                     type="chi:FICR_MT500201CA.ParentOrGuardianRole"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.FinancialContract">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="financialContractID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="billingArrangementType" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.HealthDocumentAttachment">
+      <xs:sequence>
+         <xs:element maxOccurs="5" minOccurs="1" name="attachmentIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="attachmentType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="attachmentContent"
+                     type="chi:EncapsulatedDocumentType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="FICR_MT500201CA.InvoiceElementChoice">
+      <xs:choice>
+         <xs:element name="invoiceElementDetail" type="chi:FICR_MT500201CA.InvoiceElementDetail"/>
+         <xs:element name="invoiceElementGroup" type="chi:FICR_MT500201CA.InvoiceElementGroup"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="FICR_MT500201CA.InvoiceElementComponent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="invoiceElementSequenceNumber"
+                     type="xs:integer"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:FICR_MT500201CA.InvoiceElementChoice"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.InvoiceElementCrossReference">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="crossReferenceIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.InvoiceElementDetail">
+      <xs:sequence>
+         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT280001CA.A_BillableActChoice"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="submittedInvoiceLineIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="submittedProductServiceCode"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="submittedUnitQuantity"
+                     type="chi:PhysicalQuantity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="submittedUnitAmountPrice"
+                     type="chi:RatioMoneyPerUnit"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="submittedInvoiceLineAmount" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="taxAppliedToUnitPriceAmt" type="xs:decimal"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.InvoiceElementGroup">
+      <xs:sequence>
+         <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT280001CA.A_BillableActChoice"/>
+         <xs:element maxOccurs="99" minOccurs="1" name="invoiceGroupingIdentifierS"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="timePeriodForInvoice" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceSubTotal" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyCoveredPartyAsPatient"
+                     type="chi:FICR_MT500201CA.CoveredPartyAsPatient"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="inFulfillmentOfFinancialContract"
+                     type="chi:FICR_MT500201CA.FinancialContract"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="predecessorInvoiceElementCrossReference"
+                     type="chi:FICR_MT500201CA.InvoiceElementCrossReference"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="referenceAdjudicatedInvoiceElementGroup"
+                     type="chi:COCT_MT680000CA.AdjudicatedInvoiceElementGroup"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="coveragePolicyOrAccount"
+                     type="chi:FICR_MT500201CA.PolicyOrAccount"/>
+         <xs:element maxOccurs="10" minOccurs="0"
+                     name="pertinentInformationHealthDocumentAttachment"
+                     type="chi:FICR_MT500201CA.HealthDocumentAttachment"/>
+         <xs:element maxOccurs="10" minOccurs="1" name="component"
+                     type="chi:FICR_MT500201CA.InvoiceElementComponent"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="triggerForInvoiceElementOverride"
+                     type="chi:FICR_MT500201CA.InvoiceElementOverride"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.InvoiceElementOverride">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceOverrideCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="invoiceOverrideNote" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.ParentOrGuardianRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="idOfParent" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="parentOrGuardianRelationshipToPatient"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="nameOfParentOrGuardian" type="chi:PersonName"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.PaymentRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="9" minOccurs="1" name="invoiceIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="totalBilledAmount" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="primaryPerformerContactParty"
+                     type="chi:FICR_MT500201CA.ContactParty"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="creditAccount"
+                     type="chi:COCT_MT110200CA.Account"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="debitAccount"
+                     type="chi:COCT_MT110101CA.Account"/>
+         <xs:element maxOccurs="5" minOccurs="0"
+                     name="pertinentInformationProviderBillingTaxAccount"
+                     type="chi:FICR_MT500201CA.ProviderBillingTaxAccount"/>
+         <xs:group maxOccurs="10" minOccurs="1" ref="chi:FICR_MT500201CA.InvoiceElementChoice"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.PersonalRelationship">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="examplesAreSpouseChild" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.PolicyHolder">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="policyHolderName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="policyHolderDateOfBirth" type="chi:FullDate"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.PolicyOrAccount">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="policyID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="beneficiaryCoveredPartyAsPatient"
+                     type="chi:FICR_MT500201CA.CoveredPartyAsPatient"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="holderPolicyHolder"
+                     type="chi:FICR_MT500201CA.PolicyHolder"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="author"
+                     type="chi:FICR_MT500201CA.PolicyUnderwriter"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.PolicyUnderwriter">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="carrierRole"
+                     type="chi:FICR_MT500201CA.CarrierRole"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.ProviderBillingTaxAccount">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="taxNumber" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="actInvoiceDetailscode" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT500201CA.Subject">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="patientKeyword" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="patientConsent" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

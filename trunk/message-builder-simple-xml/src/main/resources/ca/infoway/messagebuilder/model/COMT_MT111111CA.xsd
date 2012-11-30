@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="POIZ_MT061150CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT210002CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT220002CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT420003CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT000006CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT000007CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT000005CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT500003CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT230002CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT610002CA.xsd"/>
+   <xs:include schemaLocation="REPC_MT410003CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:include schemaLocation="PORX_MT030040CA.xsd"/>
+   <xs:include schemaLocation="PORX_MT060210CA.xsd"/>
+   <xs:include schemaLocation="PORX_MT060060CA.xsd"/>
+   <xs:include schemaLocation="POLB_MT001999CA.xsd"/>
+   <xs:include schemaLocation="POLB_MT004999CA.xsd"/>
+   <xs:group name="COMT_MT111111CA.Lab">
+      <xs:choice>
+         <xs:group ref="chi:POLB_MT004999CA.ResultInstancePayloadChoice"/>
+         <xs:group ref="chi:POLB_MT001999CA.RequestChoice"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="COMT_MT111111CA.Pharmacy">
+      <xs:choice>
+         <xs:element name="prescription" type="chi:PORX_MT060060CA.DevicePrescription"/>
+         <xs:element name="otherMedication" type="chi:PORX_MT060210CA.OtherMedication"/>
+         <xs:element name="prescription" type="chi:PORX_MT030040CA.CombinedMedicationRequest"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="COMT_MT111111CA.RenderedContent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="renderedContentType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="renderedContent"
+                     type="chi:EncapsulatedDocumentType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="COMT_MT111111CA.SHR">
+      <xs:choice>
+         <xs:element name="measuredObservation" type="chi:REPC_MT410003CA.CommonObservationEvent"/>
+         <xs:element name="professionalService" type="chi:REPC_MT610002CA.ProcedureEvent"/>
+         <xs:element name="clinicalObservationDocument_1" type="chi:REPC_MT230002CA.Document"/>
+         <xs:element name="careComposition" type="chi:REPC_MT500003CA.PatientCareProvisionEvent"/>
+         <xs:element name="allergyIntolerance" type="chi:REPC_MT000005CA.IntoleranceCondition"/>
+         <xs:element name="healthCondition" type="chi:REPC_MT000007CA.ConditionEvent"/>
+         <xs:element name="reportedReaction" type="chi:REPC_MT000006CA.ReactionObservationEvent"/>
+         <xs:element name="codedObservation" type="chi:REPC_MT420003CA.CommonObservationEvent"/>
+         <xs:element name="dischargeCareSummary" type="chi:REPC_MT220002CA.Document"/>
+         <xs:element name="referral_1" type="chi:REPC_MT210002CA.Document"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="COMT_MT111111CA.Summary">
+      <xs:choice>
+         <xs:group ref="chi:COMT_MT111111CA.Pharmacy"/>
+         <xs:element name="renderedRecord" type="chi:COMT_MT111111CA.RenderedContent"/>
+         <xs:element name="immunizations" type="chi:POIZ_MT061150CA.Immunization"/>
+         <xs:group ref="chi:COMT_MT111111CA.Lab"/>
+         <xs:group ref="chi:COMT_MT111111CA.SHR"/>
+      </xs:choice>
+   </xs:group>
+</xs:schema>

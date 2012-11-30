@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+
+	<simpleCodedType code="AA" />
+	
+	<codedValue code="BB" codeSystem="1.2.3.4" >
+		<originalText>Some original text</originalText>
+	</codedValue>
+	
+	<codedType code="BB" codeSystem="1.2.3.4" >
+		<originalText>Some original text</originalText>
+		<translation code="CC" codeSystem="5.6.7.8" />
+		<translation code="DD" codeSystem="11.22.33.44" />
+	</codedType>
+	
+	<codedTypeLab code="BB" codeSystem="1.2.3.4" displayName="Some text to display">
+		<originalText>Some original text</originalText>
+		<translation code="CC" codeSystem="5.6.7.8" />
+		<translation code="DD" codeSystem="11.22.33.44" />
+	</codedTypeLab>
+	
+</ParameterList>

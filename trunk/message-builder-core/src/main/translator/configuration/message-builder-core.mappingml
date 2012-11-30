@@ -1,0 +1,987 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<!-- -->
+<!-- ILOG Java 2 CSharp translator mapping file for project message-builder-model -->
+<!-- -->
+<mapping>
+   <!--          -->
+   <!-- packages -->
+   <!--          -->
+   <packages>
+      <!--               -->
+      <!-- ca.infoway.messagebuilder.annotation -->
+      <!--              -->
+      <package name="ca.infoway.messagebuilder.annotation">
+      </package>
+      <!--               -->
+      <!-- ca.infoway.messagebuilder.model -->
+      <!--              -->
+      <package name="ca.infoway.messagebuilder.model">
+      </package>
+
+
+      <!--               -->
+      <!-- ca.infoway.messagebuilder -->
+      <!--              -->
+      <package name="ca.infoway.messagebuilder">
+         <class packageName="ca.infoway.messagebuilder" name="Code">
+            <target packageName="Ca.Infoway.Messagebuilder" name="Code" />
+
+            <!--                               -->
+            <!-- method getCodeValue() -->
+            <!--                               -->
+            <method signature="()" name="getCodeValue">
+               <target propertyGet="CodeValue"/>
+            </method>
+
+         	<!--                               -->
+            <!-- method getCodeSystem() -->
+            <!--                               -->
+            <method signature="()" name="getCodeSystem">
+               <target propertyGet="CodeSystem"/>
+            </method>
+         
+         </class>
+      </package>
+
+
+
+
+
+
+
+
+      <!--                      -->
+      <!-- Reference packages -->
+      <!--                      -->
+
+      <!--                      -->
+      <!-- package java.math -->
+      <!--                      -->
+      <package name="java.math">
+
+         <!--                    -->
+         <!-- class java.math.BigDecimal -->
+         <!--                    -->
+         <class packageName="java.math" name="BigDecimal">
+            <target packageName="Ca.Infoway.Messagebuilder" name="BigDecimal" />
+            
+            <!--                               -->
+            <!-- method BigDecimal(long) -->
+            <!--                               -->
+            <constructor signature="(long)">
+               <target>
+                  <format>
+<![CDATA[new BigDecimal(@1)]]>
+                  </format>
+               </target>
+            </constructor>
+
+            <!--                               -->
+            <!-- method BigDecimal(java.lang.String) -->
+            <!--                               -->
+            <constructor signature="(java.lang.String)">
+               <target>
+                  <format>
+<![CDATA[new BigDecimal(@1)]]>
+                  </format>
+               </target>
+            </constructor>
+
+            <!--                               -->
+            <!-- method compareTo() -->
+            <!--                               -->
+            <method signature="(java.math.BigDecimal)" name="compareTo">
+               <target name="CompareTo"/>
+            </method>
+            
+            <!--                               -->
+            <!-- method add() -->
+            <!--                               -->
+            <method signature="(java.math.BigDecimal)" name="add">
+               <target name="Add"/>
+            </method>
+            
+            <!--                               -->
+            <!-- method subtract() -->
+            <!--                               -->
+            <method signature="(java.math.BigDecimal)" name="subtract">
+               <target name="Subtract"/>
+            </method>
+            
+            <!--                               -->
+            <!-- method multiply() -->
+            <!--                               -->
+            <method signature="(java.math.BigDecimal)" name="multiply">
+               <target name="Multiply"/>
+            </method>
+            
+            <!--                               -->
+            <!-- method divide() -->
+            <!--                               -->
+            <method signature="(java.math.BigDecimal)" name="divide">
+               <target name="Divide"/>
+            </method>
+            
+            <!--                               -->
+            <!-- method longValue() -->
+            <!--                               -->
+            <method signature="()" name="longValue">
+               <target propertyGet="LongValue"/>
+            </method>
+
+         </class>
+
+      </package>
+
+
+      <package name="java.util">
+      
+         <!--                    -->
+         <!-- class java.util.Collections -->
+         <!--                    -->
+         <class packageName="java.util" name="Collections">
+            <target packageName="Ca.Infoway.Messagebuilder" name="CollUtils" />
+
+	         <!--                               -->
+    	     <!-- method synchronizedList(java.util.List&lt;T&gt;) -->
+        	 <!--                               -->
+	         <method signature="(java.util.List&lt;T&gt;)" name="synchronizedList">
+    	        <target name="SynchronizedList" />
+	         </method>
+
+	         <!--                               -->
+    	     <!-- method synchronizedMap(java.util.Map&lt;K,V&gt;) -->
+        	 <!--                               -->
+	         <method signature="(java.util.Map&lt;K,V&gt;)" name="synchronizedMap">
+    	        <target name="SynchronizedMap" />
+	         </method>
+
+	         <!--                               -->
+    	     <!-- method synchronizedSet(java.util.Set&lt;T&gt;) -->
+        	 <!--                               -->
+	         <method signature="(java.util.Set&lt;T&gt;)" name="synchronizedSet">
+    	        <target name="SynchronizedSet" />
+	         </method>
+
+         </class>
+      
+         <!--                    -->
+         <!-- class java.util.Date -->
+         <!--                    -->
+         <class packageName="java.util" name="Date">
+            <target packageName="Ca.Infoway.Messagebuilder" name="Date" />
+
+            <!--                               -->
+            <!-- method Date() -->
+            <!--                               -->
+            <constructor signature="()">
+               <target>
+                  <format>
+<![CDATA[new Date()]]>
+                  </format>
+               </target>
+            </constructor>
+
+            <!--                               -->
+            <!-- method Date(long) -->
+            <!--                               -->
+            <constructor signature="(long)">
+               <target>
+                  <format>
+<![CDATA[new Date(@1)]]>
+                  </format>
+               </target>
+            </constructor>
+
+            <!--                               -->
+            <!-- method Date(java.lang.String) -->
+            <!--                               -->
+            <constructor signature="(java.lang.String)">
+               <target>
+                  <format>
+<![CDATA[new Date(@1)]]>
+                  </format>
+               </target>
+            </constructor>
+
+            <!--                               -->
+            <!-- method after(java.util.Date) -->
+            <!--                               -->
+            <method signature="(java.util.Date)" name="after">
+               <target name="After" />
+            </method>
+
+            <!--                               -->
+            <!-- method after(java.util.Date) -->
+            <!--                               -->
+            <method signature="(java.util.Date)" name="before">
+               <target name="Before" />
+            </method>
+            
+            <!--                               -->
+            <!-- method after(java.util.Date) -->
+            <!--                               -->
+            <method signature="(java.util.Date)" name="compareTo">
+               <target name="CompareTo" />
+            </method>
+
+            <!--                               -->
+            <!-- method getDate() -->
+            <!--                               -->
+            <method signature="()" name="getDate">
+               <target propertyGet="DayOfMonth"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getDay() -->
+            <!--                               -->
+            <method signature="()" name="getDay">
+               <target propertyGet="DayOfWeek"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getHours() -->
+            <!--                               -->
+            <method signature="()" name="getHours">
+               <target propertyGet="Hours"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getMinutes() -->
+            <!--                               -->
+            <method signature="()" name="getMinutes">
+               <target propertyGet="Minutes"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getMonth() -->
+            <!--                               -->
+            <method signature="()" name="getMonth">
+               <target propertyGet="Month"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getSeconds() -->
+            <!--                               -->
+            <method signature="()" name="getSeconds">
+               <target propertyGet="Seconds"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getTime() -->
+            <!--                               -->
+            <method signature="()" name="getTime">
+               <target propertyGet="Time"/>
+            </method>
+
+            <!--                               -->
+            <!-- method setTime(long) -->
+            <!--                               -->
+            <method signature="(long)" name="setTime">
+               <target propertySet="Time"/>
+            </method>
+
+            <!--                               -->
+            <!-- method getYear() -->
+            <!--                               -->
+            <method signature="()" name="getYear">
+               <target propertyGet="Year"/>
+            </method>
+
+         </class>
+
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.collections -->
+      <!--                      -->
+      <package name="org.apache.commons.collections">
+
+         <!--                    -->
+         <!-- class org.apache.commons.collections.CollectionUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.collections" name="CollectionUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="CollUtils" />
+            
+            <method signature="(java.util.Collection)" name="isEmpty">
+               <target name="IsEmpty" />
+            </method>
+            
+         </class>
+         
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.collections.iterators -->
+      <!--                      -->
+      <package name="org.apache.commons.collections.iterators">
+
+         <!--                    -->
+         <!-- class org.apache.commons.collections.collections.iterators.UnmodifiableIterator -->
+         <!--                    -->
+         <class packageName="org.apache.commons.collections.iterators" name="UnmodifiableIterator">
+            <target packageName="Ca.Infoway.Messagebuilder" name="CollUtils" />
+            
+            <method signature="(java.util.Iterator)" name="decorate">
+               <target name="CreateUnmodifiableIterator" />
+            </method>
+            
+         </class>
+         
+         <!--                    -->
+         <!-- class org.apache.commons.collections.collections.iterators.UnmodifiableListIterator -->
+         <!--                    -->
+         <class packageName="org.apache.commons.collections.iterators" name="UnmodifiableListIterator">
+            <target packageName="Ca.Infoway.Messagebuilder" name="CollUtils" />
+            
+            <method signature="(java.util.ListIterator)" name="decorate">
+               <target name="CreateUnmodifiableListIterator" />
+            </method>
+            
+         </class>
+         
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.io -->
+      <!--                      -->
+      <package name="org.apache.commons.io">
+      	<target name="Ca.Infoway.Messagebuilder" />
+
+         <!--                    -->
+         <!-- class org.apache.commons.io.FilenameUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.io" name="FilenameUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="FilenameUtils" />
+         </class>
+         
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.lang.builder -->
+      <!--                      -->
+      <package name="org.apache.commons.lang.builder">
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.builder.EqualsBuilder -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang.builder" name="EqualsBuilder">
+            <target packageName="Ca.Infoway.Messagebuilder" name="EqualsBuilder" />
+         </class>
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.builder.HashCodeBuilder -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang.builder" name="HashCodeBuilder">
+            <target packageName="Ca.Infoway.Messagebuilder" name="HashCodeBuilder" />
+         </class>
+         
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.lang.time -->
+      <!--                      -->
+      <package name="org.apache.commons.lang.time">
+         <!--                    -->
+         <!-- class org.apache.commons.lang.time.DateUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang.time" name="DateUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="DateUtils" />
+
+            <method signature="(java.lang.String, java.lang.String[])" name="parseDate">
+               <target name="ParseDate" />
+            </method>
+
+         </class>
+
+      </package>
+
+
+      <!--                      -->
+      <!-- package org.apache.commons.lang -->
+      <!--                      -->
+      <package name="org.apache.commons.lang">
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.ArrayUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang" name="ArrayUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="ArrayUtils" />
+            
+         </class>
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.ClassUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang" name="ClassUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="ClassUtils" />
+            
+            <method signature="(java.lang.Class)" name="getShortClassName">
+               <target>
+                  <format>
+<![CDATA[@1.Name]]>
+                  </format>
+               </target>
+            </method>
+         </class>
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.StringUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang" name="StringUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="StringUtils" />
+
+            <field name="Empty">
+               <target>
+                  <format>
+<![CDATA[String.Empty]]>
+                  </format>
+               </target>
+            </field>
+
+            <method signature="(java.lang.String, java.lang.String)" name="equals">
+               <target>
+                  <format>
+<![CDATA[String.Equals(@1, @2)]]>
+                  </format>
+               </target>
+            </method>
+
+            <method signature="(java.lang.String)" name="isBlank">
+               <target name="IsBlank" />
+            </method>
+
+            <method signature="(java.lang.String)" name="isNotBlank">
+               <target name="IsNotBlank" />
+            </method>
+
+            <method signature="(java.lang.String)" name="isNumeric">
+               <target name="IsNumeric" />
+            </method>
+
+            <method signature="(java.lang.String, java.lang.String)" name="substringAfter">
+               <target name="SubstringAfter" />
+            </method>
+
+            <method signature="(java.lang.String, java.lang.String)" name="substringBefore">
+               <target name="SubstringBefore" />
+            </method>
+
+            <method signature="(java.lang.String, java.lang.String)" name="substringBeforeLast">
+               <target name="SubstringBeforeLast" />
+            </method>
+
+            <method signature="(java.lang.String)" name="trim">
+               <target name="Trim" />
+            </method>
+
+            <method signature="(java.lang.String)" name="trimToEmpty">
+               <target name="TrimToEmpty" />
+            </method>
+
+            <method signature="(java.lang.String)" name="trimToNull">
+               <target name="TrimToNull" />
+            </method>
+
+         </class>
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.Validate -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang" name="Validate">
+            <target packageName="Ca.Infoway.Messagebuilder" name="Validate" />
+            
+            <method signature="(java.lang.Object)" name="notNull">
+               <target name="NotNull" />
+            </method>
+            
+         </class>
+
+         <!--                    -->
+         <!-- class org.apache.commons.lang.WordUtils -->
+         <!--                    -->
+         <class packageName="org.apache.commons.lang" name="WordUtils">
+            <target packageName="Ca.Infoway.Messagebuilder" name="WordUtils" />
+            
+            <method signature="(java.lang.String)" name="capitalizeFully">
+               <target name="CapitalizeFully" />
+            </method>
+            
+         </class>
+
+      </package>
+      		       
+
+
+      <!--                      -->
+      <!-- xml packages -->
+      <!--                      -->
+
+	   <package name="javax.xml.parsers">
+	      <!--                    -->
+	      <!-- class javax.xml.parsers.ParserConfigurationException -->
+	      <!--                    -->
+	      <class packageName="javax.xml.parsers" name="ParserConfigurationException">
+	         <target packageName="Platform.Xml.Parsers" name="XmlParserConfigurationException" >
+	         </target>
+	      </class>
+
+	      <!--                    -->
+	      <!-- class javax.xml.parsers.DocumentBuilderFactory -->
+	      <!--                    -->
+	      <class packageName="javax.xml.parsers" name="DocumentBuilderFactory">
+	         <target packageName="Platform.Xml.Parsers" name="XmlDocumentBuilderFactory" >
+	         </target>
+	      </class>
+
+	      <!--                    -->
+	      <!-- class javax.xml.parsers.DocumentBuilder -->
+	      <!--                    -->
+	      <class packageName="javax.xml.parsers" name="DocumentBuilder">
+	         <target packageName="Platform.Xml.Parsers" name="XmlDocumentBuilder" >
+	         </target>
+	      </class>
+
+	   </package>
+
+
+   	   <package name="org.xml.sax">
+	      <!--                    -->
+	      <!-- class org.xml.sax.EntityResolver -->
+	      <!--                    -->
+	      <class packageName="org.xml.sax" name="EntityResolver">
+	         <target packageName="Platform.Xml.Sax" name="XmlEntityResolver" >
+	         </target>
+	      </class>
+
+	   	  <!--                    -->
+	      <!-- class org.xml.sax.SAXException -->
+	      <!--                    -->
+	      <class packageName="org.xml.sax" name="SAXException">
+	         <target packageName="Platform.Xml.Sax" name="SAXException" >
+	         </target>
+	      </class>
+
+	   </package>
+	   
+   <!--                      -->
+   <!-- package org.w3c.dom -->
+   <!--                      -->
+   <package name="org.w3c.dom">
+      <target name="System.Xml"/>
+
+      <class packageName="org.w3c.dom" name="Document">
+         <target packageName="System.Xml" name="XmlDocument" >
+         </target>
+
+         <!--                               -->
+         <!-- method getElementsByTagNameNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="getElementsByTagNameNS">
+            <target>
+               <format>
+<![CDATA[@0.GetElementsByTagName(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method createAttributeNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="createAttributeNS">
+            <target>
+               <format>
+<![CDATA[@0.CreateAttribute(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+      </class>
+      
+      <!--                    -->
+      <!-- class org.w3c.dom.Node -->
+      <!--                    -->
+      <class packageName="org.w3c.dom" name="Node">
+         <target packageName="System.Xml" name="XmlNode" >
+         </target>
+
+         <!--                               -->
+         <!-- method getLastChild() -->
+         <!--                               -->
+         <method signature="()" name="getLastChild">
+            <target propertyGet="LastChild"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getPrefix() -->
+         <!--                               -->
+         <method signature="()" name="getPrefix">
+            <target propertyGet="Prefix"/>
+         </method>
+
+         <!--                               -->
+         <!-- method setPrefix() -->
+         <!--                               -->
+         <method signature="(java.lang.String)" name="setPrefix">
+            <target propertySet="Prefix"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getPreviousSibling() -->
+         <!--                               -->
+         <method signature="()" name="getPreviousSibling">
+            <target propertyGet="PreviousSibling"/>
+         </method>
+
+         <!-- method hasChildNodes() -->
+         <!--                               -->
+         <method signature="()" name="hasChildNodes">
+            <target propertyGet="HasChildNodes"/>
+         </method>
+
+         <!--                               -->
+         <!-- method setNodeValue() -->
+         <!--                               -->
+         <method signature="(java.lang.String)" name="setNodeValue">
+            <target propertySet="Value"/>
+         </method>
+
+         <!--                               -->
+         <!-- method isSupported() -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="isSupported">
+            <target name="Supports"/>
+         </method>
+
+      </class>
+
+      <!--                    -->
+      <!-- class org.w3c.dom.Attr -->
+      <!--                    -->
+      <class packageName="org.w3c.dom" name="Attr">
+         <target packageName="System.Xml" name="XmlAttribute" >
+         </target>
+
+         <!--                               -->
+         <!-- method getValue() -->
+         <!--                               -->
+         <method signature="()" name="getValue">
+            <target propertyGet="Value"/>
+         </method>
+
+         <!--                               -->
+         <!-- method setValue() -->
+         <!--                               -->
+         <method signature="(java.lang.String)" name="setValue">
+            <target propertySet="Value"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getSpecified() -->
+         <!--                               -->
+         <method signature="()" name="getSpecified">
+            <target propertyGet="Specified"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getName() -->
+         <!--                               -->
+         <method signature="()" name="getName">
+            <target propertyGet="Name"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getOwnerElement() -->
+         <!--                               -->
+         <method signature="()" name="getOwnerElement">
+            <target propertyGet="OwnerElement"/>
+         </method>
+
+      </class>
+
+      <!--                    -->
+      <!-- class org.w3c.dom.Element -->
+      <!--                    -->
+      <class packageName="org.w3c.dom" name="Element">
+         <target packageName="System.Xml" name="XmlElement" >
+         </target>
+
+         <!--                               -->
+         <!-- method setAttributeNS(java.lang.String,java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String,java.lang.String)" name="setAttributeNS">
+            <target>
+               <format>
+<![CDATA[@0.SetAttribute(@2,@1,@3)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method getAttributeNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="getAttributeNS">
+            <target>
+               <format>
+<![CDATA[@0.GetAttribute(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method setAttributeNodeNS(org.w3c.dom.Attr) -->
+         <!--                               -->
+         <method signature="(org.w3c.dom.Attr)" name="setAttributeNodeNS">
+            <target name="SetAttributeNode">
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method removeAttributeNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="removeAttributeNS">
+            <target>
+               <format>
+<![CDATA[@0.RemoveAttribute(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method hasAttributeNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="hasAttributeNS">
+            <target>
+               <format>
+<![CDATA[@0.HasAttribute(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method getElementsByTagNameNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="getElementsByTagNameNS">
+            <target>
+               <format>
+<![CDATA[@0.GetElementsByTagName(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method getAttributeNodeNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="getAttributeNodeNS">
+            <target>
+               <format>
+<![CDATA[@0.GetAttributeNode(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+      </class>
+
+      <!--                    -->
+      <!-- class org.w3c.dom.NamedNodeMap -->
+      <!--                    -->
+      <class packageName="org.w3c.dom" name="NamedNodeMap">
+         <target packageName="System.Xml" name="XmlAttributeCollection" >
+         </target>
+
+         <!--                               -->
+         <!-- method getLength() -->
+         <!--                               -->
+         <method signature="()" name="getLength">
+            <target propertyGet="Count"/>
+         </method>
+
+         <!--                               -->
+         <!-- method getNamedItemNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="getNamedItemNS">
+            <target>
+               <format>
+<![CDATA[@0.GetNamedItem(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method removeNamedItemNS(java.lang.String,java.lang.String) -->
+         <!--                               -->
+         <method signature="(java.lang.String,java.lang.String)" name="removeNamedItemNS">
+            <target>
+               <format>
+<![CDATA[@0.RemoveNamedItem(@2,@1)]]>
+               </format>
+            </target>
+         </method>
+
+         <!--                               -->
+         <!-- method setNamedItemNS(org.w3c.dom.Node) -->
+         <!--                               -->
+         <method signature="(org.w3c.dom.Node)" name="setNamedItemNS">
+            <target name="setNamedItem">
+            </target>
+         </method>
+
+       </class>
+      </package>	   
+       
+	   <!--                      -->
+	   <!-- package org.hibernate -->
+	   <!--                      -->
+	   <package name="org.hibernate">
+	      <target name="NHibernate"/>
+	
+	      <class packageName="org.hibernate" name="Session">
+	         <target packageName="NHibernate" name="ISession" >
+	         </target>
+	      </class>
+
+	      <class packageName="org.hibernate" name="SessionFactory">
+	         <target packageName="NHibernate" name="ISessionFactory" >
+	         </target>
+	      </class>
+
+	      <class packageName="org.hibernate" name="Transaction">
+	         <target packageName="NHibernate" name="ITransaction" >
+	         </target>
+	      </class>
+      </package>
+      
+	   <!--                      -->
+	   <!-- package org.hibernate.cfg -->
+	   <!--                      -->
+	   <package name="org.hibernate.cfg">
+	      <target name="NHibernate.Cfg"/>
+	
+	      <class packageName="org.hibernate.cfg" name="AnnotationConfiguration">
+	         <target packageName="NHibernate.Cfg" name="Configuration" >
+	         </target>
+	         
+            <!--                               -->
+            <!-- method addAnnotatedClass() -->
+            <!--                               -->
+            <method signature="(java.lang.Class)" name="addAnnotatedClass">
+            <target>
+               <format>
+<![CDATA[@0.AddClass(@1)]]>
+               </format>
+            </target>
+            </method>
+	         
+            <!--                               -->
+            <!-- method setProperties() -->
+            <!--                               -->
+            <method signature="(java.util.Properties)" name="SetProperties">
+               <target propertySet="Properties"/>
+            </method>
+
+	      </class>
+
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.hibernate.criterion -->
+	   <!--                      -->
+	   <package name="org.hibernate.criterion">
+	      <target name="NHibernate.Criterion"/>
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.orm.hibernate -->
+	   <!--                      -->
+	   <package name="org.springframework.orm.hibernate">
+	      <target name="Spring.Data.NHibernate"/>
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.orm.hibernate3 -->
+	   <!--                      -->
+	   <package name="org.springframework.orm.hibernate3">
+	      <target name="Spring.Data.NHibernate"/>
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.transaction.support -->
+	   <!--                      -->
+	   <package name="org.springframework.transaction.support">
+	      <target name="Spring.Transaction.Support"/>
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.orm.hibernate.support -->
+	   <!--                      -->
+	   <package name="org.springframework.orm.hibernate.support">
+	      <target name="Spring.Data.NHibernate.Suppor"/>
+
+	      <class packageName="org.springframework.orm.hibernate.support" name="HibernateDaoSupport">
+	         <target packageName="Spring.Data.NHibernate.Suppor" name="HibernateDaoSupport" >
+	         </target>
+
+            <!--                               -->
+            <!-- method getHibernateTemplate() -->
+            <!--                               -->
+            <method signature="()" name="getHibernateTemplate">
+               <target propertyGet="HibernateTemplate"/>
+            </method>
+	      </class>
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.core.io -->
+	   <!--                      -->
+	   <package name="org.springframework.core.io">
+	      <target name="Spring.Core.IO"/>
+
+	      <class packageName="org.springframework.core.io" name="ClassPathResource">
+	         <target packageName="Spring.Core.IO" name="AssemblyResource" >
+	         </target>
+	      </class>
+	      
+      </package>
+
+	   <!--                      -->
+	   <!-- package org.springframework.beans.factory.xml -->
+	   <!--                      -->
+	   <package name="org.springframework.beans.factory.xml">
+	      <target name="Spring.Objects.Factory.Xml"/>
+
+	      <class packageName="org.springframework.beans.factory.xml" name="XmlBeanFactory">
+	         <target packageName="Spring.Objects.Factory.Xml" name="XmlObjectFactory" >
+	         </target>
+	      </class>
+	      
+      </package>
+
+   </packages>
+
+</mapping>

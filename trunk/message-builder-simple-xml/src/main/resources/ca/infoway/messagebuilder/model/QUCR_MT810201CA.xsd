@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT110101CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT110200CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsCarrierRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="carrierId" type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsFinancialContract">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="businessArrangementID"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsGroup">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="adjudicatedResultsGroupID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="typeOfSummary" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="timePeriodForThePayment"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryPeriodAmt" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="deviceAdjudResultsSendingAppRole"
+                     type="chi:QUCR_MT810201CA.AdjudResultsSendingAppRole"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="performerAdjudResultsProviderRole"
+                     type="chi:QUCR_MT810201CA.AdjudResultsProviderRole"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="authorAdjudResultsCarrierRole"
+                     type="chi:QUCR_MT810201CA.AdjudResultsCarrierRole"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="referenceAdjudResultsFinancialContract"
+                     type="chi:QUCR_MT810201CA.AdjudResultsFinancialContract"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="summaryAdjudResultsGroupSummaryData"
+                     type="chi:QUCR_MT810201CA.AdjudResultsGroupSummaryData"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="creditAccount"
+                     type="chi:COCT_MT110200CA.Account"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="debitAccount"
+                     type="chi:COCT_MT110101CA.Account"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="componentAdjudResultsGroup"
+                     type="chi:QUCR_MT810201CA.AdjudResultsGroup"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsGroupSummaryData">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryInformation" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="valueOfSummary" type="chi:PhysicalQuantity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsProviderRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryBreakdownProviderID"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="QUCR_MT810201CA.AdjudResultsSendingAppRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="sendingApplicationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

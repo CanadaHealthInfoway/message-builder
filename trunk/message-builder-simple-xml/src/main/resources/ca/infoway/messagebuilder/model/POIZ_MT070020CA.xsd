@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT050208CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="POIZ_MT070020CA.Attachment">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="attachmentIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="attachmentContent"
+                     type="chi:EncapsulatedDocumentType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT070020CA.ImmunizationForecast">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="eligibilityPeriod" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="doseNumber" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizingAgentCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationStatus" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT070020CA.ImmunizationProfile">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="subject1" type="chi:POIZ_MT070020CA.Subject"/>
+         <xs:element maxOccurs="50" minOccurs="0" name="subject2ImmunizationForecast"
+                     type="chi:POIZ_MT070020CA.ImmunizationForecast"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="pertinentInformationAttachment"
+                     type="chi:POIZ_MT070020CA.Attachment"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT070020CA.Subject">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="patient" type="chi:COCT_MT050208CA.Patient"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

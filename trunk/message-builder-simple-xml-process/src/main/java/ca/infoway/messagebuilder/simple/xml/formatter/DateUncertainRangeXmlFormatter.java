@@ -1,0 +1,103 @@
+/**
+ * Copyright 2012 Canada Health Infoway, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author:        $LastChangedBy$
+ * Last modified: $LastChangedDate$
+ * Revision:      $LastChangedRevision$
+ */
+
+package ca.infoway.messagebuilder.simple.xml.formatter;
+
+import java.util.Date;
+
+import org.w3c.dom.Element;
+
+import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.URG;
+import ca.infoway.messagebuilder.datatype.impl.URGImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
+import ca.infoway.messagebuilder.simple.xml.FormatContext;
+import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
+import ca.infoway.messagebuilder.simple.xml.FormatterContextImpl;
+import ca.infoway.messagebuilder.simple.xml.FormatterException;
+
+public class DateUncertainRangeXmlFormatter extends AbstractSimpleXmlFormatter {
+
+	protected DateUncertainRangeXmlFormatter(FormatterConfiguration configuration) {
+		super(configuration);
+	}
+
+	public URG<TS,Date> format(FormatContext formatContext, Element element) throws FormatterException {
+		
+		URG<TS,Date> result = null;
+		
+		Element fromElement = getSingleElement(element, "from");
+		Element toElement = getSingleElement(element, "to");
+		Element centerElement = getSingleElement(element, "center");
+		Element durationElement = getSingleElement(element, "duration");
+		
+		// TODO: BCH: consider the handling of nullFlavor parts, here?
+		
+		if (fromElement != null && toElement != null) {
+			TS from = parseDate(formatContext, fromElement);
+			TS to = parseDate(formatContext, toElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createLowHigh(from.getValue(), to.getValue()));
+		} else if (fromElement != null && centerElement != null) {
+			TS from = parseDate(formatContext, fromElement);
+			TS center = parseDate(formatContext, centerElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createLowCenter(from.getValue(), center.getValue()));
+		} else if (fromElement != null && durationElement != null) {
+			TS from = parseDate(formatContext, fromElement);
+			PQ duration = parseQuantity(formatContext, durationElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createLowWidth(from.getValue(), new DateDiff(duration.getValue())));
+		} else if (toElement != null && centerElement != null) {
+			TS to = parseDate(formatContext, toElement);
+			TS center = parseDate(formatContext, centerElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createCentreHigh(center.getValue(), to.getValue()));
+		} else if (toElement != null && durationElement != null) {
+			TS to = parseDate(formatContext, toElement);
+			PQ duration = parseQuantity(formatContext, durationElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createWidthHigh(new DateDiff(duration.getValue()), to.getValue()));
+		} else if (fromElement != null) {
+			TS from = parseDate(formatContext, fromElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createLow(from.getValue()));
+		} else if (toElement != null) {
+			TS toDate = parseDate(formatContext, toElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createHigh(toDate.getValue()));
+		} else if (durationElement != null) {
+			PQ durationQuantity = parseQuantity(formatContext, durationElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createWidth(new DateDiff(durationQuantity.getValue())));
+		} else if (centerElement != null) {
+			TS center = parseDate(formatContext, centerElement);
+			result = new URGImpl<TS, Date>(UncertainRangeFactory.createCentre(center.getValue()));
+		} else {
+			processError(formatContext, "Invalid uncertain range format", element);
+		}
+		return result;
+	}
+
+	private PQ parseQuantity(FormatContext formatContext, Element duration) throws FormatterException {
+		PhysicalQuantityXmlFormatter formatter = new PhysicalQuantityXmlFormatter(new FormatterConfiguration(true));
+		return formatter.format(new FormatterContextImpl(StandardDataType.PQ_TIME, null), duration);
+	}
+
+	private TS parseDate(FormatContext formatContext, Element from) throws FormatterException {
+		DateXmlFormatter formatter = new DateXmlFormatter(new FormatterConfiguration(true));
+		return formatter.format(new FormatterContextImpl(StandardDataType.TS_DATE, null), from);
+	}
+}

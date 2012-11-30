@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<findCandidatesQuery>
+	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<creationTime>2008-06-25T14:16:10Z</creationTime>
+	<responseModeCode code="I" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="ER" />
+	<receiver>
+		<telecom value="http://123.255.255.10" />
+		<deviceId extension="123" root="2.16.840.1.113883.4.262.12" />
+	</receiver>
+	<sender>
+		<telecom value="http://987.654.321.0" />
+		<deviceId extension="123" root="2.16.840.1.113883.4.262.12" />
+		<manufacturerModelName>1.0</manufacturerModelName>
+		<softwareName>Panacea Pharmacy</softwareName>
+	</sender>
+	<controlActEvent>
+		<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad11" />
+		<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
+		<parameterList>
+			<personName>
+				<given>J</given>
+				<family>Smith</family>
+			</personName>
+		</parameterList>
+	</controlActEvent>
+</findCandidatesQuery>

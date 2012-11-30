@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: administrator
+Build-Jdk: 1.6.0_24
+MBT-Model-Version-Numbers: V01R04_2_SK
+MBT-Message-Set: /messageSet_sk_cerx_v01_r04_2.xml
+

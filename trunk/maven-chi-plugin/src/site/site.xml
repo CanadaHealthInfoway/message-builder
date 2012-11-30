@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<project name="Message Builder Generator Tools">
+	<skin>
+		<groupId>ca.infoway.messagebuilder</groupId>
+		<artifactId>stylesheet</artifactId>
+		<version>1.0b1-SNAPSHOT</version>
+	</skin>
+
+	<bannerLeft>
+		<name>Maven CHI Plugin</name>
+	</bannerLeft>
+
+	<bannerRight>
+		<name>Message Builder Tool</name>
+		<src>./images/mbt.png</src>
+	</bannerRight>
+	<body>
+		<links>
+			<item name="Intelliware" href="http://www.intelliware.ca/ehealth/" />
+		</links>
+
+		<menu name="Links">
+			<item name="Home" href="index.html" />
+			<item name="Overview" href="overview.html" />
+			<item name="Simplification algorithms" href="simplification.html" />
+		</menu>
+
+		<menu name="Maven Goals">
+			<item name="mif-to-xml" href="messageSetGeneration.html" />
+			<item name="xml-to-java" href="java.html" />
+			<item name="xml-to-csharp" href="csharp.html" />
+			<item name="terminology-load" href="terminology.html" />
+		</menu>
+
+		<menu ref="reports" />
+
+	</body>
+</project>

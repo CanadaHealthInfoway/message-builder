@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><PRPA_IN101103CA xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0">
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+  <id extension="messageId" root="2.16.124.113618.1.1.1.1.2"/>
+  <creationTime value="20080625141610"/>
+  <responseModeCode code="I"/>
+  <versionCode code="V3-2005-05"/>
+  <interactionId extension="PRPA_IN101103CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="ER"/>
+  <receiver typeCode="RCV">
+    <telecom use="WP" value="uri:123.456.789.10"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="root"/>
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom use="WP" value="uri:987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="root"/>
+    </device>
+  </sender>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+    <id extension="eventId" root="2.16.124.113618.1.1.1.1.1.1"/>
+    <code code="PRPA_TE101103CA"/>
+    <statusCode code="new"/>
+    <queryByParameter>
+      <queryId extension="eventId" root="2.16.124.9.101.1.8.3"/>
+      <parameterList>
+        <administrativeGender>
+        	<value code="F"/>
+        </administrativeGender>
+      </parameterList>
+    </queryByParameter>
+  </controlActEvent>
+</PRPA_IN101103CA>

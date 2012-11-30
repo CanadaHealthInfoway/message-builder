@@ -1,0 +1,117 @@
+-typeMapping javax.xml.parsers.DocumentBuilder Platform.Xml.Parsers.XmlDocumentBuilder
+-typeMapping javax.xml.parsers.DocumentBuilderFactory Platform.Xml.Parsers.XmlDocumentBuilderFactory
+-typeMapping org.xml.sax.EntityResolver Platform.Xml.Sax.XmlEntityResolver
+		
+-namespaceMapping org.w3c.dom System.Xml
+-typeMapping org.w3c.dom.Document System.Xml.XmlDocument
+-typeMapping org.w3c.dom.Node System.Xml.XmlNode
+-typeMapping org.w3c.dom.Attr System.Xml.XmlAttribute
+		
+-typeMapping org.w3c.dom.Element System.Xml.XmlElement
+-methodMapping org.w3c.dom.Element.getAttributeNS(java.lang.String) GetAttribute
+-methodMapping+ org.w3c.dom.Element.getAttributeNS(java.lang.String,java.lang.String) GetAttribute 10
+-propertyMapping org.w3c.dom.Node.hasChildNodes HasChildNodes
+		
+-typeMapping org.w3c.dom.NamedNodeMap System.Xml.XmlAttributeCollection
+-typeMapping org.w3c.dom.NodeList System.Xml.XmlNodeList
+		
+-typeMapping org.w3c.dom.Text System.Xml.XmlText
+		
+-propertyMapping org.w3c.dom.Attr.getName Name
+-propertyMapping org.w3c.dom.Attr.getOwnerElement OwnerElement
+-propertyMapping org.w3c.dom.Attr.getSchemaTypeInfo SchemaTypeInfo
+-propertyMapping org.w3c.dom.Attr.getSpecified Specified
+-propertyMapping org.w3c.dom.Attr.getValue Value
+-propertyMapping org.w3c.dom.Attr.isId Id
+-propertyMapping org.w3c.dom.Attr.setValue Value
+-propertyMapping org.w3c.dom.CharacterData.getData Data
+-propertyMapping org.w3c.dom.CharacterData.getLength Length
+-propertyMapping org.w3c.dom.CharacterData.setData Data
+-propertyMapping org.w3c.dom.DOMConfiguration.getParameterNames ParameterNames
+-propertyMapping org.w3c.dom.DOMError.getLocation Location
+-propertyMapping org.w3c.dom.DOMError.getMessage Message
+-propertyMapping org.w3c.dom.DOMError.getRelatedData RelatedData
+-propertyMapping org.w3c.dom.DOMError.getRelatedException RelatedException
+-propertyMapping org.w3c.dom.DOMError.getSeverity Severity
+-propertyMapping org.w3c.dom.DOMError.getType Type
+-propertyMapping org.w3c.dom.DOMException.getCause Cause
+-propertyMapping org.w3c.dom.DOMException.getLocalizedMessage LocalizedMessage
+-propertyMapping org.w3c.dom.DOMException.getMessage Message
+-propertyMapping org.w3c.dom.DOMException.getStackTrace StackTrace
+-propertyMapping org.w3c.dom.DOMException.setStackTrace StackTrace
+-propertyMapping org.w3c.dom.DOMImplementationList.getLength Count
+-propertyMapping org.w3c.dom.DOMLocator.getByteOffset ByteOffset
+-propertyMapping org.w3c.dom.DOMLocator.getColumnNumber ColumnNumber
+-propertyMapping org.w3c.dom.DOMLocator.getLineNumber LineNumber
+-propertyMapping org.w3c.dom.DOMLocator.getRelatedNode RelatedNode
+-propertyMapping org.w3c.dom.DOMLocator.getUri Uri
+-propertyMapping org.w3c.dom.DOMLocator.getUtf16Offset Utf16Offset
+-propertyMapping org.w3c.dom.DOMStringList.getLength Count
+		
+-propertyMapping org.w3c.dom.Document.getDoctype Doctype
+-propertyMapping org.w3c.dom.Document.getDocumentElement DocumentElement
+-propertyMapping org.w3c.dom.Document.getDocumentURI DocumentURI
+-propertyMapping org.w3c.dom.Document.getDomConfig DomConfig
+-propertyMapping org.w3c.dom.Document.getImplementation Implementation
+-propertyMapping org.w3c.dom.Document.getInputEncoding InputEncoding
+-propertyMapping org.w3c.dom.Document.getStrictErrorChecking StrictErrorChecking
+-propertyMapping org.w3c.dom.Document.getXmlEncoding XmlEncoding
+-propertyMapping org.w3c.dom.Document.getXmlStandalone XmlStandalone
+-propertyMapping org.w3c.dom.Document.getXmlVersion XmlVersion
+-propertyMapping org.w3c.dom.Document.setDocumentURI DocumentURI
+-propertyMapping org.w3c.dom.Document.setStrictErrorChecking StrictErrorChecking
+-propertyMapping org.w3c.dom.Document.setXmlStandalone XmlStandalone
+-propertyMapping org.w3c.dom.Document.setXmlVersion XmlVersion
+-methodMapping+ org.w3c.dom.Document.getElementsByTagName GetElementsByTagName 10
+		
+		
+-propertyMapping org.w3c.dom.DocumentType.getEntities Entities
+-propertyMapping org.w3c.dom.DocumentType.getInternalSubset InternalSubset
+-propertyMapping org.w3c.dom.DocumentType.getName Name
+-propertyMapping org.w3c.dom.DocumentType.getNotations Notations
+-propertyMapping org.w3c.dom.DocumentType.getPublicId PublicId
+-propertyMapping org.w3c.dom.DocumentType.getSystemId SystemId
+-propertyMapping org.w3c.dom.Element.getSchemaTypeInfo SchemaTypeInfo
+-propertyMapping org.w3c.dom.Element.getTagName TagName
+-propertyMapping org.w3c.dom.Entity.getInputEncoding InputEncoding
+-propertyMapping org.w3c.dom.Entity.getNotationName NotationName
+-propertyMapping org.w3c.dom.Entity.getPublicId PublicId
+-propertyMapping org.w3c.dom.Entity.getSystemId SystemId
+-propertyMapping org.w3c.dom.Entity.getXmlEncoding XmlEncoding
+-propertyMapping org.w3c.dom.Entity.getXmlVersion XmlVersion
+-propertyMapping org.w3c.dom.NameList.getLength Count
+-propertyMapping org.w3c.dom.NamedNodeMap.getLength Count
+		
+-propertyMapping org.w3c.dom.Node.getAttributes Attributes
+-propertyMapping org.w3c.dom.Node.getBaseURI BaseURI
+-propertyMapping org.w3c.dom.Node.getChildNodes ChildNodes
+-propertyMapping org.w3c.dom.Node.getFirstChild FirstChild
+-propertyMapping org.w3c.dom.Node.getLastChild LastChild
+-propertyMapping org.w3c.dom.Node.getLocalName LocalName
+-propertyMapping org.w3c.dom.Node.getNamespaceURI NamespaceURI
+-propertyMapping org.w3c.dom.Node.getNextSibling NextSibling
+-propertyMapping org.w3c.dom.Node.getNodeName Name
+-propertyMapping org.w3c.dom.Node.getNodeType NodeType
+-propertyMapping org.w3c.dom.Node.getNodeValue Value
+-propertyMapping org.w3c.dom.Node.getOwnerDocument OwnerDocument
+-propertyMapping org.w3c.dom.Node.getParentNode ParentNode
+-propertyMapping org.w3c.dom.Node.getPrefix Prefix
+-propertyMapping org.w3c.dom.Node.getPreviousSibling PreviousSibling
+-propertyMapping org.w3c.dom.Node.getTextContent Value
+-propertyMapping org.w3c.dom.Node.setNodeValue Value
+-propertyMapping org.w3c.dom.Node.setPrefix Prefix
+-propertyMapping org.w3c.dom.Node.setTextContent TextContent
+-methodMapping org.w3c.dom.Node.ELEMENT_NODE System.Xml.XmlNodeType.Element
+-methodMapping org.w3c.dom.Node.TEXT_NODE System.Xml.XmlNodeType.Text
+-methodMapping org.w3c.dom.Node.CDATA_SECTION_NODE System.Xml.XmlNodeType.CDATA
+		
+-propertyMapping org.w3c.dom.NodeList.getLength Count
+-propertyMapping org.w3c.dom.Notation.getPublicId PublicId
+-propertyMapping org.w3c.dom.Notation.getSystemId SystemId
+-propertyMapping org.w3c.dom.ProcessingInstruction.getData Data
+-propertyMapping org.w3c.dom.ProcessingInstruction.getTarget Target
+-propertyMapping org.w3c.dom.ProcessingInstruction.setData Data
+-propertyMapping org.w3c.dom.Text.getWholeText WholeText
+-propertyMapping org.w3c.dom.Text.isElementContentWhitespace ElementContentWhitespace
+-propertyMapping org.w3c.dom.TypeInfo.getTypeName TypeName
+-propertyMapping org.w3c.dom.TypeInfo.getTypeNamespace TypeNamespace

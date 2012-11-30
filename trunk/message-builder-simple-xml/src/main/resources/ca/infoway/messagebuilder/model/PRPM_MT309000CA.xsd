@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="PRPM_MT309000CA.ActDefinitionOrEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="actDefinitionOrEventNameEffectiveTime"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="25" minOccurs="0" name="location"
+                     type="chi:PRPM_MT309000CA.Location"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.AssignedEntity">
+      <xs:sequence>
+         <xs:element maxOccurs="100" minOccurs="0" name="responsibleForPrivilege"
+                     type="chi:PRPM_MT309000CA.Privilege"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="functionalRoleIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:group maxOccurs="100" minOccurs="0" ref="chi:PRPM_MT309000CA.RoleChoice"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="functionalRoleType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="functionalRoleName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="assignedPrincipalPerson"
+                     type="chi:PRPM_MT309000CA.PrincipalPerson"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="representedOrganization"
+                     type="chi:PRPM_MT309000CA.Organization"/>
+         <xs:element maxOccurs="25" minOccurs="0" name="performanceActDefinitionOrEvent"
+                     type="chi:PRPM_MT309000CA.ActDefinitionOrEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.HealthCareProvider">
+      <xs:sequence>
+         <xs:element maxOccurs="100" minOccurs="0" name="responsibleForPrivilege"
+                     type="chi:PRPM_MT309000CA.Privilege"/>
+         <xs:element maxOccurs="10" minOccurs="1" name="healthcareProviderRoleIdentification"
+                     type="chi:InstanceIdentifier"/>
+         <xs:group maxOccurs="100" minOccurs="0" ref="chi:PRPM_MT309000CA.RoleChoice"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="healthcareProviderRoleType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="healthcareProviderRoleName"
+                     type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="healthCarePrincipalPerson"
+                     type="chi:PRPM_MT309000CA.PrincipalPerson"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="issuingOrganization"
+                     type="chi:PRPM_MT309000CA.Organization"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.LanguageCommunication">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="languageOfCommunicationCode"
+                     type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="languageOfCommunicationSkillsCode"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="languageOfCommunicationProficiencyLevelCode"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="languageOfCommunicationPreferenceIndicator"
+                     type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.Location">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="orderOfServiceDeliveryLocations"
+                     type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceDeliveryLocation"
+                     type="chi:PRPM_MT309000CA.ServiceDeliveryLocation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.Organization">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="territorialAuthority"
+                     type="chi:PRPM_MT309000CA.TerritorialAuthority"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.PrincipalPerson">
+      <xs:sequence>
+         <xs:element maxOccurs="5" minOccurs="0" name="principalPersonAggregateIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="principalPersonName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="principalPersonGender" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="principalPersonDateOfBirth"
+                     type="chi:FullDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="principalPersonDeceasedIndicator"
+                     type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="principalPersonDeceasedDate"
+                     type="chi:FullDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="birthplaceAddress" type="chi:PostalAddress"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="languageCommunication"
+                     type="chi:PRPM_MT309000CA.LanguageCommunication"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.Privilege">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="restrictionsToPracticeIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="restrictionsToPracticeType"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="subjectOfPrivilegeCategorization"
+                     type="chi:PRPM_MT309000CA.PrivilegeCategorization"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.PrivilegeCategorization">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="restrictionsCategorizationType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="restrictionsCategorizationValue"
+                     type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.QualifiedEntity">
+      <xs:sequence>
+         <xs:element maxOccurs="100" minOccurs="0" name="responsibleForPrivilege"
+                     type="chi:PRPM_MT309000CA.Privilege"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="expertiseOrCredentialsRoleIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:group maxOccurs="100" minOccurs="0" ref="chi:PRPM_MT309000CA.RoleChoice"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="expertiseOrCredentialsRoleType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="expertiseOrCredentialsRoleEffectiveDate"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="qualifiedPrincipalPerson"
+                     type="chi:PRPM_MT309000CA.PrincipalPerson"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="qualificationGrantingOrganization"
+                     type="chi:PRPM_MT309000CA.Organization"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="PRPM_MT309000CA.RoleChoice">
+      <xs:choice>
+         <xs:element name="assignedEntity" type="chi:PRPM_MT309000CA.AssignedEntity"/>
+         <xs:element name="healthcareProvider" type="chi:PRPM_MT309000CA.HealthCareProvider"/>
+         <xs:element name="qualifiedEntity" type="chi:PRPM_MT309000CA.QualifiedEntity"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="PRPM_MT309000CA.ServiceDeliveryLocation">
+      <xs:sequence>
+         <xs:element maxOccurs="10" minOccurs="1" name="serviceDeliveryLocationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PRPM_MT309000CA.TerritorialAuthority">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="territorialAuthorityType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="jurisdictionType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="partTerritorialAuthority"
+                     type="chi:PRPM_MT309000CA.TerritorialAuthority"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

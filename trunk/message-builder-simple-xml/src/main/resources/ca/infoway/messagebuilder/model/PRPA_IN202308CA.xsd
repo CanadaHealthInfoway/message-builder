@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="PRPA_MT202307CA.xsd"/>
+   <xs:include schemaLocation="PRPA_MT202303CA.xsd"/>
+   <xs:include schemaLocation="MFMI_MT700746CA.xsd"/>
+   <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+   <xs:complexType name="PRPA_IN202308CA.MFMI_MT700746CA.Subject4">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700746CA.Subject4">
+            <xs:sequence>
+               <xs:element name="registeredRole" type="chi:PRPA_MT202303CA.ServiceDeliveryLocation"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN202308CA.MFMI_MT700746CA.RegistrationEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700746CA.RegistrationEvent">
+            <xs:sequence>
+               <xs:element name="subject" type="chi:PRPA_IN202308CA.MFMI_MT700746CA.Subject4"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN202308CA.MFMI_MT700746CA.QueryByParameter">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700746CA.QueryByParameter">
+            <xs:sequence>
+               <xs:element name="parameterList" type="chi:PRPA_MT202307CA.ParameterList"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN202308CA.MFMI_MT700746CA.ControlActEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700746CA.ControlActEvent">
+            <xs:sequence>
+               <xs:element name="subjectRegistrationEvent"
+                           type="chi:PRPA_IN202308CA.MFMI_MT700746CA.RegistrationEvent"/>
+               <xs:element name="queryByParameter"
+                           type="chi:PRPA_IN202308CA.MFMI_MT700746CA.QueryByParameter"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN202308CA">
+      <xs:complexContent>
+         <xs:extension base="chi:MCCI_MT002300CA.Message">
+            <xs:sequence>
+               <xs:element name="controlActEvent"
+                           type="chi:PRPA_IN202308CA.MFMI_MT700746CA.ControlActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="locationDetailsQueryResponse" type="chi:PRPA_IN202308CA"/>
+</xs:schema>

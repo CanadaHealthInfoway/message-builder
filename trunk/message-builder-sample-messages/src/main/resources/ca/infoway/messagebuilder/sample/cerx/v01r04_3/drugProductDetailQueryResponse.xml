@@ -1,0 +1,147 @@
+<!--
+
+    Copyright 2012 Canada Health Infoway, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Author:        $LastChangedBy$
+    Last modified: $LastChangedDate$
+    Revision:      $LastChangedRevision$
+
+-->
+
+<POME_IN010060CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610.0000-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="POME_IN010060CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="AA"/>
+      <targetMessage>
+        <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad41"/>
+      </targetMessage>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="POME_TE010020UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <statusCode code="completed"/>
+      <effectiveTime value="20080918000000.0000-0400"/>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <target classCode="MED">
+          <player classCode="MMAT" determinerCode="KIND">
+            <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+            <name>advil extra strength</name>
+            <desc>some medicine containing ibuprofen</desc>
+            <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
+            <asManufacturedProduct classCode="MANU">
+              <manufacturer classCode="ORG" determinerCode="INSTANCE">
+                <id extension="1" root="5.4.3"/>
+                <name>Advil Manufacturer</name>
+              </manufacturer>
+            </asManufacturedProduct>
+            <asContent classCode="CONT">
+              <quantity unit="g" value="12"/>
+              <containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                <formCode code="BLSTRPK" codeSystem="2.16.840.1.113883.5.1060"/>
+              </containerPackagedMedicine>
+            </asContent>
+            <ingredient classCode="INGR" negationInd="false">
+              <quantity unit="g" value="250"/>
+              <ingredient classCode="MMAT" determinerCode="KIND">
+                <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                <name>ibuprofen</name>
+              </ingredient>
+            </ingredient>
+          </player>
+        </target>
+      </subject>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <target classCode="MED">
+          <player classCode="MMAT" determinerCode="KIND">
+            <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+            <name>advil extra strength</name>
+            <desc>some medicine containing ibuprofen</desc>
+            <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
+            <asManufacturedProduct classCode="MANU">
+              <manufacturer classCode="ORG" determinerCode="INSTANCE">
+                <id extension="1" root="5.4.3"/>
+                <name>Advil Manufacturer</name>
+              </manufacturer>
+            </asManufacturedProduct>
+            <asContent classCode="CONT">
+              <quantity unit="g" value="12"/>
+              <containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                <formCode code="BLSTRPK" codeSystem="2.16.840.1.113883.5.1060"/>
+              </containerPackagedMedicine>
+            </asContent>
+            <ingredient classCode="INGR" negationInd="false">
+              <quantity unit="g" value="250"/>
+              <ingredient classCode="MMAT" determinerCode="KIND">
+                <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                <name>ibuprofen</name>
+              </ingredient>
+            </ingredient>
+          </player>
+        </target>
+      </subject>
+        <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
+          <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+            <code code="VALIDAT" codeSystem="2.16.840.1.113883.5.4"/>
+            <text>patient not found</text>
+            <statusCode code="completed"/>
+            <priorityCode code="I" codeSystem="2.16.840.1.113883.5.1082"/>
+            <subjectOf typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+              <severityObservation classCode="OBS" moodCode="EVN">
+                <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                <statusCode code="completed"/>
+                <value nullFlavor="NI"/>
+              </severityObservation>
+            </subjectOf>
+          </detectedIssueEvent>
+        </subjectOf>
+      <queryAck>
+        <queryId extension="4" root="1.2.3"/>
+        <queryResponseCode code="OK"/>
+        <resultTotalQuantity value="1"/>
+        <resultCurrentQuantity value="1"/>
+        <resultRemainingQuantity value="0"/>
+      </queryAck>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+<!--        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>-->
+        <parameterList>
+          <drugCode>
+            <value code="02150352" codeSystem="2.16.840.1.113883.5.1105"/>
+          </drugCode>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</POME_IN010060CA>
