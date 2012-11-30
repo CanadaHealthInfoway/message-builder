@@ -493,7 +493,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 				this.xmlResult);
 		
         assertFalse(this.xmlResult.isValid());
-        assertEquals("error message count", 2, this.xmlResult.getHl7Errors().size()); // invalid code; code and codeSystem are mandatory
+        assertEquals("error message count", 1, this.xmlResult.getHl7Errors().size()); // invalid code
 		assertNull("bogus enum not found", cv.getValue().getCodeValue());
 		assertEquals("error message", 
 				"The code, \"ER\", in element <something> is not a valid value for domain type \"MockCharacters\"", 

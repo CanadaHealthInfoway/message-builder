@@ -39,21 +39,25 @@ public class CdValidationUtils {
 	private static final int MAX_CODE_SYSTEM_LENGTH = 100;
 	private static final int MAX_ORIGINAL_TEXT_LENGTH = 150;
 
-	public void validateCodedType(CD codeWrapper, boolean isCwe, boolean isCne, boolean isTranslation, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
 	
+		// validations use codeAsString instead of codeWrapper.getValue().getCodeValue() in case the code specified wasn't found by a lookup
+		//    - this ensures we validate exactly what was passed in, and redundant errors aren't recorded (in most cases, at least)
+		
 		Code code = codeWrapper.getValue();
+		String codeSystem = (code == null ? null : code.getCodeSystem());
 		List<CD> translations = codeWrapper.getTranslations();
 		
-		boolean hasCode = (code != null && code.getCodeValue() != null);
-		boolean hasNonBlankCode = (hasCode && StringUtils.isNotBlank(code.getCodeValue()));
+		boolean hasCode = (codeAsString != null);
+		boolean hasNonBlankCode = (StringUtils.isNotBlank(codeAsString));
 		boolean hasNullFlavor = codeWrapper.getNullFlavor() != null;
 		
 		if (StandardDataType.CS.getType().equals(type)) {
-			validateCs(codeWrapper, code, translations, baseVersion, element, propertyPath, errors);
+			validateCs(codeWrapper, codeAsString, translations, baseVersion, element, propertyPath, errors);
 		} else {
 			// CD/CE/CV
-			validateCodeLength(code, baseVersion, element, propertyPath, errors, isTranslation);
-			validateValueLength("codeSystem", code == null ? null : code.getCodeSystem(), MAX_CODE_SYSTEM_LENGTH, element, propertyPath, errors, isTranslation);
+			validateCodeLength(codeAsString, baseVersion, element, propertyPath, errors, isTranslation);
+			validateValueLength("codeSystem", code == null ? null : codeSystem, MAX_CODE_SYSTEM_LENGTH, element, propertyPath, errors, isTranslation);
 			validateValueLength("originalText", codeWrapper.getOriginalText(), MAX_ORIGINAL_TEXT_LENGTH, element, propertyPath, errors, isTranslation);
 			
 			if (hasNullFlavor && hasCode) {
@@ -74,7 +78,7 @@ public class CdValidationUtils {
 				if (!hasNonBlankCode && StringUtils.isBlank(codeWrapper.getOriginalText())) {
 					createError("For codes with codingStrength of CWE, one of code or originalText must be provided.", element, propertyPath, errors, isTranslation);
 				}
-				if (hasCode && StringUtils.isBlank(code.getCodeSystem())) {
+				if (hasCode && StringUtils.isBlank(codeSystem)) {
 					createError("For codes with codingStrength of CWE, the codeSystem property must be provided when the code property is included.", element, propertyPath, errors, isTranslation);
 				}
 			} else if (isCne) {
@@ -84,17 +88,17 @@ public class CdValidationUtils {
 						if (StringUtils.isBlank(codeWrapper.getOriginalText())) {
 							createError("For codes with codingStrength of CNE, originalText is mandatory when NullFlavor is 'OTH'.", element, propertyPath, errors, isTranslation);
 						}
-						if (hasAnyPropertiesProvided(codeWrapper)) {
+						if (hasAnyPropertiesProvided(codeWrapper, codeAsString)) {
 							createError("For codes with codingStrength of CNE, originalText is the only property allowed when NullFlavor is 'OTH'.", element, propertyPath, errors, isTranslation);
 						}
 					}
-				} else if (!hasNonBlankCode || StringUtils.isBlank(code.getCodeSystem())) {
+				} else if (!hasNonBlankCode || StringUtils.isBlank(codeSystem)) {
 					createError("For codes with codingStrength of CNE, code and codeSystem properties must be provided.", element, propertyPath, errors, isTranslation);
 				}
 			} else {
 				// not entirely clear on what should be validated here; code is mandatory, but is code system as well?
 				if (!hasNullFlavor || isTranslation) {
-					if (!hasNonBlankCode || StringUtils.isBlank(code.getCodeSystem())) {
+					if (!hasNonBlankCode || StringUtils.isBlank(codeSystem)) {
 						createError("Code and codeSystem properties must be provided.", element, propertyPath, errors, isTranslation);
 					}
 				}
@@ -102,18 +106,18 @@ public class CdValidationUtils {
 		}
 	}
 
-	private boolean hasAnyPropertiesProvided(CD codeWrapper) {
+	private boolean hasAnyPropertiesProvided(CD codeWrapper, String codeAsString) {
 		Code code = codeWrapper.getValue();
-		boolean hasCode = (code != null && code.getCodeValue() != null);
+		boolean hasCode = (codeAsString != null);
 		boolean hasCodeSystem = (code != null && code.getCodeSystem() != null);
 		boolean hasDisplayName = codeWrapper.getDisplayName() != null;
 		boolean hasTranslations = !codeWrapper.getTranslations().isEmpty();
 		return hasCode || hasCodeSystem || hasDisplayName || hasTranslations;
 	}
 
-	private void validateCs(CD codeWrapper, Code code, List<CD> translations, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
-		boolean hasCode = (code != null && code.getCodeValue() != null);
-		boolean hasNonBlankCode = (hasCode && StringUtils.isNotBlank(code.getCodeValue()));
+	private void validateCs(CD codeWrapper, String codeAsString, List<CD> translations, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+		boolean hasCode = (codeAsString != null);
+		boolean hasNonBlankCode = (StringUtils.isNotBlank(codeAsString));
 		boolean hasNullFlavor = codeWrapper.getNullFlavor() != null;
 		
 		// code mandatory, max length 200 (mr2009)/20 (mr2007 and cerx)
@@ -122,7 +126,7 @@ public class CdValidationUtils {
 		} else if (hasNullFlavor && hasCode) {
 			createError("Code cannot be provided along with a nullFlavor.", element, propertyPath, errors, false);
 		}
-		validateCodeLength(code, baseVersion, element, propertyPath, errors, false);
+		validateCodeLength(codeAsString, baseVersion, element, propertyPath, errors, false);
 		// skip validating codeSystem (codes can be created with a codeSystem even if one wasn't provided, unfortunately)
 		// validateUnallowedValue("codeSystem", code == null ? null : code.getCodeSystem(), element, errors);
 		validateUnallowedValue("originalText", codeWrapper.getOriginalText(), element, propertyPath, errors, false);
@@ -130,8 +134,8 @@ public class CdValidationUtils {
 		validateUnallowedValue("translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
 	}
 
-	private void validateCodeLength(Code code, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
-		validateValueLength("code", code == null ? null : code.getCodeValue(), isCeRx(baseVersion) || isMr2007(baseVersion) ? MAX_CODE_LENGTH_CERX_MR2007 : MAX_CODE_LENGTH, element, propertyPath, errors, isTranslation);
+	private void validateCodeLength(String codeAsString, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
+		validateValueLength("code", codeAsString, isCeRx(baseVersion) || isMr2007(baseVersion) ? MAX_CODE_LENGTH_CERX_MR2007 : MAX_CODE_LENGTH, element, propertyPath, errors, isTranslation);
 	}
 
 	private void validateTranslations(List<CD> translations, String type, boolean isCwe, boolean isCne, boolean hasNullFlavor, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
@@ -161,7 +165,9 @@ public class CdValidationUtils {
 				}
 				// validate CD
 				boolean isTranslation = true;
-				validateCodedType(translationCodeWrapper, false, false, isTranslation, type, baseVersion, element, propertyPath, errors);
+				// this could still result in seeing some redundant error messages if the translation code was invalid; decided this is ok for a little-used feature
+				String codeAsString = translationCodeWrapper.getValue() == null ? null : translationCodeWrapper.getValue().getCodeValue();
+				validateCodedType(translationCodeWrapper, codeAsString, false, false, isTranslation, type, baseVersion, element, propertyPath, errors);
 			}
 		}
 	}

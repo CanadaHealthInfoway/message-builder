@@ -61,7 +61,9 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
         populateValue(cd, context, node, xmlToModelResult, codeAttributeName);
        
         if (!isTranslation) {
-        	CD_VALIDATION_UTILS.validateCodedType((CD) cd, isCWE(context), isCNE(context), isTranslation, context.getType(), context.getVersion().getBaseVersion(), (Element) node, null, xmlToModelResult);
+        	CD codeAsCd = (CD) cd;
+        	String codeAsString = getAttributeValue(node, codeAttributeName);
+			CD_VALIDATION_UTILS.validateCodedType(codeAsCd, codeAsString, isCWE(context), isCNE(context), isTranslation, context.getType(), context.getVersion().getBaseVersion(), (Element) node, null, xmlToModelResult);
         }
         
         return cd;

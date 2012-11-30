@@ -160,7 +160,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 				node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
 		assertNull("bogus enum not found", cs.getValue());
-		assertEquals("error message count", 2, this.xmlResult.getHl7Errors().size());
+		assertEquals("error message count", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("error message", 
 				"The code, \"ER\", in element <something> is not a valid value for domain type \"MockCharacters\"", 
 				this.xmlResult.getHl7Errors().get(0).getMessage());

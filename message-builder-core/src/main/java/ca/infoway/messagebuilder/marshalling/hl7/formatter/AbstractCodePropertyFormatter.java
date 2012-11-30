@@ -79,11 +79,13 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
 	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
 	    		
-	    		if (cd.getValue() != null) {
+	    		if (cd.getValue() != null && cd.getValue().getCodeValue() != null) {
 	    			validateCodeExists(cd.getValue(), context.getDomainType(), context.getVersion(), context.getPropertyPath(), errors);
 	    		}
 	    		
-	    		CD_VALIDATION_UTILS.validateCodedType(cd, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
+	    		String codeAsString = (cd.getValue() != null ? cd.getValue().getCodeValue() : null);
+	    		
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, codeAsString, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
     		}
         	
     		Map<String, String> attributes = new HashMap<String, String>();
@@ -133,7 +135,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
 	protected Hl7Error createCodeValueNotFoundError(Code value, Class<? extends Code> type, String propertyPath) {
 		String message = "The code, \"" + value.getCodeValue() + "\" "
-				+ (value.getCodeSystem() == null ? "" : (" (" + value.getCodeSystem() + ")"))
+				+ (value.getCodeSystem() == null ? "" : (" (" + value.getCodeSystem() + ") "))
 				+ "is not a valid value for domain type \"" 
 				+ ClassUtils.getShortClassName(type) + "\"";
 		return new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, message, propertyPath);
