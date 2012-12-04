@@ -48,7 +48,7 @@ public class TypeDocumentationTest {
 		Documentation documentation = new Documentation();
 		documentation.setBusinessName("The Business Name");
 		String output = write(documentation);	
-		assertTrue("business name", output.contains("<summary>The Business Name</summary>"));
+		assertTrue("business name", output.contains("<summary>Business Name: The Business Name</summary>"));
 		
 	}
 	@Test

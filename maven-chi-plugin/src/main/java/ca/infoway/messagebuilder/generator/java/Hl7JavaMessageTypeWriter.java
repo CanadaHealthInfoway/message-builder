@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7TypeWriter, SourceFileWriter {
 
@@ -216,26 +217,28 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 	}
 
 	@Override
-	protected void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException {
-		new TypeDocumentation(documentation).write(JAVA, writer, indentLevel);
+	protected void writeDocumentation(Documentation documentation, ca.infoway.messagebuilder.xml.Relationship relationship, int indentLevel, Writer writer) throws IOException {
+		new TypeDocumentation(documentation, relationship).write(JAVA, writer, indentLevel);
 	}
     
 	@Override
 	protected void createGettersAndSettersForInterface(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
-		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		Relationship relForDocs = getRelationshipForDocumentation(relationship);
+		writeDocumentation(relationship.getDocumentation(), relForDocs, indentLevel, writer);
 		createPropertyGenerator(relationship).createGettersForInterface(indentLevel, writer);
 		if (relationship.isWriteable()) {
-			writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+			writeDocumentation(relationship.getDocumentation(), relForDocs, indentLevel, writer);
 			createPropertyGenerator(relationship).createSettersForInterface(indentLevel, writer);
 		}
 	}
 
 	@Override
 	protected void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
-		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		Relationship relForDocs = getRelationshipForDocumentation(relationship);
+		writeDocumentation(relationship.getDocumentation(), relForDocs, indentLevel, writer);
 		createPropertyGenerator(relationship).createGetters(indentLevel, writer);
 		if (relationship.isWriteable()) {
-			writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+			writeDocumentation(relationship.getDocumentation(), relForDocs, indentLevel, writer);
 			createPropertyGenerator(relationship).createSetters(indentLevel, writer);
 		}
 	}

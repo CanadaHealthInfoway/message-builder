@@ -30,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 public class MergedDocumentation extends Documentation {
 
@@ -38,27 +39,25 @@ public class MergedDocumentation extends Documentation {
 	
 	public MergedDocumentation(Collection<BaseRelationship> mergedRelationships) {
 		Set<String> businessNames = new HashSet<String>();
-		Set<Documentation> documentations = new HashSet<Documentation>();
-		for (BaseRelationship relationship : mergedRelationships) {
-			Documentation documentation = relationship.getDocumentation();
-			if (documentation != null && 
-					(StringUtils.isNotBlank(documentation.getBusinessName()) || !documentation.getAnnotations().isEmpty())) {
-				// would be REALLY nice to show parent type of each relationship, but don't have it at this point
-				documentations.add(documentation);
-			}
+		for (BaseRelationship baseRelationship : mergedRelationships) {
+			Documentation documentation = baseRelationship.getDocumentation();
+			Relationship rel = baseRelationship.getRelationship();
+			
+			String businessName = "(no business name specified)";
 			if (documentation != null && documentation.getBusinessName() != null) {
-				businessNames.add(BusinessNameUtil.cleanUpBusinessName(documentation.getBusinessName()));
+				businessName = BusinessNameUtil.cleanUpBusinessName(documentation.getBusinessName());
+				businessNames.add(businessName);
 			}
-		}
-		for (Documentation documentation: documentations) {
-			String businessName = StringUtils.defaultIfEmpty(documentation.getBusinessName(), "(no business name)");
-			this.annotations.add(new Annotation(businessName));
-			if (!documentation.getAnnotations().isEmpty()) {
+			this.annotations.add(new Annotation("Other Business Name: " + businessName));
+			this.annotations.add(new Annotation("Relationship: " + rel.getParentType() + "." + rel.getName()));
+			this.annotations.add(new Annotation("Conformance/Cardinality: " + rel.getConformance() + " (" + rel.getCardinality() + ")"));
+			
+			if (documentation != null && !documentation.getAnnotations().isEmpty()) {
 				this.annotations.addAll(documentation.getAnnotations());
 			}
 		}
 
-		// only use business names if the business names are identical (skipping those w/o business names)
+		// only set an "official" business names if the business names are identical (skipping those w/o business names)
 		if (businessNames.size() == 1) {
 			this.businessName = businessNames.iterator().next();
 		}

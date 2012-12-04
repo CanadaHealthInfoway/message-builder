@@ -33,9 +33,12 @@ import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
 import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
+import ca.infoway.messagebuilder.generator.java.MergedAssociation;
+import ca.infoway.messagebuilder.generator.java.MergedRelationshipSupport;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 	
@@ -99,6 +102,14 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
         }
     }
 
+	protected Relationship getRelationshipForDocumentation(BaseRelationship relationship) {
+		Relationship relForDocs = null;
+		if (!(relationship instanceof MergedRelationshipSupport || relationship instanceof MergedAssociation)) {
+			relForDocs = relationship.getRelationship();
+		}
+		return relForDocs;
+	}
+	
 	private void createChoiceProperties(BaseRelationship rootChoice, List<Choice> choices, int indentLevel, Writer writer) throws IOException {
 		for (Choice choice : choices) {
         	writer.write(LINE_SEPARATOR);
@@ -113,7 +124,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 
 	protected abstract PropertyGenerator createPropertyGenerator(BaseRelationship relationship);
 	protected abstract PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice);
-	protected abstract void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException;
+	protected abstract void writeDocumentation(Documentation documentation, Relationship relationship, int indentLevel, Writer writer) throws IOException;
 	protected abstract void createGettersAndSettersForInterface(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException;
 	protected abstract void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException;
 	

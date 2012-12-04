@@ -33,8 +33,10 @@ import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.generator.java.BusinessNameUtil;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 public class TypeDocumentation {
 	
@@ -143,22 +145,30 @@ public class TypeDocumentation {
 	}
 	
 	private final Documentation documentation;
+	private final Relationship relationship;
 
 	public TypeDocumentation(Documentation documentation) {
+		this(documentation, null);
+	}
+	
+	public TypeDocumentation(Documentation documentation, Relationship relationship) {
 		this.documentation = documentation;
+		this.relationship = relationship;
 	}
 
 	private String[] getText() {
-		if (this.documentation == null) {
-			return new String[0];
-		} else {
-			List<String> text = new ArrayList<String>();
-			if (StringUtils.isNotBlank(this.documentation.getBusinessName())) {
-				text.add(cleanText(this.documentation.getBusinessName()));
-			}
-			text.addAll(cleanText(this.documentation.getAnnotations()));
-	        return text.toArray(new String[0]);
+		List<String> text = new ArrayList<String>();
+		if (this.documentation != null && StringUtils.isNotBlank(this.documentation.getBusinessName())) {
+			text.add("Business Name: " + cleanText(this.documentation.getBusinessName()));
 		}
+		if (this.relationship != null) {
+			text.add("Relationship: " + this.relationship.getParentType() + "." + this.relationship.getName());
+			text.add("Conformance/Cardinality: " + this.relationship.getConformance() + " (" + this.relationship.getCardinality() + ")");
+		}
+		if (this.documentation != null) {
+			text.addAll(cleanText(this.documentation.getAnnotations()));
+		}
+        return text.toArray(new String[0]);
     }
 
     private List<String> cleanText(List<Annotation> list) {
@@ -169,7 +179,7 @@ public class TypeDocumentation {
 		return results;
 	}
 
-	private String cleanText(String string) {
+	protected String cleanText(String string) {
 		StringBuilder builder = null;
 		byte[] bytes = string == null ? null : string.getBytes();
 		if (bytes != null) {

@@ -91,6 +91,9 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	@ElementList(entry="choice",inline=true,required=false)
 	private List<Relationship> choices = new ArrayList<Relationship>();
 
+	// not guaranteed to be populated
+	private String parentType;
+	
 	/**
 	 * <p>Default constructor.
 	 */
@@ -506,4 +509,20 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public void setUpdateMode(UpdateMode updateMode) {
 		this.updateMode = updateMode;
 	}
+
+	/**
+	 * The type containing this relationship
+	 * @return parent type
+	 */
+	public String getParentType() {
+		return parentType;
+	}
+	/**
+	 * The type containing this relationship
+	 * @param parentType
+	 */
+	public void setParentType(String parentType) {
+		this.parentType = parentType;
+	}
+
 }

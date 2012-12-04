@@ -35,16 +35,17 @@ import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.Hl7TypeWriter;
 import ca.infoway.messagebuilder.generator.java.ImportTypeUtil;
 import ca.infoway.messagebuilder.generator.java.InteractionType;
+import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.PropertyGeneratorBuilders;
 import ca.infoway.messagebuilder.generator.java.PropertyNameResolver;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.generator.java.Type;
-import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
  * <p>Write out a valid C# message class.
@@ -195,6 +196,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 		writer.write(", IInteraction");
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void writeTemplateArguments(Writer writer, List<ArgumentType> arguments) throws IOException {
 		if (!arguments.isEmpty()) {
 			arguments = ArgumentType.sort(arguments);
@@ -246,8 +248,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	@Override
-	protected void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException {
-		new TypeDocumentation(documentation).write(C_SHARP, writer, indentLevel);
+	protected void writeDocumentation(Documentation documentation, Relationship relationship, int indentLevel, Writer writer) throws IOException {
+		new TypeDocumentation(documentation, relationship).write(C_SHARP, writer, indentLevel);
 	}
     
 	@Override
@@ -257,7 +259,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 
 	@Override
 	protected void createGettersAndSetters(Writer writer, int indentLevel, BaseRelationship relationship) throws IOException {
-		writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
+		writeDocumentation(relationship.getDocumentation(), getRelationshipForDocumentation(relationship), indentLevel, writer);
 		createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
 	}
 	

@@ -112,6 +112,9 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * @return - the relationships
 	 */
 	public List<Relationship> getRelationships() {
+		for (Relationship relationship : this.relationships) {
+			relationship.setParentType(this.name);
+		}
 		return this.relationships;
 	}
 	/**
@@ -196,6 +199,11 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 				}
 			}
 		}
+		
+		if (result != null) {
+			result.setParentType(this.name);
+		}
+		
 		return result;
 	}
 	private boolean matchesRelationshipByChoiceOptionName(String name, Relationship relationship) {
